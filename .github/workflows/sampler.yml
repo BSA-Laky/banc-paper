@@ -1,0 +1,49 @@
+name: sampler
+
+# Échantillonnage paper-trading (lecture seule API publique Hyperliquid).
+# Tourne tout seul ~toutes les 15 min, sans PC allumé, gratuit, sans carte bleue.
+
+on:
+  schedule:
+    # */15 = toutes les 15 min. Min GitHub = 5 min ; pour un repo public, 15 est
+    # recommandé. NB : délais de 10-30 min possibles aux heures de pointe (normal).
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}      # bouton "Run workflow" pour lancer à la main
+
+# Le bot écrit l'état/ledger/dashboard et les committe : il faut le droit d'écrire.
+permissions:
+  contents: write
+
+# Une seule exécution à la fois (évite les conflits de commit).
+concurrency:
+  group: sampler
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Récupérer le repo
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Une passe d'échantillonnage + régénération du dashboard
+        run: python run_once.py
+
+      - name: Committer l'état, le journal et le dashboard
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Rien à committer cette passe."
+          else
+            git commit -m "sample $(date -u +%FT%TZ)"
+            git pull --rebase --autostash || true
+            git push
+          fi
