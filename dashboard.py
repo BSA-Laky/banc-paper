@@ -17,12 +17,15 @@ from banc_essai_paper_trading import charger_journal, evaluer
 DOCS = Path("docs")
 ETAT = Path("etat")
 
-ORDRE = ["25_convergence_basis", "23_carry_funding",
-         "24_funding_multivenues", "10_controle_aleatoire"]
+ORDRE = ["25_convergence_basis", "23_carry_funding", "24_funding_multivenues",
+         "27a_rev_premium", "27b_rev_move", "27c_mom_move", "10_controle_aleatoire"]
 JOLI = {
     "25_convergence_basis": "Bot 25 — Convergence du basis (hypothèse)",
     "23_carry_funding": "Bot 23 — Carry funding seul (baseline)",
     "24_funding_multivenues": "Bot 24 — Funding multi-venues (HL/Paradex/ADEN)",
+    "27a_rev_premium": "Bot 27a — Convexe : réversion premium extrême",
+    "27b_rev_move": "Bot 27b — Convexe : réversion move 24h extrême",
+    "27c_mom_move": "Bot 27c — Convexe : momentum move 24h extrême",
     "10_controle_aleatoire": "Témoin aléatoire (étalon du bruit)",
 }
 
