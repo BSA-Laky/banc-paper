@@ -11,6 +11,7 @@ from __future__ import annotations
 from banc_essai_paper_trading import ControleAleatoire, journaliser
 from bots_cloud import CarryFundingOnly, ConvergenceBasis
 from bot_24_funding_multivenues import FundingMultiVenues
+from bot_26_carry_nado import CarryNado
 from bot_27_convex_buckets import ConvexBuckets
 from dashboard import construire_dashboard
 
@@ -21,7 +22,8 @@ def lancer_passe() -> None:
         CarryFundingOnly(actifs="*"),
         ConvergenceBasis(actifs="*"),
         FundingMultiVenues(),     # bot 24 : HL/Paradex/ADEN (seuils 1e-4)
-        ConvexBuckets(),          # bot 27 : experience edge convexe (3 buckets)
+        CarryNado(),              # bot 26 : carry cross-venue Nado (dormant si endpoint KO)
+        ConvexBuckets(),          # bot 27 : experience edge convexe (4 buckets)
     ]
     nouveaux = []
     for b in bots:

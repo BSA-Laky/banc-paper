@@ -32,7 +32,7 @@ from banc_essai_paper_trading import Strategy, Trade
 HL_INFO_URL = "https://api.hyperliquid.xyz/info"
 USER_AGENT = "paper-trading-bench/1.0 (read-only research)"
 ETAT_DIR = Path("etat")
-BUCKETS = ("27a_rev_premium", "27b_rev_move", "27c_mom_move")
+BUCKETS = ("27a_rev_premium", "27b_rev_move", "27c_mom_move", "27d_rev_move_stop")
 
 
 def _http_post_info(body, timeout=12.0):
@@ -80,7 +80,8 @@ class ConvexBuckets(Strategy):
     name = "27_convex_buckets"
 
     def __init__(self, notional=100.0, premium_big=0.005, move_big=0.20,
-                 horizon_h=24.0, frais_par_jambe=0.00035, vol_min=1_000_000.0):
+                 horizon_h=24.0, frais_par_jambe=0.00035, vol_min=1_000_000.0,
+                 stop_frac=0.06):
         super().__init__(stake_usd=1.0)
         self.notional = notional
         self.premium_big = premium_big
@@ -88,6 +89,7 @@ class ConvexBuckets(Strategy):
         self.horizon_h = horizon_h
         self.frais = frais_par_jambe
         self.vol_min = vol_min
+        self.stop_frac = stop_frac  # stop appliqué au seul bucket 27d
         self._f = ETAT_DIR / "etat_bot27.json"
         self._etat = self._charger()
         for b in BUCKETS:
@@ -122,10 +124,12 @@ class ConvexBuckets(Strategy):
             held = (now - datetime.fromisoformat(st["ts"])).total_seconds() / 3600.0
         except (ValueError, TypeError, KeyError):
             held = 0.0
-        if held < self.horizon_h:
-            return
         entry, side = st["entry"], st["side"]
         ret = side * (mark - entry) / entry if entry else 0.0
+        stop = self.stop_frac if bucket == "27d_rev_move_stop" else None
+        sortie = (stop is not None and ret <= -stop) or (held >= self.horizon_h)
+        if not sortie:
+            return
         pnl = self.notional * ret - 2 * self.frais * self.notional
         t = Trade(bot=bucket, market=f"{bucket[4:]}-{coin}",
                   side=("long" if side > 0 else "short"),
@@ -155,5 +159,6 @@ class ConvexBuckets(Strategy):
             if move is not None and abs(move) >= self.move_big:
                 self._try_open("27b_rev_move", coin, -1 if move > 0 else 1, mark, now)
                 self._try_open("27c_mom_move", coin, 1 if move > 0 else -1, mark, now)
+                self._try_open("27d_rev_move_stop", coin, -1 if move > 0 else 1, mark, now)
         self._sauver()
         return out
