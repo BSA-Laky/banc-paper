@@ -8,6 +8,7 @@ journalise dans book_trades.csv (separe du banc crypto), regenere docs/book.html
 from __future__ import annotations
 
 import html
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -29,10 +30,12 @@ JOLI = {
 
 def fetch_marche() -> dict:
     monthly = {}
-    for s in UNIVERS:
+    for i, s in enumerate(UNIVERS):
         d = dm.monthly(s, 10)
         if d:
             monthly[s] = d
+        if i < len(UNIVERS) - 1:
+            time.sleep(8)   # 8 req/min max sur le tier gratuit Twelve Data
     spy = dm.daily("SPY", 30)
     vix = dm.vix_now()
     allm = sorted({k for d in monthly.values() for k in d})
