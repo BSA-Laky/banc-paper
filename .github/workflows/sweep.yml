@@ -1,0 +1,37 @@
+name: sweep
+
+# Recherche d'edge train/test a la demande (workflow_dispatch). Ecrit docs/sweep.html.
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sweep
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Recherche d'edge (fetch HL + grid train/test)
+        run: python sweep.py
+      - name: Committer le rapport
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Rien a committer."
+          else
+            git commit -m "sweep $(date -u +%FT%TZ)"
+            git pull --rebase --autostash || true
+            git push
+          fi
