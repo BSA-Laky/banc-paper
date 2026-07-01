@@ -13,6 +13,7 @@ from bots_cloud import CarryFundingOnly, ConvergenceBasis
 from bot_24_funding_multivenues import FundingMultiVenues
 from bot_26_carry_nado import CarryNado
 from bot_27_convex_buckets import ConvexBuckets
+from bot_28_carry_hold import CarryHold
 from dashboard import construire_dashboard
 
 
@@ -24,6 +25,7 @@ def lancer_passe() -> None:
         FundingMultiVenues(),     # bot 24 : HL/Paradex/ADEN (seuils 1e-4)
         CarryNado(),              # bot 26 : carry cross-venue Nado (dormant si endpoint KO)
         ConvexBuckets(),          # bot 27 : experience edge convexe (4 buckets)
+        CarryHold(),              # bot 28 : carry-hold (edge VALIDE OOS, confirmation forward)
     ]
     nouveaux = []
     for b in bots:
