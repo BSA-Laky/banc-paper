@@ -1,0 +1,35 @@
+name: verify
+
+# Verification "argent reel" du bot 28 a la demande. Ecrit docs/verify.html.
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: verify
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verification argent reel (couts + break-even)
+        run: python verify.py
+      - name: Committer le rapport
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "rien"; else
+            git commit -m "verify $(date -u +%FT%TZ)"
+            git pull --rebase --autostash || true
+            git push
+          fi
