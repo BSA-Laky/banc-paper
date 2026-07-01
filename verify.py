@@ -188,7 +188,7 @@ def main():
     apy_bas = (nb[1] / NOTIONAL) * (8760.0 / HOLD) if nb[0] else 0.0
     gross_pct = statistics.mean(gross_te) * 100 if gross_te else 0.0
 
-    verdict_ok = (nb[3] >= 2 and nb[2] > 0 and part_thin < 0.5)
+    verdict_ok = (nb[2] >= 2 and nb[1] > 0 and part_thin < 0.5)
     if verdict_ok:
         verdict = ("SURVIT a l'execution IDEALE (majors, sans slippage) mais reste FRAGILE : "
                    "a confirmer en forward + slippage reel.")
@@ -218,8 +218,8 @@ def main():
            f"Coût de <b>break-even = {breakeven*100:.3f} %</b> round-trip : au-dessus, l'edge disparaît.</p>"
            f"<h3>Réalités d'exécution</h3><ul>"
            f"<li>Coût réaliste 4 jambes taker HL (majors, <b>sans</b> slippage) ≈ <b>{COUT_REALISTE_BAS*100:.2f} %</b> "
-           f"→ net {nb[2]:+.3f} $/trade, t {nb[3]:+.2f}.</li>"
-           f"<li>+ slippage alts fins ≈ <b>{COUT_REALISTE_HAUT*100:.2f} %</b> → net {nh[2]:+.3f} $/trade, t {nh[3]:+.2f}.</li>"
+           f"→ net {nb[1]:+.3f} $/trade, t {nb[2]:+.2f}.</li>"
+           f"<li>+ slippage alts fins ≈ <b>{COUT_REALISTE_HAUT*100:.2f} %</b> → net {nh[1]:+.3f} $/trade, t {nh[2]:+.2f}.</li>"
            f"<li>Liquidité des coins qui déclenchent (volume 24 h) : médiane {liq['median']/1e6:.1f} M$ ; "
            f"<b>{part_thin*100:.0f} %</b> des trades sur des coins &lt; 5 M$ (slippage élevé probable).</li>"
            f"<li><b>{part_neg*100:.0f} %</b> des trades sont sur funding NÉGATIF → il faut SHORTER le spot "
