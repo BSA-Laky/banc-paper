@@ -1,0 +1,33 @@
+name: explore3
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: explore3
+  cancel-in-progress: false
+
+jobs:
+  explore3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Explorer vague 3 (microstructure intra-barre)
+        run: python explore3.py
+      - name: Committer le rapport
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "rien"; else
+            git commit -m "explore3 $(date -u +%FT%TZ)"
+            git pull --rebase --autostash || true
+            git push
+          fi
