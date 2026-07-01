@@ -1,0 +1,26 @@
+name: book
+on:
+  schedule:
+    - cron: "0 14 2 * *"    # le 2 de chaque mois, 14h UTC (mois precedent cloture)
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: run book
+        env:
+          TD_KEY: ${{ secrets.TD_KEY }}
+        run: python run_book.py
+      - name: commit
+        run: |
+          git config user.name "book-bot"
+          git config user.email "book@users.noreply.github.com"
+          git add -A
+          git commit -m "book run $(date -u +%F)" || echo "rien a committer"
+          git push || echo "push KO"
