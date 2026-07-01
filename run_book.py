@@ -88,6 +88,16 @@ def construire_book_html():
 
 def lancer():
     marche = fetch_marche()
+    try:
+        DOCS.mkdir(parents=True, exist_ok=True)
+        import json as _json
+        (DOCS / "book_health.json").write_text(_json.dumps({
+            "asof": marche["asof"], "vix": marche["vix"],
+            "n_monthly": len(marche["monthly"]),
+            "spy_days": len(marche["spy_daily"] or {}),
+            "ts": datetime.now(timezone.utc).isoformat()}), encoding="utf-8")
+    except OSError:
+        pass
     if not marche["monthly"]:
         print("[book] AUCUNE donnee (cle TD_KEY absente ou API KO) -> rien.", flush=True)
         construire_book_html()
