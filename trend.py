@@ -23,40 +23,44 @@ COST = 0.0005          # ETF liquide, aller-retour ~5 bps, applique aux changeme
 VIABLE_T = 2.5
 VIABLE_N = 30
 LOOKBACKS = [3, 6, 12]
-ACTIFS = ["spy.us", "qqq.us", "iwm.us", "efa.us", "eem.us", "tlt.us", "ief.us",
-          "gld.us", "slv.us", "uso.us", "uup.us", "vnq.us", "hyg.us", "dbc.us"]
+ACTIFS = ["SPY", "QQQ", "IWM", "EFA", "EEM", "TLT", "IEF",
+          "GLD", "SLV", "USO", "UUP", "VNQ", "HYG", "DBC"]
 
 
-def _get_text(url, timeout=25.0, essais=3):
+def _get_json(url, timeout=25.0, essais=3):
+    import json as _json
     for k in range(essais):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
             with urllib.request.urlopen(req, timeout=timeout) as r:
-                return r.read().decode("utf-8", errors="replace")
-        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, OSError) as e:
-            print(f"[get] {url[:50]} : {e}", flush=True)
+                return _json.loads(r.read().decode("utf-8", errors="replace"))
+        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, ValueError, OSError) as e:
+            print(f"[get] {url[:55]} : {e}", flush=True)
             time.sleep(1.0 * (k + 1))
     return None
 
 
-def fetch_monthly(sym):
-    """{'YYYY-MM': close de fin de mois} depuis Stooq CSV daily."""
-    txt = _get_text(f"https://stooq.com/q/d/l/?s={sym}&i=d")
-    if not txt or "Date" not in txt:
-        return {}
-    daily = {}
-    for ln in txt.strip().splitlines()[1:]:
-        p = ln.split(",")
-        if len(p) < 5:
-            continue
+def fetch_monthly(tk):
+    """{'YYYY-MM': close de fin de mois} depuis Yahoo Finance (chart JSON, sans cle)."""
+    now = int(time.time())
+    for host in ("query1", "query2"):
+        j = _get_json(f"https://{host}.finance.yahoo.com/v8/finance/chart/{tk}"
+                      f"?period1=946684800&period2={now}&interval=1d")
         try:
-            daily[p[0]] = float(p[4])   # Date, close
-        except ValueError:
-            pass
-    monthly = {}
-    for d in sorted(daily):
-        monthly[d[:7]] = daily[d]       # ecrase -> dernier jour du mois gagne
-    return monthly
+            res = j["chart"]["result"][0]
+            ts = res["timestamp"]
+            cl = res["indicators"]["quote"][0]["close"]
+        except (TypeError, KeyError, IndexError):
+            continue
+        monthly = {}
+        for t, c in zip(ts, cl):
+            if c is None:
+                continue
+            d = datetime.fromtimestamp(int(t), tz=timezone.utc).strftime("%Y-%m")
+            monthly[d] = float(c)
+        if len(monthly) > 40:
+            return monthly
+    return {}
 
 
 def stats(x):
