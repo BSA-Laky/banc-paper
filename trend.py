@@ -23,44 +23,40 @@ COST = 0.0005          # ETF liquide, aller-retour ~5 bps, applique aux changeme
 VIABLE_T = 2.5
 VIABLE_N = 30
 LOOKBACKS = [3, 6, 12]
-ACTIFS = ["SPY", "QQQ", "IWM", "EFA", "EEM", "TLT", "IEF",
-          "GLD", "SLV", "USO", "UUP", "VNQ", "HYG", "DBC"]
+ACTIFS = ["SP500", "NASDAQCOM", "DJIA", "DCOILWTICO", "GOLDAMGBD228NLBM",
+          "DEXUSEU", "DEXJPUS", "DEXUSUK", "DEXCANUS", "DTWEXBGS"]
 
 
-def _get_json(url, timeout=25.0, essais=3):
-    import json as _json
+def _get_text(url, timeout=25.0, essais=3):
     for k in range(essais):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
             with urllib.request.urlopen(req, timeout=timeout) as r:
-                return _json.loads(r.read().decode("utf-8", errors="replace"))
-        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, ValueError, OSError) as e:
+                return r.read().decode("utf-8", errors="replace")
+        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, OSError) as e:
             print(f"[get] {url[:55]} : {e}", flush=True)
             time.sleep(1.0 * (k + 1))
     return None
 
 
-def fetch_monthly(tk):
-    """{'YYYY-MM': close de fin de mois} depuis Yahoo Finance (chart JSON, sans cle)."""
-    now = int(time.time())
-    for host in ("query1", "query2"):
-        j = _get_json(f"https://{host}.finance.yahoo.com/v8/finance/chart/{tk}"
-                      f"?period1=946684800&period2={now}&interval=1d")
-        try:
-            res = j["chart"]["result"][0]
-            ts = res["timestamp"]
-            cl = res["indicators"]["quote"][0]["close"]
-        except (TypeError, KeyError, IndexError):
+def fetch_monthly(sid):
+    """{'YYYY-MM': valeur de fin de mois} depuis FRED CSV (public, sans cle)."""
+    txt = _get_text(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}")
+    if not txt or "DATE" not in txt.upper():
+        return {}
+    monthly = {}
+    for ln in txt.strip().splitlines()[1:]:
+        p = ln.split(",")
+        if len(p) < 2:
             continue
-        monthly = {}
-        for t, c in zip(ts, cl):
-            if c is None:
-                continue
-            d = datetime.fromtimestamp(int(t), tz=timezone.utc).strftime("%Y-%m")
-            monthly[d] = float(c)
-        if len(monthly) > 40:
-            return monthly
-    return {}
+        d, v = p[0].strip(), p[1].strip()
+        if v in (".", "", "NA") or len(d) < 7:
+            continue
+        try:
+            monthly[d[:7]] = float(v)      # dernier jour du mois gagne
+        except ValueError:
+            pass
+    return monthly
 
 
 def stats(x):
