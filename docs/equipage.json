@@ -1,5 +1,5 @@
 {
- "genere": "2026-07-02T20:02:44.984527+00:00",
+ "genere": "2026-07-02T21:09:36.379115+00:00",
  "officiers": [
   {
    "nom": "Commandeure Ada",
@@ -45,11 +45,11 @@
    "role": "moniteur_go_reel.py",
    "badge": "Automate",
    "type": "SYS",
-   "statut_cls": "actif",
-   "statut": "Sain",
+   "statut_cls": "incident",
+   "statut": "1 ROUGE",
    "derniere": "Statuts GO-reel reevalues",
    "prochain": "Prochaine passe",
-   "parole": "Banc sain, temoin sain (t 0.75). 7 bots suivis : 0 VERT / 3 ORANGE / 4 GRIS / 0 ROUGE. 0 alerte(s)."
+   "parole": "Banc sain, temoin sain (t 0.65). 7 bots suivis : 0 VERT / 2 ORANGE / 4 GRIS / 1 ROUGE. 1 alerte(s)."
   },
   {
    "nom": "La Salle des machines",
@@ -61,7 +61,7 @@
    "statut": "En service",
    "derniere": "Passe d'echantillonnage",
    "prochain": "Prochaine passe",
-   "parole": "Bots echantillonnes (temoin, 23, 24, 25, 26, 27x, 28). Derniere action : 25_convergence_basis sur conv-GRAM (pnl -2.1)."
+   "parole": "Bots echantillonnes (temoin, 23, 24, 25, 26, 27x, 28). Derniere action : 25_convergence_basis sur conv-ME (pnl -43.49)."
   },
   {
    "nom": "La Passerelle",
@@ -73,7 +73,7 @@
    "statut": "En service",
    "derniere": "Brief du jour compile",
    "prochain": "Prochaine passe",
-   "parole": "BTC 61545 $ (7j 3.0%, 30j -7.8%). 0 move(s) extreme(s), 8 dernieres actions au journal."
+   "parole": "BTC 61563 $ (7j 3.0%, 30j -7.8%). 0 move(s) extreme(s), 8 dernieres actions au journal."
   },
   {
    "nom": "La Vigie",
@@ -81,8 +81,8 @@
    "role": "alerte_issue.py",
    "badge": "Automate",
    "type": "SYS",
-   "statut_cls": "actif",
-   "statut": "Rien a signaler",
+   "statut_cls": "incident",
+   "statut": "1 alerte(s)",
    "derniere": "Veille ROUGE / banc suspect",
    "prochain": "Ronde quotidienne",
    "parole": "Notifie le Commandant si un bot passe ROUGE, si le banc devient suspect ou en cas de changement de statut. Aucune alerte en cours."
@@ -90,16 +90,16 @@
  ],
  "journal": [
   {
-   "ts": "2026-07-02T19:55:27.217162+00:00",
+   "ts": "2026-07-02T21:09:35.785071+00:00",
    "de": "La Passerelle",
    "vers": "Station",
-   "message": "Brief compile : BTC 61545 $, 0 move(s) extreme(s)"
+   "message": "Brief compile : BTC 61563 $, 0 move(s) extreme(s)"
   },
   {
-   "ts": "2026-07-02T19:55:27.214441+00:00",
+   "ts": "2026-07-02T21:09:35.781871+00:00",
    "de": "Le Sas",
    "vers": "Station",
-   "message": "Statuts reevalues : banc sain, 3 ORANGE / 4 GRIS, 0 alerte(s)"
+   "message": "Statuts reevalues : banc sain, 2 ORANGE / 4 GRIS, 1 alerte(s)"
   },
   {
    "ts": "2026-07-02T19:26:17.652705+00:00",

@@ -1,15 +1,23 @@
 {
- "ts": "2026-07-02T19:55:27.217162+00:00",
- "alertes": [],
+ "ts": "2026-07-02T21:09:35.785071+00:00",
+ "alertes": [
+  "25_convergence_basis: esp20 -1.68 < borne -1.43 -> COUPER LE BOT"
+ ],
  "avertissements": [],
  "banc_suspect": false,
- "changements_statut": [],
+ "changements_statut": [
+  {
+   "bot": "25_convergence_basis",
+   "avant": "ORANGE",
+   "apres": "ROUGE"
+  }
+ ],
  "statuts": {
   "23_carry_funding": {
    "statut": "ORANGE",
-   "n": 49,
-   "esperance": 0.9383,
-   "t": 1.18,
+   "n": 50,
+   "esperance": 0.8984,
+   "t": 1.15,
    "fwd_j": 9.1
   },
   "24_funding_multivenues": {
@@ -20,11 +28,11 @@
    "fwd_j": 9.1
   },
   "25_convergence_basis": {
-   "statut": "ORANGE",
-   "n": 264,
-   "esperance": 0.3366,
-   "t": 2.32,
-   "fwd_j": 10.0
+   "statut": "ROUGE",
+   "n": 265,
+   "esperance": 0.1712,
+   "t": 0.78,
+   "fwd_j": 10.1
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -56,13 +64,31 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0256,
-  "ret7": 0.0299,
-  "ret30": -0.0777,
-  "prix": 61545
+  "ret1": 0.0259,
+  "ret7": 0.0302,
+  "ret30": -0.0775,
+  "prix": 61563
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-02T21:09",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ME",
+   "pnl": -43.49
+  },
+  {
+   "ts": "2026-07-02T21:09",
+   "bot": "23_carry_funding",
+   "marche": "carry-BIO",
+   "pnl": -1.05
+  },
+  {
+   "ts": "2026-07-02T21:09",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-02T19:55",
    "bot": "25_convergence_basis",
@@ -92,24 +118,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-FARTCOIN",
    "pnl": 5.53
-  },
-  {
-   "ts": "2026-07-02T18:13",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ME",
-   "pnl": -3.57
-  },
-  {
-   "ts": "2026-07-02T18:13",
-   "bot": "25_convergence_basis",
-   "marche": "conv-GRASS",
-   "pnl": 0.41
-  },
-  {
-   "ts": "2026-07-02T18:13",
-   "bot": "23_carry_funding",
-   "marche": "carry-PYTH",
-   "pnl": -0.29
   }
  ],
  "calibration_arbitre": null

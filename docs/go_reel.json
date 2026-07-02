@@ -1,31 +1,31 @@
 {
- "ts": "2026-07-02T19:55:27.214441+00:00",
+ "ts": "2026-07-02T21:09:35.781871+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 108,
-   "t_stat": 0.75,
+   "n": 109,
+   "t_stat": 0.65,
    "sain": true
   }
  },
  "bots": {
   "23_carry_funding": {
-   "n": 49,
-   "esperance": 0.9383,
-   "t_stat": 1.18,
+   "n": 50,
+   "esperance": 0.8984,
+   "t_stat": 1.15,
    "mdd_live": 12.41,
    "jours_forward": 9.1,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
-    "n 49 < n_go 100",
+    "n 50 < n_go 100",
     "t < 2",
     "forward 9 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": 1.3942,
-   "borne_decrochage": -1.5519,
+   "esp_glissante_20": 1.4106,
+   "borne_decrochage": -1.5694,
    "statut": "ORANGE"
   },
   "24_funding_multivenues": {
@@ -47,25 +47,24 @@
    "statut": "ORANGE"
   },
   "25_convergence_basis": {
-   "n": 264,
-   "esperance": 0.3366,
-   "t_stat": 2.32,
-   "mdd_live": 22.19,
-   "jours_forward": 10.0,
-   "verdict_banc": "edge a CONFIRMER (profil asymetrique, t-stat peu fiable)",
-   "decrochage": false,
+   "n": 265,
+   "esperance": 0.1712,
+   "t_stat": 0.78,
+   "mdd_live": 45.85,
+   "jours_forward": 10.1,
+   "verdict_banc": "indistinguable du hasard",
+   "decrochage": true,
    "raisons": [
-    "n 264 < n_go 300",
-    "forward 10 j < 28 j"
+    "esp20 -1.68 < borne -1.43 -> COUPER LE BOT"
    ],
    "avertissements": [],
-   "esp_glissante_20": 0.4611,
-   "borne_decrochage": -0.7169,
-   "statut": "ORANGE",
+   "esp_glissante_20": -1.685,
+   "borne_decrochage": -1.4274,
+   "statut": "ROUGE",
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.6017,
-    "t_welch": -0.74
+    "delta_esperance": -0.7273,
+    "t_welch": -0.9
    }
   },
   "27a_rev_premium": {
@@ -117,7 +116,9 @@
    "statut": "GRIS"
   }
  },
- "alertes": [],
+ "alertes": [
+  "25_convergence_basis: esp20 -1.68 < borne -1.43 -> COUPER LE BOT"
+ ],
  "avertissements": [],
  "calibration_arbitre": null
 }
