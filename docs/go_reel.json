@@ -1,70 +1,70 @@
 {
- "ts": "2026-07-02T21:09:35.781871+00:00",
+ "ts": "2026-07-02T22:19:22.518701+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 109,
-   "t_stat": 0.65,
+   "n": 110,
+   "t_stat": 0.55,
    "sain": true
   }
  },
  "bots": {
   "23_carry_funding": {
-   "n": 50,
-   "esperance": 0.8984,
-   "t_stat": 1.15,
-   "mdd_live": 12.41,
-   "jours_forward": 9.1,
+   "n": 52,
+   "esperance": 0.7749,
+   "t_stat": 1.03,
+   "mdd_live": 13.29,
+   "jours_forward": 9.2,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
-    "n 50 < n_go 100",
+    "n 52 < n_go 100",
     "t < 2",
     "forward 9 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": 1.4106,
-   "borne_decrochage": -1.5694,
+   "esp_glissante_20": 1.0728,
+   "borne_decrochage": -1.6617,
    "statut": "ORANGE"
   },
   "24_funding_multivenues": {
-   "n": 56,
-   "esperance": 0.194,
-   "t_stat": 0.47,
-   "mdd_live": 7.97,
-   "jours_forward": 9.1,
+   "n": 57,
+   "esperance": 0.1444,
+   "t_stat": 0.36,
+   "mdd_live": 9.01,
+   "jours_forward": 9.2,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
-    "n 56 < n_go 100",
+    "n 57 < n_go 100",
     "t < 2",
     "forward 9 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": 0.4496,
-   "borne_decrochage": -1.1773,
+   "esp_glissante_20": 0.3883,
+   "borne_decrochage": -1.2248,
    "statut": "ORANGE"
   },
   "25_convergence_basis": {
-   "n": 265,
-   "esperance": 0.1712,
-   "t_stat": 0.78,
-   "mdd_live": 45.85,
+   "n": 267,
+   "esperance": 0.1659,
+   "t_stat": 0.76,
+   "mdd_live": 46.91,
    "jours_forward": 10.1,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": true,
    "raisons": [
-    "esp20 -1.68 < borne -1.43 -> COUPER LE BOT"
+    "esp20 -1.78 < borne -1.43 -> COUPER LE BOT"
    ],
    "avertissements": [],
-   "esp_glissante_20": -1.685,
-   "borne_decrochage": -1.4274,
+   "esp_glissante_20": -1.7838,
+   "borne_decrochage": -1.4269,
    "statut": "ROUGE",
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.7273,
-    "t_welch": -0.9
+    "delta_esperance": -0.6091,
+    "t_welch": -0.77
    }
   },
   "27a_rev_premium": {
@@ -72,7 +72,7 @@
    "esperance": -3.7074,
    "t_stat": -1.33,
    "mdd_live": 47.03,
-   "jours_forward": 9.0,
+   "jours_forward": 9.1,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -80,11 +80,11 @@
    "statut": "GRIS"
   },
   "27b_rev_move": {
-   "n": 17,
-   "esperance": 9.7372,
-   "t_stat": 2.53,
+   "n": 18,
+   "esperance": 9.5986,
+   "t_stat": 2.64,
    "mdd_live": 19.81,
-   "jours_forward": 8.6,
+   "jours_forward": 8.7,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -92,11 +92,11 @@
    "statut": "GRIS"
   },
   "27c_mom_move": {
-   "n": 17,
-   "esperance": -9.8772,
-   "t_stat": -2.56,
-   "mdd_live": 167.91,
-   "jours_forward": 8.6,
+   "n": 18,
+   "esperance": -9.7386,
+   "t_stat": -2.68,
+   "mdd_live": 175.29,
+   "jours_forward": 8.7,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -104,11 +104,11 @@
    "statut": "GRIS"
   },
   "27d_rev_move_stop": {
-   "n": 4,
-   "esperance": 7.6749,
-   "t_stat": 0.72,
+   "n": 6,
+   "esperance": 5.2986,
+   "t_stat": 0.74,
    "mdd_live": 16.6,
-   "jours_forward": 3.0,
+   "jours_forward": 3.1,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -117,7 +117,7 @@
   }
  },
  "alertes": [
-  "25_convergence_basis: esp20 -1.68 < borne -1.43 -> COUPER LE BOT"
+  "25_convergence_basis: esp20 -1.78 < borne -1.43 -> COUPER LE BOT"
  ],
  "avertissements": [],
  "calibration_arbitre": null
