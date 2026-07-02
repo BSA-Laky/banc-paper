@@ -1,0 +1,21 @@
+# .github/workflows/alerte.yml — notification quotidienne PC eteint (issue GitHub)
+# A DEPOSER dans .github/workflows/ du repo BSA-Laky/banc-paper (upload navigateur).
+name: alerte-banc
+on:
+  schedule:
+    - cron: "15 6 * * *"   # ~08h15 Paris (ete)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  alerte:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Alerte si ROUGE / banc suspect / changement de statut
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 alerte_issue.py
