@@ -1,11 +1,11 @@
 {
- "ts": "2026-07-02T22:19:22.518701+00:00",
+ "ts": "2026-07-02T23:37:57.637834+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 110,
-   "t_stat": 0.55,
+   "n": 111,
+   "t_stat": 0.45,
    "sain": true
   }
  },
@@ -47,23 +47,23 @@
    "statut": "ORANGE"
   },
   "25_convergence_basis": {
-   "n": 267,
-   "esperance": 0.1659,
-   "t_stat": 0.76,
-   "mdd_live": 46.91,
-   "jours_forward": 10.1,
+   "n": 271,
+   "esperance": 0.1694,
+   "t_stat": 0.79,
+   "mdd_live": 47.59,
+   "jours_forward": 10.2,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": true,
    "raisons": [
-    "esp20 -1.78 < borne -1.43 -> COUPER LE BOT"
+    "esp20 -1.96 < borne -1.41 -> COUPER LE BOT"
    ],
    "avertissements": [],
-   "esp_glissante_20": -1.7838,
-   "borne_decrochage": -1.4269,
+   "esp_glissante_20": -1.9593,
+   "borne_decrochage": -1.4124,
    "statut": "ROUGE",
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.6091,
+    "delta_esperance": -0.6055,
     "t_welch": -0.77
    }
   },
@@ -117,7 +117,7 @@
   }
  },
  "alertes": [
-  "25_convergence_basis: esp20 -1.78 < borne -1.43 -> COUPER LE BOT"
+  "25_convergence_basis: esp20 -1.96 < borne -1.41 -> COUPER LE BOT"
  ],
  "avertissements": [],
  "calibration_arbitre": null
