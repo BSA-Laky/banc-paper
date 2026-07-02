@@ -1,0 +1,117 @@
+{
+ "genere": "2026-07-02T19:53:12.747382+00:00",
+ "officiers": [
+  {
+   "nom": "Commandeure Ada",
+   "poste": "Supervision generale",
+   "role": "Superviseur",
+   "badge": "Fable 5",
+   "type": "IA",
+   "statut_cls": "actif",
+   "statut": "A son poste",
+   "derniere": "Audit hebdomadaire + consigne posee",
+   "prochain": "Prochain audit",
+   "parole": "Consigne au Lt Hugo : plafond de confiance 1.0 - Calibration J+7 null (n<20 verdicts scores) : plafond par defaut 1.0, a reevaluer au premier scoring."
+  },
+  {
+   "nom": "Lieutenant Hugo",
+   "poste": "Jugement quotidien",
+   "role": "Arbitre",
+   "badge": "Opus 4.8",
+   "type": "IA",
+   "statut_cls": "repos",
+   "statut": "Au repos",
+   "derniere": "Avis de regime rendu",
+   "prochain": "Prochain quart",
+   "parole": "Regime neutre (confiance 0.55) - BTC 61839, ret7 +3.5% mais ret30 -7.3%. Convergence basis solide (n=262, t=2.39). DYDX crash -23.6%. Reste ORANGE/GRIS, bruit dominant."
+  },
+  {
+   "nom": "Cadet Remy",
+   "poste": "Reserve - sans affectation",
+   "role": "Reserviste",
+   "badge": "Haiku 4.5",
+   "type": "IA",
+   "statut_cls": "reserve",
+   "statut": "En reserve",
+   "derniere": "Aucune tache assignee",
+   "prochain": "Activation",
+   "parole": "Prendra les taches haute-frequence (ex. fiches produits Etsy, triage) quand elles existeront. On ne depense pas pour l'occuper."
+  }
+ ],
+ "automates": [
+  {
+   "nom": "Le Sas",
+   "poste": "Controle GO-reel",
+   "role": "moniteur_go_reel.py",
+   "badge": "Automate",
+   "type": "SYS",
+   "statut_cls": "actif",
+   "statut": "Sain",
+   "derniere": "Statuts GO-reel reevalues",
+   "prochain": "Prochaine passe",
+   "parole": "Banc sain, temoin sain (t 0.66). 7 bots suivis : 0 VERT / 3 ORANGE / 4 GRIS / 0 ROUGE. 0 alerte(s)."
+  },
+  {
+   "nom": "La Salle des machines",
+   "poste": "Echantillonnage des bots",
+   "role": "run_once.py",
+   "badge": "Automate",
+   "type": "SYS",
+   "statut_cls": "actif",
+   "statut": "En service",
+   "derniere": "Passe d'echantillonnage",
+   "prochain": "Prochaine passe",
+   "parole": "Bots echantillonnes (temoin, 23, 24, 25, 26, 27x, 28). Derniere action : 25_convergence_basis sur conv-BIO (pnl 0.32)."
+  },
+  {
+   "nom": "La Passerelle",
+   "poste": "Compilation du brief",
+   "role": "tour_de_controle.py",
+   "badge": "Automate",
+   "type": "SYS",
+   "statut_cls": "actif",
+   "statut": "En service",
+   "derniere": "Brief du jour compile",
+   "prochain": "Prochaine passe",
+   "parole": "BTC 61839 $ (7j 3.5%, 30j -7.3%). 1 move(s) extreme(s), 8 dernieres actions au journal."
+  },
+  {
+   "nom": "La Vigie",
+   "poste": "Alertes push (issue GitHub)",
+   "role": "alerte_issue.py",
+   "badge": "Automate",
+   "type": "SYS",
+   "statut_cls": "actif",
+   "statut": "Rien a signaler",
+   "derniere": "Veille ROUGE / banc suspect",
+   "prochain": "Ronde quotidienne",
+   "parole": "Notifie le Commandant si un bot passe ROUGE, si le banc devient suspect ou en cas de changement de statut. Aucune alerte en cours."
+  }
+ ],
+ "journal": [
+  {
+   "ts": "2026-07-02T19:26:17.652705+00:00",
+   "de": "Commandeure Ada",
+   "vers": "Lieutenant Hugo",
+   "message": "Consigne transmise : plafond de confiance 1.0 (Calibration J+7 null (n<20 verdicts scores) : plafond par defaut 1.0, a reevaluer au premier scoring.)"
+  },
+  {
+   "ts": "2026-07-02T18:59:13.857301+00:00",
+   "de": "Lieutenant Hugo",
+   "vers": "Les bots (27e)",
+   "message": "Avis de regime publie : neutre (conf 0.55) - BTC 61839, ret7 +3.5% mais ret30 -7.3%. Convergence basis solide (n=262, t=2.39). DYDX crash -23.6%. Reste ORANGE/GRIS, bruit dominant."
+  },
+  {
+   "ts": "2026-07-02T18:13:55.744240+00:00",
+   "de": "La Passerelle",
+   "vers": "Station",
+   "message": "Brief compile : BTC 61839 $, 1 move(s) extreme(s)"
+  },
+  {
+   "ts": "2026-07-02T18:13:55.741836+00:00",
+   "de": "Le Sas",
+   "vers": "Station",
+   "message": "Statuts reevalues : banc sain, 3 ORANGE / 4 GRIS, 0 alerte(s)"
+  }
+ ]
+}
