@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-02T14:12:49.015624+00:00",
+ "ts": "2026-07-02T16:16:49.701915+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -10,64 +10,100 @@
    "n": 48,
    "esperance": 0.9638,
    "t": 1.19,
-   "fwd_j": 8.8
+   "fwd_j": 8.9
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
    "n": 56,
    "esperance": 0.194,
    "t": 0.47,
-   "fwd_j": 8.8
+   "fwd_j": 8.9
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 253,
-   "esperance": 0.3506,
-   "t": 2.36,
-   "fwd_j": 9.8
+   "n": 258,
+   "esperance": 0.3431,
+   "t": 2.35,
+   "fwd_j": 9.9
   },
   "27a_rev_premium": {
    "statut": "GRIS",
    "n": 9,
    "esperance": -3.7074,
    "t": -1.33,
-   "fwd_j": 8.7
+   "fwd_j": 8.8
   },
   "27b_rev_move": {
    "statut": "GRIS",
    "n": 17,
    "esperance": 9.7372,
    "t": 2.53,
-   "fwd_j": 8.3
+   "fwd_j": 8.4
   },
   "27c_mom_move": {
    "statut": "GRIS",
    "n": 17,
    "esperance": -9.8772,
    "t": -2.56,
-   "fwd_j": 8.3
+   "fwd_j": 8.4
   },
   "27d_rev_move_stop": {
    "statut": "GRIS",
    "n": 4,
    "esperance": 7.6749,
    "t": 0.72,
-   "fwd_j": 2.7
+   "fwd_j": 2.8
   }
  },
  "tendances_btc": {
-  "ret1": 0.0343,
-  "ret7": 0.0386,
-  "ret30": -0.0699,
-  "prix": 62067
+  "ret1": 0.0262,
+  "ret7": 0.0305,
+  "ret30": -0.0772,
+  "prix": 61581
  },
  "evenements_extremes": [
   {
    "coin": "DYDX",
-   "move_pct": -26.7
+   "move_pct": -28.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-02T16:16",
+   "bot": "25_convergence_basis",
+   "marche": "conv-LIT",
+   "pnl": 0.31
+  },
+  {
+   "ts": "2026-07-02T16:16",
+   "bot": "25_convergence_basis",
+   "marche": "conv-MET",
+   "pnl": -0.34
+  },
+  {
+   "ts": "2026-07-02T16:16",
+   "bot": "25_convergence_basis",
+   "marche": "conv-SPX",
+   "pnl": -0.06
+  },
+  {
+   "ts": "2026-07-02T16:16",
+   "bot": "25_convergence_basis",
+   "marche": "conv-JTO",
+   "pnl": 0.07
+  },
+  {
+   "ts": "2026-07-02T16:16",
+   "bot": "25_convergence_basis",
+   "marche": "conv-DYDX",
+   "pnl": -0.16
+  },
+  {
+   "ts": "2026-07-02T16:16",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-02T14:12",
    "bot": "25_convergence_basis",
@@ -79,42 +115,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-FARTCOIN",
    "pnl": 0.26
-  },
-  {
-   "ts": "2026-07-02T14:12",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-02T14:04",
-   "bot": "25_convergence_basis",
-   "marche": "conv-SYRUP",
-   "pnl": -0.15
-  },
-  {
-   "ts": "2026-07-02T14:04",
-   "bot": "25_convergence_basis",
-   "marche": "conv-VVV",
-   "pnl": -0.4
-  },
-  {
-   "ts": "2026-07-02T14:04",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ME",
-   "pnl": 5.99
-  },
-  {
-   "ts": "2026-07-02T14:04",
-   "bot": "25_convergence_basis",
-   "marche": "conv-INJ",
-   "pnl": -0.31
-  },
-  {
-   "ts": "2026-07-02T14:04",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": null
