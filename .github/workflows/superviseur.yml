@@ -1,0 +1,43 @@
+# .github/workflows/superviseur.yml — le Superviseur Fable 5 (1 appel/semaine)
+# A DEPOSER dans .github/workflows/. Dormant tant que ANTHROPIC_API_KEY n'existe pas.
+name: superviseur-ia
+on:
+  schedule:
+    - cron: "30 6 * * 0"    # dimanche ~08h30 Paris (ete)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: superviseur
+  cancel-in-progress: false
+
+jobs:
+  superviseur:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Audit hebdomadaire (Fable 5)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MODELE_SUPERVISEUR: ${{ vars.MODELE_SUPERVISEUR || 'claude-fable-5' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python superviseur_ia.py
+      - name: Committer rapport/consigne/memoire
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Rien a committer."
+          else
+            git commit -m "superviseur $(date -u +%F)"
+            git pull --rebase --autostash || true
+            git push || (git pull --rebase --autostash && git push)
+          fi
