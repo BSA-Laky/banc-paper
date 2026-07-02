@@ -133,12 +133,12 @@ officiers = []
 
 # Superviseur — Commandeure Ada (Fable 5, hebdo)
 _next_ada = _next_weekly(6, 6, 30)
-_cls, _lbl = _statut_ia(d_rapport)
+_cls, _lbl = _statut_ia(d_consigne or d_rapport)
 officiers.append({
     "nom": "Commandeure Ada", "poste": "Supervision generale", "role": "Superviseur",
     "badge": "Fable 5", "type": "IA",
     "statut_cls": _cls, "statut": _lbl,
-    "derniere": "Audit hebdomadaire + consigne posee", "derniere_dt": d_rapport or d_consigne,
+    "derniere": "Audit hebdomadaire + consigne posee", "derniere_dt": d_consigne or d_rapport,
     "prochain": "Prochain audit", "prochain_dt": _next_ada,
     "parole": (f"Consigne au Lt Hugo : plafond de confiance {consigne.get('confiance_max', '?')}"
                f" - {consigne.get('motif', 'en attente du 1er scoring')}"),
