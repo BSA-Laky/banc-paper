@@ -1,0 +1,37 @@
+# .github/workflows/equipage.yml — tableau de bord Equipage (deterministe, 0 LLM).
+# Declenchement MANUEL uniquement (pas de cron) : le rafraichissement ~15 min vient
+# de run_once.py (passe du sampler). Ici on peut regenerer/tester a la demande.
+name: equipage-ia
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: equipage
+  cancel-in-progress: false
+
+jobs:
+  equipage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Generer le tableau Equipage
+        run: python equipage.py
+      - name: Committer docs/equipage
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Rien a committer."
+          else
+            git commit -m "equipage $(date -u +%FT%H:%MZ)"
+            git pull --rebase --autostash || true
+            git push || (git pull --rebase --autostash && git push)
+          fi
