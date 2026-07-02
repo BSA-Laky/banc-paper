@@ -1,0 +1,44 @@
+# .github/workflows/arbitre.yml — l'Arbitre IA quotidien (1 appel API/jour, PC eteint)
+# A DEPOSER dans .github/workflows/. Ne fait RIEN tant que le secret
+# ANTHROPIC_API_KEY n'existe pas (le script sort proprement).
+name: arbitre-ia
+on:
+  schedule:
+    - cron: "45 5 * * *"    # ~07h45 Paris (ete), avant l'alerte de 06:15 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: arbitre
+  cancel-in-progress: false
+
+jobs:
+  arbitre:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Jugement quotidien de l'Arbitre (LLM via API)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MODELE_ARBITRE: ${{ vars.MODELE_ARBITRE || 'claude-opus-4-8' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python arbitre_ia.py
+      - name: Committer avis/veille/memoire
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Rien a committer."
+          else
+            git commit -m "arbitre $(date -u +%F)"
+            git pull --rebase --autostash || true
+            git push || (git pull --rebase --autostash && git push)
+          fi
