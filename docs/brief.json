@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-02T18:13:55.744240+00:00",
+ "ts": "2026-07-02T19:55:27.217162+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -10,20 +10,20 @@
    "n": 49,
    "esperance": 0.9383,
    "t": 1.18,
-   "fwd_j": 9.0
+   "fwd_j": 9.1
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
    "n": 56,
    "esperance": 0.194,
    "t": 0.47,
-   "fwd_j": 9.0
+   "fwd_j": 9.1
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 262,
-   "esperance": 0.3481,
-   "t": 2.39,
+   "n": 264,
+   "esperance": 0.3366,
+   "t": 2.32,
    "fwd_j": 10.0
   },
   "27a_rev_premium": {
@@ -31,43 +31,56 @@
    "n": 9,
    "esperance": -3.7074,
    "t": -1.33,
-   "fwd_j": 8.9
+   "fwd_j": 9.0
   },
   "27b_rev_move": {
    "statut": "GRIS",
    "n": 17,
    "esperance": 9.7372,
    "t": 2.53,
-   "fwd_j": 8.5
+   "fwd_j": 8.6
   },
   "27c_mom_move": {
    "statut": "GRIS",
    "n": 17,
    "esperance": -9.8772,
    "t": -2.56,
-   "fwd_j": 8.5
+   "fwd_j": 8.6
   },
   "27d_rev_move_stop": {
    "statut": "GRIS",
    "n": 4,
    "esperance": 7.6749,
    "t": 0.72,
-   "fwd_j": 2.9
+   "fwd_j": 3.0
   }
  },
  "tendances_btc": {
-  "ret1": 0.0305,
-  "ret7": 0.0348,
-  "ret30": -0.0733,
-  "prix": 61839
+  "ret1": 0.0256,
+  "ret7": 0.0299,
+  "ret30": -0.0777,
+  "prix": 61545
  },
- "evenements_extremes": [
-  {
-   "coin": "DYDX",
-   "move_pct": -23.6
-  }
- ],
+ "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-02T19:55",
+   "bot": "25_convergence_basis",
+   "marche": "conv-GRAM",
+   "pnl": -2.1
+  },
+  {
+   "ts": "2026-07-02T19:55",
+   "bot": "25_convergence_basis",
+   "marche": "conv-DYDX",
+   "pnl": -0.25
+  },
+  {
+   "ts": "2026-07-02T19:55",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-02T18:13",
    "bot": "25_convergence_basis",
@@ -97,24 +110,6 @@
    "bot": "23_carry_funding",
    "marche": "carry-PYTH",
    "pnl": -0.29
-  },
-  {
-   "ts": "2026-07-02T18:13",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-02T16:16",
-   "bot": "25_convergence_basis",
-   "marche": "conv-LIT",
-   "pnl": 0.31
-  },
-  {
-   "ts": "2026-07-02T16:16",
-   "bot": "25_convergence_basis",
-   "marche": "conv-MET",
-   "pnl": -0.34
   }
  ],
  "calibration_arbitre": null
