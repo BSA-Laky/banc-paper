@@ -14,6 +14,7 @@ from bot_24_funding_multivenues import FundingMultiVenues
 from bot_26_carry_nado import CarryNado
 from bot_27_convex_buckets import ConvexBuckets
 from bot_28_carry_hold import CarryHold
+from bot_27e_arbitre import ArbitreRegime
 from dashboard import construire_dashboard
 
 
@@ -26,6 +27,7 @@ def lancer_passe() -> None:
         CarryNado(),              # bot 26 : carry cross-venue Nado (dormant si endpoint KO)
         ConvexBuckets(),          # bot 27 : experience edge convexe (4 buckets)
         CarryHold(),              # bot 28 : carry-hold (edge VALIDE OOS, confirmation forward)
+        ArbitreRegime(),          # bot 27e : arbitre regime 27b/27c (hypothese mesuree, prior negatif)
     ]
     nouveaux = []
     for b in bots:
@@ -41,3 +43,13 @@ def lancer_passe() -> None:
 if __name__ == "__main__":
     lancer_passe()
     construire_dashboard()
+    try:                          # gate GO-reel + decrochage (jamais bloquant)
+        from moniteur_go_reel import produire_go_reel
+        produire_go_reel()
+    except Exception as e:
+        print(f"[run_once] moniteur go_reel a leve : {e}", flush=True)
+    try:                          # brief Station (PC eteint, jamais bloquant)
+        from tour_de_controle import produire_brief
+        produire_brief()
+    except Exception as e:
+        print(f"[run_once] tour de controle a leve : {e}", flush=True)
