@@ -31,7 +31,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 API_URL = "https://api.anthropic.com/v1/messages"
-MODELE = os.environ.get("MODELE_ARBITRE", "claude-opus-4-8")
+MODELE = os.environ.get("MODELE_ARBITRE", "claude-sonnet-5")
 MAX_TOKENS = 1600
 CAP_MEMOIRE = 7000          # caracteres max de la memoire persistante
 ECHECS_AVANT_ESCALADE = 2
@@ -80,13 +80,17 @@ def _tail_journal(n=15):
 
 
 def _appel_api(cle, contenu):
-    corps = {"model": MODELE, "max_tokens": MAX_TOKENS, "temperature": 0.2,
+    corps = {"model": MODELE, "max_tokens": MAX_TOKENS,
              "system": SYSTEME, "messages": [{"role": "user", "content": contenu}]}
     req = urllib.request.Request(API_URL, data=json.dumps(corps).encode("utf-8"),
         headers={"x-api-key": cle, "anthropic-version": "2023-06-01",
                  "content-type": "application/json", "User-Agent": "banc-paper-arbitre"})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        return json.loads(r.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            return json.loads(r.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        detail = e.read().decode("utf-8", "replace")[:600]
+        raise RuntimeError(f"HTTP {e.code}: {detail}") from None
 
 
 def _issue_escalade(titre, corps):
@@ -171,6 +175,17 @@ def main():
         memoire = str(d.get("memoire_md", ""))[:CAP_MEMOIRE]
         alerte = bool(d.get("alerte_humain"))
         raison = str(d.get("raison_alerte", ""))[:500]
+        consigne = _lire_json(ETAT / "consigne_arbitre.json")
+        try:                                   # plafond fixe par le Superviseur (Fable 5)
+            plafond = float(consigne.get("confiance_max", 1.0))
+            age_j = (datetime.now(timezone.utc)
+                     - datetime.fromisoformat(str(consigne.get("date")).replace("Z", "+00:00"))
+                     ).total_seconds() / 86400.0
+            if 0 <= age_j <= 8 and plafond < conf:
+                print(f"[arbitre] confiance {conf:.2f} plafonnee a {plafond:.2f} (consigne superviseur)", flush=True)
+                conf = plafond
+        except (TypeError, ValueError, AttributeError):
+            pass
     except Exception as e:                      # jamais bloquant, quel que soit l'echec
         _echec(f"{type(e).__name__}: {e}")
         return
