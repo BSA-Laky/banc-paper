@@ -53,3 +53,7 @@ if __name__ == "__main__":
         produire_brief()
     except Exception as e:
         print(f"[run_once] tour de controle a leve : {e}", flush=True)
+    try:                          # tableau Equipage (deterministe, jamais bloquant)
+        import equipage           # s'execute a l'import : ecrit docs/equipage.html
+    except Exception as e:
+        print(f"[run_once] equipage a leve : {e}", flush=True)

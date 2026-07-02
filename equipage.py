@@ -1,0 +1,359 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""equipage.py - Tableau de bord de l'EQUIPAGE de LA STATION (deterministe, stdlib only).
+
+Lit l'etat des agents IA (Arbitre, Superviseur) et des automates 24/7, puis ecrit
+docs/equipage.html (mobile, PC eteint) + docs/equipage.json. AUCUN appel LLM, 0 cout.
+Noms "Officiers de bord". Rafraichi a chaque passe (workflow equipage.yml, ~15 min).
+"""
+from __future__ import annotations
+
+import html
+import json
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+ETAT = Path("etat"); DOCS = Path("docs")
+NOW = datetime.now(timezone.utc)
+
+
+# ---------- helpers ----------
+def _json(p):
+    try:
+        return json.loads(Path(p).read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def _mtime(p):
+    try:
+        return datetime.fromtimestamp(Path(p).stat().st_mtime, timezone.utc)
+    except Exception:
+        return None
+
+
+def _dt(s):
+    try:
+        return datetime.fromisoformat(str(s).replace("Z", "+00:00"))
+    except Exception:
+        return None
+
+
+def _il_y_a(dt):
+    if not dt:
+        return "jamais"
+    s = (NOW - dt).total_seconds()
+    if s < 0:
+        return "a l'instant"
+    if s < 90:
+        return "il y a moins d'une minute"
+    if s < 5400:
+        return f"il y a {round(s/60)} min"
+    if s < 172800:
+        return f"il y a {round(s/3600)} h"
+    return f"il y a {round(s/86400)} j"
+
+
+def _dans(dt):
+    if not dt:
+        return "sur demande"
+    s = (dt - NOW).total_seconds()
+    if s < 0:
+        return "imminent"
+    if s < 5400:
+        return f"dans {round(s/60)} min"
+    if s < 172800:
+        return f"dans {round(s/3600)} h"
+    return f"dans {round(s/86400)} j"
+
+
+def _next_daily(h, m):
+    c = NOW.replace(hour=h, minute=m, second=0, microsecond=0)
+    return c if c > NOW else c + timedelta(days=1)
+
+
+def _next_weekly(py_weekday, h, m):  # py_weekday: lundi=0 ... dimanche=6
+    c = NOW.replace(hour=h, minute=m, second=0, microsecond=0)
+    c += timedelta(days=(py_weekday - NOW.weekday()) % 7)
+    return c if c > NOW else c + timedelta(days=7)
+
+
+def _next_quarter():
+    add = (NOW.minute // 15 + 1) * 15 - NOW.minute
+    return NOW.replace(second=0, microsecond=0) + timedelta(minutes=add)
+
+
+def _hhmm(dt):
+    return dt.strftime("%H:%M UTC") if dt else "-"
+
+
+def esc(x):
+    return html.escape(str(x))
+
+
+# ---------- lecture de l'etat ----------
+regime = _json(ETAT / "regime_ia.json")
+consigne = _json(ETAT / "consigne_arbitre.json")
+echecs = _json(ETAT / "arbitre_echecs.json")
+brief = _json(DOCS / "brief.json")
+gate = _json(DOCS / "go_reel.json")
+
+d_regime = _dt(regime.get("date"))
+d_consigne = _dt(consigne.get("date"))
+d_brief = _dt(brief.get("ts")) or _mtime(DOCS / "brief.json")
+d_gate = _dt(gate.get("ts")) or _mtime(DOCS / "go_reel.json")
+d_rapport = _mtime(DOCS / "rapport_semaine.md")
+n_echecs = int(echecs.get("consecutifs", 0)) if isinstance(echecs, dict) else 0
+
+bots = gate.get("bots", {}) if isinstance(gate, dict) else {}
+n_bots = len(bots)
+statuts = [b.get("statut") for b in bots.values() if isinstance(b, dict)]
+n_vert = statuts.count("VERT"); n_orange = statuts.count("ORANGE")
+n_gris = statuts.count("GRIS"); n_rouge = statuts.count("ROUGE")
+alertes = gate.get("alertes", []) if isinstance(gate, dict) else []
+banc_suspect = bool(gate.get("banc_suspect"))
+temoin = (gate.get("temoins", {}) or {}).get("10_controle_aleatoire", {})
+btc = brief.get("tendances_btc", {}) if isinstance(brief, dict) else {}
+extremes = brief.get("evenements_extremes", []) if isinstance(brief, dict) else []
+actions = brief.get("dernieres_actions", []) if isinstance(brief, dict) else []
+
+
+def _statut_ia(last_dt, incident=False, dormant=False):
+    if dormant:
+        return ("dormant", "Dormant (pas de cle)")
+    if incident:
+        return ("incident", "Incident signale")
+    if last_dt and (NOW - last_dt).total_seconds() < 600:
+        return ("actif", "A son poste")
+    return ("repos", "Au repos")
+
+
+# ---------- construction de l'equipage ----------
+officiers = []
+
+# Superviseur — Commandeure Ada (Fable 5, hebdo)
+_next_ada = _next_weekly(6, 6, 30)
+_cls, _lbl = _statut_ia(d_rapport)
+officiers.append({
+    "nom": "Commandeure Ada", "poste": "Supervision generale", "role": "Superviseur",
+    "badge": "Fable 5", "type": "IA",
+    "statut_cls": _cls, "statut": _lbl,
+    "derniere": "Audit hebdomadaire + consigne posee", "derniere_dt": d_rapport or d_consigne,
+    "prochain": "Prochain audit", "prochain_dt": _next_ada,
+    "parole": (f"Consigne au Lt Hugo : plafond de confiance {consigne.get('confiance_max', '?')}"
+               f" - {consigne.get('motif', 'en attente du 1er scoring')}"),
+})
+
+# Arbitre — Lieutenant Hugo (Opus 4.8, quotidien)
+_next_hugo = _next_daily(5, 45)
+_cls, _lbl = _statut_ia(d_regime, incident=(n_echecs > 0), dormant=not regime)
+officiers.append({
+    "nom": "Lieutenant Hugo", "poste": "Jugement quotidien", "role": "Arbitre",
+    "badge": "Opus 4.8", "type": "IA",
+    "statut_cls": _cls, "statut": (f"Incident ({n_echecs} echec(s))" if n_echecs else _lbl),
+    "derniere": "Avis de regime rendu", "derniere_dt": d_regime,
+    "prochain": "Prochain quart", "prochain_dt": _next_hugo,
+    "parole": (f"Regime {regime.get('regime', '?')} (confiance {regime.get('confiance', '?')})"
+               f" - {regime.get('resume', 'aucun avis encore')}"),
+})
+
+# Reserviste — Cadet Remy (Haiku 4.5, sans affectation)
+officiers.append({
+    "nom": "Cadet Remy", "poste": "Reserve - sans affectation", "role": "Reserviste",
+    "badge": "Haiku 4.5", "type": "IA",
+    "statut_cls": "reserve", "statut": "En reserve",
+    "derniere": "Aucune tache assignee", "derniere_dt": None,
+    "prochain": "Activation", "prochain_dt": None,
+    "parole": "Prendra les taches haute-frequence (ex. fiches produits Etsy, triage) quand elles existeront. On ne depense pas pour l'occuper.",
+})
+
+# ---------- automates 24/7 ----------
+automates = []
+
+# Le Sas — gate GO-reel (moniteur_go_reel.py)
+automates.append({
+    "nom": "Le Sas", "poste": "Controle GO-reel", "role": "moniteur_go_reel.py",
+    "badge": "Automate", "type": "SYS",
+    "statut_cls": ("incident" if banc_suspect or n_rouge else "actif"),
+    "statut": ("Banc suspect" if banc_suspect else (f"{n_rouge} ROUGE" if n_rouge else "Sain")),
+    "derniere": "Statuts GO-reel reevalues", "derniere_dt": d_gate,
+    "prochain": "Prochaine passe", "prochain_dt": _next_quarter(),
+    "parole": (f"Banc {'suspect' if banc_suspect else 'sain'}, temoin "
+               f"{'sain' if temoin.get('sain') else 'a surveiller'} (t {temoin.get('t_stat', '?')}). "
+               f"{n_bots} bots suivis : {n_vert} VERT / {n_orange} ORANGE / {n_gris} GRIS / {n_rouge} ROUGE. "
+               f"{len(alertes)} alerte(s)."),
+})
+
+# La Salle des machines — sampler / bots (run_once.py)
+_last_action = actions[0] if actions else {}
+automates.append({
+    "nom": "La Salle des machines", "poste": "Echantillonnage des bots", "role": "run_once.py",
+    "badge": "Automate", "type": "SYS",
+    "statut_cls": "actif", "statut": "En service",
+    "derniere": "Passe d'echantillonnage", "derniere_dt": d_brief,
+    "prochain": "Prochaine passe", "prochain_dt": _next_quarter(),
+    "parole": (f"Bots echantillonnes (temoin, 23, 24, 25, 26, 27x, 28). Derniere action : "
+               f"{_last_action.get('bot', '-')} sur {_last_action.get('marche', '-')} "
+               f"(pnl {_last_action.get('pnl', '-')})." if _last_action
+               else "Bots echantillonnes toutes les ~15 min."),
+})
+
+# La Passerelle — brief (tour_de_controle.py)
+automates.append({
+    "nom": "La Passerelle", "poste": "Compilation du brief", "role": "tour_de_controle.py",
+    "badge": "Automate", "type": "SYS",
+    "statut_cls": "actif", "statut": "En service",
+    "derniere": "Brief du jour compile", "derniere_dt": d_brief,
+    "prochain": "Prochaine passe", "prochain_dt": _next_quarter(),
+    "parole": (f"BTC {btc.get('prix', '?')} $ (7j {round(btc.get('ret7', 0)*100, 1)}%, "
+               f"30j {round(btc.get('ret30', 0)*100, 1)}%). {len(extremes)} move(s) extreme(s), "
+               f"{len(actions)} dernieres actions au journal."),
+})
+
+# La Vigie — alerte push (alerte_issue.py)
+automates.append({
+    "nom": "La Vigie", "poste": "Alertes push (issue GitHub)", "role": "alerte_issue.py",
+    "badge": "Automate", "type": "SYS",
+    "statut_cls": ("incident" if alertes or banc_suspect else "actif"),
+    "statut": (f"{len(alertes)} alerte(s)" if alertes else "Rien a signaler"),
+    "derniere": "Veille ROUGE / banc suspect", "derniere_dt": None,
+    "prochain": "Ronde quotidienne", "prochain_dt": _next_daily(6, 15),
+    "parole": ("Notifie le Commandant si un bot passe ROUGE, si le banc devient suspect "
+               "ou en cas de changement de statut. Aucune alerte en cours."),
+})
+
+# ---------- journal des echanges ----------
+evenements = []
+if d_consigne:
+    evenements.append((d_consigne, "Commandeure Ada", "Lieutenant Hugo",
+                       f"Consigne transmise : plafond de confiance {consigne.get('confiance_max', '?')}"
+                       f" ({consigne.get('motif', '')})"))
+if d_regime:
+    evenements.append((d_regime, "Lieutenant Hugo", "Les bots (27e)",
+                       f"Avis de regime publie : {regime.get('regime', '?')} "
+                       f"(conf {regime.get('confiance', '?')}) - {regime.get('resume', '')}"))
+if n_echecs:
+    evenements.append((_dt(echecs.get("maj")) or NOW, "Lieutenant Hugo", "Commandant",
+                       f"Incident API signale : {n_echecs} echec(s) consecutif(s)"))
+if d_gate:
+    evenements.append((d_gate, "Le Sas", "Station",
+                       f"Statuts reevalues : banc {'suspect' if banc_suspect else 'sain'}, "
+                       f"{n_orange} ORANGE / {n_gris} GRIS, {len(alertes)} alerte(s)"))
+if d_brief:
+    evenements.append((d_brief, "La Passerelle", "Station",
+                       f"Brief compile : BTC {btc.get('prix', '?')} $, {len(extremes)} move(s) extreme(s)"))
+evenements = [e for e in evenements if e[0]]
+evenements.sort(key=lambda e: e[0], reverse=True)
+
+
+# ---------- rendu HTML ----------
+def carte(a):
+    return f"""    <div class="carte {esc(a['statut_cls'])}">
+      <div class="tete"><span class="nom">{esc(a['nom'])}</span><span class="badge b-{esc(a['type'])}">{esc(a['badge'])}</span></div>
+      <div class="poste">{esc(a['poste'])} · <span class="role">{esc(a['role'])}</span></div>
+      <div><span class="pill p-{esc(a['statut_cls'])}">{esc(a['statut'])}</span></div>
+      <div class="ligne"><b>Derniere tache :</b> {esc(a['derniere'])} <span class="muted">· {_il_y_a(a['derniere_dt'])}</span></div>
+      <div class="ligne"><b>{esc(a['prochain'])} :</b> {_dans(a['prochain_dt'])} <span class="muted">({_hhmm(a['prochain_dt'])})</span></div>
+      <div class="parole">« {esc(a['parole'])} »</div>
+    </div>"""
+
+
+def ligne_journal(e):
+    dt, de, vers, msg = e
+    return (f'    <li><span class="jt">{esc(_hhmm(dt))}</span> '
+            f'<b>{esc(de)}</b> <span class="fleche">&rarr;</span> {esc(vers)}<br>'
+            f'<span class="jmsg">{esc(msg)}</span></li>')
+
+
+resume = (f"Banc <b>{'suspect' if banc_suspect else 'sain'}</b> · "
+          f"{len(officiers)} officiers · {len(automates)} automates · "
+          f"{len(alertes)} alerte(s) · MAJ {esc(_hhmm(NOW))}")
+
+html_doc = f"""<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Equipage · LA STATION</title>
+<style>
+:root {{ --bg:#0b1020; --card:#141b30; --card2:#101528; --line:#243050; --txt:#e6ecff;
+  --muted:#8894b8; --actif:#28c76f; --repos:#5b7cff; --reserve:#8a93b0; --incident:#ff5b6e;
+  --dormant:#54607f; }}
+* {{ box-sizing:border-box; }}
+body {{ margin:0; background:var(--bg); color:var(--txt);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  padding:14px; padding-bottom:40px; }}
+h1 {{ font-size:20px; margin:2px 0 2px; letter-spacing:.5px; }}
+.sub {{ color:var(--muted); font-size:12.5px; margin-bottom:12px; }}
+.sub a {{ color:var(--repos); text-decoration:none; }}
+h2 {{ font-size:13px; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted);
+  margin:20px 0 8px; border-bottom:1px solid var(--line); padding-bottom:6px; }}
+.grille {{ display:grid; grid-template-columns:1fr; gap:10px; }}
+@media(min-width:620px){{ .grille {{ grid-template-columns:1fr 1fr; }} }}
+.carte {{ background:var(--card); border:1px solid var(--line); border-left:4px solid var(--repos);
+  border-radius:12px; padding:12px 13px; }}
+.carte.actif {{ border-left-color:var(--actif); }}
+.carte.repos {{ border-left-color:var(--repos); }}
+.carte.reserve {{ border-left-color:var(--reserve); background:var(--card2); }}
+.carte.incident {{ border-left-color:var(--incident); }}
+.carte.dormant {{ border-left-color:var(--dormant); opacity:.75; }}
+.tete {{ display:flex; justify-content:space-between; align-items:center; gap:8px; }}
+.nom {{ font-size:16px; font-weight:700; }}
+.badge {{ font-size:11px; padding:2px 8px; border-radius:999px; white-space:nowrap;
+  background:#1e2a4a; color:#b9c6f0; border:1px solid var(--line); }}
+.badge.b-SYS {{ background:#20283f; color:#9fb0d8; }}
+.poste {{ color:var(--txt); font-size:12.5px; margin:2px 0 8px; opacity:.9; }}
+.role {{ color:var(--muted); font-family:ui-monospace,Menlo,Consolas,monospace; font-size:11px; }}
+.pill {{ display:inline-block; font-size:11.5px; font-weight:600; padding:3px 9px;
+  border-radius:999px; margin-bottom:8px; }}
+.p-actif {{ background:rgba(40,199,111,.15); color:var(--actif); }}
+.p-repos {{ background:rgba(91,124,255,.15); color:#9fb0ff; }}
+.p-reserve {{ background:rgba(138,147,176,.15); color:var(--reserve); }}
+.p-incident {{ background:rgba(255,91,110,.15); color:var(--incident); }}
+.p-dormant {{ background:rgba(84,96,127,.15); color:var(--dormant); }}
+.ligne {{ font-size:12.5px; margin:3px 0; }}
+.ligne b {{ color:#c7d2f7; font-weight:600; }}
+.muted {{ color:var(--muted); }}
+.parole {{ margin-top:9px; padding-top:8px; border-top:1px dashed var(--line);
+  font-size:12.5px; color:#cdd6f4; font-style:italic; line-height:1.45; }}
+ul.journal {{ list-style:none; padding:0; margin:0; }}
+ul.journal li {{ background:var(--card2); border:1px solid var(--line); border-radius:10px;
+  padding:9px 12px; margin-bottom:8px; font-size:12.5px; line-height:1.45; }}
+.jt {{ font-family:ui-monospace,Menlo,Consolas,monospace; color:var(--muted); font-size:11px;
+  margin-right:6px; }}
+.fleche {{ color:var(--actif); }}
+.jmsg {{ color:#c3cdec; }}
+footer {{ color:var(--muted); font-size:11px; margin-top:22px; text-align:center; }}
+</style></head><body>
+<h1>&#128737; LA STATION — Équipage</h1>
+<div class="sub">{resume} · <a href="./index.html">← tableau de bord</a></div>
+
+<h2>Officiers (IA)</h2>
+<div class="grille">
+{chr(10).join(carte(a) for a in officiers)}
+</div>
+
+<h2>Automates de bord (24/7)</h2>
+<div class="grille">
+{chr(10).join(carte(a) for a in automates)}
+</div>
+
+<h2>Journal des échanges</h2>
+<ul class="journal">
+{chr(10).join(ligne_journal(e) for e in evenements) if evenements else '    <li>Aucun échange enregistré pour le moment.</li>'}
+</ul>
+
+<footer>Page déterministe · 0 appel LLM · générée le {esc(NOW.strftime('%Y-%m-%d %H:%M UTC'))} · rafraîchie ~15 min</footer>
+</body></html>"""
+
+# ---------- ecriture ----------
+DOCS.mkdir(exist_ok=True)
+(DOCS / "equipage.html").write_text(html_doc, encoding="utf-8")
+(DOCS / "equipage.json").write_text(json.dumps({
+    "genere": NOW.isoformat(),
+    "officiers": [{k: v for k, v in a.items() if k not in ("derniere_dt", "prochain_dt")} for a in officiers],
+    "automates": [{k: v for k, v in a.items() if k not in ("derniere_dt", "prochain_dt")} for a in automates],
+    "journal": [{"ts": e[0].isoformat(), "de": e[1], "vers": e[2], "message": e[3]} for e in evenements],
+}, ensure_ascii=False, indent=1), encoding="utf-8")
+
+print(f"[equipage] OK - {len(officiers)} officiers, {len(automates)} automates, "
+      f"{len(evenements)} echanges -> docs/equipage.html", flush=True)
