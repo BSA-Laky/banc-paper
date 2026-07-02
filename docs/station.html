@@ -23,7 +23,6 @@
       radial-gradient(1.5px 1.5px at 33% 71%, #fff5 50%, transparent 51%),
       radial-gradient(1px 1px at 61% 48%, #fff7 50%, transparent 51%),
       radial-gradient(1px 1px at 89% 83%, #fff5 50%, transparent 51%),
-      radial-gradient(1.5px 1.5px at 45% 9%, #fff4 50%, transparent 51%),
       radial-gradient(ellipse at 50% -20%, #16224a 0%, var(--fond) 60%);
     color:#cfe3ff; min-height:100vh;
     padding:max(10px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right))
@@ -45,42 +44,17 @@
   #bandeau-demo{display:none; margin:10px 0 0; padding:8px 10px; font-size:12px;
     border:1px dashed var(--orange); color:var(--orange); border-radius:10px}
 
-  /* ---------- mini-carte de la station ---------- */
-  #carte{margin-top:12px; border:1px solid #23406b; border-radius:14px; padding:12px;
+  /* ---------- carte pixel-art ---------- */
+  #carte{margin-top:12px; border:1px solid #23406b; border-radius:14px; padding:10px;
     background:linear-gradient(160deg,#0c1428,#090f1e 70%);
     box-shadow:0 0 16px #0e2a5455, inset 0 0 26px #000a}
-  #carte h2{font-size:12px; letter-spacing:2px; color:var(--cyan); margin-bottom:10px;
+  #carte h2{font-size:12px; letter-spacing:2px; color:var(--cyan); margin:2px 2px 8px;
     text-shadow:0 0 8px #4dd7ff66}
-  .grille-carte{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
-  .tuile{
-    aspect-ratio:1/1; min-height:96px; border-radius:12px; border:1px solid #23406b;
-    background:
-      repeating-linear-gradient(0deg,transparent 0 7px,#ffffff05 7px 8px),
-      repeating-linear-gradient(90deg,transparent 0 7px,#ffffff05 7px 8px),
-      linear-gradient(160deg,#101a33,#0a1122);
-    position:relative; padding:8px; cursor:pointer; overflow:hidden;
-    display:flex; flex-direction:column; justify-content:space-between;
-    transition:transform .12s ease;
-  }
-  .tuile:active{transform:scale(.96)}
-  .tuile .nom{font-size:9.5px; letter-spacing:1px; color:#9fc3ef}
-  .tuile .act{font-size:9px; color:#6d84a8}
-  .tuile.vert{border-color:var(--vert); box-shadow:0 0 12px #2ecc7144, inset 0 0 18px #2ecc7115}
-  .tuile.orange{border-color:var(--orange); box-shadow:0 0 12px #f39c1244, inset 0 0 18px #f39c1215}
-  .tuile.rouge{border-color:var(--rouge); box-shadow:0 0 14px #e74c3c66, inset 0 0 18px #e74c3c1c;
-    animation:pulseR 1.4s infinite}
-  .tuile.gris{border-color:#31415f; box-shadow:inset 0 0 14px #0008}
-  @keyframes pulseR{50%{box-shadow:0 0 22px #e74c3caa, inset 0 0 22px #e74c3c2c}}
-  .agents{position:absolute; inset:0; pointer-events:none}
-  .agent{position:absolute; width:7px; height:7px; border-radius:2px; background:var(--cyan);
-    box-shadow:0 0 6px var(--cyan); animation:patrouille 2.8s ease-in-out infinite alternate}
-  .agent.a2{animation-duration:3.6s; animation-delay:.6s; background:var(--violet); box-shadow:0 0 6px var(--violet)}
-  .agent.a3{animation-duration:2.2s; animation-delay:1.1s}
-  .tuile.rouge .agent{background:var(--rouge); box-shadow:0 0 8px var(--rouge); animation-duration:1s}
-  .tuile.gris .agent{background:#4b5c7a; box-shadow:none; animation-duration:6s}
-  @keyframes patrouille{from{transform:translate(0,0)} to{transform:translate(26px,10px)}}
-
-  /* ---------- legende ---------- */
+  .cadre-cv{position:relative; border-radius:10px; overflow:hidden; border:1px solid #1b2f52}
+  #cv{display:block; width:100%; height:auto; image-rendering:pixelated; image-rendering:crisp-edges;
+    background:#05070d; cursor:pointer; touch-action:manipulation}
+  .cadre-cv::after{content:""; position:absolute; inset:0; pointer-events:none;
+    background:repeating-linear-gradient(0deg,transparent 0 2px,#00000022 2px 3px)}
   #legende{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px; font-size:10.5px; color:#8fb0da}
   #legende span{display:inline-flex; align-items:center; gap:5px; padding:5px 8px;
     border:1px solid #1d3155; border-radius:9px; background:#0b1326}
@@ -120,9 +94,8 @@
   #journal .pnl-pos{color:var(--vert); margin-left:auto} #journal .pnl-neg{color:var(--rouge); margin-left:auto}
   footer{margin-top:14px; font-size:11px; color:#5d739a; text-align:center; line-height:1.9}
   footer a{color:var(--cyan); text-decoration:none; padding:6px 4px}
-  @media (max-width:430px){          /* iPhone 15 Pro : 393 px */
+  @media (max-width:430px){
     body{font-size:14px}
-    .grille-carte{gap:8px} .tuile{min-height:88px}
     header h1{font-size:15px} .hud{gap:9px}
     table{font-size:11px} th,td{padding:6px 3px}
   }
@@ -141,43 +114,8 @@
 <div id="bandeau-demo">MODE DÉMO — données d'exemple (la page s'alimente en réel une fois servie par GitHub Pages à côté de brief.json / go_reel.json)</div>
 
 <section id="carte">
-  <h2>CARTE — la station en direct <span class="muted" style="letter-spacing:0">(cadence réelle : 1 passe / ~15 min · tape une salle)</span></h2>
-  <div class="grille-carte">
-    <div class="tuile gris" data-cible="salle-controle" id="t-controle">
-      <span class="nom">CONTRÔLE</span>
-      <div class="agents"><span class="agent" style="left:18%;top:38%"></span></div>
-      <span class="act" id="act-controle">—</span>
-    </div>
-    <div class="tuile orange" data-cible="salle-trading" id="t-trading">
-      <span class="nom">TRADING</span>
-      <div class="agents">
-        <span class="agent" style="left:14%;top:30%"></span>
-        <span class="agent a2" style="left:48%;top:52%"></span>
-        <span class="agent a3" style="left:28%;top:66%"></span>
-      </div>
-      <span class="act" id="act-trading">—</span>
-    </div>
-    <div class="tuile vert" data-cible="salle-biblio" id="t-biblio">
-      <span class="nom">BIBLIOTHÈQUE</span>
-      <div class="agents"><span class="agent a2" style="left:26%;top:44%"></span></div>
-      <span class="act" id="act-biblio">—</span>
-    </div>
-    <div class="tuile orange" data-cible="salle-archives" id="t-archives">
-      <span class="nom">ARCHIVES</span>
-      <div class="agents"><span class="agent a3" style="left:30%;top:40%"></span></div>
-      <span class="act" id="act-archives">—</span>
-    </div>
-    <div class="tuile orange" data-cible="salle-commerce" id="t-commerce">
-      <span class="nom">COMMERCE</span>
-      <div class="agents"><span class="agent" style="left:22%;top:50%"></span></div>
-      <span class="act">en construction</span>
-    </div>
-    <div class="tuile gris" data-cible="salle-rd" id="t-rd">
-      <span class="nom">R&amp;D</span>
-      <div class="agents"><span class="agent a2" style="left:34%;top:36%"></span></div>
-      <span class="act">file d'attente</span>
-    </div>
-  </div>
+  <h2>PONT PRINCIPAL <span class="muted" style="letter-spacing:0">(cadence réelle : 1 passe / ~15 min · tape une salle)</span></h2>
+  <div class="cadre-cv"><canvas id="cv" width="384" height="240"></canvas></div>
   <div id="legende">
     <span><i class="pastille p-vert"></i>VERT — critères GO remplis</span>
     <span><i class="pastille p-orange"></i>ORANGE — en mesure, rien d'anormal</span>
@@ -241,22 +179,20 @@
 </footer>
 
 <script>
+/* =================== DONNEES =================== */
 const DEMO = {
   brief: {ts:new Date().toISOString(), alertes:[], avertissements:[],
     banc_suspect:false, changements_statut:[],
-    statuts:{"23_carry_funding":{statut:"ORANGE",n:44,esperance:1.18,t:1.34,fwd_j:19},
-             "25_convergence_basis":{statut:"ORANGE",n:231,esperance:0.34,t:2.15,fwd_j:10},
-             "27b_rev_move":{statut:"GRIS",n:16,esperance:8.0,t:2.18,fwd_j:10},
-             "27e_arbitre":{statut:"GRIS",n:0,esperance:0,t:0,fwd_j:0},
-             "28_carry_hold":{statut:"ORANGE",n:12,esperance:1.1,t:1.9,fwd_j:1},
-             "30_trend_following":{statut:"GRIS",n:0,esperance:0,t:0,fwd_j:0},
-             "31_variance_premium":{statut:"GRIS",n:0,esperance:0,t:0,fwd_j:0}},
-    tendances_btc:{prix:107000,ret1:0.004,ret7:-0.012,ret30:0.031},
-    evenements_extremes:[{coin:"EXEMPLE",move_pct:24.5}],
+    statuts:{"23_carry_funding":{statut:"ORANGE",n:48,esperance:0.96,t:1.19,fwd_j:9},
+             "25_convergence_basis":{statut:"ORANGE",n:251,esperance:0.34,t:2.27,fwd_j:10},
+             "27b_rev_move":{statut:"GRIS",n:17,esperance:9.7,t:2.53,fwd_j:8},
+             "27c_mom_move":{statut:"GRIS",n:17,esperance:-9.9,t:-2.56,fwd_j:8}},
+    tendances_btc:{prix:61870,ret1:0.031,ret7:0.035,ret30:-0.073},
+    evenements_extremes:[{coin:"DYDX",move_pct:-26.3}],
     dernieres_actions:[
-      {ts:"2026-07-02T11:45",bot:"25_convergence_basis",marche:"conv-SOL",pnl:1.24},
-      {ts:"2026-07-02T10:30",bot:"23_carry_funding",marche:"carry-ETH",pnl:-0.61},
-      {ts:"2026-07-02T09:15",bot:"27b_rev_move",marche:"rev-DOGE",pnl:6.4}],
+      {ts:"2026-07-02T14:04",bot:"25_convergence_basis",marche:"conv-ME",pnl:0.91},
+      {ts:"2026-07-02T14:04",bot:"25_convergence_basis",marche:"conv-INJ",pnl:-0.31},
+      {ts:"2026-07-02T11:56",bot:"23_carry_funding",marche:"carry-ETH",pnl:-1.38}],
     calibration_arbitre:null},
   gate: {banc_suspect:false, temoins:{"10_controle_aleatoire":{n:97,t_stat:0.51,sain:true}}}
 };
@@ -274,17 +210,179 @@ async function charge(nom){
   if(!r.ok) throw new Error(nom);
   return r.json();
 }
-function tuile(id, classe, act){
-  const t = document.getElementById(id);
-  t.className = "tuile " + classe;
-  if(act !== undefined) { const a = t.querySelector(".act"); if(a) a.textContent = act; }
+
+/* =================== CARTE PIXEL-ART =================== */
+const CV = document.getElementById("cv"), X = CV.getContext("2d");
+X.imageSmoothingEnabled = false;
+const COUL = {vert:"#2ecc71", orange:"#f39c12", rouge:"#e74c3c", gris:"#8395a7"};
+const SALLES = [
+ {id:"controle", nom:"CONTROLE", type:"controle", x:6,  y:8,   w:118, h:106, cible:"salle-controle"},
+ {id:"trading",  nom:"TRADING",  type:"trading",  x:132, y:8,  w:118, h:106, cible:"salle-trading"},
+ {id:"biblio",   nom:"BIBLIO",   type:"biblio",   x:258, y:8,  w:120, h:106, cible:"salle-biblio"},
+ {id:"archives", nom:"ARCHIVES", type:"archives", x:6,  y:126, w:118, h:106, cible:"salle-archives"},
+ {id:"commerce", nom:"COMMERCE", type:"commerce", x:132, y:126, w:118, h:106, cible:"salle-commerce"},
+ {id:"rd",       nom:"R&D",      type:"rd",       x:258, y:126, w:120, h:106, cible:"salle-rd"},
+];
+let ETAT = {controle:"gris", trading:"orange", biblio:"vert", archives:"orange", commerce:"orange", rd:"gris"};
+let ACT  = {controle:"—", trading:"—", biblio:"—", archives:"—", commerce:"chantier", rd:"attente"};
+
+/* petit robot 7x8, 2 frames de marche */
+const CORPS = ["...W...",".MMMMM.",".MLLLM.",".LELEL.",".MMMMM.","W.MMM.W"];
+const JAMBES = ["..M.M..",".M...M."];
+const ROLES = {cyan:["#bfeaff","#4dd7ff","#17627e"], violet:["#e2d0ff","#a06bff","#4d3387"],
+               vert:["#c8f7dd","#2ecc71","#14663a"], orange:["#ffe3b3","#f39c12","#8a5a08"],
+               gris:["#e0e6ee","#8395a7","#454f5b"], rouge:["#ffd0c9","#e74c3c","#7c1e14"]};
+function dessineAgent(px, py, role, frame){
+  const [L,M,D] = ROLES[role];
+  const rangs = CORPS.concat([JAMBES[frame]]);
+  for(let r=0;r<rangs.length;r++) for(let c=0;c<7;c++){
+    const ch = rangs[r][c]; if(ch===".") continue;
+    X.fillStyle = ch==="L"?L : ch==="M"?M : ch==="D"?D : ch==="E"?"#0a0f1c" : "#dfe9f5";
+    X.fillRect(px+c, py+r, 1, 1);
+  }
 }
+const AGENTS = [];
+function peupler(){
+  const spec = {controle:["cyan"], trading:["vert","cyan","violet"], biblio:["violet"],
+                archives:["gris"], commerce:["orange"], rd:["cyan","violet"]};
+  for(const s of SALLES) for(const role of spec[s.id]){
+    AGENTS.push({s, role, x:s.x+20+Math.random()*(s.w-40), y:s.y+30+Math.random()*(s.h-50),
+                 tx:0, ty:0, neuf:true});
+  }
+}
+function cible(a){
+  a.tx = a.s.x+14+Math.random()*(a.s.w-30);
+  a.ty = a.s.y+26+Math.random()*(a.s.h-42);
+}
+peupler(); AGENTS.forEach(cible);
+
+const ETOILES = Array.from({length:46},()=>({x:Math.random()*384, y:Math.random()*240,
+  l:Math.random()<.25?1.5:1, a:.25+Math.random()*.55}));
+
+function damier(s, t){
+  X.fillStyle = "#0b1120"; X.fillRect(s.x+3, s.y+3, s.w-6, s.h-6);
+  for(let ty=s.y+3; ty<s.y+s.h-3; ty+=8) for(let tx=s.x+3; tx<s.x+s.w-3; tx+=8){
+    X.fillStyle = ((tx+ty)/8)%2 ? "#0d1526" : "#101a30";
+    X.fillRect(tx, ty, Math.min(8, s.x+s.w-3-tx), Math.min(8, s.y+s.h-3-ty));
+  }
+  X.globalAlpha = .07; X.fillStyle = COUL[ETAT[s.id]];
+  X.fillRect(s.x+3, s.y+3, s.w-6, s.h-6); X.globalAlpha = 1;
+}
+function murs(s, t){
+  const e = ETAT[s.id], c = COUL[e];
+  X.globalAlpha = e==="rouge" ? .55+.45*Math.sin(t/140) : 1;
+  X.strokeStyle = c; X.lineWidth = 2; X.strokeRect(s.x+1, s.y+1, s.w-2, s.h-2);
+  X.globalAlpha = .25; X.strokeRect(s.x-1.5, s.y-1.5, s.w+3, s.h+3);
+  X.globalAlpha = 1;
+  X.fillStyle = "#05070d";                     /* sas de porte */
+  X.fillRect(s.x+s.w/2-6, s.y-1, 12, 3); X.fillRect(s.x+s.w/2-6, s.y+s.h-2, 12, 3);
+  X.fillStyle = "#23406b";
+  X.fillRect(s.x+s.w/2-6, s.y, 12, 1); X.fillRect(s.x+s.w/2-6, s.y+s.h-1, 12, 1);
+}
+function console_(s, t){
+  const cx = s.x+s.w/2, cy = s.y+s.h/2+8, T = Math.floor(t/250);
+  if(s.type==="controle"){
+    X.strokeStyle="#1e7fa8"; X.lineWidth=1;
+    X.beginPath(); X.arc(cx, cy, 16, 0, 7); X.stroke();
+    X.beginPath(); X.arc(cx, cy, 9, 0, 7); X.stroke();
+    const a = t/900;
+    X.strokeStyle="#4dd7ff"; X.beginPath(); X.moveTo(cx, cy);
+    X.lineTo(cx+Math.cos(a)*15, cy+Math.sin(a)*15); X.stroke();
+    X.fillStyle = T%2 ? "#4dd7ff" : "#17627e"; X.fillRect(cx-14, s.y+22, 10, 6);
+    X.fillStyle = T%3 ? "#a06bff" : "#4d3387"; X.fillRect(cx+4, s.y+22, 10, 6);
+  } else if(s.type==="trading"){
+    for(let i=0;i<4;i++){
+      const bx = s.x+18+i*22;
+      X.fillStyle="#0a2233"; X.fillRect(bx, cy-16, 16, 26);
+      for(let b=0;b<3;b++){
+        const h = 4+((T+i*3+b*5)%9);
+        X.fillStyle = (T+i+b)%2 ? "#2ecc71" : "#e74c3c";
+        X.fillRect(bx+2+b*5, cy+8-h, 3, h);
+      }
+    }
+  } else if(s.type==="biblio"){
+    for(let e2=0;e2<2;e2++){
+      const by = cy-16+e2*16;
+      X.fillStyle="#132441"; X.fillRect(cx-32, by, 64, 11);
+      for(let b=0;b<12;b++){
+        X.fillStyle = ["#4dd7ff","#a06bff","#2ecc71","#f39c12"][(b+e2)%4];
+        X.fillRect(cx-30+b*5, by+2, 3, 7);
+      }
+    }
+  } else if(s.type==="archives"){
+    for(let r=0;r<2;r++){
+      const rx = cx-26+r*30;
+      X.fillStyle="#101c33"; X.fillRect(rx, cy-18, 22, 34);
+      X.strokeStyle="#23406b"; X.lineWidth=1; X.strokeRect(rx+.5, cy-17.5, 21, 33);
+      for(let l=0;l<5;l++){
+        X.fillStyle = (T+l+r)%3 ? "#2ecc71" : "#0d3320";
+        X.fillRect(rx+3, cy-14+l*6, 3, 2);
+        X.fillStyle="#1b2f52"; X.fillRect(rx+8, cy-14+l*6, 11, 2);
+      }
+    }
+  } else if(s.type==="commerce"){
+    X.fillStyle="#3a2a12"; X.fillRect(cx-24, cy+2, 48, 8);
+    X.fillStyle="#8a5a08"; X.fillRect(cx-24, cy, 48, 3);
+    const caisses=[[-20,-14],[-6,-14],[8,-14],[-13,-26]];
+    for(const [dx,dy] of caisses){
+      X.fillStyle="#7a4f10"; X.fillRect(cx+dx, cy+dy, 12, 12);
+      X.strokeStyle="#f39c12"; X.lineWidth=1; X.strokeRect(cx+dx+.5, cy+dy+.5, 11, 11);
+    }
+    X.fillStyle = T%2 ? "#f39c12" : "#8a5a08"; X.fillRect(cx+26, cy-24, 6, 4);
+  } else {
+    X.fillStyle="#132441"; X.fillRect(cx-22, cy-2, 44, 6);       /* etabli */
+    X.fillStyle="#101c33"; X.fillRect(cx-18, cy+4, 8, 10); X.fillRect(cx+12, cy+4, 8, 10);
+    X.strokeStyle="#a06bff"; X.lineWidth=1;                       /* fiole */
+    X.strokeRect(cx-8.5, cy-16.5, 7, 14);
+    X.fillStyle = T%2 ? "#a06bff" : "#4d3387"; X.fillRect(cx-7, cy-9+(T%3), 4, 5-(T%3));
+    X.fillStyle = T%3 ? "#4dd7ff" : "#17627e"; X.fillRect(cx+6, cy-14, 5, 5);
+  }
+}
+function texte(s){
+  X.font = "7px monospace"; X.fillStyle = "#9fc3ef";
+  X.fillText(s.nom, s.x+6, s.y+13);
+  X.font = "6px monospace"; X.fillStyle = "#6d84a8";
+  X.fillText(ACT[s.id]||"—", s.x+6, s.y+s.h-6);
+  const c = COUL[ETAT[s.id]];
+  X.fillStyle = c; X.fillRect(s.x+s.w-12, s.y+7, 5, 5);
+}
+let derniere = 0;
+function boucle(t){
+  requestAnimationFrame(boucle);
+  if(t-derniere < 83 || document.hidden) return;
+  const dt = Math.min(.2, (t-derniere)/1000); derniere = t;
+  X.clearRect(0,0,384,240);
+  X.fillStyle="#05070d"; X.fillRect(0,0,384,240);
+  for(const e of ETOILES){ X.globalAlpha=e.a; X.fillStyle="#cfe3ff"; X.fillRect(e.x,e.y,e.l,e.l); }
+  X.globalAlpha=1;
+  X.strokeStyle="#23406b"; X.lineWidth=1; X.strokeRect(1.5,1.5,381,237);   /* coque */
+  for(const s of SALLES){ damier(s,t); console_(s,t); murs(s,t); texte(s); }
+  for(const a of AGENTS){
+    const rouge = ETAT[a.s.id]==="rouge";
+    const v = (rouge?26:8)*dt;
+    const dx=a.tx-a.x, dy=a.ty-a.y, d=Math.hypot(dx,dy);
+    if(d<1.5) cible(a); else { a.x+=dx/d*v; a.y+=dy/d*v; }
+    const frame = Math.floor(t/(rouge?90:200))%2;
+    dessineAgent(Math.round(a.x)-3, Math.round(a.y)-7, rouge?"rouge":a.role, frame);
+  }
+}
+requestAnimationFrame(boucle);
+CV.addEventListener("click", ev=>{
+  const r = CV.getBoundingClientRect();
+  const lx = (ev.clientX-r.left)*384/r.width, ly = (ev.clientY-r.top)*240/r.height;
+  for(const s of SALLES) if(lx>=s.x && lx<=s.x+s.w && ly>=s.y && ly<=s.y+s.h){
+    const c = document.getElementById(s.cible);
+    if(c) c.scrollIntoView({behavior:"smooth", block:"start"});
+    return;
+  }
+});
+
+/* =================== RENDU DONNEES =================== */
 function rendre(brief, gate){
   document.getElementById("hud-ts").textContent = dispTs(brief.ts);
   const bots = brief.statuts || {};
   document.getElementById("hud-bots").textContent = Object.keys(bots).length;
 
-  // --- controle
   const alertes = brief.alertes||[], averts = brief.avertissements||[];
   document.getElementById("hud-alertes").textContent = alertes.length;
   const etat = document.getElementById("etat-alerte");
@@ -306,7 +404,6 @@ function rendre(brief, gate){
   document.getElementById("temoin-note").textContent =
     Object.entries(tm).map(([k,v])=>`témoin ${k.startsWith("10b")?"book":"crypto"} : t ${v.t_stat} (${v.sain?"sain":"SUSPECT"})`).join(" · ");
 
-  // --- trading
   const tb = document.querySelector("#tbl-bots tbody"); tb.innerHTML="";
   let nbRouge=0, nbVert=0;
   Object.entries(bots).forEach(([b,v])=>{
@@ -316,7 +413,6 @@ function rendre(brief, gate){
        <td>${v.n}</td><td>${v.esperance}</td><td>${v.t}</td><td>${v.fwd_j} j</td></tr>`);
   });
 
-  // --- journal de bord
   const jr = document.getElementById("journal"); jr.innerHTML="";
   const actions = brief.dernieres_actions||[];
   actions.forEach(a=>{
@@ -327,7 +423,6 @@ function rendre(brief, gate){
   });
   if(!actions.length) jr.innerHTML=`<li class="muted">Aucun trade soldé récemment — les bots guettent leurs seuils.</li>`;
 
-  // --- bibliotheque
   const k = document.getElementById("kpi-btc"); k.innerHTML="";
   const tbtc = brief.tendances_btc;
   if(tbtc){
@@ -341,7 +436,6 @@ function rendre(brief, gate){
         `<li>${e.move_pct>0?"▲":"▼"} ${e.coin} ${e.move_pct>0?"+":""}${e.move_pct} %</li>`).join("")+"</ul>"
     : `<p class="muted">Aucun événement extrême en cours.</p>`;
 
-  // --- archives
   const cal = brief.calibration_arbitre;
   document.getElementById("led-archives").className = "led " + (cal ? "vert" : "orange");
   if(cal){
@@ -350,19 +444,13 @@ function rendre(brief, gate){
         `avis « ${src} » : n=${v.n}, corrects ${(100*v.taux_correct).toFixed(0)} %, Brier ${v.brier_moyen}`).join("<br>");
   }
 
-  // --- carte (tuiles)
+  /* --- etats de la carte pixel-art --- */
   const actTrading = actions.length ? ilYA(actions[0].ts) : ilYA(brief.ts);
-  tuile("t-controle", etatControle, ilYA(brief.ts));
-  tuile("t-trading", nbRouge ? "rouge" : (nbVert ? "vert" : "orange"), actTrading);
-  tuile("t-biblio", tbtc ? "vert" : "orange", ilYA(brief.ts));
-  tuile("t-archives", cal ? "vert" : "orange", cal ? "calibré" : "attente J+7");
+  ETAT.controle = etatControle;             ACT.controle = ilYA(brief.ts);
+  ETAT.trading  = nbRouge ? "rouge" : (nbVert ? "vert" : "orange");  ACT.trading = actTrading;
+  ETAT.biblio   = tbtc ? "vert" : "orange"; ACT.biblio = ilYA(brief.ts);
+  ETAT.archives = cal ? "vert" : "orange";  ACT.archives = cal ? "calibre" : "attente J+7";
 }
-document.querySelectorAll(".tuile").forEach(t=>{
-  t.addEventListener("click", ()=> {
-    const c = document.getElementById(t.dataset.cible);
-    if(c) c.scrollIntoView({behavior:"smooth", block:"start"});
-  });
-});
 async function tour(){
   try{
     const [brief, gate] = await Promise.all([charge("brief.json"), charge("go_reel.json")]);
