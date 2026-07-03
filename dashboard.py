@@ -18,7 +18,7 @@ DOCS = Path("docs")
 ETAT = Path("etat")
 
 ORDRE = ["28_carry_hold", "25_convergence_basis", "23_carry_funding", "24_funding_multivenues", "26_carry_nado",
-         "27a_rev_premium", "27b_rev_move", "27c_mom_move", "27d_rev_move_stop", "10_controle_aleatoire"]
+         "27a_rev_premium", "27b_rev_move", "27c_mom_move", "27d_rev_move_stop", "27f_selecteur", "27f10_selecteur", "10_controle_aleatoire"]
 JOLI = {
     "28_carry_hold": "Bot 28 — Carry-HOLD (edge VALIDÉ out-of-sample, t OOS +10)",
     "25_convergence_basis": "Bot 25 — Convergence du basis (hypothèse)",
@@ -29,6 +29,8 @@ JOLI = {
     "27b_rev_move": "Bot 27b — Convexe : réversion move 24h extrême",
     "27c_mom_move": "Bot 27c — Convexe : momentum move 24h extrême",
     "27d_rev_move_stop": "Bot 27d — Convexe : réversion move 24h + stop-loss",
+    "27f_selecteur": "Bot 27f — Sélecteur informé : signal par pièce + IA (seuil 20%)",
+    "27f10_selecteur": "Bot 27f10 — Sélecteur informé (seuil 10%, verdict rapide)",
     "10_controle_aleatoire": "Témoin aléatoire (étalon du bruit)",
 }
 
@@ -142,6 +144,7 @@ def construire_dashboard():
         '<title>Banc paper-trading</title><style>' + CSS + '</style></head><body>'
         '<h1>Banc paper-trading — argent 100 % fictif</h1>'
         f'<div class="maj">Mis à jour : {maj} · rafraîchissement auto ~10 min</div>'
+        '<div class="maj"><a href="station.html">station</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a> · <a href="book.html">book</a></div>'
         + _ab(res) + cartes + _positions() +
         '<footer>Lecture seule sur APIs publiques (Hyperliquid, Paradex, ADEN). '
         'Aucun ordre réel, aucun wallet, aucune clé. Le t-stat est peu fiable pour '

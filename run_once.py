@@ -15,6 +15,7 @@ from bot_26_carry_nado import CarryNado
 from bot_27_convex_buckets import ConvexBuckets
 from bot_28_carry_hold import CarryHold
 from bot_27e_arbitre import ArbitreRegime
+from bot_27f_selecteur import SelecteurInforme
 from dashboard import construire_dashboard
 
 
@@ -28,6 +29,8 @@ def lancer_passe() -> None:
         ConvexBuckets(),          # bot 27 : experience edge convexe (4 buckets)
         CarryHold(),              # bot 28 : carry-hold (edge VALIDE OOS, confirmation forward)
         ArbitreRegime(),          # bot 27e : arbitre regime 27b/27c (hypothese mesuree, prior negatif)
+        SelecteurInforme(),               # bot 27f : selecteur informe (signal par piece + IA), seuil 20%
+        SelecteurInforme(move_big=0.10),  # bot 27f10 : jumeau rapide seuil 10% (verdict ~1 sem.)
     ]
     nouveaux = []
     for b in bots:
