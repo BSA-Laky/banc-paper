@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-03T22:42:12.445815+00:00",
+ "ts": "2026-07-03T23:45:18.764733+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -21,10 +21,10 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 289,
-   "esperance": 0.2332,
-   "t": 1.09,
-   "fwd_j": 11.1
+   "n": 291,
+   "esperance": 0.2341,
+   "t": 1.1,
+   "fwd_j": 11.2
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -70,13 +70,31 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0157,
-  "ret7": 0.0413,
-  "ret30": -0.0244,
-  "prix": 62554
+  "ret1": 0.0175,
+  "ret7": 0.0431,
+  "ret30": -0.0227,
+  "prix": 62664
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-03T23:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-GRASS",
+   "pnl": 0.83
+  },
+  {
+   "ts": "2026-07-03T23:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-WIF",
+   "pnl": -0.09
+  },
+  {
+   "ts": "2026-07-03T23:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-03T22:42",
    "bot": "28_carry_hold",
@@ -106,24 +124,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-KSHIB",
    "pnl": -0.01
-  },
-  {
-   "ts": "2026-07-03T22:42",
-   "bot": "23_carry_funding",
-   "marche": "carry-XMR",
-   "pnl": -0.92
-  },
-  {
-   "ts": "2026-07-03T22:42",
-   "bot": "23_carry_funding",
-   "marche": "carry-VVV",
-   "pnl": -1.21
-  },
-  {
-   "ts": "2026-07-03T22:42",
-   "bot": "23_carry_funding",
-   "marche": "carry-ZRO",
-   "pnl": -0.53
   }
  ],
  "calibration_arbitre": null
