@@ -1,25 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-bot_27f_selecteur.py - SELECTEUR INFORME : choisir le cote (REV/MOM) PAR EVENEMENT
-==================================================================================
-Hypothese de Nino : des agents choisissent le bon cote de la paire miroir 27b/27c
-selon l'INFO (veille + tendance) au lieu de subir le cote miroir. Le 27e teste ca
-avec la tendance BTC GLOBALE -> presque toujours "neutre" -> REV par defaut : il ne
-teste pas vraiment une selection informee. Ici, le signal est PROPRE A LA PIECE
-(sa propre tendance 7j) + l'avis IA (si frais). Mecanique identique a 27b/27c/27e
-(meme seuil, notional, horizon, frais) => comparaison a armes egales. 100 % fictif.
+bot_27f_selecteur.py - SELECTEUR INFORME PAR PIECE (paper)
+==========================================================
+Choisit REV/MOM par EVENEMENT (move 24h >= seuil), par ORDRE DE PRIORITE :
+  1. AVIS PAR PIECE de l'IA (etat/avis_par_piece.json, ecrit par avis_piece_ia.py qui
+     LIT LE CATALYSEUR du move via recherche web) -> le vrai signal informe, PAR COIN ;
+  2. sinon TENDANCE PROPRE de la piece (rendement 7j) : move aligne -> momentum,
+     spike a contre-tendance -> reversion ;
+  3. sinon REVERSION (defaut prouve meilleur en OOS).
+On a RETIRE l'avis BTC GLOBAL (le 27e le teste deja, et l'appliquer a tous les coins
+est justement le defaut) : ici TOUT est PAR PIECE. Mecanique identique a 27b/27c/27e
+(seuil, notional, horizon, frais) => comparaison a armes egales.
 
-RATIONALE CHIFFRE (n=18 paires live, 24/06->03/07/2026) :
-  toujours-REV (=27b) : esp +8,7 / t 2,34 / total +157
-  oracle (selecteur parfait) : esp +12,9 / t 4,41 / total +232
-  => l'ecart (~+75 sur 18 evts, 7 evts ou MOM gagne) est le prix qu'un BON
-     selecteur capture. Le 27e ne le capte pas. On teste un signal par piece.
-
-PRIOR HONNETE : hypothese A CONDAMNER si le banc ne la sauve pas. Critere de survie
-STRICT : n>=50, t>=2, net de frais, ET battre le temoin ALEATOIRE, ET battre
-"toujours REVERSION" (sinon l'agent n'apporte rien vs la politique bete). Ce bot ne
-pilote RIEN : il est mesure comme les autres. stdlib only, lecture seule Hyperliquid.
+Survie STRICTE : n>=50, t>=2, net de frais, ET battre le temoin ALEATOIRE, ET battre
+"toujours REVERSION". Ce bot ne pilote RIEN : mesure. 100% fictif, lecture seule HL, stdlib.
 """
 from __future__ import annotations
 
@@ -30,15 +25,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from banc_essai_paper_trading import Strategy, Trade
-# Reutilise les helpers PURS du 27e (aucune duplication, memes appels HL) :
 from bot_27e_arbitre import _http_post_info, _parse_ctxs
 
 ETAT_DIR = Path("etat")
-FICHIER_AVIS_IA = ETAT_DIR / "regime_ia.json"
+F_AVIS_PIECE = ETAT_DIR / "avis_par_piece.json"
 JOURNAL_DECISIONS = ETAT_DIR / "journal_selecteur.csv"
 FRAICHEUR_AVIS_H = 26.0
-CONFIANCE_MIN = 0.55        # un cran sous le 27e (0.6) : on veut que l'IA s'exprime
-TREND_MIN = 0.05            # |tendance 7j piece| mini pour parler d'"alignement"
+CONF_MIN_PIECE = 0.5       # on ne suit l'avis IA par coin que si confiance >= 0.5
+TREND_MIN = 0.05           # |tendance 7j piece| mini pour parler d'"alignement"
 
 
 def _ret7_coin(coin: str):
@@ -59,35 +53,36 @@ def _ret7_coin(coin: str):
     return closes[-1] / closes[-8] - 1.0
 
 
-def _avis_ia(now):
-    """Lit etat/regime_ia.json (avis IA global). None si absent/perime/peu sur."""
+def _avis_piece(coin, now):
+    """Avis IA SPECIFIQUE au coin (etat/avis_par_piece.json). None si absent/perime/peu sur."""
     try:
-        with FICHIER_AVIS_IA.open(encoding="utf-8") as fh:
-            d = json.load(fh)
-        regime = str(d.get("regime", "")).lower()
-        conf = float(d.get("confiance", 0.0))
-        ts = datetime.fromisoformat(str(d.get("date", "")).replace("Z", "+00:00"))
+        with F_AVIS_PIECE.open(encoding="utf-8") as fh:
+            e = json.load(fh).get(coin)
+        if not isinstance(e, dict):
+            return None
+        sens = str(e.get("sens", "")).lower()
+        conf = float(e.get("confiance", 0.0))
+        ts = datetime.fromisoformat(str(e.get("ts", "")).replace("Z", "+00:00"))
         if ts.tzinfo is None:
             ts = ts.replace(tzinfo=timezone.utc)
     except (OSError, ValueError, TypeError, KeyError):
         return None
-    age_h = (now - ts).total_seconds() / 3600.0
-    if regime not in ("haussier", "baissier", "neutre"):
+    if sens not in ("momentum", "reversion"):
         return None
-    if age_h < 0 or age_h > FRAICHEUR_AVIS_H or conf < CONFIANCE_MIN:
+    age = (now - ts).total_seconds() / 3600.0
+    if age < 0 or age > FRAICHEUR_AVIS_H or conf < CONF_MIN_PIECE:
         return None
-    return {"regime": regime, "confiance": conf}
+    return {"sens": sens, "confiance": conf}
 
 
-def _decider(move, ret7, avis):
-    """Renvoie (mode, source). mode in {MOM, REV}. REV = defaut prouve meilleur."""
-    if avis is not None:                       # 1) l'IA parle et est sure -> priorite
-        mode = "MOM" if avis["regime"] == "haussier" else "REV"
-        return mode, "ia"
-    if ret7 is not None and abs(ret7) >= TREND_MIN:   # 2) signal PROPRE a la piece
+def _decider(move, ret7, avis_piece):
+    """(mode, source). mode in {MOM, REV}. Priorite : avis IA par coin > tendance piece > REV."""
+    if avis_piece is not None:                       # 1) l'IA a lu le catalyseur de CE coin
+        return ("MOM" if avis_piece["sens"] == "momentum" else "REV"), "ia_piece"
+    if ret7 is not None and abs(ret7) >= TREND_MIN:  # 2) tendance propre de la piece
         aligne = (move > 0 and ret7 > 0) or (move < 0 and ret7 < 0)
         return ("MOM", "tendance_piece") if aligne else ("REV", "tendance_piece")
-    return "REV", "defaut"                      # 3) inconnu -> baseline reversion
+    return "REV", "defaut"                            # 3) baseline reversion
 
 
 def _journaliser_decision(ligne):
@@ -98,14 +93,14 @@ def _journaliser_decision(ligne):
             w = csv.writer(fh)
             if neuf:
                 w.writerow(["ts", "coin", "move_pct", "ret7_piece",
-                            "regime_ia", "conf_ia", "source", "decision"])
+                            "avis_sens", "avis_conf", "source", "decision"])
             w.writerow(ligne)
     except OSError:
         pass
 
 
 class SelecteurInforme(Strategy):
-    """Bot 27f : un seul sens par evenement, choisi par signal PROPRE A LA PIECE + IA."""
+    """Bot 27f : un seul sens par evenement, choisi PAR PIECE (avis IA du coin + tendance)."""
     name = "27f_selecteur"
 
     def __init__(self, notional=100.0, move_big=0.20, horizon_h=24.0,
@@ -116,9 +111,6 @@ class SelecteurInforme(Strategy):
         self.horizon_h = horizon_h
         self.frais = frais_par_jambe
         self.vol_min = vol_min
-        # nom dynamique : 20 % = "27f_selecteur" (comparable a 27b/27c) ;
-        # tout seuil plus bas prend un suffixe (ex. 10 % -> "27f10_selecteur")
-        # pour journaliser/scorer separement son propre univers d'evenements.
         self.name = ("27f_selecteur" if move_big >= 0.20
                      else "27f%d_selecteur" % int(round(move_big * 100)))
         self._f = ETAT_DIR / ("etat_%s.json" % self.name)
@@ -176,19 +168,18 @@ class SelecteurInforme(Strategy):
                      if d["vol"] >= self.vol_min and d["move"] is not None
                      and abs(d["move"]) >= self.move_big
                      and not (self._etat.get(c) or {}).get("ouvert")]
-        if candidats:
-            avis = _avis_ia(now)
-            for coin, d in candidats:
-                move = d["move"]
-                ret7 = _ret7_coin(coin)          # signal PROPRE a la piece
-                mode, source = _decider(move, ret7, avis)
-                side = (1 if move > 0 else -1) if mode == "MOM" else (-1 if move > 0 else 1)
-                self._etat[coin] = {"ouvert": True, "side": side, "entry": d["mark"],
-                                    "ts": now.isoformat(), "mode": mode, "source": source}
-                _journaliser_decision([
-                    now.isoformat(), coin, round(move * 100, 2),
-                    (round(ret7, 4) if ret7 is not None else ""),
-                    (avis["regime"] if avis else ""),
-                    (avis["confiance"] if avis else ""), source, mode])
+        for coin, d in candidats:
+            move = d["move"]
+            ap = _avis_piece(coin, now)
+            ret7 = None if ap is not None else _ret7_coin(coin)   # evite un appel si avis present
+            mode, source = _decider(move, ret7, ap)
+            side = (1 if move > 0 else -1) if mode == "MOM" else (-1 if move > 0 else 1)
+            self._etat[coin] = {"ouvert": True, "side": side, "entry": d["mark"],
+                                "ts": now.isoformat(), "mode": mode, "source": source}
+            _journaliser_decision([
+                now.isoformat(), coin, round(move * 100, 2),
+                (round(ret7, 4) if ret7 is not None else ""),
+                (ap["sens"] if ap else ""), (round(ap["confiance"], 2) if ap else ""),
+                source, mode])
         self._sauver()
         return out

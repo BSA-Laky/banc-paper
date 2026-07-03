@@ -20,6 +20,11 @@ from dashboard import construire_dashboard
 
 
 def lancer_passe() -> None:
+    try:                          # avis LLM par piece (best-effort, budget-cape, jamais bloquant)
+        import avis_piece_ia
+        avis_piece_ia.produire_avis()
+    except Exception as e:
+        print(f"[run_once] avis_piece a leve : {e}", flush=True)
     bots = [
         ControleAleatoire(stake_usd=1.0),
         CarryFundingOnly(actifs="*"),
