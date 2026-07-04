@@ -1,5 +1,5 @@
 {
- "genere": "2026-07-04T06:35:05.718808+00:00",
+ "genere": "2026-07-04T09:08:56.036275+00:00",
  "officiers": [
   {
    "nom": "Commandeure Ada",
@@ -19,8 +19,8 @@
    "role": "Arbitre",
    "badge": "Opus 4.8",
    "type": "IA",
-   "statut_cls": "repos",
-   "statut": "Au repos",
+   "statut_cls": "incident",
+   "statut": "Incident (1 echec(s))",
    "derniere": "Avis de regime rendu",
    "prochain": "Prochain quart",
    "parole": "Regime neutre (confiance 0.5) - BTC 61800, ret7 +2.9% vs ret30 -3.6% : marche indecis. Seul 25_conv mur (n=275, t=1.09). 27x tous <n=30 = bruit. Rien de solide."
@@ -49,7 +49,7 @@
    "statut": "Sain",
    "derniere": "Statuts GO-reel reevalues",
    "prochain": "Prochaine passe",
-   "parole": "Banc sain, temoin sain (t 0.4). 9 bots suivis : 0 VERT / 3 ORANGE / 6 GRIS / 0 ROUGE. 0 alerte(s)."
+   "parole": "Banc sain, temoin sain (t 0.49). 9 bots suivis : 0 VERT / 3 ORANGE / 6 GRIS / 0 ROUGE. 0 alerte(s)."
   },
   {
    "nom": "La Salle des machines",
@@ -61,7 +61,7 @@
    "statut": "En service",
    "derniere": "Passe d'echantillonnage",
    "prochain": "Prochaine passe",
-   "parole": "Bots echantillonnes (temoin, 23, 24, 25, 26, 27x, 28). Derniere action : 27d_rev_move_stop sur rev_move_stop-HMSTR (pnl -13.31)."
+   "parole": "Bots echantillonnes (temoin, 23, 24, 25, 26, 27x, 28). Derniere action : 25_convergence_basis sur conv-GRAM (pnl -0.31)."
   },
   {
    "nom": "La Passerelle",
@@ -73,7 +73,7 @@
    "statut": "En service",
    "derniere": "Brief du jour compile",
    "prochain": "Prochaine passe",
-   "parole": "BTC 62456 $ (7j 4.1%, 30j -2.2%). 1 move(s) extreme(s), 8 dernieres actions au journal."
+   "parole": "BTC 62507 $ (7j 4.2%, 30j -2.1%). 1 move(s) extreme(s), 8 dernieres actions au journal."
   },
   {
    "nom": "La Vigie",
@@ -90,16 +90,22 @@
  ],
  "journal": [
   {
-   "ts": "2026-07-04T06:35:04.799665+00:00",
+   "ts": "2026-07-04T09:08:55.095483+00:00",
    "de": "La Passerelle",
    "vers": "Station",
-   "message": "Brief compile : BTC 62456 $, 1 move(s) extreme(s)"
+   "message": "Brief compile : BTC 62507 $, 1 move(s) extreme(s)"
   },
   {
-   "ts": "2026-07-04T06:35:04.796762+00:00",
+   "ts": "2026-07-04T09:08:55.092592+00:00",
    "de": "Le Sas",
    "vers": "Station",
    "message": "Statuts reevalues : banc sain, 3 ORANGE / 6 GRIS, 0 alerte(s)"
+  },
+  {
+   "ts": "2026-07-04T08:14:00.129248+00:00",
+   "de": "Lieutenant Hugo",
+   "vers": "Commandant",
+   "message": "Incident API signale : 1 echec(s) consecutif(s)"
   },
   {
    "ts": "2026-07-03T08:39:30.330231+00:00",
