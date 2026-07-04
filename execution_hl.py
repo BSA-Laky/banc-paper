@@ -3,22 +3,19 @@
 """
 execution_hl.py - COUCHE D'EXECUTION Hyperliquid (paper <-> live), DESACTIVEE par defaut.
 ========================================================================================
-But : rendre les bots CAPABLES d'un vrai wallet, sans jamais franchir seul la barriere
-humaine. Un bot appelle toujours les MEMES methodes ; on ne change QUE l'executeur.
+Rend les bots CAPABLES d'un vrai wallet sans franchir seul la barriere humaine.
+  - PAPER (defaut) : simule les fills, AUCUN reseau. stdlib seul.
+  - LIVE  : ordres reels via le SDK hyperliquid-python + un wallet AGENT (trade-only,
+            NE PEUT PAS RETIRER). L'agent signe POUR le compte maitre (account_address).
 
-Deux modes :
-  - PAPER (defaut) : simule les fills, AUCUN reseau, aucun risque. stdlib seul.
-  - LIVE  : place/annule de vrais ordres via le SDK hyperliquid-python + un wallet API
-            (agent) HL, qui PEUT trader mais NE PEUT PAS RETIRER (self-custody).
-
-GARDE-FOUS cumulatifs pour passer en LIVE (tous poses par un HUMAIN) :
+GARDE-FOUS cumulatifs pour le LIVE (tous poses par un HUMAIN) :
   1. HL_MODE=live
-  2. HL_LIVE_CONFIRM=OUI_ARGENT_REEL     (2e interrupteur independant)
+  2. HL_LIVE_CONFIRM=OUI_ARGENT_REEL
   3. HL_NET=mainnet  (sinon TESTNET par defaut = argent de test)
-  4. HL_MAX_NOTIONAL borne la taille d'un ordre (defaut 25 $) -> refus au-dela
-  5. HL_API_KEY = cle du wallet AGENT (trade-only). Jamais logguee.
-Sans ces variables, TOUT ordre est SIMULE. Ce module ne contient, par conception,
-AUCUNE fonction de retrait/transfert de fonds.
+  4. HL_MAX_NOTIONAL borne un ordre (defaut 25 $) -> refus au-dela
+  5. HL_API_KEY = cle privee du wallet AGENT (jamais logguee)
+  6. HL_ACCOUNT_ADDRESS = adresse publique du compte MAITRE (celui qui a approuve l'agent)
+Sans ces variables, TOUT ordre est SIMULE. Aucune fonction de retrait, par conception.
 """
 from __future__ import annotations
 
@@ -41,6 +38,7 @@ class ConfigExecution:
         self.net = os.environ.get("HL_NET", "testnet").strip().lower()
         self.max_notional = float(os.environ.get("HL_MAX_NOTIONAL", "25"))
         self.key = os.environ.get("HL_API_KEY", "").strip()
+        self.account = os.environ.get("HL_ACCOUNT_ADDRESS", "").strip()
 
     @property
     def live_arme(self):
@@ -56,6 +54,7 @@ class ConfigExecution:
                 "url": (self.base_url if self.live_arme else "-"),
                 "max_notional_usd": self.max_notional,
                 "cle_agent_presente": bool(self.key),
+                "compte_maitre_present": bool(self.account),
                 "argent_reel": bool(self.live_arme and self.net == "mainnet")}
 
 
@@ -68,7 +67,7 @@ class ExecutionHL:
 
     def __init__(self, cfg=None):
         self.cfg = cfg or ConfigExecution()
-        self._live = None   # (exchange, info) charges paresseusement, en LIVE seulement
+        self._live = None
 
     def _verifie_taille(self, notional):
         if notional > self.cfg.max_notional:
@@ -81,17 +80,18 @@ class ExecutionHL:
         if not self.cfg.live_arme:
             raise RuntimeError("LIVE non arme (HL_MODE=live + HL_LIVE_CONFIRM) - reste en paper")
         if not self.cfg.key:
-            raise RuntimeError("HL_API_KEY absente (wallet agent trade-only)")
+            raise RuntimeError("HL_API_KEY absente (cle du wallet agent trade-only)")
+        if not self.cfg.account:
+            raise RuntimeError("HL_ACCOUNT_ADDRESS absente (adresse du compte maitre) - l'agent doit signer POUR lui")
         from eth_account import Account            # non-stdlib, uniquement en LIVE
         from hyperliquid.exchange import Exchange
         from hyperliquid.info import Info
         wallet = Account.from_key(self.cfg.key)
         info = Info(self.cfg.base_url, skip_ws=True)
-        exchange = Exchange(wallet, self.cfg.base_url)
+        exchange = Exchange(wallet, self.cfg.base_url, account_address=self.cfg.account)
         self._live = (exchange, info)
         return self._live
 
-    # ---- API appelee par les bots (memes signatures en paper et en live) ----
     def market_open(self, coin, is_buy, notional_usd, prix_ref):
         self._verifie_taille(notional_usd)
         sz = round(notional_usd / prix_ref, 6) if prix_ref else 0.0
@@ -136,7 +136,7 @@ def verifier():
     cfg = ConfigExecution()
     print(json.dumps(cfg.resume(), ensure_ascii=False, indent=2))
     if cfg.live_arme and cfg.net == "mainnet":
-        print(">>> ATTENTION : LIVE MAINNET arme = ARGENT REEL (barriere humaine franchie volontairement).")
+        print(">>> ATTENTION : LIVE MAINNET arme = ARGENT REEL.")
     else:
         print(">>> Sur : mode paper/simule ou testnet. Aucun argent reel.")
 
@@ -147,7 +147,7 @@ if __name__ == "__main__":
     if cmd == "check":
         verifier()
     elif cmd == "dryrun":
-        ex = ExecutionHL(ConfigExecution())      # paper par defaut
+        ex = ExecutionHL(ConfigExecution())
         print(ex.market_open("BTC", True, 10.0, 60000.0))
         print(ex.limit_order("ETH", False, 0.005, 3000.0))
         print("dry-run PAPER ecrit dans", LEDGER_PAPER)
