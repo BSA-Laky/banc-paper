@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-04T12:18:21.636886+00:00",
+ "ts": "2026-07-04T14:09:26.196002+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -7,31 +7,31 @@
  "statuts": {
   "23_carry_funding": {
    "statut": "ORANGE",
-   "n": 59,
-   "esperance": 0.6113,
-   "t": 0.91,
-   "fwd_j": 10.7
+   "n": 62,
+   "esperance": 0.5438,
+   "t": 0.85,
+   "fwd_j": 10.8
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
    "n": 65,
    "esperance": 0.0341,
    "t": 0.09,
-   "fwd_j": 10.7
+   "fwd_j": 10.8
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 303,
-   "esperance": 0.2302,
-   "t": 1.13,
-   "fwd_j": 11.7
+   "n": 305,
+   "esperance": 0.2262,
+   "t": 1.12,
+   "fwd_j": 11.8
   },
   "27a_rev_premium": {
    "statut": "GRIS",
    "n": 11,
    "esperance": -2.4095,
    "t": -0.99,
-   "fwd_j": 10.6
+   "fwd_j": 10.7
   },
   "27b_rev_move": {
    "statut": "GRIS",
@@ -52,7 +52,7 @@
    "n": 11,
    "esperance": -0.2914,
    "t": -0.06,
-   "fwd_j": 4.6
+   "fwd_j": 4.7
   },
   "27e_arbitre": {
    "statut": "GRIS",
@@ -63,72 +63,72 @@
   },
   "28_carry_hold": {
    "statut": "GRIS",
-   "n": 9,
-   "esperance": 3.1803,
-   "t": 1.64,
+   "n": 11,
+   "esperance": 3.1086,
+   "t": 1.98,
    "fwd_j": 0.9
   }
  },
  "tendances_btc": {
-  "ret1": -0.0006,
-  "ret7": 0.0424,
-  "ret30": -0.0206,
-  "prix": 62539
+  "ret1": 0.0005,
+  "ret7": 0.0435,
+  "ret30": -0.0195,
+  "prix": 62607
  },
  "evenements_extremes": [
   {
    "coin": "HMSTR",
-   "move_pct": 105.9
+   "move_pct": 65.5
   }
  ],
  "dernieres_actions": [
   {
-   "ts": "2026-07-04T12:18",
+   "ts": "2026-07-04T14:09",
    "bot": "28_carry_hold",
-   "marche": "carryhold-ME",
-   "pnl": 18.43
+   "marche": "carryhold-GRAM",
+   "pnl": 3.1
   },
   {
-   "ts": "2026-07-04T12:18",
+   "ts": "2026-07-04T14:09",
    "bot": "28_carry_hold",
-   "marche": "carryhold-JTO",
-   "pnl": 0.28
+   "marche": "carryhold-ZRO",
+   "pnl": 2.47
   },
   {
-   "ts": "2026-07-04T12:18",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-HMSTR",
-   "pnl": -16.41
-  },
-  {
-   "ts": "2026-07-04T12:18",
-   "bot": "24_funding_multivenues",
-   "marche": "sprd-GRAM",
-   "pnl": -0.96
-  },
-  {
-   "ts": "2026-07-04T12:18",
-   "bot": "24_funding_multivenues",
-   "marche": "pdxcarry-CRCL",
-   "pnl": -0.21
-  },
-  {
-   "ts": "2026-07-04T12:18",
+   "ts": "2026-07-04T14:09",
    "bot": "25_convergence_basis",
-   "marche": "conv-KPEPE",
-   "pnl": 0.11
+   "marche": "conv-SPX",
+   "pnl": -0.08
   },
   {
-   "ts": "2026-07-04T12:18",
+   "ts": "2026-07-04T14:09",
+   "bot": "25_convergence_basis",
+   "marche": "conv-SUI",
+   "pnl": -0.68
+  },
+  {
+   "ts": "2026-07-04T14:09",
+   "bot": "23_carry_funding",
+   "marche": "carry-GRAM",
+   "pnl": -1.21
+  },
+  {
+   "ts": "2026-07-04T14:09",
+   "bot": "23_carry_funding",
+   "marche": "carry-SPX",
+   "pnl": -0.45
+  },
+  {
+   "ts": "2026-07-04T14:09",
+   "bot": "23_carry_funding",
+   "marche": "carry-GRASS",
+   "pnl": -0.7
+  },
+  {
+   "ts": "2026-07-04T14:09",
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-04T11:01",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-HMSTR",
-   "pnl": -11.15
+   "pnl": -1.0
   }
  ],
  "calibration_arbitre": null
