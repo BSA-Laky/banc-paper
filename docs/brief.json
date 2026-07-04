@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-04T17:46:53.172258+00:00",
+ "ts": "2026-07-04T19:15:37.789344+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -14,17 +14,17 @@
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
-   "n": 65,
-   "esperance": 0.0341,
-   "t": 0.09,
+   "n": 66,
+   "esperance": 0.0236,
+   "t": 0.07,
    "fwd_j": 11.0
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 309,
-   "esperance": 0.2357,
+   "n": 311,
+   "esperance": 0.2349,
    "t": 1.18,
-   "fwd_j": 11.9
+   "fwd_j": 12.0
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -38,14 +38,14 @@
    "n": 22,
    "esperance": 7.7757,
    "t": 2.51,
-   "fwd_j": 10.5
+   "fwd_j": 10.6
   },
   "27c_mom_move": {
    "statut": "GRIS",
    "n": 22,
    "esperance": -7.9157,
    "t": -2.55,
-   "fwd_j": 10.5
+   "fwd_j": 10.6
   },
   "27d_rev_move_stop": {
    "statut": "GRIS",
@@ -59,43 +59,73 @@
    "n": 3,
    "esperance": -2.9972,
    "t": -1.21,
-   "fwd_j": 1.1
+   "fwd_j": 1.2
   },
   "27f10_selecteur": {
    "statut": "GRIS",
-   "n": 7,
-   "esperance": -3.1682,
-   "t": -1.31,
-   "fwd_j": 0.0
+   "n": 8,
+   "esperance": -1.7836,
+   "t": -0.71,
+   "fwd_j": 0.1
   },
   "27f_selecteur": {
    "statut": "GRIS",
    "n": 1,
    "esperance": 1.3844,
    "t": 0.0,
-   "fwd_j": 0.0
+   "fwd_j": 0.1
   },
   "28_carry_hold": {
    "statut": "GRIS",
    "n": 11,
    "esperance": 3.1086,
    "t": 1.98,
-   "fwd_j": 1.1
+   "fwd_j": 1.2
   }
  },
  "tendances_btc": {
-  "ret1": 0.0093,
-  "ret7": 0.0527,
-  "ret30": -0.011,
-  "prix": 63155
+  "ret1": 0.0096,
+  "ret7": 0.053,
+  "ret30": -0.0106,
+  "prix": 63178
  },
  "evenements_extremes": [
   {
    "coin": "HMSTR",
-   "move_pct": 40.9
+   "move_pct": 41.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-04T19:15",
+   "bot": "27f10_selecteur",
+   "marche": "sel-ADA-MOM-tendance_piece",
+   "pnl": 7.91
+  },
+  {
+   "ts": "2026-07-04T19:15",
+   "bot": "24_funding_multivenues",
+   "marche": "pdxcarry-MSTR",
+   "pnl": -0.66
+  },
+  {
+   "ts": "2026-07-04T19:15",
+   "bot": "25_convergence_basis",
+   "marche": "conv-XMR",
+   "pnl": 0.54
+  },
+  {
+   "ts": "2026-07-04T19:15",
+   "bot": "25_convergence_basis",
+   "marche": "conv-FARTCOIN",
+   "pnl": -0.3
+  },
+  {
+   "ts": "2026-07-04T19:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-04T17:46",
    "bot": "27f10_selecteur",
@@ -113,36 +143,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-VVV",
    "pnl": 0.15
-  },
-  {
-   "ts": "2026-07-04T17:46",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-04T16:42",
-   "bot": "27f10_selecteur",
-   "marche": "sel-XPL-MOM-tendance_piece",
-   "pnl": 1.38
-  },
-  {
-   "ts": "2026-07-04T16:42",
-   "bot": "27f10_selecteur",
-   "marche": "sel-S-MOM-tendance_piece",
-   "pnl": 1.31
-  },
-  {
-   "ts": "2026-07-04T16:42",
-   "bot": "27f10_selecteur",
-   "marche": "sel-SPX-MOM-tendance_piece",
-   "pnl": 1.18
-  },
-  {
-   "ts": "2026-07-04T16:42",
-   "bot": "27f10_selecteur",
-   "marche": "sel-FARTCOIN-MOM-tendance_piece",
-   "pnl": -6.23
   }
  ],
  "calibration_arbitre": null
