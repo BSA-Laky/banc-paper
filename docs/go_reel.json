@@ -1,31 +1,31 @@
 {
- "ts": "2026-07-05T12:17:35.791844+00:00",
+ "ts": "2026-07-05T14:16:12.378760+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 142,
-   "t_stat": 0.94,
+   "n": 143,
+   "t_stat": 1.02,
    "sain": true
   }
  },
  "bots": {
   "23_carry_funding": {
-   "n": 64,
-   "esperance": 0.5269,
-   "t_stat": 0.85,
-   "mdd_live": 20.14,
-   "jours_forward": 11.7,
+   "n": 65,
+   "esperance": 0.5124,
+   "t_stat": 0.84,
+   "mdd_live": 20.28,
+   "jours_forward": 11.8,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
-    "n 64 < n_go 100",
+    "n 65 < n_go 100",
     "t < 2",
     "forward 12 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": -0.902,
-   "borne_decrochage": -1.6812,
+   "esp_glissante_20": -0.8542,
+   "borne_decrochage": -1.6791,
    "statut": "ORANGE"
   },
   "24_funding_multivenues": {
@@ -33,7 +33,7 @@
    "esperance": -0.014,
    "t_stat": -0.04,
    "mdd_live": 18.2,
-   "jours_forward": 11.7,
+   "jours_forward": 11.8,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -47,11 +47,11 @@
    "statut": "ORANGE"
   },
   "25_convergence_basis": {
-   "n": 330,
-   "esperance": 0.2386,
-   "t_stat": 1.27,
+   "n": 333,
+   "esperance": 0.2375,
+   "t_stat": 1.28,
    "mdd_live": 47.59,
-   "jours_forward": 12.7,
+   "jours_forward": 12.8,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -59,21 +59,21 @@
     "forward 13 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": 0.3103,
-   "borne_decrochage": -1.2863,
+   "esp_glissante_20": 0.2791,
+   "borne_decrochage": -1.2806,
    "statut": "ORANGE",
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.2884,
-    "t_welch": -0.45
+    "delta_esperance": -0.2749,
+    "t_welch": -0.43
    }
   },
   "27a_rev_premium": {
-   "n": 11,
-   "esperance": -2.4095,
-   "t_stat": -0.99,
+   "n": 12,
+   "esperance": -2.9479,
+   "t_stat": -1.29,
    "mdd_live": 47.03,
-   "jours_forward": 11.6,
+   "jours_forward": 11.7,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -85,7 +85,7 @@
    "esperance": 7.0255,
    "t_stat": 2.3,
    "mdd_live": 19.81,
-   "jours_forward": 11.3,
+   "jours_forward": 11.4,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -97,7 +97,7 @@
    "esperance": -7.1655,
    "t_stat": -2.34,
    "mdd_live": 181.01,
-   "jours_forward": 11.3,
+   "jours_forward": 11.4,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -105,11 +105,11 @@
    "statut": "GRIS"
   },
   "27d_rev_move_stop": {
-   "n": 12,
-   "esperance": -0.3934,
-   "t_stat": -0.09,
+   "n": 13,
+   "esperance": 1.0601,
+   "t_stat": 0.26,
    "mdd_live": 42.39,
-   "jours_forward": 5.6,
+   "jours_forward": 5.7,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -134,11 +134,11 @@
    }
   },
   "27f10_selecteur": {
-   "n": 14,
-   "esperance": -0.8116,
-   "t_stat": -0.49,
+   "n": 15,
+   "esperance": -0.321,
+   "t_stat": -0.2,
    "mdd_live": 22.18,
-   "jours_forward": 0.8,
+   "jours_forward": 0.9,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -150,7 +150,7 @@
    "esperance": 5.361,
    "t_stat": 1.35,
    "mdd_live": 0.0,
-   "jours_forward": 0.8,
+   "jours_forward": 0.9,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
