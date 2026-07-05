@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-05T19:51:06.670624+00:00",
+ "ts": "2026-07-05T21:02:05.564039+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -21,10 +21,10 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 340,
-   "esperance": 0.2325,
+   "n": 342,
+   "esperance": 0.2323,
    "t": 1.28,
-   "fwd_j": 13.0
+   "fwd_j": 13.1
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -66,31 +66,55 @@
    "n": 17,
    "esperance": -0.7932,
    "t": -0.55,
-   "fwd_j": 1.1
+   "fwd_j": 1.2
   },
   "27f_selecteur": {
    "statut": "GRIS",
    "n": 2,
    "esperance": 5.361,
    "t": 1.35,
-   "fwd_j": 1.1
+   "fwd_j": 1.2
   },
   "28_carry_hold": {
    "statut": "GRIS",
-   "n": 15,
-   "esperance": 2.7023,
-   "t": 2.33,
+   "n": 16,
+   "esperance": 2.5679,
+   "t": 2.35,
    "fwd_j": 2.2
   }
  },
  "tendances_btc": {
-  "ret1": -0.0057,
-  "ret7": 0.054,
-  "ret30": 0.0284,
-  "prix": 62767
+  "ret1": -0.007,
+  "ret7": 0.0526,
+  "ret30": 0.027,
+  "prix": 62682
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-05T21:02",
+   "bot": "28_carry_hold",
+   "marche": "carryhold-SPX",
+   "pnl": 0.55
+  },
+  {
+   "ts": "2026-07-05T21:01",
+   "bot": "25_convergence_basis",
+   "marche": "conv-LIT",
+   "pnl": -0.07
+  },
+  {
+   "ts": "2026-07-05T21:01",
+   "bot": "25_convergence_basis",
+   "marche": "conv-POLYX",
+   "pnl": 0.48
+  },
+  {
+   "ts": "2026-07-05T21:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-05T19:51",
    "bot": "28_carry_hold",
@@ -114,30 +138,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-MORPHO",
    "pnl": -0.58
-  },
-  {
-   "ts": "2026-07-05T19:50",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-05T18:17",
-   "bot": "27f10_selecteur",
-   "marche": "sel-AERO-MOM-ia_piece",
-   "pnl": -5.81
-  },
-  {
-   "ts": "2026-07-05T18:17",
-   "bot": "27f10_selecteur",
-   "marche": "sel-ETHFI-MOM-tendance_piece",
-   "pnl": -2.86
-  },
-  {
-   "ts": "2026-07-05T18:17",
-   "bot": "25_convergence_basis",
-   "marche": "conv-GRAM",
-   "pnl": -0.09
   }
  ],
  "calibration_arbitre": null
