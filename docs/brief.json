@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-05T15:47:27.198206+00:00",
+ "ts": "2026-07-05T17:12:48.813035+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -21,9 +21,9 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 333,
-   "esperance": 0.2375,
-   "t": 1.28,
+   "n": 335,
+   "esperance": 0.2377,
+   "t": 1.29,
    "fwd_j": 12.9
   },
   "27a_rev_premium": {
@@ -38,14 +38,14 @@
    "n": 23,
    "esperance": 7.0255,
    "t": 2.3,
-   "fwd_j": 11.4
+   "fwd_j": 11.5
   },
   "27c_mom_move": {
    "statut": "GRIS",
    "n": 23,
    "esperance": -7.1655,
    "t": -2.34,
-   "fwd_j": 11.4
+   "fwd_j": 11.5
   },
   "27d_rev_move_stop": {
    "statut": "GRIS",
@@ -59,7 +59,7 @@
    "n": 4,
    "esperance": -4.6173,
    "t": -1.94,
-   "fwd_j": 2.0
+   "fwd_j": 2.1
   },
   "27f10_selecteur": {
    "statut": "GRIS",
@@ -80,17 +80,35 @@
    "n": 14,
    "esperance": 2.6729,
    "t": 2.14,
-   "fwd_j": 2.0
+   "fwd_j": 2.1
   }
  },
  "tendances_btc": {
-  "ret1": -0.0063,
-  "ret7": 0.0534,
-  "ret30": 0.0278,
-  "prix": 62727
+  "ret1": -0.0069,
+  "ret7": 0.0528,
+  "ret30": 0.0272,
+  "prix": 62693
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-05T17:12",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ETHFI",
+   "pnl": -0.17
+  },
+  {
+   "ts": "2026-07-05T17:12",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ZRO",
+   "pnl": 0.7
+  },
+  {
+   "ts": "2026-07-05T17:12",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-05T15:47",
    "bot": "10_controle_aleatoire",
@@ -120,24 +138,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-XMR",
    "pnl": 0.22
-  },
-  {
-   "ts": "2026-07-05T14:16",
-   "bot": "25_convergence_basis",
-   "marche": "conv-TRUMP",
-   "pnl": 0.72
-  },
-  {
-   "ts": "2026-07-05T14:16",
-   "bot": "25_convergence_basis",
-   "marche": "conv-TIA",
-   "pnl": -0.59
-  },
-  {
-   "ts": "2026-07-05T14:16",
-   "bot": "23_carry_funding",
-   "marche": "carry-GRASS",
-   "pnl": -0.42
   }
  ],
  "calibration_arbitre": null
