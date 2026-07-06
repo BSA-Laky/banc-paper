@@ -1,11 +1,11 @@
 {
- "ts": "2026-07-06T05:58:01.747898+00:00",
+ "ts": "2026-07-06T10:56:29.197068+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 152,
-   "t_stat": 0.89,
+   "n": 153,
+   "t_stat": 0.8,
    "sain": true
   }
  },
@@ -15,13 +15,13 @@
    "esperance": 0.4214,
    "t_stat": 0.73,
    "mdd_live": 24.51,
-   "jours_forward": 12.5,
+   "jours_forward": 12.7,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
     "n 69 < n_go 100",
     "t < 2",
-    "forward 12 j < 28 j"
+    "forward 13 j < 28 j"
    ],
    "avertissements": [],
    "esp_glissante_20": -0.8449,
@@ -33,13 +33,13 @@
    "esperance": -0.0757,
    "t_stat": -0.24,
    "mdd_live": 22.77,
-   "jours_forward": 12.5,
+   "jours_forward": 12.7,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
     "n 73 < n_go 100",
     "t < 2",
-    "forward 12 j < 28 j"
+    "forward 13 j < 28 j"
    ],
    "avertissements": [],
    "esp_glissante_20": -0.9753,
@@ -47,25 +47,25 @@
    "statut": "ORANGE"
   },
   "25_convergence_basis": {
-   "n": 349,
-   "esperance": 0.2441,
-   "t_stat": 1.37,
+   "n": 352,
+   "esperance": 0.2398,
+   "t_stat": 1.36,
    "mdd_live": 47.59,
-   "jours_forward": 13.4,
+   "jours_forward": 13.7,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
     "t < 2",
-    "forward 13 j < 28 j"
+    "forward 14 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": 0.3327,
-   "borne_decrochage": -1.2445,
+   "esp_glissante_20": 0.2779,
+   "borne_decrochage": -1.2426,
    "statut": "ORANGE",
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.1773,
-    "t_welch": -0.29
+    "delta_esperance": -0.1815,
+    "t_welch": -0.3
    }
   },
   "27a_rev_premium": {
@@ -73,7 +73,7 @@
    "esperance": -2.9479,
    "t_stat": -1.29,
    "mdd_live": 47.03,
-   "jours_forward": 12.4,
+   "jours_forward": 12.6,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -85,7 +85,7 @@
    "esperance": 7.0255,
    "t_stat": 2.3,
    "mdd_live": 19.81,
-   "jours_forward": 12.0,
+   "jours_forward": 12.2,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -97,7 +97,7 @@
    "esperance": -7.1655,
    "t_stat": -2.34,
    "mdd_live": 181.01,
-   "jours_forward": 12.0,
+   "jours_forward": 12.2,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -109,7 +109,7 @@
    "esperance": 1.0601,
    "t_stat": 0.26,
    "mdd_live": 42.39,
-   "jours_forward": 6.4,
+   "jours_forward": 6.6,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -121,7 +121,7 @@
    "esperance": -4.6173,
    "t_stat": -1.94,
    "mdd_live": 18.47,
-   "jours_forward": 2.6,
+   "jours_forward": 2.8,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -138,7 +138,7 @@
    "esperance": -0.8561,
    "t_stat": -0.62,
    "mdd_live": 22.18,
-   "jours_forward": 1.6,
+   "jours_forward": 1.8,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -150,7 +150,7 @@
    "esperance": 5.361,
    "t_stat": 1.35,
    "mdd_live": 0.0,
-   "jours_forward": 1.6,
+   "jours_forward": 1.8,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -158,11 +158,11 @@
    "statut": "GRIS"
   },
   "28_carry_hold": {
-   "n": 16,
-   "esperance": 2.5679,
-   "t_stat": 2.35,
+   "n": 17,
+   "esperance": 2.5449,
+   "t_stat": 2.47,
    "mdd_live": 0.0,
-   "jours_forward": 2.6,
+   "jours_forward": 2.8,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
