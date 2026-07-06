@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-06T17:22:24.219279+00:00",
+ "ts": "2026-07-06T19:16:49.428778+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -21,10 +21,10 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 354,
-   "esperance": 0.2376,
+   "n": 356,
+   "esperance": 0.2365,
    "t": 1.35,
-   "fwd_j": 13.9
+   "fwd_j": 14.0
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -38,64 +38,86 @@
    "n": 24,
    "esperance": 6.4943,
    "t": 2.18,
-   "fwd_j": 12.5
+   "fwd_j": 12.6
   },
   "27c_mom_move": {
    "statut": "GRIS",
    "n": 24,
    "esperance": -6.6343,
    "t": -2.23,
-   "fwd_j": 12.5
+   "fwd_j": 12.6
   },
   "27d_rev_move_stop": {
    "statut": "GRIS",
    "n": 13,
    "esperance": 1.0601,
    "t": 0.26,
-   "fwd_j": 6.8
+   "fwd_j": 6.9
   },
   "27e_arbitre": {
    "statut": "GRIS",
    "n": 5,
    "esperance": -2.5769,
    "t": -0.94,
-   "fwd_j": 3.1
+   "fwd_j": 3.2
   },
   "27f10_selecteur": {
    "statut": "GRIS",
    "n": 20,
    "esperance": -1.4803,
    "t": -1.13,
-   "fwd_j": 2.0
+   "fwd_j": 2.1
   },
   "27f_selecteur": {
    "statut": "GRIS",
    "n": 3,
    "esperance": 1.6658,
    "t": 0.38,
-   "fwd_j": 2.0
+   "fwd_j": 2.1
   },
   "28_carry_hold": {
    "statut": "GRIS",
    "n": 18,
    "esperance": 2.5777,
    "t": 2.66,
-   "fwd_j": 3.1
+   "fwd_j": 3.2
   }
  },
  "tendances_btc": {
-  "ret1": 0.0032,
-  "ret7": 0.06,
-  "ret30": 0.0489,
-  "prix": 63838
+  "ret1": 0.0017,
+  "ret7": 0.0584,
+  "ret30": 0.0474,
+  "prix": 63744
  },
  "evenements_extremes": [
   {
    "coin": "BLUR",
-   "move_pct": 35.0
+   "move_pct": 33.2
+  },
+  {
+   "coin": "HMSTR",
+   "move_pct": 24.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-06T19:16",
+   "bot": "25_convergence_basis",
+   "marche": "conv-TRB",
+   "pnl": -0.37
+  },
+  {
+   "ts": "2026-07-06T19:16",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ZRO",
+   "pnl": 0.46
+  },
+  {
+   "ts": "2026-07-06T19:16",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-06T17:22",
    "bot": "27f10_selecteur",
@@ -125,24 +147,6 @@
    "bot": "27f10_selecteur",
    "marche": "sel-HMSTR-REV-ia_piece",
    "pnl": -5.72
-  },
-  {
-   "ts": "2026-07-06T14:28",
-   "bot": "27f_selecteur",
-   "marche": "sel-HMSTR-REV-ia_piece",
-   "pnl": -5.72
-  },
-  {
-   "ts": "2026-07-06T14:28",
-   "bot": "27e_arbitre",
-   "marche": "arb-HMSTR-MOM-tendance",
-   "pnl": 5.58
-  },
-  {
-   "ts": "2026-07-06T14:28",
-   "bot": "27c_mom_move",
-   "marche": "mom_move-HMSTR",
-   "pnl": 5.58
   }
  ],
  "calibration_arbitre": null
