@@ -1,31 +1,31 @@
 {
- "ts": "2026-07-06T01:24:03.364157+00:00",
+ "ts": "2026-07-06T05:58:01.747898+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 151,
-   "t_stat": 0.81,
+   "n": 152,
+   "t_stat": 0.89,
    "sain": true
   }
  },
  "bots": {
   "23_carry_funding": {
-   "n": 68,
-   "esperance": 0.4476,
-   "t_stat": 0.77,
-   "mdd_live": 23.15,
-   "jours_forward": 12.3,
+   "n": 69,
+   "esperance": 0.4214,
+   "t_stat": 0.73,
+   "mdd_live": 24.51,
+   "jours_forward": 12.5,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
-    "n 68 < n_go 100",
+    "n 69 < n_go 100",
     "t < 2",
     "forward 12 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": -0.7914,
-   "borne_decrochage": -1.6992,
+   "esp_glissante_20": -0.8449,
+   "borne_decrochage": -1.7117,
    "statut": "ORANGE"
   },
   "24_funding_multivenues": {
@@ -33,7 +33,7 @@
    "esperance": -0.0757,
    "t_stat": -0.24,
    "mdd_live": 22.77,
-   "jours_forward": 12.3,
+   "jours_forward": 12.5,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -47,11 +47,11 @@
    "statut": "ORANGE"
   },
   "25_convergence_basis": {
-   "n": 346,
-   "esperance": 0.2433,
-   "t_stat": 1.35,
+   "n": 349,
+   "esperance": 0.2441,
+   "t_stat": 1.37,
    "mdd_live": 47.59,
-   "jours_forward": 13.3,
+   "jours_forward": 13.4,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -59,13 +59,13 @@
     "forward 13 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": 0.3535,
-   "borne_decrochage": -1.2514,
+   "esp_glissante_20": 0.3327,
+   "borne_decrochage": -1.2445,
    "statut": "ORANGE",
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.2043,
-    "t_welch": -0.34
+    "delta_esperance": -0.1773,
+    "t_welch": -0.29
    }
   },
   "27a_rev_premium": {
@@ -73,7 +73,7 @@
    "esperance": -2.9479,
    "t_stat": -1.29,
    "mdd_live": 47.03,
-   "jours_forward": 12.2,
+   "jours_forward": 12.4,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -85,7 +85,7 @@
    "esperance": 7.0255,
    "t_stat": 2.3,
    "mdd_live": 19.81,
-   "jours_forward": 11.8,
+   "jours_forward": 12.0,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -97,7 +97,7 @@
    "esperance": -7.1655,
    "t_stat": -2.34,
    "mdd_live": 181.01,
-   "jours_forward": 11.8,
+   "jours_forward": 12.0,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -109,7 +109,7 @@
    "esperance": 1.0601,
    "t_stat": 0.26,
    "mdd_live": 42.39,
-   "jours_forward": 6.2,
+   "jours_forward": 6.4,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -121,7 +121,7 @@
    "esperance": -4.6173,
    "t_stat": -1.94,
    "mdd_live": 18.47,
-   "jours_forward": 2.4,
+   "jours_forward": 2.6,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -138,7 +138,7 @@
    "esperance": -0.8561,
    "t_stat": -0.62,
    "mdd_live": 22.18,
-   "jours_forward": 1.4,
+   "jours_forward": 1.6,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -150,7 +150,7 @@
    "esperance": 5.361,
    "t_stat": 1.35,
    "mdd_live": 0.0,
-   "jours_forward": 1.4,
+   "jours_forward": 1.6,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -162,7 +162,7 @@
    "esperance": 2.5679,
    "t_stat": 2.35,
    "mdd_live": 0.0,
-   "jours_forward": 2.4,
+   "jours_forward": 2.6,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
