@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-07T20:15:03.445368+00:00",
+ "ts": "2026-07-07T21:45:26.965847+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -21,10 +21,10 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 384,
-   "esperance": 0.3736,
-   "t": 1.71,
-   "fwd_j": 15.0
+   "n": 385,
+   "esperance": 0.4741,
+   "t": 1.97,
+   "fwd_j": 15.1
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -38,14 +38,14 @@
    "n": 26,
    "esperance": 7.0539,
    "t": 2.43,
-   "fwd_j": 13.6
+   "fwd_j": 13.7
   },
   "27c_mom_move": {
    "statut": "GRIS",
    "n": 26,
    "esperance": -7.1939,
    "t": -2.48,
-   "fwd_j": 13.6
+   "fwd_j": 13.7
   },
   "27d_rev_move_stop": {
    "statut": "GRIS",
@@ -59,43 +59,59 @@
    "n": 7,
    "esperance": -5.8147,
    "t": -1.31,
-   "fwd_j": 4.2
+   "fwd_j": 4.3
   },
   "27f10_selecteur": {
    "statut": "GRIS",
    "n": 27,
    "esperance": 0.4867,
    "t": 0.3,
-   "fwd_j": 3.1
+   "fwd_j": 3.2
   },
   "27f_selecteur": {
    "statut": "GRIS",
    "n": 5,
    "esperance": 7.2374,
    "t": 1.2,
-   "fwd_j": 3.1
+   "fwd_j": 3.2
   },
   "28_carry_hold": {
    "statut": "GRIS",
    "n": 20,
    "esperance": 2.3474,
    "t": 2.65,
-   "fwd_j": 4.2
+   "fwd_j": 4.3
   }
  },
  "tendances_btc": {
-  "ret1": -0.0045,
-  "ret7": 0.0881,
-  "ret30": 0.0072,
-  "prix": 63764
+  "ret1": -0.0106,
+  "ret7": 0.0814,
+  "ret30": 0.001,
+  "prix": 63372
  },
  "evenements_extremes": [
   {
    "coin": "HMSTR",
-   "move_pct": -31.1
+   "move_pct": -31.7
+  },
+  {
+   "coin": "GRASS",
+   "move_pct": -20.3
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-07T21:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-BLUR",
+   "pnl": 39.08
+  },
+  {
+   "ts": "2026-07-07T21:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-07T20:15",
    "bot": "27f_selecteur",
@@ -131,18 +147,6 @@
    "bot": "27b_rev_move",
    "marche": "rev_move-HMSTR",
    "pnl": 29.43
-  },
-  {
-   "ts": "2026-07-07T20:14",
-   "bot": "25_convergence_basis",
-   "marche": "conv-VINE",
-   "pnl": -0.37
-  },
-  {
-   "ts": "2026-07-07T20:14",
-   "bot": "23_carry_funding",
-   "marche": "carry-ETHFI",
-   "pnl": -1.37
   }
  ],
  "calibration_arbitre": null
