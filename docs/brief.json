@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-07T13:06:23.042310+00:00",
+ "ts": "2026-07-07T15:51:05.063768+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -7,142 +7,146 @@
  "statuts": {
   "23_carry_funding": {
    "statut": "ORANGE",
-   "n": 76,
-   "esperance": 0.3224,
-   "t": 0.62,
-   "fwd_j": 13.8
+   "n": 79,
+   "esperance": 0.2584,
+   "t": 0.51,
+   "fwd_j": 13.9
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
    "n": 77,
    "esperance": -0.1136,
    "t": -0.37,
-   "fwd_j": 13.8
+   "fwd_j": 13.9
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 378,
-   "esperance": 0.367,
+   "n": 380,
+   "esperance": 0.3633,
    "t": 1.65,
-   "fwd_j": 14.7
+   "fwd_j": 14.9
   },
   "27a_rev_premium": {
    "statut": "GRIS",
    "n": 13,
    "esperance": -0.4957,
    "t": -0.15,
-   "fwd_j": 13.7
+   "fwd_j": 13.8
   },
   "27b_rev_move": {
    "statut": "GRIS",
    "n": 24,
    "esperance": 6.4943,
    "t": 2.18,
-   "fwd_j": 13.3
+   "fwd_j": 13.4
   },
   "27c_mom_move": {
    "statut": "GRIS",
    "n": 24,
    "esperance": -6.6343,
    "t": -2.23,
-   "fwd_j": 13.3
+   "fwd_j": 13.4
   },
   "27d_rev_move_stop": {
    "statut": "GRIS",
    "n": 14,
    "esperance": -0.2932,
    "t": -0.07,
-   "fwd_j": 7.7
+   "fwd_j": 7.8
   },
   "27e_arbitre": {
    "statut": "GRIS",
    "n": 5,
    "esperance": -2.5769,
    "t": -0.94,
-   "fwd_j": 3.9
+   "fwd_j": 4.0
   },
   "27f10_selecteur": {
    "statut": "GRIS",
    "n": 24,
    "esperance": -0.5465,
    "t": -0.42,
-   "fwd_j": 2.8
+   "fwd_j": 3.0
   },
   "27f_selecteur": {
    "statut": "GRIS",
    "n": 3,
    "esperance": 1.6658,
    "t": 0.38,
-   "fwd_j": 2.8
+   "fwd_j": 3.0
   },
   "28_carry_hold": {
    "statut": "GRIS",
-   "n": 19,
-   "esperance": 2.4633,
-   "t": 2.66,
-   "fwd_j": 3.9
+   "n": 20,
+   "esperance": 2.3474,
+   "t": 2.65,
+   "fwd_j": 4.0
   }
  },
  "tendances_btc": {
-  "ret1": -0.0111,
-  "ret7": 0.0809,
-  "ret30": 0.0005,
-  "prix": 63343
+  "ret1": -0.0006,
+  "ret7": 0.0924,
+  "ret30": 0.0112,
+  "prix": 64018
  },
  "evenements_extremes": [
   {
    "coin": "BLUR",
-   "move_pct": 59.2
+   "move_pct": 43.6
+  },
+  {
+   "coin": "BANANA",
+   "move_pct": 20.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-07T15:51",
+   "bot": "28_carry_hold",
+   "marche": "carryhold-POLYX",
+   "pnl": 0.14
+  },
+  {
+   "ts": "2026-07-07T15:50",
+   "bot": "25_convergence_basis",
+   "marche": "conv-VVV",
+   "pnl": -0.07
+  },
+  {
+   "ts": "2026-07-07T15:50",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ETHFI",
+   "pnl": -0.6
+  },
+  {
+   "ts": "2026-07-07T15:50",
+   "bot": "23_carry_funding",
+   "marche": "carry-GRAM",
+   "pnl": -1.35
+  },
+  {
+   "ts": "2026-07-07T15:50",
+   "bot": "23_carry_funding",
+   "marche": "carry-GRASS",
+   "pnl": -1.36
+  },
+  {
+   "ts": "2026-07-07T15:50",
+   "bot": "23_carry_funding",
+   "marche": "carry-POLYX",
+   "pnl": -1.38
+  },
+  {
+   "ts": "2026-07-07T15:50",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-07T13:06",
    "bot": "27f10_selecteur",
    "marche": "sel-MON-MOM-tendance_piece",
    "pnl": 10.48
-  },
-  {
-   "ts": "2026-07-07T13:06",
-   "bot": "27f10_selecteur",
-   "marche": "sel-GRASS-REV-ia_piece",
-   "pnl": 8.48
-  },
-  {
-   "ts": "2026-07-07T13:06",
-   "bot": "27f10_selecteur",
-   "marche": "sel-PYTH-MOM-tendance_piece",
-   "pnl": 3.62
-  },
-  {
-   "ts": "2026-07-07T13:06",
-   "bot": "25_convergence_basis",
-   "marche": "conv-VINE",
-   "pnl": 0.28
-  },
-  {
-   "ts": "2026-07-07T13:06",
-   "bot": "25_convergence_basis",
-   "marche": "conv-GRASS",
-   "pnl": 0.25
-  },
-  {
-   "ts": "2026-07-07T13:06",
-   "bot": "25_convergence_basis",
-   "marche": "conv-BLUR",
-   "pnl": -8.7
-  },
-  {
-   "ts": "2026-07-07T13:06",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ZRO",
-   "pnl": 0.14
-  },
-  {
-   "ts": "2026-07-07T13:06",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": null
