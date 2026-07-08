@@ -1,16 +1,11 @@
 {
- "ts": "2026-07-08T22:44:51.087786+00:00",
+ "ts": "2026-07-08T23:52:06.304587+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
  "changements_statut": [
   {
-   "bot": "27b_rev_move",
-   "avant": "GRIS",
-   "apres": "ORANGE"
-  },
-  {
-   "bot": "27c_mom_move",
+   "bot": "28_carry_hold",
    "avant": "GRIS",
    "apres": "ORANGE"
   }
@@ -35,7 +30,7 @@
    "n": 409,
    "esperance": 0.5044,
    "t": 2.2,
-   "fwd_j": 16.1
+   "fwd_j": 16.2
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -49,14 +44,14 @@
    "n": 30,
    "esperance": 5.9576,
    "t": 2.12,
-   "fwd_j": 14.7
+   "fwd_j": 14.8
   },
   "27c_mom_move": {
    "statut": "ORANGE",
    "n": 30,
    "esperance": -6.0976,
    "t": -2.17,
-   "fwd_j": 14.7
+   "fwd_j": 14.8
   },
   "27d_rev_move_stop": {
    "statut": "GRIS",
@@ -74,9 +69,9 @@
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
-   "n": 37,
-   "esperance": -0.273,
-   "t": -0.16,
+   "n": 38,
+   "esperance": -0.326,
+   "t": -0.2,
    "fwd_j": 4.3
   },
   "27f_selecteur": {
@@ -87,26 +82,44 @@
    "fwd_j": 4.3
   },
   "28_carry_hold": {
-   "statut": "GRIS",
-   "n": 29,
-   "esperance": 4.4693,
+   "statut": "ORANGE",
+   "n": 30,
+   "esperance": 4.3223,
    "t": 1.67,
    "fwd_j": 5.3
   }
  },
  "tendances_btc": {
-  "ret1": -0.0163,
-  "ret7": 0.0385,
-  "ret30": -0.0117,
-  "prix": 62322
+  "ret1": -0.0168,
+  "ret7": 0.038,
+  "ret30": -0.0121,
+  "prix": 62293
  },
  "evenements_extremes": [
   {
    "coin": "HMSTR",
-   "move_pct": -25.6
+   "move_pct": -22.5
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-08T23:52",
+   "bot": "27f10_selecteur",
+   "marche": "sel-GRAM-REV-defaut",
+   "pnl": -2.29
+  },
+  {
+   "ts": "2026-07-08T23:52",
+   "bot": "28_carry_hold",
+   "marche": "carryhold-LIT",
+   "pnl": 0.06
+  },
+  {
+   "ts": "2026-07-08T23:51",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-08T22:44",
    "bot": "27f10_selecteur",
@@ -136,24 +149,6 @@
    "bot": "28_carry_hold",
    "marche": "carryhold-ZRO",
    "pnl": 0.18
-  },
-  {
-   "ts": "2026-07-08T22:44",
-   "bot": "27c_mom_move",
-   "marche": "mom_move-GRASS",
-   "pnl": 9.18
-  },
-  {
-   "ts": "2026-07-08T22:44",
-   "bot": "27b_rev_move",
-   "marche": "rev_move-GRASS",
-   "pnl": -9.32
-  },
-  {
-   "ts": "2026-07-08T22:44",
-   "bot": "25_convergence_basis",
-   "marche": "conv-VINE",
-   "pnl": 0.39
   }
  ],
  "calibration_arbitre": null
