@@ -32,7 +32,7 @@ from pathlib import Path
 
 API_URL = "https://api.anthropic.com/v1/messages"
 MODELE = os.environ.get("MODELE_ARBITRE", "claude-sonnet-5")
-MAX_TOKENS = 1600
+MAX_TOKENS = 4000   # fix 09/07 : 1600 coupait le JSON des que la memoire grossissait
 CAP_MEMOIRE = 7000          # caracteres max de la memoire persistante
 ECHECS_AVANT_ESCALADE = 2
 
@@ -51,8 +51,8 @@ ESCALADE (alerte_humain=true) UNIQUEMENT si : banc_suspect, alerte ROUGE non tra
 >24h, donnees manifestement corrompues/absentes, ou decision qui engage argent reel/code.
 Tu reponds EXCLUSIVEMENT en JSON valide, sans texte autour, schema :
 {"regime":"haussier|baissier|neutre","confiance":0.0,"resume":"<=200 caracteres",
- "note_veille_md":"note du jour en markdown (<=1200 caracteres), factuelle, chiffres du brief",
- "memoire_md":"TA memoire long-terme REECRITE en entier (<=6000 caracteres) : verdicts dates, lecons, choses a surveiller",
+ "note_veille_md":"note du jour en markdown (<=800 caracteres), factuelle, chiffres du brief",
+ "memoire_md":"TA memoire long-terme REECRITE en entier (<=2500 caracteres, sois dense) : verdicts dates, lecons, a surveiller",
  "alerte_humain":false,"raison_alerte":""}"""
 
 

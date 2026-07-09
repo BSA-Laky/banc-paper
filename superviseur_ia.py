@@ -28,7 +28,7 @@ from pathlib import Path
 
 API_URL = "https://api.anthropic.com/v1/messages"
 MODELE = os.environ.get("MODELE_SUPERVISEUR", "claude-fable-5")
-MAX_TOKENS = 2000
+MAX_TOKENS = 4000   # fix 09/07 : idem arbitre, JSON tronque sinon
 CAP_MEMOIRE = 6000
 ECHECS_AVANT_ESCALADE = 2
 
@@ -51,9 +51,9 @@ ESCALADE (escalade=true) UNIQUEMENT si : banc_suspect persistant, ROUGE non trai
 repetees de l'Arbitre, incoherence grave des donnees, ou decision humaine requise (reel,
 code, depense).
 Tu reponds EXCLUSIVEMENT en JSON valide, schema :
-{"rapport_md":"rapport hebdo en markdown (<=1800 caracteres) : etat des salles, verdicts en
+{"rapport_md":"rapport hebdo en markdown (<=1400 caracteres) : etat des salles, verdicts en
 cours (n, t), calibration de l'Arbitre, cout/pannes, 3 points pour la semaine",
- "memoire_superviseur_md":"TA meta-memoire REECRITE (<=5000 caracteres) : tendances de fond,
+ "memoire_superviseur_md":"TA meta-memoire REECRITE (<=2200 caracteres, dense) : tendances de fond,
 verdicts dates, qualite de l'Arbitre dans le temps",
  "confiance_max_arbitre":1.0,"motif_consigne":"<=140 caracteres",
  "escalade":false,"raison_escalade":""}"""
