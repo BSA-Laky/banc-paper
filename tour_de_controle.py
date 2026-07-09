@@ -119,6 +119,34 @@ def _changements_statut(bots):
     return chg
 
 
+def _sante_equipage():
+    """Etat des agents LLM : pannes + fraicheur de l'avis. Pour la station et le brief."""
+    def _n(f):
+        d = {}
+        try:
+            d = json.loads((Path("etat") / f).read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            pass
+        return int(d.get("consecutifs", 0)) if isinstance(d, dict) else 0
+    age_avis_h = None
+    try:
+        d = json.loads((Path("etat") / "regime_ia.json").read_text(encoding="utf-8"))
+        ts = datetime.fromisoformat(str(d.get("date", "")).replace("Z", "+00:00"))
+        age_avis_h = round((datetime.now(timezone.utc) - ts).total_seconds() / 3600.0, 1)
+    except (OSError, ValueError, TypeError):
+        pass
+    ea, es = _n("arbitre_echecs.json"), _n("superviseur_echecs.json")
+    problemes = []
+    if ea >= 2:
+        problemes.append(f"ARBITRE EN PANNE ({ea} echecs consecutifs)")
+    if es >= 2:
+        problemes.append(f"SUPERVISEUR EN PANNE ({es} echecs)")
+    if age_avis_h is not None and age_avis_h > 48:
+        problemes.append(f"avis de regime perime ({age_avis_h:.0f} h)")
+    return {"arbitre_echecs": ea, "superviseur_echecs": es,
+            "age_avis_h": age_avis_h, "problemes": problemes}
+
+
 def produire_brief():
     try:
         with GO_REEL.open(encoding="utf-8") as fh:
@@ -140,6 +168,7 @@ def produire_brief():
         "evenements_extremes": _evenements_extremes(),
         "dernieres_actions": _dernieres_actions(),
         "calibration_arbitre": gr.get("calibration_arbitre"),
+        "sante_equipage": _sante_equipage(),
     }
     try:
         BRIEF_JSON.parent.mkdir(parents=True, exist_ok=True)
@@ -150,6 +179,10 @@ def produire_brief():
 
     # ---- markdown lisible sur telephone
     L = [f"# Brief Station — {doc['ts'][:16]} UTC", ""]
+    if doc["sante_equipage"]["problemes"]:
+        L.append("## 🔴 EQUIPAGE")
+        L += [f"- {pb}" for pb in doc["sante_equipage"]["problemes"]]
+        L.append("")
     if doc["alertes"] or doc["banc_suspect"]:
         L.append("## 🔴 ALERTES")
         if doc["banc_suspect"]:

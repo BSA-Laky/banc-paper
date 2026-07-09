@@ -52,6 +52,8 @@ def main():
     alertes = list(gr.get("alertes", []))
     chg = brief.get("changements_statut", [])
     suspect = bool(gr.get("banc_suspect"))
+    pannes = (brief.get("sante_equipage") or {}).get("problemes", [])
+    alertes = alertes + [f"EQUIPAGE : {pb}" for pb in pannes]   # rappel quotidien tant que ca dure
     if not alertes and not suspect and not chg:
         print("[alerte] rien a signaler.", flush=True)
         return
