@@ -40,6 +40,7 @@ ETAT = Path("etat"); DOCS = Path("docs"); VEILLE = Path("veille")
 F_MEMOIRE = ETAT / "memoire_arbitre.md"
 F_ECHECS = ETAT / "arbitre_echecs.json"
 F_REGIME = ETAT / "regime_ia.json"
+F_RAPPORT = ETAT / "rapport_arbitre.json"      # journal structure lu par le Superviseur
 REPO = os.environ.get("GITHUB_REPOSITORY", "BSA-Laky/banc-paper")
 
 SYSTEME = """Tu es « l'Arbitre » de la station banc-paper : analyste froid, chiffre, sceptique.
@@ -49,8 +50,10 @@ n<30 = bruit, meme seduisant ; tu cites les chiffres, tu dates, tu es bref.
 Si ta calibration (fournie) montre taux_correct <= 0,5 avec n >= 20 : mets confiance <= 0,5.
 ESCALADE (alerte_humain=true) UNIQUEMENT si : banc_suspect, alerte ROUGE non traitee depuis
 >24h, donnees manifestement corrompues/absentes, ou decision qui engage argent reel/code.
+Si des missions du Superviseur sont fournies, reponds-y factuellement (donnees a l'appui).
 Tu reponds EXCLUSIVEMENT en JSON valide, sans texte autour, schema :
 {"regime":"haussier|baissier|neutre","confiance":0.0,"resume":"<=200 caracteres",
+ "reponses_missions":[{"id":"...","reponse":"<=200 caracteres"}],
  "note_veille_md":"note du jour en markdown (<=800 caracteres), factuelle, chiffres du brief",
  "memoire_md":"TA memoire long-terme REECRITE en entier (<=2500 caracteres, sois dense) : verdicts dates, lecons, a surveiller",
  "alerte_humain":false,"raison_alerte":""}"""
@@ -148,9 +151,12 @@ def main():
         _echec("brief.json ou go_reel.json introuvable")
         return
 
+    consigne = _lire_json(ETAT / "consigne_arbitre.json")
     donnees = {
         "date": datetime.now(timezone.utc).isoformat(),
         "brief": brief,
+        "competences_de_la_station": _lire_texte(ETAT / "competences.md", 2500) or "(aucune pour l'instant)",
+        "missions_du_superviseur": consigne.get("missions", []) if isinstance(consigne, dict) else [],
         "gate": {k: gate.get(k) for k in ("banc_suspect", "temoins", "alertes",
                                           "avertissements", "calibration_arbitre")},
         "mes_15_dernieres_decisions": _tail_journal(),
@@ -175,7 +181,9 @@ def main():
         memoire = str(d.get("memoire_md", ""))[:CAP_MEMOIRE]
         alerte = bool(d.get("alerte_humain"))
         raison = str(d.get("raison_alerte", ""))[:500]
-        consigne = _lire_json(ETAT / "consigne_arbitre.json")
+        reponses = d.get("reponses_missions") or []
+        reponses = [{"id": str(r.get("id", "?"))[:24], "reponse": str(r.get("reponse", ""))[:220]}
+                    for r in reponses if isinstance(r, dict)][:4]
         try:                                   # plafond fixe par le Superviseur (Fable 5)
             plafond = float(consigne.get("confiance_max", 1.0))
             age_j = (datetime.now(timezone.utc)
@@ -202,6 +210,15 @@ def main():
             encoding="utf-8")
         if memoire:
             F_MEMOIRE.write_text(memoire, encoding="utf-8")
+        try:                                    # rapport structure (14 derniers jours)
+            hist = _lire_json(F_RAPPORT)
+            hist = hist if isinstance(hist, list) else []
+            hist.append({"date": jour, "regime": regime, "confiance": round(conf, 2),
+                         "resume": resume, "reponses_missions": reponses})
+            F_RAPPORT.write_text(json.dumps(hist[-14:], ensure_ascii=False, indent=1),
+                                 encoding="utf-8")
+        except OSError:
+            pass
         (DOCS / "arbitre.md").write_text(
             f"# Arbitre IA — {jour}\n\n**Regime : {regime}** (confiance {conf:.2f})\n\n"
             f"{resume}\n\n[Note du jour](../veille/{jour}.md) — modele `{MODELE}`\n",

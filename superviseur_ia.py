@@ -44,6 +44,10 @@ quotidien (un LLM moins cher) par une CONSIGNE de plafond de confiance.
 REGLES ABSOLUES : tout est 100 % fictif (paper) ; jamais d'ordre de trade ni de conseil
 d'argent reel ; la gate deterministe decide des statuts ; l'humain tranche le reel ;
 n<30 = bruit ; la calibration J+7 fournie est la SEULE preuve de la valeur de l'Arbitre.
+COMPETENCES : tu entretiens la bibliotheque de la station (regles PROUVEES par les donnees
+uniquement : seuils qui marchent, pieges verifies, heuristiques validees par la calibration).
+MISSIONS : tu peux emettre 0 a 3 missions courtes a l'Arbitre pour la semaine (id + texte),
+et tu relis ses reponses de la semaine ecoulee (fournies).
 CONSIGNE : confiance_max=1.0 si calibration bonne ou inconnue (n<20) ; 0.55 si taux_correct
 <= 0.55 avec n>=20 ; 0.4 si <= 0.45 avec n>=20 (l'Arbitre passe alors sous le seuil 0.6 et
 le bot 27e retombe sur la tendance pure — c'est le but).
@@ -55,6 +59,8 @@ Tu reponds EXCLUSIVEMENT en JSON valide, schema :
 cours (n, t), calibration de l'Arbitre, cout/pannes, 3 points pour la semaine",
  "memoire_superviseur_md":"TA meta-memoire REECRITE (<=2200 caracteres, dense) : tendances de fond,
 verdicts dates, qualite de l'Arbitre dans le temps",
+ "competences_md":"bibliotheque de competences REECRITE (<=2000 caracteres, uniquement du PROUVE, date chaque regle)",
+ "missions":[{"id":"m1","texte":"<=140 caracteres"}],
  "confiance_max_arbitre":1.0,"motif_consigne":"<=140 caracteres",
  "escalade":false,"raison_escalade":""}"""
 
@@ -167,6 +173,9 @@ def main():
         "pannes_arbitre": _lire_json(ETAT / "arbitre_echecs.json"),
         "notes_veille_7_derniers_jours": _notes_semaine(),
         "memoire_arbitre": _lire_texte(ETAT / "memoire_arbitre.md", 3000),
+        "rapports_quotidiens_arbitre": _lire_json(ETAT / "rapport_arbitre.json"),
+        "competences_actuelles": _lire_texte(ETAT / "competences.md", 2500) or "(vide)",
+        "mes_missions_precedentes": (_lire_json(F_CONSIGNE) or {}).get("missions", []),
         "ma_meta_memoire": _lire_texte(F_MEMOIRE, CAP_MEMOIRE) or "(vide — premiere semaine)",
     }
     contenu = ("Audit hebdomadaire de la station (JSON) :\n" +
@@ -183,6 +192,10 @@ def main():
         rapport = str(d["rapport_md"])[:6000]
         memoire = str(d.get("memoire_superviseur_md", ""))[:CAP_MEMOIRE]
         plafond = max(0.0, min(1.0, float(d.get("confiance_max_arbitre", 1.0))))
+        competences = str(d.get("competences_md", ""))[:2400]
+        missions = d.get("missions") or []
+        missions = [{"id": str(m.get("id", f"m{i+1}"))[:24], "texte": str(m.get("texte", ""))[:160]}
+                    for i, m in enumerate(missions) if isinstance(m, dict)][:3]
         motif = str(d.get("motif_consigne", ""))[:200]
         escalade = bool(d.get("escalade"))
         raison = str(d.get("raison_escalade", ""))[:600]
@@ -200,9 +213,11 @@ def main():
             f"Modele `{MODELE}`._\n", encoding="utf-8")
         if memoire:
             F_MEMOIRE.write_text(memoire, encoding="utf-8")
+        if competences:
+            (ETAT / "competences.md").write_text(competences, encoding="utf-8")
         F_CONSIGNE.write_text(json.dumps({"confiance_max": round(plafond, 2),
-            "date": now.isoformat().replace("+00:00", "Z"), "motif": motif},
-            ensure_ascii=False), encoding="utf-8")
+            "date": now.isoformat().replace("+00:00", "Z"), "motif": motif,
+            "missions": missions}, ensure_ascii=False), encoding="utf-8")
         F_ECHECS.write_text(json.dumps({"consecutifs": 0, "maj": now.isoformat()}),
                             encoding="utf-8")
     except OSError as e:
