@@ -190,6 +190,7 @@ const DEMO = {
              "27c_mom_move":{statut:"GRIS",n:17,esperance:-9.9,t:-2.56,fwd_j:8}},
     tendances_btc:{prix:61870,ret1:0.031,ret7:0.035,ret30:-0.073},
     evenements_extremes:[{coin:"DYDX",move_pct:-26.3}],
+    sante_equipage:{problemes:[]},
     dernieres_actions:[
       {ts:"2026-07-02T14:04",bot:"25_convergence_basis",marche:"conv-ME",pnl:0.91},
       {ts:"2026-07-02T14:04",bot:"25_convergence_basis",marche:"conv-INJ",pnl:-0.31},
@@ -384,7 +385,9 @@ function rendre(brief, gate){
   const bots = brief.statuts || {};
   document.getElementById("hud-bots").textContent = Object.keys(bots).length;
 
-  const alertes = brief.alertes||[], averts = brief.avertissements||[];
+  const pannes = ((brief.sante_equipage||{}).problemes)||[];
+  const alertes = (brief.alertes||[]).concat(pannes.map(p=>"\u00c9QUIPAGE : "+p)),
+        averts = brief.avertissements||[];
   document.getElementById("hud-alertes").textContent = alertes.length;
   const etat = document.getElementById("etat-alerte");
   const suspect = brief.banc_suspect || (gate && gate.banc_suspect);
