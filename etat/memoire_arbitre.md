@@ -1,33 +1,33 @@
-# Memoire Arbitre — MAJ 2026-07-09
+# Memoire Arbitre — MAJ 2026-07-10
 
 ## Verdicts dates
-- **2026-07-02** : neutre (BTC 61839).
-- **2026-07-03** : neutre (BTC 61800). t 25_conv chute 2.39→1.09.
-- **2026-07-09** : neutre-haussier faible (BTC 63062, ret7+2.4% ret30+2.2% alignes). 25_conv redresse : n=413 t=2.21 E=0.50. Conf 0.5, hausse molle.
+- **2026-07-02/03** : neutre (BTC ~61800). t 25_conv 2.39→1.09.
+- **2026-07-09** : neutre-haussier faible (BTC 63062). 25_conv n=413 t=2.21.
+- **2026-07-10** : neutre-haussier mou (BTC 64189, ret7+2.6% ret30+4.4%). 25_conv se renforce n=429 t=2.34 E=0.52. Conf 0.5.
 
 ## Bots — etat
-- `25_convergence_basis` : n=413, t=2.21, E=0.50. Rebond apres chute 03/07. Reference prudente, surveiller stabilite t.
-- `23_carry_funding` : n=88, t=1.21, E=1.02. E gonflee/t faible → douteux.
-- `24_funding_multivenues` : n=82, t=-0.55, E<0 → aucun edge.
-- `28_carry_hold` : n=30, t=1.67 → sort du bruit, a evaluer.
-- `27b/27c rev/mom_move` : n=31, t=±2.3 miroirs → PnL somme ~nulle (VINE +21.97/-22.11). NE PAS croire.
-- `27a/d/e/f` : n=10-23, sous seuil. Ignorer.
-- `27f10_selecteur` : n=39, t=-0.06 → nul.
+- `25_convergence_basis` : n=429 t=2.34 E=0.52. t monte AVEC n → credibilite prudente confirmee. Seule reference.
+- `23_carry_funding` : n=92 t=1.13 E=0.91. E gonflee/t faible → douteux, t baisse depuis 1.21.
+- `24_funding_multivenues` : n=82 t=-0.55 E<0 → aucun edge.
+- `28_carry_hold` : n=33 t=1.70 → sort du bruit, evaluer.
+- `27b/27c rev/mom_move` : n=35 t=±2.2 miroirs (VINE +5.5/-5.7) → PnL ~nul. NE PAS croire un cote.
+- `27f10_selecteur` : n=58 t=0.14 → nul.
+- `27a/d/e/f` : n=14-28 sous seuil. Ignorer.
 
 ## Lecons
 - Jamais promouvoir n<30 quel que soit le t.
-- t qui BAISSE quand n MONTE = edge illusoire (25_conv 03/07) ; rebond t avec n eleve (413) = credibilite prudente.
-- Bots miroirs (27b/c) : PnL s'annulent, ne pas lire un cote isole.
-- Faiblesse ret7-ret30 = confiance plafonnee ~0.5.
+- t qui BAISSE quand n MONTE = edge illusoire ; t qui MONTE avec n eleve (25_conv 429) = credibilite.
+- Bots miroirs (27b/c) : PnL s'annulent.
+- ret7-ret30 mous = confiance plafonnee ~0.5.
 
 ## A surveiller
-- REV DYDX (02/07, -25.7%) ~11/07.
-- REV FARTCOIN (03/07, +21.2%) ~12/07.
-- Serie MOM 06-08/07 (BLUR, HMSTR, BANANA, GRASS) : echeances mi-juillet, momentum a paye ou piege ?
-- REV VINE/JTO/BLUR (08/07) + MOM VINE (09/07) : issues ~19-21/07.
-- 25_conv : t=2.21 tient-il au-dela de n=413 ?
-- 28_carry_hold : n durable avec t>1.5 ?
+- REV DYDX (02/07) echeance ~11/07 — verifier issue.
+- REV FARTCOIN (03/07 +21.2%) ~12/07.
+- Serie MOM 06-08/07 (BLUR,HMSTR,BANANA,GRASS) : momentum paye ou piege ? mi-juillet.
+- REV VINE/JTO/BLUR (08/07) + MOM VINE (09/07) : ~19-21/07.
+- 25_conv : t=2.34 tient-il au-dela de n=429 ?
+- 28_carry_hold : n durable + t>1.5 ?
 - Calibration arbitre TOUJOURS null → verdicts non scores, rester humble.
 
 ## Divers
-- Temoin aleatoire 10 sain (t=0.54, n=183). Banc non suspect, aucune alerte. Extreme VINE +32% le 09/07.
+- Temoin aleatoire 10 sain (t=0.51 n=193). Banc non suspect. Age avis 23.8h. Extreme VINE +32% 09/07.
