@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-10T11:34:38.748519+00:00",
+ "ts": "2026-07-10T13:44:30.870988+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -7,95 +7,126 @@
  "statuts": {
   "23_carry_funding": {
    "statut": "ORANGE",
-   "n": 92,
-   "esperance": 0.9118,
+   "n": 93,
+   "esperance": 0.901,
    "t": 1.13,
-   "fwd_j": 16.7
+   "fwd_j": 16.8
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
    "n": 82,
    "esperance": -0.1576,
    "t": -0.55,
-   "fwd_j": 16.7
+   "fwd_j": 16.8
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 431,
-   "esperance": 0.5158,
-   "t": 2.34,
-   "fwd_j": 17.7
+   "n": 433,
+   "esperance": 0.5123,
+   "t": 2.33,
+   "fwd_j": 17.8
   },
   "27a_rev_premium": {
    "statut": "GRIS",
-   "n": 17,
-   "esperance": -1.9772,
-   "t": -0.73,
-   "fwd_j": 16.6
+   "n": 18,
+   "esperance": -2.3697,
+   "t": -0.92,
+   "fwd_j": 16.7
   },
   "27b_rev_move": {
    "statut": "ORANGE",
    "n": 35,
    "esperance": 5.5202,
    "t": 2.21,
-   "fwd_j": 16.2
+   "fwd_j": 16.3
   },
   "27c_mom_move": {
    "statut": "ORANGE",
    "n": 35,
    "esperance": -5.6602,
    "t": -2.26,
-   "fwd_j": 16.2
+   "fwd_j": 16.3
   },
   "27d_rev_move_stop": {
    "statut": "GRIS",
-   "n": 28,
-   "esperance": 2.1913,
-   "t": 0.7,
-   "fwd_j": 10.6
+   "n": 29,
+   "esperance": 2.4227,
+   "t": 0.8,
+   "fwd_j": 10.7
   },
   "27e_arbitre": {
    "statut": "GRIS",
    "n": 16,
    "esperance": 0.9394,
    "t": 0.28,
-   "fwd_j": 6.8
+   "fwd_j": 6.9
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
    "n": 59,
    "esperance": 0.3376,
    "t": 0.3,
-   "fwd_j": 5.8
+   "fwd_j": 5.9
   },
   "27f_selecteur": {
    "statut": "GRIS",
    "n": 14,
    "esperance": -2.4062,
    "t": -0.63,
-   "fwd_j": 5.8
+   "fwd_j": 5.9
   },
   "28_carry_hold": {
    "statut": "ORANGE",
    "n": 33,
    "esperance": 4.0044,
    "t": 1.7,
-   "fwd_j": 6.8
+   "fwd_j": 6.9
   }
  },
  "tendances_btc": {
-  "ret1": 0.0179,
-  "ret7": 0.0284,
-  "ret30": 0.0467,
-  "prix": 64354
+  "ret1": 0.0186,
+  "ret7": 0.0291,
+  "ret30": 0.0475,
+  "prix": 64399
  },
- "evenements_extremes": [
-  {
-   "coin": "SYRUP",
-   "move_pct": 21.0
-  }
- ],
+ "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-10T13:44",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-VINE",
+   "pnl": 8.9
+  },
+  {
+   "ts": "2026-07-10T13:44",
+   "bot": "27a_rev_premium",
+   "marche": "rev_premium-VINE",
+   "pnl": -9.04
+  },
+  {
+   "ts": "2026-07-10T13:44",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ETHFI",
+   "pnl": -0.36
+  },
+  {
+   "ts": "2026-07-10T13:44",
+   "bot": "25_convergence_basis",
+   "marche": "conv-FIL",
+   "pnl": -0.13
+  },
+  {
+   "ts": "2026-07-10T13:44",
+   "bot": "23_carry_funding",
+   "marche": "carry-VINE",
+   "pnl": -0.09
+  },
+  {
+   "ts": "2026-07-10T13:44",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-10T11:34",
    "bot": "27f10_selecteur",
@@ -107,49 +138,13 @@
    "bot": "25_convergence_basis",
    "marche": "conv-SYRUP",
    "pnl": -0.15
-  },
-  {
-   "ts": "2026-07-10T11:34",
-   "bot": "25_convergence_basis",
-   "marche": "conv-KBONK",
-   "pnl": 0.12
-  },
-  {
-   "ts": "2026-07-10T11:34",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-10T08:41",
-   "bot": "27f10_selecteur",
-   "marche": "sel-SYRUP-REV-defaut",
-   "pnl": 13.04
-  },
-  {
-   "ts": "2026-07-10T08:41",
-   "bot": "27f10_selecteur",
-   "marche": "sel-VINE-REV-tendance_piece",
-   "pnl": -6.59
-  },
-  {
-   "ts": "2026-07-10T08:41",
-   "bot": "27f_selecteur",
-   "marche": "sel-VINE-REV-tendance_piece",
-   "pnl": -6.59
-  },
-  {
-   "ts": "2026-07-10T08:41",
-   "bot": "27e_arbitre",
-   "marche": "arb-VINE-MOM-tendance",
-   "pnl": 6.27
   }
  ],
  "calibration_arbitre": null,
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 1,
-  "age_avis_h": 2.7,
+  "age_avis_h": 4.9,
   "problemes": []
  }
 }
