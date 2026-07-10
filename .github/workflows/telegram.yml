@@ -1,0 +1,42 @@
+# .github/workflows/telegram.yml — gateway Telegram de la station (~15 min)
+# A DEPOSER dans .github/workflows/. Dormant tant que les secrets
+# TELEGRAM_TOKEN et TELEGRAM_CHAT_ID n'existent pas.
+name: telegram-gateway
+on:
+  schedule:
+    - cron: "7,22,37,52 * * * *"   # decale du sampler pour limiter les courses de commit
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: telegram
+  cancel-in-progress: false
+
+jobs:
+  gateway:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Notifications + commandes
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python telegram_gateway.py
+      - name: Committer l'etat du gateway
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Rien a committer."
+          else
+            git commit -m "telegram $(date -u +%FT%H:%M)"
+            git pull --rebase --autostash || true
+            git push || (git pull --rebase --autostash && git push)
+          fi
