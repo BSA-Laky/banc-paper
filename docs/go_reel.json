@@ -1,11 +1,11 @@
 {
- "ts": "2026-07-11T22:50:28.948821+00:00",
+ "ts": "2026-07-11T23:56:11.481416+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 219,
-   "t_stat": 0.58,
+   "n": 220,
+   "t_stat": 0.51,
    "sain": true
   }
  },
@@ -47,9 +47,9 @@
    "statut": "ORANGE"
   },
   "25_convergence_basis": {
-   "n": 471,
-   "esperance": 0.4865,
-   "t_stat": 2.31,
+   "n": 475,
+   "esperance": 0.5061,
+   "t_stat": 2.41,
    "mdd_live": 47.59,
    "jours_forward": 19.2,
    "verdict_banc": "edge a CONFIRMER (profil asymetrique, t-stat peu fiable)",
@@ -58,13 +58,13 @@
     "forward 19 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": 0.4896,
-   "borne_decrochage": -1.5552,
+   "esp_glissante_20": 0.3053,
+   "borne_decrochage": -1.5387,
    "statut": "ORANGE",
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.3341,
-    "t_welch": -0.42
+    "delta_esperance": -0.3145,
+    "t_welch": -0.4
    }
   },
   "27a_rev_premium": {
@@ -84,7 +84,7 @@
    "esperance": 5.3054,
    "t_stat": 2.18,
    "mdd_live": 34.58,
-   "jours_forward": 17.7,
+   "jours_forward": 17.8,
    "verdict_banc": "edge POSITIF plausible (a confirmer)",
    "decrochage": false,
    "raisons": [
@@ -101,7 +101,7 @@
    "esperance": -5.4454,
    "t_stat": -2.23,
    "mdd_live": 217.22,
-   "jours_forward": 17.7,
+   "jours_forward": 17.8,
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
    "decrochage": false,
    "raisons": [
