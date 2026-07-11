@@ -18,7 +18,7 @@ DOCS = Path("docs")
 ETAT = Path("etat")
 
 ORDRE = ["28_carry_hold", "25_convergence_basis", "23_carry_funding", "24_funding_multivenues", "26_carry_nado",
-         "27a_rev_premium", "27b_rev_move", "27c_mom_move", "27d_rev_move_stop", "27f_selecteur", "27f10_selecteur", "10_controle_aleatoire"]
+         "27a_rev_premium", "27b_rev_move", "27c_mom_move", "27d_rev_move_stop", "27f_selecteur", "27f10_selecteur", "27g10_selecteur", "10_controle_aleatoire"]
 JOLI = {
     "28_carry_hold": "Bot 28 — Carry-HOLD (edge VALIDÉ out-of-sample, t OOS +10)",
     "25_convergence_basis": "Bot 25 — Convergence du basis (hypothèse)",
@@ -31,6 +31,7 @@ JOLI = {
     "27d_rev_move_stop": "Bot 27d — Convexe : réversion move 24h + stop-loss",
     "27f_selecteur": "Bot 27f — Sélecteur informé : signal par pièce + IA (seuil 20%)",
     "27f10_selecteur": "Bot 27f10 — Sélecteur informé (seuil 10%, verdict rapide)",
+    "27g10_selecteur": "Bot 27g10 - Selecteur PUR LLM (agit uniquement sur avis IA, seuil 10%)",
     "10_controle_aleatoire": "Témoin aléatoire (étalon du bruit)",
 }
 

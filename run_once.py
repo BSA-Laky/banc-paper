@@ -36,6 +36,7 @@ def lancer_passe() -> None:
         ArbitreRegime(),          # bot 27e : arbitre regime 27b/27c (hypothese mesuree, prior negatif)
         SelecteurInforme(),               # bot 27f : selecteur informe (signal par piece + IA), seuil 20%
         SelecteurInforme(move_big=0.10),  # bot 27f10 : jumeau rapide seuil 10% (verdict ~1 sem.)
+        SelecteurInforme(move_big=0.10, ia_seule=True),  # bot 27g10 : PUR LLM (agit uniquement sur avis IA)
     ]
     nouveaux = []
     for b in bots:

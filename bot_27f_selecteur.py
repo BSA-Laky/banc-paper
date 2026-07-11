@@ -6,15 +6,14 @@ bot_27f_selecteur.py - SELECTEUR INFORME PAR PIECE (paper)
 Choisit REV/MOM par EVENEMENT (move 24h >= seuil), par ORDRE DE PRIORITE :
   1. AVIS PAR PIECE de l'IA (etat/avis_par_piece.json, ecrit par avis_piece_ia.py qui
      LIT LE CATALYSEUR du move via recherche web) -> le vrai signal informe, PAR COIN ;
-  2. sinon TENDANCE PROPRE de la piece (rendement 7j) : move aligne -> momentum,
-     spike a contre-tendance -> reversion ;
-  3. sinon REVERSION (defaut prouve meilleur en OOS).
-On a RETIRE l'avis BTC GLOBAL (le 27e le teste deja, et l'appliquer a tous les coins
-est justement le defaut) : ici TOUT est PAR PIECE. Mecanique identique a 27b/27c/27e
-(seuil, notional, horizon, frais) => comparaison a armes egales.
+  2. sinon TENDANCE PROPRE de la piece (rendement 7j) ;
+  3. sinon REVERSION (defaut).
 
-Survie STRICTE : n>=50, t>=2, net de frais, ET battre le temoin ALEATOIRE, ET battre
-"toujours REVERSION". Ce bot ne pilote RIEN : mesure. 100% fictif, lecture seule HL, stdlib.
+Deux familles instanciables :
+  - 27f / 27f10  (ia_seule=False) : agit sur TOUT move >= seuil (avis si dispo, sinon fallback).
+  - 27g / 27g10  (ia_seule=True)  : agit UNIQUEMENT sur les coins AVEC un avis IA frais
+    -> isole l'edge LLM, sans le fallback deterministe (qui perd en mesure).
+stdlib only, lecture seule Hyperliquid, 100% fictif.
 """
 from __future__ import annotations
 
@@ -31,12 +30,11 @@ ETAT_DIR = Path("etat")
 F_AVIS_PIECE = ETAT_DIR / "avis_par_piece.json"
 JOURNAL_DECISIONS = ETAT_DIR / "journal_selecteur.csv"
 FRAICHEUR_AVIS_H = 26.0
-CONF_MIN_PIECE = 0.5       # on ne suit l'avis IA par coin que si confiance >= 0.5
-TREND_MIN = 0.05           # |tendance 7j piece| mini pour parler d'"alignement"
+CONF_MIN_PIECE = 0.5
+TREND_MIN = 0.05
 
 
 def _ret7_coin(coin: str):
-    """Rendement 7j de la PIECE via ses bougies 1d Hyperliquid. None si indispo."""
     fin = int(time.time() * 1000)
     debut = fin - 10 * 24 * 3600 * 1000
     rep = _http_post_info({"type": "candleSnapshot",
@@ -54,7 +52,7 @@ def _ret7_coin(coin: str):
 
 
 def _avis_piece(coin, now):
-    """Avis IA SPECIFIQUE au coin (etat/avis_par_piece.json). None si absent/perime/peu sur."""
+    """Avis IA specifique au coin (etat/avis_par_piece.json). None si absent/perime/peu sur."""
     try:
         with F_AVIS_PIECE.open(encoding="utf-8") as fh:
             e = json.load(fh).get(coin)
@@ -76,13 +74,12 @@ def _avis_piece(coin, now):
 
 
 def _decider(move, ret7, avis_piece):
-    """(mode, source). mode in {MOM, REV}. Priorite : avis IA par coin > tendance piece > REV."""
-    if avis_piece is not None:                       # 1) l'IA a lu le catalyseur de CE coin
+    if avis_piece is not None:
         return ("MOM" if avis_piece["sens"] == "momentum" else "REV"), "ia_piece"
-    if ret7 is not None and abs(ret7) >= TREND_MIN:  # 2) tendance propre de la piece
+    if ret7 is not None and abs(ret7) >= TREND_MIN:
         aligne = (move > 0 and ret7 > 0) or (move < 0 and ret7 < 0)
         return ("MOM", "tendance_piece") if aligne else ("REV", "tendance_piece")
-    return "REV", "defaut"                            # 3) baseline reversion
+    return "REV", "defaut"
 
 
 def _journaliser_decision(ligne):
@@ -100,19 +97,21 @@ def _journaliser_decision(ligne):
 
 
 class SelecteurInforme(Strategy):
-    """Bot 27f : un seul sens par evenement, choisi PAR PIECE (avis IA du coin + tendance)."""
+    """Bot 27f/27g : un seul sens par evenement. ia_seule=True -> n'agit que si avis IA."""
     name = "27f_selecteur"
 
     def __init__(self, notional=100.0, move_big=0.20, horizon_h=24.0,
-                 frais_par_jambe=0.00035, vol_min=1_000_000.0):
+                 frais_par_jambe=0.00035, vol_min=1_000_000.0, ia_seule=False):
         super().__init__(stake_usd=1.0)
         self.notional = notional
         self.move_big = move_big
         self.horizon_h = horizon_h
         self.frais = frais_par_jambe
         self.vol_min = vol_min
-        self.name = ("27f_selecteur" if move_big >= 0.20
-                     else "27f%d_selecteur" % int(round(move_big * 100)))
+        self.ia_seule = ia_seule
+        fam = "27g" if ia_seule else "27f"
+        suff = "" if move_big >= 0.20 else "%d" % int(round(move_big * 100))
+        self.name = "%s%s_selecteur" % (fam, suff)
         self._f = ETAT_DIR / ("etat_%s.json" % self.name)
         self._etat = self._charger()
 
@@ -171,7 +170,9 @@ class SelecteurInforme(Strategy):
         for coin, d in candidats:
             move = d["move"]
             ap = _avis_piece(coin, now)
-            ret7 = None if ap is not None else _ret7_coin(coin)   # evite un appel si avis present
+            if self.ia_seule and ap is None:
+                continue                      # PUR LLM : on saute les coins sans avis
+            ret7 = None if (ap is not None or self.ia_seule) else _ret7_coin(coin)
             mode, source = _decider(move, ret7, ap)
             side = (1 if move > 0 else -1) if mode == "MOM" else (-1 if move > 0 else 1)
             self._etat[coin] = {"ouvert": True, "side": side, "entry": d["mark"],
