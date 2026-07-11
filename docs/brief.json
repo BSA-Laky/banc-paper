@@ -1,43 +1,37 @@
 {
- "ts": "2026-07-11T12:29:03.375553+00:00",
+ "ts": "2026-07-11T14:03:19.523447+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
- "changements_statut": [
-  {
-   "bot": "27d_rev_move_stop",
-   "avant": "GRIS",
-   "apres": "ORANGE"
-  }
- ],
+ "changements_statut": [],
  "statuts": {
   "23_carry_funding": {
    "statut": "ORANGE",
    "n": 97,
    "esperance": 0.8244,
    "t": 1.08,
-   "fwd_j": 17.7
+   "fwd_j": 17.8
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
    "n": 86,
    "esperance": -0.1888,
    "t": -0.68,
-   "fwd_j": 17.7
+   "fwd_j": 17.8
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
    "n": 459,
    "esperance": 0.4833,
    "t": 2.29,
-   "fwd_j": 18.7
+   "fwd_j": 18.8
   },
   "27a_rev_premium": {
    "statut": "GRIS",
    "n": 18,
    "esperance": -2.3697,
    "t": -0.92,
-   "fwd_j": 17.6
+   "fwd_j": 17.7
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -58,7 +52,7 @@
    "n": 30,
    "esperance": 2.2681,
    "t": 0.78,
-   "fwd_j": 11.6
+   "fwd_j": 11.7
   },
   "27e_arbitre": {
    "statut": "GRIS",
@@ -72,14 +66,14 @@
    "n": 62,
    "esperance": 0.4954,
    "t": 0.45,
-   "fwd_j": 6.8
+   "fwd_j": 6.9
   },
   "27f_selecteur": {
    "statut": "GRIS",
    "n": 15,
    "esperance": -2.106,
    "t": -0.59,
-   "fwd_j": 6.8
+   "fwd_j": 6.9
   },
   "28_carry_hold": {
    "statut": "ORANGE",
@@ -90,13 +84,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0003,
-  "ret7": 0.0166,
-  "ret30": 0.0087,
-  "prix": 64175
+  "ret1": 0.0015,
+  "ret7": 0.0178,
+  "ret30": 0.0099,
+  "prix": 64249
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-11T14:03",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-11T12:29",
    "bot": "27f_selecteur",
@@ -138,19 +138,13 @@
    "bot": "25_convergence_basis",
    "marche": "conv-UNI",
    "pnl": 0.02
-  },
-  {
-   "ts": "2026-07-11T12:28",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": null,
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 1,
-  "age_avis_h": 5.0,
+  "age_avis_h": 6.6,
   "problemes": []
  }
 }
