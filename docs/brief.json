@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-11T10:02:34.729970+00:00",
+ "ts": "2026-07-11T11:19:11.186789+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -10,28 +10,28 @@
    "n": 97,
    "esperance": 0.8244,
    "t": 1.08,
-   "fwd_j": 17.6
+   "fwd_j": 17.7
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
    "n": 86,
    "esperance": -0.1888,
    "t": -0.68,
-   "fwd_j": 17.6
+   "fwd_j": 17.7
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 456,
-   "esperance": 0.5135,
-   "t": 2.44,
-   "fwd_j": 18.6
+   "n": 457,
+   "esperance": 0.4865,
+   "t": 2.29,
+   "fwd_j": 18.7
   },
   "27a_rev_premium": {
    "statut": "GRIS",
    "n": 18,
    "esperance": -2.3697,
    "t": -0.92,
-   "fwd_j": 17.5
+   "fwd_j": 17.6
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -52,7 +52,7 @@
    "n": 29,
    "esperance": 2.4227,
    "t": 0.8,
-   "fwd_j": 11.5
+   "fwd_j": 11.6
   },
   "27e_arbitre": {
    "statut": "GRIS",
@@ -66,14 +66,14 @@
    "n": 62,
    "esperance": 0.4954,
    "t": 0.45,
-   "fwd_j": 6.7
+   "fwd_j": 6.8
   },
   "27f_selecteur": {
    "statut": "GRIS",
    "n": 14,
    "esperance": -2.4062,
    "t": -0.63,
-   "fwd_j": 6.7
+   "fwd_j": 6.8
   },
   "28_carry_hold": {
    "statut": "ORANGE",
@@ -84,13 +84,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0001,
-  "ret7": 0.0164,
-  "ret30": 0.0085,
-  "prix": 64161
+  "ret1": 0.0003,
+  "ret7": 0.0166,
+  "ret30": 0.0087,
+  "prix": 64172
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-11T11:19",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": -11.84
+  },
+  {
+   "ts": "2026-07-11T11:19",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-11T10:02",
    "bot": "27f10_selecteur",
@@ -126,25 +138,13 @@
    "bot": "24_funding_multivenues",
    "marche": "pdxcarry-BZ",
    "pnl": -0.76
-  },
-  {
-   "ts": "2026-07-11T10:02",
-   "bot": "25_convergence_basis",
-   "marche": "conv-XMR",
-   "pnl": -0.14
-  },
-  {
-   "ts": "2026-07-11T10:02",
-   "bot": "25_convergence_basis",
-   "marche": "conv-LIT",
-   "pnl": -0.24
   }
  ],
  "calibration_arbitre": null,
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 1,
-  "age_avis_h": 2.6,
+  "age_avis_h": 3.9,
   "problemes": []
  }
 }
