@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-11T14:43:54.917372+00:00",
+ "ts": "2026-07-11T15:15:47.553452+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -10,19 +10,19 @@
    "n": 97,
    "esperance": 0.8244,
    "t": 1.08,
-   "fwd_j": 17.8
+   "fwd_j": 17.9
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
    "n": 86,
    "esperance": -0.1888,
    "t": -0.68,
-   "fwd_j": 17.8
+   "fwd_j": 17.9
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 460,
-   "esperance": 0.4824,
+   "n": 462,
+   "esperance": 0.4804,
    "t": 2.29,
    "fwd_j": 18.8
   },
@@ -31,7 +31,7 @@
    "n": 18,
    "esperance": -2.3697,
    "t": -0.92,
-   "fwd_j": 17.7
+   "fwd_j": 17.8
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -52,7 +52,7 @@
    "n": 30,
    "esperance": 2.2681,
    "t": 0.78,
-   "fwd_j": 11.7
+   "fwd_j": 11.8
   },
   "27e_arbitre": {
    "statut": "GRIS",
@@ -84,13 +84,31 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0039,
-  "ret7": 0.0203,
-  "ret30": 0.0124,
-  "prix": 64408
+  "ret1": 0.0047,
+  "ret7": 0.0211,
+  "ret30": 0.0131,
+  "prix": 64456
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-11T15:15",
+   "bot": "25_convergence_basis",
+   "marche": "conv-GRAM",
+   "pnl": -0.18
+  },
+  {
+   "ts": "2026-07-11T15:15",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ETHFI",
+   "pnl": 0.25
+  },
+  {
+   "ts": "2026-07-11T15:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-11T14:43",
    "bot": "25_convergence_basis",
@@ -120,31 +138,13 @@
    "bot": "27e_arbitre",
    "marche": "arb-SYRUP-MOM-tendance",
    "pnl": 2.1
-  },
-  {
-   "ts": "2026-07-11T12:29",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-SYRUP",
-   "pnl": -2.22
-  },
-  {
-   "ts": "2026-07-11T12:29",
-   "bot": "27c_mom_move",
-   "marche": "mom_move-SYRUP",
-   "pnl": 2.08
-  },
-  {
-   "ts": "2026-07-11T12:29",
-   "bot": "27b_rev_move",
-   "marche": "rev_move-SYRUP",
-   "pnl": -2.22
   }
  ],
  "calibration_arbitre": null,
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 1,
-  "age_avis_h": 7.3,
+  "age_avis_h": 7.8,
   "problemes": []
  }
 }
