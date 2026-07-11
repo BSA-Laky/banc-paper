@@ -115,6 +115,12 @@ class ExecutionHL:
         exchange, _ = self._charger_live()
         return exchange.cancel(coin, oid)
 
+    def market_close(self, coin):
+        if not self.cfg.live_arme:
+            return self._paper("market_close", coin, None, None, None, 0.0)
+        exchange, _ = self._charger_live()
+        return exchange.market_close(coin)
+
     def _paper(self, action, coin, is_buy, sz, px, notional, extra=None):
         ligne = {"ts": _ts(), "mode": "paper", "action": action, "coin": coin,
                  "is_buy": is_buy, "sz": sz, "px": px, "notional": round(notional, 4), "oid": ""}
