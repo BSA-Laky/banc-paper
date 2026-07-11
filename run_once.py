@@ -57,6 +57,11 @@ if __name__ == "__main__":
         produire_go_reel()
     except Exception as e:
         print(f"[run_once] moniteur go_reel a leve : {e}", flush=True)
+    try:                          # tresorier : promotions + interpellations (jamais bloquant)
+        import tresorier
+        tresorier.evaluer()
+    except Exception as e:
+        print(f"[run_once] tresorier a leve : {e}", flush=True)
     try:                          # brief Station (PC eteint, jamais bloquant)
         from tour_de_controle import produire_brief
         produire_brief()

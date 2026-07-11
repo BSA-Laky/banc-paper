@@ -29,6 +29,8 @@ import tg
 ETAT = Path("etat"); DOCS = Path("docs")
 F_NOTIF = ETAT / "tg_notifie.json"
 F_DECISIONS = ETAT / "decisions_commandant.json"
+F_TRESO_OUT = ETAT / "tresorier_out.json"
+F_PROMO = Path("promotions.json")
 
 
 def _lire_json(p, defaut):
@@ -92,6 +94,22 @@ def notifier(st, brief, regime):
     return envoyes
 
 
+def notifier_tresorier(st):
+    """Draine la file d'interpellations du Tresorier (etat/tresorier_out.json)."""
+    q = _lire_json(F_TRESO_OUT, {"pending": []})
+    pend = q.get("pending", []) if isinstance(q, dict) else []
+    restant = []
+    envoyes = 0
+    for m in pend:
+        if tg.envoyer("\U0001F4B0 TRESORIER\n" + str(m.get("texte", ""))):
+            envoyes += 1
+        else:
+            restant.append(m)
+    if pend:
+        _ecrire_json(F_TRESO_OUT, {"pending": restant})
+    return envoyes
+
+
 # ------------------------------------------------------------------ entrant
 def _statut_court(brief):
     s = brief.get("statuts", {})
@@ -143,9 +161,23 @@ def repondre(st, brief):
             _ecrire_json(F_DECISIONS, decisions[-30:])
             tg.envoyer(f"✔ Consigne « {cmd} {mots[1]} » enregistree — "
                        f"le Superviseur la lira dimanche.")
+        elif cmd in ("go", "confirme", "valide") and len(mots) >= 2:
+            bot = mots[1]
+            promo = _lire_json(F_PROMO, {"bots": {}})
+            promo.setdefault("bots", {})
+            cur = promo["bots"].get(bot, {}).get("etat")
+            if cur in ("candidat", "pause"):
+                promo["bots"][bot] = {"etat": "live",
+                                      "confirme": datetime.now(timezone.utc).isoformat()}
+                _ecrire_json(F_PROMO, promo)
+                tg.envoyer(f"\u2705 {bot} MIS EN SERVICE (live). Le Tresorier lui alloue son "
+                           f"enveloppe ; il trade desormais en autonomie. Retrait = ta main.")
+            else:
+                tg.envoyer(f"\u26a0 {bot} n'est pas 'candidat' (etat: {cur or 'inconnu'}). "
+                           f"Mise en service refusee.")
         else:
             tg.envoyer("Commandes : statut · arbitre · rapport · "
-                       "approve <id> · rejette <id>\n"
+                       "approve <id> · rejette <id> · go <bot>\n"
                        "(lecture seule — aucun ordre de trade possible par ici)")
     st["offset"] = offset
     return traites
@@ -165,6 +197,7 @@ def main():
                    "Tape « aide » pour les commandes. Les alertes, le verdict "
                    "quotidien de l'Arbitre et le rapport du dimanche arriveront ici.")
     n = notifier(st, brief, regime)
+    notifier_tresorier(st)
     c = repondre(st, brief)
     _ecrire_json(F_NOTIF, st)
     print(f"[gateway] {n} notification(s), {c} commande(s) traitee(s).", flush=True)
