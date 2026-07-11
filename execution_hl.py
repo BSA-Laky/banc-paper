@@ -131,6 +131,16 @@ class ExecutionHL:
         exchange, _ = self._charger_live()
         return exchange.market_close(coin)
 
+    def set_leverage(self, coin, levier, cross=True):
+        """Regle le levier du coin sur HL. No-op en paper ou si levier<=1."""
+        if not self.cfg.live_arme or levier is None or levier <= 1:
+            return {"status": "skip"}
+        exchange, _ = self._charger_live()
+        try:
+            return exchange.update_leverage(int(round(levier)), coin, cross)
+        except Exception as e:
+            return {"status": "err", "detail": str(e)[:80]}
+
     def _paper(self, action, coin, is_buy, sz, px, notional, extra=None):
         ligne = {"ts": _ts(), "mode": "paper", "action": action, "coin": coin,
                  "is_buy": is_buy, "sz": sz, "px": px, "notional": round(notional, 4), "oid": ""}

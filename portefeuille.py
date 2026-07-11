@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-portefeuille.py - Gestionnaire d'ENVELOPPE par bot (300 EUR/bot), deterministe.
-==============================================================================
-Chaque bot a SA propre enveloppe. Il dimensionne chaque entree a
-  mise = enveloppe / positions_max
-et ne deploie JAMAIS plus que son enveloppe (les entrees au-dela sont refusees).
-Route l'execution via execution_hl (paper -> live). AUCUN retrait. stdlib only.
+portefeuille.py - Gestionnaire d'ENVELOPPE + LEVIER par bot (deterministe).
+==========================================================================
+Enveloppe = marge allouee (300 EUR/bot). Le LEVIER (defaut 1x, fixe par le Tresorier
+au moment de la promotion via Kelly fractionnaire) multiplie le NOTIONAL deploye :
+  notional_max = enveloppe * levier ; mise/entree = notional_max / positions_max ;
+  la marge utilisee ne depasse JAMAIS l'enveloppe. Levier=1 tant qu'un bot n'est pas
+  promu (rien dans promotions.json) -> comportement identique a avant. stdlib.
 """
 from __future__ import annotations
 
@@ -18,26 +19,22 @@ from execution_hl import ExecutionHL
 
 CONFIG = Path(os.environ.get("PORTEFEUILLE_CONFIG", "portefeuille.config.json"))
 ETAT_EXPO = Path("etat/portefeuille_expo.json")
+F_PROMO = Path("promotions.json")
 
 
 class Portefeuille:
     def __init__(self, config_path=CONFIG, executor=None):
-        self.cfg = self._charger_cfg(config_path)
+        self.cfg = self._json(config_path, {"enveloppe_par_bot_eur": 300, "eurusd": 1.07, "bots": {}})
         self.exec = executor or ExecutionHL()
-        self.expo = self._charger_expo()          # {bot: notional_deploye_usd}
+        self.expo = self._json(ETAT_EXPO, {})
+        self.promo = self._json(F_PROMO, {})
 
     @staticmethod
-    def _charger_cfg(p):
+    def _json(p, d):
         try:
             return json.loads(Path(p).read_text(encoding="utf-8"))
         except (OSError, ValueError):
-            return {"enveloppe_par_bot_eur": 300, "eurusd": 1.07, "bots": {}}
-
-    def _charger_expo(self):
-        try:
-            return json.loads(ETAT_EXPO.read_text(encoding="utf-8"))
-        except (OSError, ValueError):
-            return {}
+            return d
 
     def _sauver_expo(self):
         try:
@@ -50,7 +47,7 @@ class Portefeuille:
         return float(self.cfg.get("eurusd", 1.07))
 
     def enveloppe(self, bot):
-        """Enveloppe du bot en USD (0 si bot inconnu)."""
+        """Enveloppe (marge) du bot en USD. 0 si bot inconnu."""
         if bot not in self.cfg.get("bots", {}):
             return 0.0
         return float(self.cfg.get("enveloppe_par_bot_eur", 0)) * self._eurusd()
@@ -58,18 +55,26 @@ class Portefeuille:
     def positions_max(self, bot):
         return int(self.cfg.get("bots", {}).get(bot, {}).get("positions_max", 1)) or 1
 
+    def levier(self, bot):
+        """Levier du bot (defaut 1x). Fixe par le Tresorier dans promotions.json. Borne [1, levier_max]."""
+        l = float(self.promo.get("bots", {}).get(bot, {}).get("levier", 1.0))
+        return max(1.0, min(l, float(self.cfg.get("levier_max", 3.0))))
+
+    def plafond_notional(self, bot):
+        """Notional total max = enveloppe * levier."""
+        return self.enveloppe(bot) * self.levier(bot)
+
     def taille_entree(self, bot):
-        """Mise a l'entree (USD) = enveloppe / positions_max."""
-        return self.enveloppe(bot) / self.positions_max(bot)
+        """Mise a l'entree (notional USD) = (enveloppe * levier) / positions_max."""
+        return self.plafond_notional(bot) / self.positions_max(bot)
 
     def dispo_bot(self, bot):
-        return max(0.0, self.enveloppe(bot) - float(self.expo.get(bot, 0.0)))
+        return max(0.0, self.plafond_notional(bot) - float(self.expo.get(bot, 0.0)))
 
     def peut_ouvrir(self, bot, notional=None):
         notional = self.taille_entree(bot) if notional is None else notional
         if notional > self.dispo_bot(bot) + 1e-9:
-            return False, "enveloppe %s pleine (%.2f$ libres, mise %.2f$)" % (
-                bot, self.dispo_bot(bot), notional)
+            return False, "enveloppe %s pleine (%.2f$ libres, mise %.2f$)" % (bot, self.dispo_bot(bot), notional)
         return True, "ok"
 
     def ouvrir(self, bot, coin, is_buy, prix_ref, notional=None):
@@ -91,15 +96,14 @@ class Portefeuille:
         eu = self._eurusd()
         lignes = []
         for bot in self.cfg.get("bots", {}):
-            env = self.enveloppe(bot); used = float(self.expo.get(bot, 0.0))
-            lignes.append({"bot": bot, "enveloppe_eur": round(env / eu, 0),
+            env = self.enveloppe(bot); used = float(self.expo.get(bot, 0.0)); lev = self.levier(bot)
+            lignes.append({"bot": bot, "enveloppe_eur": round(env / eu),
+                           "levier": lev, "notional_max_eur": round(env * lev / eu),
                            "mise_eur": round(self.taille_entree(bot) / eu, 2),
                            "positions_max": self.positions_max(bot),
-                           "deploye_eur": round(used / eu, 2),
-                           "libre_eur": round((env - used) / eu, 2)})
+                           "deploye_eur": round(used / eu, 2)})
         return {"mode": self.exec.cfg.resume()["mode"], "par_bot": lignes}
 
 
 if __name__ == "__main__":
-    verifier = Portefeuille()
-    print(json.dumps(verifier.etat(), ensure_ascii=False, indent=1))
+    print(json.dumps(Portefeuille().etat(), ensure_ascii=False, indent=1))

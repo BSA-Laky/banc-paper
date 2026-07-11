@@ -146,6 +146,9 @@ def executer():
                 continue
             side = int(v.get("side", -1))
             notion = pf.taille_entree(bot)
+            lev = pf.levier(bot)
+            if lev > 1:
+                ex.set_leverage(coin, lev)
             try:
                 r = pf.ouvrir(bot, coin, is_buy=(side > 0), prix_ref=d["mark"])
             except Exception as e:

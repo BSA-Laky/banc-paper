@@ -183,6 +183,37 @@ def checklist(bot, v, histo, pnls):
     return (len(m) == 0, m)
 
 
+def _returns_par_bot():
+    """Rendements par trade (pnl / size_usd) par bot, depuis le ledger."""
+    out = {}
+    try:
+        with LEDGER.open(encoding="utf-8") as fh:
+            for r in csv.DictReader(fh):
+                if r.get("status") != "closed":
+                    continue
+                try:
+                    sz = float(r["size_usd"]); pnl = float(r["pnl"])
+                    if sz > 0:
+                        out.setdefault(r["bot"], []).append(pnl / sz)
+                except (KeyError, ValueError):
+                    pass
+    except OSError:
+        pass
+    return out
+
+
+def _levier_kelly(rets, kfrac, lmax):
+    """Levier recommande = fraction de Kelly = kfrac * mu/var (rendements). Borne [1, lmax]."""
+    n = len(rets)
+    if n < 20:
+        return 1.0
+    mu = sum(rets) / n
+    var = sum((x - mu) ** 2 for x in rets) / (n - 1)
+    if var <= 0 or mu <= 0:
+        return 1.0
+    return round(max(1.0, min(kfrac * (mu / var), lmax)), 2)
+
+
 def evaluer():
     now = datetime.now(timezone.utc)
     jour = now.date().isoformat()
@@ -192,6 +223,9 @@ def evaluer():
     promo.setdefault("bots", {}); promo.setdefault("deja", [])
     histo = _maj_histo(_lire_json(F_HISTO, {}), gr, jour)
     pnls = _pnl_par_bot()
+    rets = _returns_par_bot()
+    kfrac = float(cfg.get("kelly_fraction", 0.25))
+    lmax = float(cfg.get("levier_max", 3.0))
     out = _lire_json(F_OUT, {"pending": []})
     out.setdefault("pending", [])
 
@@ -225,11 +259,13 @@ def evaluer():
 
         pret, manque = checklist(bot, v, histo, pnls.get(bot, []))
         if pret and etat == "paper":
-            promo["bots"][bot] = {"etat": "candidat", "depuis": jour}
+            lev = _levier_kelly(rets.get(bot, []), kfrac, lmax)
+            promo["bots"][bot] = {"etat": "candidat", "depuis": jour, "levier": lev}
             interpelle("cand:%s" % bot,
                        "Le bot %s a passe TOUTES les verifications (n=%s, t=%.2f, P&L jamais negatif, "
-                       "VERT %d j). Pret a etre mis en service.\nRepondre \"go %s\" pour confirmer."
-                       % (bot, v.get("n"), v.get("t_stat") or 0, _vert_jours(histo, bot), bot))
+                       "VERT %d j). Levier recommande %.2fx (Kelly frac.).\n"
+                       "Repondre \"go %s\" pour confirmer."
+                       % (bot, v.get("n"), v.get("t_stat") or 0, _vert_jours(histo, bot), lev, bot))
 
         e = promo["bots"].get(bot, {}).get("etat", "paper")
         if e == "candidat":
@@ -238,6 +274,10 @@ def evaluer():
             lives.append(bot)
         elif e == "pause":
             pauses.append(bot)
+
+    for _b in promo["bots"]:
+        if promo["bots"][_b].get("etat") in ("candidat", "live", "pause"):
+            promo["bots"][_b]["levier"] = _levier_kelly(rets.get(_b, []), kfrac, lmax)
 
     # controle du capital pour candidats + live
     besoin = sum(_plafond(cfg, b) for b in candidats + lives + pauses)
