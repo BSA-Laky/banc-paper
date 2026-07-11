@@ -1,7 +1,7 @@
-# Arbitre IA — 2026-07-10
+# Arbitre IA — 2026-07-11
 
 **Regime : neutre** (confiance 0.50)
 
-BTC 64189, ret7+2.6% ret30+4.4% haussiers mais mous. 25_conv solide (n=429 t=2.34 E=0.52). Reste ORANGE/GRIS bruit. Conf 0.5.
+BTC 64243, ret7+1.8% ret30+1.0% mous. 25_conv seule ref (n=452 t=2.31 E=0.49). Calib arbitre null → humble.
 
-[Note du jour](../veille/2026-07-10.md) — modele `claude-opus-4-8`
+[Note du jour](../veille/2026-07-11.md) — modele `claude-opus-4-8`
