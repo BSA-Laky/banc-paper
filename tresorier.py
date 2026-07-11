@@ -103,12 +103,63 @@ def _vert_jours(histo, bot):
 
 
 def _plafond(cfg, bot):
-    b = cfg.get("bots", {}).get(bot, {})
-    if b.get("max_notional") is not None:
-        return float(b["max_notional"])
-    if "alloc_pct" in b:
-        return float(cfg.get("capital_total_usd", 0)) * float(b["alloc_pct"])
-    return 0.0
+    if bot not in cfg.get("bots", {}):
+        return 0.0
+    return float(cfg.get("enveloppe_par_bot_eur", 0)) * float(cfg.get("eurusd", 1.07))
+
+
+def _concurrence():
+    """Positions simultanees estimees par bot (loi de Little) depuis le ledger."""
+    hold = {"28_carry_hold": 2.0}
+    ts_par = {}
+    try:
+        with LEDGER.open(encoding="utf-8") as fh:
+            for r in csv.DictReader(fh):
+                if r.get("status") != "closed":
+                    continue
+                try:
+                    t = datetime.fromisoformat(str(r.get("closed_at") or r.get("opened_at")).replace("Z", "+00:00"))
+                except (ValueError, TypeError):
+                    continue
+                ts_par.setdefault(r["bot"], []).append(t)
+    except OSError:
+        pass
+    out = {}
+    for bot, ts in ts_par.items():
+        if len(ts) < 3:
+            out[bot] = 0.0
+            continue
+        ts.sort()
+        jours = max(0.5, (ts[-1] - ts[0]).total_seconds() / 86400)
+        out[bot] = (len(ts) / jours) * hold.get(bot, 1.0)
+    return out
+
+
+def gestion_enveloppe():
+    """Rapport de gestion d'enveloppe (300 EUR/bot) -> docs/enveloppes.json.
+    Montre, par bot : mise/entree, positions max, deploiement moyen estime, libre."""
+    cfg = _lire_json(CONFIG_PF, {})
+    eu = float(cfg.get("eurusd", 1.07))
+    env_eur = float(cfg.get("enveloppe_par_bot_eur", 300))
+    env_usd = env_eur * eu
+    conc = _concurrence()
+    rap = {}
+    for bot, b in cfg.get("bots", {}).items():
+        pmax = int(b.get("positions_max", 1)) or 1
+        mise_usd = env_usd / pmax
+        c = min(conc.get(bot, 0.0), pmax)               # borne par l'enveloppe
+        deploye = min(c * mise_usd, env_usd)
+        rap[bot] = {"enveloppe_eur": round(env_eur),
+                    "positions_max": pmax,
+                    "mise_entree_eur": round(mise_usd / eu, 2),
+                    "positions_estimees": round(c, 1),
+                    "deploye_moyen_eur": round(deploye / eu, 2),
+                    "libre_moyen_eur": round((env_usd - deploye) / eu, 2),
+                    "usage_pct": round(100 * deploye / env_usd)}
+    _ecrire_json(DOCS / "enveloppes.json",
+                 {"ts": datetime.now(timezone.utc).isoformat(),
+                  "enveloppe_par_bot_eur": round(env_eur), "bots": rap})
+    return rap
 
 
 def checklist(bot, v, histo, pnls):
@@ -190,7 +241,7 @@ def evaluer():
 
     # controle du capital pour candidats + live
     besoin = sum(_plafond(cfg, b) for b in candidats + lives + pauses)
-    dispo = float(cfg.get("capital_total_usd", 0.0))     # (reel : solde HL, plus tard)
+    dispo = float(cfg.get("capital_reel_usd", 0.0))       # solde HL reel (0 tant que paper)
     manque_usd = round(besoin - dispo, 2)
     if candidats and manque_usd > 0:
         interpelle("fonds:%s" % int(manque_usd),

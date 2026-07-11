@@ -132,6 +132,27 @@ def _positions():
             + "".join(rows) + "</table></div>")
 
 
+def _enveloppes():
+    try:
+        d = json.loads((DOCS / "enveloppes.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError, NameError):
+        return ""
+    bots = d.get("bots", {})
+    if not bots:
+        return ""
+    rows = "".join(
+        "<tr><td>%s</td><td>%s&nbsp;\u20ac</td><td>%s</td><td>%.1f&nbsp;\u20ac</td><td>%.0f&nbsp;\u20ac</td><td>%.0f%%</td></tr>"
+        % (html.escape(b), v.get("enveloppe_eur"), v.get("positions_max"),
+           v.get("mise_entree_eur"), v.get("deploye_moyen_eur"), v.get("usage_pct"))
+        for b, v in sorted(bots.items()))
+    return ("<div class=\"carte\"><h2>Gestion d'enveloppe \u2014 300 \u20ac par bot</h2>"
+            "<table style=\"width:100%;border-collapse:collapse;font-size:.85rem\">"
+            "<tr style=\"text-align:left;color:#9aa0a6\"><th>Bot</th><th>Env.</th><th>Pos.max</th>"
+            "<th>Mise/entr\u00e9e</th><th>D\u00e9ploy\u00e9 moy.</th><th>Usage</th></tr>"
+            + rows + "</table><div style=\"color:#9aa0a6;font-size:.75rem;margin-top:6px\">"
+            "Mise = enveloppe / positions max. Le bot ne d\u00e9ploie jamais plus que son enveloppe (refus au-del\u00e0).</div></div>")
+
+
 def construire_dashboard():
     lignes = charger_journal()
     res = evaluer(lignes)
@@ -146,7 +167,7 @@ def construire_dashboard():
         '<h1>Banc paper-trading — argent 100 % fictif</h1>'
         f'<div class="maj">Mis à jour : {maj} · rafraîchissement auto ~10 min</div>'
         '<div class="maj"><a href="station.html">station</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a> · <a href="book.html">book</a></div>'
-        + _ab(res) + cartes + _positions() +
+        + _ab(res) + cartes + _positions() + _enveloppes() +
         '<footer>Lecture seule sur APIs publiques (Hyperliquid, Paradex, ADEN). '
         'Aucun ordre réel, aucun wallet, aucune clé. Le t-stat est peu fiable pour '
         'un profil asymétrique : lire l\'espérance ET le nombre de trades. Rien en '

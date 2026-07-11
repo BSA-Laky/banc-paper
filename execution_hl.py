@@ -93,7 +93,8 @@ class ExecutionHL:
         return self._live
 
     def market_open(self, coin, is_buy, notional_usd, prix_ref):
-        self._verifie_taille(notional_usd)
+        if self.cfg.live_arme:
+            self._verifie_taille(notional_usd)
         sz = round(notional_usd / prix_ref, 6) if prix_ref else 0.0
         if not self.cfg.live_arme:
             return self._paper("market_open", coin, is_buy, sz, prix_ref, notional_usd)
@@ -101,7 +102,8 @@ class ExecutionHL:
         return exchange.market_open(coin, is_buy, sz)
 
     def limit_order(self, coin, is_buy, sz, px, tif="Gtc"):
-        self._verifie_taille(sz * px)
+        if self.cfg.live_arme:
+            self._verifie_taille(sz * px)
         if not self.cfg.live_arme:
             return self._paper("limit", coin, is_buy, sz, px, sz * px)
         exchange, _ = self._charger_live()

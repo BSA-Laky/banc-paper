@@ -1,10 +1,16 @@
 {
-  "commentaire": "1 compte MAITRE finance tous les bots crypto (Hyperliquid). Plafonds logiciels par bot. Retrait = wallet proprietaire = humain. capital_total_usd = ce que TU deposes.",
-  "capital_total_usd": 30.0,
-  "reserve_pct": 0.2,
+  "commentaire": "Enveloppe de 300 EUR PAR BOT. mise/entree = enveloppe / positions_max. Un bot ne deploie JAMAIS plus que son enveloppe (gestion via portefeuille.py). Retrait = humain. capital_reel_usd = solde HL reel (0 tant que paper).",
+  "enveloppe_par_bot_eur": 300,
+  "eurusd": 1.07,
+  "capital_reel_usd": 0,
   "bots": {
-    "27f_selecteur":   {"alloc_pct": 0.35, "max_notional": 8},
-    "27f10_selecteur": {"alloc_pct": 0.35, "max_notional": 8},
-    "28_carry_hold":   {"alloc_pct": 0.30, "max_notional": 6}
+    "27b_rev_move": {"positions_max": 3},
+    "27f_selecteur": {"positions_max": 3},
+    "27f10_selecteur": {"positions_max": 10},
+    "27g10_selecteur": {"positions_max": 6},
+    "23_carry_funding": {"positions_max": 6},
+    "24_funding_multivenues": {"positions_max": 6},
+    "25_convergence_basis": {"positions_max": 25},
+    "28_carry_hold": {"positions_max": 10}
   }
 }

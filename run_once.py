@@ -51,6 +51,11 @@ def lancer_passe() -> None:
 
 if __name__ == "__main__":
     lancer_passe()
+    try:                          # gestion d'enveloppe 300 EUR/bot (avant le dashboard)
+        import tresorier
+        tresorier.gestion_enveloppe()
+    except Exception as e:
+        print(f"[run_once] gestion_enveloppe a leve : {e}", flush=True)
     construire_dashboard()
     try:                          # gate GO-reel + decrochage (jamais bloquant)
         from moniteur_go_reel import produire_go_reel
