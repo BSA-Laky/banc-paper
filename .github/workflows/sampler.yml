@@ -36,7 +36,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           MODELE_AVIS: ${{ vars.MODELE_ARBITRE || 'claude-opus-4-8' }}
-          AVIS_MAX_JOUR: "6"
+          AVIS_MAX_JOUR: "10"
         run: python run_once.py
 
       - name: Committer l'état, le journal et le dashboard
