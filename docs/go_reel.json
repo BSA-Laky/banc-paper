@@ -1,54 +1,54 @@
 {
- "ts": "2026-07-11T08:28:58.289745+00:00",
+ "ts": "2026-07-11T10:02:34.726634+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 205,
-   "t_stat": 0.9,
+   "n": 206,
+   "t_stat": 0.83,
    "sain": true
   }
  },
  "bots": {
   "23_carry_funding": {
-   "n": 94,
-   "esperance": 0.884,
-   "t_stat": 1.12,
+   "n": 97,
+   "esperance": 0.8244,
+   "t_stat": 1.08,
    "mdd_live": 33.17,
    "jours_forward": 17.6,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
-    "n 94 < n_go 100",
+    "n 97 < n_go 100",
     "t < 2",
     "forward 18 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": 2.8496,
-   "borne_decrochage": -2.5388,
+   "esp_glissante_20": 2.8421,
+   "borne_decrochage": -2.548,
    "statut": "ORANGE"
   },
   "24_funding_multivenues": {
-   "n": 82,
-   "esperance": -0.1576,
-   "t_stat": -0.55,
-   "mdd_live": 30.17,
+   "n": 86,
+   "esperance": -0.1888,
+   "t_stat": -0.68,
+   "mdd_live": 33.48,
    "jours_forward": 17.6,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
-    "n 82 < n_go 100",
+    "n 86 < n_go 100",
     "t < 2",
     "forward 18 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": -0.8367,
-   "borne_decrochage": -1.3265,
+   "esp_glissante_20": -0.8898,
+   "borne_decrochage": -1.3321,
    "statut": "ORANGE"
   },
   "25_convergence_basis": {
-   "n": 454,
-   "esperance": 0.5166,
+   "n": 456,
+   "esperance": 0.5135,
    "t_stat": 2.44,
    "mdd_live": 47.59,
    "jours_forward": 18.6,
@@ -58,13 +58,13 @@
     "forward 19 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": 0.649,
-   "borne_decrochage": -1.5017,
+   "esp_glissante_20": 0.644,
+   "borne_decrochage": -1.5004,
    "statut": "ORANGE",
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.3673,
-    "t_welch": -0.45
+    "delta_esperance": -0.3109,
+    "t_welch": -0.39
    }
   },
   "27a_rev_premium": {
@@ -84,7 +84,7 @@
    "esperance": 5.5202,
    "t_stat": 2.21,
    "mdd_live": 34.58,
-   "jours_forward": 17.1,
+   "jours_forward": 17.2,
    "verdict_banc": "edge POSITIF plausible (a confirmer)",
    "decrochage": false,
    "raisons": [
@@ -101,7 +101,7 @@
    "esperance": -5.6602,
    "t_stat": -2.26,
    "mdd_live": 217.22,
-   "jours_forward": 17.1,
+   "jours_forward": 17.2,
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
    "decrochage": false,
    "raisons": [
@@ -133,7 +133,7 @@
    "esperance": 0.9394,
    "t_stat": 0.28,
    "mdd_live": 46.37,
-   "jours_forward": 7.7,
+   "jours_forward": 7.8,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -146,21 +146,21 @@
    }
   },
   "27f10_selecteur": {
-   "n": 60,
-   "esperance": 0.475,
-   "t_stat": 0.42,
+   "n": 62,
+   "esperance": 0.4954,
+   "t_stat": 0.45,
    "mdd_live": 65.97,
    "jours_forward": 6.7,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
-    "n 60 < n_go 100",
+    "n 62 < n_go 100",
     "t < 2",
     "forward 7 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": 1.5401,
-   "borne_decrochage": -3.4173,
+   "esp_glissante_20": 1.1925,
+   "borne_decrochage": -3.3486,
    "statut": "ORANGE"
   },
   "27f_selecteur": {
@@ -180,7 +180,7 @@
    "esperance": 4.0343,
    "t_stat": 1.81,
    "mdd_live": 0.12,
-   "jours_forward": 7.7,
+   "jours_forward": 7.8,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
