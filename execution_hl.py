@@ -89,16 +89,26 @@ class ExecutionHL:
         wallet = Account.from_key(self.cfg.key)
         info = Info(self.cfg.base_url, skip_ws=True)
         exchange = Exchange(wallet, self.cfg.base_url, account_address=self.cfg.account)
+        try:                                   # decimales de taille par coin (arrondi correct)
+            self._szdec = {a["name"]: int(a.get("szDecimals", 2))
+                           for a in (info.meta() or {}).get("universe", [])}
+        except Exception:
+            self._szdec = {}
         self._live = (exchange, info)
         return self._live
 
     def market_open(self, coin, is_buy, notional_usd, prix_ref):
         if self.cfg.live_arme:
             self._verifie_taille(notional_usd)
-        sz = round(notional_usd / prix_ref, 6) if prix_ref else 0.0
         if not self.cfg.live_arme:
+            sz = round(notional_usd / prix_ref, 6) if prix_ref else 0.0
             return self._paper("market_open", coin, is_buy, sz, prix_ref, notional_usd)
         exchange, _ = self._charger_live()
+        dec = getattr(self, "_szdec", {}).get(coin, 2)
+        sz = round(notional_usd / prix_ref, dec) if prix_ref else 0.0
+        if sz <= 0:
+            return {"status": "ok", "response": {"data": {"statuses": [
+                {"error": "taille arrondie a 0 (notional trop faible pour ce coin, szDecimals=%d)" % dec}]}}}
         return exchange.market_open(coin, is_buy, sz)
 
     def limit_order(self, coin, is_buy, sz, px, tif="Gtc"):
