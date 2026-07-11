@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-11T20:50:15.987724+00:00",
+ "ts": "2026-07-11T21:51:17.927290+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -21,9 +21,9 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 469,
-   "esperance": 0.5166,
-   "t": 2.47,
+   "n": 470,
+   "esperance": 0.4884,
+   "t": 2.32,
    "fwd_j": 19.1
   },
   "27a_rev_premium": {
@@ -38,14 +38,14 @@
    "n": 36,
    "esperance": 5.3054,
    "t": 2.18,
-   "fwd_j": 17.6
+   "fwd_j": 17.7
   },
   "27c_mom_move": {
    "statut": "ORANGE",
    "n": 36,
    "esperance": -5.4454,
    "t": -2.23,
-   "fwd_j": 17.6
+   "fwd_j": 17.7
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -59,7 +59,7 @@
    "n": 17,
    "esperance": 1.0075,
    "t": 0.31,
-   "fwd_j": 8.2
+   "fwd_j": 8.3
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
@@ -80,17 +80,34 @@
    "n": 35,
    "esperance": 4.0343,
    "t": 1.81,
-   "fwd_j": 8.2
+   "fwd_j": 8.3
   }
  },
  "tendances_btc": {
-  "ret1": 0.0039,
-  "ret7": 0.0202,
-  "ret30": 0.0123,
-  "prix": 64405
+  "ret1": 0.0037,
+  "ret7": 0.0201,
+  "ret30": 0.0122,
+  "prix": 64394
  },
- "evenements_extremes": [],
+ "evenements_extremes": [
+  {
+   "coin": "CASHCAT",
+   "move_pct": 22.1
+  }
+ ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-11T21:51",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": -12.73
+  },
+  {
+   "ts": "2026-07-11T21:51",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-11T20:50",
    "bot": "27f10_selecteur",
@@ -126,25 +143,13 @@
    "bot": "25_convergence_basis",
    "marche": "conv-XMR",
    "pnl": -0.37
-  },
-  {
-   "ts": "2026-07-11T18:29",
-   "bot": "25_convergence_basis",
-   "marche": "conv-LIT",
-   "pnl": -0.66
-  },
-  {
-   "ts": "2026-07-11T18:29",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": null,
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 1,
-  "age_avis_h": 13.4,
+  "age_avis_h": 14.4,
   "problemes": []
  }
 }
