@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-12T22:51:08.040438+00:00",
+ "ts": "2026-07-12T23:55:55.802782+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -21,8 +21,8 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 484,
-   "esperance": 0.5229,
+   "n": 486,
+   "esperance": 0.5207,
    "t": 2.53,
    "fwd_j": 20.2
   },
@@ -38,20 +38,20 @@
    "n": 37,
    "esperance": 5.7166,
    "t": 2.37,
-   "fwd_j": 18.7
+   "fwd_j": 18.8
   },
   "27c_mom_move": {
    "statut": "ORANGE",
    "n": 37,
    "esperance": -5.8566,
    "t": -2.43,
-   "fwd_j": 18.7
+   "fwd_j": 18.8
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
-   "n": 31,
-   "esperance": 2.8569,
-   "t": 0.99,
+   "n": 32,
+   "esperance": 2.5253,
+   "t": 0.9,
    "fwd_j": 13.1
   },
   "27e_arbitre": {
@@ -80,7 +80,7 @@
    "n": 1,
    "esperance": 9.5846,
    "t": 0.0,
-   "fwd_j": 0.5
+   "fwd_j": 0.6
   },
   "28_carry_hold": {
    "statut": "ORANGE",
@@ -91,18 +91,42 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0017,
-  "ret7": 0.0012,
-  "ret30": 0.0024,
-  "prix": 63712
+  "ret1": -0.0008,
+  "ret7": 0.0022,
+  "ret30": 0.0033,
+  "prix": 63772
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": -28.5
+   "move_pct": -24.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-12T23:55",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-CASHCAT",
+   "pnl": -7.75
+  },
+  {
+   "ts": "2026-07-12T23:55",
+   "bot": "25_convergence_basis",
+   "marche": "conv-MINA",
+   "pnl": 0.27
+  },
+  {
+   "ts": "2026-07-12T23:55",
+   "bot": "25_convergence_basis",
+   "marche": "conv-LDO",
+   "pnl": -0.28
+  },
+  {
+   "ts": "2026-07-12T23:55",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-12T22:51",
    "bot": "28_carry_hold",
@@ -126,37 +150,13 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-12T21:52",
-   "bot": "27f_selecteur",
-   "marche": "sel-CASHCAT-REV-ia_piece",
-   "pnl": 20.7
-  },
-  {
-   "ts": "2026-07-12T21:52",
-   "bot": "27e_arbitre",
-   "marche": "arb-CASHCAT-MOM-tendance",
-   "pnl": -20.66
-  },
-  {
-   "ts": "2026-07-12T21:52",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-CASHCAT",
-   "pnl": 20.52
-  },
-  {
-   "ts": "2026-07-12T21:52",
-   "bot": "27c_mom_move",
-   "marche": "mom_move-CASHCAT",
-   "pnl": -20.66
   }
  ],
  "calibration_arbitre": null,
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
-  "age_avis_h": 15.0,
+  "age_avis_h": 16.1,
   "problemes": []
  }
 }
