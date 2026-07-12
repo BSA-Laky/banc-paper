@@ -1,0 +1,42 @@
+# .github/workflows/veilleur.yml — le Veilleur hebdo (Cadet Remy, Haiku 4.5)
+# Samedi 05:50 UTC : note operationnelle de la semaine -> lue par le Superviseur
+# dimanche 06:30. Cout ~centimes/mois. Dormant sans ANTHROPIC_API_KEY.
+name: veilleur-ia
+on:
+  schedule:
+    - cron: "50 5 * * 6"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: veilleur
+  cancel-in-progress: false
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Note de veille hebdomadaire
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MODELE_VEILLEUR: ${{ vars.MODELE_VEILLEUR || 'claude-haiku-4-5-20251001' }}
+        run: python veilleur_ia.py
+      - name: Committer la note
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Rien a committer."
+          else
+            git commit -m "veilleur $(date -u +%F)"
+            git pull --rebase --autostash || true
+            git push || (git pull --rebase --autostash && git push)
+          fi

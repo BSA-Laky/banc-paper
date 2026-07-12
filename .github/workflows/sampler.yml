@@ -35,7 +35,12 @@ jobs:
       - name: Une passe d'échantillonnage + régénération du dashboard
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          MODELE_AVIS: ${{ vars.MODELE_ARBITRE || 'claude-opus-4-8' }}
+          # 12/07/2026 : avis par piece bascules sur HAIKU (cout ÷~20). Le poste Opus
+          # (arbitre quotidien) reste inchange. Motif : 9,94 $ consommes en 9 j (~1,1 $/j)
+          # -> projection ~30 $/mois > plafond 15 $. Redevenir Opus = poser la Variable
+          # repo MODELE_AVIS. NB experience 27f/27f10/27g10 : changement de traitement
+          # a cette date (avis Opus avant, Haiku apres) - en tenir compte dans les verdicts.
+          MODELE_AVIS: ${{ vars.MODELE_AVIS || 'claude-haiku-4-5-20251001' }}
           AVIS_MAX_JOUR: "10"
         run: python run_once.py
 
