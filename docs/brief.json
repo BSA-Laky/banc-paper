@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-12T17:37:01.799420+00:00",
+ "ts": "2026-07-12T18:38:41.778203+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -21,10 +21,10 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 481,
-   "esperance": 0.5174,
+   "n": 482,
+   "esperance": 0.5159,
    "t": 2.49,
-   "fwd_j": 19.9
+   "fwd_j": 20.0
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -63,17 +63,17 @@
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
-   "n": 66,
-   "esperance": 0.4489,
-   "t": 0.44,
-   "fwd_j": 8.0
+   "n": 67,
+   "esperance": 0.3846,
+   "t": 0.38,
+   "fwd_j": 8.1
   },
   "27f_selecteur": {
    "statut": "GRIS",
    "n": 15,
    "esperance": -2.106,
    "t": -0.59,
-   "fwd_j": 8.0
+   "fwd_j": 8.1
   },
   "27g10_selecteur": {
    "statut": "GRIS",
@@ -91,13 +91,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0049,
+  "ret1": 0.0048,
   "ret7": 0.0078,
-  "ret30": 0.009,
-  "prix": 64134
+  "ret30": 0.0089,
+  "prix": 64129
  },
- "evenements_extremes": [],
+ "evenements_extremes": [
+  {
+   "coin": "CASHCAT",
+   "move_pct": -20.4
+  }
+ ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-12T18:38",
+   "bot": "27f10_selecteur",
+   "marche": "sel-KAITO-MOM-tendance_piece",
+   "pnl": -3.86
+  },
+  {
+   "ts": "2026-07-12T18:38",
+   "bot": "25_convergence_basis",
+   "marche": "conv-MINA",
+   "pnl": -0.19
+  },
+  {
+   "ts": "2026-07-12T18:38",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-12T17:36",
    "bot": "25_convergence_basis",
@@ -127,31 +150,13 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-12T12:38",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-12T11:33",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CASHCAT",
-   "pnl": 9.29
-  },
-  {
-   "ts": "2026-07-12T11:33",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ZRO",
-   "pnl": -0.52
   }
  ],
  "calibration_arbitre": null,
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
-  "age_avis_h": 9.8,
+  "age_avis_h": 10.8,
   "problemes": []
  }
 }

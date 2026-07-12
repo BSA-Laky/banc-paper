@@ -1,5 +1,5 @@
 {
- "genere": "2026-07-12T17:37:02.114715+00:00",
+ "genere": "2026-07-12T18:38:42.307751+00:00",
  "officiers": [
   {
    "nom": "Commandeure Ada",
@@ -27,15 +27,15 @@
   },
   {
    "nom": "Cadet Remy",
-   "poste": "Reserve - sans affectation",
-   "role": "Reserviste",
+   "poste": "Veille hebdomadaire de la station",
+   "role": "Veilleur",
    "badge": "Haiku 4.5",
    "type": "IA",
-   "statut_cls": "reserve",
-   "statut": "En reserve",
-   "derniere": "Aucune tache assignee",
-   "prochain": "Activation",
-   "parole": "Prendra les taches haute-frequence (ex. fiches produits Etsy, triage) quand elles existeront. On ne depense pas pour l'occuper."
+   "statut_cls": "actif",
+   "statut": "Note de la semaine deposee",
+   "derniere": "Note de veille pour la Commandeure",
+   "prochain": "Prochaine ronde",
+   "parole": "Chaque samedi 05:50 : frictions d'execution testnet, budget des avis, anomalies de la semaine -> note pour l'audit du dimanche d'Ada. Cout ~centimes."
   }
  ],
  "automates": [
@@ -49,7 +49,7 @@
    "statut": "Sain",
    "derniere": "Statuts GO-reel reevalues",
    "prochain": "Prochaine passe",
-   "parole": "Banc sain, temoin sain (t 0.36). 12 bots suivis : 0 VERT / 8 ORANGE / 4 GRIS / 0 ROUGE. 0 alerte(s)."
+   "parole": "Banc sain, temoin sain (t 0.42). 12 bots suivis : 0 VERT / 8 ORANGE / 4 GRIS / 0 ROUGE. 0 alerte(s)."
   },
   {
    "nom": "La Salle des machines",
@@ -61,7 +61,7 @@
    "statut": "En service",
    "derniere": "Passe d'echantillonnage",
    "prochain": "Prochaine passe",
-   "parole": "Bots echantillonnes (temoin, 23, 24, 25, 26, 27x, 28). Derniere action : 25_convergence_basis sur conv-KBONK (pnl -0.14)."
+   "parole": "Bots echantillonnes (temoin, 23, 24, 25, 26, 27x, 28). Derniere action : 27f10_selecteur sur sel-KAITO-MOM-tendance_piece (pnl -3.86)."
   },
   {
    "nom": "La Passerelle",
@@ -73,7 +73,19 @@
    "statut": "En service",
    "derniere": "Brief du jour compile",
    "prochain": "Prochaine passe",
-   "parole": "BTC 64134 $ (7j 0.8%, 30j 0.9%). 0 move(s) extreme(s), 8 dernieres actions au journal."
+   "parole": "BTC 64129 $ (7j 0.8%, 30j 0.9%). 1 move(s) extreme(s), 8 dernieres actions au journal."
+  },
+  {
+   "nom": "Le Tresorier",
+   "poste": "Enveloppes & promotions (300 EUR/bot)",
+   "role": "tresorier.py",
+   "badge": "Automate",
+   "type": "SYS",
+   "statut_cls": "repos",
+   "statut": "Aucun bot promu",
+   "derniere": "Checklist VERT-STABLE evaluee",
+   "prochain": "Prochaine passe",
+   "parole": "Capital reel 0 $, besoin alloue 0 $. Checklist : VERT 5 j + t>=2 + P&L jamais negatif + drawdown < 30 % de l'enveloppe + gagne son A/B. Mise en service = go PUIS confirme (30 min), par le Commandant seul. Retrait = jamais."
   },
   {
    "nom": "La Vigie",
@@ -90,16 +102,22 @@
  ],
  "journal": [
   {
-   "ts": "2026-07-12T17:37:01.799420+00:00",
+   "ts": "2026-07-12T18:38:41.778203+00:00",
    "de": "La Passerelle",
    "vers": "Station",
-   "message": "Brief compile : BTC 64134 $, 0 move(s) extreme(s)"
+   "message": "Brief compile : BTC 64129 $, 1 move(s) extreme(s)"
   },
   {
-   "ts": "2026-07-12T17:37:01.789253+00:00",
+   "ts": "2026-07-12T18:38:41.764961+00:00",
    "de": "Le Sas",
    "vers": "Station",
    "message": "Statuts reevalues : banc sain, 8 ORANGE / 4 GRIS, 0 alerte(s)"
+  },
+  {
+   "ts": "2026-07-12T18:38:33.826531+00:00",
+   "de": "Cadet Remy",
+   "vers": "Commandeure Ada",
+   "message": "Note de veille hebdomadaire deposee (frictions, budget, anomalies)"
   },
   {
    "ts": "2026-07-12T08:37:30.511978+00:00",
