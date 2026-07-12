@@ -142,6 +142,13 @@
     <p class="muted">100 % fictif. Verdict = espérance + t-stat vs témoin, net de frais.</p>
   </section>
 
+  <section class="salle" id="salle-coffres">
+    <h2><span class="led" id="led-coffres"></span>SALLE DES COFFRES — Trésorier</h2>
+    <div id="coffres" class="muted">Trésorier : en attente de données…</div>
+    <p class="muted">Enveloppe 300 € / bot · promotion = checklist VERT-STABLE puis
+    <b>go</b> + <b>confirme</b> (Commandant seul) · venue actuelle : TESTNET (fictif).</p>
+  </section>
+
   <section class="salle" id="salle-biblio">
     <h2><span class="led vert"></span>BIBLIOTHÈQUE — veille marché</h2>
     <div class="kpi" id="kpi-btc"></div>
@@ -455,6 +462,29 @@ function rendre(brief, gate){
   ETAT.biblio   = tbtc ? "vert" : "orange"; ACT.biblio = ilYA(brief.ts);
   ETAT.archives = cal ? "vert" : "orange";  ACT.archives = cal ? "calibre" : "attente J+7";
 }
+function rendreCoffres(treso, env){
+  const el = document.getElementById("coffres");
+  const led = document.getElementById("led-coffres");
+  if(!treso){
+    led.className = "led orange";
+    el.innerHTML = `<span class="muted">Tr\u00e9sorier injoignable cette passe (tresorier.json).</span>`;
+    return;
+  }
+  const nc=(treso.candidats||[]).length, nl=(treso.live||[]).length, np=(treso.pause||[]).length;
+  led.className = "led " + (nl ? "vert" : (nc ? "orange" : "vert"));
+  let h = `<div class="kpi">
+    <div>candidats<b>${nc}</b></div><div>live<b>${nl}</b></div><div>pause<b>${np}</b></div>
+    <div>capital<b>${Math.round(treso.capital_dispo||0)} $</b></div></div>`;
+  if(nc) h += `<p style="font-size:12px">\u23f3 Candidats (checklist pass\u00e9e, en attente de go+confirme) : <b>${treso.candidats.join(", ")}</b></p>`;
+  if(nl) h += `<p style="font-size:12px">\u2705 En service : <b>${treso.live.join(", ")}</b></p>`;
+  if(np) h += `<p style="font-size:12px">\u23f8 En pause (drawdown) : <b>${treso.pause.join(", ")}</b></p>`;
+  if(!nc && !nl && !np) h += `<p class="muted" style="font-size:12px">Aucun bot promu \u2014 normal tant que la gate n'affiche aucun VERT stable.</p>`;
+  const eb = (env&&env.bots)||{};
+  const grosses = Object.entries(eb).filter(([,v])=>v.usage_pct>=80)
+    .map(([b,v])=>`${b} ${v.usage_pct} %`).join(" \u00b7 ");
+  if(grosses) h += `<p class="muted" style="font-size:11.5px">Enveloppes charg\u00e9es \u2265 80 % : ${grosses}</p>`;
+  el.innerHTML = h;
+}
 async function tour(){
   try{
     const [brief, gate] = await Promise.all([charge("brief.json"), charge("go_reel.json")]);
@@ -462,6 +492,12 @@ async function tour(){
   }catch(e){
     document.getElementById("bandeau-demo").style.display="block";
     rendre(DEMO.brief, DEMO.gate);
+  }
+  try{
+    const [treso, env] = await Promise.all([charge("tresorier.json"), charge("enveloppes.json")]);
+    rendreCoffres(treso, env);
+  }catch(e){
+    rendreCoffres(null, null);
   }
 }
 tour();
