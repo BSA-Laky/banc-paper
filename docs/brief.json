@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-12T16:29:59.207000+00:00",
+ "ts": "2026-07-12T17:37:01.799420+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -10,19 +10,19 @@
    "n": 99,
    "esperance": 0.9561,
    "t": 1.25,
-   "fwd_j": 18.9
+   "fwd_j": 19.0
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
    "n": 91,
    "esperance": -0.2093,
    "t": -0.8,
-   "fwd_j": 18.9
+   "fwd_j": 19.0
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 480,
-   "esperance": 0.5187,
+   "n": 481,
+   "esperance": 0.5174,
    "t": 2.49,
    "fwd_j": 19.9
   },
@@ -31,35 +31,35 @@
    "n": 19,
    "esperance": -2.196,
    "t": -0.9,
-   "fwd_j": 18.8
+   "fwd_j": 18.9
   },
   "27b_rev_move": {
    "statut": "ORANGE",
    "n": 36,
    "esperance": 5.3054,
    "t": 2.18,
-   "fwd_j": 18.4
+   "fwd_j": 18.5
   },
   "27c_mom_move": {
    "statut": "ORANGE",
    "n": 36,
    "esperance": -5.4454,
    "t": -2.23,
-   "fwd_j": 18.4
+   "fwd_j": 18.5
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
    "n": 30,
    "esperance": 2.2681,
    "t": 0.78,
-   "fwd_j": 12.8
+   "fwd_j": 12.9
   },
   "27e_arbitre": {
    "statut": "GRIS",
    "n": 17,
    "esperance": 1.0075,
    "t": 0.31,
-   "fwd_j": 9.0
+   "fwd_j": 9.1
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
@@ -87,17 +87,29 @@
    "n": 36,
    "esperance": 3.9362,
    "t": 1.81,
-   "fwd_j": 9.0
+   "fwd_j": 9.1
   }
  },
  "tendances_btc": {
-  "ret1": 0.0055,
-  "ret7": 0.0085,
-  "ret30": 0.0097,
-  "prix": 64175
+  "ret1": 0.0049,
+  "ret7": 0.0078,
+  "ret30": 0.009,
+  "prix": 64134
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-12T17:36",
+   "bot": "25_convergence_basis",
+   "marche": "conv-KBONK",
+   "pnl": -0.14
+  },
+  {
+   "ts": "2026-07-12T17:36",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-12T16:29",
    "bot": "10_controle_aleatoire",
@@ -133,25 +145,13 @@
    "bot": "25_convergence_basis",
    "marche": "conv-ZRO",
    "pnl": -0.52
-  },
-  {
-   "ts": "2026-07-12T11:33",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-12T10:14",
-   "bot": "27g10_selecteur",
-   "marche": "sel-CASHCAT-REV-ia_piece",
-   "pnl": 9.58
   }
  ],
  "calibration_arbitre": null,
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
-  "age_avis_h": 8.7,
+  "age_avis_h": 9.8,
   "problemes": []
  }
 }
