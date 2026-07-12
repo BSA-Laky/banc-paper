@@ -1,24 +1,27 @@
-# Meta-memoire Superviseur — maj 2026-07-02 (semaine 1)
+# Meta-memoire Superviseur — maj 2026-07-12 (semaine 2)
 
 ## Tendances de fond
-- Marche : BTC 61839, ret7 +3.5% vs ret30 -7.3% → rebond court terme dans tendance mensuelle baissiere. Regime indecis.
-- Banc fiable : temoin 10 sain (t=0.66, n=107), banc_suspect=false toute la semaine.
+- Marche : BTC 61839→63719 sur la semaine, ret7/ret30 devenus plats (12/07 : +0.13%/+0.25%). Regime neutre stable.
+- Banc fiable en continu : temoin 10 sain (t 0.37-0.84, n 193→222), banc_suspect=false depuis le debut.
 
 ## Verdicts dates
-- **2026-07-02** : aucun bot VERT. `25_convergence` seul candidat serieux (n=262, E=0.35, t=2.39, ORANGE, manque n_go=300 + fwd 28j). `23_carry` E=0.94 mais t=1.18 → non significatif, a surveiller pour degonflement. `24` t=0.47 nul. `27a-d` n<30 = bruit, statut GRIS correct.
-- **2026-07-02** : extreme DYDX -23.6%. Arbitre a joue REV dessus (paper). Echeance de verification ~11/07.
+- **02/07** : 25_conv n=262 t=2.39 seul candidat. 27a-d GRIS bruit.
+- **03/07** : chute t 25_conv 2.39→1.09 (n=275) — alerte fausse : t est remonte ensuite.
+- **09-12/07** : 25_conv n 413→478, t 2.21→2.41, E ~0.50 stable. t qui tient/remonte avec n = signal credible. Manque fwd 28j (atteint ~20/07) — seul chemin vers VERT visible.
+- **12/07** : 23_carry n=98 t=1.08 stagne (E gonflee confirmee vs 02/07). 24 nul (t<0). 27b/c a n=36 : t ±2.2 mais miroirs, hypothese semaine 1 CONFIRMEE (PnL s'annulent). 28_carry_hold emerge (n=36 t=1.81), trop court. 27c MDD 217 = perdant significatif.
 
 ## Qualite de l'Arbitre dans le temps
-- Semaine 1 : calibration J+7 null → AUCUNE preuve de valeur. Consigne : plafond 1.0 (regle par defaut si inconnue).
-- Signaux qualitatifs positifs : ses notes respectent la regle n<30=bruit, se plafonne lui-meme a ~0.55 en regime indecis, memoire coherente avec la gate. Pas de panne (0 consecutive).
-- Point de vigilance : tant que calibration=null, sa prudence apparente ne vaut rien de prouve. Premier scoring attendu ~09-11/07.
+- Semaine 1-2 : calibration J+7 TOUJOURS null → zero preuve. Plafond maintenu 1.0 (regle par defaut).
+- Qualitatif : 0 panne, notes quotidiennes coherentes avec la gate, respecte n<30=bruit, auto-conf 0.5 en regime plat. Non probant tant que non score.
+- Aucune mission emise semaine 1 (oubli) → 3 missions emises cette semaine.
 
 ## Echeances
-- ~11/07 : resultat REV DYDX + premiers verdicts scorables J+7.
-- `25_convergence` : franchissement n=300 probable sous 2-3 semaines au rythme actuel (~35 trades/j les jours actifs) ; forward 28j atteint ~20/07.
-- Passage attendu des 27b/27c au-dessus de n=30 : verifier si leurs t extremes s'effondrent (hypothese : oui).
+- ~13-15/07 : REV DYDX/FARTCOIN echues, exiger verification par l'Arbitre.
+- ~20/07 : 25_conv fwd 28j. Si t>=2 tient → candidat VERT, decision humaine.
+- Semaine 3 : si calibration null persiste → ESCALADE (pipeline casse probable).
+- 27b/c vers n=50 : verifier effondrement des t miroirs.
 
 ## Regles que je me fixe
-- Ne jamais relever le plafond sur la base de notes bien ecrites : seule la calibration J+7 compte.
-- Si calibration toujours null a la semaine 3, escalader (incoherence pipeline possible).
-- A/B 25 vs 23 (t_welch=-0.73) : non concluant, ne pas trancher.
+- Seule la calibration J+7 justifie de baisser/valider le plafond.
+- Ne jamais lire un seul cote d'une paire miroir.
+- Chute ponctuelle de t (03/07) ne condamne pas : juger sur tendance multi-semaines.
