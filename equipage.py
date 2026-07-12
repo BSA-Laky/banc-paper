@@ -72,7 +72,7 @@ def _next_daily(h, m):
     return c if c > NOW else c + timedelta(days=1)
 
 
-def _next_weekly(py_weekday, h, m):  # py_weekday: lundi=0 ... dimanche=6
+def _next_weekly(py_weekday, h, m):   # py_weekday: lundi=0 ... dimanche=6
     c = NOW.replace(hour=h, minute=m, second=0, microsecond=0)
     c += timedelta(days=(py_weekday - NOW.weekday()) % 7)
     return c if c > NOW else c + timedelta(days=7)
@@ -97,12 +97,16 @@ consigne = _json(ETAT / "consigne_arbitre.json")
 echecs = _json(ETAT / "arbitre_echecs.json")
 brief = _json(DOCS / "brief.json")
 gate = _json(DOCS / "go_reel.json")
+treso = _json(DOCS / "tresorier.json")
+note_veilleur = (ETAT / "note_veilleur.md").exists()
+d_veille = _mtime(ETAT / "note_veilleur.md")
 
 d_regime = _dt(regime.get("date"))
 d_consigne = _dt(consigne.get("date"))
 d_brief = _dt(brief.get("ts")) or _mtime(DOCS / "brief.json")
 d_gate = _dt(gate.get("ts")) or _mtime(DOCS / "go_reel.json")
 d_rapport = _mtime(DOCS / "rapport_semaine.md")
+d_treso = _dt(treso.get("ts"))
 n_echecs = int(echecs.get("consecutifs", 0)) if isinstance(echecs, dict) else 0
 
 bots = gate.get("bots", {}) if isinstance(gate, dict) else {}
@@ -116,6 +120,9 @@ temoin = (gate.get("temoins", {}) or {}).get("10_controle_aleatoire", {})
 btc = brief.get("tendances_btc", {}) if isinstance(brief, dict) else {}
 extremes = brief.get("evenements_extremes", []) if isinstance(brief, dict) else []
 actions = brief.get("dernieres_actions", []) if isinstance(brief, dict) else []
+n_cand = len(treso.get("candidats", []) or [])
+n_live = len(treso.get("live", []) or [])
+n_pause = len(treso.get("pause", []) or [])
 
 
 def _statut_ia(last_dt, incident=False, dormant=False):
@@ -157,14 +164,17 @@ officiers.append({
                f" - {regime.get('resume', 'aucun avis encore')}"),
 })
 
-# Reserviste — Cadet Remy (Haiku 4.5, sans affectation)
+# Veilleur — Cadet Remy (Haiku 4.5, hebdo) : AFFECTE le 12/07 (etape B Hermes)
+_next_remy = _next_weekly(5, 5, 50)
 officiers.append({
-    "nom": "Cadet Remy", "poste": "Reserve - sans affectation", "role": "Reserviste",
+    "nom": "Cadet Remy", "poste": "Veille hebdomadaire de la station", "role": "Veilleur",
     "badge": "Haiku 4.5", "type": "IA",
-    "statut_cls": "reserve", "statut": "En reserve",
-    "derniere": "Aucune tache assignee", "derniere_dt": None,
-    "prochain": "Activation", "prochain_dt": None,
-    "parole": "Prendra les taches haute-frequence (ex. fiches produits Etsy, triage) quand elles existeront. On ne depense pas pour l'occuper.",
+    "statut_cls": ("actif" if (d_veille and (NOW - d_veille).total_seconds() < 8*86400) else "repos"),
+    "statut": ("Note de la semaine deposee" if note_veilleur else "En poste, 1re note samedi"),
+    "derniere": "Note de veille pour la Commandeure", "derniere_dt": d_veille,
+    "prochain": "Prochaine ronde", "prochain_dt": _next_remy,
+    "parole": ("Chaque samedi 05:50 : frictions d'execution testnet, budget des avis, "
+               "anomalies de la semaine -> note pour l'audit du dimanche d'Ada. Cout ~centimes."),
 })
 
 # ---------- automates 24/7 ----------
@@ -210,6 +220,21 @@ automates.append({
                f"{len(actions)} dernieres actions au journal."),
 })
 
+# Le Tresorier — enveloppes & promotions (tresorier.py)
+automates.append({
+    "nom": "Le Tresorier", "poste": "Enveloppes & promotions (300 EUR/bot)", "role": "tresorier.py",
+    "badge": "Automate", "type": "SYS",
+    "statut_cls": ("actif" if (n_cand or n_live) else "repos"),
+    "statut": (f"{n_cand} candidat(s) / {n_live} live / {n_pause} pause"
+               if (n_cand or n_live or n_pause) else "Aucun bot promu"),
+    "derniere": "Checklist VERT-STABLE evaluee", "derniere_dt": d_treso,
+    "prochain": "Prochaine passe", "prochain_dt": _next_quarter(),
+    "parole": (f"Capital reel {treso.get('capital_dispo', 0):.0f} $, besoin alloue "
+               f"{treso.get('besoin_alloue', 0):.0f} $. Checklist : VERT 5 j + t>=2 + P&L jamais "
+               f"negatif + drawdown < 30 % de l'enveloppe + gagne son A/B. Mise en service = "
+               f"go PUIS confirme (30 min), par le Commandant seul. Retrait = jamais."),
+})
+
 # La Vigie — alerte push (alerte_issue.py)
 automates.append({
     "nom": "La Vigie", "poste": "Alertes push (issue GitHub)", "role": "alerte_issue.py",
@@ -232,9 +257,15 @@ if d_regime:
     evenements.append((d_regime, "Lieutenant Hugo", "Les bots (27e)",
                        f"Avis de regime publie : {regime.get('regime', '?')} "
                        f"(conf {regime.get('confiance', '?')}) - {regime.get('resume', '')}"))
+if d_veille:
+    evenements.append((d_veille, "Cadet Remy", "Commandeure Ada",
+                       "Note de veille hebdomadaire deposee (frictions, budget, anomalies)"))
 if n_echecs:
     evenements.append((_dt(echecs.get("maj")) or NOW, "Lieutenant Hugo", "Commandant",
                        f"Incident API signale : {n_echecs} echec(s) consecutif(s)"))
+if d_treso and (n_cand or n_live or n_pause):
+    evenements.append((d_treso, "Le Tresorier", "Commandant",
+                       f"Promotions : {n_cand} candidat(s), {n_live} live, {n_pause} en pause"))
 if d_gate:
     evenements.append((d_gate, "Le Sas", "Station",
                        f"Statuts reevalues : banc {'suspect' if banc_suspect else 'sain'}, "
@@ -250,11 +281,11 @@ evenements.sort(key=lambda e: e[0], reverse=True)
 def carte(a):
     return f"""    <div class="carte {esc(a['statut_cls'])}">
       <div class="tete"><span class="nom">{esc(a['nom'])}</span><span class="badge b-{esc(a['type'])}">{esc(a['badge'])}</span></div>
-      <div class="poste">{esc(a['poste'])} · <span class="role">{esc(a['role'])}</span></div>
+      <div class="poste">{esc(a['poste'])} &middot; <span class="role">{esc(a['role'])}</span></div>
       <div><span class="pill p-{esc(a['statut_cls'])}">{esc(a['statut'])}</span></div>
-      <div class="ligne"><b>Derniere tache :</b> {esc(a['derniere'])} <span class="muted">· {_il_y_a(a['derniere_dt'])}</span></div>
+      <div class="ligne"><b>Derniere tache :</b> {esc(a['derniere'])} <span class="muted">&middot; {_il_y_a(a['derniere_dt'])}</span></div>
       <div class="ligne"><b>{esc(a['prochain'])} :</b> {_dans(a['prochain_dt'])} <span class="muted">({_hhmm(a['prochain_dt'])})</span></div>
-      <div class="parole">« {esc(a['parole'])} »</div>
+      <div class="parole">&laquo; {esc(a['parole'])} &raquo;</div>
     </div>"""
 
 
@@ -265,15 +296,15 @@ def ligne_journal(e):
             f'<span class="jmsg">{esc(msg)}</span></li>')
 
 
-resume = (f"Banc <b>{'suspect' if banc_suspect else 'sain'}</b> · "
-          f"{len(officiers)} officiers · {len(automates)} automates · "
-          f"{len(alertes)} alerte(s) · MAJ {esc(_hhmm(NOW))}")
+resume = (f"Banc <b>{'suspect' if banc_suspect else 'sain'}</b> &middot; "
+          f"{len(officiers)} officiers &middot; {len(automates)} automates &middot; "
+          f"{len(alertes)} alerte(s) &middot; MAJ {esc(_hhmm(NOW))}")
 
 html_doc = f"""<!doctype html>
 <html lang="fr"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Equipage · LA STATION</title>
+<title>Equipage &middot; LA STATION</title>
 <style>
 :root {{ --bg:#0b1020; --card:#141b30; --card2:#101528; --line:#243050; --txt:#e6ecff;
   --muted:#8894b8; --actif:#28c76f; --repos:#5b7cff; --reserve:#8a93b0; --incident:#ff5b6e;
@@ -324,8 +355,8 @@ ul.journal li {{ background:var(--card2); border:1px solid var(--line); border-r
 .jmsg {{ color:#c3cdec; }}
 footer {{ color:var(--muted); font-size:11px; margin-top:22px; text-align:center; }}
 </style></head><body>
-<h1>&#128737; LA STATION — Équipage</h1>
-<div class="sub">{resume} · <a href="./index.html">← tableau de bord</a></div>
+<h1>&#128737; LA STATION &mdash; &Eacute;quipage</h1>
+<div class="sub">{resume} &middot; <a href="./index.html">&larr; tableau de bord</a></div>
 
 <h2>Officiers (IA)</h2>
 <div class="grille">
@@ -337,12 +368,12 @@ footer {{ color:var(--muted); font-size:11px; margin-top:22px; text-align:center
 {chr(10).join(carte(a) for a in automates)}
 </div>
 
-<h2>Journal des échanges</h2>
+<h2>Journal des &eacute;changes</h2>
 <ul class="journal">
-{chr(10).join(ligne_journal(e) for e in evenements) if evenements else '    <li>Aucun échange enregistré pour le moment.</li>'}
+{chr(10).join(ligne_journal(e) for e in evenements) if evenements else '    <li>Aucun &eacute;change enregistr&eacute; pour le moment.</li>'}
 </ul>
 
-<footer>Page déterministe · 0 appel LLM · générée le {esc(NOW.strftime('%Y-%m-%d %H:%M UTC'))} · rafraîchie ~15 min</footer>
+<footer>Page d&eacute;terministe &middot; 0 appel LLM &middot; g&eacute;n&eacute;r&eacute;e le {esc(NOW.strftime('%Y-%m-%d %H:%M UTC'))} &middot; rafra&icirc;chie ~15 min</footer>
 </body></html>"""
 
 # ---------- ecriture ----------

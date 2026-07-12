@@ -161,24 +161,56 @@ def repondre(st, brief):
             _ecrire_json(F_DECISIONS, decisions[-30:])
             tg.envoyer(f"✔ Consigne « {cmd} {mots[1]} » enregistree — "
                        f"le Superviseur la lira dimanche.")
-        elif cmd in ("go", "confirme", "valide") and len(mots) >= 2:
+        elif cmd == "go" and len(mots) >= 2:
+            # DOUBLE GATE (audit 11/07) : "go" ARME seulement ; la mise en service
+            # exige un second message distinct "confirme <bot>" sous 30 minutes.
             bot = mots[1]
             promo = _lire_json(F_PROMO, {"bots": {}})
             promo.setdefault("bots", {})
             cur = promo["bots"].get(bot, {}).get("etat")
             if cur in ("candidat", "pause"):
-                promo["bots"][bot] = {"etat": "live",
-                                      "confirme": datetime.now(timezone.utc).isoformat()}
+                promo["bots"][bot] = {"etat": "arme", "etat_avant": cur,
+                                      "arme": datetime.now(timezone.utc).isoformat()}
                 _ecrire_json(F_PROMO, promo)
-                tg.envoyer(f"\u2705 {bot} MIS EN SERVICE (live). Le Tresorier lui alloue son "
-                           f"enveloppe ; il trade desormais en autonomie. Retrait = ta main.")
+                tg.envoyer("\u23f3 %s ARME (rien ne tourne encore). Pour le mettre en "
+                           "service, reponds \u00ab confirme %s \u00bb dans les 30 minutes. "
+                           "Sans confirmation, il redeviendra %s." % (bot, bot, cur))
             else:
-                tg.envoyer(f"\u26a0 {bot} n'est pas 'candidat' (etat: {cur or 'inconnu'}). "
-                           f"Mise en service refusee.")
+                tg.envoyer("\u26a0 %s n'est pas 'candidat' (etat: %s). Armement refuse : "
+                           "seul le Tresorier fabrique des candidats (checklist VERT-STABLE)."
+                           % (bot, cur or "inconnu"))
+        elif cmd in ("confirme", "valide") and len(mots) >= 2:
+            bot = mots[1]
+            promo = _lire_json(F_PROMO, {"bots": {}})
+            promo.setdefault("bots", {})
+            b = promo["bots"].get(bot, {})
+            if b.get("etat") != "arme":
+                tg.envoyer("\u26a0 %s n'est pas arme (etat: %s). Envoie d'abord "
+                           "\u00ab go %s \u00bb." % (bot, b.get("etat") or "inconnu", bot))
+            else:
+                try:
+                    age_min = (datetime.now(timezone.utc) -
+                               datetime.fromisoformat(str(b.get("arme")))).total_seconds() / 60
+                except (ValueError, TypeError):
+                    age_min = 9999.0
+                if age_min > 30:
+                    promo["bots"][bot] = {"etat": b.get("etat_avant", "candidat")}
+                    _ecrire_json(F_PROMO, promo)
+                    tg.envoyer("\u23f0 Armement de %s expire (%.0f min > 30). Redevenu %s. "
+                               "Recommence par \u00ab go %s \u00bb."
+                               % (bot, age_min, b.get("etat_avant", "candidat"), bot))
+                else:
+                    promo["bots"][bot] = {"etat": "live",
+                                          "confirme": datetime.now(timezone.utc).isoformat()}
+                    _ecrire_json(F_PROMO, promo)
+                    tg.envoyer("\u2705 %s MIS EN SERVICE (live). Le Tresorier lui alloue "
+                               "son enveloppe ; il trade en autonomie sur la venue armee "
+                               "(TESTNET aujourd'hui, argent fictif). Retrait = ta main." % bot)
         else:
-            tg.envoyer("Commandes : statut · arbitre · rapport · "
-                       "approve <id> · rejette <id> · go <bot>\n"
-                       "(lecture seule — aucun ordre de trade possible par ici)")
+            tg.envoyer("Commandes : statut \u00b7 arbitre \u00b7 rapport \u00b7 "
+                       "approve <id> \u00b7 rejette <id> \u00b7 go <bot> puis confirme <bot>\n"
+                       "(pas d'ordre de trade ici ; go+confirme = mise en service d'un "
+                       "bot deja candidat, sur la venue du moment : TESTNET)")
     st["offset"] = offset
     return traites
 

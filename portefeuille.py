@@ -56,8 +56,15 @@ class Portefeuille:
         return int(self.cfg.get("bots", {}).get(bot, {}).get("positions_max", 1)) or 1
 
     def levier(self, bot):
-        """Levier du bot (defaut 1x). Fixe par le Tresorier dans promotions.json. Borne [1, levier_max]."""
-        l = float(self.promo.get("bots", {}).get(bot, {}).get("levier", 1.0))
+        """Levier du bot (defaut 1x). Fixe par le Tresorier dans promotions.json.
+        Borne [1, levier_max]. GARDE-FOU MAINNET (audit 11/07) : tant que le bot n'a
+        pas "kelly_confirme" (a poser par le Commandant apres >= 30 trades reels
+        mesures), tout passage LIVE MAINNET est force a 1x, quel que soit Kelly."""
+        b = self.promo.get("bots", {}).get(bot, {})
+        c = self.exec.cfg
+        if c.live_arme and c.net == "mainnet" and not b.get("kelly_confirme"):
+            return 1.0
+        l = float(b.get("levier", 1.0))
         return max(1.0, min(l, float(self.cfg.get("levier_max", 3.0))))
 
     def plafond_notional(self, bot):

@@ -17,9 +17,10 @@ RETIRE jamais. Missions :
   7. Rapatriement : bot retrograde (ROUGE/decrochage) -> libere son enveloppe.
   8. Rapport : etat/tresorier -> docs/tresorier.json + file d'interpellations Telegram.
 
-Sortie : promotions.json (paper|candidat|live|pause par bot) + etat/tresorier_out.json
-(file de messages que le telegram_gateway envoie). La mise en service reelle = le
-Commandant repond "go <bot>" (gere par le gateway) -> passe le bot en 'live'.
+Sortie : promotions.json (paper|candidat|arme|live|pause par bot) + etat/tresorier_out.json
+(file de messages que le telegram_gateway envoie). Mise en service = DOUBLE geste du
+Commandant via le gateway : "go <bot>" (arme, 30 min) PUIS "confirme <bot>" -> 'live'.
+Un armement non confirme est desarme ici a la passe suivante (>30 min).
 """
 from __future__ import annotations
 
@@ -38,7 +39,9 @@ F_RAPPORT = DOCS / "tresorier.json"
 CONFIG_PF = Path("portefeuille.config.json")
 
 N_JOURS_VERT = 5          # VERT depuis N jours consecutifs
-DD_CAP = 30.0             # drawdown live max (%) avant pause
+# Drawdown : mdd_live du moniteur est en DOLLARS (drawdown du P&L cumule, mises
+# paper ~100 $), PAS en %. Plafond = fraction de l'enveloppe, convertie en $.
+DD_FRACTION_ENV = 0.30    # pause au-dela de 30 % de l'enveloppe (en $)
 TEMOINS = {"10_controle_aleatoire", "10b_controle_book"}
 
 
@@ -162,7 +165,7 @@ def gestion_enveloppe():
     return rap
 
 
-def checklist(bot, v, histo, pnls):
+def checklist(bot, v, histo, pnls, cap_dd_usd):
     """Renvoie (pret: bool, manquants: list[str]). Toute la liste doit passer."""
     m = []
     if v.get("statut") != "VERT":
@@ -171,8 +174,9 @@ def checklist(bot, v, histo, pnls):
         m.append("t %.2f < 2" % (v.get("t_stat") or 0))
     if not _jamais_negatif(pnls):
         m.append("P&L cumule deja passe negatif")
-    if (v.get("mdd_live") or 0) > DD_CAP:
-        m.append("drawdown %.0f%% > %.0f%%" % (v.get("mdd_live") or 0, DD_CAP))
+    if (v.get("mdd_live") or 0) > cap_dd_usd:
+        m.append("drawdown %.0f$ > %.0f$ (30%% de l'enveloppe)"
+                 % (v.get("mdd_live") or 0, cap_dd_usd))
     ab = v.get("ab")
     if isinstance(ab, dict) and ab.get("delta_esperance") is not None:
         if float(ab["delta_esperance"]) <= 0:
@@ -241,23 +245,37 @@ def evaluer():
             continue
         etat = promo["bots"].get(bot, {}).get("etat", "paper")
 
+        # armement expire (>30 min sans "confirme") -> retour a l'etat d'avant
+        if etat == "arme":
+            b = promo["bots"].get(bot, {})
+            try:
+                age_min = (now - datetime.fromisoformat(str(b.get("arme")))).total_seconds() / 60
+            except (ValueError, TypeError):
+                age_min = 9999.0
+            if age_min > 30:
+                etat = b.get("etat_avant", "candidat")
+                promo["bots"][bot] = {"etat": etat}
+                interpelle("desarme:%s:%s" % (bot, jour),
+                           "Armement de %s expire sans confirmation -> redevenu %s." % (bot, etat))
+
         # retrograde si le bot deraille
-        if etat in ("candidat", "live", "pause") and (v.get("statut") == "ROUGE" or v.get("decrochage")):
+        if etat in ("candidat", "arme", "live", "pause") and (v.get("statut") == "ROUGE" or v.get("decrochage")):
             promo["bots"][bot] = {"etat": "paper"}
             interpelle("retro:%s:%s" % (bot, jour),
                        "Le bot %s a decroche (statut %s) -> retire du reel, enveloppe liberee."
                        % (bot, v.get("statut")))
             continue
 
-        # garde-fou drawdown sur un bot live
-        if etat == "live" and (v.get("mdd_live") or 0) > DD_CAP:
+        # garde-fou drawdown sur un bot live (plafond en $ = 30 % de l'enveloppe)
+        cap_dd = DD_FRACTION_ENV * float(cfg.get("enveloppe_par_bot_eur", 300)) * float(cfg.get("eurusd", 1.07))
+        if etat == "live" and (v.get("mdd_live") or 0) > cap_dd:
             promo["bots"][bot] = {"etat": "pause"}
             interpelle("dd:%s:%s" % (bot, jour),
-                       "Bot %s : drawdown %.0f%% > %.0f%% -> nouvelles entrees EN PAUSE (positions non touchees)."
-                       % (bot, v.get("mdd_live") or 0, DD_CAP))
+                       "Bot %s : drawdown %.0f$ > %.0f$ (30%% de l'enveloppe) -> nouvelles entrees EN PAUSE (positions non touchees)."
+                       % (bot, v.get("mdd_live") or 0, cap_dd))
             etat = "pause"
 
-        pret, manque = checklist(bot, v, histo, pnls.get(bot, []))
+        pret, manque = checklist(bot, v, histo, pnls.get(bot, []), cap_dd)
         if pret and etat == "paper":
             lev = _levier_kelly(rets.get(bot, []), kfrac, lmax)
             promo["bots"][bot] = {"etat": "candidat", "depuis": jour, "levier": lev}
@@ -268,7 +286,7 @@ def evaluer():
                        % (bot, v.get("n"), v.get("t_stat") or 0, _vert_jours(histo, bot), lev, bot))
 
         e = promo["bots"].get(bot, {}).get("etat", "paper")
-        if e == "candidat":
+        if e in ("candidat", "arme"):
             candidats.append(bot)
         elif e == "live":
             lives.append(bot)
@@ -276,7 +294,7 @@ def evaluer():
             pauses.append(bot)
 
     for _b in promo["bots"]:
-        if promo["bots"][_b].get("etat") in ("candidat", "live", "pause"):
+        if promo["bots"][_b].get("etat") in ("candidat", "arme", "live", "pause"):
             promo["bots"][_b]["levier"] = _levier_kelly(rets.get(_b, []), kfrac, lmax)
 
     # controle du capital pour candidats + live
