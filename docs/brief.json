@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-12T10:14:58.860517+00:00",
+ "ts": "2026-07-12T11:33:43.631486+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -21,10 +21,10 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 478,
-   "esperance": 0.5026,
-   "t": 2.41,
-   "fwd_j": 19.6
+   "n": 480,
+   "esperance": 0.5187,
+   "t": 2.49,
+   "fwd_j": 19.7
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -66,21 +66,21 @@
    "n": 66,
    "esperance": 0.4489,
    "t": 0.44,
-   "fwd_j": 7.7
+   "fwd_j": 7.8
   },
   "27f_selecteur": {
    "statut": "GRIS",
    "n": 15,
    "esperance": -2.106,
    "t": -0.59,
-   "fwd_j": 7.7
+   "fwd_j": 7.8
   },
   "27g10_selecteur": {
    "statut": "GRIS",
    "n": 1,
    "esperance": 9.5846,
    "t": 0.0,
-   "fwd_j": 0.0
+   "fwd_j": 0.1
   },
   "28_carry_hold": {
    "statut": "ORANGE",
@@ -91,13 +91,31 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0017,
-  "ret7": 0.0046,
-  "ret30": 0.0058,
-  "prix": 63930
+  "ret1": 0.0021,
+  "ret7": 0.0051,
+  "ret30": 0.0062,
+  "prix": 63957
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-12T11:33",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": 9.29
+  },
+  {
+   "ts": "2026-07-12T11:33",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ZRO",
+   "pnl": -0.52
+  },
+  {
+   "ts": "2026-07-12T11:33",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-12T10:14",
    "bot": "27g10_selecteur",
@@ -127,31 +145,13 @@
    "bot": "24_funding_multivenues",
    "marche": "pdxcarry-SNDK",
    "pnl": -0.35
-  },
-  {
-   "ts": "2026-07-12T10:14",
-   "bot": "24_funding_multivenues",
-   "marche": "pdxcarry-BZ",
-   "pnl": -0.62
-  },
-  {
-   "ts": "2026-07-12T10:14",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-12T08:38",
-   "bot": "27f10_selecteur",
-   "marche": "sel-CASHCAT-REV-ia_piece",
-   "pnl": 0.94
   }
  ],
  "calibration_arbitre": null,
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
-  "age_avis_h": 2.4,
+  "age_avis_h": 3.7,
   "problemes": []
  }
 }
