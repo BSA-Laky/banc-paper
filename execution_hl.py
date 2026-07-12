@@ -132,12 +132,12 @@ class ExecutionHL:
         return exchange.market_close(coin)
 
     def set_leverage(self, coin, levier, cross=True):
-        """Regle le levier du coin sur HL. No-op en paper ou si levier<=1."""
-        if not self.cfg.live_arme or levier is None or levier <= 1:
+        """Fixe le levier VOULU du coin sur HL (1x explicite inclus). No-op en paper."""
+        if not self.cfg.live_arme or not levier:
             return {"status": "skip"}
         exchange, _ = self._charger_live()
         try:
-            return exchange.update_leverage(int(round(levier)), coin, cross)
+            return exchange.update_leverage(max(1, int(round(levier))), coin, cross)
         except Exception as e:
             return {"status": "err", "detail": str(e)[:80]}
 
