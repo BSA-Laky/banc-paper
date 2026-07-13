@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-13T17:41:21.719046+00:00",
+ "ts": "2026-07-13T19:04:49.248560+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -21,10 +21,10 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 492,
-   "esperance": 0.5092,
+   "n": 493,
+   "esperance": 0.5074,
    "t": 2.5,
-   "fwd_j": 20.9
+   "fwd_j": 21.0
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -38,14 +38,14 @@
    "n": 37,
    "esperance": 5.7166,
    "t": 2.37,
-   "fwd_j": 19.5
+   "fwd_j": 19.6
   },
   "27c_mom_move": {
    "statut": "ORANGE",
    "n": 37,
    "esperance": -5.8566,
    "t": -2.43,
-   "fwd_j": 19.5
+   "fwd_j": 19.6
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -66,21 +66,21 @@
    "n": 68,
    "esperance": 0.1172,
    "t": 0.11,
-   "fwd_j": 9.0
+   "fwd_j": 9.1
   },
   "27f_selecteur": {
    "statut": "GRIS",
    "n": 16,
    "esperance": -0.6806,
    "t": -0.19,
-   "fwd_j": 9.0
+   "fwd_j": 9.1
   },
   "27g10_selecteur": {
    "statut": "GRIS",
    "n": 2,
    "esperance": -4.1071,
    "t": -0.3,
-   "fwd_j": 1.3
+   "fwd_j": 1.4
   },
   "28_carry_hold": {
    "statut": "ORANGE",
@@ -91,13 +91,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0267,
-  "ret7": -0.0309,
-  "ret30": -0.0365,
-  "prix": 62076
+  "ret1": -0.0276,
+  "ret7": -0.0318,
+  "ret30": -0.0374,
+  "prix": 62017
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-13T19:04",
+   "bot": "25_convergence_basis",
+   "marche": "conv-PENGU",
+   "pnl": -0.4
+  },
+  {
+   "ts": "2026-07-13T19:04",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-13T17:41",
    "bot": "25_convergence_basis",
@@ -133,18 +145,6 @@
    "bot": "24_funding_multivenues",
    "marche": "sprd-AVNT",
    "pnl": -0.49
-  },
-  {
-   "ts": "2026-07-13T12:37",
-   "bot": "24_funding_multivenues",
-   "marche": "pdxcarry-DRAM",
-   "pnl": -0.77
-  },
-  {
-   "ts": "2026-07-13T12:37",
-   "bot": "24_funding_multivenues",
-   "marche": "pdxcarry-SNDK",
-   "pnl": -0.69
   }
  ],
  "calibration_arbitre": {
@@ -157,7 +157,7 @@
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
-  "age_avis_h": 9.1,
+  "age_avis_h": 10.5,
   "problemes": []
  }
 }
