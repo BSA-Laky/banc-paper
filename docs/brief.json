@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-13T21:36:15.930323+00:00",
+ "ts": "2026-07-13T22:38:48.647624+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -10,20 +10,20 @@
    "n": 100,
    "esperance": 0.9736,
    "t": 1.29,
-   "fwd_j": 20.1
+   "fwd_j": 20.2
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
    "n": 95,
    "esperance": -0.2286,
    "t": -0.92,
-   "fwd_j": 20.1
+   "fwd_j": 20.2
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 495,
-   "esperance": 0.5051,
-   "t": 2.5,
+   "n": 496,
+   "esperance": 0.5034,
+   "t": 2.49,
    "fwd_j": 21.1
   },
   "27a_rev_premium": {
@@ -31,7 +31,7 @@
    "n": 20,
    "esperance": -1.2664,
    "t": -0.51,
-   "fwd_j": 20.0
+   "fwd_j": 20.1
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -52,7 +52,7 @@
    "n": 33,
    "esperance": 2.2075,
    "t": 0.8,
-   "fwd_j": 14.0
+   "fwd_j": 14.1
   },
   "27e_arbitre": {
    "statut": "GRIS",
@@ -91,13 +91,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0275,
-  "ret7": -0.0316,
-  "ret30": -0.0373,
-  "prix": 62027
+  "ret1": -0.0266,
+  "ret7": -0.0308,
+  "ret30": -0.0364,
+  "prix": 62084
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-13T22:38",
+   "bot": "25_convergence_basis",
+   "marche": "conv-SPX",
+   "pnl": -0.36
+  },
+  {
+   "ts": "2026-07-13T22:38",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-13T21:36",
    "bot": "25_convergence_basis",
@@ -133,18 +145,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-PENGU",
    "pnl": -0.4
-  },
-  {
-   "ts": "2026-07-13T19:04",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-13T17:41",
-   "bot": "25_convergence_basis",
-   "marche": "conv-LIT",
-   "pnl": 0.18
   }
  ],
  "calibration_arbitre": {
@@ -157,7 +157,7 @@
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
-  "age_avis_h": 13.0,
+  "age_avis_h": 14.0,
   "problemes": []
  }
 }

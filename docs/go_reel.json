@@ -1,11 +1,11 @@
 {
- "ts": "2026-07-13T21:36:15.917385+00:00",
+ "ts": "2026-07-13T22:38:48.633920+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 245,
-   "t_stat": 0.52,
+   "n": 246,
+   "t_stat": 0.58,
    "sain": true
   }
  },
@@ -15,7 +15,7 @@
    "esperance": 0.9736,
    "t_stat": 1.29,
    "mdd_live": 33.17,
-   "jours_forward": 20.1,
+   "jours_forward": 20.2,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -32,7 +32,7 @@
    "esperance": -0.2286,
    "t_stat": -0.92,
    "mdd_live": 38.96,
-   "jours_forward": 20.1,
+   "jours_forward": 20.2,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -46,9 +46,9 @@
    "statut": "ORANGE"
   },
   "25_convergence_basis": {
-   "n": 495,
-   "esperance": 0.5051,
-   "t_stat": 2.5,
+   "n": 496,
+   "esperance": 0.5034,
+   "t_stat": 2.49,
    "mdd_live": 47.59,
    "jours_forward": 21.1,
    "verdict_banc": "edge a CONFIRMER (profil asymetrique, t-stat peu fiable)",
@@ -57,12 +57,12 @@
     "forward 21 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": 0.4807,
-   "borne_decrochage": -1.5092,
+   "esp_glissante_20": 0.4644,
+   "borne_decrochage": -1.5089,
    "statut": "ORANGE",
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.4685,
+    "delta_esperance": -0.4702,
     "t_welch": -0.6
    }
   },
@@ -71,7 +71,7 @@
    "esperance": -1.2664,
    "t_stat": -0.51,
    "mdd_live": 47.03,
-   "jours_forward": 20.0,
+   "jours_forward": 20.1,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -118,7 +118,7 @@
    "esperance": 2.2075,
    "t_stat": 0.8,
    "mdd_live": 68.63,
-   "jours_forward": 14.0,
+   "jours_forward": 14.1,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
