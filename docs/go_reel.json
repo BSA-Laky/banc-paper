@@ -1,11 +1,11 @@
 {
- "ts": "2026-07-14T22:12:50.539979+00:00",
+ "ts": "2026-07-14T23:12:54.874231+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 260,
-   "t_stat": 0.67,
+   "n": 261,
+   "t_stat": 0.73,
    "sain": true
   }
  },
@@ -46,23 +46,23 @@
    "statut": "ORANGE"
   },
   "25_convergence_basis": {
-   "n": 516,
-   "esperance": 0.4989,
-   "t_stat": 2.57,
+   "n": 517,
+   "esperance": 0.5008,
+   "t_stat": 2.58,
    "mdd_live": 47.59,
-   "jours_forward": 22.1,
+   "jours_forward": 22.2,
    "verdict_banc": "edge a CONFIRMER (profil asymetrique, t-stat peu fiable)",
    "decrochage": false,
    "raisons": [
     "forward 22 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": 0.3882,
-   "borne_decrochage": -1.4757,
+   "esp_glissante_20": 0.4911,
+   "borne_decrochage": -1.4719,
    "statut": "ORANGE",
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.3945,
+    "delta_esperance": -0.3926,
     "t_welch": -0.52
    }
   },
@@ -153,7 +153,7 @@
    "esperance": 0.308,
    "t_stat": 0.29,
    "mdd_live": 65.97,
-   "jours_forward": 10.2,
+   "jours_forward": 10.3,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -171,7 +171,7 @@
    "esperance": -1.1322,
    "t_stat": -0.33,
    "mdd_live": 82.12,
-   "jours_forward": 10.2,
+   "jours_forward": 10.3,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
