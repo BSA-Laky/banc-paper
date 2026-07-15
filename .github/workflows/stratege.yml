@@ -1,0 +1,42 @@
+# .github/workflows/stratege.yml — le Stratege R&D (Enseigne Nova, Sonnet 5)
+# Dimanche 06:00 UTC (avant le Superviseur 06:30). EVENEMENTIEL : le script sort
+# immediatement (0 appel API) s'il n'y a aucune invalidation nouvelle a la gate.
+name: stratege-ia
+on:
+  schedule:
+    - cron: "0 6 * * 0"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stratege
+  cancel-in-progress: false
+
+jobs:
+  hypothese:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Fiche d'hypothese (si invalidation)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MODELE_STRATEGE: ${{ vars.MODELE_STRATEGE || 'claude-sonnet-5' }}
+        run: python stratege_ia.py
+      - name: Committer le registre
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Rien a committer."
+          else
+            git commit -m "stratege $(date -u +%F)"
+            git pull --rebase --autostash || true
+            git push || (git pull --rebase --autostash && git push)
+          fi
