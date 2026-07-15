@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-15T18:41:11.422549+00:00",
+ "ts": "2026-07-15T19:55:31.682918+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -11,8 +11,8 @@
    "esperance": 0.9822,
    "t": 1.38,
    "pnl": 105.09,
-   "pnl_j": 4.777,
-   "fwd_j": 22.0
+   "pnl_j": 4.755,
+   "fwd_j": 22.1
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
@@ -20,16 +20,16 @@
    "esperance": -0.2487,
    "t": -1.05,
    "pnl": -24.87,
-   "pnl_j": -1.13,
-   "fwd_j": 22.0
+   "pnl_j": -1.125,
+   "fwd_j": 22.1
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 529,
-   "esperance": 0.5068,
-   "t": 2.67,
-   "pnl": 268.08,
-   "pnl_j": 11.656,
+   "n": 532,
+   "esperance": 0.5212,
+   "t": 2.75,
+   "pnl": 277.28,
+   "pnl_j": 12.056,
    "fwd_j": 23.0
   },
   "27a_rev_premium": {
@@ -38,8 +38,8 @@
    "esperance": -1.646,
    "t": -0.69,
    "pnl": -34.57,
-   "pnl_j": -1.578,
-   "fwd_j": 21.9
+   "pnl_j": -1.571,
+   "fwd_j": 22.0
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -47,8 +47,8 @@
    "esperance": 5.3457,
    "t": 2.25,
    "pnl": 203.14,
-   "pnl_j": 9.448,
-   "fwd_j": 21.5
+   "pnl_j": 9.404,
+   "fwd_j": 21.6
   },
   "27c_mom_move": {
    "statut": "ORANGE",
@@ -56,8 +56,8 @@
    "esperance": -5.4857,
    "t": -2.31,
    "pnl": -208.46,
-   "pnl_j": -9.696,
-   "fwd_j": 21.5
+   "pnl_j": -9.651,
+   "fwd_j": 21.6
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -65,8 +65,8 @@
    "esperance": 2.1707,
    "t": 0.82,
    "pnl": 75.97,
-   "pnl_j": 4.778,
-   "fwd_j": 15.9
+   "pnl_j": 4.748,
+   "fwd_j": 16.0
   },
   "27e_arbitre": {
    "statut": "GRIS",
@@ -74,8 +74,8 @@
    "esperance": 0.2465,
    "t": 0.08,
    "pnl": 4.68,
-   "pnl_j": 0.387,
-   "fwd_j": 12.1
+   "pnl_j": 0.384,
+   "fwd_j": 12.2
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
@@ -106,31 +106,57 @@
   },
   "28_carry_hold": {
    "statut": "ORANGE",
-   "n": 41,
-   "esperance": 4.4015,
+   "n": 42,
+   "esperance": 4.3072,
    "t": 2.23,
-   "pnl": 180.46,
-   "pnl_j": 14.914,
-   "fwd_j": 12.1
+   "pnl": 180.9,
+   "pnl_j": 14.828,
+   "fwd_j": 12.2
   }
  },
  "tendances_btc": {
-  "ret1": 0.0002,
-  "ret7": 0.0438,
-  "ret30": -0.0193,
-  "prix": 65013
+  "ret1": -0.0004,
+  "ret7": 0.0432,
+  "ret30": -0.0199,
+  "prix": 64972
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": -39.3
-  },
-  {
-   "coin": "PUMP",
-   "move_pct": 20.1
+   "move_pct": -34.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-15T19:55",
+   "bot": "28_carry_hold",
+   "marche": "carryhold-LIT",
+   "pnl": 0.44
+  },
+  {
+   "ts": "2026-07-15T19:55",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": 10.18
+  },
+  {
+   "ts": "2026-07-15T19:55",
+   "bot": "25_convergence_basis",
+   "marche": "conv-WLFI",
+   "pnl": -0.54
+  },
+  {
+   "ts": "2026-07-15T19:55",
+   "bot": "25_convergence_basis",
+   "marche": "conv-LDO",
+   "pnl": -0.44
+  },
+  {
+   "ts": "2026-07-15T19:55",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-15T18:41",
    "bot": "27d_rev_move_stop",
@@ -148,36 +174,6 @@
    "bot": "23_carry_funding",
    "marche": "carry-KBONK",
    "pnl": 2.59
-  },
-  {
-   "ts": "2026-07-15T18:41",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-15T17:18",
-   "bot": "27g10_selecteur",
-   "marche": "sel-KAITO-REV-ia_piece",
-   "pnl": -1.92
-  },
-  {
-   "ts": "2026-07-15T17:18",
-   "bot": "27f10_selecteur",
-   "marche": "sel-KAITO-REV-ia_piece",
-   "pnl": -1.92
-  },
-  {
-   "ts": "2026-07-15T17:18",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-15T15:50",
-   "bot": "27g10_selecteur",
-   "marche": "sel-CASHCAT-REV-ia_piece",
-   "pnl": 37.52
   }
  ],
  "calibration_arbitre": {
@@ -190,7 +186,7 @@
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
-  "age_avis_h": 11.2,
+  "age_avis_h": 12.4,
   "problemes": []
  },
  "autofinancement": {
