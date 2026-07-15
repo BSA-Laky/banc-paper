@@ -1,11 +1,11 @@
 {
- "ts": "2026-07-15T05:59:02.521063+00:00",
+ "ts": "2026-07-15T08:29:41.154603+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 264,
-   "t_stat": 0.78,
+   "n": 265,
+   "t_stat": 0.84,
    "sain": true
   }
  },
@@ -15,7 +15,7 @@
    "esperance": 0.8934,
    "t_stat": 1.23,
    "mdd_live": 33.17,
-   "jours_forward": 21.5,
+   "jours_forward": 21.6,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -32,7 +32,7 @@
    "esperance": -0.2408,
    "t_stat": -0.98,
    "mdd_live": 40.6,
-   "jours_forward": 21.5,
+   "jours_forward": 21.6,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -46,24 +46,24 @@
    "statut": "ORANGE"
   },
   "25_convergence_basis": {
-   "n": 519,
-   "esperance": 0.5072,
+   "n": 521,
+   "esperance": 0.5047,
    "t_stat": 2.62,
    "mdd_live": 47.59,
-   "jours_forward": 22.4,
+   "jours_forward": 22.6,
    "verdict_banc": "edge a CONFIRMER (profil asymetrique, t-stat peu fiable)",
    "decrochage": false,
    "raisons": [
-    "forward 22 j < 28 j"
+    "forward 23 j < 28 j"
    ],
    "avertissements": [],
-   "esp_glissante_20": 0.5996,
-   "borne_decrochage": -1.4636,
+   "esp_glissante_20": 0.6119,
+   "borne_decrochage": -1.4624,
    "statut": "ORANGE",
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.3861,
-    "t_welch": -0.51
+    "delta_esperance": -0.3887,
+    "t_welch": -0.52
    }
   },
   "27a_rev_premium": {
@@ -71,7 +71,7 @@
    "esperance": -1.646,
    "t_stat": -0.69,
    "mdd_live": 47.03,
-   "jours_forward": 21.4,
+   "jours_forward": 21.5,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -83,7 +83,7 @@
    "esperance": 5.3457,
    "t_stat": 2.25,
    "mdd_live": 34.58,
-   "jours_forward": 21.0,
+   "jours_forward": 21.1,
    "verdict_banc": "edge POSITIF plausible (a confirmer)",
    "decrochage": false,
    "raisons": [
@@ -100,7 +100,7 @@
    "esperance": -5.4857,
    "t_stat": -2.31,
    "mdd_live": 217.22,
-   "jours_forward": 21.0,
+   "jours_forward": 21.1,
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
    "decrochage": false,
    "raisons": [
@@ -118,13 +118,13 @@
    "esperance": 2.6331,
    "t_stat": 0.98,
    "mdd_live": 68.63,
-   "jours_forward": 15.4,
+   "jours_forward": 15.5,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
     "n 34 < n_go 100",
     "t < 2",
-    "forward 15 j < 28 j"
+    "forward 16 j < 28 j"
    ],
    "avertissements": [],
    "esp_glissante_20": 4.6815,
@@ -136,7 +136,7 @@
    "esperance": 0.2465,
    "t_stat": 0.08,
    "mdd_live": 46.37,
-   "jours_forward": 11.6,
+   "jours_forward": 11.7,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -153,7 +153,7 @@
    "esperance": 0.2491,
    "t_stat": 0.24,
    "mdd_live": 65.97,
-   "jours_forward": 10.6,
+   "jours_forward": 10.7,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -171,7 +171,7 @@
    "esperance": -1.1322,
    "t_stat": -0.33,
    "mdd_live": 82.12,
-   "jours_forward": 10.6,
+   "jours_forward": 10.7,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -183,7 +183,7 @@
    "esperance": 3.5605,
    "t_stat": 0.43,
    "mdd_live": 17.8,
-   "jours_forward": 2.8,
+   "jours_forward": 2.9,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -195,7 +195,7 @@
    "esperance": 4.1156,
    "t_stat": 2.05,
    "mdd_live": 0.12,
-   "jours_forward": 11.6,
+   "jours_forward": 11.7,
    "verdict_banc": "edge POSITIF plausible (a confirmer)",
    "decrochage": false,
    "raisons": [
@@ -212,9 +212,9 @@
  "avertissements": [],
  "calibration_arbitre": {
   "tendance": {
-   "n": 4,
-   "taux_correct": 0.5,
-   "brier_moyen": 0.26
+   "n": 5,
+   "taux_correct": 0.6,
+   "brier_moyen": 0.24
   }
  }
 }
