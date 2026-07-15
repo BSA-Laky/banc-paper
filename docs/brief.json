@@ -1,7 +1,9 @@
 {
- "ts": "2026-07-15T11:59:13.649079+00:00",
+ "ts": "2026-07-15T14:02:20.922386+00:00",
  "alertes": [],
- "avertissements": [],
+ "avertissements": [
+  "28_carry_hold: esp 4.40 = 3.5x la ref backtest (1.26) -- TROP BEAU : a expliquer (P&L par piece, funding recalcule) avant toute promotion"
+ ],
  "banc_suspect": false,
  "changements_statut": [],
  "statuts": {
@@ -10,28 +12,28 @@
    "n": 105,
    "esperance": 0.9829,
    "t": 1.36,
-   "fwd_j": 21.7
+   "fwd_j": 21.8
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
    "n": 97,
    "esperance": -0.2408,
    "t": -0.98,
-   "fwd_j": 21.7
+   "fwd_j": 21.8
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 524,
-   "esperance": 0.514,
-   "t": 2.68,
-   "fwd_j": 22.7
+   "n": 526,
+   "esperance": 0.5109,
+   "t": 2.67,
+   "fwd_j": 22.8
   },
   "27a_rev_premium": {
    "statut": "GRIS",
    "n": 21,
    "esperance": -1.646,
    "t": -0.69,
-   "fwd_j": 21.6
+   "fwd_j": 21.7
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -52,7 +54,7 @@
    "n": 34,
    "esperance": 2.6331,
    "t": 0.98,
-   "fwd_j": 15.6
+   "fwd_j": 15.7
   },
   "27e_arbitre": {
    "statut": "GRIS",
@@ -66,43 +68,67 @@
    "n": 72,
    "esperance": 0.2491,
    "t": 0.24,
-   "fwd_j": 10.8
+   "fwd_j": 10.9
   },
   "27f_selecteur": {
    "statut": "GRIS",
    "n": 17,
    "esperance": -1.1322,
    "t": -0.33,
-   "fwd_j": 10.8
+   "fwd_j": 10.9
   },
   "27g10_selecteur": {
    "statut": "GRIS",
    "n": 4,
    "esperance": 3.5605,
    "t": 0.43,
-   "fwd_j": 3.1
+   "fwd_j": 3.2
   },
   "28_carry_hold": {
    "statut": "ORANGE",
-   "n": 40,
-   "esperance": 4.1156,
-   "t": 2.05,
+   "n": 41,
+   "esperance": 4.4015,
+   "t": 2.23,
    "fwd_j": 11.9
   }
  },
  "tendances_btc": {
-  "ret1": -0.004,
-  "ret7": 0.0394,
-  "ret30": -0.0235,
-  "prix": 64739
+  "ret1": 0.0018,
+  "ret7": 0.0455,
+  "ret30": -0.0177,
+  "prix": 65118
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": -28.2
+   "move_pct": -30.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-15T14:02",
+   "bot": "28_carry_hold",
+   "marche": "carryhold-CASHCAT",
+   "pnl": 15.84
+  },
+  {
+   "ts": "2026-07-15T14:02",
+   "bot": "25_convergence_basis",
+   "marche": "conv-KAITO",
+   "pnl": -0.31
+  },
+  {
+   "ts": "2026-07-15T14:02",
+   "bot": "25_convergence_basis",
+   "marche": "conv-HYPE",
+   "pnl": -0.29
+  },
+  {
+   "ts": "2026-07-15T14:02",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-15T11:59",
    "bot": "25_convergence_basis",
@@ -126,30 +152,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-TRUMP",
    "pnl": -0.5
-  },
-  {
-   "ts": "2026-07-15T10:24",
-   "bot": "25_convergence_basis",
-   "marche": "conv-KBONK",
-   "pnl": 1.63
-  },
-  {
-   "ts": "2026-07-15T10:24",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-15T08:29",
-   "bot": "25_convergence_basis",
-   "marche": "conv-FARTCOIN",
-   "pnl": -0.2
-  },
-  {
-   "ts": "2026-07-15T08:29",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CRV",
-   "pnl": -0.1
   }
  ],
  "calibration_arbitre": {
@@ -162,7 +164,14 @@
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
-  "age_avis_h": 4.5,
+  "age_avis_h": 6.5,
   "problemes": []
+ },
+ "autofinancement": {
+  "cout_api_usd_dernier_releve": null,
+  "date_releve": null,
+  "revenus_reels_eur": 0,
+  "cible_remboursement_eur": 35.0,
+  "reste_eur": 35.0
  }
 }
