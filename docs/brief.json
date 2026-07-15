@@ -1,9 +1,7 @@
 {
- "ts": "2026-07-15T15:50:40.290650+00:00",
+ "ts": "2026-07-15T17:18:52.563557+00:00",
  "alertes": [],
- "avertissements": [
-  "28_carry_hold: esp 4.40 = 3.5x la ref backtest (1.26) -- TROP BEAU : a expliquer (P&L par piece, funding recalcule) avant toute promotion"
- ],
+ "avertissements": [],
  "banc_suspect": false,
  "changements_statut": [],
  "statuts": {
@@ -12,6 +10,8 @@
    "n": 106,
    "esperance": 0.9671,
    "t": 1.35,
+   "pnl": 102.51,
+   "pnl_j": 4.681,
    "fwd_j": 21.9
   },
   "24_funding_multivenues": {
@@ -19,6 +19,8 @@
    "n": 100,
    "esperance": -0.2487,
    "t": -1.05,
+   "pnl": -24.87,
+   "pnl_j": -1.136,
    "fwd_j": 21.9
   },
   "25_convergence_basis": {
@@ -26,6 +28,8 @@
    "n": 528,
    "esperance": 0.5084,
    "t": 2.67,
+   "pnl": 268.43,
+   "pnl_j": 11.722,
    "fwd_j": 22.9
   },
   "27a_rev_premium": {
@@ -33,6 +37,8 @@
    "n": 21,
    "esperance": -1.646,
    "t": -0.69,
+   "pnl": -34.57,
+   "pnl_j": -1.586,
    "fwd_j": 21.8
   },
   "27b_rev_move": {
@@ -40,20 +46,26 @@
    "n": 38,
    "esperance": 5.3457,
    "t": 2.25,
-   "fwd_j": 21.4
+   "pnl": 203.14,
+   "pnl_j": 9.448,
+   "fwd_j": 21.5
   },
   "27c_mom_move": {
    "statut": "ORANGE",
    "n": 38,
    "esperance": -5.4857,
    "t": -2.31,
-   "fwd_j": 21.4
+   "pnl": -208.46,
+   "pnl_j": -9.696,
+   "fwd_j": 21.5
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
    "n": 34,
    "esperance": 2.6331,
    "t": 0.98,
+   "pnl": 89.53,
+   "pnl_j": 5.666,
    "fwd_j": 15.8
   },
   "27e_arbitre": {
@@ -61,13 +73,17 @@
    "n": 19,
    "esperance": 0.2465,
    "t": 0.08,
-   "fwd_j": 12.0
+   "pnl": 4.68,
+   "pnl_j": 0.387,
+   "fwd_j": 12.1
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
-   "n": 73,
-   "esperance": 0.7597,
-   "t": 0.67,
+   "n": 74,
+   "esperance": 0.7235,
+   "t": 0.64,
+   "pnl": 53.54,
+   "pnl_j": 4.867,
    "fwd_j": 11.0
   },
   "27f_selecteur": {
@@ -75,36 +91,60 @@
    "n": 17,
    "esperance": -1.1322,
    "t": -0.33,
+   "pnl": -19.25,
+   "pnl_j": -1.75,
    "fwd_j": 11.0
   },
   "27g10_selecteur": {
    "statut": "GRIS",
-   "n": 5,
-   "esperance": 10.3527,
-   "t": 1.11,
-   "fwd_j": 3.2
+   "n": 6,
+   "esperance": 8.307,
+   "t": 1.05,
+   "pnl": 49.84,
+   "pnl_j": 15.104,
+   "fwd_j": 3.3
   },
   "28_carry_hold": {
    "statut": "ORANGE",
    "n": 41,
    "esperance": 4.4015,
    "t": 2.23,
-   "fwd_j": 12.0
+   "pnl": 180.46,
+   "pnl_j": 14.914,
+   "fwd_j": 12.1
   }
  },
  "tendances_btc": {
-  "ret1": 0.0077,
-  "ret7": 0.0516,
-  "ret30": -0.012,
-  "prix": 65498
+  "ret1": 0.0002,
+  "ret7": 0.0438,
+  "ret30": -0.0193,
+  "prix": 65013
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": -32.3
+   "move_pct": -26.0
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-15T17:18",
+   "bot": "27g10_selecteur",
+   "marche": "sel-KAITO-REV-ia_piece",
+   "pnl": -1.92
+  },
+  {
+   "ts": "2026-07-15T17:18",
+   "bot": "27f10_selecteur",
+   "marche": "sel-KAITO-REV-ia_piece",
+   "pnl": -1.92
+  },
+  {
+   "ts": "2026-07-15T17:18",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-15T15:50",
    "bot": "27g10_selecteur",
@@ -134,24 +174,6 @@
    "bot": "24_funding_multivenues",
    "marche": "pdxcarry-BZ",
    "pnl": -0.36
-  },
-  {
-   "ts": "2026-07-15T15:50",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ZEC",
-   "pnl": -0.3
-  },
-  {
-   "ts": "2026-07-15T15:50",
-   "bot": "25_convergence_basis",
-   "marche": "conv-GRASS",
-   "pnl": -0.0
-  },
-  {
-   "ts": "2026-07-15T15:50",
-   "bot": "23_carry_funding",
-   "marche": "carry-XMR",
-   "pnl": -0.7
   }
  ],
  "calibration_arbitre": {
@@ -164,7 +186,7 @@
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
-  "age_avis_h": 8.3,
+  "age_avis_h": 9.8,
   "problemes": []
  },
  "autofinancement": {
