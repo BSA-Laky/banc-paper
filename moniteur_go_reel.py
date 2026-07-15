@@ -55,7 +55,10 @@ HORIZON_SCORE_J = 7     # scoring des avis de regime a J+7
 # -> auto-reference sur l'historique live complet du bot). jours_min = anciennete
 # forward minimale avant qu'un VERT soit possible (regle projet : 4-8 semaines).
 GATE = {
-    "28_carry_hold":        {"n_go": 100, "jours_min": 28, "mu_ref": 1.26, "sigma_ref": 1.34, "mdd_ref": None},
+    "28_carry_hold":        {"n_go": 100, "jours_min": 28, "mu_ref": 1.26, "sigma_ref": 1.34, "mdd_ref": None,
+                             "trop_beau_audite": "2026-07-15 : verifie vs funding reel HL (5/5 trades coherents, "
+                                                 "BLUR 77$ = 83-90$ reels, 0 flip de signe) — regime juillet riche "
+                                                 "+ queue droite (top3 = 63% du P&L). Voir Bot/AUDIT_BOT28."},
     "25_convergence_basis": {"n_go": 300, "jours_min": 28, "mu_ref": None, "sigma_ref": None, "mdd_ref": None,
                              "exige_battre": "23_carry_funding"},
     "27b_rev_move":         {"n_go": 50,  "jours_min": 28, "mu_ref": None, "sigma_ref": None, "mdd_ref": None},
@@ -178,12 +181,20 @@ def _statut_bot(bot, pnls, stats, premiers):
     res["pnl_par_jour"] = round(sum(pnls) / max(res["jours_forward"], 0.5), 3)
     # garde TROP-BEAU (15/07) : un edge se degrade du backtest au forward, il ne
     # triple pas. Au-dela de 2x la reference -> a expliquer avant toute promotion.
+    # Une fois l'ecart AUDITE (cle trop_beau_audite dans GATE), la garde devient
+    # une note informative et ne bloque plus (audit du 28 : 15/07/2026).
+    res["trop_beau_audite"] = cfg.get("trop_beau_audite")
     if cfg.get("mu_ref") and n >= 20 and stats["esperance_par_trade"] > 2.0 * cfg["mu_ref"]:
-        res["avertissements"].append(
-            "esp %.2f = %.1fx la ref backtest (%.2f) -- TROP BEAU : a expliquer "
-            "(P&L par piece, funding recalcule) avant toute promotion"
-            % (stats["esperance_par_trade"],
-               stats["esperance_par_trade"] / cfg["mu_ref"], cfg["mu_ref"]))
+        if cfg.get("trop_beau_audite"):
+            res.setdefault("notes", []).append(
+                "esp %.1fx la ref backtest — ecart AUDITE (%s)"
+                % (stats["esperance_par_trade"] / cfg["mu_ref"], cfg["trop_beau_audite"][:60]))
+        else:
+            res["avertissements"].append(
+                "esp %.2f = %.1fx la ref backtest (%.2f) -- TROP BEAU : a expliquer "
+                "(P&L par piece, funding recalcule) avant toute promotion"
+                % (stats["esperance_par_trade"],
+                   stats["esperance_par_trade"] / cfg["mu_ref"], cfg["mu_ref"]))
 
     # -- decrochage (des que la fenetre existe, meme sous n_lecture on surveille)
     if n >= FEN_GLISSANTE + 5:

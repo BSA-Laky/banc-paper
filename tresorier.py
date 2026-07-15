@@ -177,9 +177,10 @@ def checklist(bot, v, histo, pnls, cap_dd_usd):
     if (v.get("mdd_live") or 0) > cap_dd_usd:
         m.append("drawdown %.0f$ > %.0f$ (30%% de l'enveloppe)"
                  % (v.get("mdd_live") or 0, cap_dd_usd))
-    # garde TROP-BEAU (15/07) : la machine attrape desormais l'anomalie type bot 28
+    # garde TROP-BEAU (15/07) : bloque UNIQUEMENT si l'ecart n'a pas ete audite
+    # (audit 28 du 15/07 : funding reel verifie -> champ trop_beau_audite du moniteur)
     mu_ref = v.get("mu_ref")
-    if mu_ref and (v.get("esperance") or 0) > 2.0 * float(mu_ref):
+    if mu_ref and (v.get("esperance") or 0) > 2.0 * float(mu_ref) and not v.get("trop_beau_audite"):
         m.append("esp %.2f = %.1fx la ref backtest (%.2f) -- inexplique = pas de promotion"
                  % (v.get("esperance") or 0, (v.get("esperance") or 0) / float(mu_ref), float(mu_ref)))
     ab = v.get("ab")

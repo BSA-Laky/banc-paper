@@ -92,6 +92,8 @@ class CarryHold(Strategy):
                 if held >= self.hold_h:
                     net = st["accrue"]
                     t = Trade(self.name, f"carryhold-{a}", "funding", 1.0, self.notional)
+                    if st.get("entree_ts"):
+                        t.opened_at = st["entree_ts"]   # vraie entree (expo/duree correctes)
                     t.close(1.0 + net / self.notional)
                     regles.append(t)
                     st.update({"ouvert": False, "accrue": 0.0, "entree_ts": None})
