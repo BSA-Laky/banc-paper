@@ -147,6 +147,27 @@ def _sante_equipage():
             "age_avis_h": age_avis_h, "problemes": problemes}
 
 
+def _autofinancement():
+    """Objectif du Commandant (15/07) : la station rembourse ses frais.
+    Releves de couts (console API) et revenus REELS verses via Telegram
+    (commandes 'cout <usd>' / 'revenu <eur>') -> etat/budget_reel.json."""
+    try:
+        with (Path("etat") / "budget_reel.json").open(encoding="utf-8") as fh:
+            b = json.load(fh)
+    except (OSError, ValueError):
+        b = {}
+    releves = b.get("releves_api_usd", [])
+    revenus = b.get("revenus_eur", [])
+    cout_api_usd = float(releves[-1]["montant"]) if releves else None
+    total_rev = round(sum(float(r.get("montant", 0)) for r in revenus), 2)
+    cible = float(b.get("cible_eur", 35.0))     # frais API (~15-20 EUR) + ticket Etsy (15-20 EUR)
+    return {"cout_api_usd_dernier_releve": cout_api_usd,
+            "date_releve": (releves[-1]["date"][:10] if releves else None),
+            "revenus_reels_eur": total_rev,
+            "cible_remboursement_eur": cible,
+            "reste_eur": round(max(0.0, cible - total_rev), 2)}
+
+
 def produire_brief():
     try:
         with GO_REEL.open(encoding="utf-8") as fh:
@@ -169,6 +190,7 @@ def produire_brief():
         "dernieres_actions": _dernieres_actions(),
         "calibration_arbitre": gr.get("calibration_arbitre"),
         "sante_equipage": _sante_equipage(),
+        "autofinancement": _autofinancement(),
     }
     try:
         BRIEF_JSON.parent.mkdir(parents=True, exist_ok=True)
@@ -211,6 +233,11 @@ def produire_brief():
         L.append(f"**Moves 24h ≥ 20 %** : {ev}")
     if doc["calibration_arbitre"]:
         L.append(f"**Calibration arbitre (J+7)** : {json.dumps(doc['calibration_arbitre'], ensure_ascii=False)}")
+    af = doc.get("autofinancement") or {}
+    cout_txt = (f"{af['cout_api_usd_dernier_releve']} $ (releve {af['date_releve']})"
+                if af.get("cout_api_usd_dernier_releve") is not None else "aucun releve (tape 'cout <usd>' sur Telegram)")
+    L.append(f"**Autofinancement** : couts API {cout_txt} · revenus reels {af.get('revenus_reels_eur', 0)} EUR"
+             f" / cible {af.get('cible_remboursement_eur', 35)} EUR (reste {af.get('reste_eur', '?')} EUR)")
     L += ["", "_Genere automatiquement (PC eteint). Rien ici n'est un ordre : la gate decide,",
           "le Commandant tranche. Zero argent reel._"]
     try:

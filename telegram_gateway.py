@@ -31,6 +31,7 @@ F_NOTIF = ETAT / "tg_notifie.json"
 F_DECISIONS = ETAT / "decisions_commandant.json"
 F_TRESO_OUT = ETAT / "tresorier_out.json"
 F_PROMO = Path("promotions.json")
+F_BUDGET = ETAT / "budget_reel.json"
 
 
 def _lire_json(p, defaut):
@@ -161,6 +162,28 @@ def repondre(st, brief):
             _ecrire_json(F_DECISIONS, decisions[-30:])
             tg.envoyer(f"✔ Consigne « {cmd} {mots[1]} » enregistree — "
                        f"le Superviseur la lira dimanche.")
+        elif cmd in ("cout", "revenu") and len(mots) >= 2:
+            try:
+                montant = float(mots[1].replace(",", ".").replace("$", "").replace("e", ""))
+            except ValueError:
+                tg.envoyer("Format : cout 11.54  (releve console, $)  ou  revenu 12.50 (EUR reels)")
+                continue
+            b = _lire_json(F_BUDGET, {})
+            b = b if isinstance(b, dict) else {}
+            cle_b = "releves_api_usd" if cmd == "cout" else "revenus_eur"
+            b.setdefault(cle_b, []).append(
+                {"date": datetime.now(timezone.utc).isoformat(), "montant": montant})
+            b[cle_b] = b[cle_b][-120:]
+            b.setdefault("cible_eur", 35.0)
+            _ecrire_json(F_BUDGET, b)
+            if cmd == "cout":
+                tg.envoyer("💸 Releve API enregistre : %.2f $. Le brief suit "
+                           "l'autofinancement (cible %.0f EUR)." % (montant, b["cible_eur"]))
+            else:
+                tot = sum(float(r.get("montant", 0)) for r in b["revenus_eur"])
+                reste = max(0.0, float(b["cible_eur"]) - tot)
+                tg.envoyer("💰 Revenu REEL enregistre : %.2f EUR. Total %.2f EUR / "
+                           "cible %.0f EUR — reste %.2f EUR." % (montant, tot, b["cible_eur"], reste))
         elif cmd == "go" and len(mots) >= 2:
             # DOUBLE GATE (audit 11/07) : "go" ARME seulement ; la mise en service
             # exige un second message distinct "confirme <bot>" sous 30 minutes.
@@ -208,7 +231,8 @@ def repondre(st, brief):
                                "(TESTNET aujourd'hui, argent fictif). Retrait = ta main." % bot)
         else:
             tg.envoyer("Commandes : statut \u00b7 arbitre \u00b7 rapport \u00b7 "
-                       "approve <id> \u00b7 rejette <id> \u00b7 go <bot> puis confirme <bot>\n"
+                       "approve <id> \u00b7 rejette <id> \u00b7 cout <usd> \u00b7 revenu <eur> "
+                       "\u00b7 go <bot> puis confirme <bot>\n"
                        "(pas d'ordre de trade ici ; go+confirme = mise en service d'un "
                        "bot deja candidat, sur la venue du moment : TESTNET)")
     st["offset"] = offset
