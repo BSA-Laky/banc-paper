@@ -116,16 +116,30 @@ def executer():
         return
     now = datetime.now(timezone.utc)
     state = _lire_json(F_STATE, {})
+    rejets = state.setdefault("_rejets", {})   # cle "bot:coin" -> {"n":int,"ts":iso}
+
+    def _rejet_bloque(bot, coin):
+        r = rejets.get(bot + ":" + coin)
+        if not r or int(r.get("n", 0)) < 3:
+            return False
+        try:
+            age_h = (now - datetime.fromisoformat(str(r.get("ts")))).total_seconds() / 3600
+        except (ValueError, TypeError):
+            return False
+        return age_h < 24.0                    # re-essai autorise apres 24 h
 
     # RECONCILIATION : purge les positions suivies qui n'existent pas vraiment (fantomes)
     reelles = _positions_reelles(ex.cfg.base_url, ex.cfg.account)
     if reelles is not None:
         for bot in list(state):
+            if bot == "_rejets":
+                continue
             for coin in list(state.get(bot, {})):
                 if coin not in reelles:
                     del state[bot][coin]
     # recalcule l'exposition du portefeuille depuis l'etat reconcilie
-    pf.expo = {b: round(sum(p.get("notional", 0.0) for p in m.values()), 4) for b, m in state.items()}
+    pf.expo = {b: round(sum(p.get("notional", 0.0) for p in m.values()), 4)
+               for b, m in state.items() if b != "_rejets"}
     pf._sauver_expo()
 
     for bot in PILOTES:
@@ -139,6 +153,8 @@ def executer():
                 continue
             d = data.get(coin)
             if not d:                       # coin absent du testnet
+                continue
+            if _rejet_bloque(bot, coin):    # 3 rejets consecutifs -> pause 24 h
                 continue
             ok, raison = pf.peut_ouvrir(bot)
             if not ok:
@@ -156,10 +172,13 @@ def executer():
             reussi, detail = _ordre_reussi(r.get("exec"))
             if not reussi:
                 pf.cloturer(bot)            # revert l'expo : l'ordre n'est pas passe
+                k = bot + ":" + coin
+                rejets[k] = {"n": int(rejets.get(k, {}).get("n", 0)) + 1, "ts": now.isoformat()}
                 _log({"ts": now.isoformat(), "bot": bot, "coin": coin, "action": "REJET",
                       "side": side, "notional_usd": round(notion, 2), "mark": d["mark"], "resp": str(detail)[:60]})
                 print("[executeur] REJET %s %s : %s" % (bot, coin, str(detail)[:80]), flush=True)
                 continue
+            rejets.pop(bot + ":" + coin, None)
             mine[coin] = {"side": side, "notional": notion, "entry": d["mark"], "ts": now.isoformat()}
             _log({"ts": now.isoformat(), "bot": bot, "coin": coin, "action": "open",
                   "side": side, "notional_usd": round(notion, 2), "mark": d["mark"], "resp": "ok"})

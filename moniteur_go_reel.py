@@ -111,6 +111,59 @@ def _jours_depuis(iso):
         return 0.0
 
 
+def _series_journalieres(lignes):
+    """P&L somme PAR JOUR (cle date iso) et par bot, depuis les trades fermes."""
+    out = {}
+    for ln in lignes:
+        if ln.get("status") != "closed" or ln.get("pnl") in (None, "", "None"):
+            continue
+        d = str(ln.get("closed_at") or ln.get("opened_at") or "")[:10]
+        if not d:
+            continue
+        out.setdefault(ln["bot"], {})
+        out[ln["bot"]][d] = out[ln["bot"]].get(d, 0.0) + float(ln["pnl"])
+    return out
+
+
+def _serie_alignee(jours_bot, depuis):
+    """Liste des P&L quotidiens depuis une date (0 quand pas de trade ferme)."""
+    from datetime import date, timedelta as _td
+    try:
+        d0 = date.fromisoformat(depuis)
+    except ValueError:
+        return list(jours_bot.values())
+    fin = datetime.now(timezone.utc).date()
+    xs, d = [], d0
+    while d < fin:                        # jours complets uniquement
+        xs.append(jours_bot.get(d.isoformat(), 0.0))
+        d += _td(days=1)
+    return xs
+
+
+def _expo_moyenne(lignes):
+    """$ moyens deployes par bot = somme(mise x duree) / periode totale."""
+    contrib, bornes = {}, {}
+    for ln in lignes:
+        if ln.get("status") != "closed":
+            continue
+        try:
+            o = datetime.fromisoformat(str(ln.get("opened_at")).replace("Z", "+00:00"))
+            c = datetime.fromisoformat(str(ln.get("closed_at")).replace("Z", "+00:00"))
+            sz = float(ln.get("size_usd") or 0)
+        except (ValueError, TypeError):
+            continue
+        b = ln["bot"]
+        contrib[b] = contrib.get(b, 0.0) + sz * max(0.0, (c - o).total_seconds())
+        deb, fin = bornes.get(b, (o, c))
+        bornes[b] = (min(deb, o), max(fin, c))
+    out = {}
+    for b, tot in contrib.items():
+        deb, fin = bornes[b]
+        periode = max(86400.0, (datetime.now(timezone.utc) - deb).total_seconds())
+        out[b] = tot / periode
+    return out
+
+
 def _statut_bot(bot, pnls, stats, premiers):
     cfg = GATE.get(bot, DEFAUT)
     n = len(pnls)
@@ -120,6 +173,16 @@ def _statut_bot(bot, pnls, stats, premiers):
            "jours_forward": round(_jours_depuis(premiers.get(bot, "")), 1),
            "verdict_banc": stats["verdict"], "decrochage": False,
            "raisons": [], "avertissements": []}
+    res["mu_ref"] = cfg.get("mu_ref")
+    res["pnl_par_jour"] = round(sum(pnls) / max(res["jours_forward"], 0.5), 3)
+    # garde TROP-BEAU (15/07) : un edge se degrade du backtest au forward, il ne
+    # triple pas. Au-dela de 2x la reference -> a expliquer avant toute promotion.
+    if cfg.get("mu_ref") and n >= 20 and stats["esperance_par_trade"] > 2.0 * cfg["mu_ref"]:
+        res["avertissements"].append(
+            "esp %.2f = %.1fx la ref backtest (%.2f) -- TROP BEAU : a expliquer "
+            "(P&L par piece, funding recalcule) avant toute promotion"
+            % (stats["esperance_par_trade"],
+               stats["esperance_par_trade"] / cfg["mu_ref"], cfg["mu_ref"]))
 
     # -- decrochage (des que la fenetre existe, meme sous n_lecture on surveille)
     if n >= FEN_GLISSANTE + 5:
@@ -289,7 +352,17 @@ def produire_go_reel():
     bots = {b: _statut_bot(b, par_bot[b], stats[b], premiers)
             for b in stats if b not in TEMOINS}
 
-    # A/B et "exige_battre"
+    # debit et rendement du capital (15/07 : l'esperance/trade ne suffit pas
+    # quand les frequences different -- comparer aussi P&L/jour et P&L/jour/$expo)
+    jours_series = _series_journalieres(lignes)
+    expos = _expo_moyenne(lignes)
+    for b, v in bots.items():
+        e = expos.get(b, 0.0)
+        v["expo_moyenne_usd"] = round(e, 1)
+        v["rendement_j_pct"] = (round(100.0 * v["pnl_par_jour"] / e, 3) if e > 1 else None)
+
+    # A/B et "exige_battre" -- verdict rendu A CAPITAL EGAL (rendement/jour/$),
+    # avec Welch sur les series JOURNALIERES alignees ; l'esp/trade reste affichee.
     for bot, cfg in GATE.items():
         rival = cfg.get("exige_battre")
         if not rival or bot not in bots or rival not in par_bot:
@@ -297,11 +370,32 @@ def produire_go_reel():
         delta = (stats[bot]["esperance_par_trade"]
                  - stats[rival]["esperance_par_trade"])
         t_d = _t_welch(par_bot[bot], par_bot[rival])
+        depuis = max(str(premiers.get(bot, ""))[:10], str(premiers.get(rival, ""))[:10])
+        sa = _serie_alignee(jours_series.get(bot, {}), depuis)
+        sb = _serie_alignee(jours_series.get(rival, {}), depuis)
+        ea, eb = expos.get(bot, 0.0), expos.get(rival, 0.0)
+        if ea > 1 and eb > 1 and len(sa) >= 10:
+            ra = [100.0 * x / ea for x in sa]          # rendement quotidien %
+            rb = [100.0 * x / eb for x in sb]
+            d_r = (sum(ra) / len(ra)) - (sum(rb) / len(rb))
+            t_r = _t_welch(ra, rb)
+        else:                                          # fallback : par-trade
+            d_r, t_r = delta, t_d
         bots[bot]["ab"] = {"contre": rival, "delta_esperance": round(delta, 4),
-                           "t_welch": round(t_d, 2)}
-        if bots[bot]["statut"] == "VERT" and not (delta > 0 and t_d >= 2.0):
+                           "t_welch": round(t_d, 2),
+                           "delta_rendement_j_pct": round(d_r, 4),
+                           "t_welch_jour": round(t_r, 2),
+                           "jours_compares": len(sa)}
+        if bots[bot]["statut"] == "VERT" and not (d_r > 0 and t_r >= 2.0):
             bots[bot]["statut"] = "ORANGE"
-            bots[bot]["raisons"].append(f"ne bat pas {rival} (delta {delta:.2f}, t {t_d:.2f})")
+            bots[bot]["raisons"].append(
+                f"ne bat pas {rival} a capital egal (delta rendement/j {d_r:.3f} pt, t {t_r:.2f})")
+
+    # regle 15/07 : l'arbitrage de regime (27e) doit battre 27b avant n=30, sinon kill
+    v27 = bots.get("27e_arbitre")
+    if v27 and isinstance(v27.get("ab"), dict) and v27["n"] >= 30             and v27["ab"].get("delta_esperance", 0) < 0:
+        v27["avertissements"].append(
+            "REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)")
 
     temoins = {b: {"n": stats[b]["trades"], "t_stat": round(stats[b]["t_stat"], 2),
                    "sain": abs(stats[b]["t_stat"]) < 2.0}

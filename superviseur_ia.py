@@ -51,6 +51,8 @@ et tu relis ses reponses de la semaine ecoulee (fournies).
 COMMANDANT : decisions_du_commandant contient d'eventuels approve/rejette envoyes par
 l'humain via Telegram (cible = id de mission ou sujet). Respecte-les : une mission rejetee
 n'est pas reconduite ; un approve leve le doute. S'il est vide, poursuis normalement.
+R&D : hypotheses_RD = fiches du Stratege (1 nouvelle hypothese par bot invalide).
+Mentionne dans ton rapport celles en attente d'approbation du Commandant (approve h<id>).
 VEILLEUR : note_du_veilleur = la note hebdo du Cadet Remy (Haiku) sur la MACHINE
 (frictions d'execution testnet, couts LLM, anomalies chiffrees). Integre ses faits
 utiles a ton rapport ; ignore-la si elle est vide ou hors sujet.
@@ -184,6 +186,7 @@ def main():
         "mes_missions_precedentes": (_lire_json(F_CONSIGNE) or {}).get("missions", []),
         "decisions_du_commandant": _lire_json(ETAT / "decisions_commandant.json") or [],
         "note_du_veilleur": _lire_texte(ETAT / "note_veilleur.md", 1500) or "(pas encore de note)",
+        "hypotheses_RD": _lire_json(ETAT / "hypotheses.json") or [],
         "ma_meta_memoire": _lire_texte(F_MEMOIRE, CAP_MEMOIRE) or "(vide — premiere semaine)",
     }
     contenu = ("Audit hebdomadaire de la station (JSON) :\n" +

@@ -156,7 +156,7 @@ _next_hugo = _next_daily(5, 45)
 _cls, _lbl = _statut_ia(d_regime, incident=(n_echecs > 0), dormant=not regime)
 officiers.append({
     "nom": "Lieutenant Hugo", "poste": "Jugement quotidien", "role": "Arbitre",
-    "badge": "Opus 4.8", "type": "IA",
+    "badge": "Sonnet 5", "type": "IA",
     "statut_cls": _cls, "statut": (f"Incident ({n_echecs} echec(s))" if n_echecs else _lbl),
     "derniere": "Avis de regime rendu", "derniere_dt": d_regime,
     "prochain": "Prochain quart", "prochain_dt": _next_hugo,
@@ -175,6 +175,22 @@ officiers.append({
     "prochain": "Prochaine ronde", "prochain_dt": _next_remy,
     "parole": ("Chaque samedi 05:50 : frictions d'execution testnet, budget des avis, "
                "anomalies de la semaine -> note pour l'audit du dimanche d'Ada. Cout ~centimes."),
+})
+
+# Stratege R&D — Enseigne Nova (Sonnet 5, evenementiel) : AFFECTEE le 15/07
+_hyps = _json(ETAT / "hypotheses.json")
+_n_hyp = len(_hyps) if isinstance(_hyps, list) else 0
+_d_hyp = _mtime(ETAT / "hypotheses.json")
+officiers.append({
+    "nom": "Enseigne Nova", "poste": "R&D - une hypothese par bot invalide", "role": "Stratege",
+    "badge": "Sonnet 5", "type": "IA",
+    "statut_cls": ("actif" if (_d_hyp and (NOW - _d_hyp).total_seconds() < 8*86400) else "repos"),
+    "statut": (f"{_n_hyp} fiche(s) au registre" if _n_hyp else "En poste, attend un kill"),
+    "derniere": "Fiche d'hypothese deposee", "derniere_dt": _d_hyp,
+    "prochain": "Ronde du dimanche (si invalidation)", "prochain_dt": _next_weekly(6, 6, 0),
+    "parole": ("Quand la gate tue un bot, je propose UNE hypothese de remplacement : fiche "
+               "testable (signal, seuils, frais, kill-criteres). Le Commandant approuve (approve "
+               "h<id>), un humain code. Je ne code jamais, je ne recycle pas les hypotheses mortes."),
 })
 
 # ---------- automates 24/7 ----------
