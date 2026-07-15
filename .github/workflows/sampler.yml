@@ -7,7 +7,7 @@ on:
   schedule:
     # */15 = toutes les 15 min. Min GitHub = 5 min ; pour un repo public, 15 est
     # recommandé. NB : délais de 10-30 min possibles aux heures de pointe (normal).
-    - cron: "*/15 * * * *"
+    - cron: "3,18,33,48 * * * *"   # minutes creuses (16/07) : moins de lag GitHub = plus de passes/jour = n plus vite
   workflow_dispatch: {}      # bouton "Run workflow" pour lancer à la main
 
 # Le bot écrit l'état/ledger/dashboard et les committe : il faut le droit d'écrire.
@@ -41,7 +41,7 @@ jobs:
           # repo MODELE_AVIS. NB experience 27f/27f10/27g10 : changement de traitement
           # a cette date (avis Opus avant, Haiku apres) - en tenir compte dans les verdicts.
           MODELE_AVIS: ${{ vars.MODELE_AVIS || 'claude-haiku-4-5-20251001' }}
-          AVIS_MAX_JOUR: "10"
+          AVIS_MAX_JOUR: "20"
         run: python run_once.py
 
       - name: Committer l'état, le journal et le dashboard
