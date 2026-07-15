@@ -108,6 +108,7 @@
     <span>MAJ <b id="hud-ts">—</b></span>
     <span>BOTS <b id="hud-bots">—</b></span>
     <span>ALERTES <b id="hud-alertes">0</b></span>
+    <span>P&L <b id="hud-pnl">—</b></span>
     <span id="etat-alerte" class="ok">● NOMINAL</span>
   </div>
 </header>
@@ -135,7 +136,7 @@
   <section class="salle" id="salle-trading">
     <h2><span class="led vert"></span>SALLE TRADING — banc paper (24/7)</h2>
     <table id="tbl-bots"><thead>
-      <tr><th>bot</th><th>statut</th><th>n</th><th>esp</th><th>t</th><th>fwd</th></tr>
+      <tr><th>bot</th><th>statut</th><th>n</th><th>esp</th><th>P&L $</th><th>t</th><th>fwd</th></tr>
     </thead><tbody></tbody></table>
     <h2 style="margin-top:10px"><span class="led vert"></span>JOURNAL DE BORD</h2>
     <ul id="journal"></ul>
@@ -416,14 +417,18 @@ function rendre(brief, gate){
     Object.entries(tm).map(([k,v])=>`témoin ${k.startsWith("10b")?"book":"crypto"} : t ${v.t_stat} (${v.sain?"sain":"SUSPECT"})`).join(" · ");
 
   const tb = document.querySelector("#tbl-bots tbody"); tb.innerHTML="";
-  let nbRouge=0, nbVert=0;
+  let nbRouge=0, nbVert=0, pnlTotal=0, pnlConnu=false;
   Object.entries(bots).forEach(([b,v])=>{
     if(v.statut==="ROUGE") nbRouge++; if(v.statut==="VERT") nbVert++;
+    if(typeof v.pnl === "number"){ pnlTotal += v.pnl; pnlConnu = true; }
     tb.insertAdjacentHTML("beforeend",
       `<tr><td>${b}</td><td><span class="chip ${v.statut}">${v.statut}</span></td>
-       <td>${v.n}</td><td>${v.esperance}</td><td>${v.t}</td><td>${v.fwd_j} j</td></tr>`);
+       <td>${v.n}</td><td>${v.esperance}</td><td class="${(v.pnl||0)>=0?'pnl-pos':'pnl-neg'}" style="margin:0">${v.pnl===undefined||v.pnl===null?'?':v.pnl}</td><td>${v.t}</td><td>${v.fwd_j} j</td></tr>`);
   });
 
+  const hp = document.getElementById("hud-pnl");
+  if(hp){ hp.textContent = pnlConnu ? (pnlTotal>=0?"+":"")+pnlTotal.toFixed(0)+" $" : "\u2014";
+          hp.style.color = pnlTotal>=0 ? "var(--vert)" : "var(--rouge)"; }
   const jr = document.getElementById("journal"); jr.innerHTML="";
   const actions = brief.dernieres_actions||[];
   actions.forEach(a=>{
