@@ -174,6 +174,7 @@ def _statut_bot(bot, pnls, stats, premiers):
            "verdict_banc": stats["verdict"], "decrochage": False,
            "raisons": [], "avertissements": []}
     res["mu_ref"] = cfg.get("mu_ref")
+    res["pnl_cumule"] = round(sum(pnls), 2)
     res["pnl_par_jour"] = round(sum(pnls) / max(res["jours_forward"], 0.5), 3)
     # garde TROP-BEAU (15/07) : un edge se degrade du backtest au forward, il ne
     # triple pas. Au-dela de 2x la reference -> a expliquer avant toute promotion.

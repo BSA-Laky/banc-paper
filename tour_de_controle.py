@@ -184,6 +184,7 @@ def produire_brief():
         "changements_statut": _changements_statut(bots),
         "statuts": {b: {"statut": v.get("statut"), "n": v.get("n"),
                         "esperance": v.get("esperance"), "t": v.get("t_stat"),
+                        "pnl": v.get("pnl_cumule"), "pnl_j": v.get("pnl_par_jour"),
                         "fwd_j": v.get("jours_forward")} for b, v in sorted(bots.items())},
         "tendances_btc": _tendances_btc(),
         "evenements_extremes": _evenements_extremes(),
@@ -220,10 +221,17 @@ def produire_brief():
         L += [f"- {c['bot']} : {c['avant']} → **{c['apres']}**" for c in doc["changements_statut"]]
         L.append("")
     L.append("## Statuts gate (GO-reel)")
-    L.append("| Bot | Statut | n | esp | t | fwd |")
-    L.append("|---|---|---|---|---|---|")
+    L.append("| Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |")
+    L.append("|---|---|---|---|---|---|---|---|")
+    total_pnl = 0.0
     for b, v in doc["statuts"].items():
-        L.append(f"| {b} | {v['statut']} | {v['n']} | {v['esperance']} | {v['t']} | {v['fwd_j']} j |")
+        try:
+            total_pnl += float(v.get("pnl") or 0)
+        except (TypeError, ValueError):
+            pass
+        L.append(f"| {b} | {v['statut']} | {v['n']} | {v['esperance']} | {v['t']} "
+                 f"| {v.get('pnl', '?')} | {v.get('pnl_j', '?')} | {v['fwd_j']} j |")
+    L.append(f"\n**P&L paper cumule (hors temoin)** : {total_pnl:+.2f} $")
     L.append("")
     tb = doc["tendances_btc"]
     if tb:

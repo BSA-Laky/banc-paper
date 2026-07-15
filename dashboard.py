@@ -80,7 +80,22 @@ def _spark(vals, w=260, h=60):
             f'stroke-width="2" points="{pts}"/></svg>')
 
 
-def _carte(bot, r, spark):
+ENVELOPPES_DEPUIS = "2026-07-11"    # activation des enveloppes 300 EUR
+
+
+def _pnl_7j(lignes):
+    from datetime import timedelta
+    seuil = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
+    out = {}
+    for l in lignes:
+        if l.get("status") != "closed" or l.get("pnl") in (None, "", "None"):
+            continue
+        if str(l.get("closed_at") or "") >= seuil:
+            out[l["bot"]] = out.get(l["bot"], 0.0) + float(l["pnl"])
+    return out
+
+
+def _carte(bot, r, spark, p7=None):
     titre = html.escape(JOLI.get(bot, bot))
     if not r:
         return (f'<div class="carte"><h2>{titre}</h2>'
@@ -91,6 +106,7 @@ def _carte(bot, r, spark):
          f'<div><span class="lab">Taux réussite</span><span class="val">{r["taux_reussite"]*100:.1f}%</span></div>'
          f'<div><span class="lab">Espérance / trade</span><span class="val {cls}">{esp:+.4f} $</span></div>'
          f'<div><span class="lab">P&amp;L total</span><span class="val">{r["pnl_total"]:+.2f} $</span></div>'
+         f'<div><span class="lab">P&amp;L 7 jours</span><span class="val {"pos" if (p7 or 0) > 0 else ("neg" if (p7 or 0) < 0 else "")}">{(p7 or 0.0):+.2f} $</span></div>'
          f'<div><span class="lab">Max drawdown</span><span class="val">{r["max_drawdown"]:.2f} $</span></div>'
          f'<div><span class="lab">t-stat</span><span class="val">{r["t_stat"]:+.2f}</span></div>')
     return (f'<div class="carte"><h2>{titre}</h2><div class="kpis">{k}</div>'
@@ -132,25 +148,62 @@ def _positions():
             + "".join(rows) + "</table></div>")
 
 
-def _enveloppes():
+def _enveloppes(lignes):
+    """SUIVI VIVANT des enveloppes 300 EUR (demande Commandant 15/07) : P&L a
+    l'echelle de l'enveloppe depuis le 11/07 = somme (pnl/mise_paper) x mise_env."""
     try:
-        d = json.loads((DOCS / "enveloppes.json").read_text(encoding="utf-8"))
-    except (OSError, ValueError, NameError):
+        cfg = json.loads(Path("portefeuille.config.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
         return ""
-    bots = d.get("bots", {})
-    if not bots:
+    bots_cfg = cfg.get("bots", {})
+    if not bots_cfg:
         return ""
-    rows = "".join(
-        "<tr><td>%s</td><td>%s&nbsp;\u20ac</td><td>%s</td><td>%.1f&nbsp;\u20ac</td><td>%.0f&nbsp;\u20ac</td><td>%.0f%%</td></tr>"
-        % (html.escape(b), v.get("enveloppe_eur"), v.get("positions_max"),
-           v.get("mise_entree_eur"), v.get("deploye_moyen_eur"), v.get("usage_pct"))
-        for b, v in sorted(bots.items()))
-    return ("<div class=\"carte\"><h2>Gestion d'enveloppe \u2014 300 \u20ac par bot</h2>"
+    eu = float(cfg.get("eurusd", 1.07))
+    env_eur = float(cfg.get("enveloppe_par_bot_eur", 300))
+    pnl_env = {}          # EUR a l'echelle enveloppe, depuis le 11/07
+    n_tr = {}
+    for l in lignes:
+        b = l.get("bot")
+        if b not in bots_cfg or l.get("status") != "closed":
+            continue
+        if str(l.get("closed_at") or "")[:10] < ENVELOPPES_DEPUIS:
+            continue
+        try:
+            ret = float(l["pnl"]) / float(l["size_usd"])
+        except (KeyError, ValueError, ZeroDivisionError, TypeError):
+            continue
+        pmax = int(bots_cfg[b].get("positions_max", 1)) or 1
+        mise_eur = env_eur / pmax
+        pnl_env[b] = pnl_env.get(b, 0.0) + ret * mise_eur
+        n_tr[b] = n_tr.get(b, 0) + 1
+    try:
+        usage = json.loads((DOCS / "enveloppes.json").read_text(encoding="utf-8")).get("bots", {})
+    except (OSError, ValueError):
+        usage = {}
+    rows, total = [], 0.0
+    for b in sorted(bots_cfg):
+        p = pnl_env.get(b, 0.0)
+        total += p
+        cls = "pos" if p > 0 else ("neg" if p < 0 else "muted")
+        solde = env_eur + p
+        u = usage.get(b, {}).get("usage_pct", "?")
+        rows.append(
+            "<tr><td>%s</td><td>%.1f&nbsp;\u20ac</td><td>%s</td>"
+            "<td class=\"%s\">%+.2f&nbsp;\u20ac</td><td><b>%.2f&nbsp;\u20ac</b></td><td>%s%%</td></tr>"
+            % (html.escape(b), env_eur / (int(bots_cfg[b].get("positions_max", 1)) or 1),
+               n_tr.get(b, 0), cls, p, solde, u))
+    cls_t = "pos" if total > 0 else ("neg" if total < 0 else "")
+    rows.append("<tr><td><b>TOTAL station</b></td><td></td><td></td>"
+                "<td class=\"%s\"><b>%+.2f&nbsp;\u20ac</b></td><td><b>%.2f&nbsp;\u20ac</b></td><td></td></tr>"
+                % (cls_t, total, env_eur * len(bots_cfg) + total))
+    return ("<div class=\"carte\"><h2>Enveloppes 300 \u20ac \u2014 suivi depuis le "
+            + ENVELOPPES_DEPUIS + " (paper)</h2>"
             "<table style=\"width:100%;border-collapse:collapse;font-size:.85rem\">"
-            "<tr style=\"text-align:left;color:#9aa0a6\"><th>Bot</th><th>Env.</th><th>Pos.max</th>"
-            "<th>Mise/entr\u00e9e</th><th>D\u00e9ploy\u00e9 moy.</th><th>Usage</th></tr>"
-            + rows + "</table><div style=\"color:#9aa0a6;font-size:.75rem;margin-top:6px\">"
-            "Mise = enveloppe / positions max. Le bot ne d\u00e9ploie jamais plus que son enveloppe (refus au-del\u00e0).</div></div>")
+            "<tr style=\"text-align:left;color:#9aa0a6\"><th>Bot</th><th>Mise/entr\u00e9e</th>"
+            "<th>Trades</th><th>P&amp;L env.</th><th>Solde virtuel</th><th>Usage moy.</th></tr>"
+            + "".join(rows) + "</table><div style=\"color:#9aa0a6;font-size:.75rem;margin-top:6px\">"
+            "P&amp;L converti \u00e0 l'\u00e9chelle de l'enveloppe : rendement de chaque trade paper "
+            "\u00d7 mise r\u00e9elle (300\u202f\u20ac \u00f7 positions max). 100 % fictif.</div></div>")
 
 
 def construire_dashboard():
@@ -158,7 +211,8 @@ def construire_dashboard():
     res = evaluer(lignes)
     series = _cumul(lignes)
     maj = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    cartes = "".join(_carte(b, res.get(b), _spark(series.get(b, []))) for b in ORDRE)
+    p7 = _pnl_7j(lignes)
+    cartes = "".join(_carte(b, res.get(b), _spark(series.get(b, [])), p7.get(b)) for b in ORDRE)
     doc = (
         '<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width, initial-scale=1">'
@@ -167,7 +221,7 @@ def construire_dashboard():
         '<h1>Banc paper-trading — argent 100 % fictif</h1>'
         f'<div class="maj">Mis à jour : {maj} · rafraîchissement auto ~10 min</div>'
         '<div class="maj"><a href="station.html">station</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a> · <a href="book.html">book</a></div>'
-        + _ab(res) + cartes + _positions() + _enveloppes() +
+        + _ab(res) + cartes + _positions() + _enveloppes(lignes) +
         '<footer>Lecture seule sur APIs publiques (Hyperliquid, Paradex, ADEN). '
         'Aucun ordre réel, aucun wallet, aucune clé. Le t-stat est peu fiable pour '
         'un profil asymétrique : lire l\'espérance ET le nombre de trades. Rien en '
