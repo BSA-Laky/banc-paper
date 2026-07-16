@@ -185,6 +185,7 @@ class CarryFundingOnly(_EtatMixin, Strategy):
                 if st["ouvert"] or abs(st["accrue"]) > 1e-9:
                     net = st["accrue"]
                     t = Trade(self.name, f"carry-{a}", "funding", 1.0, self.notional)
+                    t.opened_at = debut.isoformat()   # vraie periode (expo/duree correctes)
                     t.close(1.0 + net / self.notional)
                     regles.append(t)
                     st["accrue"] = 0.0
@@ -268,6 +269,8 @@ class ConvergenceBasis(_EtatMixin, Strategy):
                     conv = self.notional * (p_in - p_now)         # gain de convergence
                     net = st["accrue"] + conv - rt_fee_leg        # - frais de sortie
                     t = Trade(self.name, f"conv-{a}", "basis", 1.0, self.notional)
+                    if st.get("entree_ts"):
+                        t.opened_at = st["entree_ts"]  # vraie entree (expo/duree correctes)
                     t.close(1.0 + net / self.notional)
                     regles.append(t)
                     st.update({"ouvert": False, "premium_entree": 0.0,

@@ -164,6 +164,30 @@ def _expo_moyenne(lignes):
         deb, fin = bornes[b]
         periode = max(86400.0, (datetime.now(timezone.utc) - deb).total_seconds())
         out[b] = tot / periode
+    # Fallback (16/07) : les trades anterieurs aux fixes opened_at ont duree 0 ->
+    # estimation Little = (n/jours) x hold_defaut x mise moyenne, le temps que les
+    # durees reelles peuplent le ledger. hold_defaut 1 j (28 : 2 j).
+    holds = {"28_carry_hold": 2.0}
+    n_par, mise_par, premiers_b = {}, {}, {}
+    for ln in lignes:
+        if ln.get("status") != "closed":
+            continue
+        b = ln["bot"]
+        try:
+            mise_par.setdefault(b, []).append(float(ln.get("size_usd") or 0))
+        except (ValueError, TypeError):
+            continue
+        n_par[b] = n_par.get(b, 0) + 1
+        d = str(ln.get("closed_at") or "")
+        if d and (b not in premiers_b or d < premiers_b[b]):
+            premiers_b[b] = d
+    for b, n in n_par.items():
+        if out.get(b, 0.0) > 1.0:
+            continue                       # durees reelles disponibles
+        jours = max(1.0, _jours_depuis(premiers_b.get(b, "")))
+        mises = mise_par.get(b, [])
+        mise_moy = (sum(mises) / len(mises)) if mises else 0.0
+        out[b] = (n / jours) * holds.get(b, 1.0) * mise_moy
     return out
 
 

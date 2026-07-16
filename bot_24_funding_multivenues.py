@@ -203,6 +203,7 @@ class FundingMultiVenues(Strategy):
             if st["ouvert"] or abs(st["accrue"]) > 1e-9:
                 t = Trade(bot=self.name, market=f"{prefixe}-{cle}", side="funding",
                           entry_price=1.0, size_usd=self.notional)
+                t.opened_at = debut.isoformat()   # vraie periode (expo/duree correctes)
                 t.close(1.0 + st["accrue"] / self.notional)
                 regles.append(t)
                 st["accrue"] = 0.0
