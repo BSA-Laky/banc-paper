@@ -40,6 +40,7 @@ from pathlib import Path
 from banc_essai_paper_trading import charger_journal, evaluer, LEDGER_PATH
 
 BOOK_LEDGER = Path("book_trades.csv")
+RD_LEDGER = Path("rd_trades.csv")   # bots generes par Nova (meme gate)
 ETAT_DIR = Path("etat")
 JOURNAL_ARBITRE = ETAT_DIR / "journal_arbitre.csv"
 CALIBRATION_CSV = ETAT_DIR / "calibration_arbitre.csv"
@@ -381,7 +382,7 @@ def _resume_calibration():
 
 # ----------------------------------------------------------------- production
 def produire_go_reel():
-    lignes = charger_journal(LEDGER_PATH) + charger_journal(BOOK_LEDGER)
+    lignes = charger_journal(LEDGER_PATH) + charger_journal(BOOK_LEDGER) + charger_journal(RD_LEDGER)
     stats = evaluer(lignes)
     par_bot, premiers = _pnls_et_dates(lignes)
 

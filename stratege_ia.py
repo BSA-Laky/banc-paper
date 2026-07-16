@@ -3,17 +3,26 @@
 """
 stratege_ia.py - le STRATEGE R&D de la station (Enseigne Nova, Sonnet 5, EVENEMENTIEL).
 =======================================================================================
-Demande du Commandant (15/07/2026) : quand une hypothese est INVALIDEE par la gate,
-un LLM en propose UNE nouvelle. Gouvernance stricte :
-  - declenchement UNIQUEMENT sur invalidation NOUVELLE (ROUGE, decrochage, ou
-    avertissement "KILL RECOMMANDE") -> zero appel API les semaines calmes ;
-  - le Stratege NE CODE JAMAIS : il produit une FICHE testable (signal, seuils,
-    frais, kill-criteres, prior honnete) dans docs/hypotheses.md ;
-  - il ne recycle pas les hypotheses deja tuees (liste fournie) ;
-  - circuit humain : interpellation Telegram -> "approve h<id>" du Commandant ->
-    un humain code le bot -> le banc mesure. La fiche n'est qu'une candidate.
-Sorties : etat/hypotheses.json (cap 20) + docs/hypotheses.md + file Telegram.
-Sans ANTHROPIC_API_KEY : dormant. stdlib only. MAX_TOKENS 2500.
+AMENDEMENT DE CHARTE (Commandant, 16/07/2026) : Nova ne se contente plus de PROPOSER,
+elle CODE et MET EN SERVICE les bots PAPER de A a Z, en autonomie, sans approbation
+humaine. Justification : c'est du paper (0 EUR) ; un mauvais bot est TUE par la gate
+(temoin + n/t/forward + kill auto du rd_runner) ; le GO reel reste la main humaine.
+
+Ce que Nova fait a chaque invalidation (ROUGE/decrochage/kill), 1 bot par passe :
+  1. concoit une fiche testable (mecanisme, signaux, seuils, frais, kill-criteres) ;
+  2. ECRIT le code du bot : une fonction `step(marche, etat, now) -> list[trade]`,
+     PUR CALCUL (imports limites a math/statistics/datetime/json), aucune I/O ;
+  3. le code est valide par liste blanche AST (rd_runner.valider_code) ; si invalide,
+     Nova a droit a 1 seule reecriture, sinon la fiche reste "proposee" (pas activee) ;
+  4. si OK et < MAX_ACTIFS bots vivants : ACTIVATION directe (rd/bot_<id>.py + actifs.json) ;
+  5. si l'hypothese exige une RESSOURCE que Nova ne peut pas fournir (cle/venue/endpoint
+     prive), elle NE code pas : elle emet une DEMANDE Telegram detaillee (tuto) et laisse
+     la fiche "en_attente_ressource".
+Le rd_runner (workflow rd.yml SANS SECRETS) execute les bots vivants et les TUE selon la
+fiche. Nova ne touche aucune cle : les secrets vivent dans d'autres workflows.
+
+Sorties : etat/hypotheses.json + docs/hypotheses.md + rd/bot_<id>.py + rd/actifs.json
++ file Telegram. Sans ANTHROPIC_API_KEY : dormant. stdlib only. MAX_TOKENS 4000.
 """
 from __future__ import annotations
 
@@ -24,13 +33,17 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-ETAT = Path("etat"); DOCS = Path("docs")
+import rd_runner
+
+ETAT = Path("etat"); DOCS = Path("docs"); RD = Path("rd")
 MODELE = os.environ.get("MODELE_STRATEGE", "claude-sonnet-5")
-MAX_TOKENS = 2500
+MAX_TOKENS = 4000
 F_HYP = ETAT / "hypotheses.json"
 F_VU = ETAT / "stratege_vu.json"
 F_ECHECS = ETAT / "stratege_echecs.json"
 F_OUT = ETAT / "tresorier_out.json"
+F_ACTIFS = RD / "actifs.json"
+MAX_ACTIFS = rd_runner.MAX_ACTIFS
 
 DEJA_MORTES = (
     "arbitrage de latence BTC (Binance vs Polymarket)",
@@ -46,26 +59,44 @@ DEJA_MORTES = (
 )
 
 SYSTEME = """Tu es « Enseigne Nova », Stratege R&D de la station banc-paper. Un bot vient
-d'etre invalide par la gate ; ta mission : proposer UNE SEULE hypothese de remplacement,
-sous forme de fiche TESTABLE. Regles absolues :
-- 100 % paper d'abord ; tu ne codes pas ; tu ne donnes aucun conseil d'argent reel.
-- L'hypothese doit etre executable FULL-AUTO avec des donnees publiques GRATUITES
-  (priorite : API Hyperliquid info deja utilisee par la station ; sinon API publique
-  sans cle). Frais a integrer : 0,035 %/jambe perps. Pas de plateforme interdite en
-  France (Polymarket exclu), pas de books sportifs.
-- INTERDIT de recycler les hypotheses deja tuees (liste fournie) ou une variante
-  cosmetique de l'hypothese qui vient de mourir.
-- Sois froid : mecanisme economique PLAUSIBLE (qui paie qui, pourquoi ca persiste),
-  kill-criteres chiffres, et un prior honnete (la plupart des hypotheses meurent).
+d'etre invalide ; tu concois UNE hypothese de remplacement ET tu ECRIS son code paper.
+REGLES ABSOLUES :
+- 100 % paper (0 EUR), aucun conseil d'argent reel, aucune cle a manipuler.
+- L'hypothese doit etre FULL-AUTO sur les donnees deja fournies au bot (voir plus bas),
+  frais 0,035 %/jambe integres. Pas de plateforme interdite en France (Polymarket exclu),
+  pas de books sportifs. INTERDIT de recycler une hypothese deja tuee ou une variante
+  cosmetique de celle qui vient de mourir.
+- Mecanisme economique PLAUSIBLE, kill-criteres chiffres, prior honnete (la plupart meurent).
+
+LE CODE QUE TU ECRIS ("code_step") — contraintes STRICTES, sinon rejet automatique :
+- Tu ecris le CORPS d'un module Python definissant EXACTEMENT :  def step(marche, etat, now):
+    * marche = dict {coin: {"mark":float, "funding":float, "vol":float, "oi":float, "ret24h":float}}
+      (funding = taux horaire signe ; ret24h = rendement 24 h ; vol = volume notionnel jour).
+    * etat = dict PERSISTANT entre les passes (tu y stockes tes positions ouvertes ; il t'est
+      redonne tel quel a la passe suivante). now = datetime UTC de la passe (~toutes les 15 min).
+    * RETOURNE une list de trades FERMES cette passe, chacun = dict
+      {"market":str, "side":str, "size_usd":float (<=100), "entry_price":float, "pnl":float}.
+      pnl = gain net en $ APRES frais (borne : |pnl| <= 50 % de size_usd). Mise 100 $ standard.
+- IMPORTS AUTORISES UNIQUEMENT : math, statistics, datetime, json. AUCUN autre.
+- INTERDIT : open, eval, exec, __import__, acces fichier, acces reseau, globals/locals,
+  attributs __xxx__ (dunder). Pur calcul sur `marche` et `etat`. Robuste (try/except,
+  .get avec defauts) : une exception tue ton bot.
+- Modele de logique : a l'entree, stocke la position dans etat[coin] (mark d'entree, ts,
+  side) ; a la sortie (seuil/temps), calcule le pnl funding/prix accumule MOINS 2*0.00035*mise,
+  retire de etat, ajoute au resultat. Compte le temps via now - datetime.fromisoformat(ts).
+
+Si l'hypothese EXIGE une donnee/cle/venue que le bot n'a PAS dans `marche` (ex. carnet
+d'ordres profond, funding d'une autre venue, cle privee) : ne fournis PAS de code, mets
+"code_step":"" et remplis "besoin_ressource" (ce qu'il te faut + tuto precis pour le Commandant).
+
 Tu reponds EXCLUSIVEMENT en JSON valide, schema :
-{"fiche":{"titre":"<=70 caracteres","famille":"carry|reversion|momentum|microstructure|autre",
- "mecanisme":"qui paie cette prime et pourquoi elle persiste (<=280)",
- "signal_entree":"regle chiffree precise (<=200)","signal_sortie":"regle chiffree (<=150)",
- "seuils":"parametres initiaux (<=150)","donnees_requises":"endpoints/champs exacts (<=150)",
- "frais_slippage":"cout aller-retour estime et impact (<=120)",
- "kill_criteres":"quand declarer l'hypothese morte (n, t, duree) (<=150)",
- "prior_honnete":"probabilite subjective de survivre au banc + justification (<=150)"},
- "resume_telegram":"<=180 caracteres"}"""
+{"fiche":{"titre":"<=70","famille":"carry|reversion|momentum|microstructure|autre",
+ "mecanisme":"<=280","signal_entree":"<=200","signal_sortie":"<=150","seuils":"<=150",
+ "donnees_requises":"<=150","frais_slippage":"<=120","kill_criteres":"<=150","prior_honnete":"<=150"},
+ "code_step":"le corps complet du module python (def step...), ou \\"\\" si ressource manquante",
+ "kill":{"n_max":120,"t_min":0.5,"jours_max":45},
+ "besoin_ressource":"vide si code fourni ; sinon description + tuto pour le Commandant",
+ "resume_telegram":"<=180"}"""
 
 
 def _lire_json(p, defaut):
@@ -84,7 +115,6 @@ def _ecrire_json(p, d):
 
 
 def _invalidations(gate):
-    """Cles d'invalidation presentes dans la gate (ROUGE / decrochage / kill recommande)."""
     out = []
     for b, v in (gate.get("bots", {}) or {}).items():
         if v.get("statut") == "ROUGE" or v.get("decrochage"):
@@ -104,26 +134,35 @@ def _appel_api(cle, contenu):
         headers={"x-api-key": cle, "anthropic-version": "2023-06-01",
                  "content-type": "application/json", "User-Agent": "banc-paper-stratege"})
     try:
-        with urllib.request.urlopen(req, timeout=150) as r:
+        with urllib.request.urlopen(req, timeout=180) as r:
             return json.loads(r.read().decode("utf-8"))
     except urllib.error.HTTPError as e:
         raise RuntimeError("HTTP %s : %s" % (e.code, e.read().decode("utf-8", "replace")[:300])) from None
 
 
+def _extraire_json(rep):
+    texte = "".join(b.get("text", "") for b in rep.get("content", [])
+                    if b.get("type") == "text").strip()
+    if texte.startswith("```"):
+        texte = texte.strip("`\n ")
+        if texte.startswith("json"):
+            texte = texte[4:]
+    return json.loads(texte)
+
+
 def _rediger_md(hyps):
-    lignes = ["# Registre R&D — hypotheses du Stratege (Enseigne Nova)",
-              "_1 fiche par bot invalide. approve h<id> / rejette h<id> via Telegram._", ""]
+    lignes = ["# Registre R&D — hypotheses & bots de Nova (Stratege)",
+              "_Nova code et met en service les bots paper en autonomie. Kill auto par la gate._", ""]
     for h in reversed(hyps):
         f = h.get("fiche", {})
         lignes += ["## %s — %s  `[%s]`" % (h.get("id"), f.get("titre", "?"), h.get("statut", "proposee")),
-                   "_Declencheur : %s (%s) — %s_" % (h.get("bot_mort"), h.get("cause", "")[:90], str(h.get("date", ""))[:10]),
+                   "_Declencheur : %s (%s) — %s_" % (h.get("bot_mort"), h.get("cause", "")[:80], str(h.get("date", ""))[:10]),
                    "- **Mecanisme** : %s" % f.get("mecanisme", ""),
-                   "- **Entree** : %s" % f.get("signal_entree", ""),
-                   "- **Sortie** : %s" % f.get("signal_sortie", ""),
-                   "- **Seuils** : %s · **Donnees** : %s" % (f.get("seuils", ""), f.get("donnees_requises", "")),
-                   "- **Frais** : %s" % f.get("frais_slippage", ""),
-                   "- **Kill** : %s" % f.get("kill_criteres", ""),
-                   "- **Prior honnete** : %s" % f.get("prior_honnete", ""), ""]
+                   "- **Entree** : %s · **Sortie** : %s" % (f.get("signal_entree", ""), f.get("signal_sortie", "")),
+                   "- **Seuils** : %s · **Frais** : %s" % (f.get("seuils", ""), f.get("frais_slippage", "")),
+                   "- **Kill** : %s · **Prior** : %s" % (f.get("kill_criteres", ""), f.get("prior_honnete", "")), ""]
+        if h.get("besoin_ressource"):
+            lignes.append("- ⛔ **En attente ressource** : %s" % h["besoin_ressource"]); lignes.append("")
     try:
         DOCS.mkdir(exist_ok=True)
         (DOCS / "hypotheses.md").write_text("\n".join(lignes), encoding="utf-8")
@@ -139,76 +178,115 @@ def _echec(motif):
     print("[stratege] ECHEC (%d) : %s" % (n, motif), flush=True)
 
 
+def _notifier(mid, texte):
+    out = _lire_json(F_OUT, {"pending": []})
+    out.setdefault("pending", [])
+    if not any(m.get("id") == mid for m in out["pending"]):
+        out["pending"].append({"id": mid, "texte": texte,
+                               "ts": datetime.now(timezone.utc).isoformat()})
+        _ecrire_json(F_OUT, out)
+
+
+def _activer(bot_id, code, kill, fiche):
+    """Ecrit rd/bot_<id>.py + inscrit dans actifs.json (le rd_runner l'executera)."""
+    try:
+        RD.mkdir(parents=True, exist_ok=True)
+        (RD / ("bot_%s.py" % bot_id)).write_text(code, encoding="utf-8")
+    except OSError:
+        return False
+    actifs = _lire_json(F_ACTIFS, {"bots": {}})
+    actifs.setdefault("bots", {})
+    actifs["bots"][bot_id] = {"titre": fiche.get("titre", "?"),
+                              "active_depuis": datetime.now(timezone.utc).isoformat(),
+                              "kill": kill}
+    _ecrire_json(F_ACTIFS, actifs)
+    return True
+
+
 def main():
     gate = _lire_json(DOCS / "go_reel.json", {})
-    vu = _lire_json(F_VU, {"traites": []})
-    vu.setdefault("traites", [])
+    vu = _lire_json(F_VU, {"traites": []}); vu.setdefault("traites", [])
     nouvelles = [(k, b, c) for k, b, c in _invalidations(gate) if k not in vu["traites"]]
     if not nouvelles:
         print("[stratege] aucune invalidation nouvelle — 0 appel, 0 cout.", flush=True)
+        return
+    actifs = _lire_json(F_ACTIFS, {"bots": {}})
+    if len(actifs.get("bots", {})) >= MAX_ACTIFS:
+        print("[stratege] %d bots R&D actifs (max) — on attend un kill." % MAX_ACTIFS, flush=True)
         return
     cle = os.environ.get("ANTHROPIC_API_KEY", "").strip()
     if not cle:
         print("[stratege] invalidation detectee mais pas de cle API — dormant.", flush=True)
         return
-    k, bot, cause = nouvelles[0]                      # UNE fiche par passe
-    hyps = _lire_json(F_HYP, [])
-    hyps = hyps if isinstance(hyps, list) else []
-    deja_proposees = [h.get("fiche", {}).get("titre", "") for h in hyps]
+
+    k, bot, cause = nouvelles[0]
+    hyps = _lire_json(F_HYP, []); hyps = hyps if isinstance(hyps, list) else []
     donnees = {
-        "bot_invalide": {"nom": bot, "cause": cause,
-                         "stats": (gate.get("bots", {}) or {}).get(bot, {})},
-        "gate_resume": {b: {"statut": v.get("statut"), "n": v.get("n"),
-                            "t": v.get("t_stat"), "esp": v.get("esperance"),
-                            "rdt_j_pct": v.get("rendement_j_pct")}
-                        for b, v in (gate.get("bots", {}) or {}).items()},
+        "bot_invalide": {"nom": bot, "cause": cause, "stats": (gate.get("bots", {}) or {}).get(bot, {})},
+        "gate_resume": {b: {"statut": v.get("statut"), "n": v.get("n"), "t": v.get("t_stat"),
+                            "esp": v.get("esperance")} for b, v in (gate.get("bots", {}) or {}).items()},
         "hypotheses_deja_mortes": list(DEJA_MORTES),
-        "fiches_deja_proposees": deja_proposees,
-        "competences_prouvees": ((ETAT / "competences.md").read_text(encoding="utf-8")[:2000]
-                                 if (ETAT / "competences.md").exists() else "(vide)"),
-        "note_veilleur": (ETAT / "note_veilleur.md").read_text(encoding="utf-8")[:800]
-                         if (ETAT / "note_veilleur.md").exists() else "(vide)",
+        "fiches_deja_proposees": [h.get("fiche", {}).get("titre", "") for h in hyps],
+        "competences": ((ETAT / "competences.md").read_text(encoding="utf-8")[:1500]
+                        if (ETAT / "competences.md").exists() else "(vide)"),
     }
-    contenu = ("Un bot vient d'etre invalide. Propose UNE fiche (JSON) :\n" +
+    contenu = ("Un bot est invalide. Concois UNE hypothese ET code son step() (JSON) :\n" +
                json.dumps(donnees, ensure_ascii=False, default=str)[:12000] +
                "\n\nProduis ta reponse JSON maintenant.")
     try:
-        rep = _appel_api(cle, contenu)
-        texte = "".join(b_.get("text", "") for b_ in rep.get("content", [])
-                        if b_.get("type") == "text").strip()
-        if texte.startswith("```"):
-            texte = texte.strip("`\n ")
-            if texte.startswith("json"):
-                texte = texte[4:]
-        d = json.loads(texte)
+        d = _extraire_json(_appel_api(cle, contenu))
         fiche = d.get("fiche") or {}
         if not fiche.get("titre") or not fiche.get("kill_criteres"):
             raise ValueError("fiche incomplete")
-    except Exception as e:                            # noqa: BLE001 — jamais bloquant
-        _echec(e)
-        return
+    except Exception as e:                            # noqa: BLE001
+        _echec(e); return
+
     hid = "h%d" % (len(hyps) + 1)
-    hyps.append({"id": hid, "date": datetime.now(timezone.utc).isoformat(),
-                 "bot_mort": bot, "cause": cause[:150], "statut": "proposee",
-                 "fiche": fiche})
+    entree = {"id": hid, "date": datetime.now(timezone.utc).isoformat(),
+              "bot_mort": bot, "cause": cause[:150], "fiche": fiche,
+              "besoin_ressource": str(d.get("besoin_ressource") or "").strip()}
+    code = str(d.get("code_step") or "").strip()
+    kill = d.get("kill") if isinstance(d.get("kill"), dict) else {}
+
+    if not code and entree["besoin_ressource"]:
+        entree["statut"] = "en_attente_ressource"
+        _notifier("rdbesoin:%s" % hid,
+                  "🧪 R&D — %s invalide. Nova propose « %s » mais a besoin d'une ressource :\n%s\n"
+                  "Reponds via Telegram quand c'est pret." % (bot, fiche.get("titre", "?"),
+                                                              entree["besoin_ressource"][:600]))
+    elif code:
+        ok, motif = rd_runner.valider_code(code)
+        if not ok:                                    # 1 seule reecriture autorisee
+            try:
+                d2 = _extraire_json(_appel_api(
+                    cle, contenu + "\n\nTON CODE A ETE REJETE (%s). Reecris `code_step` "
+                    "en respectant STRICTEMENT la liste blanche." % motif))
+                code = str(d2.get("code_step") or "").strip()
+                ok, motif = rd_runner.valider_code(code)
+            except Exception:                         # noqa: BLE001
+                ok = False
+        if ok and _activer(hid, code, kill, fiche):
+            entree["statut"] = "actif"
+            _notifier("rdactif:%s" % hid,
+                      "🧪 R&D — nouveau bot rd_%s EN SERVICE (paper) : « %s »\n%s\n"
+                      "Il passe par la meme gate ; s'il est nul il sera tue tout seul. "
+                      "Registre : https://bsa-laky.github.io/banc-paper/hypotheses.md"
+                      % (hid, fiche.get("titre", "?"), str(d.get("resume_telegram", ""))[:180]))
+        else:
+            entree["statut"] = "code_rejete (%s)" % motif[:50]
+            _notifier("rdrejet:%s" % hid,
+                      "🧪 R&D — fiche « %s » retenue mais code auto-rejete (%s). "
+                      "Reste a l'etude." % (fiche.get("titre", "?"), motif[:60]))
+    else:
+        entree["statut"] = "proposee"
+
+    hyps.append(entree)
     _ecrire_json(F_HYP, hyps[-20:])
     _rediger_md(hyps[-20:])
     vu["traites"] = (vu["traites"] + [k])[-40:]
     _ecrire_json(F_VU, vu)
-    out = _lire_json(F_OUT, {"pending": []})
-    out.setdefault("pending", []).append(
-        {"id": "hyp:%s" % hid,
-         "texte": ("\U0001F9EA R&D — %s invalide (%s).\nNouvelle fiche %s : %s\n%s\n"
-                   "Repondre « approve %s » pour la faire coder, "
-                   "« rejette %s » sinon. Registre : "
-                   "https://bsa-laky.github.io/banc-paper/hypotheses.md"
-                   % (bot, cause[:60], hid, fiche.get("titre", "?"),
-                      str(d.get("resume_telegram", ""))[:180], hid, hid)),
-         "ts": datetime.now(timezone.utc).isoformat()})
-    _ecrire_json(F_OUT, out)
     _ecrire_json(F_ECHECS, {"consecutifs": 0, "maj": datetime.now(timezone.utc).isoformat()})
-    print("[stratege] OK — fiche %s deposee (%s), Telegram notifie." % (hid, fiche.get("titre", "")),
-          flush=True)
+    print("[stratege] %s -> %s (%s)" % (hid, entree.get("statut"), fiche.get("titre", "")[:50]), flush=True)
 
 
 if __name__ == "__main__":
