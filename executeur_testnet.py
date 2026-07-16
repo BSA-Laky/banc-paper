@@ -22,7 +22,8 @@ from bot_27e_arbitre import _parse_ctxs
 ETAT = Path("etat")
 F_STATE = ETAT / "executeur_testnet.json"
 LEDGER = ETAT / "testnet_trades.csv"
-PILOTES = ["27f_selecteur", "27f10_selecteur", "27g10_selecteur"]
+PILOTES = ["27f_selecteur", "27f10_selecteur", "27g10_selecteur", "28_carry_hold"]
+FICHIER_ETAT = {"28_carry_hold": "etat_bot28.json"}   # noms non standards
 FRAIS = 0.00035
 
 
@@ -143,7 +144,7 @@ def executer():
     pf._sauver_expo()
 
     for bot in PILOTES:
-        bet = _lire_json(ETAT / ("etat_%s.json" % bot), {})
+        bet = _lire_json(ETAT / FICHIER_ETAT.get(bot, "etat_%s.json" % bot), {})
         ouverts = {c: v for c, v in bet.items() if isinstance(v, dict) and v.get("ouvert")}
         mine = state.get(bot, {})
 
@@ -160,7 +161,9 @@ def executer():
             if not ok:
                 print("[executeur] %s %s non ouvert : %s" % (bot, coin, raison), flush=True)
                 continue
-            side = int(v.get("side", -1))
+            side = int(v.get("side") or 0)
+            if side == 0:                   # position sans direction connue (ex. 28 pre-16/07)
+                continue
             notion = pf.taille_entree(bot)
             lev = pf.levier(bot)
             ex.set_leverage(coin, lev)     # fixe le levier voulu (1x tant que non promu)

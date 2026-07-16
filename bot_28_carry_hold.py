@@ -82,6 +82,7 @@ class CarryHold(Strategy):
                 st["ouvert"] = True
                 st["accrue"] = -2 * self.frais * self.notional
                 st["entree_ts"] = now.isoformat()
+                st["side"] = -1 if f > 0 else 1   # recevoir le funding : short si f>0
             st["dernier_ts"] = now.isoformat()
             # sortie : apres hold_h heures -> on solde UN Trade
             if st["ouvert"]:

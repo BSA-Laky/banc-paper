@@ -86,9 +86,21 @@ def _jamais_negatif(pnls):
     return len(pnls) > 0
 
 
+def _quasi_vert(v):
+    """VERT, ou ORANGE dont la SEULE raison restante est l'age forward (<28 j).
+    Decision Commandant 16/07 : la fenetre de stabilite 5 j chevauche la fin du
+    forward au lieu de s'empiler apres (gain ~5 j, criteres de fond inchanges)."""
+    if v.get("statut") == "VERT":
+        return True
+    if v.get("statut") != "ORANGE":
+        return False
+    raisons = v.get("raisons", [])
+    return bool(raisons) and all(r.startswith("forward") for r in raisons)
+
+
 def _maj_histo(histo, gr, jour):
     j = histo.setdefault("jours", {})
-    etat_jour = {b: (v.get("statut") == "VERT") for b, v in gr.get("bots", {}).items()}
+    etat_jour = {b: _quasi_vert(v) for b, v in gr.get("bots", {}).items()}
     j[jour] = etat_jour
     for vieux in sorted(j)[:-40]:            # ne garde que ~40 jours
         del j[vieux]
@@ -189,7 +201,7 @@ def checklist(bot, v, histo, pnls, cap_dd_usd):
             m.append("perd l'A/B vs %s" % ab.get("contre", "?"))
     vj = _vert_jours(histo, bot)
     if vj < N_JOURS_VERT:
-        m.append("VERT depuis %d j < %d" % (vj, N_JOURS_VERT))
+        m.append("criteres tenus %d j < %d (fenetre chevauchante)" % (vj, N_JOURS_VERT))
     return (len(m) == 0, m)
 
 
