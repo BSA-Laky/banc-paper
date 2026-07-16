@@ -1,0 +1,42 @@
+# .github/workflows/rd.yml — HARNAIS des bots R&D generes par Nova.
+# SECURITE (amendement charte 16/07) : ce workflow n'expose AUCUN SECRET. Meme si un
+# code genere par Nova etait hostile, il n'a rien a voler et tourne en pur calcul
+# (liste blanche AST re-verifiee a chaque passe, timeout, pas d'I/O). Cadence 15 min
+# decalee du sampler. Le rd_runner ecrit rd_trades.csv -> lu par le moniteur (meme gate).
+name: rd-runner
+on:
+  schedule:
+    - cron: "9,24,39,54 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rd-runner
+  cancel-in-progress: false
+
+jobs:
+  rd:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      # AUCUN bloc env: ici -> aucun secret injecte, par conception.
+      - name: Executer les bots R&D (paper, sans secret)
+        run: python rd_runner.py
+      - name: Committer les trades R&D
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Rien a committer."
+          else
+            git commit -m "rd $(date -u +%FT%H:%M)"
+            git pull --rebase --autostash || true
+            git push || (git pull --rebase --autostash && git push)
+          fi
