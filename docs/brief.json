@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-16T22:41:38.475420+00:00",
+ "ts": "2026-07-16T23:42:10.049369+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -25,12 +25,12 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 567,
-   "esperance": 0.4908,
-   "t": 2.73,
-   "pnl": 278.31,
-   "pnl_j": 11.548,
-   "fwd_j": 24.1
+   "n": 569,
+   "esperance": 0.4993,
+   "t": 2.76,
+   "pnl": 284.08,
+   "pnl_j": 11.739,
+   "fwd_j": 24.2
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -83,8 +83,8 @@
    "esperance": 0.6593,
    "t": 0.66,
    "pnl": 55.38,
-   "pnl_j": 4.539,
-   "fwd_j": 12.2
+   "pnl_j": 4.502,
+   "fwd_j": 12.3
   },
   "27f_selecteur": {
    "statut": "GRIS",
@@ -92,8 +92,8 @@
    "esperance": -1.6999,
    "t": -0.57,
    "pnl": -34.0,
-   "pnl_j": -2.787,
-   "fwd_j": 12.2
+   "pnl_j": -2.764,
+   "fwd_j": 12.3
   },
   "27g10_selecteur": {
    "statut": "GRIS",
@@ -101,8 +101,8 @@
    "esperance": 6.9927,
    "t": 1.36,
    "pnl": 62.93,
-   "pnl_j": 13.985,
-   "fwd_j": 4.5
+   "pnl_j": 13.681,
+   "fwd_j": 4.6
   },
   "28_carry_hold": {
    "statut": "ORANGE",
@@ -115,18 +115,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0107,
-  "ret7": 0.013,
-  "ret30": -0.0243,
-  "prix": 64047
+  "ret1": -0.0154,
+  "ret7": 0.0082,
+  "ret30": -0.0289,
+  "prix": 63742
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": -31.5
+   "move_pct": -36.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-16T23:42",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": -5.85
+  },
+  {
+   "ts": "2026-07-16T23:42",
+   "bot": "25_convergence_basis",
+   "marche": "conv-KBONK",
+   "pnl": 11.63
+  },
+  {
+   "ts": "2026-07-16T23:42",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-16T22:41",
    "bot": "25_convergence_basis",
@@ -156,24 +174,6 @@
    "bot": "28_carry_hold",
    "marche": "carryhold-CRV",
    "pnl": 0.3
-  },
-  {
-   "ts": "2026-07-16T21:39",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-CASHCAT",
-   "pnl": -12.25
-  },
-  {
-   "ts": "2026-07-16T21:39",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CASHCAT",
-   "pnl": 7.15
-  },
-  {
-   "ts": "2026-07-16T21:39",
-   "bot": "25_convergence_basis",
-   "marche": "conv-AERO",
-   "pnl": -0.38
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
  "sante_equipage": {
   "arbitre_echecs": 1,
   "superviseur_echecs": 0,
-  "age_avis_h": 39.2,
+  "age_avis_h": 40.2,
   "problemes": []
  },
  "autofinancement": {
