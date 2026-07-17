@@ -28,7 +28,7 @@ from pathlib import Path
 
 API_URL = "https://api.anthropic.com/v1/messages"
 MODELE = os.environ.get("MODELE_SUPERVISEUR", "claude-fable-5")
-MAX_TOKENS = 4000   # fix 09/07 : idem arbitre, JSON tronque sinon
+MAX_TOKENS = 8000   # fix 17/07 : Fable 5 pensant, meme risque de troncature
 CAP_MEMOIRE = 6000
 ECHECS_AVANT_ESCALADE = 2
 

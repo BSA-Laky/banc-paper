@@ -30,7 +30,7 @@ from pathlib import Path
 
 ETAT = Path("etat"); DOCS = Path("docs")
 MODELE = os.environ.get("MODELE_VEILLEUR", "claude-haiku-4-5-20251001")
-MAX_TOKENS = 2500
+MAX_TOKENS = 4000   # 17/07 : marge (Haiku pense peu)
 F_NOTE = ETAT / "note_veilleur.md"
 F_NOTE_DOCS = DOCS / "veilleur.md"
 F_ECHECS = ETAT / "veilleur_echecs.json"

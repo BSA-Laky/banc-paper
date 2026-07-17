@@ -177,20 +177,20 @@ officiers.append({
                "anomalies de la semaine -> note pour l'audit du dimanche d'Ada. Cout ~centimes."),
 })
 
-# Stratege R&D — Enseigne Nova (Sonnet 5, evenementiel) : AFFECTEE le 15/07
+# Stratege R&D — Enseigne Nova (Opus 4.8, evenementiel) : code les bots (amendement 16/07)
 _hyps = _json(ETAT / "hypotheses.json")
 _n_hyp = len(_hyps) if isinstance(_hyps, list) else 0
 _d_hyp = _mtime(ETAT / "hypotheses.json")
 officiers.append({
-    "nom": "Enseigne Nova", "poste": "R&D - une hypothese par bot invalide", "role": "Stratege",
-    "badge": "Sonnet 5", "type": "IA",
+    "nom": "Enseigne Nova", "poste": "R&D - code et active les bots paper (autonome)", "role": "Stratege",
+    "badge": "Opus 4.8", "type": "IA",
     "statut_cls": ("actif" if (_d_hyp and (NOW - _d_hyp).total_seconds() < 8*86400) else "repos"),
     "statut": (f"{_n_hyp} fiche(s) au registre" if _n_hyp else "En poste, attend un kill"),
     "derniere": "Fiche d'hypothese deposee", "derniere_dt": _d_hyp,
     "prochain": "Ronde du dimanche (si invalidation)", "prochain_dt": _next_weekly(6, 6, 0),
-    "parole": ("Quand la gate tue un bot, je propose UNE hypothese de remplacement : fiche "
-               "testable (signal, seuils, frais, kill-criteres). Le Commandant approuve (approve "
-               "h<id>), un humain code. Je ne code jamais, je ne recycle pas les hypotheses mortes."),
+    "parole": ("Quand la gate tue un bot, je concois ET CODE son remplacant paper de A a Z "
+               "(sandbox sans secret, kill auto). Le GO reel reste au Commandant. Si je bute sur "
+               "une ressource (cle, venue), je te la demande sur Telegram avec le tuto."),
 })
 
 # ---------- automates 24/7 ----------

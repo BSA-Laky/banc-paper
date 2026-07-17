@@ -32,7 +32,7 @@ from pathlib import Path
 
 API_URL = "https://api.anthropic.com/v1/messages"
 MODELE = os.environ.get("MODELE_ARBITRE", "claude-sonnet-5")
-MAX_TOKENS = 4000   # fix 09/07 : 1600 coupait le JSON des que la memoire grossissait
+MAX_TOKENS = 8000   # fix 17/07 : Sonnet 5 pensant consommait le budget -> JSON tronque char 1151
 CAP_MEMOIRE = 7000          # caracteres max de la memoire persistante
 ECHECS_AVANT_ESCALADE = 2
 
@@ -80,6 +80,34 @@ def _tail_journal(n=15):
             return list(csv.DictReader(fh))[-n:]
     except OSError:
         return []
+
+
+def _charger_json_robuste(texte):
+    """json.loads avec reparation d une reponse tronquee (chaine/accolade ouvertes)."""
+    try:
+        return json.loads(texte)
+    except json.JSONDecodeError:
+        pass
+    t = texte
+    if (t.count(chr(34)) - t.count(chr(92) + chr(34))) % 2:
+        t += chr(34)
+    t += "]" * max(0, t.count("[") - t.count("]"))
+    t += "}" * max(0, t.count("{") - t.count("}"))
+    try:
+        return json.loads(t)
+    except json.JSONDecodeError:
+        pass
+    # dernier recours : tronque au dernier objet complet puis reequilibre [ et {
+    i = texte.rfind(chr(34) + '}')
+    if i > 0:
+        tt = texte[:i + 2]
+        tt += "]" * max(0, tt.count("[") - tt.count("]"))
+        tt += "}" * max(0, tt.count("{") - tt.count("}"))
+        try:
+            return json.loads(tt)
+        except json.JSONDecodeError:
+            pass
+    raise json.JSONDecodeError('irreparable', texte, 0)
 
 
 def _appel_api(cle, contenu):
@@ -172,7 +200,7 @@ def main():
                         if b.get("type") == "text").strip()
         if texte.startswith("```"):
             texte = texte.strip("`").lstrip("json").strip()
-        d = json.loads(texte)
+        d = _charger_json_robuste(texte)
         regime = str(d["regime"]).lower()
         conf = max(0.0, min(1.0, float(d["confiance"])))
         assert regime in ("haussier", "baissier", "neutre")

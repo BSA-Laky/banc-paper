@@ -37,7 +37,7 @@ import rd_runner
 
 ETAT = Path("etat"); DOCS = Path("docs"); RD = Path("rd")
 MODELE = os.environ.get("MODELE_STRATEGE", "claude-sonnet-5")
-MAX_TOKENS = 4000
+MAX_TOKENS = 10000  # 17/07 : Nova Opus 4.8 pensant + ecrit du CODE (long)
 F_HYP = ETAT / "hypotheses.json"
 F_VU = ETAT / "stratege_vu.json"
 F_ECHECS = ETAT / "stratege_echecs.json"
