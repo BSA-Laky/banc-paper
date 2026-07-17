@@ -1,0 +1,22 @@
+[
+ {
+  "id": "h1",
+  "date": "2026-07-17T20:58:47.249616+00:00",
+  "bot_mort": "27f_selecteur",
+  "cause": "SIMULATION galop d'essai (Commandant) : bot repute juge perdant",
+  "fiche": {
+   "titre": "Carry funding module par percentile roulant d'|funding|",
+   "famille": "carry",
+   "mecanisme": "Le funding perpetuel remunere le cote qui prend le risque du desequilibre OI. Quand |funding| est dans le haut de sa propre distribution roulante par coin, le taux tend a se maintenir quelques heures avant mean-reversion. On se positionne CONTRE le funding (short si funding>0) pour encaisser le flux, on ferme au retour vers la normale.",
+   "signal_entree": "Entrer contre le funding quand |funding| depasse le 80e percentile de sa distribution roulante propre au coin (fenetre glissante maintenue dans etat), et vol>0 pour liquidite.",
+   "signal_sortie": "Sortir quand |funding| repasse sous sa mediane roulante, ou apres 12h de detention max.",
+   "seuils": "Entree: p80 roulant |funding| par coin (min 40 obs). Sortie: p50 roulant. Hold max 12h. Size 100$.",
+   "donnees_requises": "funding horaire signe, mark, vol par coin. Tout present dans marche.",
+   "frais_slippage": "2*0.00035*100 = 0.07$/trade deduits du pnl funding accumule.",
+   "kill_criteres": "Kill si t_stat<0 a n>=60, ou esp<-1$ a n>=40, ou MDD>80$.",
+   "prior_honnete": "Le carry funding a un mecanisme reel (28_carry_hold t 2.52) mais 23_carry stagne (t 1.08). Le percentile adaptatif par coin peut isoler les vrais extremes. Prior succes ~25%."
+  },
+  "besoin_ressource": "",
+  "statut": "actif"
+ }
+]
