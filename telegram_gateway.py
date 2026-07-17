@@ -186,7 +186,8 @@ def repondre(st, brief):
                            "cible %.0f EUR — reste %.2f EUR." % (montant, tot, b["cible_eur"], reste))
         elif cmd == "go" and len(mots) >= 2:
             # DOUBLE GATE (audit 11/07) : "go" ARME seulement ; la mise en service
-            # exige un second message distinct "confirme <bot>" sous 30 minutes.
+            # exige un second message distinct "confirme <bot>" sous 90 minutes
+            # (17/07 : 30 -> 90, aligné sur la latence réelle des passes GitHub).
             bot = mots[1]
             promo = _lire_json(F_PROMO, {"bots": {}})
             promo.setdefault("bots", {})
@@ -196,7 +197,7 @@ def repondre(st, brief):
                                       "arme": datetime.now(timezone.utc).isoformat()}
                 _ecrire_json(F_PROMO, promo)
                 tg.envoyer("\u23f3 %s ARME (rien ne tourne encore). Pour le mettre en "
-                           "service, reponds \u00ab confirme %s \u00bb dans les 30 minutes. "
+                           "service, reponds \u00ab confirme %s \u00bb dans les 90 minutes. "
                            "Sans confirmation, il redeviendra %s." % (bot, bot, cur))
             else:
                 tg.envoyer("\u26a0 %s n'est pas 'candidat' (etat: %s). Armement refuse : "
@@ -216,10 +217,10 @@ def repondre(st, brief):
                                datetime.fromisoformat(str(b.get("arme")))).total_seconds() / 60
                 except (ValueError, TypeError):
                     age_min = 9999.0
-                if age_min > 30:
+                if age_min > 90:
                     promo["bots"][bot] = {"etat": b.get("etat_avant", "candidat")}
                     _ecrire_json(F_PROMO, promo)
-                    tg.envoyer("\u23f0 Armement de %s expire (%.0f min > 30). Redevenu %s. "
+                    tg.envoyer("\u23f0 Armement de %s expire (%.0f min > 90). Redevenu %s. "
                                "Recommence par \u00ab go %s \u00bb."
                                % (bot, age_min, b.get("etat_avant", "candidat"), bot))
                 else:
@@ -229,10 +230,25 @@ def repondre(st, brief):
                     tg.envoyer("\u2705 %s MIS EN SERVICE (live). Le Tresorier lui alloue "
                                "son enveloppe ; il trade en autonomie sur la venue armee "
                                "(TESTNET aujourd'hui, argent fictif). Retrait = ta main." % bot)
+        elif cmd == "relance" and len(mots) >= 2:
+            bot = mots[1]
+            cv = _lire_json(ETAT / "cycle_vie.json", {})
+            cv = cv if isinstance(cv, dict) else {}
+            cv.setdefault("bots", {})
+            if cv["bots"].get(bot, {}).get("etat") == "kill":
+                cv["bots"][bot] = {"etat": "actif",
+                                   "relance": datetime.now(timezone.utc).isoformat()}
+                _ecrire_json(ETAT / "cycle_vie.json", cv)
+                tg.envoyer("\u267b %s RELANCE par le Commandant : de nouveau "
+                           "echantillonne des la prochaine passe (paper). L'auto-kill "
+                           "ne s'appliquera plus a ce bot (main humaine)." % bot)
+            else:
+                tg.envoyer("%s n'est pas au tapis (cycle de vie : %s)."
+                           % (bot, cv["bots"].get(bot, {}).get("etat", "actif")))
         else:
             tg.envoyer("Commandes : statut \u00b7 arbitre \u00b7 rapport \u00b7 "
                        "approve <id> \u00b7 rejette <id> \u00b7 cout <usd> \u00b7 revenu <eur> "
-                       "\u00b7 go <bot> puis confirme <bot>\n"
+                       "\u00b7 go <bot> puis confirme <bot> \u00b7 relance <bot>\n"
                        "(pas d'ordre de trade ici ; go+confirme = mise en service d'un "
                        "bot deja candidat, sur la venue du moment : TESTNET)")
     st["offset"] = offset

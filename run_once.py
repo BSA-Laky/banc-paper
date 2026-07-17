@@ -8,6 +8,9 @@ fermés, puis régénère docs/index.html. 100 % fictif, lecture seule. stdlib o
 """
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 from banc_essai_paper_trading import ControleAleatoire, journaliser
 from bots_cloud import CarryFundingOnly, ConvergenceBasis
 from bot_24_funding_multivenues import FundingMultiVenues
@@ -38,6 +41,17 @@ def lancer_passe() -> None:
         SelecteurInforme(move_big=0.10),  # bot 27f10 : jumeau rapide seuil 10% (verdict ~1 sem.)
         SelecteurInforme(move_big=0.10, ia_seule=True),  # bot 27g10 : PUR LLM (agit uniquement sur avis IA)
     ]
+    # Cycle de vie (17/07) : un bot au verdict KILL pré-enregistré (etat/cycle_vie.json,
+    # écrit par le moniteur) n'est plus échantillonné ; ledger et état conservés
+    # (archive). Réactivation humaine : « relance <bot> » sur Telegram.
+    try:
+        cv = json.loads(Path("etat/cycle_vie.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        cv = {}
+    tues = {b for b, v in (cv.get("bots", {}) or {}).items() if v.get("etat") == "kill"}
+    if tues:
+        bots = [b for b in bots if b.name not in tues]
+        print(f"[run_once] au tapis (verdict pré-enregistré) : {sorted(tues)}", flush=True)
     nouveaux = []
     for b in bots:
         try:

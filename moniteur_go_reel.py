@@ -434,6 +434,64 @@ def produire_go_reel():
         v27["avertissements"].append(
             "REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)")
 
+    # ------------------------------------------------------------ cycle de vie
+    # VERDICTS PRE-ENREGISTRES (17/07) : la station exécute elle-même les règles
+    # écrites A L'AVANCE — aucun jugement nouveau ici, le GO réel reste humain.
+    #   R1  ROUGE/décrochage -> KILL (texte de la gate : « COUPER LE BOT »)
+    #   R2  25_convergence_basis : à l'échéance (n>=n_go ET forward>=jours_min),
+    #       s'il ne bat pas le 23 à capital égal (delta>0 et t>=2) -> KILL (règle 22/06)
+    #   R3  27e_arbitre : n>=30 et delta<0 vs 27b -> KILL (règle du 15/07)
+    # Buckets 27a-27d EXCLUS (expérience appariée : le miroir doit tourner).
+    # Un kill est STICKY ; réactivation humaine via « relance <bot> » (gateway),
+    # qui pose relance=ts -> plus jamais d'auto-kill sur ce bot (main humaine).
+    CYCLE = ETAT_DIR / "cycle_vie.json"
+    try:
+        cv = json.loads(CYCLE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        cv = {}
+    cv.setdefault("bots", {})
+    KILLABLES = {"23_carry_funding", "24_funding_multivenues", "25_convergence_basis",
+                 "26_carry_nado", "27e_arbitre", "27f_selecteur", "27f10_selecteur",
+                 "27g10_selecteur", "28_carry_hold"}
+    for b, v in bots.items():
+        deja = cv["bots"].get(b, {})
+        if deja.get("etat") == "kill":
+            v["statut"] = "ROUGE"          # sticky : reste une invalidation visible
+            if _jours_depuis(deja.get("ts", "")) < 3.0:
+                v.setdefault("raisons", []).append(
+                    "KILL exécuté (%s) : %s" % (str(deja.get("ts", ""))[:10],
+                                                deja.get("raison", "")))
+            continue
+        if b not in KILLABLES or deja.get("relance"):
+            continue
+        raison = None
+        cfgb = GATE.get(b, DEFAUT)
+        ab = v.get("ab") or {}
+        if v["statut"] == "ROUGE" and v.get("decrochage"):
+            raison = "R1 décrochage : " + " ; ".join(v.get("raisons", [])[:2])
+        elif b == "25_convergence_basis" and ab:
+            if (v["n"] >= cfgb.get("n_go", 300)
+                    and v["jours_forward"] >= cfgb.get("jours_min", 28)
+                    and not (ab.get("delta_rendement_j_pct", 0) > 0
+                             and ab.get("t_welch_jour", 0) >= 2.0)):
+                raison = ("R2 échéance A/B : ne bat pas 23 à capital égal "
+                          "(delta %.3f pt/j, t %.2f)"
+                          % (ab.get("delta_rendement_j_pct", 0), ab.get("t_welch_jour", 0)))
+        elif b == "27e_arbitre" and ab:
+            if v["n"] >= 30 and ab.get("delta_esperance", 0) < 0:
+                raison = ("R3 règle 15/07 : delta %.2f $ < 0 vs 27b à n>=30"
+                          % ab.get("delta_esperance", 0))
+        if raison:
+            cv["bots"][b] = {"etat": "kill", "raison": raison,
+                             "ts": datetime.now(timezone.utc).isoformat()}
+            v["statut"] = "ROUGE"
+            v.setdefault("raisons", []).append("VERDICT PRÉ-ENREGISTRÉ -> KILL : " + raison)
+    try:
+        CYCLE.parent.mkdir(parents=True, exist_ok=True)
+        CYCLE.write_text(json.dumps(cv, ensure_ascii=False, indent=1), encoding="utf-8")
+    except OSError:
+        pass
+
     temoins = {b: {"n": stats[b]["trades"], "t_stat": round(stats[b]["t_stat"], 2),
                    "sain": abs(stats[b]["t_stat"]) < 2.0}
                for b in TEMOINS if b in stats}
@@ -452,6 +510,7 @@ def produire_go_reel():
         "avertissements": sorted(f"{b}: {r}" for b, v in bots.items()
                                  for r in v.get("avertissements", [])),
         "calibration_arbitre": _scorer_calibration(),
+        "cycle_vie": cv["bots"],
     }
     try:
         SORTIE_JSON.parent.mkdir(parents=True, exist_ok=True)

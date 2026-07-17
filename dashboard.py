@@ -219,7 +219,7 @@ def construire_dashboard():
         '<meta http-equiv="refresh" content="600">'
         '<title>Banc paper-trading</title><style>' + CSS + '</style></head><body>'
         '<h1>Banc paper-trading — argent 100 % fictif</h1>'
-        f'<div class="maj">Mis à jour : {maj} · rafraîchissement auto ~10 min</div>'
+        f'<div class="maj">Mis à jour : {maj} · régénéré à chaque passe du banc (créneau ~15 min, retards GitHub possibles)</div>'
         '<div class="maj"><a href="station.html">station</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a> · <a href="book.html">book</a></div>'
         + _ab(res) + cartes + _positions() + _enveloppes(lignes) +
         '<footer>Lecture seule sur APIs publiques (Hyperliquid, Paradex, ADEN). '

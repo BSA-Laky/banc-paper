@@ -162,14 +162,12 @@ class CarryFundingOnly(_EtatMixin, Strategy):
         now = _now()
         regles: list[Trade] = []
         for a, info in data.items():
-            if info["vol"] < self.vol_min:
-                continue
             f = info["funding"]
             st = self._a(a)
             dt = _dt_h(st.get("dernier_ts"))
             if st["ouvert"]:
                 st["accrue"] += abs(f) * self.notional * dt
-            if not st["ouvert"] and abs(f) >= self.seuil_funding:
+            if not st["ouvert"] and abs(f) >= self.seuil_funding and info["vol"] >= self.vol_min:
                 st["accrue"] -= 2 * self.frais_par_jambe * self.notional
                 st["ouvert"] = True
             elif st["ouvert"] and abs(f) < self.seuil_funding / 2.0:
@@ -190,6 +188,28 @@ class CarryFundingOnly(_EtatMixin, Strategy):
                     regles.append(t)
                     st["accrue"] = 0.0
                 st["debut_periode_ts"] = now.isoformat()
+        # Balayage des périodes ORPHELINES (17/07) : pièce hors flux -> on solde
+        # à l'échéance normale (frais de sortie si position ouverte), side
+        # "funding-orphan" pour l'audit.
+        for a, st in self._etat.items():
+            if a in data:
+                continue
+            try:
+                debut = datetime.fromisoformat(st.get("debut_periode_ts") or "")
+            except (ValueError, TypeError):
+                continue
+            if (now - debut).total_seconds() / 3600.0 < self.periode_settle_h:
+                continue
+            if st.get("ouvert") or abs(st.get("accrue", 0.0)) > 1e-9:
+                if st.get("ouvert"):
+                    st["accrue"] = st.get("accrue", 0.0) - 2 * self.frais_par_jambe * self.notional
+                t = Trade(self.name, f"carry-{a}", "funding-orphan", 1.0, self.notional)
+                t.opened_at = debut.isoformat()
+                t.close(1.0 + st.get("accrue", 0.0) / self.notional)
+                regles.append(t)
+                st["accrue"] = 0.0
+                st["ouvert"] = False
+            st["debut_periode_ts"] = now.isoformat()
         self._sauver()
         return regles
 
@@ -245,8 +265,6 @@ class ConvergenceBasis(_EtatMixin, Strategy):
         regles: list[Trade] = []
         rt_fee_leg = 2 * self.frais_par_jambe * self.notional   # une jambe d'A/R = 2 cotés
         for a, info in data.items():
-            if info["vol"] < self.vol_min:
-                continue
             prem = info["premium"]
             f = info["funding"]
             st = self._a(a)
@@ -276,12 +294,34 @@ class ConvergenceBasis(_EtatMixin, Strategy):
                     st.update({"ouvert": False, "premium_entree": 0.0,
                                "accrue": 0.0, "entree_ts": None})
             else:
-                # entrée sur premium étiré
-                if abs(prem) >= self.premium_enter:
+                # entrée sur premium étiré — filtre volume A L'ENTREE SEULEMENT
+                # (fix zombies 17/07 : une pièce sous le volume min doit toujours
+                # pouvoir SORTIR, sinon ses stops ne sont jamais comptés au ledger)
+                if abs(prem) >= self.premium_enter and info["vol"] >= self.vol_min:
                     st["ouvert"] = True
                     st["premium_entree"] = prem
                     st["accrue"] = -rt_fee_leg                    # frais d'entrée
                     st["entree_ts"] = now.isoformat()
             st["dernier_ts"] = now.isoformat()
+        # Balayage des positions ORPHELINES (17/07) : pièce disparue du flux de
+        # données -> au-delà de max_hold_h, sortie forcée (convergence 0, frais de
+        # sortie comptés), side "basis-orphan" pour l'audit. Plus AUCUNE position
+        # ne peut rester ouverte indéfiniment sans être comptée.
+        for a, st in self._etat.items():
+            if not st.get("ouvert") or a in data:
+                continue
+            try:
+                held = (now - datetime.fromisoformat(st["entree_ts"])).total_seconds() / 3600.0
+            except (ValueError, TypeError, KeyError):
+                held = self.max_hold_h
+            if held >= self.max_hold_h:
+                net = st["accrue"] - rt_fee_leg
+                t = Trade(self.name, f"conv-{a}", "basis-orphan", 1.0, self.notional)
+                if st.get("entree_ts"):
+                    t.opened_at = st["entree_ts"]
+                t.close(1.0 + net / self.notional)
+                regles.append(t)
+                st.update({"ouvert": False, "premium_entree": 0.0,
+                           "accrue": 0.0, "entree_ts": None})
         self._sauver()
         return regles

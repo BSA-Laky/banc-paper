@@ -136,14 +136,21 @@ def _sante_equipage():
     except (OSError, ValueError, TypeError):
         pass
     ea, es = _n("arbitre_echecs.json"), _n("superviseur_echecs.json")
+    ev = _n("veilleur_echecs.json")
     problemes = []
+    # Seuils resserres (17/07, apres la panne muette de 50 h de l'Arbitre) :
+    # quotidien -> 1 echec + avis > 24 h suffit ; hebdo -> 1 echec = 1 semaine muette.
     if ea >= 2:
         problemes.append(f"ARBITRE EN PANNE ({ea} echecs consecutifs)")
-    if es >= 2:
-        problemes.append(f"SUPERVISEUR EN PANNE ({es} echecs)")
-    if age_avis_h is not None and age_avis_h > 48:
+    elif ea >= 1 and age_avis_h is not None and age_avis_h > 24:
+        problemes.append(f"ARBITRE : 1 echec et avis vieux de {age_avis_h:.0f} h")
+    if es >= 1:
+        problemes.append(f"SUPERVISEUR : {es} echec(s) (hebdo : 1 echec = 1 semaine muette)")
+    if ev >= 1:
+        problemes.append(f"VEILLEUR : {ev} echec(s) (hebdo)")
+    if age_avis_h is not None and age_avis_h > 30:
         problemes.append(f"avis de regime perime ({age_avis_h:.0f} h)")
-    return {"arbitre_echecs": ea, "superviseur_echecs": es,
+    return {"arbitre_echecs": ea, "superviseur_echecs": es, "veilleur_echecs": ev,
             "age_avis_h": age_avis_h, "problemes": problemes}
 
 

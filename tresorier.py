@@ -19,8 +19,8 @@ RETIRE jamais. Missions :
 
 Sortie : promotions.json (paper|candidat|arme|live|pause par bot) + etat/tresorier_out.json
 (file de messages que le telegram_gateway envoie). Mise en service = DOUBLE geste du
-Commandant via le gateway : "go <bot>" (arme, 30 min) PUIS "confirme <bot>" -> 'live'.
-Un armement non confirme est desarme ici a la passe suivante (>30 min).
+Commandant via le gateway : "go <bot>" (arme, 90 min) PUIS "confirme <bot>" -> 'live'.
+Un armement non confirme est desarme ici a la passe suivante (>90 min).
 """
 from __future__ import annotations
 
@@ -263,14 +263,14 @@ def evaluer():
             continue
         etat = promo["bots"].get(bot, {}).get("etat", "paper")
 
-        # armement expire (>30 min sans "confirme") -> retour a l'etat d'avant
+        # armement expire (>90 min sans "confirme") -> retour a l'etat d'avant
         if etat == "arme":
             b = promo["bots"].get(bot, {})
             try:
                 age_min = (now - datetime.fromisoformat(str(b.get("arme")))).total_seconds() / 60
             except (ValueError, TypeError):
                 age_min = 9999.0
-            if age_min > 30:
+            if age_min > 90:
                 etat = b.get("etat_avant", "candidat")
                 promo["bots"][bot] = {"etat": etat}
                 interpelle("desarme:%s:%s" % (bot, jour),

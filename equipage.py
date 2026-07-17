@@ -203,7 +203,7 @@ automates.append({
     "statut_cls": ("incident" if banc_suspect or n_rouge else "actif"),
     "statut": ("Banc suspect" if banc_suspect else (f"{n_rouge} ROUGE" if n_rouge else "Sain")),
     "derniere": "Statuts GO-reel reevalues", "derniere_dt": d_gate,
-    "prochain": "Prochaine passe", "prochain_dt": _next_quarter(),
+    "prochain": "Prochain créneau", "prochain_dt": _next_quarter(),
     "parole": (f"Banc {'suspect' if banc_suspect else 'sain'}, temoin "
                f"{'sain' if temoin.get('sain') else 'a surveiller'} (t {temoin.get('t_stat', '?')}). "
                f"{n_bots} bots suivis : {n_vert} VERT / {n_orange} ORANGE / {n_gris} GRIS / {n_rouge} ROUGE. "
@@ -217,11 +217,11 @@ automates.append({
     "badge": "Automate", "type": "SYS",
     "statut_cls": "actif", "statut": "En service",
     "derniere": "Passe d'echantillonnage", "derniere_dt": d_brief,
-    "prochain": "Prochaine passe", "prochain_dt": _next_quarter(),
+    "prochain": "Prochain créneau", "prochain_dt": _next_quarter(),
     "parole": (f"Bots echantillonnes (temoin, 23, 24, 25, 26, 27x, 28). Derniere action : "
                f"{_last_action.get('bot', '-')} sur {_last_action.get('marche', '-')} "
                f"(pnl {_last_action.get('pnl', '-')})." if _last_action
-               else "Bots echantillonnes toutes les ~15 min."),
+               else "Bots echantillonnes a chaque passe (creneau ~15 min, retards GitHub possibles)."),
 })
 
 # La Passerelle — brief (tour_de_controle.py)
@@ -230,7 +230,7 @@ automates.append({
     "badge": "Automate", "type": "SYS",
     "statut_cls": "actif", "statut": "En service",
     "derniere": "Brief du jour compile", "derniere_dt": d_brief,
-    "prochain": "Prochaine passe", "prochain_dt": _next_quarter(),
+    "prochain": "Prochain créneau", "prochain_dt": _next_quarter(),
     "parole": (f"BTC {btc.get('prix', '?')} $ (7j {round(btc.get('ret7', 0)*100, 1)}%, "
                f"30j {round(btc.get('ret30', 0)*100, 1)}%). {len(extremes)} move(s) extreme(s), "
                f"{len(actions)} dernieres actions au journal."),
@@ -244,11 +244,11 @@ automates.append({
     "statut": (f"{n_cand} candidat(s) / {n_live} live / {n_pause} pause"
                if (n_cand or n_live or n_pause) else "Aucun bot promu"),
     "derniere": "Checklist VERT-STABLE evaluee", "derniere_dt": d_treso,
-    "prochain": "Prochaine passe", "prochain_dt": _next_quarter(),
+    "prochain": "Prochain créneau", "prochain_dt": _next_quarter(),
     "parole": (f"Capital reel {treso.get('capital_dispo', 0):.0f} $, besoin alloue "
                f"{treso.get('besoin_alloue', 0):.0f} $. Checklist : VERT 5 j + t>=2 + P&L jamais "
                f"negatif + drawdown < 30 % de l'enveloppe + gagne son A/B. Mise en service = "
-               f"go PUIS confirme (30 min), par le Commandant seul. Retrait = jamais."),
+               f"go PUIS confirme (90 min), par le Commandant seul. Retrait = jamais."),
 })
 
 # La Vigie — alerte push (alerte_issue.py)
@@ -389,7 +389,7 @@ footer {{ color:var(--muted); font-size:11px; margin-top:22px; text-align:center
 {chr(10).join(ligne_journal(e) for e in evenements) if evenements else '    <li>Aucun &eacute;change enregistr&eacute; pour le moment.</li>'}
 </ul>
 
-<footer>Page d&eacute;terministe &middot; 0 appel LLM &middot; g&eacute;n&eacute;r&eacute;e le {esc(NOW.strftime('%Y-%m-%d %H:%M UTC'))} &middot; rafra&icirc;chie ~15 min</footer>
+<footer>Page d&eacute;terministe &middot; 0 appel LLM &middot; g&eacute;n&eacute;r&eacute;e le {esc(NOW.strftime('%Y-%m-%d %H:%M UTC'))} &middot; rafra&icirc;chie &agrave; chaque passe du banc</footer>
 </body></html>"""
 
 # ---------- ecriture ----------
