@@ -1,5 +1,5 @@
 {
- "genere": "2026-07-17T09:17:56.306514+00:00",
+ "genere": "2026-07-17T10:59:32.801904+00:00",
  "officiers": [
   {
    "nom": "Commandeure Ada",
@@ -19,11 +19,11 @@
    "role": "Arbitre",
    "badge": "Sonnet 5",
    "type": "IA",
-   "statut_cls": "incident",
-   "statut": "Incident (2 echec(s))",
+   "statut_cls": "repos",
+   "statut": "Au repos",
    "derniere": "Avis de regime rendu",
    "prochain": "Prochain quart",
-   "parole": "Regime neutre (confiance 0.5) - BTC 64970, ret1 -0.05% ret7 +4.3% ret30 -2.0% (revenu sous seuil -3%). 25_conv n=519 t=2.62 E=0.51 tient. Calibration degeneree n=4. Neutre, conf 0.5."
+   "parole": "Regime baissier (confiance 0.5) - BTC 62906$, ret30 -2.43% (baissier mou persiste). 25_conv seule ref solide t=2.83 n=581. Arbitre en panne (2 echecs), avis perime 50h."
   },
   {
    "nom": "Cadet Remy",
@@ -39,15 +39,15 @@
   },
   {
    "nom": "Enseigne Nova",
-   "poste": "R&D - une hypothese par bot invalide",
+   "poste": "R&D - code et active les bots paper (autonome)",
    "role": "Stratege",
-   "badge": "Sonnet 5",
+   "badge": "Opus 4.8",
    "type": "IA",
    "statut_cls": "repos",
    "statut": "En poste, attend un kill",
    "derniere": "Fiche d'hypothese deposee",
    "prochain": "Ronde du dimanche (si invalidation)",
-   "parole": "Quand la gate tue un bot, je propose UNE hypothese de remplacement : fiche testable (signal, seuils, frais, kill-criteres). Le Commandant approuve (approve h<id>), un humain code. Je ne code jamais, je ne recycle pas les hypotheses mortes."
+   "parole": "Quand la gate tue un bot, je concois ET CODE son remplacant paper de A a Z (sandbox sans secret, kill auto). Le GO reel reste au Commandant. Si je bute sur une ressource (cle, venue), je te la demande sur Telegram avec le tuto."
   }
  ],
  "automates": [
@@ -61,7 +61,7 @@
    "statut": "Sain",
    "derniere": "Statuts GO-reel reevalues",
    "prochain": "Prochaine passe",
-   "parole": "Banc sain, temoin sain (t 0.42). 12 bots suivis : 0 VERT / 8 ORANGE / 4 GRIS / 0 ROUGE. 0 alerte(s)."
+   "parole": "Banc sain, temoin sain (t 0.36). 12 bots suivis : 0 VERT / 8 ORANGE / 4 GRIS / 0 ROUGE. 0 alerte(s)."
   },
   {
    "nom": "La Salle des machines",
@@ -73,7 +73,7 @@
    "statut": "En service",
    "derniere": "Passe d'echantillonnage",
    "prochain": "Prochaine passe",
-   "parole": "Bots echantillonnes (temoin, 23, 24, 25, 26, 27x, 28). Derniere action : 27f10_selecteur sur sel-LDO-MOM-tendance_piece (pnl 1.5)."
+   "parole": "Bots echantillonnes (temoin, 23, 24, 25, 26, 27x, 28). Derniere action : 27f_selecteur sur sel-CASHCAT-REV-ia_piece (pnl -36.55)."
   },
   {
    "nom": "La Passerelle",
@@ -85,7 +85,7 @@
    "statut": "En service",
    "derniere": "Brief du jour compile",
    "prochain": "Prochaine passe",
-   "parole": "BTC 62906 $ (7j -1.9%, 30j -2.4%). 2 move(s) extreme(s), 8 dernieres actions au journal."
+   "parole": "BTC 63200 $ (7j -1.5%, 30j -2.0%). 2 move(s) extreme(s), 8 dernieres actions au journal."
   },
   {
    "nom": "Le Tresorier",
@@ -114,34 +114,28 @@
  ],
  "journal": [
   {
-   "ts": "2026-07-17T09:17:55.757297+00:00",
+   "ts": "2026-07-17T10:59:32.171052+00:00",
    "de": "La Passerelle",
    "vers": "Station",
-   "message": "Brief compile : BTC 62906 $, 2 move(s) extreme(s)"
+   "message": "Brief compile : BTC 63200 $, 2 move(s) extreme(s)"
   },
   {
-   "ts": "2026-07-17T09:17:55.748510+00:00",
+   "ts": "2026-07-17T10:59:32.155019+00:00",
    "de": "Le Sas",
    "vers": "Station",
    "message": "Statuts reevalues : banc sain, 8 ORANGE / 4 GRIS, 0 alerte(s)"
   },
   {
-   "ts": "2026-07-17T09:17:37.409719+00:00",
+   "ts": "2026-07-17T10:59:25.071435+00:00",
    "de": "Cadet Remy",
    "vers": "Commandeure Ada",
    "message": "Note de veille hebdomadaire deposee (frictions, budget, anomalies)"
   },
   {
-   "ts": "2026-07-17T07:36:45.732523+00:00",
-   "de": "Lieutenant Hugo",
-   "vers": "Commandant",
-   "message": "Incident API signale : 2 echec(s) consecutif(s)"
-  },
-  {
-   "ts": "2026-07-15T07:32:09.171617+00:00",
+   "ts": "2026-07-17T09:54:10.708613+00:00",
    "de": "Lieutenant Hugo",
    "vers": "Les bots (27e)",
-   "message": "Avis de regime publie : neutre (conf 0.5) - BTC 64970, ret1 -0.05% ret7 +4.3% ret30 -2.0% (revenu sous seuil -3%). 25_conv n=519 t=2.62 E=0.51 tient. Calibration degeneree n=4. Neutre, conf 0.5."
+   "message": "Avis de regime publie : baissier (conf 0.5) - BTC 62906$, ret30 -2.43% (baissier mou persiste). 25_conv seule ref solide t=2.83 n=581. Arbitre en panne (2 echecs), avis perime 50h."
   },
   {
    "ts": "2026-07-12T08:37:30.511978+00:00",
