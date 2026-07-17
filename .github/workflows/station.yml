@@ -1,0 +1,74 @@
+# .github/workflows/station.yml — LA passe unifiée de la station (17/07/2026).
+# Consolidation anti-famine (audit 17/07) : 1 seul événement `schedule` par créneau
+# au lieu de 3 (sampler + telegram + executeur-testnet) => meilleure livraison des
+# crons GitHub, 1 seul commit par passe (plus de courses), ~3x moins de builds Pages.
+# rd.yml reste SEPARE (charte 16/07 : le harnais Nova ne partage JAMAIS un workflow
+# avec des secrets). Les anciens workflows gardent leur bouton manuel (debug).
+name: station
+on:
+  schedule:
+    - cron: "3,18,33,48 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: station
+  cancel-in-progress: false
+
+jobs:
+  passe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 1) Gateway d'abord : les commandes du Commandant (go/confirme/relance)
+      #    sont prises en compte par le Trésorier DANS la même passe.
+      - name: Gateway Telegram (commandes + notifications)
+        continue-on-error: true    # une panne Telegram ne bloque jamais la mesure
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python telegram_gateway.py
+
+      # 2) Le coeur : échantillonnage + gate + trésorier + brief + équipage.
+      - name: Passe d'échantillonnage (banc complet)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MODELE_AVIS: ${{ vars.MODELE_AVIS || 'claude-haiku-4-5-20251001' }}
+          # 17/07 : 20 -> 10 (plafond budget 15 $/mois, trajectoire mesurée ~18 $)
+          AVIS_MAX_JOUR: "10"
+        run: python run_once.py
+
+      # 3) Miroir testnet (argent fictif) sur l'état frais de la passe.
+      - name: Miroir testnet des sélecteurs
+        continue-on-error: true    # une friction testnet ne bloque jamais le commit
+        env:
+          HL_MODE: live
+          HL_LIVE_CONFIRM: OUI_ARGENT_REEL
+          HL_NET: testnet
+          HL_MAX_NOTIONAL: "150"
+          HL_API_KEY: ${{ secrets.HL_API_KEY }}
+          HL_ACCOUNT_ADDRESS: ${{ secrets.HL_ACCOUNT_ADDRESS }}
+        run: |
+          pip -q install hyperliquid-python-sdk eth-account
+          python executeur_testnet.py
+
+      # 4) UN commit pour toute la passe.
+      - name: Committer la passe
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Rien à committer."
+          else
+            git commit -m "station $(date -u +%FT%H:%MZ)"
+            git pull --rebase --autostash || true
+            git push || (git pull --rebase --autostash && git push)
+          fi
