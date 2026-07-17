@@ -1,34 +1,35 @@
-# Memoire Arbitre — MAJ 2026-07-15
+# Memoire Arbitre — MAJ 2026-07-17
 
 ## Verdicts dates
-- 09/07 neutre-haussier faible 63062 n=413 t=2.21.
-- 10/07 64189 n=429 t=2.34. 11/07 64243 t=2.31. 12/07 63719 t=2.41.
-- 13/07 neutre/baissier mou 62796 t=2.52. 14/07 baissier mou 62745 ret30 -4.5%. Conf 0.5.
-- **15/07** neutre 64970 ; ret1 -0.05% ret7 +4.3% **ret30 -2.0%** (revenu au-dessus -3%). 25_conv n=519 t=2.62 E=0.51. Conf 0.5.
+- 09→17/07 : ret30 oscille -2%/-4.5%, baissier mou non tranche. 17/07 : 62906$ ret30 -2.43%.
+- 25_conv : t 2.21(09/07)→2.41(12/07)→2.62(15/07)→2.83(17/07), n 413→581. Tendance haussiere continue = CREDIBLE, seule ref solide du banc.
 
 ## Bots — etat
-- `25_conv` : n=519 t=2.62 E=0.51. t TIENT/MONTE (2.41→2.52→2.62) avec n → credible, seule ref.
-- `23_carry` : n=104 t=1.23 E=0.89 → E gonflee/t faible, douteux.
-- `24_funding` : n=97 t=-0.98 E<0 → aucun edge.
-- `28_carry_hold` : n=40 t=2.05 E=4.12 → sort du bruit, n court, surveiller t>1.5 a n>60.
-- `27b/27c` : n=38 t=±2.3 miroirs, somme E ~nulle → ne croire aucun cote.
-- `27f10` : n=72 t=0.24 → nul. `27a/d/e/f/g10` : n=4-34 → ignorer.
+- `25_conv` n=581 t=2.83 E=0.502 : reference principale, t TIENT/MONTE avec n.
+- `23_carry` n=114 t=1.53 E=1.04 : ameliore (1.23→1.53) mais encore sous seuil solide.
+- `28_carry_hold` n=44 t=2.31 E=4.27 : sort du bruit, t monte (2.05→2.31), n encore <60, surveiller.
+- `24_funding` n=104 t=-0.83 : aucun edge, constant.
+- `27b/27c` n=41 t=±2.0 : miroirs confirmes, somme PnL quasi nulle (-5.74), m2 en cours (seuil n=50 pas atteint).
+- `27a/e/f/g10` n=10-22 GRIS : ignores (n<30).
+- `27f10` n=85 t=0.67 : nul.
+- Temoin 10 : n=293 t=0.42, sain, banc mesure bien le bruit.
 
 ## Lecons
 - Jamais promouvoir n<30 quel que soit t.
-- t qui BAISSE quand n MONTE = illusoire ; t qui TIENT/MONTE a n eleve (25_conv 519) = credible.
-- Miroirs 27b/c : PnL s'annulent (m2 confirme continument).
-- PnL isole d'un jour ne fait pas edge (CASHCAT +4.77 n'a pas bouge t).
-- ret30 oscille autour -3% (-4.5%→-2.0%) : biais baissier mou, non tranche → conf ~0.5.
-- Calibration n=4 taux 0.5 = degeneree, traiter comme null → humilite, plafond conf 0.5.
+- t qui MONTE avec n = credible (25_conv exemplaire) ; t qui baisse quand n monte = illusoire.
+- Miroirs 27b/c : somme s'annule, ne jamais lire un seul cote (confirme a n=41).
+- PnL isole d'un jour ne fait pas edge.
+- Calibration arbitre n=7 taux 0.714 brier 0.217 : degeneree (n<20), aucune conclusion, plafond conf 0.5.
+- ARBITRE EN PANNE signale (2 echecs) + avis perime 50h : humilite renforcee, pas d'escalade tant que gate=non suspect et alertes vides.
 
 ## A surveiller
-- REV DYDX(02/07)/FARTCOIN(03/07) : issues jamais apparues (m1), relancer si donnees.
-- REV VINE/JTO/BLUR(08/07)+MOM VINE(09/07) ~19-21/07. MOM SYRUP(10/07). MOM CASHCAT(11+12/07)~mi-aout. REV KAITO/CASHCAT(15/07).
-- 25_conv : t tient-il >n=519 ?
-- 28_carry_hold : n durable + t>1.5 ?
-- BTC : ret30 recreuse-t-il vers cassure ou consolide autour 65k ?
-- Calibration arbitre : sort-elle du regime degenere (n>=20) ?
+- REV DYDX(02/07)/FARTCOIN(03/07) : issues toujours absentes des donnees (m1), relancer.
+- 27b/c : confirmer somme nulle a n>50 (actuellement n=41).
+- 28_carry_hold : t>1.5 a n>60 ?
+- 23_carry : t continue-t-il de monter vers seuil credible ?
+- Calibration arbitre : sortira-t-elle du regime degenere (n>=20) ?
+- BTC : ret30 recreuse-t-il ou stabilise ?
+- CASHCAT/KAITO : extremes recurrents, pattern REV a verifier.
 
 ## Divers
-- Temoin 10 sain (t=0.78 n=264). Banc non suspect. Age avis 22.5h. CASHCAT extreme recurrent (-27/-28%).
+- Banc non suspect, temoin sain. Age avis regime 49.8h (perime, a renouveler).
