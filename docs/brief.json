@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-17T12:17:56.666160+00:00",
+ "ts": "2026-07-17T14:08:54.384650+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -7,12 +7,12 @@
  "statuts": {
   "23_carry_funding": {
    "statut": "ORANGE",
-   "n": 114,
-   "esperance": 1.0377,
-   "t": 1.53,
-   "pnl": 118.3,
-   "pnl_j": 4.992,
-   "fwd_j": 23.7
+   "n": 115,
+   "esperance": 1.0838,
+   "t": 1.61,
+   "pnl": 124.64,
+   "pnl_j": 5.237,
+   "fwd_j": 23.8
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
@@ -20,17 +20,17 @@
    "esperance": -0.1971,
    "t": -0.83,
    "pnl": -20.5,
-   "pnl_j": -0.865,
-   "fwd_j": 23.7
+   "pnl_j": -0.861,
+   "fwd_j": 23.8
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 585,
-   "esperance": 0.5077,
+   "n": 587,
+   "esperance": 0.5066,
    "t": 2.88,
-   "pnl": 297.03,
-   "pnl_j": 12.026,
-   "fwd_j": 24.7
+   "pnl": 297.37,
+   "pnl_j": 11.991,
+   "fwd_j": 24.8
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -39,7 +39,7 @@
    "t": 0.05,
    "pnl": 3.45,
    "pnl_j": 0.146,
-   "fwd_j": 23.6
+   "fwd_j": 23.7
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -65,8 +65,8 @@
    "esperance": 0.3615,
    "t": 0.15,
    "pnl": 15.18,
-   "pnl_j": 0.863,
-   "fwd_j": 17.6
+   "pnl_j": 0.858,
+   "fwd_j": 17.7
   },
   "27e_arbitre": {
    "statut": "GRIS",
@@ -83,8 +83,8 @@
    "esperance": 0.9777,
    "t": 0.95,
    "pnl": 84.08,
-   "pnl_j": 6.569,
-   "fwd_j": 12.8
+   "pnl_j": 6.518,
+   "fwd_j": 12.9
   },
   "27f_selecteur": {
    "statut": "GRIS",
@@ -92,8 +92,8 @@
    "esperance": -3.3596,
    "t": -1.02,
    "pnl": -70.55,
-   "pnl_j": -5.512,
-   "fwd_j": 12.8
+   "pnl_j": -5.469,
+   "fwd_j": 12.9
   },
   "27g10_selecteur": {
    "statut": "GRIS",
@@ -101,36 +101,66 @@
    "esperance": 1.6766,
    "t": 0.24,
    "pnl": 16.77,
-   "pnl_j": 3.287,
-   "fwd_j": 5.1
+   "pnl_j": 3.224,
+   "fwd_j": 5.2
   },
   "28_carry_hold": {
    "statut": "ORANGE",
-   "n": 44,
-   "esperance": 4.2671,
-   "t": 2.31,
-   "pnl": 187.75,
-   "pnl_j": 13.507,
+   "n": 45,
+   "esperance": 4.23,
+   "t": 2.34,
+   "pnl": 190.35,
+   "pnl_j": 13.694,
    "fwd_j": 13.9
   }
  },
  "tendances_btc": {
-  "ret1": -0.0079,
-  "ret7": -0.0132,
-  "ret30": -0.018,
-  "prix": 63311
+  "ret1": -0.0063,
+  "ret7": -0.0115,
+  "ret30": -0.0164,
+  "prix": 63415
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": -46.4
+   "move_pct": -42.5
   },
   {
    "coin": "KAITO",
-   "move_pct": 29.5
+   "move_pct": 25.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-17T14:08",
+   "bot": "28_carry_hold",
+   "marche": "carryhold-0G",
+   "pnl": 2.6
+  },
+  {
+   "ts": "2026-07-17T14:08",
+   "bot": "25_convergence_basis",
+   "marche": "conv-AERO",
+   "pnl": 0.06
+  },
+  {
+   "ts": "2026-07-17T14:08",
+   "bot": "25_convergence_basis",
+   "marche": "conv-KBONK",
+   "pnl": 0.28
+  },
+  {
+   "ts": "2026-07-17T14:08",
+   "bot": "23_carry_funding",
+   "marche": "carry-CASHCAT",
+   "pnl": 6.33
+  },
+  {
+   "ts": "2026-07-17T14:08",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-17T12:17",
    "bot": "27f10_selecteur",
@@ -148,36 +178,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-CASHCAT",
    "pnl": 5.82
-  },
-  {
-   "ts": "2026-07-17T12:17",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-17T10:59",
-   "bot": "27f_selecteur",
-   "marche": "sel-CASHCAT-REV-ia_piece",
-   "pnl": -36.55
-  },
-  {
-   "ts": "2026-07-17T10:59",
-   "bot": "27e_arbitre",
-   "marche": "arb-CASHCAT-REV-tendance",
-   "pnl": -36.41
-  },
-  {
-   "ts": "2026-07-17T10:59",
-   "bot": "27c_mom_move",
-   "marche": "mom_move-CASHCAT",
-   "pnl": 36.27
-  },
-  {
-   "ts": "2026-07-17T10:59",
-   "bot": "27b_rev_move",
-   "marche": "rev_move-CASHCAT",
-   "pnl": -36.41
   }
  ],
  "calibration_arbitre": {
@@ -190,7 +190,7 @@
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
-  "age_avis_h": 2.4,
+  "age_avis_h": 4.2,
   "problemes": []
  },
  "autofinancement": {
