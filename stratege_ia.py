@@ -138,6 +138,26 @@ def _invalidations(gate):
     return out
 
 
+def _cible_simulation():
+    """Seam de galop d'essai (Commandant) : fait croire a Nova qu'un bot est invalide,
+    SANS toucher a la vraie gate (go_reel.json) ni declencher de fausse alerte. Priorite
+    env STRATEGE_SIM_KILL, sinon fichier one-shot sim_kill.txt (auto-supprime pour ne pas
+    se re-declencher au cron suivant). Dormant par defaut : ni env ni fichier -> "" -> normal."""
+    cible = os.environ.get("STRATEGE_SIM_KILL", "").strip()
+    if cible:
+        return cible
+    p = Path("sim_kill.txt")
+    try:
+        cible = p.read_text(encoding="utf-8").strip()
+    except OSError:
+        return ""
+    try:
+        p.unlink()  # one-shot
+    except OSError:
+        pass
+    return cible
+
+
 def _appel_api(cle, contenu):
     corps = {"model": MODELE, "max_tokens": MAX_TOKENS, "system": SYSTEME,
              "messages": [{"role": "user", "content": contenu}]}
@@ -220,6 +240,12 @@ def main():
     gate = _lire_json(DOCS / "go_reel.json", {})
     vu = _lire_json(F_VU, {"traites": []}); vu.setdefault("traites", [])
     nouvelles = [(k, b, c) for k, b, c in _invalidations(gate) if k not in vu["traites"]]
+    sim = _cible_simulation()
+    if sim:
+        k_sim = "sim:%s:%s" % (sim, datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
+        nouvelles.insert(0, (k_sim, sim,
+                             "SIMULATION galop d'essai (Commandant) : bot repute juge perdant"))
+        print("[stratege] SIMULATION demandee sur %s (seam de test)." % sim, flush=True)
     if not nouvelles:
         print("[stratege] aucune invalidation nouvelle — 0 appel, 0 cout.", flush=True)
         return
