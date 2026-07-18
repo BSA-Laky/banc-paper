@@ -1,12 +1,12 @@
-_Note du Veilleur (Cadet Remy, claude-haiku-4-5-20251001) — 2026-07-12_
+_Note du Veilleur (Cadet Remy, claude-haiku-4-5-20251001) — 2026-07-18_
 
-## Veille semaine 2026-07-12
+## Veille semaine 2026-07-18
 
-### Execution testnet
-11 ordres ouverts, 3 fermés, 41 rejets (taux fill 21 %). Causes : 12 rejets « invalid size », 29 « no match ». PnL cumulé : -0.18 USD. Temoin (n=230) sain, t_stat 0.36. Pas d'alerte gate, banc nominal.
+### Exécution testnet
+Taux de fermeture 28.6% (24/84 ordres). Rejets massifs : 143 en 7j, dominés par défaut de matching (111/143 = 77.6%). Trois causes techniques : taille invalide (12), arrondi à 0 notional (20), absence de contrepartie (111). PnL cumulé : 5.42 USD. Statistique globale saine (t=0.51, n=307).
 
-### Couts LLM
-1 avis budget du jour. Capital disponible : 0 USD, besoin alloué 0, pas de manque. Aucun candidat en file d'attente Telegram.
+### Coûts & dérive
+Capital disponible : 0 USD. Aucun besoin alloué ni candidat en file. Trésorier stable, zéro pause/attente. Budget avis limité (n=5 du 17/07).
 
 ### Anomalies & attention
-4 bots en GRIS (27a, 27e, 27f, 27g10) : esp négatif ou n≤19. 27c_mom_move (ORANGE, n=36) : esp -5.45, t -2.23, MDD 217 USD (outlier). 27g10_selecteur isolé (n=1). Rejet persistant 41/52 ordres ; ratio invalides/non-match stable. Tresorier synchrone, echecs_arbitre à 0.
+7/11 bots en ORANGE (statut dégradé). Drawdown maximum : 217.22 USD (bot 27c_mom_move, esp=-3.76, t=-1.56). Trois bots GRIS affichent esp négatifs : 27e_arbitre (-2.02), 27f_selecteur (-3.36). Taux de fill 30% persiste ; causes rejet stables, pas de dérive nouvelle. Zéro échecs arbitre consécutifs.
