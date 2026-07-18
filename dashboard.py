@@ -210,22 +210,31 @@ def construire_dashboard():
     lignes = charger_journal()
     res = evaluer(lignes)
     series = _cumul(lignes)
-    maj = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    _now = datetime.now(timezone.utc)
+    maj_iso = _now.isoformat()
+    maj = _now.strftime("%Y-%m-%d %H:%M UTC")
     p7 = _pnl_7j(lignes)
     cartes = "".join(_carte(b, res.get(b), _spark(series.get(b, [])), p7.get(b)) for b in ORDRE)
     doc = (
         '<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width, initial-scale=1">'
-        '<meta http-equiv="refresh" content="600">'
+        '<meta http-equiv="refresh" content="900">'
         '<title>Banc paper-trading</title><style>' + CSS + '</style></head><body>'
         '<h1>Banc paper-trading — argent 100 % fictif</h1>'
-        f'<div class="maj">Mis à jour : {maj} · régénéré à chaque passe du banc (créneau ~15 min, retards GitHub possibles)</div>'
+        f'<div class="maj">Mis à jour : <span id="maj" data-iso="{maj_iso}">{maj}</span> · régénéré à chaque passe (~15 min)</div>'
         '<div class="maj"><a href="station.html">station</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a> · <a href="book.html">book</a></div>'
         + _ab(res) + cartes + _positions() + _enveloppes(lignes) +
         '<footer>Lecture seule sur APIs publiques (Hyperliquid, Paradex, ADEN). '
         'Aucun ordre réel, aucun wallet, aucune clé. Le t-stat est peu fiable pour '
         'un profil asymétrique : lire l\'espérance ET le nombre de trades. Rien en '
-        'argent réel sans verdict « edge positif » confirmé.</footer></body></html>'
+        'argent réel sans verdict « edge positif » confirmé.</footer>'
+        '<script>(function(){var e=document.getElementById("maj");if(!e){return;}'
+        'var iso=e.getAttribute("data-iso");function u(){var d=new Date(iso),n=new Date();'
+        'var m=Math.max(0,Math.round((n-d)/60000));'
+        'var loc=d.toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});'
+        'var r=m<1?"maintenant":(m<60?("il y a "+m+" min"):("il y a "+Math.floor(m/60)+" h "+(m%60)+" min"));'
+        'e.textContent=loc+" · "+r;e.style.color=m>20?"#c0392b":"";}u();setInterval(u,30000);})();</script>'
+        '</body></html>'
     )
     DOCS.mkdir(parents=True, exist_ok=True)
     (DOCS / "index.html").write_text(doc, encoding="utf-8")
