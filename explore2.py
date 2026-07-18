@@ -224,7 +224,7 @@ def main():
            f"<table><tr><th>Hypothèse</th><th>n tr</th><th>esp tr</th><th>t tr</th>"
            f"<th>n te</th><th>esp te (net)</th><th>t te</th><th>OOS</th></tr>{rows}</table>"
            f"<p style='color:#9aa0a6;font-size:.8rem'>Net de coûts réalistes. Biais restants : survivance, "
-           f"slippage moyen, régime unique. Argent 100 % fictif.</p></body></html>")
+           f"slippage moyen, régime unique. Argent 100 % fictif.</p><script src=maj.js></script></body></html>")
     Path("docs").mkdir(parents=True, exist_ok=True)
     Path("docs/explore2.html").write_text(doc, encoding="utf-8")
     print("\n=== EXPLORATEUR v2 ===", flush=True)

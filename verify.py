@@ -236,7 +236,7 @@ def main():
            f"<li>Échelle 30 € : à 30 $ de notionnel au lieu de 1000 $, l'edge/trade est divisé par ~33 et "
            f"les coûts fixes (taille min d'ordre, gas) dominent → non capturable à ce capital.</li></ul>"
            f"<p style='color:#9aa0a6;font-size:.8rem'>Argent 100 % fictif. Ceci est une analyse factuelle, "
-           f"pas un conseil d'investissement.</p></body></html>")
+           f"pas un conseil d'investissement.</p><script src=maj.js></script></body></html>")
     Path("docs").mkdir(parents=True, exist_ok=True)
     Path("docs/verify.html").write_text(doc, encoding="utf-8")
 

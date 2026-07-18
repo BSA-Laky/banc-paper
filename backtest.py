@@ -236,7 +236,7 @@ def ecrire_html(res, meta):
         f"<li><b>Régime</b> : la réversion est aidée par un marché risk-off (juin baissier).</li>"
         f"<li>Le t-stat est peu fiable sur profil asymétrique : lire espérance ET nb de trades.</li>"
         f"</ul><footer>Argent 100 % fictif. Rien de réel sans confirmation live + hors-échantillon.</footer>"
-        f"</body></html>")
+        f"<script src=maj.js></script></body></html>")
     Path("docs").mkdir(parents=True, exist_ok=True)
     Path("docs/backtest.html").write_text(doc, encoding="utf-8")
 

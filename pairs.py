@@ -164,7 +164,7 @@ def main():
            f"<div class='v {'good' if viable else ''}'><b>VERDICT : {verdict}</b></div>"
            f"<table><tr><th>Paire</th><th>n test</th><th>esp/trade</th><th>t</th></tr>{rows}</table>"
            f"<p style='color:#9aa0a6;font-size:.8rem'>Paires pré-spécifiées (anti-data-mining). Params train, "
-           f"trades test (zéro look-ahead). Barre t&ge;3 (tests multiples). Argent 100 % fictif.</p></body></html>")
+           f"trades test (zéro look-ahead). Barre t&ge;3 (tests multiples). Argent 100 % fictif.</p><script src=maj.js></script></body></html>")
     Path("docs").mkdir(parents=True, exist_ok=True)
     Path("docs/pairs.html").write_text(doc, encoding="utf-8")
     print("\n=== STAT-ARB PAIRES (OOS) ===", flush=True)

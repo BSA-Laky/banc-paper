@@ -271,7 +271,7 @@ def main():
            f"<th>n te</th><th>esp te</th><th>t te</th><th>OOS</th></tr>{tr_html}</table>"
            f"<p style='color:#9aa0a6;font-size:.8rem'>Meilleur combo par famille choisi sur le TRAIN, "
            f"confirmé sur le TEST jamais vu. Biais restants : survivance, pas de slippage, régime unique. "
-           f"Avec plusieurs candidats confirmés, viser t&ge;2.5. Argent 100% fictif.</p></body></html>")
+           f"Avec plusieurs candidats confirmés, viser t&ge;2.5. Argent 100% fictif.</p><script src=maj.js></script></body></html>")
     Path("docs").mkdir(parents=True, exist_ok=True)
     Path("docs/sweep.html").write_text(doc, encoding="utf-8")
 

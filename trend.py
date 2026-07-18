@@ -133,7 +133,7 @@ def main():
            f"<th>ret/mois te</th><th>t te</th><th>Sharpe te</th><th>OOS</th></tr>{rows}</table>"
            f"<p style='color:#9aa0a6;font-size:.8rem'>Signaux canoniques (lookback 3/6/12 mois), panier "
            f"pré-spécifié (actions/obligs/matières premières/USD/REIT). Le 12 mois long-short est LA version "
-           f"académique. Frictions faibles (mensuel). Argent 100 % fictif, analyse factuelle.</p></body></html>")
+           f"académique. Frictions faibles (mensuel). Argent 100 % fictif, analyse factuelle.</p><script src=maj.js></script></body></html>")
     Path("docs").mkdir(parents=True, exist_ok=True)
     Path("docs/trend.html").write_text(doc, encoding="utf-8")
     print("\n=== TREND-FOLLOWING (OOS) ===", flush=True)

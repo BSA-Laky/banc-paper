@@ -193,7 +193,7 @@ def main():
            f"<th>esp/trade te</th><th>t te</th><th>BTC te</th><th>ETH te</th><th>OOS</th></tr>{rows}</table>"
            f"<p style='color:#9aa0a6;font-size:.8rem'>Régimes tenus (faible turnover). BTC+ETH partagent le "
            f"signal (épisodes corrélés) : la cohérence cross-actif est un garde-fou, pas 2 preuves. "
-           f"Argent 100 % fictif, analyse factuelle.</p></body></html>")
+           f"Argent 100 % fictif, analyse factuelle.</p><script src=maj.js></script></body></html>")
     Path("docs").mkdir(parents=True, exist_ok=True)
     Path("docs/macro.html").write_text(doc, encoding="utf-8")
     print("\n=== MACRO EXTERNE ===", flush=True)

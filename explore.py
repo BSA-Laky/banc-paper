@@ -247,7 +247,7 @@ def main():
            f"<th>n te</th><th>esp te (net)</th><th>t te</th><th>OOS</th></tr>{rows}</table>"
            f"<p style='color:#9aa0a6;font-size:.8rem'>Net de coûts réalistes. Biais restants : survivance, "
            f"slippage moyen (pas pire-cas), régime unique. Viable ici = candidat à re-vérifier finement + "
-           f"forward. Argent 100 % fictif, analyse factuelle.</p></body></html>")
+           f"forward. Argent 100 % fictif, analyse factuelle.</p><script src=maj.js></script></body></html>")
     Path("docs").mkdir(parents=True, exist_ok=True)
     Path("docs/explore.html").write_text(doc, encoding="utf-8")
 
