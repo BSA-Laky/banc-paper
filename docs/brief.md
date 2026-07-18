@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-18T17:30 UTC
+# Brief Station — 2026-07-18 19:45 (Paris)
 
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -18,7 +18,7 @@
 
 **P&L paper cumule (hors temoin)** : +619.11 $
 
-**BTC** 64276 $ — ret 1j +0.54% · 7j +0.71% · 30j +2.13%
+**BTC** 64437 $ — ret 1j +0.80% · 7j +0.96% · 30j +2.39%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 8, "taux_correct": 0.625, "brier_moyen": 0.235}}
 **Autofinancement** : couts API 12.84 $ (releve 2026-07-17) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
