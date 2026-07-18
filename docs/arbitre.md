@@ -1,7 +1,7 @@
-# Arbitre IA — 2026-07-17
+# Arbitre IA — 2026-07-18
 
-**Regime : baissier** (confiance 0.50)
+**Regime : neutre** (confiance 0.58)
 
-BTC 62906$, ret30 -2.43% (baissier mou persiste). 25_conv seule ref solide t=2.83 n=581. Arbitre en panne (2 echecs), avis perime 50h.
+25_conv t=2.91(n=614) confirme tendance solide. 23_carry t=1.8(n=132) monte. 27b/c quasi-nul(-5.88,n=42). BTC ret30+1.63%.
 
-[Note du jour](../veille/2026-07-17.md) — modele `claude-sonnet-5`
+[Note du jour](../veille/2026-07-18.md) — modele `claude-sonnet-5`

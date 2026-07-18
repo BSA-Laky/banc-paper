@@ -1,35 +1,31 @@
-# Memoire Arbitre — MAJ 2026-07-17
+# Memoire Arbitre — MAJ 2026-07-18
 
 ## Verdicts dates
-- 09→17/07 : ret30 oscille -2%/-4.5%, baissier mou non tranche. 17/07 : 62906$ ret30 -2.43%.
-- 25_conv : t 2.21(09/07)→2.41(12/07)→2.62(15/07)→2.83(17/07), n 413→581. Tendance haussiere continue = CREDIBLE, seule ref solide du banc.
-
-## Bots — etat
-- `25_conv` n=581 t=2.83 E=0.502 : reference principale, t TIENT/MONTE avec n.
-- `23_carry` n=114 t=1.53 E=1.04 : ameliore (1.23→1.53) mais encore sous seuil solide.
-- `28_carry_hold` n=44 t=2.31 E=4.27 : sort du bruit, t monte (2.05→2.31), n encore <60, surveiller.
-- `24_funding` n=104 t=-0.83 : aucun edge, constant.
-- `27b/27c` n=41 t=±2.0 : miroirs confirmes, somme PnL quasi nulle (-5.74), m2 en cours (seuil n=50 pas atteint).
-- `27a/e/f/g10` n=10-22 GRIS : ignores (n<30).
-- `27f10` n=85 t=0.67 : nul.
-- Temoin 10 : n=293 t=0.42, sain, banc mesure bien le bruit.
+- 25_conv : t 2.21(09/07)→2.62(15/07)→2.83(17/07)→2.91(18/07), n 413→614. Tendance MONTANTE continue = CREDIBLE, reference principale du banc.
+- 23_carry : t 1.18(pre-09)→1.53(17/07)→1.8(18/07), n 98→132, E=1.08. Progresse mais pas encore seuil fort (viser t>2).
+- 28_carry_hold : t 2.05→2.31(17/07)→2.52(18/07), n=44→49, E=4.22. Sort du bruit, n encore <60.
+- 27b/c miroirs : n=41→42/42, somme PnL -5.74→-5.88 quasi nulle. Confirme piege a chaque verif (m2), seuil n=50 pas atteint.
+- 27f10 n=85→90 t=0.55-0.67 : nul persistant. 24_funding n=104→110 t=-0.76 a -0.83 : nul persistant.
+- 27a/e/f/g10 n=12-24 GRIS : ignores (n<30), non promus.
+- Temoin 10 : n=293→307, t=0.42→0.51, sain, mesure correctement le bruit.
 
 ## Lecons
-- Jamais promouvoir n<30 quel que soit t.
-- t qui MONTE avec n = credible (25_conv exemplaire) ; t qui baisse quand n monte = illusoire.
-- Miroirs 27b/c : somme s'annule, ne jamais lire un seul cote (confirme a n=41).
-- PnL isole d'un jour ne fait pas edge.
-- Calibration arbitre n=7 taux 0.714 brier 0.217 : degeneree (n<20), aucune conclusion, plafond conf 0.5.
-- ARBITRE EN PANNE signale (2 echecs) + avis perime 50h : humilite renforcee, pas d'escalade tant que gate=non suspect et alertes vides.
+- t qui MONTE avec n croissant = credible (25_conv exemplaire, confirme sur 4+ points).
+- Miroirs 27b/c : somme s'annule systematiquement (~-6), jamais lire un seul cote.
+- PnL isole d'un jour ne fait pas edge ; juger en tendance multi-jours.
+- t extreme sur n<30 = piege (regle validee historiquement, continuer a ignorer 27a/e/f/g10).
+- Calibration arbitre n=8 taux=0.625 brier=0.235 : TOUJOURS n<20, degenere depuis >10j. Aucune conclusion sur validite predictive Arbitre. Regle plafond conf<=0.5 ne s'applique pas formellement (n<20) mais prudence maintenue.
+- Age avis 20h (<24h) : pas d'escalade requise sur ce point.
 
 ## A surveiller
-- REV DYDX(02/07)/FARTCOIN(03/07) : issues toujours absentes des donnees (m1), relancer.
-- 27b/c : confirmer somme nulle a n>50 (actuellement n=41).
-- 28_carry_hold : t>1.5 a n>60 ?
-- 23_carry : t continue-t-il de monter vers seuil credible ?
-- Calibration arbitre : sortira-t-elle du regime degenere (n>=20) ?
-- BTC : ret30 recreuse-t-il ou stabilise ?
-- CASHCAT/KAITO : extremes recurrents, pattern REV a verifier.
+- REV DYDX(02/07)/FARTCOIN(03/07) : issues toujours absentes (m1), relancer aupres source de donnees.
+- 27b/c : n=42/42, verifier passage n=50 pour trancher somme nulle definitivement.
+- 28_carry_hold : n a-t-il depasse 60 avec t>2.5 stable ?
+- 23_carry : t continue de monter vers 2.0+ ?
+- Calibration arbitre : n depassera-t-il 20 pour juger serieusement ?
+- BTC ret30=+1.63% (18/07) : leger haussier, a confirmer ou s'estomper.
+- CASHCAT/KAITO : pattern REV recurrent sur move_pct extremes -20/-40%, a continuer de tracker (7 occurrences en 15 decisions).
 
 ## Divers
-- Banc non suspect, temoin sain. Age avis regime 49.8h (perime, a renouveler).
+- Banc non suspect, temoin sain (n=307, t=0.51, sain=true). Gate: aucune alerte/avertissement.
+- Autofinancement : cout API cumule, revenus reels toujours 0€, reste 35€ a rembourser (fictif/paper).
