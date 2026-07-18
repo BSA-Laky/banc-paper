@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-18T13:15:57.765812+00:00",
+ "ts": "2026-07-18T13:22:56.877978+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -25,11 +25,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 618,
-   "esperance": 0.4956,
-   "t": 2.96,
-   "pnl": 306.26,
-   "pnl_j": 11.87,
+   "n": 620,
+   "esperance": 0.4931,
+   "t": 2.95,
+   "pnl": 305.72,
+   "pnl_j": 11.849,
    "fwd_j": 25.8
   },
   "27a_rev_premium": {
@@ -115,13 +115,31 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0012,
-  "ret7": 0.0028,
-  "ret30": 0.017,
-  "prix": 64004
+  "ret1": 0.0009,
+  "ret7": 0.0026,
+  "ret30": 0.0167,
+  "prix": 63987
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-18T13:22",
+   "bot": "25_convergence_basis",
+   "marche": "conv-VINE",
+   "pnl": -0.34
+  },
+  {
+   "ts": "2026-07-18T13:22",
+   "bot": "25_convergence_basis",
+   "marche": "conv-TRUMP",
+   "pnl": -0.2
+  },
+  {
+   "ts": "2026-07-18T13:22",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-18T13:15",
    "bot": "25_convergence_basis",
@@ -151,24 +169,6 @@
    "bot": "28_carry_hold",
    "marche": "carryhold-SPX",
    "pnl": 0.12
-  },
-  {
-   "ts": "2026-07-18T12:07",
-   "bot": "25_convergence_basis",
-   "marche": "conv-XMR",
-   "pnl": 1.03
-  },
-  {
-   "ts": "2026-07-18T12:07",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-18T11:12",
-   "bot": "27f_selecteur",
-   "marche": "sel-CASHCAT-REV-ia_piece",
-   "pnl": -3.4
   }
  ],
  "calibration_arbitre": {
@@ -182,7 +182,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 6.0,
+  "age_avis_h": 6.1,
   "problemes": []
  },
  "autofinancement": {
