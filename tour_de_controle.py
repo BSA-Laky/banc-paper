@@ -208,7 +208,12 @@ def produire_brief():
         pass
 
     # ---- markdown lisible sur telephone
-    L = [f"# Brief Station — {doc['ts'][:16]} UTC", ""]
+    try:
+        from zoneinfo import ZoneInfo
+        _hdr = datetime.fromisoformat(doc['ts']).astimezone(ZoneInfo("Europe/Paris")).strftime("%Y-%m-%d %H:%M (Paris)")
+    except Exception:
+        _hdr = doc['ts'][:16] + " UTC"
+    L = [f"# Brief Station — {_hdr}", ""]
     if doc["sante_equipage"]["problemes"]:
         L.append("## 🔴 EQUIPAGE")
         L += [f"- {pb}" for pb in doc["sante_equipage"]["problemes"]]

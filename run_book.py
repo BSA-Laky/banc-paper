@@ -46,7 +46,11 @@ def fetch_marche() -> dict:
 def construire_book_html():
     lignes = charger_journal(LEDGER)
     res = evaluer(lignes)
-    maj = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    try:
+        from zoneinfo import ZoneInfo
+        maj = datetime.now(ZoneInfo("Europe/Paris")).strftime("%Y-%m-%d %H:%M (Paris)")
+    except Exception:
+        maj = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     css = ("body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;margin:0;"
            "background:#11141a;color:#e8eaed;padding:14px}h1{font-size:1.2rem;margin:.2rem 0}"
            ".maj{color:#9aa0a6;font-size:.8rem;margin-bottom:12px}"
