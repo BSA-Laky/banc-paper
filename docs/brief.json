@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-18T22:30:52.990450+00:00",
+ "ts": "2026-07-18T22:45:41.043375+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -11,8 +11,8 @@
    "esperance": 1.0443,
    "t": 1.79,
    "pnl": 143.07,
-   "pnl_j": 5.677,
-   "fwd_j": 25.2
+   "pnl_j": 5.655,
+   "fwd_j": 25.3
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
@@ -25,11 +25,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 653,
-   "esperance": 0.5038,
+   "n": 654,
+   "esperance": 0.5034,
    "t": 3.15,
-   "pnl": 329.0,
-   "pnl_j": 12.605,
+   "pnl": 329.23,
+   "pnl_j": 12.614,
    "fwd_j": 26.1
   },
   "27a_rev_premium": {
@@ -83,8 +83,8 @@
    "esperance": 0.2125,
    "t": 0.21,
    "pnl": 20.4,
-   "pnl_j": 1.437,
-   "fwd_j": 14.2
+   "pnl_j": 1.427,
+   "fwd_j": 14.3
   },
   "27f_selecteur": {
    "statut": "GRIS",
@@ -92,8 +92,8 @@
    "esperance": -3.4995,
    "t": -1.16,
    "pnl": -80.49,
-   "pnl_j": -5.668,
-   "fwd_j": 14.2
+   "pnl_j": -5.629,
+   "fwd_j": 14.3
   },
   "27g10_selecteur": {
    "statut": "GRIS",
@@ -115,18 +115,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0124,
-  "ret7": 0.014,
-  "ret30": 0.0283,
-  "prix": 64719
+  "ret1": 0.0129,
+  "ret7": 0.0146,
+  "ret30": 0.0289,
+  "prix": 64752
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 29.6
+   "move_pct": 30.7
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-18T22:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ACE",
+   "pnl": 0.23
+  },
+  {
+   "ts": "2026-07-18T22:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-18T22:30",
    "bot": "25_convergence_basis",
@@ -162,18 +174,6 @@
    "bot": "27d_rev_move_stop",
    "marche": "rev_move_stop-CASHCAT",
    "pnl": 34.42
-  },
-  {
-   "ts": "2026-07-18T22:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-18T22:01",
-   "bot": "25_convergence_basis",
-   "marche": "conv-AERO",
-   "pnl": 0.62
   }
  ],
  "calibration_arbitre": {
@@ -187,7 +187,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 15.2,
+  "age_avis_h": 15.5,
   "problemes": []
  },
  "autofinancement": {
