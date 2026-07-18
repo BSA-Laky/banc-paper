@@ -7,7 +7,11 @@
 name: station
 on:
   schedule:
-    - cron: "3,18,33,48 * * * *"
+    # 18/07 : le rythme est desormais assure par un declencheur EXTERNE (cron-job.org
+    # -> workflow_dispatch, ~toutes les 15 min, NON bride par GitHub). Ce cron GitHub ne
+    # sert plus que de FILET DE SECURITE (1x/3h a :37, horaire decale pour ne jamais
+    # tomber sur le declencheur externe et eviter les courses au git push).
+    - cron: "37 */3 * * *"
   workflow_dispatch: {}
 
 permissions:
