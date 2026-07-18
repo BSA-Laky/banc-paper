@@ -180,7 +180,21 @@ officiers.append({
 # Stratege R&D — Enseigne Nova (Opus 4.8, evenementiel) : code les bots (amendement 16/07)
 _hyps = _json(ETAT / "hypotheses.json")
 _n_hyp = len(_hyps) if isinstance(_hyps, list) else 0
-_d_hyp = _mtime(ETAT / "hypotheses.json")
+# Date REELLE de la derniere fiche (fix 18/07) : dans le checkout Actions, le mtime
+# vaut toujours "maintenant" -> fausse fraicheur affichee. On lit la date DES fiches.
+_d_hyp = None
+if isinstance(_hyps, list):
+    for _h in _hyps:
+        try:
+            _cand = datetime.fromisoformat(str(_h.get("date", "")).replace("Z", "+00:00"))
+            if _cand.tzinfo is None:
+                _cand = _cand.replace(tzinfo=timezone.utc)
+            if _d_hyp is None or _cand > _d_hyp:
+                _d_hyp = _cand
+        except (ValueError, TypeError):
+            continue
+if _d_hyp is None:
+    _d_hyp = _mtime(ETAT / "hypotheses.json")
 officiers.append({
     "nom": "Enseigne Nova", "poste": "R&D - code et active les bots paper (autonome)", "role": "Stratege",
     "badge": "Opus 4.8", "type": "IA",
