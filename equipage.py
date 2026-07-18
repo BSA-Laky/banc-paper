@@ -406,6 +406,27 @@ footer {{ color:var(--muted); font-size:11px; margin-top:22px; text-align:center
 <footer>Page d&eacute;terministe &middot; 0 appel LLM &middot; g&eacute;n&eacute;r&eacute;e le {esc(NOW.strftime('%Y-%m-%d %H:%M UTC'))} &middot; rafra&icirc;chie &agrave; chaque passe du banc</footer>
 </body></html>"""
 
+# ---------- localisation heure (UTC -> heure locale de l'appareil, cote client) ----------
+_LOCALIZER = (
+    "<script>(function(){"
+    "function p(n){return String(n).padStart(2,'0');}"
+    "function loc(d){return p(d.getDate())+'/'+p(d.getMonth()+1)+' '+p(d.getHours())+':'+p(d.getMinutes());}"
+    "var reF=/(\\d{4})-(\\d{2})-(\\d{2})[ T](\\d{2}):(\\d{2})(?::\\d{2})?\\s*(?:UTC|Z)/g;"
+    "var reH=/\\b(\\d{2}):(\\d{2})\\s*UTC\\b/g;"
+    "function cv(t){"
+    "t=t.replace(reF,function(m,Y,Mo,D,H,Mi){var d=new Date(Date.UTC(+Y,+Mo-1,+D,+H,+Mi));return isNaN(d)?m:loc(d);});"
+    "t=t.replace(reH,function(m,H,Mi){var n=new Date();var d=new Date(Date.UTC(n.getUTCFullYear(),n.getUTCMonth(),n.getUTCDate(),+H,+Mi));return isNaN(d)?m:p(d.getHours())+':'+p(d.getMinutes());});"
+    "return t;}"
+    "function sw(){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),a=[],n;"
+    "while(n=w.nextNode()){var v=n.nodeValue||'';if(v.indexOf('UTC')>-1||/\\d{2}:\\d{2}(:\\d{2})?Z/.test(v))a.push(n);}"
+    "a.forEach(function(nd){var v=cv(nd.nodeValue);if(v!==nd.nodeValue)nd.nodeValue=v;});}"
+    "if(document.body)sw();else document.addEventListener('DOMContentLoaded',sw);"
+    "setInterval(sw,60000);})();</script>"
+)
+html_doc = html_doc.replace('<meta charset="utf-8">',
+                            '<meta charset="utf-8">\n<meta http-equiv="refresh" content="900">', 1)
+html_doc = html_doc.replace("</body></html>", _LOCALIZER + "</body></html>", 1)
+
 # ---------- ecriture ----------
 DOCS.mkdir(exist_ok=True)
 (DOCS / "equipage.html").write_text(html_doc, encoding="utf-8")
