@@ -1,24 +1,24 @@
-# Brief Station — 2026-07-18T03:37 UTC
+# Brief Station — 2026-07-18T05:53 UTC
 
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 23_carry_funding | ORANGE | 131 | 1.0852 | 1.79 | 142.16 | 5.802 | 24.5 j |
-| 24_funding_multivenues | ORANGE | 110 | -0.1739 | -0.76 | -19.13 | -0.784 | 24.4 j |
-| 25_convergence_basis | ORANGE | 611 | 0.4902 | 2.89 | 299.5 | 11.791 | 25.4 j |
-| 27a_rev_premium | GRIS | 24 | 1.5878 | 0.49 | 38.11 | 1.568 | 24.3 j |
-| 27b_rev_move | ORANGE | 42 | 3.6184 | 1.5 | 151.97 | 6.359 | 23.9 j |
-| 27c_mom_move | ORANGE | 42 | -3.7584 | -1.56 | -157.85 | -6.605 | 23.9 j |
-| 27d_rev_move_stop | ORANGE | 43 | 0.1293 | 0.06 | 5.56 | 0.304 | 18.3 j |
-| 27e_arbitre | GRIS | 23 | -2.0208 | -0.66 | -46.48 | -3.205 | 14.5 j |
-| 27f10_selecteur | ORANGE | 88 | 0.5594 | 0.52 | 49.23 | 3.647 | 13.5 j |
+| 23_carry_funding | ORANGE | 132 | 1.0843 | 1.8 | 143.12 | 5.842 | 24.5 j |
+| 24_funding_multivenues | ORANGE | 110 | -0.1739 | -0.76 | -19.13 | -0.781 | 24.5 j |
+| 25_convergence_basis | ORANGE | 614 | 0.4913 | 2.91 | 301.66 | 11.876 | 25.4 j |
+| 27a_rev_premium | GRIS | 24 | 1.5878 | 0.49 | 38.11 | 1.562 | 24.4 j |
+| 27b_rev_move | ORANGE | 42 | 3.6184 | 1.5 | 151.97 | 6.332 | 24.0 j |
+| 27c_mom_move | ORANGE | 42 | -3.7584 | -1.56 | -157.85 | -6.577 | 24.0 j |
+| 27d_rev_move_stop | ORANGE | 43 | 0.1293 | 0.06 | 5.56 | 0.302 | 18.4 j |
+| 27e_arbitre | GRIS | 23 | -2.0208 | -0.66 | -46.48 | -3.183 | 14.6 j |
+| 27f10_selecteur | ORANGE | 90 | 0.5846 | 0.55 | 52.62 | 3.897 | 13.5 j |
 | 27f_selecteur | GRIS | 21 | -3.3596 | -1.02 | -70.55 | -5.226 | 13.5 j |
-| 27g10_selecteur | GRIS | 11 | 0.1129 | 0.02 | 1.24 | 0.218 | 5.7 j |
-| 28_carry_hold | ORANGE | 49 | 4.2171 | 2.52 | 206.64 | 14.251 | 14.5 j |
+| 27g10_selecteur | GRIS | 12 | 0.0336 | 0.01 | 0.4 | 0.07 | 5.8 j |
+| 28_carry_hold | ORANGE | 49 | 4.2171 | 2.52 | 206.64 | 14.153 | 14.6 j |
 
-**P&L paper cumule (hors temoin)** : +600.40 $
+**P&L paper cumule (hors temoin)** : +606.07 $
 
-**BTC** 63930 $ — ret 1j +0.00% · 7j +0.17% · 30j +1.58%
+**BTC** 63959 $ — ret 1j +0.05% · 7j +0.21% · 30j +1.63%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 8, "taux_correct": 0.625, "brier_moyen": 0.235}}
 **Autofinancement** : couts API 12.84 $ (releve 2026-07-17) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
