@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-18T20:15:40.712416+00:00",
+ "ts": "2026-07-18T20:30:54.452064+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -11,8 +11,8 @@
    "esperance": 1.0443,
    "t": 1.79,
    "pnl": 143.07,
-   "pnl_j": 5.7,
-   "fwd_j": 25.1
+   "pnl_j": 5.677,
+   "fwd_j": 25.2
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
@@ -25,12 +25,12 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 644,
-   "esperance": 0.5046,
-   "t": 3.11,
-   "pnl": 324.96,
-   "pnl_j": 12.498,
-   "fwd_j": 26.0
+   "n": 645,
+   "esperance": 0.5063,
+   "t": 3.13,
+   "pnl": 326.54,
+   "pnl_j": 12.511,
+   "fwd_j": 26.1
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -83,8 +83,8 @@
    "esperance": 0.2125,
    "t": 0.21,
    "pnl": 20.4,
-   "pnl_j": 1.447,
-   "fwd_j": 14.1
+   "pnl_j": 1.437,
+   "fwd_j": 14.2
   },
   "27f_selecteur": {
    "statut": "GRIS",
@@ -92,8 +92,8 @@
    "esperance": -3.4995,
    "t": -1.16,
    "pnl": -80.49,
-   "pnl_j": -5.708,
-   "fwd_j": 14.1
+   "pnl_j": -5.668,
+   "fwd_j": 14.2
   },
   "27g10_selecteur": {
    "statut": "GRIS",
@@ -115,13 +115,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0107,
-  "ret7": 0.0124,
-  "ret30": 0.0267,
-  "prix": 64615
+  "ret1": 0.0105,
+  "ret7": 0.0122,
+  "ret30": 0.0265,
+  "prix": 64602
  },
- "evenements_extremes": [],
+ "evenements_extremes": [
+  {
+   "coin": "CASHCAT",
+   "move_pct": 20.6
+  }
+ ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-18T20:30",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ACE",
+   "pnl": 1.58
+  },
+  {
+   "ts": "2026-07-18T20:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-18T20:15",
    "bot": "10_controle_aleatoire",
@@ -157,18 +174,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-CASHCAT",
    "pnl": 0.01
-  },
-  {
-   "ts": "2026-07-18T19:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-18T19:15",
-   "bot": "25_convergence_basis",
-   "marche": "conv-TRUMP",
-   "pnl": -0.47
   }
  ],
  "calibration_arbitre": {
@@ -182,7 +187,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 13.0,
+  "age_avis_h": 13.2,
   "problemes": []
  },
  "autofinancement": {
