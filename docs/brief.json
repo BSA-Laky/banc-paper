@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-18T18:30:57.773131+00:00",
+ "ts": "2026-07-18T18:45:57.775493+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -79,11 +79,11 @@
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
-   "n": 95,
-   "esperance": 0.31,
-   "t": 0.3,
-   "pnl": 29.45,
-   "pnl_j": 2.088,
+   "n": 96,
+   "esperance": 0.2125,
+   "t": 0.21,
+   "pnl": 20.4,
+   "pnl_j": 1.447,
    "fwd_j": 14.1
   },
   "27f_selecteur": {
@@ -101,8 +101,8 @@
    "esperance": 0.0336,
    "t": 0.01,
    "pnl": 0.4,
-   "pnl_j": 0.064,
-   "fwd_j": 6.3
+   "pnl_j": 0.063,
+   "fwd_j": 6.4
   },
   "28_carry_hold": {
    "statut": "ORANGE",
@@ -115,13 +115,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0094,
-  "ret7": 0.0111,
-  "ret30": 0.0253,
-  "prix": 64530
+  "ret1": 0.0087,
+  "ret7": 0.0103,
+  "ret30": 0.0246,
+  "prix": 64481
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-18T18:45",
+   "bot": "27f10_selecteur",
+   "marche": "sel-CASHCAT-REV-ia_piece",
+   "pnl": -9.05
+  },
+  {
+   "ts": "2026-07-18T18:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-18T18:30",
    "bot": "25_convergence_basis",
@@ -157,18 +169,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-18T18:01",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ACE",
-   "pnl": 0.06
-  },
-  {
-   "ts": "2026-07-18T18:00",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -182,7 +182,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 11.2,
+  "age_avis_h": 11.5,
   "problemes": []
  },
  "autofinancement": {
