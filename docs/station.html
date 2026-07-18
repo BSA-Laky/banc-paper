@@ -207,7 +207,7 @@ const DEMO = {
   gate: {banc_suspect:false, temoins:{"10_controle_aleatoire":{n:97,t_stat:0.51,sain:true}}}
 };
 const pct = x => (x>=0?"+":"") + (100*x).toFixed(1) + " %";
-const dispTs = s => (s||"").slice(0,16).replace("T"," ");
+const dispTs = s => { if(!s) return ""; const d = new Date(s.length<=16 ? s+":00Z" : s); if(isNaN(d.getTime())) return String(s).slice(0,16).replace("T"," "); const p = n => String(n).padStart(2,"0"); return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate())+" "+p(d.getHours())+":"+p(d.getMinutes()); };
 function ilYA(iso){
   if(!iso) return "—";
   const t = new Date(iso.length<=16 ? iso+":00Z" : iso);
@@ -389,7 +389,7 @@ CV.addEventListener("click", ev=>{
 
 /* =================== RENDU DONNEES =================== */
 function rendre(brief, gate){
-  document.getElementById("hud-ts").textContent = dispTs(brief.ts);
+  document.getElementById("hud-ts").textContent = dispTs(brief.ts) + " \u00b7 " + ilYA(brief.ts);
   const bots = brief.statuts || {};
   document.getElementById("hud-bots").textContent = Object.keys(bots).length;
 
