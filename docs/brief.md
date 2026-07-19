@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-19 23:15 (Paris)
+# Brief Station — 2026-07-19 23:30 (Paris)
 
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -7,8 +7,8 @@
 | 24_funding_multivenues | ORANGE | 126 | -0.2953 | -1.46 | -37.21 | -1.426 | 26.1 j |
 | 25_convergence_basis | ORANGE | 728 | 0.507 | 3.51 | 369.11 | 13.62 | 27.1 j |
 | 27a_rev_premium | GRIS | 26 | 1.4339 | 0.48 | 37.28 | 1.434 | 26.0 j |
-| 27b_rev_move | ORANGE | 45 | 3.2132 | 1.41 | 144.6 | 5.648 | 25.6 j |
-| 27c_mom_move | ORANGE | 45 | -3.3532 | -1.47 | -150.9 | -5.894 | 25.6 j |
+| 27b_rev_move | ORANGE | 45 | 3.2132 | 1.41 | 144.6 | 5.626 | 25.7 j |
+| 27c_mom_move | ORANGE | 45 | -3.3532 | -1.47 | -150.9 | -5.871 | 25.7 j |
 | 27d_rev_move_stop | ORANGE | 48 | 0.3969 | 0.18 | 19.05 | 0.952 | 20.0 j |
 | 27e_arbitre | GRIS | 26 | -1.2954 | -0.47 | -33.68 | -2.079 | 16.2 j |
 | 27f10_selecteur | ORANGE | 105 | 0.7004 | 0.7 | 73.54 | 4.838 | 15.2 j |
@@ -18,7 +18,7 @@
 
 **P&L paper cumule (hors temoin)** : +694.47 $
 
-**BTC** 64530 $ — ret 1j -0.46% · 7j +1.18% · 30j +1.60%
+**BTC** 64467 $ — ret 1j -0.56% · 7j +1.08% · 30j +1.50%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 9, "taux_correct": 0.667, "brier_moyen": 0.227}}
 **Autofinancement** : couts API 13.82 $ (releve 2026-07-18) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
