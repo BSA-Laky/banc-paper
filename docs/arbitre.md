@@ -1,7 +1,7 @@
-# Arbitre IA — 2026-07-18
+# Arbitre IA — 2026-07-19
 
-**Regime : neutre** (confiance 0.58)
+**Regime : neutre** (confiance 0.55)
 
-25_conv t=2.91(n=614) confirme tendance solide. 23_carry t=1.8(n=132) monte. 27b/c quasi-nul(-5.88,n=42). BTC ret30+1.63%.
+25_conv t=3.31/n=677 confirme. 28_carry t=2.65/n=52 franchit 50. 27b/c somme=-6.16 nulle. Temoin t=-0.6 sain. BTC quasi plat.
 
-[Note du jour](../veille/2026-07-18.md) — modele `claude-sonnet-5`
+[Note du jour](../veille/2026-07-19.md) — modele `claude-sonnet-5`
