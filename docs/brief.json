@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-19T19:15:39.474192+00:00",
+ "ts": "2026-07-19T19:30:53.155393+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -25,11 +25,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 722,
-   "esperance": 0.5,
+   "n": 723,
+   "esperance": 0.4989,
    "t": 3.43,
-   "pnl": 361.0,
-   "pnl_j": 13.37,
+   "pnl": 360.67,
+   "pnl_j": 13.358,
    "fwd_j": 27.0
   },
   "27a_rev_premium": {
@@ -115,18 +115,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0059,
-  "ret7": 0.0104,
-  "ret30": 0.0147,
-  "prix": 64444
+  "ret1": -0.0064,
+  "ret7": 0.0099,
+  "ret30": 0.0142,
+  "prix": 64414
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 29.0
+   "move_pct": 26.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-19T19:30",
+   "bot": "25_convergence_basis",
+   "marche": "conv-KBONK",
+   "pnl": -0.33
+  },
+  {
+   "ts": "2026-07-19T19:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-19T19:15",
    "bot": "25_convergence_basis",
@@ -162,18 +174,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-19T18:45",
-   "bot": "28_carry_hold",
-   "marche": "carryhold-VVV",
-   "pnl": 2.47
-  },
-  {
-   "ts": "2026-07-19T18:45",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CASHCAT",
-   "pnl": 1.57
   }
  ],
  "calibration_arbitre": {
@@ -187,7 +187,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 11.5,
+  "age_avis_h": 11.7,
   "problemes": []
  },
  "autofinancement": {
