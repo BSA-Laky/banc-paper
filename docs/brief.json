@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-19T07:45:44.845382+00:00",
+ "ts": "2026-07-19T08:01:07.591878+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -25,11 +25,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 677,
-   "esperance": 0.5113,
-   "t": 3.31,
-   "pnl": 346.18,
-   "pnl_j": 13.063,
+   "n": 679,
+   "esperance": 0.5091,
+   "t": 3.3,
+   "pnl": 345.66,
+   "pnl_j": 13.044,
    "fwd_j": 26.5
   },
   "27a_rev_premium": {
@@ -65,8 +65,8 @@
    "esperance": 1.0306,
    "t": 0.44,
    "pnl": 46.38,
-   "pnl_j": 2.391,
-   "fwd_j": 19.4
+   "pnl_j": 2.378,
+   "fwd_j": 19.5
   },
   "27e_arbitre": {
    "statut": "GRIS",
@@ -115,13 +115,31 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0011,
-  "ret7": 0.0153,
-  "ret30": 0.0196,
-  "prix": 64758
+  "ret1": -0.0022,
+  "ret7": 0.0142,
+  "ret30": 0.0184,
+  "prix": 64683
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-19T08:01",
+   "bot": "25_convergence_basis",
+   "marche": "conv-KAITO",
+   "pnl": -0.05
+  },
+  {
+   "ts": "2026-07-19T08:01",
+   "bot": "25_convergence_basis",
+   "marche": "conv-SUI",
+   "pnl": -0.47
+  },
+  {
+   "ts": "2026-07-19T08:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-19T07:45",
    "bot": "25_convergence_basis",
@@ -151,24 +169,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-19T07:00",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-19T06:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-19T06:30",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CASHCAT",
-   "pnl": 6.78
   }
  ],
  "calibration_arbitre": {
@@ -182,7 +182,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 24.5,
+  "age_avis_h": 0.2,
   "problemes": []
  },
  "autofinancement": {
