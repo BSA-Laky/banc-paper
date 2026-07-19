@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-19T17:01:01.442275+00:00",
+ "ts": "2026-07-19T17:15:41.122366+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -25,11 +25,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 714,
-   "esperance": 0.5058,
-   "t": 3.44,
-   "pnl": 361.15,
-   "pnl_j": 13.426,
+   "n": 716,
+   "esperance": 0.5065,
+   "t": 3.45,
+   "pnl": 362.69,
+   "pnl_j": 13.483,
    "fwd_j": 26.9
   },
   "27a_rev_premium": {
@@ -115,18 +115,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0044,
-  "ret7": 0.0119,
-  "ret30": 0.0162,
-  "prix": 64540
+  "ret1": -0.0011,
+  "ret7": 0.0153,
+  "ret30": 0.0196,
+  "prix": 64758
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 38.0
+   "move_pct": 36.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-19T17:15",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": 2.1
+  },
+  {
+   "ts": "2026-07-19T17:15",
+   "bot": "25_convergence_basis",
+   "marche": "conv-PENGU",
+   "pnl": -0.56
+  },
+  {
+   "ts": "2026-07-19T17:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-19T17:00",
    "bot": "27d_rev_move_stop",
@@ -156,24 +174,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-19T16:15",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CASHCAT",
-   "pnl": 1.37
-  },
-  {
-   "ts": "2026-07-19T16:15",
-   "bot": "23_carry_funding",
-   "marche": "carry-AERO",
-   "pnl": -3.05
-  },
-  {
-   "ts": "2026-07-19T16:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -187,7 +187,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 9.2,
+  "age_avis_h": 9.5,
   "problemes": []
  },
  "autofinancement": {
