@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-19 23:01 (Paris)
+# Brief Station — 2026-07-19 23:15 (Paris)
 
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -13,10 +13,10 @@
 | 27e_arbitre | GRIS | 26 | -1.2954 | -0.47 | -33.68 | -2.079 | 16.2 j |
 | 27f10_selecteur | ORANGE | 105 | 0.7004 | 0.7 | 73.54 | 4.838 | 15.2 j |
 | 27f_selecteur | GRIS | 24 | -3.7769 | -1.31 | -90.65 | -5.964 | 15.2 j |
-| 27g10_selecteur | GRIS | 14 | 1.0683 | 0.2 | 14.96 | 2.021 | 7.4 j |
-| 28_carry_hold | ORANGE | 57 | 4.1253 | 2.83 | 235.14 | 14.515 | 16.2 j |
+| 27g10_selecteur | GRIS | 14 | 1.0683 | 0.2 | 14.96 | 1.994 | 7.5 j |
+| 28_carry_hold | ORANGE | 58 | 4.0905 | 2.86 | 237.25 | 14.645 | 16.2 j |
 
-**P&L paper cumule (hors temoin)** : +692.36 $
+**P&L paper cumule (hors temoin)** : +694.47 $
 
 **BTC** 64530 $ — ret 1j -0.46% · 7j +1.18% · 30j +1.60%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 9, "taux_correct": 0.667, "brier_moyen": 0.227}}
