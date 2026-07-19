@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-19T15:15:40.592006+00:00",
+ "ts": "2026-07-19T15:30:53.238080+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -11,8 +11,8 @@
    "esperance": 0.8546,
    "t": 1.49,
    "pnl": 121.35,
-   "pnl_j": 4.685,
-   "fwd_j": 25.9
+   "pnl_j": 4.667,
+   "fwd_j": 26.0
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
@@ -25,11 +25,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 710,
-   "esperance": 0.507,
+   "n": 711,
+   "esperance": 0.5064,
    "t": 3.43,
-   "pnl": 359.98,
-   "pnl_j": 13.432,
+   "pnl": 360.08,
+   "pnl_j": 13.436,
    "fwd_j": 26.8
   },
   "27a_rev_premium": {
@@ -83,8 +83,8 @@
    "esperance": 0.2735,
    "t": 0.29,
    "pnl": 27.9,
-   "pnl_j": 1.872,
-   "fwd_j": 14.9
+   "pnl_j": 1.86,
+   "fwd_j": 15.0
   },
   "27f_selecteur": {
    "statut": "GRIS",
@@ -92,8 +92,8 @@
    "esperance": -3.4995,
    "t": -1.16,
    "pnl": -80.49,
-   "pnl_j": -5.402,
-   "fwd_j": 14.9
+   "pnl_j": -5.366,
+   "fwd_j": 15.0
   },
   "27g10_selecteur": {
    "statut": "GRIS",
@@ -115,18 +115,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0037,
-  "ret7": 0.0126,
-  "ret30": 0.0169,
-  "prix": 64584
+  "ret1": -0.0052,
+  "ret7": 0.0112,
+  "ret30": 0.0154,
+  "prix": 64492
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 27.8
+   "move_pct": 30.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-19T15:30",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ACE",
+   "pnl": 0.1
+  },
+  {
+   "ts": "2026-07-19T15:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-19T15:15",
    "bot": "27d_rev_move_stop",
@@ -162,18 +174,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-LIT",
    "pnl": -0.47
-  },
-  {
-   "ts": "2026-07-19T14:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-19T14:30",
-   "bot": "27f10_selecteur",
-   "marche": "sel-KBONK-REV-defaut",
-   "pnl": 0.42
   }
  ],
  "calibration_arbitre": {
@@ -187,7 +187,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 7.5,
+  "age_avis_h": 7.7,
   "problemes": []
  },
  "autofinancement": {
