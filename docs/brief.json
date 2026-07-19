@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-19T18:30:53.611370+00:00",
+ "ts": "2026-07-19T18:45:40.721632+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -25,11 +25,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 718,
-   "esperance": 0.5007,
-   "t": 3.42,
-   "pnl": 359.52,
-   "pnl_j": 13.316,
+   "n": 720,
+   "esperance": 0.5016,
+   "t": 3.44,
+   "pnl": 361.17,
+   "pnl_j": 13.377,
    "fwd_j": 27.0
   },
   "27a_rev_premium": {
@@ -101,32 +101,56 @@
    "esperance": 1.0683,
    "t": 0.2,
    "pnl": 14.96,
-   "pnl_j": 2.049,
-   "fwd_j": 7.3
+   "pnl_j": 2.021,
+   "fwd_j": 7.4
   },
   "28_carry_hold": {
    "statut": "ORANGE",
-   "n": 56,
-   "esperance": 4.1549,
-   "t": 2.8,
-   "pnl": 232.67,
-   "pnl_j": 14.452,
+   "n": 57,
+   "esperance": 4.1253,
+   "t": 2.83,
+   "pnl": 235.14,
+   "pnl_j": 14.605,
    "fwd_j": 16.1
   }
  },
  "tendances_btc": {
-  "ret1": -0.0074,
-  "ret7": 0.0089,
-  "ret30": 0.0132,
-  "prix": 64350
+  "ret1": -0.0061,
+  "ret7": 0.0102,
+  "ret30": 0.0145,
+  "prix": 64430
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 36.6
+   "move_pct": 34.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-19T18:45",
+   "bot": "28_carry_hold",
+   "marche": "carryhold-VVV",
+   "pnl": 2.47
+  },
+  {
+   "ts": "2026-07-19T18:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": 1.57
+  },
+  {
+   "ts": "2026-07-19T18:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-VVV",
+   "pnl": 0.07
+  },
+  {
+   "ts": "2026-07-19T18:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-19T18:30",
    "bot": "25_convergence_basis",
@@ -150,30 +174,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-CASHCAT",
    "pnl": 0.05
-  },
-  {
-   "ts": "2026-07-19T18:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-19T17:45",
-   "bot": "24_funding_multivenues",
-   "marche": "sprd-VVV",
-   "pnl": -2.2
-  },
-  {
-   "ts": "2026-07-19T17:45",
-   "bot": "24_funding_multivenues",
-   "marche": "sprd-OP",
-   "pnl": -0.73
-  },
-  {
-   "ts": "2026-07-19T17:45",
-   "bot": "24_funding_multivenues",
-   "marche": "sprd-AXS",
-   "pnl": -0.95
   }
  ],
  "calibration_arbitre": {
@@ -187,7 +187,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 10.7,
+  "age_avis_h": 11.0,
   "problemes": []
  },
  "autofinancement": {
