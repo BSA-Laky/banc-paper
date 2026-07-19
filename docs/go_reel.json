@@ -1,11 +1,11 @@
 {
- "ts": "2026-07-19T19:01:01.306545+00:00",
+ "ts": "2026-07-19T19:15:39.455205+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 441,
-   "t_stat": -0.28,
+   "n": 442,
+   "t_stat": -0.32,
    "sain": true
   }
  },
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.6717,
    "borne_decrochage": -2.2452,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 7379.6,
+   "expo_moyenne_usd": 7376.7,
    "rendement_j_pct": 0.059
   },
   "24_funding_multivenues": {
@@ -53,35 +53,35 @@
    "esp_glissante_20": -0.9859,
    "borne_decrochage": -1.313,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 1016.3,
+   "expo_moyenne_usd": 1015.9,
    "rendement_j_pct": -0.141
   },
   "25_convergence_basis": {
-   "n": 721,
-   "esperance": 0.5006,
+   "n": 722,
+   "esperance": 0.5,
    "t_stat": 3.43,
    "mdd_live": 47.59,
    "jours_forward": 27.0,
-   "verdict_banc": "edge a CONFIRMER (profil asymetrique, t-stat peu fiable)",
+   "verdict_banc": "edge POSITIF plausible (a confirmer)",
    "decrochage": false,
    "raisons": [
     "forward 27 j < 28 j"
    ],
    "avertissements": [],
    "mu_ref": null,
-   "pnl_cumule": 360.93,
-   "pnl_par_jour": 13.368,
+   "pnl_cumule": 361.0,
+   "pnl_par_jour": 13.37,
    "trop_beau_audite": null,
-   "esp_glissante_20": 0.4633,
-   "borne_decrochage": -1.25,
+   "esp_glissante_20": 0.4769,
+   "borne_decrochage": -1.2494,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 7185.9,
+   "expo_moyenne_usd": 7183.6,
    "rendement_j_pct": 0.186,
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.2831,
+    "delta_esperance": -0.2837,
     "t_welch": -0.49,
-    "delta_rendement_j_pct": 0.1019,
+    "delta_rendement_j_pct": 0.102,
     "t_welch_jour": 1.52,
     "jours_compares": 26
    }
@@ -111,7 +111,7 @@
    "esperance": 3.5171,
    "t_stat": 1.52,
    "mdd_live": 61.33,
-   "jours_forward": 25.5,
+   "jours_forward": 25.6,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -122,20 +122,20 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 154.75,
-   "pnl_par_jour": 6.069,
+   "pnl_par_jour": 6.045,
    "trop_beau_audite": null,
    "esp_glissante_20": -0.0555,
    "borne_decrochage": -3.325,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 172.2,
-   "rendement_j_pct": 3.524
+   "expo_moyenne_usd": 172.1,
+   "rendement_j_pct": 3.511
   },
   "27c_mom_move": {
    "n": 44,
    "esperance": -3.6571,
    "t_stat": -1.59,
    "mdd_live": 217.22,
-   "jours_forward": 25.5,
+   "jours_forward": 25.6,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -146,13 +146,13 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -160.91,
-   "pnl_par_jour": -6.31,
+   "pnl_par_jour": -6.286,
    "trop_beau_audite": null,
    "esp_glissante_20": -0.0845,
    "borne_decrochage": -10.4993,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 172.2,
-   "rendement_j_pct": -3.664
+   "expo_moyenne_usd": 172.1,
+   "rendement_j_pct": -3.651
   },
   "27d_rev_move_stop": {
    "n": 48,
@@ -175,7 +175,7 @@
    "esp_glissante_20": -2.1153,
    "borne_decrochage": -6.433,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 241.0,
+   "expo_moyenne_usd": 240.9,
    "rendement_j_pct": 0.397
   },
   "27e_arbitre": {
@@ -183,25 +183,25 @@
    "esperance": -1.7479,
    "t_stat": -0.62,
    "mdd_live": 63.61,
-   "jours_forward": 16.1,
+   "jours_forward": 16.2,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -43.7,
-   "pnl_par_jour": -2.714,
+   "pnl_par_jour": -2.697,
    "trop_beau_audite": null,
    "esp_glissante_20": -1.5407,
    "borne_decrochage": -8.0932,
    "statut": "GRIS",
-   "expo_moyenne_usd": 154.9,
-   "rendement_j_pct": -1.753,
+   "expo_moyenne_usd": 154.8,
+   "rendement_j_pct": -1.743,
    "ab": {
     "contre": "27b_rev_move",
     "delta_esperance": -5.265,
     "t_welch": -1.44,
-    "delta_rendement_j_pct": -1.1096,
+    "delta_rendement_j_pct": -1.1105,
     "t_welch_jour": -0.32,
     "jours_compares": 16
    }
@@ -226,8 +226,8 @@
    "esp_glissante_20": 0.8328,
    "borne_decrochage": -3.8639,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 695.5,
-   "rendement_j_pct": 0.7
+   "expo_moyenne_usd": 695.1,
+   "rendement_j_pct": 0.701
   },
   "27f_selecteur": {
    "n": 23,
@@ -244,8 +244,8 @@
    "pnl_par_jour": -5.33,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 152.4,
-   "rendement_j_pct": -3.498
+   "expo_moyenne_usd": 152.3,
+   "rendement_j_pct": -3.501
   },
   "27g10_selecteur": {
    "n": 14,
@@ -262,15 +262,15 @@
    "pnl_par_jour": 2.021,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 190.1,
-   "rendement_j_pct": 1.063
+   "expo_moyenne_usd": 189.8,
+   "rendement_j_pct": 1.065
   },
   "28_carry_hold": {
    "n": 57,
    "esperance": 4.1253,
    "t_stat": 2.83,
    "mdd_live": 0.12,
-   "jours_forward": 16.1,
+   "jours_forward": 16.2,
    "verdict_banc": "edge POSITIF plausible (a confirmer)",
    "decrochage": false,
    "raisons": [
@@ -280,7 +280,7 @@
    "avertissements": [],
    "mu_ref": 1.26,
    "pnl_cumule": 235.14,
-   "pnl_par_jour": 14.605,
+   "pnl_par_jour": 14.515,
    "trop_beau_audite": "2026-07-15 : verifie vs funding reel HL (5/5 trades coherents, BLUR 77$ = 83-90$ reels, 0 flip de signe) — regime juillet riche + queue droite (top3 = 63% du P&L). Voir Bot/AUDIT_BOT28.",
    "notes": [
     "esp 3.3x la ref backtest — ecart AUDITE (2026-07-15 : verifie vs funding reel HL (5/5 trades coherent)"
@@ -288,8 +288,8 @@
    "esp_glissante_20": 4.6272,
    "borne_decrochage": 0.6607,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 2008.7,
-   "rendement_j_pct": 0.727
+   "expo_moyenne_usd": 2007.4,
+   "rendement_j_pct": 0.723
   }
  },
  "alertes": [],
