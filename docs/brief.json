@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-19T05:15:41.655612+00:00",
+ "ts": "2026-07-19T05:30:54.429620+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -20,15 +20,15 @@
    "esperance": -0.2307,
    "t": -1.04,
    "pnl": -26.53,
-   "pnl_j": -1.044,
-   "fwd_j": 25.4
+   "pnl_j": -1.04,
+   "fwd_j": 25.5
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 672,
-   "esperance": 0.5022,
+   "n": 673,
+   "esperance": 0.5015,
    "t": 3.23,
-   "pnl": 337.47,
+   "pnl": 337.48,
    "pnl_j": 12.783,
    "fwd_j": 26.4
   },
@@ -38,8 +38,8 @@
    "esperance": 1.7786,
    "t": 0.57,
    "pnl": 44.47,
-   "pnl_j": 1.758,
-   "fwd_j": 25.3
+   "pnl_j": 1.751,
+   "fwd_j": 25.4
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -65,8 +65,8 @@
    "esperance": 1.0306,
    "t": 0.44,
    "pnl": 46.38,
-   "pnl_j": 2.403,
-   "fwd_j": 19.3
+   "pnl_j": 2.391,
+   "fwd_j": 19.4
   },
   "27e_arbitre": {
    "statut": "GRIS",
@@ -115,13 +115,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0006,
-  "ret7": 0.0158,
-  "ret30": 0.0201,
-  "prix": 64787
+  "ret1": -0.0018,
+  "ret7": 0.0146,
+  "ret30": 0.0188,
+  "prix": 64708
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-19T05:30",
+   "bot": "25_convergence_basis",
+   "marche": "conv-XMR",
+   "pnl": 0.01
+  },
+  {
+   "ts": "2026-07-19T05:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-19T05:15",
    "bot": "25_convergence_basis",
@@ -157,18 +169,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-19T04:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-19T04:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -182,7 +182,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 22.0,
+  "age_avis_h": 22.2,
   "problemes": []
  },
  "autofinancement": {
