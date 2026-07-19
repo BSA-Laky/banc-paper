@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-19T17:45:40.635867+00:00",
+ "ts": "2026-07-19T18:01:08.082471+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -11,8 +11,8 @@
    "esperance": 0.7837,
    "t": 1.39,
    "pnl": 113.63,
-   "pnl_j": 4.37,
-   "fwd_j": 26.0
+   "pnl_j": 4.354,
+   "fwd_j": 26.1
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
@@ -25,12 +25,12 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 716,
-   "esperance": 0.5065,
+   "n": 717,
+   "esperance": 0.5059,
    "t": 3.45,
-   "pnl": 362.69,
-   "pnl_j": 13.483,
-   "fwd_j": 26.9
+   "pnl": 362.74,
+   "pnl_j": 13.435,
+   "fwd_j": 27.0
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -83,8 +83,8 @@
    "esperance": 0.3782,
    "t": 0.4,
    "pnl": 38.95,
-   "pnl_j": 2.597,
-   "fwd_j": 15.0
+   "pnl_j": 2.58,
+   "fwd_j": 15.1
   },
   "27f_selecteur": {
    "statut": "GRIS",
@@ -92,8 +92,8 @@
    "esperance": -3.4995,
    "t": -1.16,
    "pnl": -80.49,
-   "pnl_j": -5.366,
-   "fwd_j": 15.0
+   "pnl_j": -5.33,
+   "fwd_j": 15.1
   },
   "27g10_selecteur": {
    "statut": "GRIS",
@@ -115,18 +115,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0035,
-  "ret7": 0.0128,
-  "ret30": 0.0171,
-  "prix": 64597
+  "ret1": -0.0044,
+  "ret7": 0.012,
+  "ret30": 0.0163,
+  "prix": 64545
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 34.7
+   "move_pct": 30.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-19T18:01",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": 0.05
+  },
+  {
+   "ts": "2026-07-19T18:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-19T17:45",
    "bot": "24_funding_multivenues",
@@ -162,18 +174,6 @@
    "bot": "24_funding_multivenues",
    "marche": "pdxcarry-DRAM",
    "pnl": -0.77
-  },
-  {
-   "ts": "2026-07-19T17:45",
-   "bot": "24_funding_multivenues",
-   "marche": "pdxcarry-KBONK",
-   "pnl": -0.66
-  },
-  {
-   "ts": "2026-07-19T17:45",
-   "bot": "24_funding_multivenues",
-   "marche": "pdxcarry-SPCX",
-   "pnl": -0.75
   }
  ],
  "calibration_arbitre": {
@@ -187,7 +187,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 10.0,
+  "age_avis_h": 10.2,
   "problemes": []
  },
  "autofinancement": {
