@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-19T14:01:08.319767+00:00",
+ "ts": "2026-07-19T14:05:45.000566+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -25,11 +25,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 704,
-   "esperance": 0.4981,
-   "t": 3.35,
-   "pnl": 350.63,
-   "pnl_j": 13.083,
+   "n": 705,
+   "esperance": 0.5019,
+   "t": 3.37,
+   "pnl": 353.86,
+   "pnl_j": 13.204,
    "fwd_j": 26.8
   },
   "27a_rev_premium": {
@@ -115,18 +115,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0053,
-  "ret7": 0.011,
-  "ret30": 0.0153,
-  "prix": 64481
+  "ret1": -0.0048,
+  "ret7": 0.0115,
+  "ret30": 0.0158,
+  "prix": 64516
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 22.9
+   "move_pct": 24.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-19T14:05",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": 3.22
+  },
+  {
+   "ts": "2026-07-19T14:05",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-19T14:01",
    "bot": "25_convergence_basis",
@@ -162,18 +174,6 @@
    "bot": "27f10_selecteur",
    "marche": "sel-TRUMP-MOM-tendance_piece",
    "pnl": -2.97
-  },
-  {
-   "ts": "2026-07-19T13:30",
-   "bot": "27f10_selecteur",
-   "marche": "sel-ETHFI-MOM-tendance_piece",
-   "pnl": -2.96
-  },
-  {
-   "ts": "2026-07-19T13:30",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-CASHCAT",
-   "pnl": -7.72
   }
  ],
  "calibration_arbitre": {
@@ -187,7 +187,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 6.2,
+  "age_avis_h": 6.3,
   "problemes": []
  },
  "autofinancement": {
