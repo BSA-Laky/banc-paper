@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-19T16:01:06.194372+00:00",
+ "ts": "2026-07-19T16:15:41.193481+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -7,11 +7,11 @@
  "statuts": {
   "23_carry_funding": {
    "statut": "ORANGE",
-   "n": 142,
-   "esperance": 0.8546,
-   "t": 1.49,
-   "pnl": 121.35,
-   "pnl_j": 4.667,
+   "n": 143,
+   "esperance": 0.8272,
+   "t": 1.45,
+   "pnl": 118.3,
+   "pnl_j": 4.55,
    "fwd_j": 26.0
   },
   "24_funding_multivenues": {
@@ -25,11 +25,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 713,
-   "esperance": 0.5046,
-   "t": 3.43,
-   "pnl": 359.77,
-   "pnl_j": 13.374,
+   "n": 714,
+   "esperance": 0.5058,
+   "t": 3.44,
+   "pnl": 361.15,
+   "pnl_j": 13.426,
    "fwd_j": 26.9
   },
   "27a_rev_premium": {
@@ -101,8 +101,8 @@
    "esperance": 1.0683,
    "t": 0.2,
    "pnl": 14.96,
-   "pnl_j": 2.077,
-   "fwd_j": 7.2
+   "pnl_j": 2.049,
+   "fwd_j": 7.3
   },
   "28_carry_hold": {
    "statut": "ORANGE",
@@ -115,18 +115,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0039,
-  "ret7": 0.0124,
-  "ret30": 0.0167,
-  "prix": 64574
+  "ret1": -0.0045,
+  "ret7": 0.0118,
+  "ret30": 0.0161,
+  "prix": 64534
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 39.8
+   "move_pct": 36.3
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-19T16:15",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": 1.37
+  },
+  {
+   "ts": "2026-07-19T16:15",
+   "bot": "23_carry_funding",
+   "marche": "carry-AERO",
+   "pnl": -3.05
+  },
+  {
+   "ts": "2026-07-19T16:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-19T16:01",
    "bot": "27f10_selecteur",
@@ -156,24 +174,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-ZRO",
    "pnl": -0.44
-  },
-  {
-   "ts": "2026-07-19T15:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-19T15:30",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ACE",
-   "pnl": 0.1
-  },
-  {
-   "ts": "2026-07-19T15:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -187,7 +187,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 8.2,
+  "age_avis_h": 8.5,
   "problemes": []
  },
  "autofinancement": {
