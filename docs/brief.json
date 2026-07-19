@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-19T16:45:43.675577+00:00",
+ "ts": "2026-07-19T17:01:01.442275+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -61,11 +61,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
-   "n": 47,
-   "esperance": 0.6721,
-   "t": 0.3,
-   "pnl": 31.59,
-   "pnl_j": 1.595,
+   "n": 48,
+   "esperance": 0.3969,
+   "t": 0.18,
+   "pnl": 19.05,
+   "pnl_j": 0.962,
    "fwd_j": 19.8
   },
   "27e_arbitre": {
@@ -74,8 +74,8 @@
    "esperance": -1.7479,
    "t": -0.62,
    "pnl": -43.7,
-   "pnl_j": -2.731,
-   "fwd_j": 16.0
+   "pnl_j": -2.714,
+   "fwd_j": 16.1
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
@@ -110,23 +110,35 @@
    "esperance": 4.061,
    "t": 2.7,
    "pnl": 223.36,
-   "pnl_j": 13.96,
-   "fwd_j": 16.0
+   "pnl_j": 13.873,
+   "fwd_j": 16.1
   }
  },
  "tendances_btc": {
-  "ret1": -0.0035,
-  "ret7": 0.0128,
-  "ret30": 0.0171,
-  "prix": 64599
+  "ret1": -0.0044,
+  "ret7": 0.0119,
+  "ret30": 0.0162,
+  "prix": 64540
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 33.0
+   "move_pct": 38.0
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-19T17:00",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-CASHCAT",
+   "pnl": -12.54
+  },
+  {
+   "ts": "2026-07-19T17:00",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-19T16:45",
    "bot": "10_controle_aleatoire",
@@ -162,18 +174,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-19T16:01",
-   "bot": "27f10_selecteur",
-   "marche": "sel-ACE-REV-defaut",
-   "pnl": 11.06
-  },
-  {
-   "ts": "2026-07-19T16:00",
-   "bot": "25_convergence_basis",
-   "marche": "conv-KAITO",
-   "pnl": 0.13
   }
  ],
  "calibration_arbitre": {
@@ -187,7 +187,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 9.0,
+  "age_avis_h": 9.2,
   "problemes": []
  },
  "autofinancement": {
