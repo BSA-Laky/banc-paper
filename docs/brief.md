@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-19 12:56 (Paris)
+# Brief Station — 2026-07-19 13:01 (Paris)
 
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -14,11 +14,11 @@
 | 27f10_selecteur | ORANGE | 97 | 0.2402 | 0.24 | 23.3 | 1.575 | 14.8 j |
 | 27f_selecteur | GRIS | 23 | -3.4995 | -1.16 | -80.49 | -5.438 | 14.8 j |
 | 27g10_selecteur | GRIS | 13 | 1.3474 | 0.24 | 17.52 | 2.502 | 7.0 j |
-| 28_carry_hold | ORANGE | 52 | 4.2218 | 2.65 | 219.53 | 13.895 | 15.8 j |
+| 28_carry_hold | ORANGE | 53 | 4.1602 | 2.66 | 220.49 | 13.955 | 15.8 j |
 
-**P&L paper cumule (hors temoin)** : +686.81 $
+**P&L paper cumule (hors temoin)** : +687.77 $
 
-**BTC** 64579 $ — ret 1j -0.38% · 7j +1.25% · 30j +1.68%
+**BTC** 64539 $ — ret 1j -0.44% · 7j +1.19% · 30j +1.62%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 9, "taux_correct": 0.667, "brier_moyen": 0.227}}
 **Autofinancement** : couts API 13.82 $ (releve 2026-07-18) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
