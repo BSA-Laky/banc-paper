@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-20T20:30:58.015108+00:00",
+ "ts": "2026-07-20T20:45:47.289980+00:00",
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)",
   "25_convergence_basis: ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.138 pt, t 1.97)",
@@ -65,11 +65,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
-   "n": 55,
-   "esperance": -0.7095,
-   "t": -0.36,
-   "pnl": -39.02,
-   "pnl_j": -1.858,
+   "n": 56,
+   "esperance": -0.827,
+   "t": -0.42,
+   "pnl": -46.31,
+   "pnl_j": -2.205,
    "fwd_j": 21.0
   },
   "27e_arbitre": {
@@ -123,31 +123,39 @@
    "esperance": 0.2249,
    "t": 1.27,
    "pnl": 10.57,
-   "pnl_j": 17.614,
-   "fwd_j": 0.6
+   "pnl_j": 15.098,
+   "fwd_j": 0.7
   }
  },
  "tendances_btc": {
-  "ret1": 0.0083,
-  "ret7": 0.0469,
-  "ret30": 0.0152,
-  "prix": 65253
+  "ret1": 0.0089,
+  "ret7": 0.0475,
+  "ret30": 0.0158,
+  "prix": 65291
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 64.0
+   "move_pct": 68.4
   },
   {
    "coin": "HEMI",
-   "move_pct": 62.5
-  },
-  {
-   "coin": "MET",
-   "move_pct": 20.7
+   "move_pct": 67.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-20T20:45",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-HEMI",
+   "pnl": -7.29
+  },
+  {
+   "ts": "2026-07-20T20:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-20T20:30",
    "bot": "27f10_selecteur",
@@ -183,18 +191,6 @@
    "bot": "27d_rev_move_stop",
    "marche": "rev_move_stop-HEMI",
    "pnl": -16.76
-  },
-  {
-   "ts": "2026-07-20T20:00",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-20T19:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -208,7 +204,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 12.0,
+  "age_avis_h": 12.3,
   "problemes": []
  },
  "autofinancement": {
