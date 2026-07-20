@@ -1,4 +1,10 @@
-# Brief Station — 2026-07-20 13:15 (Paris)
+# Brief Station — 2026-07-20 13:30 (Paris)
+
+## 🔴 ALERTES
+- rd_h1: esp20 -0.41 < borne -0.32 -> COUPER LE BOT
+
+## Changements de statut depuis hier
+- rd_h1 : GRIS → **ROUGE**
 
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -13,14 +19,14 @@
 | 27e_arbitre | GRIS | 26 | -1.2954 | -0.47 | -33.68 | -2.005 | 16.8 j |
 | 27f10_selecteur | ORANGE | 105 | 0.7004 | 0.7 | 73.54 | 4.654 | 15.8 j |
 | 27f_selecteur | GRIS | 24 | -3.7769 | -1.31 | -90.65 | -5.737 | 15.8 j |
-| 27g10_selecteur | GRIS | 15 | -0.4505 | -0.09 | -6.76 | -0.845 | 8.0 j |
+| 27g10_selecteur | GRIS | 15 | -0.4505 | -0.09 | -6.76 | -0.834 | 8.1 j |
 | 28_carry_hold | ORANGE | 59 | 4.051 | 2.88 | 239.01 | 14.227 | 16.8 j |
-| rd_h1 | GRIS | 27 | 0.6941 | 3.52 | 18.74 | 37.482 | 0.3 j |
+| rd_h1 | ROUGE | 47 | 0.2249 | 1.27 | 10.57 | 21.137 | 0.3 j |
 
-**P&L paper cumule (hors temoin)** : +669.75 $
+**P&L paper cumule (hors temoin)** : +661.58 $
 
-**BTC** 64334 $ — ret 1j -0.59% · 7j +3.21% · 30j +0.09%
-**Moves 24h ≥ 20 %** : ACE +121.7%, CASHCAT +22.1%
+**BTC** 64427 $ — ret 1j -0.45% · 7j +3.36% · 30j +0.23%
+**Moves 24h ≥ 20 %** : ACE +136.6%, CASHCAT +21.8%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 13.82 $ (releve 2026-07-18) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
