@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-20T02:30:54.813490+00:00",
+ "ts": "2026-07-20T02:45:47.600189+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -25,11 +25,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 744,
-   "esperance": 0.5191,
-   "t": 3.62,
-   "pnl": 386.24,
-   "pnl_j": 14.148,
+   "n": 746,
+   "esperance": 0.5298,
+   "t": 3.7,
+   "pnl": 395.24,
+   "pnl_j": 14.478,
    "fwd_j": 27.3
   },
   "27a_rev_premium": {
@@ -115,26 +115,44 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0005,
-  "ret7": 0.0378,
-  "ret30": 0.0064,
-  "prix": 64687
+  "ret1": 0.002,
+  "ret7": 0.0404,
+  "ret30": 0.0089,
+  "prix": 64850
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 55.2
+   "move_pct": 52.7
   },
   {
    "coin": "CASHCAT",
-   "move_pct": 28.6
+   "move_pct": 26.6
   },
   {
    "coin": "PUMP",
-   "move_pct": 23.6
+   "move_pct": 23.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-20T02:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": 5.37
+  },
+  {
+   "ts": "2026-07-20T02:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ACE",
+   "pnl": 3.63
+  },
+  {
+   "ts": "2026-07-20T02:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-20T02:30",
    "bot": "10_controle_aleatoire",
@@ -164,24 +182,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-20T01:45",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-ACE",
-   "pnl": -7.8
-  },
-  {
-   "ts": "2026-07-20T01:45",
-   "bot": "25_convergence_basis",
-   "marche": "conv-VVV",
-   "pnl": -0.08
-  },
-  {
-   "ts": "2026-07-20T01:45",
-   "bot": "25_convergence_basis",
-   "marche": "conv-SUSHI",
-   "pnl": -0.27
   }
  ],
  "calibration_arbitre": {
@@ -195,7 +195,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 18.7,
+  "age_avis_h": 19.0,
   "problemes": []
  },
  "autofinancement": {
