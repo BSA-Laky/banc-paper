@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-20 08:30 (Paris)
+# Brief Station — 2026-07-20 08:45 (Paris)
 
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -13,14 +13,14 @@
 | 27e_arbitre | GRIS | 26 | -1.2954 | -0.47 | -33.68 | -2.029 | 16.6 j |
 | 27f10_selecteur | ORANGE | 105 | 0.7004 | 0.7 | 73.54 | 4.714 | 15.6 j |
 | 27f_selecteur | GRIS | 24 | -3.7769 | -1.31 | -90.65 | -5.811 | 15.6 j |
-| 27g10_selecteur | GRIS | 15 | -0.4505 | -0.09 | -6.76 | -0.866 | 7.8 j |
+| 27g10_selecteur | GRIS | 15 | -0.4505 | -0.09 | -6.76 | -0.855 | 7.9 j |
 | 28_carry_hold | ORANGE | 58 | 4.0905 | 2.86 | 237.25 | 14.292 | 16.6 j |
 | rd_h1 | GRIS | 20 | 0.9435 | 5.67 | 18.87 | 37.741 | 0.1 j |
 
 **P&L paper cumule (hors temoin)** : +668.46 $
 
-**BTC** 64101 $ — ret 1j -0.95% · 7j +2.84% · 30j -0.27%
-**Moves 24h ≥ 20 %** : ACE +81.1%, CASHCAT +29.0%
+**BTC** 63789 $ — ret 1j -1.44% · 7j +2.34% · 30j -0.76%
+**Moves 24h ≥ 20 %** : ACE +85.2%, CASHCAT +26.2%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 9, "taux_correct": 0.667, "brier_moyen": 0.227}}
 **Autofinancement** : couts API 13.82 $ (releve 2026-07-18) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
