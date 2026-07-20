@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-20T06:15:42.861357+00:00",
+ "ts": "2026-07-20T06:30:55.100238+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -25,11 +25,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 763,
-   "esperance": 0.5004,
-   "t": 3.54,
-   "pnl": 381.82,
-   "pnl_j": 13.884,
+   "n": 764,
+   "esperance": 0.5162,
+   "t": 3.63,
+   "pnl": 394.38,
+   "pnl_j": 14.341,
    "fwd_j": 27.5
   },
   "27a_rev_premium": {
@@ -61,11 +61,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
-   "n": 49,
-   "esperance": 0.2297,
-   "t": 0.11,
-   "pnl": 11.25,
-   "pnl_j": 0.552,
+   "n": 50,
+   "esperance": -0.0711,
+   "t": -0.03,
+   "pnl": -3.56,
+   "pnl_j": -0.174,
    "fwd_j": 20.4
   },
   "27e_arbitre": {
@@ -124,22 +124,40 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0085,
-  "ret7": 0.0295,
-  "ret30": -0.0017,
-  "prix": 64169
+  "ret1": -0.0095,
+  "ret7": 0.0284,
+  "ret30": -0.0027,
+  "prix": 64101
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 56.2
+   "move_pct": 81.1
   },
   {
    "coin": "CASHCAT",
-   "move_pct": 30.0
+   "move_pct": 29.0
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-20T06:30",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-ACE",
+   "pnl": -14.81
+  },
+  {
+   "ts": "2026-07-20T06:30",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ACE",
+   "pnl": 12.56
+  },
+  {
+   "ts": "2026-07-20T06:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-20T06:15",
    "bot": "10_controle_aleatoire",
@@ -169,24 +187,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-20T05:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-20T05:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-20T05:01",
-   "bot": "27a_rev_premium",
-   "marche": "rev_premium-CASHCAT",
-   "pnl": -25.1
   }
  ],
  "calibration_arbitre": {
@@ -200,7 +200,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 22.5,
+  "age_avis_h": 22.7,
   "problemes": []
  },
  "autofinancement": {
