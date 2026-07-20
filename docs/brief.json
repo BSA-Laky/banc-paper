@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-20T10:15:41.338019+00:00",
+ "ts": "2026-07-20T10:30:52.979761+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -25,11 +25,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 777,
-   "esperance": 0.5382,
+   "n": 778,
+   "esperance": 0.537,
    "t": 3.77,
-   "pnl": 418.16,
-   "pnl_j": 15.151,
+   "pnl": 417.77,
+   "pnl_j": 15.136,
    "fwd_j": 27.6
   },
   "27a_rev_premium": {
@@ -124,18 +124,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0072,
-  "ret7": 0.0308,
-  "ret30": -0.0004,
-  "prix": 64250
+  "ret1": -0.0065,
+  "ret7": 0.0315,
+  "ret30": 0.0003,
+  "prix": 64297
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 116.4
+   "move_pct": 116.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-20T10:30",
+   "bot": "25_convergence_basis",
+   "marche": "conv-KBONK",
+   "pnl": -0.4
+  },
+  {
+   "ts": "2026-07-20T10:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-20T10:15",
    "bot": "25_convergence_basis",
@@ -171,18 +183,6 @@
    "bot": "24_funding_multivenues",
    "marche": "pdxcarry-MSTR",
    "pnl": -0.66
-  },
-  {
-   "ts": "2026-07-20T10:01",
-   "bot": "25_convergence_basis",
-   "marche": "conv-KBONK",
-   "pnl": 0.64
-  },
-  {
-   "ts": "2026-07-20T10:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -196,7 +196,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.8,
+  "age_avis_h": 2.0,
   "problemes": []
  },
  "autofinancement": {
