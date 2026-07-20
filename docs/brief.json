@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-20T17:01:15.308858+00:00",
+ "ts": "2026-07-20T17:02:56.778166+00:00",
  "alertes": [
   "rd_h1: esp20 -0.41 < borne -0.32 -> COUPER LE BOT"
  ],
@@ -27,11 +27,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 824,
-   "esperance": 0.485,
+   "n": 825,
+   "esperance": 0.4842,
    "t": 3.57,
-   "pnl": 399.62,
-   "pnl_j": 14.323,
+   "pnl": 399.49,
+   "pnl_j": 14.318,
    "fwd_j": 27.9
   },
   "27a_rev_premium": {
@@ -126,22 +126,34 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.012,
-  "ret7": 0.0507,
-  "ret30": 0.0189,
-  "prix": 65493
+  "ret1": 0.0113,
+  "ret7": 0.05,
+  "ret30": 0.0183,
+  "prix": 65450
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 84.0
+   "move_pct": 83.9
   },
   {
    "coin": "HEMI",
-   "move_pct": 31.0
+   "move_pct": 31.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-20T17:02",
+   "bot": "25_convergence_basis",
+   "marche": "conv-KAITO",
+   "pnl": -0.14
+  },
+  {
+   "ts": "2026-07-20T17:02",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-20T17:01",
    "bot": "27d_rev_move_stop",
@@ -177,18 +189,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-KBONK",
    "pnl": 0.25
-  },
-  {
-   "ts": "2026-07-20T16:45",
-   "bot": "25_convergence_basis",
-   "marche": "conv-AAVE",
-   "pnl": -0.05
-  },
-  {
-   "ts": "2026-07-20T16:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -202,7 +202,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 8.5,
+  "age_avis_h": 8.6,
   "problemes": []
  },
  "autofinancement": {
