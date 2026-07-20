@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-21 01:01 (Paris)
+# Brief Station — 2026-07-21 01:15 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)
@@ -11,21 +11,21 @@
 | 23_carry_funding | ORANGE | 150 | 0.7179 | 1.29 | 107.69 | 3.945 | 27.3 j |
 | 24_funding_multivenues | ORANGE | 136 | -0.3344 | -1.77 | -45.48 | -1.672 | 27.2 j |
 | 25_convergence_basis | ROUGE | 829 | 0.4816 | 3.56 | 399.23 | 14.157 | 28.2 j |
-| 27a_rev_premium | GRIS | 27 | 0.451 | 0.15 | 12.18 | 0.449 | 27.1 j |
-| 27b_rev_move | ORANGE | 46 | 3.212 | 1.44 | 147.75 | 5.534 | 26.7 j |
-| 27c_mom_move | ORANGE | 46 | -3.352 | -1.51 | -154.19 | -5.775 | 26.7 j |
+| 27a_rev_premium | GRIS | 28 | 1.1797 | 0.39 | 33.03 | 1.219 | 27.1 j |
+| 27b_rev_move | ORANGE | 47 | 2.697 | 1.21 | 126.76 | 4.747 | 26.7 j |
+| 27c_mom_move | ORANGE | 47 | -2.837 | -1.27 | -133.34 | -4.994 | 26.7 j |
 | 27d_rev_move_stop | ORANGE | 56 | -0.827 | -0.42 | -46.31 | -2.195 | 21.1 j |
-| 27e_arbitre | GRIS | 27 | -1.3536 | -0.51 | -36.55 | -2.113 | 17.3 j |
-| 27f10_selecteur | ORANGE | 108 | 0.8615 | 0.88 | 93.04 | 5.708 | 16.3 j |
-| 27f_selecteur | GRIS | 25 | -3.5168 | -1.26 | -87.92 | -5.394 | 16.3 j |
+| 27e_arbitre | GRIS | 28 | -0.5605 | -0.21 | -15.69 | -0.907 | 17.3 j |
+| 27f10_selecteur | ORANGE | 109 | 1.0449 | 1.06 | 113.9 | 6.988 | 16.3 j |
+| 27f_selecteur | GRIS | 26 | -2.5795 | -0.91 | -67.07 | -4.114 | 16.3 j |
 | 27g10_selecteur | GRIS | 16 | 0.1743 | 0.04 | 2.79 | 0.328 | 8.5 j |
 | 28_carry_hold | ORANGE | 62 | 4.2165 | 3.07 | 261.42 | 15.111 | 17.3 j |
 | rd_h1 | ROUGE | 47 | 0.2249 | 1.27 | 10.57 | 13.21 | 0.8 j |
 
-**P&L paper cumule (hors temoin)** : +664.22 $
+**P&L paper cumule (hors temoin)** : +747.50 $
 
-**BTC** 65099 $ — ret 1j +0.59% · 7j +4.44% · 30j +1.28%
-**Moves 24h ≥ 20 %** : HEMI +53.0%, MET +23.2%, ACE +21.9%
+**BTC** 65160 $ — ret 1j +0.68% · 7j +4.54% · 30j +1.38%
+**Moves 24h ≥ 20 %** : HEMI +60.2%, ACE +24.3%, MET +24.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 13.82 $ (releve 2026-07-18) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
