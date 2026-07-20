@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-20 16:15 (Paris)
+# Brief Station — 2026-07-20 16:30 (Paris)
 
 ## 🔴 ALERTES
 - rd_h1: esp20 -0.41 < borne -0.32 -> COUPER LE BOT
@@ -6,24 +6,24 @@
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 23_carry_funding | ORANGE | 147 | 0.6781 | 1.21 | 99.68 | 3.706 | 26.9 j |
+| 23_carry_funding | ORANGE | 148 | 0.7553 | 1.34 | 111.79 | 4.156 | 26.9 j |
 | 24_funding_multivenues | ORANGE | 128 | -0.3015 | -1.51 | -38.59 | -1.44 | 26.8 j |
-| 25_convergence_basis | ORANGE | 800 | 0.5201 | 3.75 | 416.06 | 14.966 | 27.8 j |
+| 25_convergence_basis | ORANGE | 801 | 0.519 | 3.75 | 415.68 | 14.953 | 27.8 j |
 | 27a_rev_premium | GRIS | 27 | 0.451 | 0.15 | 12.18 | 0.456 | 26.7 j |
 | 27b_rev_move | ORANGE | 45 | 3.2132 | 1.41 | 144.6 | 5.477 | 26.4 j |
 | 27c_mom_move | ORANGE | 45 | -3.3532 | -1.47 | -150.9 | -5.716 | 26.4 j |
 | 27d_rev_move_stop | ORANGE | 53 | -0.4955 | -0.24 | -26.26 | -1.269 | 20.7 j |
-| 27e_arbitre | GRIS | 26 | -1.2954 | -0.47 | -33.68 | -1.993 | 16.9 j |
+| 27e_arbitre | GRIS | 26 | -1.2954 | -0.47 | -33.68 | -1.981 | 17.0 j |
 | 27f10_selecteur | ORANGE | 105 | 0.7004 | 0.7 | 73.54 | 4.625 | 15.9 j |
 | 27f_selecteur | GRIS | 24 | -3.7769 | -1.31 | -90.65 | -5.701 | 15.9 j |
 | 27g10_selecteur | GRIS | 15 | -0.4505 | -0.09 | -6.76 | -0.824 | 8.2 j |
-| 28_carry_hold | ORANGE | 59 | 4.051 | 2.88 | 239.01 | 14.143 | 16.9 j |
+| 28_carry_hold | ORANGE | 59 | 4.051 | 2.88 | 239.01 | 14.059 | 17.0 j |
 | rd_h1 | ROUGE | 47 | 0.2249 | 1.27 | 10.57 | 21.137 | 0.4 j |
 
-**P&L paper cumule (hors temoin)** : +648.80 $
+**P&L paper cumule (hors temoin)** : +660.53 $
 
-**BTC** 64311 $ — ret 1j -0.63% · 7j +3.18% · 30j +0.05%
-**Moves 24h ≥ 20 %** : ACE +87.8%
+**BTC** 64522 $ — ret 1j -0.30% · 7j +3.52% · 30j +0.38%
+**Moves 24h ≥ 20 %** : ACE +87.8%, CASHCAT +25.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 13.82 $ (releve 2026-07-18) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
