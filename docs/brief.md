@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-20 15:15 (Paris)
+# Brief Station — 2026-07-20 15:30 (Paris)
 
 ## 🔴 ALERTES
 - rd_h1: esp20 -0.41 < borne -0.32 -> COUPER LE BOT
@@ -18,12 +18,12 @@
 | 27f_selecteur | GRIS | 24 | -3.7769 | -1.31 | -90.65 | -5.701 | 15.9 j |
 | 27g10_selecteur | GRIS | 15 | -0.4505 | -0.09 | -6.76 | -0.834 | 8.1 j |
 | 28_carry_hold | ORANGE | 59 | 4.051 | 2.88 | 239.01 | 14.143 | 16.9 j |
-| rd_h1 | ROUGE | 47 | 0.2249 | 1.27 | 10.57 | 21.137 | 0.3 j |
+| rd_h1 | ROUGE | 47 | 0.2249 | 1.27 | 10.57 | 21.137 | 0.4 j |
 
 **P&L paper cumule (hors temoin)** : +658.74 $
 
-**BTC** 64686 $ — ret 1j -0.05% · 7j +3.78% · 30j +0.64%
-**Moves 24h ≥ 20 %** : ACE +108.0%
+**BTC** 64565 $ — ret 1j -0.24% · 7j +3.58% · 30j +0.45%
+**Moves 24h ≥ 20 %** : ACE +87.8%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 13.82 $ (releve 2026-07-18) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
