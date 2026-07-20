@@ -1,11 +1,11 @@
 {
- "ts": "2026-07-20T20:09:04.728227+00:00",
+ "ts": "2026-07-20T20:15:40.348568+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 545,
-   "t_stat": -0.42,
+   "n": 546,
+   "t_stat": -0.47,
    "sain": true
   }
  },
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.6903,
    "borne_decrochage": -2.3233,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 7242.6,
+   "expo_moyenne_usd": 7241.4,
    "rendement_j_pct": 0.056
   },
   "24_funding_multivenues": {
@@ -53,7 +53,7 @@
    "esp_glissante_20": -0.9156,
    "borne_decrochage": -1.3177,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 1346.5,
+   "expo_moyenne_usd": 1346.3,
    "rendement_j_pct": -0.125
   },
   "25_convergence_basis": {
@@ -65,7 +65,7 @@
    "verdict_banc": "edge a CONFIRMER (profil asymetrique, t-stat peu fiable)",
    "decrochage": false,
    "raisons": [
-    "ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.137 pt, t 1.96)",
+    "ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.138 pt, t 1.96)",
     "KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)"
    ],
    "avertissements": [],
@@ -76,7 +76,7 @@
    "esp_glissante_20": -0.1774,
    "borne_decrochage": -1.2585,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 7052.1,
+   "expo_moyenne_usd": 7050.9,
    "rendement_j_pct": 0.202,
    "ab": {
     "contre": "23_carry_funding",
@@ -105,7 +105,7 @@
    "borne_decrochage": -6.6689,
    "statut": "GRIS",
    "expo_moyenne_usd": 100.1,
-   "rendement_j_pct": 0.45
+   "rendement_j_pct": 0.451
   },
   "27b_rev_move": {
    "n": 45,
@@ -202,7 +202,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -4.5086,
     "t_welch": -1.26,
-    "delta_rendement_j_pct": -0.3303,
+    "delta_rendement_j_pct": -0.3305,
     "t_welch_jour": -0.1,
     "jours_compares": 17
    }
@@ -227,7 +227,7 @@
    "esp_glissante_20": 1.467,
    "borne_decrochage": -3.7869,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 662.8,
+   "expo_moyenne_usd": 662.6,
    "rendement_j_pct": 0.738
   },
   "27f_selecteur": {
@@ -245,8 +245,8 @@
    "pnl_par_jour": -5.63,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 148.7,
-   "rendement_j_pct": -3.787
+   "expo_moyenne_usd": 148.6,
+   "rendement_j_pct": -3.788
   },
   "27g10_selecteur": {
    "n": 15,
@@ -263,8 +263,8 @@
    "pnl_par_jour": -0.805,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 178.3,
-   "rendement_j_pct": -0.451
+   "expo_moyenne_usd": 178.2,
+   "rendement_j_pct": -0.452
   },
   "28_carry_hold": {
    "n": 62,
@@ -289,7 +289,7 @@
    "esp_glissante_20": 4.026,
    "borne_decrochage": 0.6607,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 2470.1,
+   "expo_moyenne_usd": 2469.5,
    "rendement_j_pct": 0.615
   },
   "rd_h1": {
@@ -317,7 +317,7 @@
  },
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)",
-  "25_convergence_basis: ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.137 pt, t 1.96)",
+  "25_convergence_basis: ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.138 pt, t 1.96)",
   "rd_h1: esp20 -0.41 < borne -0.32 -> COUPER LE BOT"
  ],
  "avertissements": [],
