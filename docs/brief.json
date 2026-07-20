@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-20T12:30:54.818799+00:00",
+ "ts": "2026-07-20T12:45:41.490805+00:00",
  "alertes": [
   "rd_h1: esp20 -0.41 < borne -0.32 -> COUPER LE BOT"
  ],
@@ -22,16 +22,16 @@
    "esperance": -0.3015,
    "t": -1.51,
    "pnl": -38.59,
-   "pnl_j": -1.445,
-   "fwd_j": 26.7
+   "pnl_j": -1.44,
+   "fwd_j": 26.8
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 792,
-   "esperance": 0.5248,
-   "t": 3.75,
-   "pnl": 415.6,
-   "pnl_j": 15.004,
+   "n": 793,
+   "esperance": 0.5238,
+   "t": 3.74,
+   "pnl": 415.41,
+   "pnl_j": 14.997,
    "fwd_j": 27.7
   },
   "27a_rev_premium": {
@@ -40,8 +40,8 @@
    "esperance": 0.451,
    "t": 0.15,
    "pnl": 12.18,
-   "pnl_j": 0.458,
-   "fwd_j": 26.6
+   "pnl_j": 0.456,
+   "fwd_j": 26.7
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -67,8 +67,8 @@
    "esperance": -0.4955,
    "t": -0.24,
    "pnl": -26.26,
-   "pnl_j": -1.275,
-   "fwd_j": 20.6
+   "pnl_j": -1.269,
+   "fwd_j": 20.7
   },
   "27e_arbitre": {
    "statut": "GRIS",
@@ -126,15 +126,15 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0007,
-  "ret7": 0.0376,
-  "ret30": 0.0062,
-  "prix": 64672
+  "ret1": -0.0012,
+  "ret7": 0.037,
+  "ret30": 0.0057,
+  "prix": 64640
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 114.6
+   "move_pct": 110.8
   },
   {
    "coin": "CASHCAT",
@@ -142,6 +142,18 @@
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-20T12:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-MET",
+   "pnl": -0.19
+  },
+  {
+   "ts": "2026-07-20T12:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-20T12:30",
    "bot": "25_convergence_basis",
@@ -177,18 +189,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-CASHCAT",
    "pnl": 0.61
-  },
-  {
-   "ts": "2026-07-20T12:01",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ADA",
-   "pnl": -0.3
-  },
-  {
-   "ts": "2026-07-20T12:01",
-   "bot": "25_convergence_basis",
-   "marche": "conv-XRP",
-   "pnl": -0.67
   }
  ],
  "calibration_arbitre": {
@@ -202,7 +202,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 4.0,
+  "age_avis_h": 4.3,
   "problemes": []
  },
  "autofinancement": {
