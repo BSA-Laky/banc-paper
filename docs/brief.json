@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-20T23:15:42.798518+00:00",
+ "ts": "2026-07-20T23:30:57.697019+00:00",
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)",
   "25_convergence_basis: ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.138 pt, t 1.97)",
@@ -105,8 +105,8 @@
    "esperance": 0.1743,
    "t": 0.04,
    "pnl": 2.79,
-   "pnl_j": 0.328,
-   "fwd_j": 8.5
+   "pnl_j": 0.324,
+   "fwd_j": 8.6
   },
   "28_carry_hold": {
    "statut": "ORANGE",
@@ -128,26 +128,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0068,
-  "ret7": 0.0454,
-  "ret30": 0.0138,
-  "prix": 65160
+  "ret1": 0.0076,
+  "ret7": 0.0462,
+  "ret30": 0.0146,
+  "prix": 65212
  },
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": 60.2
-  },
-  {
-   "coin": "ACE",
-   "move_pct": 24.3
+   "move_pct": 56.2
   },
   {
    "coin": "MET",
-   "move_pct": 24.1
+   "move_pct": 21.1
+  },
+  {
+   "coin": "ACE",
+   "move_pct": 20.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-20T23:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-20T23:15",
    "bot": "27f10_selecteur",
@@ -189,12 +195,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-20T23:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -208,7 +208,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 14.8,
+  "age_avis_h": 15.0,
   "problemes": []
  },
  "autofinancement": {
