@@ -1,12 +1,9 @@
-# Brief Station — 2026-07-20 20:01 (Paris)
+# Brief Station — 2026-07-20 20:15 (Paris)
 
 ## 🔴 ALERTES
-- 25_convergence_basis: VERDICT PRÉ-ENREGISTRÉ -> KILL : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)
+- 25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)
 - 25_convergence_basis: ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.137 pt, t 1.96)
 - rd_h1: esp20 -0.41 < borne -0.32 -> COUPER LE BOT
-
-## Changements de statut depuis hier
-- 25_convergence_basis : ORANGE → **ROUGE**
 
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -22,13 +19,13 @@
 | 27f10_selecteur | ORANGE | 106 | 0.7251 | 0.73 | 76.86 | 4.774 | 16.1 j |
 | 27f_selecteur | GRIS | 24 | -3.7769 | -1.31 | -90.65 | -5.63 | 16.1 j |
 | 27g10_selecteur | GRIS | 15 | -0.4505 | -0.09 | -6.76 | -0.814 | 8.3 j |
-| 28_carry_hold | ORANGE | 60 | 4.3553 | 3.07 | 261.32 | 15.282 | 17.1 j |
-| rd_h1 | ROUGE | 47 | 0.2249 | 1.27 | 10.57 | 21.137 | 0.5 j |
+| 28_carry_hold | ORANGE | 62 | 4.2165 | 3.07 | 261.42 | 15.288 | 17.1 j |
+| rd_h1 | ROUGE | 47 | 0.2249 | 1.27 | 10.57 | 17.614 | 0.6 j |
 
-**P&L paper cumule (hors temoin)** : +664.04 $
+**P&L paper cumule (hors temoin)** : +664.14 $
 
-**BTC** 65583 $ — ret 1j +1.34% · 7j +5.22% · 30j +2.03%
-**Moves 24h ≥ 20 %** : ACE +78.9%, HEMI +27.0%
+**BTC** 65686 $ — ret 1j +1.50% · 7j +5.38% · 30j +2.19%
+**Moves 24h ≥ 20 %** : ACE +83.6%, HEMI +28.7%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 13.82 $ (releve 2026-07-18) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
