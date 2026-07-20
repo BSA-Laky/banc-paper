@@ -1,21 +1,21 @@
 {
- "ts": "2026-07-20T20:15:40.348568+00:00",
+ "ts": "2026-07-20T20:30:57.993635+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 546,
-   "t_stat": -0.47,
+   "n": 547,
+   "t_stat": -0.42,
    "sain": true
   }
  },
  "bots": {
   "23_carry_funding": {
-   "n": 149,
-   "esperance": 0.7316,
-   "t_stat": 1.31,
+   "n": 150,
+   "esperance": 0.7179,
+   "t_stat": 1.29,
    "mdd_live": 52.13,
-   "jours_forward": 27.1,
+   "jours_forward": 27.2,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -24,14 +24,14 @@
    ],
    "avertissements": [],
    "mu_ref": null,
-   "pnl_cumule": 109.01,
-   "pnl_par_jour": 4.022,
+   "pnl_cumule": 107.69,
+   "pnl_par_jour": 3.959,
    "trop_beau_audite": null,
-   "esp_glissante_20": -1.6903,
-   "borne_decrochage": -2.3233,
+   "esp_glissante_20": -1.8551,
+   "borne_decrochage": -2.3276,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 7241.4,
-   "rendement_j_pct": 0.056
+   "expo_moyenne_usd": 7275.8,
+   "rendement_j_pct": 0.054
   },
   "24_funding_multivenues": {
    "n": 136,
@@ -53,7 +53,7 @@
    "esp_glissante_20": -0.9156,
    "borne_decrochage": -1.3177,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 1346.3,
+   "expo_moyenne_usd": 1345.7,
    "rendement_j_pct": -0.125
   },
   "25_convergence_basis": {
@@ -61,29 +61,29 @@
    "esperance": 0.4816,
    "t_stat": 3.56,
    "mdd_live": 47.59,
-   "jours_forward": 28.0,
+   "jours_forward": 28.1,
    "verdict_banc": "edge a CONFIRMER (profil asymetrique, t-stat peu fiable)",
    "decrochage": false,
    "raisons": [
-    "ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.138 pt, t 1.96)",
+    "ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.138 pt, t 1.97)",
     "KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)"
    ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 399.23,
-   "pnl_par_jour": 14.258,
+   "pnl_par_jour": 14.207,
    "trop_beau_audite": null,
    "esp_glissante_20": -0.1774,
    "borne_decrochage": -1.2585,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 7050.9,
+   "expo_moyenne_usd": 7048.2,
    "rendement_j_pct": 0.202,
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.25,
-    "t_welch": -0.43,
-    "delta_rendement_j_pct": 0.1375,
-    "t_welch_jour": 1.96,
+    "delta_esperance": -0.2364,
+    "t_welch": -0.41,
+    "delta_rendement_j_pct": 0.1378,
+    "t_welch_jour": 1.97,
     "jours_compares": 27
    }
   },
@@ -128,8 +128,8 @@
    "esp_glissante_20": -0.4685,
    "borne_decrochage": -3.6119,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 169.2,
-   "rendement_j_pct": 3.213
+   "expo_moyenne_usd": 169.1,
+   "rendement_j_pct": 3.215
   },
   "27c_mom_move": {
    "n": 45,
@@ -152,8 +152,8 @@
    "esp_glissante_20": 0.3285,
    "borne_decrochage": -10.1783,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 169.2,
-   "rendement_j_pct": -3.353
+   "expo_moyenne_usd": 169.1,
+   "rendement_j_pct": -3.355
   },
   "27d_rev_move_stop": {
    "n": 55,
@@ -176,8 +176,8 @@
    "esp_glissante_20": -5.7497,
    "borne_decrochage": -7.2898,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 262.3,
-   "rendement_j_pct": -0.708
+   "expo_moyenne_usd": 262.2,
+   "rendement_j_pct": -0.709
   },
   "27e_arbitre": {
    "n": 26,
@@ -196,23 +196,23 @@
    "esp_glissante_20": -1.1276,
    "borne_decrochage": -7.5975,
    "statut": "GRIS",
-   "expo_moyenne_usd": 151.2,
-   "rendement_j_pct": -1.295,
+   "expo_moyenne_usd": 151.1,
+   "rendement_j_pct": -1.296,
    "ab": {
     "contre": "27b_rev_move",
     "delta_esperance": -4.5086,
     "t_welch": -1.26,
-    "delta_rendement_j_pct": -0.3305,
+    "delta_rendement_j_pct": -0.3309,
     "t_welch_jour": -0.1,
     "jours_compares": 17
    }
   },
   "27f10_selecteur": {
-   "n": 107,
-   "esperance": 0.7358,
-   "t_stat": 0.75,
+   "n": 108,
+   "esperance": 0.8615,
+   "t_stat": 0.88,
    "mdd_live": 65.97,
-   "jours_forward": 16.1,
+   "jours_forward": 16.2,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -221,32 +221,32 @@
    ],
    "avertissements": [],
    "mu_ref": null,
-   "pnl_cumule": 78.73,
-   "pnl_par_jour": 4.89,
+   "pnl_cumule": 93.04,
+   "pnl_par_jour": 5.743,
    "trop_beau_audite": null,
-   "esp_glissante_20": 1.467,
-   "borne_decrochage": -3.7869,
+   "esp_glissante_20": 2.1906,
+   "borne_decrochage": -3.6778,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 662.6,
-   "rendement_j_pct": 0.738
+   "expo_moyenne_usd": 668.4,
+   "rendement_j_pct": 0.859
   },
   "27f_selecteur": {
    "n": 24,
    "esperance": -3.7769,
    "t_stat": -1.31,
    "mdd_live": 139.08,
-   "jours_forward": 16.1,
+   "jours_forward": 16.2,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -90.65,
-   "pnl_par_jour": -5.63,
+   "pnl_par_jour": -5.595,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 148.6,
-   "rendement_j_pct": -3.788
+   "expo_moyenne_usd": 148.5,
+   "rendement_j_pct": -3.767
   },
   "27g10_selecteur": {
    "n": 15,
@@ -263,7 +263,7 @@
    "pnl_par_jour": -0.805,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 178.2,
+   "expo_moyenne_usd": 178.0,
    "rendement_j_pct": -0.452
   },
   "28_carry_hold": {
@@ -289,8 +289,8 @@
    "esp_glissante_20": 4.026,
    "borne_decrochage": 0.6607,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 2469.5,
-   "rendement_j_pct": 0.615
+   "expo_moyenne_usd": 2467.9,
+   "rendement_j_pct": 0.616
   },
   "rd_h1": {
    "n": 47,
@@ -317,7 +317,7 @@
  },
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)",
-  "25_convergence_basis: ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.138 pt, t 1.96)",
+  "25_convergence_basis: ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.138 pt, t 1.97)",
   "rd_h1: esp20 -0.41 < borne -0.32 -> COUPER LE BOT"
  ],
  "avertissements": [],
