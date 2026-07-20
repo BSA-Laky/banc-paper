@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-20T00:30:59.210031+00:00",
+ "ts": "2026-07-20T01:15:46.763038+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -11,8 +11,8 @@
    "esperance": 0.7611,
    "t": 1.36,
    "pnl": 111.12,
-   "pnl_j": 4.225,
-   "fwd_j": 26.3
+   "pnl_j": 4.209,
+   "fwd_j": 26.4
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
@@ -20,17 +20,17 @@
    "esperance": -0.2986,
    "t": -1.48,
    "pnl": -37.93,
-   "pnl_j": -1.448,
-   "fwd_j": 26.2
+   "pnl_j": -1.442,
+   "fwd_j": 26.3
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 738,
-   "esperance": 0.5124,
+   "n": 739,
+   "esperance": 0.5111,
    "t": 3.55,
-   "pnl": 378.13,
-   "pnl_j": 13.902,
-   "fwd_j": 27.2
+   "pnl": 377.68,
+   "pnl_j": 13.834,
+   "fwd_j": 27.3
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -38,8 +38,8 @@
    "esperance": 1.4339,
    "t": 0.48,
    "pnl": 37.28,
-   "pnl_j": 1.428,
-   "fwd_j": 26.1
+   "pnl_j": 1.423,
+   "fwd_j": 26.2
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -65,8 +65,8 @@
    "esperance": 0.3969,
    "t": 0.18,
    "pnl": 19.05,
-   "pnl_j": 0.948,
-   "fwd_j": 20.1
+   "pnl_j": 0.943,
+   "fwd_j": 20.2
   },
   "27e_arbitre": {
    "statut": "GRIS",
@@ -83,8 +83,8 @@
    "esperance": 0.7004,
    "t": 0.7,
    "pnl": 73.54,
-   "pnl_j": 4.806,
-   "fwd_j": 15.3
+   "pnl_j": 4.775,
+   "fwd_j": 15.4
   },
   "27f_selecteur": {
    "statut": "GRIS",
@@ -92,8 +92,8 @@
    "esperance": -3.7769,
    "t": -1.31,
    "pnl": -90.65,
-   "pnl_j": -5.925,
-   "fwd_j": 15.3
+   "pnl_j": -5.886,
+   "fwd_j": 15.4
   },
   "27g10_selecteur": {
    "statut": "GRIS",
@@ -115,26 +115,38 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0016,
-  "ret7": 0.0399,
-  "ret30": 0.0085,
-  "prix": 64821
+  "ret1": 0.0014,
+  "ret7": 0.0397,
+  "ret30": 0.0083,
+  "prix": 64807
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 45.1
+   "move_pct": 50.5
   },
   {
    "coin": "CASHCAT",
-   "move_pct": 30.6
+   "move_pct": 41.5
   },
   {
    "coin": "PUMP",
-   "move_pct": 22.2
+   "move_pct": 22.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-20T01:15",
+   "bot": "25_convergence_basis",
+   "marche": "conv-AVAX",
+   "pnl": -0.45
+  },
+  {
+   "ts": "2026-07-20T01:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-20T00:30",
    "bot": "10_controle_aleatoire",
@@ -170,18 +182,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-19T23:45",
-   "bot": "25_convergence_basis",
-   "marche": "conv-PUMP",
-   "pnl": -0.38
-  },
-  {
-   "ts": "2026-07-19T23:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -195,7 +195,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 16.7,
+  "age_avis_h": 17.5,
   "problemes": []
  },
  "autofinancement": {
