@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-20T15:45:48.372082+00:00",
+ "ts": "2026-07-20T16:01:07.318988+00:00",
  "alertes": [
   "rd_h1: esp20 -0.41 < borne -0.32 -> COUPER LE BOT"
  ],
@@ -27,11 +27,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 813,
-   "esperance": 0.494,
-   "t": 3.59,
-   "pnl": 401.58,
-   "pnl_j": 14.394,
+   "n": 814,
+   "esperance": 0.4957,
+   "t": 3.61,
+   "pnl": 403.53,
+   "pnl_j": 14.463,
    "fwd_j": 27.9
   },
   "27a_rev_premium": {
@@ -126,26 +126,38 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.008,
-  "ret7": 0.0466,
-  "ret30": 0.0149,
-  "prix": 65236
+  "ret1": 0.0125,
+  "ret7": 0.0512,
+  "ret30": 0.0194,
+  "prix": 65524
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 78.1
+   "move_pct": 77.9
   },
   {
    "coin": "HEMI",
-   "move_pct": 25.3
+   "move_pct": 22.6
   },
   {
    "coin": "PUMP",
-   "move_pct": 20.7
+   "move_pct": 21.0
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-20T16:01",
+   "bot": "25_convergence_basis",
+   "marche": "conv-HEMI",
+   "pnl": 1.95
+  },
+  {
+   "ts": "2026-07-20T16:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-20T15:45",
    "bot": "25_convergence_basis",
@@ -181,18 +193,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-PUMP",
    "pnl": -0.39
-  },
-  {
-   "ts": "2026-07-20T15:31",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-20T15:15",
-   "bot": "25_convergence_basis",
-   "marche": "conv-XMR",
-   "pnl": 0.32
   }
  ],
  "calibration_arbitre": {
@@ -206,7 +206,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 7.3,
+  "age_avis_h": 7.5,
   "problemes": []
  },
  "autofinancement": {
