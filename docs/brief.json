@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-20T19:15:41.884673+00:00",
+ "ts": "2026-07-20T19:30:52.201930+00:00",
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)",
   "25_convergence_basis: ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.137 pt, t 1.96)",
@@ -128,22 +128,28 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.006,
-  "ret7": 0.0446,
-  "ret30": 0.013,
-  "prix": 65109
+  "ret1": 0.005,
+  "ret7": 0.0435,
+  "ret30": 0.0119,
+  "prix": 65041
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 96.1
+   "move_pct": 97.2
   },
   {
    "coin": "HEMI",
-   "move_pct": 31.3
+   "move_pct": 36.3
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-20T19:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-20T19:15",
    "bot": "10_controle_aleatoire",
@@ -185,12 +191,6 @@
    "bot": "28_carry_hold",
    "marche": "carryhold-SPX",
    "pnl": -0.01
-  },
-  {
-   "ts": "2026-07-20T18:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -204,7 +204,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 10.8,
+  "age_avis_h": 11.0,
   "problemes": []
  },
  "autofinancement": {
