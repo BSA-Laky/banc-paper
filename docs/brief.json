@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-20T05:45:42.745310+00:00",
+ "ts": "2026-07-20T06:01:07.449885+00:00",
  "alertes": [],
  "avertissements": [],
  "banc_suspect": false,
@@ -11,8 +11,8 @@
    "esperance": 0.7611,
    "t": 1.36,
    "pnl": 111.12,
-   "pnl_j": 4.193,
-   "fwd_j": 26.5
+   "pnl_j": 4.177,
+   "fwd_j": 26.6
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
@@ -25,12 +25,12 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 762,
-   "esperance": 0.5002,
-   "t": 3.53,
-   "pnl": 381.16,
-   "pnl_j": 13.911,
-   "fwd_j": 27.4
+   "n": 763,
+   "esperance": 0.5004,
+   "t": 3.54,
+   "pnl": 381.82,
+   "pnl_j": 13.884,
+   "fwd_j": 27.5
   },
   "27a_rev_premium": {
    "statut": "GRIS",
@@ -83,8 +83,8 @@
    "esperance": 0.7004,
    "t": 0.7,
    "pnl": 73.54,
-   "pnl_j": 4.744,
-   "fwd_j": 15.5
+   "pnl_j": 4.714,
+   "fwd_j": 15.6
   },
   "27f_selecteur": {
    "statut": "GRIS",
@@ -92,8 +92,8 @@
    "esperance": -3.7769,
    "t": -1.31,
    "pnl": -90.65,
-   "pnl_j": -5.848,
-   "fwd_j": 15.5
+   "pnl_j": -5.811,
+   "fwd_j": 15.6
   },
   "27g10_selecteur": {
    "statut": "GRIS",
@@ -124,22 +124,34 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0086,
-  "ret7": 0.0293,
-  "ret30": -0.0018,
-  "prix": 64160
+  "ret1": -0.0093,
+  "ret7": 0.0287,
+  "ret30": -0.0025,
+  "prix": 64117
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 50.2
+   "move_pct": 49.2
   },
   {
    "coin": "CASHCAT",
-   "move_pct": 25.9
+   "move_pct": 27.0
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-20T06:01",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": 0.66
+  },
+  {
+   "ts": "2026-07-20T06:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-20T05:45",
    "bot": "25_convergence_basis",
@@ -175,18 +187,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-AZTEC",
    "pnl": -0.21
-  },
-  {
-   "ts": "2026-07-20T05:00",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ZRO",
-   "pnl": -0.32
-  },
-  {
-   "ts": "2026-07-20T05:00",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -200,7 +200,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 22.0,
+  "age_avis_h": 22.2,
   "problemes": []
  },
  "autofinancement": {
