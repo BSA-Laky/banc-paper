@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-22 01:30 (Paris)
+# Brief Station — 2026-07-22 01:45 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)
@@ -10,10 +10,6 @@
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
-
-## Changements de statut depuis hier
-- 27a_rev_premium : GRIS → **ORANGE**
-- 27f_selecteur : GRIS → **ORANGE**
 
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -34,8 +30,8 @@
 
 **P&L paper cumule (hors temoin)** : +673.23 $
 
-**BTC** 66361 $ — ret 1j +1.74% · 7j +2.09% · 30j +4.89%
-**Moves 24h ≥ 20 %** : HEMI -24.8%
+**BTC** 66429 $ — ret 1j +1.84% · 7j +2.20% · 30j +4.99%
+**Moves 24h ≥ 20 %** : HEMI -25.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
