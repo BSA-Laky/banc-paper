@@ -206,7 +206,90 @@ def _enveloppes(lignes):
             "\u00d7 mise r\u00e9elle (300\u202f\u20ac \u00f7 positions max). 100 % fictif.</div></div>")
 
 
+def _lj(p, d):
+    try:
+        return json.loads(Path(p).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return d
+
+
+def _generer_reel_json():
+    """Consolide l'etat ARGENT REEL -> docs/reel.json (lu par docs/reel.html, cote client)."""
+    import csv as _csv
+    import statistics as _st
+    try:
+        etat = _lj(ETAT / "executeur_reel.json", {})
+        stop = bool(_lj(ETAT / "reel_stop.json", {}).get("stop"))
+        cfg = _lj(Path("portefeuille.reel.json"), {})
+        eurusd = float(cfg.get("eurusd", 1.07))
+        enveloppe = round(float(cfg.get("enveloppe_par_bot_eur", 0)) * eurusd, 2)
+        depot = float(cfg.get("depot_usdc", 36.27) or 0)
+        gate = (_lj(DOCS / "go_reel.json", {}) or {}).get("bots", {})
+        positions = []
+        for b, m in etat.items():
+            if b == "_rejets" or not isinstance(m, dict):
+                continue
+            for coin, v in m.items():
+                if isinstance(v, dict):
+                    positions.append({"bot": b, "coin": coin, "side": v.get("side"),
+                                      "notional": v.get("notional"), "entry": v.get("entry"),
+                                      "opened_at": v.get("ts")})
+        trades = []
+        p = ETAT / "reel_trades.csv"
+        if p.exists():
+            for r in _csv.DictReader(p.open(encoding="utf-8")):
+                trades.append({k: r.get(k) for k in ("ts", "bot", "coin", "action", "side",
+                              "notional_usd", "mark", "resp", "pnl_est_usd")})
+
+        def _f(x):
+            try:
+                return float(x)
+            except (TypeError, ValueError):
+                return 0.0
+        now = datetime.now(timezone.utc)
+        closes = [t for t in trades if t.get("action") == "close"
+                  and str(t.get("pnl_est_usd") or "").strip() not in ("", "None")]
+
+        def _stats(sous):
+            pn = [_f(t["pnl_est_usd"]) for t in sous]
+            n = len(pn)
+            esp = round(_st.mean(pn), 4) if n else 0.0
+            sd = _st.pstdev(pn) if n > 1 else 0.0
+            t_stat = round(esp / (sd / (n ** 0.5)), 2) if (n > 1 and sd > 0) else 0.0
+            wins = sum(1 for x in pn if x > 0)
+
+            def _rec7(t):
+                try:
+                    return (now - datetime.fromisoformat(str(t.get("ts")))).days < 7
+                except (ValueError, TypeError):
+                    return False
+            return {"n": n, "pnl_total": round(sum(pn), 4), "esp": esp, "t_stat": t_stat,
+                    "taux_reussite": round(100.0 * wins / n, 1) if n else 0.0,
+                    "pnl_7j": round(sum(_f(t["pnl_est_usd"]) for t in sous if _rec7(t)), 4)}
+
+        bots = sorted({t.get("bot") for t in trades if t.get("bot")} | {q["bot"] for q in positions})
+        par_bot = {}
+        for b in bots:
+            g = gate.get(b, {})
+            par_bot[b] = {"reel": _stats([t for t in closes if t.get("bot") == b]),
+                          "expo": round(sum(_f(q["notional"]) for q in positions if q["bot"] == b), 2),
+                          "enveloppe": enveloppe,
+                          "paper": {"n": g.get("n"), "t": g.get("t_stat"), "esp": g.get("esperance"),
+                                    "pnl": g.get("pnl_cumule"), "rend_j": g.get("rendement_j_pct"),
+                                    "statut": g.get("statut")}}
+        doc = {"genere": now.isoformat(), "stop": stop, "depot_usdc": depot,
+               "enveloppe_usd": enveloppe, "positions": positions,
+               "global": _stats(closes), "par_bot": par_bot, "trades": trades[-40:]}
+        DOCS.mkdir(parents=True, exist_ok=True)
+        (DOCS / "reel.json").write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
+        print("[dashboard] docs/reel.json : %d position(s), %d trade(s) reels" %
+              (len(positions), len(closes)), flush=True)
+    except Exception as e:                             # noqa: BLE001
+        print("[dashboard] reel.json KO : %s" % e, flush=True)
+
+
 def construire_dashboard():
+    _generer_reel_json()
     lignes = charger_journal()
     res = evaluer(lignes)
     series = _cumul(lignes)
@@ -222,7 +305,7 @@ def construire_dashboard():
         '<title>Banc paper-trading</title><style>' + CSS + '</style></head><body>'
         '<h1>Banc paper-trading — argent 100 % fictif</h1>'
         f'<div class="maj">Mis à jour : <span id="maj" data-iso="{maj_iso}">{maj}</span> · régénéré à chaque passe (~15 min)</div>'
-        '<div class="maj"><a href="station.html">station</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a> · <a href="book.html">book</a></div>'
+        '<div class="maj"><a href="reel.html"><b>💰 réel</b></a> · <a href="station.html">station</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a> · <a href="book.html">book</a></div>'
         + _ab(res) + cartes + _positions() + _enveloppes(lignes) +
         '<footer>Lecture seule sur APIs publiques (Hyperliquid, Paradex, ADEN). '
         'Aucun ordre réel, aucun wallet, aucune clé. Le t-stat est peu fiable pour '
