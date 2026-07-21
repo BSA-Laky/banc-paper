@@ -1,0 +1,42 @@
+# .github/workflows/reel.yml — EXECUTEUR MAINNET (ARGENT REEL), bot 28, rails stricts.
+# MANUEL uniquement (workflow_dispatch) : le 1er argent reel se declenche a ta main.
+# Secrets MAINNET dedies (HL_*_MAINNET) : n'ecrasent jamais les cles testnet.
+# Wallet AGENT trade-only (ne peut PAS retirer) -> perte bornee au depot.
+name: reel-mainnet
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: reel
+  cancel-in-progress: false
+jobs:
+  reel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Executeur MAINNET (bot 28, 1x, plafond par ordre + total, kill-switch)
+        env:
+          HL_MODE: live
+          HL_LIVE_CONFIRM: OUI_ARGENT_REEL
+          HL_NET: mainnet
+          HL_MAX_NOTIONAL: "13"
+          HL_API_KEY: ${{ secrets.HL_API_KEY_MAINNET }}
+          HL_ACCOUNT_ADDRESS: ${{ secrets.HL_ACCOUNT_ADDRESS_MAINNET }}
+          PORTEFEUILLE_CONFIG: portefeuille.reel.json
+        run: |
+          pip -q install hyperliquid-python-sdk eth-account
+          python executeur_reel.py
+      - name: Committer l'etat reel
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "rien"; else
+            git commit -m "reel $(date -u +%FT%H:%MZ)"
+            git pull --rebase --autostash || true
+            git push || (git pull --rebase --autostash && git push); fi
