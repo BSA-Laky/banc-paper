@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-21 09:45 (Paris)
+# Brief Station — 2026-07-21 10:01 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)
@@ -14,7 +14,7 @@
 | 27a_rev_premium | GRIS | 29 | 0.3826 | 0.13 | 11.1 | 0.404 | 27.5 j |
 | 27b_rev_move | ROUGE | 48 | 2.6767 | 1.22 | 128.48 | 4.741 | 27.1 j |
 | 27c_mom_move | ORANGE | 48 | -2.8167 | -1.29 | -135.2 | -4.989 | 27.1 j |
-| 27d_rev_move_stop | ORANGE | 57 | -0.7823 | -0.41 | -44.59 | -2.084 | 21.4 j |
+| 27d_rev_move_stop | ORANGE | 57 | -0.7823 | -0.41 | -44.59 | -2.074 | 21.5 j |
 | 27e_arbitre | GRIS | 29 | -0.6054 | -0.23 | -17.56 | -0.992 | 17.7 j |
 | 27f10_selecteur | ORANGE | 110 | 1.0336 | 1.06 | 113.7 | 6.849 | 16.6 j |
 | 27f_selecteur | GRIS | 27 | -2.5529 | -0.93 | -68.93 | -4.152 | 16.6 j |
@@ -24,8 +24,8 @@
 
 **P&L paper cumule (hors temoin)** : +723.02 $
 
-**BTC** 66023 $ — ret 1j +1.22% · 7j +1.57% · 30j +4.35%
-**Moves 24h ≥ 20 %** : ACE -25.4%, HEMI +24.8%
+**BTC** 66168 $ — ret 1j +1.44% · 7j +1.80% · 30j +4.58%
+**Moves 24h ≥ 20 %** : ACE -27.6%, HEMI +22.0%, CASHCAT +20.7%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 13.82 $ (releve 2026-07-18) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
