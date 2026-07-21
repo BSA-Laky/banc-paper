@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-21T02:45:39.132662+00:00",
+ "ts": "2026-07-21T03:01:07.836590+00:00",
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)",
   "27b_rev_move: esp20 -4.24 < borne -4.11 -> COUPER LE BOT",
@@ -24,8 +24,8 @@
    "esperance": -0.3344,
    "t": -1.77,
    "pnl": -45.48,
-   "pnl_j": -1.666,
-   "fwd_j": 27.3
+   "pnl_j": -1.66,
+   "fwd_j": 27.4
   },
   "25_convergence_basis": {
    "statut": "ROUGE",
@@ -42,8 +42,8 @@
    "esperance": 1.1797,
    "t": 0.39,
    "pnl": 33.03,
-   "pnl_j": 1.214,
-   "fwd_j": 27.2
+   "pnl_j": 1.21,
+   "fwd_j": 27.3
   },
   "27b_rev_move": {
    "statut": "ROUGE",
@@ -69,8 +69,8 @@
    "esperance": -0.7823,
    "t": -0.41,
    "pnl": -44.59,
-   "pnl_j": -2.103,
-   "fwd_j": 21.2
+   "pnl_j": -2.094,
+   "fwd_j": 21.3
   },
   "27e_arbitre": {
    "statut": "GRIS",
@@ -83,11 +83,11 @@
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
-   "n": 109,
-   "esperance": 1.0449,
+   "n": 110,
+   "esperance": 1.0336,
    "t": 1.06,
-   "pnl": 113.9,
-   "pnl_j": 6.945,
+   "pnl": 113.7,
+   "pnl_j": 6.933,
    "fwd_j": 16.4
   },
   "27f_selecteur": {
@@ -101,11 +101,11 @@
   },
   "27g10_selecteur": {
    "statut": "GRIS",
-   "n": 16,
-   "esperance": 0.1743,
-   "t": 0.04,
-   "pnl": 2.79,
-   "pnl_j": 0.32,
+   "n": 17,
+   "esperance": 0.1524,
+   "t": 0.03,
+   "pnl": 2.59,
+   "pnl_j": 0.298,
    "fwd_j": 8.7
   },
   "28_carry_hold": {
@@ -128,18 +128,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0011,
-  "ret7": 0.0046,
-  "ret30": 0.032,
-  "prix": 65296
+  "ret1": 0.0029,
+  "ret7": 0.0064,
+  "ret30": 0.0339,
+  "prix": 65416
  },
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": 39.4
+   "move_pct": 38.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-21T03:01",
+   "bot": "27g10_selecteur",
+   "marche": "sel-JTO-MOM-ia_piece",
+   "pnl": -0.2
+  },
+  {
+   "ts": "2026-07-21T03:01",
+   "bot": "27f10_selecteur",
+   "marche": "sel-JTO-MOM-ia_piece",
+   "pnl": -0.2
+  },
+  {
+   "ts": "2026-07-21T03:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-21T02:45",
    "bot": "10_controle_aleatoire",
@@ -169,24 +187,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-21T01:31",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-21T01:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-21T01:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -200,7 +200,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 18.3,
+  "age_avis_h": 18.5,
   "problemes": []
  },
  "autofinancement": {
