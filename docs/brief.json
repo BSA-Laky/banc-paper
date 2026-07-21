@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-21T21:01:06.486329+00:00",
+ "ts": "2026-07-21T21:15:39.578300+00:00",
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)",
   "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
@@ -111,7 +111,7 @@
    "t": -0.0,
    "pnl": -0.27,
    "pnl_j": -0.028,
-   "fwd_j": 9.4
+   "fwd_j": 9.5
   },
   "28_carry_hold": {
    "statut": "ORANGE",
@@ -133,22 +133,28 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0169,
-  "ret7": 0.0204,
-  "ret30": 0.0483,
-  "prix": 66328
+  "ret1": 0.0172,
+  "ret7": 0.0208,
+  "ret30": 0.0487,
+  "prix": 66351
  },
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": -28.2
+   "move_pct": -26.3
   },
   {
    "coin": "ACE",
-   "move_pct": -21.4
+   "move_pct": -20.8
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-21T21:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-21T21:01",
    "bot": "27d_rev_move_stop",
@@ -190,12 +196,6 @@
    "bot": "27b_rev_move",
    "marche": "rev_move-MET",
    "pnl": 4.73
-  },
-  {
-   "ts": "2026-07-21T20:45",
-   "bot": "23_carry_funding",
-   "marche": "carry-KBONK",
-   "pnl": -1.28
   }
  ],
  "calibration_arbitre": {
@@ -209,7 +209,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 13.0,
+  "age_avis_h": 13.3,
   "problemes": []
  },
  "autofinancement": {
