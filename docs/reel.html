@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="120">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0f1e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Réel">
+<title>💰 RÉEL — mainnet</title>
+<style>
+  :root{--bg:#0a0f1e;--card:#141b30;--line:#243050;--txt:#e6ecff;--muted:#8894b8;
+    --vert:#28c76f;--rouge:#ff5b6e;--or:#f5a623;--bleu:#5b7cff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;padding:14px;max-width:1100px;margin:auto}
+  h1{font-size:20px;margin:0 0 2px}
+  a{color:var(--bleu)}
+  .sub{color:var(--muted);font-size:12px;margin-bottom:12px}
+  .etat{display:inline-block;padding:2px 10px;border-radius:20px;font-weight:700;font-size:12px}
+  .on{background:rgba(40,199,111,.15);color:var(--vert)} .off{background:rgba(255,91,110,.15);color:var(--rouge)}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:10px 0 16px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+  .kpi .l{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+  .kpi .v{font-size:19px;font-weight:700;margin-top:2px}
+  h2{font-size:15px;margin:18px 0 6px;border-left:3px solid var(--bleu);padding-left:8px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase}
+  .pos{color:var(--vert)} .neg{color:var(--rouge)} .mut{color:var(--muted)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:8px 0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:620px){.grid2{grid-template-columns:1fr}}
+  .tag{font-size:11px;color:var(--muted)}
+  .short{color:var(--rouge)} .long{color:var(--vert)}
+  footer{color:var(--muted);font-size:11px;margin-top:20px;border-top:1px solid var(--line);padding-top:10px}
+  .warn{background:rgba(245,166,35,.12);border:1px solid var(--or);border-radius:10px;padding:8px 10px;color:var(--or);font-size:12px;margin:8px 0}
+</style></head><body>
+<h1>💰 RÉEL — Hyperliquid mainnet <span id="etat"></span></h1>
+<div class="sub">argent réel · levier 1× · <span id="maj">chargement…</span> · rafraîchi ~2 min ·
+  <a href="index.html">← dashboard</a> · <a href="station.html">station</a></div>
+<div id="err"></div>
+<div id="kohl" class="warn" style="display:none">Prix live Hyperliquid indisponibles — P&amp;L latent masqué (les positions restent affichées).</div>
+
+<div class="kpis" id="kpis"></div>
+
+<h2>Positions ouvertes</h2>
+<div id="positions"></div>
+
+<h2>Par bot — réel vs signal paper</h2>
+<div id="bots"></div>
+
+<h2>Derniers trades réels</h2>
+<div id="trades"></div>
+
+<footer id="foot">Contrôle sécurisé sur Telegram (page en lecture seule) : « 🛑 stopreel » coupe le réel,
+« reprends » relance. Le kill ferme toutes les positions à la passe suivante.</footer>
+
+<script>
+const FR={day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'};
+const loc=iso=>{if(!iso)return'—';const d=new Date(iso);return isNaN(d)?'—':d.toLocaleString('fr-FR',FR)};
+const depuis=iso=>{const d=new Date(iso);if(isNaN(d))return'—';let m=Math.max(0,Math.round((Date.now()-d)/60000));return m<60?m+' min':(m<1440?Math.floor(m/60)+' h '+(m%60)+' min':Math.floor(m/1440)+' j')};
+const usd=x=>(x>=0?'+':'')+Number(x||0).toFixed(2)+' $';
+const cls=x=>x>0?'pos':(x<0?'neg':'mut');
+const SORTIE={'28_carry_hold':"Sort quand le funding se normalise (signal du bot) — pas d'objectif de prix fixe ; tenu tant que le carry paie."};
+async function jget(u){const r=await fetch(u+'?t='+Date.now(),{cache:'no-store'});return r.json();}
+async function hlMarks(){try{const r=await fetch('https://api.hyperliquid.xyz/info',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'metaAndAssetCtxs'})});const j=await r.json();const u=j[0].universe,c=j[1],m={};u.forEach((a,i)=>{m[a.name]=parseFloat((c[i]||{}).markPx||0)});return m;}catch(e){return null;}}
+function kpi(l,v,c){return '<div class="kpi"><div class="l">'+l+'</div><div class="v '+(c||'')+'">'+v+'</div></div>';}
+async function tour(){
+  let d;try{d=await jget('reel.json');}catch(e){document.getElementById('err').innerHTML='<div class="warn">reel.json indisponible (attends une passe).</div>';return;}
+  document.getElementById('etat').innerHTML = d.stop?'<span class="etat off">🛑 STOPPÉ</span>':'<span class="etat on">▶️ actif</span>';
+  document.getElementById('maj').textContent = 'màj '+loc(d.genere);
+  const marks = await hlMarks();
+  document.getElementById('kohl').style.display = marks?'none':'block';
+  // P&L latent total
+  let latent=0, expo=0;
+  (d.positions||[]).forEach(p=>{const mk=marks?(marks[p.coin]||0):0;const ret=(mk>0&&p.entry>0)?p.side*(mk-p.entry)/p.entry:0;p._mk=mk;p._lat=p.notional*ret;latent+=p._lat;expo+=Number(p.notional||0);});
+  const real=d.global||{};
+  const solde = (d.depot_usdc||0) + (real.pnl_total||0) + (marks?latent:0);
+  document.getElementById('kpis').innerHTML =
+    kpi('Solde estimé', usd(solde), cls(solde-(d.depot_usdc||0)))+
+    kpi('P&L réalisé', usd(real.pnl_total), cls(real.pnl_total))+
+    kpi('P&L latent', marks?usd(latent):'—', cls(latent))+
+    kpi('P&L 7 j', usd(real.pnl_7j), cls(real.pnl_7j))+
+    kpi('Exposition', expo.toFixed(2)+' $','mut')+
+    kpi('Trades soldés', (real.n||0),'mut')+
+    kpi('Taux réussite', (real.taux_reussite||0)+' %', (real.taux_reussite>=50?'pos':(real.n?'neg':'mut')))+
+    kpi('t-stat réel', (real.t_stat||0), 'mut');
+  // positions
+  const P=d.positions||[];
+  if(P.length){let h='<table><tr><th>Bot</th><th>Coin</th><th>Sens</th><th>Notional</th><th>Entrée</th><th>Prix live</th><th>P&L latent</th><th>Ouvert depuis</th><th>Sortie</th></tr>';
+    P.forEach(p=>{const sens=p.side<0?'<span class="short">short</span>':'<span class="long">long</span>';
+      h+='<tr><td>'+p.bot.replace('_',' ')+'</td><td><b>'+p.coin+'</b></td><td>'+sens+'</td><td>'+Number(p.notional).toFixed(2)+' $</td><td>'+p.entry+'</td><td>'+(p._mk?p._mk:'—')+'</td><td class="'+cls(p._lat)+'">'+(marks?usd(p._lat):'—')+'</td><td>'+depuis(p.opened_at)+'</td><td class="tag">'+(SORTIE[p.bot]||'signal du bot')+'</td></tr>';});
+    document.getElementById('positions').innerHTML=h+'</table>';
+  } else document.getElementById('positions').innerHTML='<div class="card mut">Aucune position réelle ouverte — le bot attend son signal d\'entrée.</div>';
+  // par bot
+  let hb='';
+  Object.entries(d.par_bot||{}).forEach(([b,x])=>{const r=x.reel||{},pa=x.paper||{};
+    hb+='<div class="card"><b>'+b.replace('_',' ')+'</b> <span class="tag">enveloppe '+x.enveloppe+' $ · expo '+x.expo+' $</span><div class="grid2" style="margin-top:8px">'+
+      '<div><div class="tag">RÉEL (mainnet)</div>n '+(r.n||0)+' · t '+(r.t_stat||0)+' · esp/trade '+usd(r.esp)+'<br>P&L total '+usd(r.pnl_total)+' · 7j '+usd(r.pnl_7j)+' · réussite '+(r.taux_reussite||0)+' %</div>'+
+      '<div><div class="tag">SIGNAL (paper) — statut '+(pa.statut||'?')+'</div>n '+(pa.n||'?')+' · t '+(pa.t||'?')+' · esp '+(pa.esp||'?')+'<br>P&L paper '+(pa.pnl!=null?Number(pa.pnl).toFixed(0)+' $':'?')+' · rend/j '+(pa.rend_j!=null?pa.rend_j+' %':'?')+'</div></div></div>';});
+  document.getElementById('bots').innerHTML=hb||'<div class="card mut">—</div>';
+  // trades
+  const T=(d.trades||[]).slice().reverse();
+  if(T.length){let h='<table><tr><th>Heure</th><th>Bot</th><th>Coin</th><th>Action</th><th>Sens</th><th>Notional</th><th>P&L</th></tr>';
+    T.slice(0,25).forEach(t=>{const pnl=t.pnl_est_usd?parseFloat(t.pnl_est_usd):null;const sd=Number(t.side)<0?'short':'long';
+      h+='<tr><td>'+loc(t.ts)+'</td><td>'+String(t.bot||'').replace('_',' ')+'</td><td>'+t.coin+'</td><td>'+t.action+'</td><td>'+sd+'</td><td>'+Number(t.notional_usd||0).toFixed(2)+' $</td><td class="'+(pnl!=null?cls(pnl):'mut')+'">'+(pnl!=null?usd(pnl):'—')+'</td></tr>';});
+    document.getElementById('trades').innerHTML=h+'</table>';
+  } else document.getElementById('trades').innerHTML='<div class="card mut">Aucun trade réel encore.</div>';
+}
+tour(); setInterval(tour, 45000);
+</script>
+</body></html>
