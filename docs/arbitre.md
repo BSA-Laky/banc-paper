@@ -1,7 +1,7 @@
-# Arbitre IA — 2026-07-20
+# Arbitre IA — 2026-07-21
 
 **Regime : neutre** (confiance 0.55)
 
-25_conv t=3.57(n=768) credible. 28_carry t=2.86(n=58) proche n=60. 24_fund t=-1.48 se degrade. Temoin10 t=-0.44, pas d'alerte.
+BTC+1.2%/j leger haussier. 25_conv KILL execute. 27b_rev_move & rd_h1 sous borne -> COUPER. 28_carry n=62 t=3.07 solide.
 
-[Note du jour](../veille/2026-07-20.md) — modele `claude-sonnet-5`
+[Note du jour](../veille/2026-07-21.md) — modele `claude-sonnet-5`
