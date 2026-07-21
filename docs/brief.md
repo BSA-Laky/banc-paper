@@ -1,8 +1,8 @@
-# Brief Station — 2026-07-21 17:45 (Paris)
+# Brief Station — 2026-07-21 18:01 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)
-- 27e_arbitre: VERDICT PRÉ-ENREGISTRÉ -> KILL : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30
+- 27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30
 - 27e_arbitre: forward 18 j < 28 j
 - 27e_arbitre: n 30 < n_go 50
 - 27e_arbitre: t < 2
@@ -10,10 +10,6 @@
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
-
-## Changements de statut depuis hier
-- 27b_rev_move : ROUGE → **ORANGE**
-- 27e_arbitre : GRIS → **ROUGE**
 
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -34,7 +30,7 @@
 
 **P&L paper cumule (hors temoin)** : +715.73 $
 
-**BTC** 66556 $ — ret 1j +2.04% · 7j +2.39% · 30j +5.19%
+**BTC** 66618 $ — ret 1j +2.13% · 7j +2.49% · 30j +5.29%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
