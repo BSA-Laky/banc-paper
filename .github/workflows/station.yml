@@ -63,6 +63,24 @@ jobs:
           pip -q install hyperliquid-python-sdk eth-account
           python executeur_testnet.py
 
+      # 3bis) Miroir MAINNET (ARGENT REEL) du bot 28 - autonome, comme le testnet.
+      #       Rails : levier 1x force, ~12$/position, expo totale <=24$, plafond ordre 13$,
+      #       wallet AGENT trade-only (ne peut PAS retirer), kill-switch etat/reel_stop.json.
+      #       Secrets mainnet DEDIES (portee = cette etape seule).
+      - name: Miroir MAINNET argent réel (bot 28)
+        continue-on-error: true    # une friction reelle ne bloque jamais la mesure/le commit
+        env:
+          HL_MODE: live
+          HL_LIVE_CONFIRM: OUI_ARGENT_REEL
+          HL_NET: mainnet
+          HL_MAX_NOTIONAL: "13"
+          HL_API_KEY: ${{ secrets.HL_API_KEY_MAINNET }}
+          HL_ACCOUNT_ADDRESS: ${{ secrets.HL_ACCOUNT_ADDRESS_MAINNET }}
+          PORTEFEUILLE_CONFIG: portefeuille.reel.json
+        run: |
+          pip -q install hyperliquid-python-sdk eth-account
+          python executeur_reel.py
+
       # 4) UN commit pour toute la passe.
       - name: Committer la passe
         run: |
