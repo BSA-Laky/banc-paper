@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-21 15:45 (Paris)
+# Brief Station — 2026-07-21 16:01 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)
@@ -18,13 +18,13 @@
 | 27e_arbitre | GRIS | 29 | -0.6054 | -0.23 | -17.56 | -0.981 | 17.9 j |
 | 27f10_selecteur | ORANGE | 111 | 1.0654 | 1.1 | 118.26 | 6.998 | 16.9 j |
 | 27f_selecteur | GRIS | 27 | -2.5529 | -0.93 | -68.93 | -4.079 | 16.9 j |
-| 27g10_selecteur | GRIS | 17 | 0.1524 | 0.03 | 2.59 | 0.285 | 9.1 j |
+| 27g10_selecteur | GRIS | 17 | 0.1524 | 0.03 | 2.59 | 0.282 | 9.2 j |
 | 28_carry_hold | ORANGE | 62 | 4.2165 | 3.07 | 261.42 | 14.605 | 17.9 j |
 | rd_h1 | ROUGE | 47 | 0.2249 | 1.27 | 10.57 | 7.549 | 1.4 j |
 
 **P&L paper cumule (hors temoin)** : +757.91 $
 
-**BTC** 66344 $ — ret 1j +1.71% · 7j +2.07% · 30j +4.86%
+**BTC** 66712 $ — ret 1j +2.28% · 7j +2.63% · 30j +5.44%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
