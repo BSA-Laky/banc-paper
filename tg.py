@@ -36,18 +36,28 @@ def _api(methode: str, params: dict, timeout: float = 15.0):
         return None
 
 
-def envoyer(texte: str) -> bool:
-    """Envoie un message au Commandant (tronque a 3900 caracteres)."""
+def envoyer(texte: str, boutons=None) -> bool:
+    """Envoie un message au Commandant (tronque a 3900 caracteres).
+    boutons = clavier inline optionnel : liste de lignes de {text, callback_data}."""
     if not actif():
         return False
-    rep = _api("sendMessage", {"chat_id": CHAT_ID, "text": texte[:3900]})
+    params = {"chat_id": CHAT_ID, "text": texte[:3900]}
+    if boutons:
+        params["reply_markup"] = json.dumps({"inline_keyboard": boutons})
+    rep = _api("sendMessage", params)
     return bool(rep and rep.get("ok"))
 
 
 def maj(offset: int):
-    """Recupere les messages en attente (long-poll court)."""
+    """Recupere les messages ET les taps de boutons en attente (long-poll court)."""
     if not actif():
         return []
     rep = _api("getUpdates", {"offset": offset, "timeout": 0,
-                              "allowed_updates": '["message"]'}, timeout=20.0)
+                              "allowed_updates": '["message","callback_query"]'}, timeout=20.0)
     return rep.get("result", []) if rep and rep.get("ok") else []
+
+
+def accuser_bouton(cb_id: str, texte: str = "") -> None:
+    """answerCallbackQuery : arrete le sablier de chargement apres un tap de bouton."""
+    if actif() and cb_id:
+        _api("answerCallbackQuery", {"callback_query_id": cb_id, "text": texte[:180]})

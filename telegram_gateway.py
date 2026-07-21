@@ -134,15 +134,79 @@ def _statut_court(brief):
     return "\n".join(lignes)
 
 
+_CLAVIER = [
+    [{"text": "🛑 Stop réel", "callback_data": "stopreel"},
+     {"text": "▶️ Reprendre", "callback_data": "reprends"}],
+    [{"text": "📊 Statut", "callback_data": "statut"},
+     {"text": "💰 Réel", "callback_data": "reel"}],
+    [{"text": "❓ Aide", "callback_data": "aide"}],
+]
+
+_AIDE = (
+    "🛰 Commandes de la station\n\n"
+    "📊 VOIR\n"
+    "• statut — état rapide des bots\n"
+    "• reel — positions ARGENT RÉEL (bot 28) + P&L\n"
+    "• arbitre — dernier avis de l'Arbitre\n"
+    "• rapport — rapport du dimanche\n\n"
+    "🟢 ARGENT RÉEL (mainnet)\n"
+    "• stopreel — 🛑 coupe le réel : ferme tout, n'ouvre plus\n"
+    "• reprends — ▶️ relance le réel\n\n"
+    "⚙️ PROMOTION D'UN BOT\n"
+    "• go <bot> puis confirme <bot> — mise en service (2 étapes, 90 min)\n"
+    "• relance <bot> — ressuscite un bot tué\n\n"
+    "📝 SUIVI\n"
+    "• cout <usd> — note un relevé de coût API\n"
+    "• revenu <eur> — note un revenu réel\n"
+    "• approve <id> / rejette <id> — consigne pour le Superviseur\n\n"
+    "👇 Ou utilise les boutons ci-dessous."
+)
+
+
+def _statut_reel():
+    """Positions ARGENT REEL (bot 28) + P&L realise, pour la commande/bouton 'reel'."""
+    etat = _lire_json(ETAT / "executeur_reel.json", {})
+    stoppe = bool(_lire_json(ETAT / "reel_stop.json", {}).get("stop"))
+    L = ["💰 ARGENT RÉEL (mainnet, bot 28)",
+         "État : " + ("🛑 STOPPÉ" if stoppe else "▶️ actif")]
+    pos = [(c, v) for b, m in etat.items() if b != "_rejets" and isinstance(m, dict)
+           for c, v in m.items() if isinstance(v, dict)]
+    if pos:
+        for c, v in pos:
+            sens = "short" if float(v.get("side", 0)) < 0 else "long"
+            L.append("• %s %s %.2f$ (entrée %.6g)" % (c, sens, v.get("notional", 0), v.get("entry", 0)))
+    else:
+        L.append("Aucune position ouverte.")
+    try:
+        import csv as _csv
+        p = ETAT / "reel_trades.csv"
+        tot = 0.0; n = 0
+        if p.exists():
+            for r in _csv.DictReader(p.open(encoding="utf-8")):
+                if r.get("action") == "close" and r.get("pnl_est_usd"):
+                    tot += float(r["pnl_est_usd"]); n += 1
+        L.append("P&L réalisé : %+.2f$ (%d trade(s) soldé(s))" % (tot, n))
+    except Exception:                                  # noqa: BLE001
+        pass
+    return "\n".join(L)
+
+
 def repondre(st, brief):
     offset = int(st.get("offset", 0))
     traites = 0
     for u in tg.maj(offset):
         offset = max(offset, int(u.get("update_id", 0)) + 1)
-        msg = u.get("message") or {}
-        if str((msg.get("chat") or {}).get("id", "")) != tg.CHAT_ID:
+        cb = u.get("callback_query")
+        if cb:                                         # tap de bouton inline
+            chat_id = str(((cb.get("message") or {}).get("chat") or {}).get("id", ""))
+            texte = str(cb.get("data", "")).strip()
+            tg.accuser_bouton(cb.get("id", ""))
+        else:
+            msg = u.get("message") or {}
+            chat_id = str((msg.get("chat") or {}).get("id", ""))
+            texte = str(msg.get("text", "")).strip()
+        if chat_id != tg.CHAT_ID:
             continue                                   # on ignore tout autre chat
-        texte = str(msg.get("text", "")).strip()
         mots = texte.lower().split()
         if not mots:
             continue
@@ -245,12 +309,24 @@ def repondre(st, brief):
             else:
                 tg.envoyer("%s n'est pas au tapis (cycle de vie : %s)."
                            % (bot, cv["bots"].get(bot, {}).get("etat", "actif")))
+        elif cmd in ("stopreel", "stop", "coupe"):
+            _ecrire_json(ETAT / "reel_stop.json",
+                         {"stop": True, "ts": datetime.now(timezone.utc).isoformat()})
+            tg.envoyer("\ud83d\uded1 STOP R\u00c9EL activ\u00e9. \u00c0 la prochaine passe (~15 min), l'ex\u00e9cuteur "
+                       "mainnet ferme toutes les positions r\u00e9elles et n'en ouvre plus. "
+                       "Pour relancer : \u00ab reprends \u00bb.", boutons=_CLAVIER)
+        elif cmd in ("reprends", "repars", "reprendsreel"):
+            _ecrire_json(ETAT / "reel_stop.json",
+                         {"stop": False, "ts": datetime.now(timezone.utc).isoformat()})
+            tg.envoyer("\u25b6\ufe0f R\u00e9el RELANC\u00c9. L'ex\u00e9cuteur mainnet reprend le miroir du bot 28 "
+                       "d\u00e8s la prochaine passe.", boutons=_CLAVIER)
+        elif cmd in ("reel", "mainnet"):
+            tg.envoyer(_statut_reel(), boutons=_CLAVIER)
+        elif cmd in ("aide", "menu", "help", "start", "commandes"):
+            tg.envoyer(_AIDE, boutons=_CLAVIER)
         else:
-            tg.envoyer("Commandes : statut \u00b7 arbitre \u00b7 rapport \u00b7 "
-                       "approve <id> \u00b7 rejette <id> \u00b7 cout <usd> \u00b7 revenu <eur> "
-                       "\u00b7 go <bot> puis confirme <bot> \u00b7 relance <bot>\n"
-                       "(pas d'ordre de trade ici ; go+confirme = mise en service d'un "
-                       "bot deja candidat, sur la venue du moment : TESTNET)")
+            tg.envoyer("Commande inconnue. Tape \u00ab aide \u00bb ou utilise les boutons \ud83d\udc47",
+                       boutons=_CLAVIER)
     st["offset"] = offset
     return traites
 
@@ -268,6 +344,10 @@ def main():
         tg.envoyer("🛰 STATION CONNECTEE — le gateway Telegram est actif.\n"
                    "Tape « aide » pour les commandes. Les alertes, le verdict "
                    "quotidien de l'Arbitre et le rapport du dimanche arriveront ici.")
+    if not st.get("aide_v2"):
+        tg.envoyer("🆕 Nouveau : contrôle du RÉEL depuis Telegram + boutons.\n\n" + _AIDE,
+                   boutons=_CLAVIER)
+        st["aide_v2"] = True
     n = notifier(st, brief, regime)
     notifier_tresorier(st)
     c = repondre(st, brief)
