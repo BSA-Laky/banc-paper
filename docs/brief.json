@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-22T15:31:00.585760+00:00",
+ "ts": "2026-07-22T15:45:41.568256+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
   "23_carry_funding: esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
@@ -40,8 +40,8 @@
    "esperance": 0.4816,
    "t": 3.56,
    "pnl": 399.23,
-   "pnl_j": 13.397,
-   "fwd_j": 29.8
+   "pnl_j": 13.352,
+   "fwd_j": 29.9
   },
   "27a_rev_premium": {
    "statut": "ORANGE",
@@ -117,11 +117,11 @@
   },
   "28_carry_hold": {
    "statut": "ORANGE",
-   "n": 64,
-   "esperance": 4.1617,
-   "t": 3.12,
-   "pnl": 266.35,
-   "pnl_j": 14.018,
+   "n": 65,
+   "esperance": 4.1213,
+   "t": 3.14,
+   "pnl": 267.88,
+   "pnl_j": 14.099,
    "fwd_j": 19.0
   },
   "rd_h1": {
@@ -130,18 +130,30 @@
    "esperance": 0.2249,
    "t": 1.27,
    "pnl": 10.57,
-   "pnl_j": 4.403,
-   "fwd_j": 2.4
+   "pnl_j": 4.227,
+   "fwd_j": 2.5
   }
  },
  "tendances_btc": {
-  "ret1": -0.0069,
-  "ret7": 0.0206,
-  "ret30": 0.0322,
-  "prix": 66070
+  "ret1": -0.0076,
+  "ret7": 0.0198,
+  "ret30": 0.0314,
+  "prix": 66019
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-22T15:45",
+   "bot": "28_carry_hold",
+   "marche": "carryhold-HEMI",
+   "pnl": 1.53
+  },
+  {
+   "ts": "2026-07-22T15:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-22T15:30",
    "bot": "10_controle_aleatoire",
@@ -177,18 +189,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-22T14:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-22T14:15",
-   "bot": "23_carry_funding",
-   "marche": "carry-CASHCAT",
-   "pnl": -8.3
   }
  ],
  "calibration_arbitre": {
@@ -202,7 +202,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 7.5,
+  "age_avis_h": 7.8,
   "problemes": []
  },
  "autofinancement": {
