@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-22 14:30 (Paris)
+# Brief Station — 2026-07-22 14:45 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)
@@ -15,12 +15,12 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 23_carry_funding | ORANGE | 158 | 0.6161 | 1.14 | 97.35 | 3.38 | 28.8 j |
-| 24_funding_multivenues | ORANGE | 141 | -0.369 | -2.02 | -52.02 | -1.813 | 28.7 j |
+| 24_funding_multivenues | ORANGE | 141 | -0.369 | -2.02 | -52.02 | -1.806 | 28.8 j |
 | 25_convergence_basis | ROUGE | 829 | 0.4816 | 3.56 | 399.23 | 13.442 | 29.7 j |
-| 27a_rev_premium | ORANGE | 31 | -0.3142 | -0.11 | -9.74 | -0.341 | 28.6 j |
+| 27a_rev_premium | ORANGE | 32 | -0.591 | -0.21 | -18.91 | -0.659 | 28.7 j |
 | 27b_rev_move | ORANGE | 52 | 3.6829 | 1.75 | 191.51 | 6.767 | 28.3 j |
 | 27c_mom_move | ORANGE | 52 | -3.8229 | -1.82 | -198.79 | -7.024 | 28.3 j |
-| 27d_rev_move_stop | ORANGE | 63 | 0.4763 | 0.25 | 30.01 | 1.328 | 22.6 j |
+| 27d_rev_move_stop | ORANGE | 63 | 0.4763 | 0.25 | 30.01 | 1.322 | 22.7 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.595 | 18.9 j |
 | 27f10_selecteur | ORANGE | 122 | 0.7731 | 0.85 | 94.32 | 5.299 | 17.8 j |
 | 27f_selecteur | ORANGE | 31 | -2.6516 | -1.03 | -82.2 | -4.618 | 17.8 j |
@@ -28,10 +28,10 @@
 | 28_carry_hold | ORANGE | 63 | 4.2221 | 3.12 | 265.99 | 14.074 | 18.9 j |
 | rd_h1 | ROUGE | 47 | 0.2249 | 1.27 | 10.57 | 4.595 | 2.3 j |
 
-**P&L paper cumule (hors temoin)** : +739.87 $
+**P&L paper cumule (hors temoin)** : +730.70 $
 
-**BTC** 65833 $ — ret 1j -1.04% · 7j +1.69% · 30j +2.84%
-**Moves 24h ≥ 20 %** : CASHCAT -22.2%
+**BTC** 65754 $ — ret 1j -1.16% · 7j +1.57% · 30j +2.72%
+**Moves 24h ≥ 20 %** : CASHCAT -20.7%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
