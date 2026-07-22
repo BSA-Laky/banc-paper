@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-22 14:15 (Paris)
+# Brief Station — 2026-07-22 14:30 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin)** : +739.87 $
 
-**BTC** 65911 $ — ret 1j -0.93% · 7j +1.81% · 30j +2.97%
-**Moves 24h ≥ 20 %** : CASHCAT -20.8%
+**BTC** 65833 $ — ret 1j -1.04% · 7j +1.69% · 30j +2.84%
+**Moves 24h ≥ 20 %** : CASHCAT -22.2%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
