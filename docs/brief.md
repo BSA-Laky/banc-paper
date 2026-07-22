@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-22 09:30 (Paris)
+# Brief Station — 2026-07-22 09:45 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)
@@ -15,9 +15,9 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 23_carry_funding | ORANGE | 158 | 0.6161 | 1.14 | 97.35 | 3.404 | 28.6 j |
-| 24_funding_multivenues | ORANGE | 141 | -0.369 | -2.02 | -52.02 | -1.825 | 28.5 j |
+| 24_funding_multivenues | ORANGE | 141 | -0.369 | -2.02 | -52.02 | -1.819 | 28.6 j |
 | 25_convergence_basis | ROUGE | 829 | 0.4816 | 3.56 | 399.23 | 13.533 | 29.5 j |
-| 27a_rev_premium | ORANGE | 30 | -0.2417 | -0.08 | -7.25 | -0.255 | 28.4 j |
+| 27a_rev_premium | ORANGE | 30 | -0.2417 | -0.08 | -7.25 | -0.254 | 28.5 j |
 | 27b_rev_move | ORANGE | 52 | 3.6829 | 1.75 | 191.51 | 6.815 | 28.1 j |
 | 27c_mom_move | ORANGE | 52 | -3.8229 | -1.82 | -198.79 | -7.074 | 28.1 j |
 | 27d_rev_move_stop | ORANGE | 63 | 0.4763 | 0.25 | 30.01 | 1.34 | 22.4 j |
@@ -30,7 +30,7 @@
 
 **P&L paper cumule (hors temoin)** : +742.36 $
 
-**BTC** 65846 $ — ret 1j -1.02% · 7j +1.71% · 30j +2.87%
+**BTC** 65759 $ — ret 1j -1.15% · 7j +1.58% · 30j +2.73%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
