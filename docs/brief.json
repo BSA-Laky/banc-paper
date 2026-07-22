@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-22T09:15:42.284980+00:00",
+ "ts": "2026-07-22T09:30:55.023890+00:00",
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)",
   "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
@@ -56,8 +56,8 @@
    "esperance": 3.6829,
    "t": 1.75,
    "pnl": 191.51,
-   "pnl_j": 6.815,
-   "fwd_j": 28.1
+   "pnl_j": 6.791,
+   "fwd_j": 28.2
   },
   "27c_mom_move": {
    "statut": "ORANGE",
@@ -65,8 +65,8 @@
    "esperance": -3.8229,
    "t": -1.82,
    "pnl": -198.79,
-   "pnl_j": -7.074,
-   "fwd_j": 28.1
+   "pnl_j": -7.049,
+   "fwd_j": 28.2
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -136,10 +136,16 @@
   "ret1": -0.0083,
   "ret7": 0.0191,
   "ret30": 0.0307,
-  "prix": 65976
+  "prix": 65974
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-22T09:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-22T09:15",
    "bot": "10_controle_aleatoire",
@@ -181,12 +187,6 @@
    "bot": "27a_rev_premium",
    "marche": "rev_premium-ONDO",
    "pnl": -2.49
-  },
-  {
-   "ts": "2026-07-22T08:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -200,7 +200,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.3,
+  "age_avis_h": 1.5,
   "problemes": []
  },
  "autofinancement": {
