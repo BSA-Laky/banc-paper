@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-22T00:45:42.254503+00:00",
+ "ts": "2026-07-22T01:01:04.132742+00:00",
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)",
   "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
@@ -88,11 +88,11 @@
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
-   "n": 118,
-   "esperance": 0.7876,
-   "t": 0.84,
-   "pnl": 92.93,
-   "pnl_j": 5.372,
+   "n": 119,
+   "esperance": 0.7688,
+   "t": 0.83,
+   "pnl": 91.49,
+   "pnl_j": 5.288,
    "fwd_j": 17.3
   },
   "27f_selecteur": {
@@ -133,22 +133,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0024,
-  "ret7": 0.0301,
-  "ret30": 0.0418,
-  "prix": 66685
+  "ret1": 0.0011,
+  "ret7": 0.0288,
+  "ret30": 0.0404,
+  "prix": 66601
  },
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": -25.4
-  },
-  {
-   "coin": "ACE",
-   "move_pct": -21.9
+   "move_pct": -22.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-22T01:01",
+   "bot": "27f10_selecteur",
+   "marche": "sel-LDO-MOM-tendance_piece",
+   "pnl": -1.45
+  },
+  {
+   "ts": "2026-07-22T01:00",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-22T00:45",
    "bot": "10_controle_aleatoire",
@@ -184,18 +192,6 @@
    "bot": "27f10_selecteur",
    "marche": "sel-ACE-MOM-tendance_piece",
    "pnl": -18.35
-  },
-  {
-   "ts": "2026-07-21T23:30",
-   "bot": "27f_selecteur",
-   "marche": "sel-ACE-MOM-tendance_piece",
-   "pnl": -18.35
-  },
-  {
-   "ts": "2026-07-21T23:30",
-   "bot": "27c_mom_move",
-   "marche": "mom_move-ACE",
-   "pnl": -18.35
   }
  ],
  "calibration_arbitre": {
@@ -209,7 +205,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 16.8,
+  "age_avis_h": 17.0,
   "problemes": []
  },
  "autofinancement": {
