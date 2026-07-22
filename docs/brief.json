@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-22T03:30:58.458283+00:00",
+ "ts": "2026-07-22T03:45:40.855794+00:00",
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)",
   "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
@@ -38,8 +38,8 @@
    "esperance": 0.4816,
    "t": 3.56,
    "pnl": 399.23,
-   "pnl_j": 13.625,
-   "fwd_j": 29.3
+   "pnl_j": 13.579,
+   "fwd_j": 29.4
   },
   "27a_rev_premium": {
    "statut": "ORANGE",
@@ -128,18 +128,24 @@
    "esperance": 0.2249,
    "t": 1.27,
    "pnl": 10.57,
-   "pnl_j": 5.562,
-   "fwd_j": 1.9
+   "pnl_j": 5.284,
+   "fwd_j": 2.0
   }
  },
  "tendances_btc": {
   "ret1": -0.0037,
   "ret7": 0.0238,
   "ret30": 0.0354,
-  "prix": 66280
+  "prix": 66279
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-22T03:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-22T03:30",
    "bot": "10_controle_aleatoire",
@@ -181,12 +187,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-22T01:45",
-   "bot": "27g10_selecteur",
-   "marche": "sel-ACE-REV-ia_piece",
-   "pnl": 19.6
   }
  ],
  "calibration_arbitre": {
@@ -200,7 +200,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 19.5,
+  "age_avis_h": 19.8,
   "problemes": []
  },
  "autofinancement": {
