@@ -138,6 +138,7 @@
     <table id="tbl-bots"><thead>
       <tr><th>bot</th><th>statut</th><th>n</th><th>esp</th><th>P&L $</th><th>t</th><th>fwd</th></tr>
     </thead><tbody></tbody></table>
+    <div id="arret-bots"></div>
     <h2 style="margin-top:10px"><span class="led vert"></span>JOURNAL DE BORD</h2>
     <ul id="journal"></ul>
     <p class="muted">100 % fictif. Verdict = espérance + t-stat vs témoin, net de frais.</p>
@@ -417,14 +418,25 @@ function rendre(brief, gate){
     Object.entries(tm).map(([k,v])=>`témoin ${k.startsWith("10b")?"book":"crypto"} : t ${v.t_stat} (${v.sain?"sain":"SUSPECT"})`).join(" · ");
 
   const tb = document.querySelector("#tbl-bots tbody"); tb.innerHTML="";
-  let nbRouge=0, nbVert=0, pnlTotal=0, pnlConnu=false;
+  const REELS = ["28_carry_hold"];                 // bots en argent reel (parite dashboard crypto)
+  const cvie = (gate && gate.cycle_vie) || {};
+  const etatBot = b => { const v=bots[b]||{}, d=cvie[b]||{};
+    if(REELS.indexOf(b)>=0) return "reel";
+    if(d.etat==="kill" || (v.statut==="ROUGE" && !d.relance)) return "arrete";
+    return "actif"; };
+  const ligne = (b,v)=>{ const e=etatBot(b);
+    const chip = e==="reel" ? '<span class="chip VERT">💰 RÉEL</span>' : `<span class="chip ${v.statut}">${v.statut}</span>`;
+    return `<tr><td>${b}</td><td>${chip}</td><td>${v.n}</td><td>${v.esperance}</td><td class="${(v.pnl||0)>=0?'pnl-pos':'pnl-neg'}" style="margin:0">${v.pnl===undefined||v.pnl===null?'?':v.pnl}</td><td>${v.t}</td><td>${v.fwd_j} j</td></tr>`; };
+  let nbRouge=0, nbVert=0, pnlTotal=0, pnlConnu=false, morts=[];
   Object.entries(bots).forEach(([b,v])=>{
     if(v.statut==="ROUGE") nbRouge++; if(v.statut==="VERT") nbVert++;
     if(typeof v.pnl === "number"){ pnlTotal += v.pnl; pnlConnu = true; }
-    tb.insertAdjacentHTML("beforeend",
-      `<tr><td>${b}</td><td><span class="chip ${v.statut}">${v.statut}</span></td>
-       <td>${v.n}</td><td>${v.esperance}</td><td class="${(v.pnl||0)>=0?'pnl-pos':'pnl-neg'}" style="margin:0">${v.pnl===undefined||v.pnl===null?'?':v.pnl}</td><td>${v.t}</td><td>${v.fwd_j} j</td></tr>`);
+    if(etatBot(b)==="arrete") morts.push(ligne(b,v)); else tb.insertAdjacentHTML("beforeend", ligne(b,v));
   });
+  const ab=document.getElementById("arret-bots");
+  if(ab) ab.innerHTML = morts.length
+    ? `<details style="margin-top:8px"><summary style="cursor:pointer;color:#ff5b6e;font-size:13px;padding:6px 0">🛑 Bots arrêtés / tués (${morts.length}) — retirés du banc actif</summary><table style="width:100%;opacity:.6"><tbody>${morts.join("")}</tbody></table></details>`
+    : "";
 
   const hp = document.getElementById("hud-pnl");
   if(hp){ hp.textContent = pnlConnu ? (pnlTotal>=0?"+":"")+pnlTotal.toFixed(0)+" $" : "\u2014";
