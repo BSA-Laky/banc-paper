@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-23T00:30:55.223450+00:00",
+ "ts": "2026-07-23T00:45:40.812911+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
   "23_carry_funding: esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
@@ -31,8 +31,8 @@
    "esperance": -0.3868,
    "t": -2.18,
    "pnl": -56.08,
-   "pnl_j": -1.921,
-   "fwd_j": 29.2
+   "pnl_j": -1.914,
+   "fwd_j": 29.3
   },
   "25_convergence_basis": {
    "statut": "ROUGE",
@@ -49,25 +49,25 @@
    "esperance": -0.5878,
    "t": -0.21,
    "pnl": -19.4,
-   "pnl_j": -0.667,
-   "fwd_j": 29.1
+   "pnl_j": -0.664,
+   "fwd_j": 29.2
   },
   "27b_rev_move": {
    "statut": "ORANGE",
-   "n": 53,
-   "esperance": 3.4971,
-   "t": 1.69,
-   "pnl": 185.35,
-   "pnl_j": 6.436,
+   "n": 54,
+   "esperance": 3.4084,
+   "t": 1.68,
+   "pnl": 184.06,
+   "pnl_j": 6.391,
    "fwd_j": 28.8
   },
   "27c_mom_move": {
    "statut": "ORANGE",
-   "n": 53,
-   "esperance": -3.6371,
-   "t": -1.76,
-   "pnl": -192.77,
-   "pnl_j": -6.693,
+   "n": 54,
+   "esperance": -3.5484,
+   "t": -1.74,
+   "pnl": -191.62,
+   "pnl_j": -6.653,
    "fwd_j": 28.8
   },
   "27d_rev_move_stop": {
@@ -76,8 +76,8 @@
    "esperance": 0.2114,
    "t": 0.12,
    "pnl": 13.95,
-   "pnl_j": 0.604,
-   "fwd_j": 23.1
+   "pnl_j": 0.602,
+   "fwd_j": 23.2
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -135,18 +135,31 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0014,
-  "ret7": 0.0371,
-  "ret30": 0.0554,
-  "prix": 66180
+  "ret1": 0.0006,
+  "ret7": 0.0362,
+  "ret30": 0.0546,
+  "prix": 66127
  },
- "evenements_extremes": [
-  {
-   "coin": "CASHCAT",
-   "move_pct": -20.7
-  }
- ],
+ "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-23T00:45",
+   "bot": "27c_mom_move",
+   "marche": "mom_move-ACE",
+   "pnl": 1.15
+  },
+  {
+   "ts": "2026-07-23T00:45",
+   "bot": "27b_rev_move",
+   "marche": "rev_move-ACE",
+   "pnl": -1.29
+  },
+  {
+   "ts": "2026-07-23T00:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-23T00:30",
    "bot": "27f_selecteur",
@@ -176,24 +189,6 @@
    "bot": "28_carry_hold",
    "marche": "carryhold-VINE",
    "pnl": 3.11
-  },
-  {
-   "ts": "2026-07-22T23:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-22T23:30",
-   "bot": "27f10_selecteur",
-   "marche": "sel-CASHCAT-MOM-tendance_piece",
-   "pnl": 20.45
-  },
-  {
-   "ts": "2026-07-22T23:30",
-   "bot": "27f10_selecteur",
-   "marche": "sel-ACE-REV-ia_piece",
-   "pnl": -2.68
   }
  ],
  "calibration_arbitre": {
@@ -207,7 +202,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 16.5,
+  "age_avis_h": 16.8,
   "problemes": []
  },
  "autofinancement": {
