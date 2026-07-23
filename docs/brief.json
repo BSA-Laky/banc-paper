@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-23T10:15:41.320110+00:00",
+ "ts": "2026-07-23T10:30:56.170491+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
   "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
@@ -130,18 +130,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.006,
-  "ret7": 0.0294,
-  "ret30": 0.0476,
-  "prix": 65690
+  "ret1": -0.0053,
+  "ret7": 0.0301,
+  "ret30": 0.0483,
+  "prix": 65737
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": -29.6
+   "move_pct": -28.5
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-23T10:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-23T10:15",
    "bot": "25_convergence_basis",
@@ -183,12 +189,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-STABLE",
    "pnl": 0.81
-  },
-  {
-   "ts": "2026-07-23T09:30",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ZRO",
-   "pnl": -0.37
   }
  ],
  "calibration_arbitre": {
@@ -202,7 +202,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 2.3,
+  "age_avis_h": 2.5,
   "problemes": []
  },
  "autofinancement": {
