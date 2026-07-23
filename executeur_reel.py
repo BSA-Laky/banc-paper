@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -28,7 +29,18 @@ ETAT = Path("etat")
 F_STATE = ETAT / "executeur_reel.json"
 LEDGER = ETAT / "reel_trades.csv"
 F_STOP = ETAT / "reel_stop.json"
-PILOTES = ["28_carry_hold"]
+def _pilotes_reels():
+    """SOURCE UNIQUE des bots reels = portefeuille.reel.json (cles 'bots'). Ajouter un bot
+    reel = editer CE fichier UNIQUEMENT (synergie B, 23/07). Defaut sur 28 si illisible."""
+    try:
+        cfg = json.loads(Path(os.environ.get("PORTEFEUILLE_CONFIG", "portefeuille.reel.json"))
+                         .read_text(encoding="utf-8"))
+        return list((cfg.get("bots") or {}).keys()) or ["28_carry_hold"]
+    except (OSError, ValueError):
+        return ["28_carry_hold"]
+
+
+PILOTES = _pilotes_reels()
 FICHIER_ETAT = {"28_carry_hold": "etat_bot28.json"}
 FRAIS = 0.00035
 CAP_TOTAL_USD = 24.0   # exposition reelle totale plafonnee (marge de securite sous le depot)

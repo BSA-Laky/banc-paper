@@ -505,6 +505,10 @@ def produire_go_reel():
                    "sain": abs(stats[b]["t_stat"]) < 2.0}
                for b in TEMOINS if b in stats}
     banc_suspect = any(not v["sain"] for v in temoins.values())
+    try:                                   # synergie B : bots reels = portefeuille.reel.json (source unique)
+        reels_list = list((json.loads(Path("portefeuille.reel.json").read_text(encoding="utf-8")).get("bots") or {}).keys())
+    except (OSError, ValueError):
+        reels_list = ["28_carry_hold"]
 
     doc = {
         "ts": datetime.now(timezone.utc).isoformat(),
@@ -520,6 +524,7 @@ def produire_go_reel():
                                  for r in v.get("avertissements", [])),
         "calibration_arbitre": _scorer_calibration(),
         "cycle_vie": cv["bots"],
+        "reels": reels_list,
     }
     try:
         SORTIE_JSON.parent.mkdir(parents=True, exist_ok=True)
