@@ -56,7 +56,7 @@ jobs:
           HL_MODE: live
           HL_LIVE_CONFIRM: OUI_ARGENT_REEL
           HL_NET: testnet
-          : "150"
+          HL_MAX_NOTIONAL: "150"
           HL_API_KEY: ${{ secrets.HL_API_KEY }}
           HL_ACCOUNT_ADDRESS: ${{ secrets.HL_ACCOUNT_ADDRESS }}
         run: |
