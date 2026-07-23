@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-23T18:15:46.220172+00:00",
+ "ts": "2026-07-23T18:30:58.299251+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
   "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
@@ -31,11 +31,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 885,
-   "esperance": 0.4654,
-   "t": 3.64,
-   "pnl": 411.85,
-   "pnl_j": 13.285,
+   "n": 887,
+   "esperance": 0.4631,
+   "t": 3.63,
+   "pnl": 410.77,
+   "pnl_j": 13.25,
    "fwd_j": 31.0
   },
   "27a_rev_premium": {
@@ -130,18 +130,31 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0205,
-  "ret7": 0.0144,
-  "ret30": 0.0323,
-  "prix": 64733
+  "ret1": -0.0196,
+  "ret7": 0.0153,
+  "ret30": 0.0333,
+  "prix": 64791
  },
- "evenements_extremes": [
-  {
-   "coin": "CASHCAT",
-   "move_pct": -22.2
-  }
- ],
+ "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-23T18:30",
+   "bot": "25_convergence_basis",
+   "marche": "conv-VIRTUAL",
+   "pnl": -0.61
+  },
+  {
+   "ts": "2026-07-23T18:30",
+   "bot": "25_convergence_basis",
+   "marche": "conv-JUP",
+   "pnl": -0.47
+  },
+  {
+   "ts": "2026-07-23T18:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-23T18:15",
    "bot": "25_convergence_basis",
@@ -171,24 +184,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-RSR",
    "pnl": 0.14
-  },
-  {
-   "ts": "2026-07-23T18:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-23T17:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-23T17:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -202,7 +197,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 10.3,
+  "age_avis_h": 10.5,
   "problemes": []
  },
  "autofinancement": {
