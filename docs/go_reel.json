@@ -1,11 +1,11 @@
 {
- "ts": "2026-07-23T07:15:39.900622+00:00",
+ "ts": "2026-07-23T07:30:54.929565+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 798,
-   "t_stat": -0.14,
+   "n": 799,
+   "t_stat": -0.18,
    "sain": true
   }
  },
@@ -19,7 +19,6 @@
    "verdict_banc": "indistinguable du hasard",
    "decrochage": true,
    "raisons": [
-    "esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
     "KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT"
    ],
    "avertissements": [],
@@ -30,7 +29,7 @@
    "esp_glissante_20": -2.6001,
    "borne_decrochage": -2.4839,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 6979.4,
+   "expo_moyenne_usd": 6976.9,
    "rendement_j_pct": 0.043
   },
   "24_funding_multivenues": {
@@ -52,36 +51,34 @@
    "esp_glissante_20": -1.0534,
    "borne_decrochage": -1.3442,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 1540.4,
+   "expo_moyenne_usd": 1539.9,
    "rendement_j_pct": -0.123
   },
   "25_convergence_basis": {
-   "n": 829,
-   "esperance": 0.4816,
-   "t_stat": 3.56,
+   "n": 834,
+   "esperance": 0.4925,
+   "t_stat": 3.65,
    "mdd_live": 47.59,
    "jours_forward": 30.5,
    "verdict_banc": "edge a CONFIRMER (profil asymetrique, t-stat peu fiable)",
    "decrochage": false,
-   "raisons": [
-    "KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)"
-   ],
+   "raisons": [],
    "avertissements": [],
    "mu_ref": null,
-   "pnl_cumule": 399.23,
-   "pnl_par_jour": 13.089,
+   "pnl_cumule": 410.71,
+   "pnl_par_jour": 13.466,
    "trop_beau_audite": null,
-   "esp_glissante_20": -0.1774,
-   "borne_decrochage": -1.2585,
-   "statut": "ROUGE",
-   "expo_moyenne_usd": 6482.6,
-   "rendement_j_pct": 0.202,
+   "esp_glissante_20": 0.359,
+   "borne_decrochage": -1.2509,
+   "statut": "VERT",
+   "expo_moyenne_usd": 6908.7,
+   "rendement_j_pct": 0.195,
    "ab": {
     "contre": "23_carry_funding",
-    "delta_esperance": -0.0785,
-    "t_welch": -0.14,
-    "delta_rendement_j_pct": 0.1631,
-    "t_welch_jour": 2.35,
+    "delta_esperance": -0.0676,
+    "t_welch": -0.12,
+    "delta_rendement_j_pct": 0.1504,
+    "t_welch_jour": 2.27,
     "jours_compares": 30
    }
   },
@@ -127,8 +124,8 @@
    "esp_glissante_20": -1.7677,
    "borne_decrochage": -3.9902,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 189.3,
-   "rendement_j_pct": 2.866
+   "expo_moyenne_usd": 189.2,
+   "rendement_j_pct": 2.867
   },
   "27c_mom_move": {
    "n": 55,
@@ -150,8 +147,8 @@
    "esp_glissante_20": 1.6277,
    "borne_decrochage": -9.8704,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 189.3,
-   "rendement_j_pct": -3.006
+   "expo_moyenne_usd": 189.2,
+   "rendement_j_pct": -3.007
   },
   "27d_rev_move_stop": {
    "n": 68,
@@ -174,7 +171,7 @@
    "esp_glissante_20": -1.175,
    "borne_decrochage": -6.6479,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 290.3,
+   "expo_moyenne_usd": 290.1,
    "rendement_j_pct": -0.065
   },
   "27e_arbitre": {
@@ -186,9 +183,6 @@
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
-    "n 30 < n_go 50",
-    "t < 2",
-    "forward 20 j < 28 j",
     "KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30"
    ],
    "avertissements": [
@@ -202,12 +196,12 @@
    "borne_decrochage": -7.2096,
    "statut": "ROUGE",
    "expo_moyenne_usd": 152.6,
-   "rendement_j_pct": -1.002,
+   "rendement_j_pct": -1.003,
    "ab": {
     "contre": "27b_rev_move",
     "delta_esperance": -3.8747,
     "t_welch": -1.18,
-    "delta_rendement_j_pct": -1.3194,
+    "delta_rendement_j_pct": -1.32,
     "t_welch_jour": -0.42,
     "jours_compares": 20
    }
@@ -232,7 +226,7 @@
    "esp_glissante_20": 1.551,
    "borne_decrochage": -3.6027,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 682.6,
+   "expo_moyenne_usd": 682.2,
    "rendement_j_pct": 0.865
   },
   "27f_selecteur": {
@@ -256,8 +250,8 @@
    "esp_glissante_20": -4.4294,
    "borne_decrochage": -10.1575,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 182.7,
-   "rendement_j_pct": -3.598
+   "expo_moyenne_usd": 182.6,
+   "rendement_j_pct": -3.6
   },
   "27g10_selecteur": {
    "n": 25,
@@ -276,7 +270,7 @@
    "esp_glissante_20": -2.016,
    "borne_decrochage": -6.9014,
    "statut": "GRIS",
-   "expo_moyenne_usd": 229.9,
+   "expo_moyenne_usd": 229.7,
    "rendement_j_pct": 0.457
   },
   "28_carry_hold": {
@@ -302,7 +296,7 @@
    "esp_glissante_20": 3.2529,
    "borne_decrochage": 0.6607,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 2975.7,
+   "expo_moyenne_usd": 2974.1,
    "rendement_j_pct": 0.485
   },
   "rd_h1": {
@@ -324,18 +318,13 @@
    "esp_glissante_20": -0.4086,
    "borne_decrochage": -0.3186,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1517.8,
+   "expo_moyenne_usd": 1512.6,
    "rendement_j_pct": 0.225
   }
  },
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
-  "23_carry_funding: esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
-  "25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)",
   "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
-  "27e_arbitre: forward 20 j < 28 j",
-  "27e_arbitre: n 30 < n_go 50",
-  "27e_arbitre: t < 2",
   "rd_h1: esp20 -0.41 < borne -0.32 -> COUPER LE BOT"
  ],
  "avertissements": [
@@ -350,9 +339,9 @@
  },
  "cycle_vie": {
   "25_convergence_basis": {
-   "etat": "kill",
-   "raison": "R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)",
-   "ts": "2026-07-20T18:01:09.671356+00:00"
+   "etat": "actif",
+   "relance": "2026-07-23T07:19:27.390936+00:00",
+   "note": "Relance Commandant 23/07. 23 (son rival) est lui-meme mort -> la regle 'battre 23' est caduque. 25 = meilleur bot (t 3,56, +399$). Auto-kill desactive."
   },
   "27e_arbitre": {
    "etat": "kill",
