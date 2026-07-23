@@ -50,6 +50,15 @@ CSS = (
     "table{width:100%;border-collapse:collapse;font-size:.86rem}"
     "th,td{text-align:left;padding:5px 6px;border-bottom:1px solid #262c38}"
     "footer{color:#6b7280;font-size:.74rem;margin-top:18px;line-height:1.5}"
+    ".bdg{font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:20px;margin-left:6px}"
+    ".bdg.on{background:rgba(46,204,113,.16);color:#2ecc71}"
+    ".bdg.reel{background:rgba(245,166,35,.18);color:#f5a623}"
+    ".bdg.arret{background:rgba(231,76,60,.16);color:#e74c3c}"
+    ".c-reel{border:1px solid #f5a623;box-shadow:0 0 0 1px rgba(245,166,35,.25)}"
+    ".c-reel .verdict{color:#2ecc71;font-weight:600}"
+    ".c-arret{opacity:.62}"
+    ".cimet{margin-top:16px;border:1px solid #2a3242;border-radius:10px;padding:4px 12px;background:#12161f}"
+    ".cimet summary{cursor:pointer;color:#e74c3c;font-size:.9rem;font-weight:600;padding:7px 0}"
 )
 
 
@@ -95,10 +104,14 @@ def _pnl_7j(lignes):
     return out
 
 
-def _carte(bot, r, spark, p7=None):
+def _carte(bot, r, spark, p7=None, etat="actif"):
     titre = html.escape(JOLI.get(bot, bot))
+    badge = {"reel": '<span class="bdg reel">💰 RÉEL</span>',
+             "arrete": '<span class="bdg arret">🛑 arrêté</span>'}.get(
+                 etat, '<span class="bdg on">▶️ actif</span>')
+    cc = "carte" + (" c-reel" if etat == "reel" else (" c-arret" if etat == "arrete" else ""))
     if not r:
-        return (f'<div class="carte"><h2>{titre}</h2>'
+        return (f'<div class="{cc}"><h2>{titre} {badge}</h2>'
                 f'<p class="muted">Aucun trade fermé pour l\'instant.</p></div>')
     esp = r["esperance_par_trade"]
     cls = "pos" if esp > 0 else ("neg" if esp < 0 else "")
@@ -109,9 +122,11 @@ def _carte(bot, r, spark, p7=None):
          f'<div><span class="lab">P&amp;L 7 jours</span><span class="val {"pos" if (p7 or 0) > 0 else ("neg" if (p7 or 0) < 0 else "")}">{(p7 or 0.0):+.2f} $</span></div>'
          f'<div><span class="lab">Max drawdown</span><span class="val">{r["max_drawdown"]:.2f} $</span></div>'
          f'<div><span class="lab">t-stat</span><span class="val">{r["t_stat"]:+.2f}</span></div>')
-    return (f'<div class="carte"><h2>{titre}</h2><div class="kpis">{k}</div>'
+    verdict = ("💰 En ARGENT RÉEL — edge validé out-of-sample (t OOS +10). Suivi live : onglet 💰 réel."
+               if etat == "reel" else html.escape(r["verdict"]))
+    return (f'<div class="{cc}"><h2>{titre} {badge}</h2><div class="kpis">{k}</div>'
             f'<div class="spark">{spark}</div>'
-            f'<p class="verdict">{html.escape(r["verdict"])}</p></div>')
+            f'<p class="verdict">{verdict}</p></div>')
 
 
 def _ab(res):
@@ -297,7 +312,25 @@ def construire_dashboard():
     maj_iso = _now.isoformat()
     maj = _now.strftime("%Y-%m-%d %H:%M UTC")
     p7 = _pnl_7j(lignes)
-    cartes = "".join(_carte(b, res.get(b), _spark(series.get(b, [])), p7.get(b)) for b in ORDRE)
+    reels = set((_lj(Path("portefeuille.reel.json"), {}).get("bots") or {}).keys())
+    cv = (_lj(ETAT / "cycle_vie.json", {}).get("bots") or {})
+    gate = (_lj(DOCS / "go_reel.json", {}).get("bots") or {})
+
+    def _etat(b):
+        if b in reels:
+            return "reel"
+        dd = cv.get(b, {})
+        if dd.get("etat") == "kill" or (gate.get(b, {}).get("statut") == "ROUGE" and not dd.get("relance")):
+            return "arrete"
+        return "actif"
+    etats = {b: _etat(b) for b in ORDRE}
+
+    def _c(b):
+        return _carte(b, res.get(b), _spark(series.get(b, [])), p7.get(b), etats[b])
+    cartes = "".join(_c(b) for b in ORDRE if etats[b] != "arrete")
+    arretes = [b for b in ORDRE if etats[b] == "arrete"]
+    bloc_arret = (('<details class="cimet"><summary>🛑 Bots arrêtés / tués (%d) — sortis du banc actif, cliquer pour voir</summary>%s</details>'
+                   % (len(arretes), "".join(_c(b) for b in arretes))) if arretes else "")
     doc = (
         '<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width, initial-scale=1">'
@@ -306,7 +339,7 @@ def construire_dashboard():
         '<h1>Banc paper-trading — argent 100 % fictif</h1>'
         f'<div class="maj">Mis à jour : <span id="maj" data-iso="{maj_iso}">{maj}</span> · régénéré à chaque passe (~15 min)</div>'
         '<div class="maj"><a href="reel.html"><b>💰 réel</b></a> · <a href="station.html">station</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a> · <a href="book.html">book</a></div>'
-        + _ab(res) + cartes + _positions() + _enveloppes(lignes) +
+        + _ab(res) + cartes + _positions() + _enveloppes(lignes) + bloc_arret +
         '<footer>Lecture seule sur APIs publiques (Hyperliquid, Paradex, ADEN). '
         'Aucun ordre réel, aucun wallet, aucune clé. Le t-stat est peu fiable pour '
         'un profil asymétrique : lire l\'espérance ET le nombre de trades. Rien en '
