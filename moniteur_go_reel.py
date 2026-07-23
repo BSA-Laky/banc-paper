@@ -456,15 +456,19 @@ def produire_go_reel():
     for b, v in bots.items():
         deja = cv["bots"].get(b, {})
         if deja.get("etat") == "kill":
-            v["statut"] = "ROUGE"          # sticky : reste une invalidation visible
+            v["statut"] = "ROUGE"          # sticky : reste ROUGE, mais ALERTE NETTOYEE
+            # 23/07 : un bot tué ne crache plus TOUTES ses raisons de gate (n<50, t<2...) :
+            # une seule ligne pendant 3 j, puis SILENCE (kill acquitte). Anti-accumulation.
             if _jours_depuis(deja.get("ts", "")) < 3.0:
-                v.setdefault("raisons", []).append(
-                    "KILL exécuté (%s) : %s" % (str(deja.get("ts", ""))[:10],
-                                                deja.get("raison", "")))
+                v["raisons"] = ["KILL exécuté (%s) : %s" % (str(deja.get("ts", ""))[:10],
+                                                           deja.get("raison", ""))]
+            else:
+                v["raisons"] = []
             continue
         if b not in KILLABLES or deja.get("relance"):
             continue
         raison = None
+        etat_verdict = "kill"
         cfgb = GATE.get(b, DEFAUT)
         ab = v.get("ab") or {}
         if v["statut"] == "ROUGE" and v.get("decrochage"):
@@ -477,15 +481,20 @@ def produire_go_reel():
                 raison = ("R2 échéance A/B : ne bat pas 23 à capital égal "
                           "(delta %.3f pt/j, t %.2f)"
                           % (ab.get("delta_rendement_j_pct", 0), ab.get("t_welch_jour", 0)))
+                etat_verdict = "retrograde"   # 21/07 : redondance n'est pas nullite -> garder (paper 0 cout), trancher au reel
         elif b == "27e_arbitre" and ab:
             if v["n"] >= 30 and ab.get("delta_esperance", 0) < 0:
                 raison = ("R3 règle 15/07 : delta %.2f $ < 0 vs 27b à n>=30"
                           % ab.get("delta_esperance", 0))
         if raison:
-            cv["bots"][b] = {"etat": "kill", "raison": raison,
+            cv["bots"][b] = {"etat": etat_verdict, "raison": raison,
                              "ts": datetime.now(timezone.utc).isoformat()}
-            v["statut"] = "ROUGE"
-            v.setdefault("raisons", []).append("VERDICT PRÉ-ENREGISTRÉ -> KILL : " + raison)
+            if etat_verdict == "kill":
+                v["statut"] = "ROUGE"
+                v.setdefault("raisons", []).append("VERDICT PRÉ-ENREGISTRÉ -> KILL : " + raison)
+            else:
+                v.setdefault("raisons", []).append(
+                    "RÉTROGRADÉ (redondant vs 23, à trancher au réel — reste en paper) : " + raison)
     try:
         CYCLE.parent.mkdir(parents=True, exist_ok=True)
         CYCLE.write_text(json.dumps(cv, ensure_ascii=False, indent=1), encoding="utf-8")
