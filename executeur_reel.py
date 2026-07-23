@@ -43,7 +43,7 @@ def _pilotes_reels():
 PILOTES = _pilotes_reels()
 FICHIER_ETAT = {"28_carry_hold": "etat_bot28.json"}
 FRAIS = 0.00035
-CAP_TOTAL_USD = 24.0   # exposition reelle totale plafonnee (marge de securite sous le depot)
+CAP_TOTAL_USD = 850.0   # exposition reelle totale plafonnee (marge de securite sous le depot)
 
 
 def _lire_json(p, d):
