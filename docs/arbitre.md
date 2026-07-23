@@ -1,7 +1,7 @@
-# Arbitre IA — 2026-07-22
+# Arbitre IA — 2026-07-23
 
 **Regime : neutre** (confiance 0.55)
 
-rd_h1 ROUGE COUPER LE BOT non exécuté >24h -> escalade. 27b/c n=50 miroir confirmé (somme -7.28). 28_carry credible t=3.12.
+BTC neutre (ret1 -1.1%, ret7 +2.4%). rd_h1 KILL non exécuté >48h -> escalade. 23_carry/27e KILL exécutés. 27b/c miroir confirmé n=55.
 
-[Note du jour](../veille/2026-07-22.md) — modele `claude-sonnet-5`
+[Note du jour](../veille/2026-07-23.md) — modele `claude-sonnet-5`
