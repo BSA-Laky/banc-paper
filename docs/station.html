@@ -418,7 +418,7 @@ function rendre(brief, gate){
     Object.entries(tm).map(([k,v])=>`témoin ${k.startsWith("10b")?"book":"crypto"} : t ${v.t_stat} (${v.sain?"sain":"SUSPECT"})`).join(" · ");
 
   const tb = document.querySelector("#tbl-bots tbody"); tb.innerHTML="";
-  const REELS = ["28_carry_hold"];                 // bots en argent reel (parite dashboard crypto)
+  const REELS = (gate && gate.reels) || ["28_carry_hold"];   // source unique : go_reel.json.reels (synergie B)
   const cvie = (gate && gate.cycle_vie) || {};
   const etatBot = b => { const v=bots[b]||{}, d=cvie[b]||{};
     if(REELS.indexOf(b)>=0) return "reel";
