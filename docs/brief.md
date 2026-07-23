@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-23 21:30 (Paris)
+# Brief Station — 2026-07-23 21:45 (Paris)
 
 ## 🔴 ALERTES
 - 23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT
@@ -12,9 +12,9 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 23_carry_funding | ROUGE | 159 | 0.5601 | 1.04 | 89.05 | 2.959 | 30.1 j |
-| 24_funding_multivenues | ORANGE | 146 | -0.391 | -2.21 | -57.08 | -1.903 | 30.0 j |
-| 25_convergence_basis | VERT | 889 | 0.464 | 3.65 | 412.48 | 13.306 | 31.0 j |
-| 27a_rev_premium | ORANGE | 34 | 0.0885 | 0.03 | 3.01 | 0.101 | 29.9 j |
+| 24_funding_multivenues | ORANGE | 146 | -0.391 | -2.21 | -57.08 | -1.896 | 30.1 j |
+| 25_convergence_basis | VERT | 890 | 0.4636 | 3.65 | 412.64 | 13.311 | 31.0 j |
+| 27a_rev_premium | ORANGE | 34 | 0.0885 | 0.03 | 3.01 | 0.1 | 30.0 j |
 | 27b_rev_move | ORANGE | 55 | 2.8701 | 1.39 | 157.86 | 5.333 | 29.6 j |
 | 27c_mom_move | ORANGE | 55 | -3.0101 | -1.46 | -165.56 | -5.593 | 29.6 j |
 | 27d_rev_move_stop | ORANGE | 69 | -0.1683 | -0.1 | -11.61 | -0.486 | 23.9 j |
@@ -22,13 +22,12 @@
 | 27f10_selecteur | ORANGE | 127 | 0.8642 | 0.98 | 109.75 | 5.746 | 19.1 j |
 | 27f_selecteur | ORANGE | 34 | -3.5963 | -1.43 | -122.27 | -6.402 | 19.1 j |
 | 27g10_selecteur | GRIS | 25 | 0.4577 | 0.14 | 11.44 | 1.004 | 11.4 j |
-| 28_carry_hold | ORANGE | 71 | 4.0054 | 3.31 | 284.38 | 14.078 | 20.2 j |
+| 28_carry_hold | ORANGE | 72 | 4.0719 | 3.41 | 293.18 | 14.514 | 20.2 j |
 | rd_h1 | ROUGE | 47 | 0.2249 | 1.27 | 10.57 | 2.936 | 3.6 j |
 
-**P&L paper cumule (hors temoin)** : +691.88 $
+**P&L paper cumule (hors temoin)** : +700.84 $
 
-**BTC** 64909 $ — ret 1j -1.78% · 7j +1.71% · 30j +3.51%
-**Moves 24h ≥ 20 %** : CASHCAT -20.6%
+**BTC** 64734 $ — ret 1j -2.05% · 7j +1.44% · 30j +3.23%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
