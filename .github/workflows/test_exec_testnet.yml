@@ -1,31 +1,14 @@
-name: test-exec-testnet
-
-# Test manuel de la couche d'execution sur le TESTNET Hyperliquid (argent fictif).
-# Declenchement a la main uniquement. Necessite 2 secrets : HL_API_KEY (cle agent),
-# HL_ACCOUNT_ADDRESS (adresse du compte maitre).
+# DESACTIVE (synergie 23/07). Tout est consolide dans station.yml.
+# Ne lance plus rien -> zero doublon, zero risque de double ordre reel.
+# Le controle passe par station.yml + les commandes Telegram (stopreel, etc.).
+name: test-exec-testnet (desactive)
 on:
   workflow_dispatch: {}
-
 permissions:
   contents: read
-
 jobs:
-  test:
+  noop:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - name: Installer le SDK Hyperliquid
-        run: pip install hyperliquid-python-sdk eth-account
-      - name: Test execution testnet (ordre resting + cancel)
-        env:
-          HL_MODE: live
-          HL_LIVE_CONFIRM: OUI_ARGENT_REEL
-          HL_NET: testnet
-          HL_MAX_NOTIONAL: "25"
-          HL_API_KEY: ${{ secrets.HL_API_KEY }}
-          HL_ACCOUNT_ADDRESS: ${{ secrets.HL_ACCOUNT_ADDRESS }}
-        run: python test_execution.py
+      - run: |
+          echo "Workflow desactive. Toute la station tourne dans station.yml (consolidation synergie 23/07)."

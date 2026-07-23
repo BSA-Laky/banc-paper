@@ -1,54 +1,14 @@
-name: sampler
-
-# Échantillonnage paper-trading (lecture seule API publique Hyperliquid).
-# Tourne tout seul ~toutes les 15 min, sans PC allumé, gratuit, sans carte bleue.
-
+# DESACTIVE (synergie 23/07). Tout est consolide dans station.yml.
+# Ne lance plus rien -> zero doublon, zero risque de double ordre reel.
+# Le controle passe par station.yml + les commandes Telegram (stopreel, etc.).
+name: sampler (desactive)
 on:
-  workflow_dispatch: {}   # 17/07 : cron transfere dans station.yml (consolidation anti-famine, audit 17/07)
-
-# Le bot écrit l'état/ledger/dashboard et les committe : il faut le droit d'écrire.
+  workflow_dispatch: {}
 permissions:
-  contents: write
-
-# Une seule exécution à la fois (évite les conflits de commit).
-concurrency:
-  group: sampler
-  cancel-in-progress: false
-
+  contents: read
 jobs:
-  run:
+  noop:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
-      - name: Récupérer le repo
-        uses: actions/checkout@v4
-
-      - name: Installer Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Une passe d'échantillonnage + régénération du dashboard
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          # 12/07/2026 : avis par piece bascules sur HAIKU (cout ÷~20). Le poste Opus
-          # (arbitre quotidien) reste inchange. Motif : 9,94 $ consommes en 9 j (~1,1 $/j)
-          # -> projection ~30 $/mois > plafond 15 $. Redevenir Opus = poser la Variable
-          # repo MODELE_AVIS. NB experience 27f/27f10/27g10 : changement de traitement
-          # a cette date (avis Opus avant, Haiku apres) - en tenir compte dans les verdicts.
-          MODELE_AVIS: ${{ vars.MODELE_AVIS || 'claude-haiku-4-5-20251001' }}
-          AVIS_MAX_JOUR: "10"
-        run: python run_once.py
-
-      - name: Committer l'état, le journal et le dashboard
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if git diff --cached --quiet; then
-            echo "Rien à committer cette passe."
-          else
-            git commit -m "sample $(date -u +%FT%TZ)"
-            git pull --rebase --autostash || true
-            git push
-          fi
+      - run: |
+          echo "Workflow desactive. Toute la station tourne dans station.yml (consolidation synergie 23/07)."
