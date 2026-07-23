@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-23T08:01:18.704317+00:00",
+ "ts": "2026-07-23T08:16:05.090691+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
   "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
@@ -31,11 +31,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 835,
-   "esperance": 0.4913,
-   "t": 3.64,
-   "pnl": 410.21,
-   "pnl_j": 13.45,
+   "n": 837,
+   "esperance": 0.4907,
+   "t": 3.65,
+   "pnl": 410.75,
+   "pnl_j": 13.467,
    "fwd_j": 30.5
   },
   "27a_rev_premium": {
@@ -130,18 +130,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.01,
-  "ret7": 0.0253,
-  "ret30": 0.0434,
-  "prix": 65427
+  "ret1": -0.0088,
+  "ret7": 0.0265,
+  "ret30": 0.0446,
+  "prix": 65503
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": -31.1
+   "move_pct": -30.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-23T08:16",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": 1.12
+  },
+  {
+   "ts": "2026-07-23T08:16",
+   "bot": "25_convergence_basis",
+   "marche": "conv-AERO",
+   "pnl": -0.58
+  },
+  {
+   "ts": "2026-07-23T08:16",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-23T08:01",
    "bot": "25_convergence_basis",
@@ -171,24 +189,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-FARTCOIN",
    "pnl": -0.23
-  },
-  {
-   "ts": "2026-07-23T07:30",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ACE",
-   "pnl": 11.42
-  },
-  {
-   "ts": "2026-07-23T07:30",
-   "bot": "25_convergence_basis",
-   "marche": "conv-KBONK",
-   "pnl": -0.77
-  },
-  {
-   "ts": "2026-07-23T07:30",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ZRO",
-   "pnl": -0.55
   }
  ],
  "calibration_arbitre": {
@@ -202,7 +202,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.0,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {
