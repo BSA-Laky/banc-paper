@@ -208,7 +208,7 @@ officiers.append({
 })
 
 # ---------- automates 24/7 ----------
-automates = []
+automates = []; automates.append({"nom": "L'Exécuteur réel", "poste": "Trade le bot 28 en ARGENT RÉEL (mainnet HL)", "role": "executeur_reel.py", "badge": "Automate", "type": "SYS", "statut_cls": "actif", "statut": "Actif — rails 1× + garde-fou levier + kill-switch", "derniere": "Miroir mainnet du 28", "derniere_dt": d_gate, "prochain": "Prochaine passe", "prochain_dt": d_gate, "parole": "Je réplique les positions du bot 28 sur Hyperliquid mainnet : levier 1× forcé, coins non-1× refusés, plafond d'expo total, kill-switch stopreel. Perte bornée au dépôt (wallet agent trade-only)."})
 
 # Le Sas — gate GO-reel (moniteur_go_reel.py)
 automates.append({
