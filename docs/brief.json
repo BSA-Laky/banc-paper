@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-24T03:30:50.393596+00:00",
+ "ts": "2026-07-24T03:45:41.415088+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
   "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
@@ -31,12 +31,12 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 910,
-   "esperance": 0.4501,
+   "n": 911,
+   "esperance": 0.4498,
    "t": 3.61,
-   "pnl": 409.58,
-   "pnl_j": 13.086,
-   "fwd_j": 31.3
+   "pnl": 409.81,
+   "pnl_j": 13.051,
+   "fwd_j": 31.4
   },
   "27a_rev_premium": {
    "statut": "ORANGE",
@@ -112,11 +112,11 @@
   },
   "28_carry_hold": {
    "statut": "ORANGE",
-   "n": 72,
-   "esperance": 4.0719,
-   "t": 3.41,
-   "pnl": 293.18,
-   "pnl_j": 14.301,
+   "n": 73,
+   "esperance": 4.0263,
+   "t": 3.42,
+   "pnl": 293.92,
+   "pnl_j": 14.338,
    "fwd_j": 20.5
   },
   "rd_h1": {
@@ -125,18 +125,36 @@
    "esperance": 0.2249,
    "t": 1.27,
    "pnl": 10.57,
-   "pnl_j": 2.71,
-   "fwd_j": 3.9
+   "pnl_j": 2.642,
+   "fwd_j": 4.0
   }
  },
  "tendances_btc": {
-  "ret1": 0.0039,
-  "ret7": 0.0218,
-  "ret30": 0.07,
-  "prix": 65320
+  "ret1": 0.0046,
+  "ret7": 0.0225,
+  "ret30": 0.0707,
+  "prix": 65366
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-24T03:45",
+   "bot": "28_carry_hold",
+   "marche": "carryhold-SAGA",
+   "pnl": 0.75
+  },
+  {
+   "ts": "2026-07-24T03:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-RSR",
+   "pnl": 0.23
+  },
+  {
+   "ts": "2026-07-24T03:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-24T03:30",
    "bot": "10_controle_aleatoire",
@@ -166,24 +184,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-24T02:45",
-   "bot": "25_convergence_basis",
-   "marche": "conv-TRUMP",
-   "pnl": -0.55
-  },
-  {
-   "ts": "2026-07-24T02:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-24T02:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -197,7 +197,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 19.5,
+  "age_avis_h": 19.8,
   "problemes": []
  },
  "autofinancement": {
