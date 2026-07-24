@@ -22,8 +22,8 @@ from bot_27e_arbitre import _parse_ctxs
 ETAT = Path("etat")
 F_STATE = ETAT / "executeur_testnet.json"
 LEDGER = ETAT / "testnet_trades.csv"
-PILOTES = ["27f_selecteur", "27f10_selecteur", "27g10_selecteur", "28_carry_hold"]
-FICHIER_ETAT = {"28_carry_hold": "etat_bot28.json"}   # noms non standards
+PILOTES = ["28_carry_hold", "25_convergence_basis"]
+FICHIER_ETAT = {"28_carry_hold": "etat_bot28.json", "25_convergence_basis": "etat_bot25.json"}   # noms non standards
 FRAIS = 0.00035
 
 
@@ -161,7 +161,7 @@ def executer():
             if not ok:
                 print("[executeur] %s %s non ouvert : %s" % (bot, coin, raison), flush=True)
                 continue
-            side = int(v.get("side") or 0)
+            side = int(v.get("side") or 0) or (-1 if (v.get("premium_entree") or 0) > 0 else (1 if v.get("premium_entree") else 0))
             if side == 0:                   # position sans direction connue (ex. 28 pre-16/07)
                 continue
             notion = pf.taille_entree(bot)
