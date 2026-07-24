@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-24T15:15:49.151067+00:00",
+ "ts": "2026-07-24T15:30:52.839168+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
   "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30"
@@ -16,8 +16,8 @@
    "esperance": 0.5601,
    "t": 1.04,
    "pnl": 89.05,
-   "pnl_j": 2.882,
-   "fwd_j": 30.9
+   "pnl_j": 2.873,
+   "fwd_j": 31.0
   },
   "24_funding_multivenues": {
    "statut": "ORANGE",
@@ -30,11 +30,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 947,
-   "esperance": 0.437,
+   "n": 948,
+   "esperance": 0.4373,
    "t": 3.63,
-   "pnl": 413.89,
-   "pnl_j": 13.015,
+   "pnl": 414.52,
+   "pnl_j": 13.035,
    "fwd_j": 31.8
   },
   "27a_rev_premium": {
@@ -88,8 +88,8 @@
    "esperance": 0.6152,
    "t": 0.71,
    "pnl": 81.82,
-   "pnl_j": 4.111,
-   "fwd_j": 19.9
+   "pnl_j": 4.091,
+   "fwd_j": 20.0
   },
   "27f_selecteur": {
    "statut": "ORANGE",
@@ -97,8 +97,8 @@
    "esperance": -2.9744,
    "t": -1.18,
    "pnl": -104.1,
-   "pnl_j": -5.231,
-   "fwd_j": 19.9
+   "pnl_j": -5.205,
+   "fwd_j": 20.0
   },
   "27g10_selecteur": {
    "statut": "GRIS",
@@ -120,13 +120,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0141,
-  "ret7": 0.0035,
-  "ret30": 0.0508,
-  "prix": 64150
+  "ret1": -0.0154,
+  "ret7": 0.0021,
+  "ret30": 0.0494,
+  "prix": 64064
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-24T15:30",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": 0.63
+  },
+  {
+   "ts": "2026-07-24T15:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-24T15:15",
    "bot": "25_convergence_basis",
@@ -162,18 +174,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-CRV",
    "pnl": -0.4
-  },
-  {
-   "ts": "2026-07-24T14:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-24T14:30",
-   "bot": "25_convergence_basis",
-   "marche": "conv-KPEPE",
-   "pnl": -0.3
   }
  ],
  "calibration_arbitre": {
@@ -187,7 +187,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 7.3,
+  "age_avis_h": 7.5,
   "problemes": []
  },
  "autofinancement": {
