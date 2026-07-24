@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-24T09:01:14.904146+00:00",
+ "ts": "2026-07-24T09:05:46.994336+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
   "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
@@ -107,8 +107,8 @@
    "esperance": 0.7073,
    "t": 0.22,
    "pnl": 18.39,
-   "pnl_j": 1.545,
-   "fwd_j": 11.9
+   "pnl_j": 1.533,
+   "fwd_j": 12.0
   },
   "28_carry_hold": {
    "statut": "ORANGE",
@@ -130,18 +130,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0032,
-  "ret7": 0.0211,
-  "ret30": 0.0693,
-  "prix": 65278
+  "ret1": 0.0003,
+  "ret7": 0.0182,
+  "ret30": 0.0662,
+  "prix": 65089
  },
- "evenements_extremes": [
-  {
-   "coin": "CASHCAT",
-   "move_pct": 21.4
-  }
- ],
+ "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-24T09:05",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-24T09:01",
    "bot": "28_carry_hold",
@@ -183,12 +184,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-24T08:15",
-   "bot": "27f10_selecteur",
-   "marche": "sel-STABLE-REV-defaut",
-   "pnl": 4.06
   }
  ],
  "calibration_arbitre": {
