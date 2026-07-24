@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-24 07:45 (Paris)
+# Brief Station — 2026-07-24 08:01 (Paris)
 
 ## 🔴 ALERTES
 - 23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT
@@ -11,7 +11,7 @@
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 23_carry_funding | ROUGE | 159 | 0.5601 | 1.04 | 89.05 | 2.92 | 30.5 j |
+| 23_carry_funding | ROUGE | 159 | 0.5601 | 1.04 | 89.05 | 2.91 | 30.6 j |
 | 24_funding_multivenues | ORANGE | 146 | -0.391 | -2.21 | -57.08 | -1.872 | 30.5 j |
 | 25_convergence_basis | VERT | 914 | 0.4523 | 3.64 | 413.38 | 13.165 | 31.4 j |
 | 27a_rev_premium | ORANGE | 34 | 0.0885 | 0.03 | 3.01 | 0.099 | 30.4 j |
@@ -19,15 +19,15 @@
 | 27c_mom_move | ORANGE | 55 | -3.0101 | -1.46 | -165.56 | -5.519 | 30.0 j |
 | 27d_rev_move_stop | ORANGE | 69 | -0.1683 | -0.1 | -11.61 | -0.476 | 24.4 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.463 | 20.6 j |
-| 27f10_selecteur | ORANGE | 129 | 0.7003 | 0.79 | 90.33 | 4.633 | 19.5 j |
-| 27f_selecteur | ORANGE | 34 | -3.5963 | -1.43 | -122.27 | -6.27 | 19.5 j |
+| 27f10_selecteur | ORANGE | 130 | 0.7376 | 0.84 | 95.89 | 4.892 | 19.6 j |
+| 27f_selecteur | ORANGE | 34 | -3.5963 | -1.43 | -122.27 | -6.238 | 19.6 j |
 | 27g10_selecteur | GRIS | 26 | 0.7073 | 0.22 | 18.39 | 1.559 | 11.8 j |
 | 28_carry_hold | ORANGE | 73 | 4.0263 | 3.42 | 293.92 | 14.268 | 20.6 j |
 | rd_h1 | ROUGE | 47 | 0.2249 | 1.27 | 10.57 | 2.642 | 4.0 j |
 
-**P&L paper cumule (hors temoin)** : +689.85 $
+**P&L paper cumule (hors temoin)** : +695.41 $
 
-**BTC** 65288 $ — ret 1j +0.34% · 7j +2.13% · 30j +6.95%
+**BTC** 65264 $ — ret 1j +0.30% · 7j +2.09% · 30j +6.91%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
