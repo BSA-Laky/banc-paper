@@ -190,7 +190,7 @@ def executer():
             if side == 0:
                 continue
             lev = pf.levier(bot)          # force 1x sur mainnet (garde-fou portefeuille)
-            ex.set_leverage(coin, lev)
+            if (ex.set_leverage(coin, lev) or {}).get("status") != "ok": print("[reel] %s %s NON ouvert : levier 1x non confirme -> skip (rail)" % (bot, coin), flush=True); continue
             try:
                 r = pf.ouvrir(bot, coin, is_buy=(side > 0), prix_ref=d["mark"])
             except Exception as e:
