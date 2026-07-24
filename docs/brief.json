@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-24T02:30:54.116111+00:00",
+ "ts": "2026-07-24T02:45:40.427983+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
   "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
@@ -31,11 +31,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 907,
-   "esperance": 0.4528,
-   "t": 3.62,
-   "pnl": 410.72,
-   "pnl_j": 13.122,
+   "n": 908,
+   "esperance": 0.4517,
+   "t": 3.61,
+   "pnl": 410.17,
+   "pnl_j": 13.104,
    "fwd_j": 31.3
   },
   "27a_rev_premium": {
@@ -130,13 +130,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0002,
-  "ret7": 0.0181,
-  "ret30": 0.0661,
-  "prix": 65085
+  "ret1": -0.0006,
+  "ret7": 0.0172,
+  "ret30": 0.0652,
+  "prix": 65027
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-24T02:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-TRUMP",
+   "pnl": -0.55
+  },
+  {
+   "ts": "2026-07-24T02:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-24T02:30",
    "bot": "10_controle_aleatoire",
@@ -172,18 +184,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-LTC",
    "pnl": -0.32
-  },
-  {
-   "ts": "2026-07-24T02:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-24T01:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -197,7 +197,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 18.5,
+  "age_avis_h": 18.8,
   "problemes": []
  },
  "autofinancement": {
