@@ -105,7 +105,7 @@ d'ordres profond, funding d'une autre venue, cle privee) : ne fournis PAS de cod
 Tu reponds EXCLUSIVEMENT en JSON valide, schema :
 {"fiche":{"titre":"<=70","famille":"carry|reversion|momentum|microstructure|autre",
  "mecanisme":"<=280","signal_entree":"<=200","signal_sortie":"<=150","seuils":"<=150",
- "donnees_requises":"<=150","frais_slippage":"<=120","kill_criteres":"<=150","prior_honnete":"<=150"},
+ "donnees_requises":"<=150","frais_slippage":"<=120","kill_criteres":"<=150","prior_honnete":"<=150","explication_simple":"OBLIGATOIRE : le mecanisme explique en mots SIMPLES, comme a un enfant de 10 ans, ZERO jargon (ou chaque terme technique explique simplement)"},
  "code_step":"le corps complet du module python (def step...), ou \\"\\" si ressource manquante",
  "kill":{"n_max":120,"t_min":0.5,"jours_max":45},
  "besoin_ressource":"vide si code fourni ; sinon description + tuto pour le Commandant",
