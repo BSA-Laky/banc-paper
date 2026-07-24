@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-24T16:30:56.990135+00:00",
+ "ts": "2026-07-24T16:45:43.229209+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT"
  ],
@@ -29,11 +29,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 950,
-   "esperance": 0.4287,
+   "n": 952,
+   "esperance": 0.4275,
    "t": 3.56,
-   "pnl": 407.31,
-   "pnl_j": 12.768,
+   "pnl": 406.97,
+   "pnl_j": 12.758,
    "fwd_j": 31.9
   },
   "27a_rev_premium": {
@@ -51,8 +51,8 @@
    "esperance": 3.0843,
    "t": 1.51,
    "pnl": 172.72,
-   "pnl_j": 5.682,
-   "fwd_j": 30.4
+   "pnl_j": 5.663,
+   "fwd_j": 30.5
   },
   "27c_mom_move": {
    "statut": "ORANGE",
@@ -60,8 +60,8 @@
    "esperance": -3.2243,
    "t": -1.58,
    "pnl": -180.56,
-   "pnl_j": -5.94,
-   "fwd_j": 30.4
+   "pnl_j": -5.92,
+   "fwd_j": 30.5
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -119,13 +119,31 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.016,
-  "ret7": 0.0015,
-  "ret30": 0.0488,
-  "prix": 64027
+  "ret1": -0.0172,
+  "ret7": 0.0003,
+  "ret30": 0.0475,
+  "prix": 63947
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-24T16:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-CASHCAT",
+   "pnl": 0.0
+  },
+  {
+   "ts": "2026-07-24T16:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-SPX",
+   "pnl": -0.34
+  },
+  {
+   "ts": "2026-07-24T16:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-24T16:30",
    "bot": "10_controle_aleatoire",
@@ -155,24 +173,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-RSR",
    "pnl": 0.23
-  },
-  {
-   "ts": "2026-07-24T16:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-24T15:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-24T15:30",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CASHCAT",
-   "pnl": 0.63
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 8.5,
+  "age_avis_h": 8.8,
   "problemes": []
  },
  "autofinancement": {
