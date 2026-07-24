@@ -1,9 +1,8 @@
 {
- "ts": "2026-07-24T09:30:56.578180+00:00",
+ "ts": "2026-07-24T09:45:44.807280+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
-  "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
-  "rd_h1: esp20 -0.41 < borne -0.32 -> COUPER LE BOT"
+  "27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30"
  ],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -80,8 +79,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -1.456,
-   "fwd_j": 20.7
+   "pnl_j": -1.449,
+   "fwd_j": 20.8
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
@@ -116,27 +115,24 @@
    "esperance": 3.9761,
    "t": 3.42,
    "pnl": 294.23,
-   "pnl_j": 14.214,
-   "fwd_j": 20.7
-  },
-  "rd_h1": {
-   "statut": "ROUGE",
-   "n": 47,
-   "esperance": 0.2249,
-   "t": 1.27,
-   "pnl": 10.57,
-   "pnl_j": 2.516,
-   "fwd_j": 4.2
+   "pnl_j": 14.146,
+   "fwd_j": 20.8
   }
  },
  "tendances_btc": {
-  "ret1": -0.0016,
-  "ret7": 0.0162,
-  "ret30": 0.0642,
-  "prix": 64966
+  "ret1": -0.0002,
+  "ret7": 0.0177,
+  "ret30": 0.0657,
+  "prix": 65057
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-24T09:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-24T09:30",
    "bot": "25_convergence_basis",
@@ -178,12 +174,6 @@
    "bot": "28_carry_hold",
    "marche": "carryhold-JUP",
    "pnl": 0.31
-  },
-  {
-   "ts": "2026-07-24T09:01",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CASHCAT",
-   "pnl": -3.69
   }
  ],
  "calibration_arbitre": {
@@ -197,7 +187,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.5,
+  "age_avis_h": 1.8,
   "problemes": []
  },
  "autofinancement": {
