@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-24 10:30 (Paris)
+# Brief Station — 2026-07-24 10:45 (Paris)
 
 ## 🔴 ALERTES
 - 23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT
@@ -23,12 +23,12 @@
 | 27f_selecteur | ORANGE | 35 | -2.9744 | -1.18 | -104.1 | -5.285 | 19.7 j |
 | 27g10_selecteur | GRIS | 26 | 0.7073 | 0.22 | 18.39 | 1.545 | 11.9 j |
 | 28_carry_hold | ORANGE | 73 | 4.0263 | 3.42 | 293.92 | 14.199 | 20.7 j |
-| rd_h1 | ROUGE | 47 | 0.2249 | 1.27 | 10.57 | 2.578 | 4.1 j |
+| rd_h1 | ROUGE | 47 | 0.2249 | 1.27 | 10.57 | 2.516 | 4.2 j |
 
 **P&L paper cumule (hors temoin)** : +692.63 $
 
-**BTC** 65387 $ — ret 1j +0.49% · 7j +2.28% · 30j +7.11%
-**Moves 24h ≥ 20 %** : CASHCAT +25.7%
+**BTC** 65422 $ — ret 1j +0.54% · 7j +2.34% · 30j +7.17%
+**Moves 24h ≥ 20 %** : CASHCAT +22.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
