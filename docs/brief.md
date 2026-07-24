@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-24 12:15 (Paris)
+# Brief Station — 2026-07-24 12:30 (Paris)
 
 ## 🔴 ALERTES
 - 23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT
@@ -25,7 +25,7 @@
 
 **P&L paper cumule (hors temoin)** : +680.03 $
 
-**BTC** 64979 $ — ret 1j -0.14% · 7j +1.64% · 30j +6.44%
+**BTC** 65032 $ — ret 1j -0.06% · 7j +1.73% · 30j +6.53%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 10, "taux_correct": 0.7, "brier_moyen": 0.22}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
