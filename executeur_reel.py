@@ -98,20 +98,62 @@ def _ordre_reussi(resp):
 
 
 def _positions_reelles(base_url, account):
+    """Positions REELLES {coin: {szi, entry, valeur}}. None si reponse INCOMPLETE
+    (24/07 : on ne purge JAMAIS sur un doute -- une purge a tort rouvre un ordre reel)."""
     if not account:
         return None
     d = _info(base_url, {"type": "clearinghouseState", "user": account})
-    if not isinstance(d, dict):
+    if not isinstance(d, dict) or "marginSummary" not in d:
         return None
-    out = set()
+    out = {}
     for p in d.get("assetPositions", []):
         pos = p.get("position", {})
         try:
-            if abs(float(pos.get("szi", 0))) > 0:
-                out.add(pos.get("coin"))
+            szi = float(pos.get("szi", 0))
+            if abs(szi) > 0:
+                out[pos.get("coin")] = {"szi": szi,
+                                        "entry": float(pos.get("entryPx") or 0),
+                                        "valeur": abs(float(pos.get("positionValue") or 0))}
         except (TypeError, ValueError):
             pass
     return out
+
+
+def _entree_autorisee(v, d, now, seuil_f, age_max_h):
+    """REGLE FIGEE 15/07 appliquee au reel (24/07) + anti-entree tardive.
+    - trades RICHES seulement : |funding| courant >= seuil_funding_reel
+      (l'addendum AUDIT_BOT28 : sans filtre, coef de survie ~0,31 -> le reel perdait) ;
+    - episode paper FRAIS seulement : entrer > age_max_entree_h apres le signal =
+      payer entree+sortie pour la fin d'un episode deja consomme (cause n1 des
+      pertes reelles constatees, ex. JUP ouvert 46 min avant sa sortie)."""
+    f = abs(float(d.get("funding") or 0.0))
+    if f < seuil_f:
+        return False, "funding %.4f%%/h < seuil reel %.4f%%/h (regle figee 15/07)" % (100 * f, 100 * seuil_f)
+    try:
+        age_h = (now - datetime.fromisoformat(str(v.get("entree_ts")))).total_seconds() / 3600.0
+    except (ValueError, TypeError):
+        return False, "entree_ts paper illisible -> pas d'entree a l'aveugle"
+    if age_h > age_max_h:
+        return False, "episode paper vieux de %.1f h > %.0f h (entree tardive interdite)" % (age_h, age_max_h)
+    return True, "ok"
+
+
+def _reconcilier_suivi(state, reelles, pilotes, now, log):
+    """ADOPTION (24/07) : position presente sur HL mais suivie nulle part ->
+    adoptee par le 1er pilote (redevient visible, fermable par age/kill-switch,
+    comptee). Fin des positions invisibles du dashboard."""
+    if reelles is None:
+        return
+    for coin, ph in reelles.items():
+        if any(coin in (state.get(b) or {}) for b in state if b != "_rejets") or not pilotes:
+            continue
+        cible = pilotes[0]
+        state.setdefault(cible, {})[coin] = {
+            "side": 1 if ph["szi"] > 0 else -1, "notional": round(ph["valeur"], 2),
+            "entry": ph["entry"], "ts": now.isoformat(), "adopte": True}
+        log({"ts": now.isoformat(), "bot": cible, "coin": coin, "action": "adopt",
+             "side": 1 if ph["szi"] > 0 else -1, "notional_usd": round(ph["valeur"], 2),
+             "mark": ph["entry"], "resp": "position HL non suivie -> adoptee"})
 
 
 def executer():
@@ -133,6 +175,10 @@ def executer():
         print("[reel] pas de donnees marche mainnet.", flush=True)
         return
     now = datetime.now(timezone.utc)
+    cfg_reel = _lire_json(Path(os.environ.get("PORTEFEUILLE_CONFIG", "portefeuille.reel.json")), {})
+    seuil_f = float(cfg_reel.get("seuil_funding_reel", 0.0003))
+    age_max_h = float(cfg_reel.get("age_max_entree_h", 2.0))
+    hold_max_h = float(cfg_reel.get("hold_max_h", 50.0))
     state = _lire_json(F_STATE, {})
     rejets = state.setdefault("_rejets", {})
     stop = bool(_lire_json(F_STOP, {}).get("stop"))
@@ -156,6 +202,7 @@ def executer():
             for coin in list(state.get(bot, {})):
                 if coin not in reelles:
                     (_log({"ts": now.isoformat(), "bot": bot, "coin": coin, "action": "close", "side": state[bot][coin].get("side",0), "notional_usd": round(state[bot][coin].get("notional",0),2), "mark": (data.get(coin) or {}).get("mark",""), "resp": "purge externe (liquidation/fermeture)", "pnl_est_usd": round(state[bot][coin].get("side",0)*((data.get(coin) or {}).get("mark", state[bot][coin].get("entry",0))-state[bot][coin].get("entry",0))/(state[bot][coin].get("entry",1) or 1)*state[bot][coin].get("notional",0),3)}), state[bot].pop(coin))
+    _reconcilier_suivi(state, reelles, PILOTES, now, _log)
     pf.expo = {b: round(sum(p.get("notional", 0.0) for p in m.values()), 4)
                for b, m in state.items() if b != "_rejets"}
     pf._sauver_expo()
@@ -176,6 +223,10 @@ def executer():
             if not d:
                 continue
             if _rejet_bloque(bot, coin):
+                continue
+            ok_entree, pourquoi = _entree_autorisee(v, d, now, seuil_f, age_max_h)
+            if not ok_entree:
+                print("[reel] %s %s NON ouvert : %s" % (bot, coin, pourquoi), flush=True)
                 continue
             notion = pf.taille_entree(bot)
             if _expo_totale() + notion > CAP_TOTAL_USD + 1e-9:
@@ -213,9 +264,14 @@ def executer():
 
         # FERMER : positions soldees par le bot, OU tout si kill-switch
         for coin in list(mine):
-            if (not stop) and coin in ouverts:
-                continue
             st = mine[coin]
+            try:
+                age_reel_h = (now - datetime.fromisoformat(str(st.get("ts")))).total_seconds() / 3600.0
+            except (ValueError, TypeError):
+                age_reel_h = 0.0
+            trop_vieux = age_reel_h >= hold_max_h
+            if (not stop) and (coin in ouverts) and not trop_vieux:
+                continue
             d = data.get(coin)
             mark = d["mark"] if d else st["entry"]
             side, entry, notion = st["side"], st["entry"], st["notional"]
@@ -228,7 +284,8 @@ def executer():
             pnl = notion * ret - 2 * FRAIS * notion
             _log({"ts": now.isoformat(), "bot": bot, "coin": coin, "action": "close",
                   "side": side, "notional_usd": round(notion, 2), "mark": mark,
-                  "resp": "STOP" if stop else "ok", "pnl_est_usd": round(pnl, 3)})
+                  "resp": "STOP" if stop else ("AGE %.0fh" % age_reel_h if trop_vieux else "ok"),
+                  "pnl_est_usd": round(pnl, 3)})
             pf.cloturer(bot)
             del mine[coin]
             print("[reel] CLOSE MAINNET %s %s pnl~%.2f$%s" % (bot, coin, pnl, " (KILL-SWITCH)" if stop else ""), flush=True)
@@ -240,6 +297,12 @@ def executer():
     print("[reel] positions mainnet : " +
           " ".join("%s=%d" % (b, len(state.get(b, {}))) for b in PILOTES) +
           " | expo totale ~%.2f$" % _expo_totale(), flush=True)
+    try:      # RECONCILIATION avec la verite HL -> etat/reel_hl.json (jamais bloquant)
+        import reconcil_hl
+        reconcil_hl.produire(ex.cfg.base_url, ex.cfg.account,
+                             float(cfg_reel.get("depot_usdc", 0) or 0))
+    except Exception as e:
+        print("[reel] reconcil HL KO (non bloquant) : %s" % e, flush=True)
 
 
 if __name__ == "__main__":

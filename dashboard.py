@@ -137,10 +137,11 @@ def _ab(res):
     d = r25["esperance_par_trade"] - r23["esperance_par_trade"]
     cls = "pos" if d > 0 else "neg"
     txt = "Bot 25 DEVANT le carry simple" if d > 0 else "Bot 25 derrière le carry simple"
-    return (f'<div class="ab"><b>A/B décisif — convergence vs carry simple :</b> '
+    return (f'<div class="ab"><b>A/B historique — convergence vs carry simple :</b> '
             f'<span class="{cls}">Δ espérance = {d:+.4f} $/trade</span> — {txt}.'
-            f'<br><span class="muted">Verdict recherché : bot 25 bat le bot 23 avec '
-            f't-stat ≥ 2 sur ≥ 2–4 semaines. Sinon → KILL.</span></div>')
+            f'<br><span class="muted">Règle d\'origine caduque depuis le 22/07 : le bot 23 (rival) '
+            f'a été tué par la gate (décrochage R1) ; le 25 est maintenu par décision du Commandant '
+            f'du 23/07 (meilleur bot du banc). Comparaison conservée à titre historique.</span></div>')
 
 
 def _positions():
@@ -295,6 +296,16 @@ def _generer_reel_json():
         doc = {"genere": now.isoformat(), "stop": stop, "depot_usdc": depot,
                "enveloppe_usd": enveloppe, "positions": positions,
                "global": _stats(closes), "par_bot": par_bot, "trades": trades[-40:]}
+        # 24/07 : la VERITE COMPTE vient de la reconciliation HL (etat/reel_hl.json).
+        # Le suivi interne reste affiche, mais etiquete "estimation".
+        hl = _lj(ETAT / "reel_hl.json", None)
+        if isinstance(hl, dict) and hl.get("equity") is not None:
+            doc["hl"] = hl
+            try:
+                doc["ecart_interne_vs_hl"] = round(float(hl.get("pnl_compte") or 0)
+                                                   - float(doc["global"].get("pnl_total") or 0), 2)
+            except (TypeError, ValueError):
+                pass
         DOCS.mkdir(parents=True, exist_ok=True)
         (DOCS / "reel.json").write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
         print("[dashboard] docs/reel.json : %d position(s), %d trade(s) reels" %
