@@ -57,7 +57,7 @@ def produire(base_url, account, depot_usdc):
     ch = _info(base_url, {"type": "clearinghouseState", "user": account})
     if isinstance(ch, dict) and "marginSummary" in ch:
         ms = ch.get("marginSummary") or {}
-        doc["equity"] = round(_f(ms.get("accountValue")), 2)
+        doc["equity"] = round(sum(_f(b.get("total")) for b in ((_info(base_url, {"type": "spotClearinghouseState", "user": account}) or {}).get("balances") or []) if str(b.get("coin")) == "USDC") or _f(ms.get("accountValue")), 2)
         doc["withdrawable"] = round(_f(ch.get("withdrawable")), 2)
         unreal = 0.0
         for p in ch.get("assetPositions", []):
@@ -75,7 +75,7 @@ def produire(base_url, account, depot_usdc):
                 "unrealized": round(u, 3),
                 "liq_px": pos.get("liquidationPx"),
                 "marge_usd": round(_f(pos.get("marginUsed")), 2)})
-        doc["unrealized_total"] = round(unreal, 2)
+        doc["unrealized_total"] = round(unreal, 2); doc["equity"] = round(_f(doc["equity"]) + unreal, 2)
         if doc["equity"] is not None and doc["depot_usdc"]:
             doc["pnl_compte"] = round(doc["equity"] - doc["depot_usdc"], 2)
 
