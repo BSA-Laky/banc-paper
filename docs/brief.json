@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-24T21:15:38.779994+00:00",
+ "ts": "2026-07-24T21:30:53.643853+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT"
  ],
@@ -29,11 +29,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 962,
-   "esperance": 0.4217,
+   "n": 963,
+   "esperance": 0.421,
    "t": 3.54,
-   "pnl": 405.63,
-   "pnl_j": 12.637,
+   "pnl": 405.42,
+   "pnl_j": 12.63,
    "fwd_j": 32.1
   },
   "27a_rev_premium": {
@@ -51,8 +51,8 @@
    "esperance": 3.0843,
    "t": 1.51,
    "pnl": 172.72,
-   "pnl_j": 5.645,
-   "fwd_j": 30.6
+   "pnl_j": 5.626,
+   "fwd_j": 30.7
   },
   "27c_mom_move": {
    "statut": "ORANGE",
@@ -60,8 +60,8 @@
    "esperance": -3.2243,
    "t": -1.58,
    "pnl": -180.56,
-   "pnl_j": -5.901,
-   "fwd_j": 30.6
+   "pnl_j": -5.882,
+   "fwd_j": 30.7
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -119,22 +119,34 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0144,
-  "ret7": 0.0032,
-  "ret30": 0.0506,
-  "prix": 64133
+  "ret1": -0.0138,
+  "ret7": 0.0038,
+  "ret30": 0.0511,
+  "prix": 64169
  },
  "evenements_extremes": [
   {
-   "coin": "CASHCAT",
-   "move_pct": 25.2
+   "coin": "ACE",
+   "move_pct": 26.2
   },
   {
-   "coin": "ACE",
-   "move_pct": 24.9
+   "coin": "CASHCAT",
+   "move_pct": 23.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-24T21:30",
+   "bot": "25_convergence_basis",
+   "marche": "conv-SPX",
+   "pnl": -0.21
+  },
+  {
+   "ts": "2026-07-24T21:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-24T21:15",
    "bot": "25_convergence_basis",
@@ -170,32 +182,20 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-24T20:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-24T20:15",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CASHCAT",
-   "pnl": 4.46
   }
  ],
  "calibration_arbitre": {
   "tendance": {
-   "n": 10,
-   "taux_correct": 0.7,
-   "brier_moyen": 0.22
+   "n": 11,
+   "taux_correct": 0.636,
+   "brier_moyen": 0.233
   }
  },
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 13.3,
+  "age_avis_h": 13.5,
   "problemes": []
  },
  "autofinancement": {
