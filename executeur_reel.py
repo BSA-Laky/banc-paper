@@ -155,7 +155,7 @@ def executer():
                 continue
             for coin in list(state.get(bot, {})):
                 if coin not in reelles:
-                    del state[bot][coin]
+                    (_log({"ts": now.isoformat(), "bot": bot, "coin": coin, "action": "close", "side": state[bot][coin].get("side",0), "notional_usd": round(state[bot][coin].get("notional",0),2), "mark": (data.get(coin) or {}).get("mark",""), "resp": "purge externe (liquidation/fermeture)", "pnl_est_usd": round(state[bot][coin].get("side",0)*((data.get(coin) or {}).get("mark", state[bot][coin].get("entry",0))-state[bot][coin].get("entry",0))/(state[bot][coin].get("entry",1) or 1)*state[bot][coin].get("notional",0),3)}), state[bot].pop(coin))
     pf.expo = {b: round(sum(p.get("notional", 0.0) for p in m.values()), 4)
                for b, m in state.items() if b != "_rejets"}
     pf._sauver_expo()
