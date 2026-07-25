@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-25T10:53:59.287657+00:00",
+ "ts": "2026-07-25T11:01:00.896454+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT"
  ],
@@ -29,11 +29,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 999,
-   "esperance": 0.4237,
+   "n": 1000,
+   "esperance": 0.4235,
    "t": 3.52,
-   "pnl": 423.3,
-   "pnl_j": 12.945,
+   "pnl": 423.54,
+   "pnl_j": 12.952,
    "fwd_j": 32.7
   },
   "27a_rev_premium": {
@@ -119,13 +119,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0019,
-  "ret7": -0.0127,
-  "ret30": 0.071,
-  "prix": 64002
+  "ret1": -0.0015,
+  "ret7": -0.0124,
+  "ret30": 0.0714,
+  "prix": 64025
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-25T11:00",
+   "bot": "25_convergence_basis",
+   "marche": "conv-MON",
+   "pnl": 0.25
+  },
+  {
+   "ts": "2026-07-25T11:00",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-25T10:53",
    "bot": "10_controle_aleatoire",
@@ -161,18 +173,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-25T10:13",
-   "bot": "27f10_selecteur",
-   "marche": "sel-WLFI-REV-defaut",
-   "pnl": 0.48
-  },
-  {
-   "ts": "2026-07-25T10:13",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CASHCAT",
-   "pnl": -0.25
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 3.3,
+  "age_avis_h": 3.4,
   "problemes": []
  },
  "autofinancement": {
