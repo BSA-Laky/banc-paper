@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-25T21:01:03.513612+00:00",
+ "ts": "2026-07-25T21:15:38.927688+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -27,11 +27,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 1039,
-   "esperance": 0.43,
+   "n": 1040,
+   "esperance": 0.4295,
    "t": 3.68,
-   "pnl": 446.77,
-   "pnl_j": 13.498,
+   "pnl": 446.72,
+   "pnl_j": 13.496,
    "fwd_j": 33.1
   },
   "27a_rev_premium": {
@@ -103,8 +103,8 @@
    "esperance": 0.9203,
    "t": 0.31,
    "pnl": 25.77,
-   "pnl_j": 1.923,
-   "fwd_j": 13.4
+   "pnl_j": 1.909,
+   "fwd_j": 13.5
   },
   "28_carry_hold": {
    "statut": "ORANGE",
@@ -117,13 +117,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0027,
-  "ret7": -0.0082,
-  "ret30": 0.0759,
-  "prix": 64296
+  "ret1": 0.0021,
+  "ret7": -0.0088,
+  "ret30": 0.0753,
+  "prix": 64257
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-25T21:15",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ZRO",
+   "pnl": -0.05
+  },
+  {
+   "ts": "2026-07-25T21:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-25T21:00",
    "bot": "10_controle_aleatoire",
@@ -159,18 +171,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-25T20:15",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CASHCAT",
-   "pnl": 3.37
-  },
-  {
-   "ts": "2026-07-25T20:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -184,7 +184,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 13.4,
+  "age_avis_h": 13.7,
   "problemes": []
  },
  "autofinancement": {
