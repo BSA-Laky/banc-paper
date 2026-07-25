@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-25T22:01:08.634200+00:00",
+ "ts": "2026-07-25T22:15:39.972760+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -22,8 +22,8 @@
    "esperance": -0.481,
    "t": -2.97,
    "pnl": -77.92,
-   "pnl_j": -2.428,
-   "fwd_j": 32.1
+   "pnl_j": -2.42,
+   "fwd_j": 32.2
   },
   "25_convergence_basis": {
    "statut": "VERT",
@@ -40,8 +40,8 @@
    "esperance": -0.9177,
    "t": -0.36,
    "pnl": -34.87,
-   "pnl_j": -1.09,
-   "fwd_j": 32.0
+   "pnl_j": -1.086,
+   "fwd_j": 32.1
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -67,8 +67,8 @@
    "esperance": 0.2499,
    "t": 0.14,
    "pnl": 17.99,
-   "pnl_j": 0.692,
-   "fwd_j": 26.0
+   "pnl_j": 0.689,
+   "fwd_j": 26.1
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -81,11 +81,11 @@
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
-   "n": 138,
-   "esperance": 0.3883,
-   "t": 0.46,
-   "pnl": 53.59,
-   "pnl_j": 2.528,
+   "n": 139,
+   "esperance": 0.3733,
+   "t": 0.44,
+   "pnl": 51.88,
+   "pnl_j": 2.447,
    "fwd_j": 21.2
   },
   "27f_selecteur": {
@@ -117,13 +117,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0033,
-  "ret7": -0.0076,
-  "ret30": 0.0765,
-  "prix": 64333
+  "ret1": 0.004,
+  "ret7": -0.0069,
+  "ret30": 0.0773,
+  "prix": 64377
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-25T22:15",
+   "bot": "27f10_selecteur",
+   "marche": "sel-WLD-MOM-tendance_piece",
+   "pnl": -1.71
+  },
+  {
+   "ts": "2026-07-25T22:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-25T22:01",
    "bot": "10_controle_aleatoire",
@@ -159,18 +171,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-25T21:00",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-25T20:45",
-   "bot": "25_convergence_basis",
-   "marche": "conv-MON",
-   "pnl": -0.61
   }
  ],
  "calibration_arbitre": {
@@ -184,7 +184,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 14.4,
+  "age_avis_h": 14.7,
   "problemes": []
  },
  "autofinancement": {
