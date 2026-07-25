@@ -1,7 +1,7 @@
-# Arbitre IA — 2026-07-24
+# Arbitre IA — 2026-07-25
 
-**Regime : haussier** (confiance 0.55)
+**Regime : neutre** (confiance 0.55)
 
-BTC +7.06%/30j. rd_h1 KILL non exécuté depuis 21/07 (>72h) -> escalade. 27b/c miroir confirmé n=56. 28_carry credible n=73.
+BTC ret7 -1.3%/ret30 +7.1% mixte. 25_conv & 28_carry solides, 24_funding se degrade (t-2.41), miroirs 27b/c reconfirmes.
 
-[Note du jour](../veille/2026-07-24.md) — modele `claude-sonnet-5`
+[Note du jour](../veille/2026-07-25.md) — modele `claude-sonnet-5`
