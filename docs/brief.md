@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-26 00:45 (Paris)
+# Brief Station — 2026-07-26 01:01 (Paris)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -8,7 +8,7 @@
 |---|---|---|---|---|---|---|---|
 | 23_carry_funding | ROUGE | 159 | 0.5601 | 1.04 | 89.05 | 2.757 | 32.3 j |
 | 24_funding_multivenues | ORANGE | 162 | -0.481 | -2.97 | -77.92 | -2.42 | 32.2 j |
-| 25_convergence_basis | VERT | 1042 | 0.4255 | 3.65 | 443.4 | 13.396 | 33.1 j |
+| 25_convergence_basis | VERT | 1042 | 0.4255 | 3.65 | 443.4 | 13.356 | 33.2 j |
 | 27a_rev_premium | ORANGE | 38 | -0.9177 | -0.36 | -34.87 | -1.086 | 32.1 j |
 | 27b_rev_move | ORANGE | 58 | 3.2905 | 1.65 | 190.85 | 6.021 | 31.7 j |
 | 27c_mom_move | ORANGE | 58 | -3.4305 | -1.72 | -198.97 | -6.277 | 31.7 j |
@@ -21,7 +21,7 @@
 
 **P&L paper cumule (hors temoin)** : +684.37 $
 
-**BTC** 64355 $ — ret 1j +0.36% · 7j -0.73% · 30j +7.69%
+**BTC** 64390 $ — ret 1j +0.42% · 7j -0.67% · 30j +7.75%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 12, "taux_correct": 0.583, "brier_moyen": 0.243}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
