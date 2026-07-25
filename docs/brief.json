@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-25T14:01:06.477372+00:00",
+ "ts": "2026-07-25T14:13:27.601894+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT"
  ],
@@ -83,11 +83,11 @@
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
-   "n": 136,
-   "esperance": 0.5521,
-   "t": 0.65,
-   "pnl": 75.09,
-   "pnl_j": 3.593,
+   "n": 137,
+   "esperance": 0.5284,
+   "t": 0.63,
+   "pnl": 72.39,
+   "pnl_j": 3.463,
    "fwd_j": 20.9
   },
   "27f_selecteur": {
@@ -119,13 +119,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0003,
-  "ret7": -0.0112,
-  "ret30": 0.0727,
-  "prix": 64103
+  "ret1": 0.0002,
+  "ret7": -0.0107,
+  "ret30": 0.0732,
+  "prix": 64136
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-25T14:13",
+   "bot": "27f10_selecteur",
+   "marche": "sel-KAITO-REV-tendance_piece",
+   "pnl": -2.7
+  },
+  {
+   "ts": "2026-07-25T14:13",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-25T14:01",
    "bot": "25_convergence_basis",
@@ -161,18 +173,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-25T13:15",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CASHCAT",
-   "pnl": -0.01
-  },
-  {
-   "ts": "2026-07-25T13:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 6.4,
+  "age_avis_h": 6.6,
   "problemes": []
  },
  "autofinancement": {
