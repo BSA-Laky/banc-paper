@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-25 19:30 (Paris)
+# Brief Station — 2026-07-25 19:45 (Paris)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -9,20 +9,20 @@
 | 23_carry_funding | ROUGE | 159 | 0.5601 | 1.04 | 89.05 | 2.783 | 32.0 j |
 | 24_funding_multivenues | ORANGE | 149 | -0.4199 | -2.41 | -62.56 | -1.955 | 32.0 j |
 | 25_convergence_basis | VERT | 1028 | 0.4264 | 3.62 | 438.37 | 13.324 | 32.9 j |
-| 27a_rev_premium | ORANGE | 37 | -0.4345 | -0.17 | -16.08 | -0.504 | 31.9 j |
-| 27b_rev_move | ORANGE | 57 | 3.021 | 1.5 | 172.19 | 5.466 | 31.5 j |
-| 27c_mom_move | ORANGE | 57 | -3.161 | -1.57 | -180.17 | -5.72 | 31.5 j |
-| 27d_rev_move_stop | ORANGE | 71 | -0.0093 | -0.01 | -0.66 | -0.026 | 25.9 j |
+| 27a_rev_premium | ORANGE | 38 | -0.9177 | -0.36 | -34.87 | -1.093 | 31.9 j |
+| 27b_rev_move | ORANGE | 58 | 3.2905 | 1.65 | 190.85 | 6.059 | 31.5 j |
+| 27c_mom_move | ORANGE | 58 | -3.4305 | -1.72 | -198.97 | -6.317 | 31.5 j |
+| 27d_rev_move_stop | ORANGE | 72 | 0.2499 | 0.14 | 17.99 | 0.695 | 25.9 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.364 | 22.1 j |
-| 27f10_selecteur | ORANGE | 137 | 0.5284 | 0.63 | 72.39 | 3.447 | 21.0 j |
-| 27f_selecteur | ORANGE | 36 | -2.881 | -1.18 | -103.72 | -4.939 | 21.0 j |
+| 27f10_selecteur | ORANGE | 138 | 0.3883 | 0.46 | 53.59 | 2.552 | 21.0 j |
+| 27f_selecteur | ORANGE | 37 | -3.3111 | -1.37 | -122.51 | -5.834 | 21.0 j |
 | 27g10_selecteur | GRIS | 28 | 0.9203 | 0.31 | 25.77 | 1.938 | 13.3 j |
 | 28_carry_hold | ORANGE | 79 | 4.0849 | 3.62 | 322.71 | 14.602 | 22.1 j |
 
-**P&L paper cumule (hors temoin)** : +727.15 $
+**P&L paper cumule (hors temoin)** : +689.28 $
 
-**BTC** 64249 $ — ret 1j +0.20% · 7j -0.89% · 30j +7.51%
-**Moves 24h ≥ 20 %** : ACE -20.7%
+**BTC** 64266 $ — ret 1j +0.22% · 7j -0.87% · 30j +7.54%
+**Moves 24h ≥ 20 %** : kSHIB +21.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 12, "taux_correct": 0.583, "brier_moyen": 0.243}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
