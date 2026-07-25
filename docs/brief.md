@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-25 13:30 (Paris)
+# Brief Station — 2026-07-25 13:45 (Paris)
 
 ## 🔴 ALERTES
 - 23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT
@@ -11,7 +11,7 @@
 |---|---|---|---|---|---|---|---|
 | 23_carry_funding | ROUGE | 159 | 0.5601 | 1.04 | 89.05 | 2.8 | 31.8 j |
 | 24_funding_multivenues | ORANGE | 149 | -0.4199 | -2.41 | -62.56 | -1.974 | 31.7 j |
-| 25_convergence_basis | VERT | 1002 | 0.422 | 3.51 | 422.85 | 12.931 | 32.7 j |
+| 25_convergence_basis | VERT | 1008 | 0.4324 | 3.6 | 435.83 | 13.328 | 32.7 j |
 | 27a_rev_premium | ORANGE | 36 | -0.4399 | -0.17 | -15.83 | -0.501 | 31.6 j |
 | 27b_rev_move | ORANGE | 57 | 3.021 | 1.5 | 172.19 | 5.519 | 31.2 j |
 | 27c_mom_move | ORANGE | 57 | -3.161 | -1.57 | -180.17 | -5.775 | 31.2 j |
@@ -22,9 +22,9 @@
 | 27g10_selecteur | GRIS | 27 | 1.0741 | 0.35 | 29.0 | 2.214 | 13.1 j |
 | 28_carry_hold | ORANGE | 77 | 4.1847 | 3.62 | 322.22 | 14.781 | 21.8 j |
 
-**P&L paper cumule (hors temoin)** : +717.32 $
+**P&L paper cumule (hors temoin)** : +730.30 $
 
-**BTC** 64074 $ — ret 1j -0.08% · 7j -1.16% · 30j +7.22%
+**BTC** 64034 $ — ret 1j -0.14% · 7j -1.22% · 30j +7.15%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 12, "taux_correct": 0.583, "brier_moyen": 0.243}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
