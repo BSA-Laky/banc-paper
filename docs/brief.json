@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-25T00:01:11.855677+00:00",
+ "ts": "2026-07-25T00:15:37.468654+00:00",
  "alertes": [
   "23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT"
  ],
@@ -29,11 +29,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 970,
-   "esperance": 0.4135,
+   "n": 971,
+   "esperance": 0.4127,
    "t": 3.49,
-   "pnl": 401.12,
-   "pnl_j": 12.457,
+   "pnl": 400.7,
+   "pnl_j": 12.444,
    "fwd_j": 32.2
   },
   "27a_rev_premium": {
@@ -119,18 +119,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0002,
-  "ret7": -0.011,
-  "ret30": 0.0729,
-  "prix": 64113
+  "ret1": -0.0,
+  "ret7": -0.0109,
+  "ret30": 0.073,
+  "prix": 64122
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 29.6
+   "move_pct": 29.0
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-25T00:15",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ETHFI",
+   "pnl": -0.42
+  },
+  {
+   "ts": "2026-07-25T00:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-25T00:01",
    "bot": "25_convergence_basis",
@@ -166,18 +178,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-CASHCAT",
    "pnl": 0.82
-  },
-  {
-   "ts": "2026-07-24T23:30",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ZRO",
-   "pnl": 0.86
-  },
-  {
-   "ts": "2026-07-24T23:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -191,7 +191,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 16.1,
+  "age_avis_h": 16.3,
   "problemes": []
  },
  "autofinancement": {
