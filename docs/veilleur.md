@@ -1,12 +1,16 @@
-_Note du Veilleur (Cadet Remy, claude-haiku-4-5-20251001) — 2026-07-18_
+_Note du Veilleur (Cadet Remy, claude-haiku-4-5-20251001) — 2026-07-25_
 
-## Veille semaine 2026-07-18
+## Veille semaine 2026-07-25
 
-### Exécution testnet
-Taux de fermeture 28.6% (24/84 ordres). Rejets massifs : 143 en 7j, dominés par défaut de matching (111/143 = 77.6%). Trois causes techniques : taille invalide (12), arrondi à 0 notional (20), absence de contrepartie (111). PnL cumulé : 5.42 USD. Statistique globale saine (t=0.51, n=307).
+**Execution testnet** 
+Taux de fill 89% (106/170 ordres fermes). 22 rejets consecutifs sur motif « Order could not immediately match » — friction d'execution stable. PnL cumule : -9.54 USD. Capital disponible : 0.0 USD, aucun manque detecte.
 
-### Coûts & dérive
-Capital disponible : 0 USD. Aucun besoin alloué ni candidat en file. Trésorier stable, zéro pause/attente. Budget avis limité (n=5 du 17/07).
+**Couts LLM** 
+1 avis du jour facture (budget OK). Temoin n=1004, t_stat=-0.63, regime sain.
 
-### Anomalies & attention
-7/11 bots en ORANGE (statut dégradé). Drawdown maximum : 217.22 USD (bot 27c_mom_move, esp=-3.76, t=-1.56). Trois bots GRIS affichent esp négatifs : 27e_arbitre (-2.02), 27f_selecteur (-3.36). Taux de fill 30% persiste ; causes rejet stables, pas de dérive nouvelle. Zéro échecs arbitre consécutifs.
+**Anomalies & attention** 
+• 23_carry_funding : KILL execute 2026-07-22 (esp20 -2.60 vs borne -2.48) → statut ROUGE confirme, n=159, mdd=62.76 USD. 
+• 27c_mom_move : esp=-3.161, mdd=217.22 USD (derive drawdown majeure), statut ORANGE. 
+• 27f_selecteur : esp=-2.881, mdd=170.71 USD, statut ORANGE. 
+• 25_convergence_basis : seul statut VERT (esp=0.4387, t=3.62). 
+• 7 bots ORANGE, 2 bots ROUGE, 1 bot GRIS. Concentration risque confirmee. Aucun echo arbitre depuis 2026-07-25.
