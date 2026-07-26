@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-26T05:15:40.229366+00:00",
+ "ts": "2026-07-26T05:30:52.367022+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -22,8 +22,8 @@
    "esperance": -0.481,
    "t": -2.97,
    "pnl": -77.92,
-   "pnl_j": -2.405,
-   "fwd_j": 32.4
+   "pnl_j": -2.398,
+   "fwd_j": 32.5
   },
   "25_convergence_basis": {
    "statut": "VERT",
@@ -40,8 +40,8 @@
    "esperance": -0.9315,
    "t": -0.37,
    "pnl": -36.33,
-   "pnl_j": -1.125,
-   "fwd_j": 32.3
+   "pnl_j": -1.121,
+   "fwd_j": 32.4
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -67,8 +67,8 @@
    "esperance": 0.1507,
    "t": 0.09,
    "pnl": 11.0,
-   "pnl_j": 0.418,
-   "fwd_j": 26.3
+   "pnl_j": 0.417,
+   "fwd_j": 26.4
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -117,18 +117,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0021,
-  "ret7": -0.0035,
-  "ret30": 0.0736,
-  "prix": 64493
+  "ret1": 0.0015,
+  "ret7": -0.0041,
+  "ret30": 0.0729,
+  "prix": 64455
  },
  "evenements_extremes": [
   {
    "coin": "kSHIB",
-   "move_pct": 33.0
+   "move_pct": 32.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-26T05:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-26T05:15",
    "bot": "25_convergence_basis",
@@ -170,12 +176,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-KSHIB",
    "pnl": 0.29
-  },
-  {
-   "ts": "2026-07-26T04:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -189,7 +189,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 21.7,
+  "age_avis_h": 21.9,
   "problemes": []
  },
  "autofinancement": {
