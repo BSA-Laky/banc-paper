@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-26T12:45:38.396607+00:00",
+ "ts": "2026-07-26T13:01:01.157989+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -27,11 +27,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 1078,
-   "esperance": 0.4277,
+   "n": 1079,
+   "esperance": 0.4271,
    "t": 3.79,
-   "pnl": 461.07,
-   "pnl_j": 13.682,
+   "pnl": 460.81,
+   "pnl_j": 13.674,
    "fwd_j": 33.7
   },
   "27a_rev_premium": {
@@ -117,22 +117,34 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0016,
-  "ret7": -0.004,
-  "ret30": 0.073,
-  "prix": 64462
+  "ret1": 0.0012,
+  "ret7": -0.0043,
+  "ret30": 0.0726,
+  "prix": 64437
  },
  "evenements_extremes": [
   {
    "coin": "kSHIB",
-   "move_pct": 28.5
+   "move_pct": 25.0
   },
   {
    "coin": "KAITO",
-   "move_pct": 25.3
+   "move_pct": 24.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-26T13:00",
+   "bot": "25_convergence_basis",
+   "marche": "conv-KSHIB",
+   "pnl": -0.26
+  },
+  {
+   "ts": "2026-07-26T13:00",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-26T12:45",
    "bot": "25_convergence_basis",
@@ -168,18 +180,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-26T11:45",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ZRO",
-   "pnl": -0.17
-  },
-  {
-   "ts": "2026-07-26T11:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -193,7 +193,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 4.8,
+  "age_avis_h": 5.1,
   "problemes": []
  },
  "autofinancement": {
