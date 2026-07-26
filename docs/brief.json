@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-26T11:01:02.868287+00:00",
+ "ts": "2026-07-26T11:05:08.322747+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -27,11 +27,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 1073,
-   "esperance": 0.4268,
+   "n": 1074,
+   "esperance": 0.4261,
    "t": 3.76,
-   "pnl": 457.92,
-   "pnl_j": 13.588,
+   "pnl": 457.65,
+   "pnl_j": 13.58,
    "fwd_j": 33.7
   },
   "27a_rev_premium": {
@@ -117,18 +117,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.002,
-  "ret7": -0.0036,
-  "ret30": 0.0735,
-  "prix": 64488
+  "ret1": 0.0021,
+  "ret7": -0.0034,
+  "ret30": 0.0736,
+  "prix": 64496
  },
  "evenements_extremes": [
   {
    "coin": "kSHIB",
-   "move_pct": 28.1
+   "move_pct": 27.8
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-26T11:05",
+   "bot": "25_convergence_basis",
+   "marche": "conv-INJ",
+   "pnl": -0.27
+  },
+  {
+   "ts": "2026-07-26T11:05",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-26T11:00",
    "bot": "25_convergence_basis",
@@ -164,18 +176,6 @@
    "bot": "25_convergence_basis",
    "marche": "conv-MORPHO",
    "pnl": -0.2
-  },
-  {
-   "ts": "2026-07-26T10:30",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ARB",
-   "pnl": -0.43
-  },
-  {
-   "ts": "2026-07-26T10:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
