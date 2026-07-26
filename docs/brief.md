@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-26 14:01 (Paris)
+# Brief Station — 2026-07-26 14:15 (Paris)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -21,8 +21,8 @@
 
 **P&L paper cumule (hors temoin)** : +670.20 $
 
-**BTC** 64479 $ — ret 1j +0.18% · 7j -0.37% · 30j +7.33%
-**Moves 24h ≥ 20 %** : kSHIB +27.2%, KAITO +23.6%
+**BTC** 64586 $ — ret 1j +0.35% · 7j -0.20% · 30j +7.51%
+**Moves 24h ≥ 20 %** : kSHIB +27.6%, KAITO +23.8%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 13, "taux_correct": 0.538, "brier_moyen": 0.252}}
 **Autofinancement** : couts API 16.01 $ (releve 2026-07-21) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
