@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-26T16:31:25.729582+00:00",
+ "ts": "2026-07-26T16:45:50.261768+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -27,11 +27,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 1090,
-   "esperance": 0.4277,
-   "t": 3.83,
-   "pnl": 466.17,
-   "pnl_j": 13.751,
+   "n": 1091,
+   "esperance": 0.4235,
+   "t": 3.79,
+   "pnl": 462.05,
+   "pnl_j": 13.63,
    "fwd_j": 33.9
   },
   "27a_rev_premium": {
@@ -49,8 +49,8 @@
    "esperance": 3.2905,
    "t": 1.65,
    "pnl": 190.85,
-   "pnl_j": 5.89,
-   "fwd_j": 32.4
+   "pnl_j": 5.872,
+   "fwd_j": 32.5
   },
   "27c_mom_move": {
    "statut": "ORANGE",
@@ -58,8 +58,8 @@
    "esperance": -3.4305,
    "t": -1.72,
    "pnl": -198.97,
-   "pnl_j": -6.141,
-   "fwd_j": 32.4
+   "pnl_j": -6.122,
+   "fwd_j": 32.5
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 4.0066,
    "t": 3.73,
    "pnl": 332.55,
-   "pnl_j": 14.459,
-   "fwd_j": 23.0
+   "pnl_j": 14.396,
+   "fwd_j": 23.1
   },
   "rd_h2": {
    "statut": "GRIS",
@@ -126,18 +126,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0065,
-  "ret7": 0.0009,
-  "ret30": 0.0783,
-  "prix": 64778
+  "ret1": 0.0067,
+  "ret7": 0.0011,
+  "ret30": 0.0785,
+  "prix": 64791
  },
  "evenements_extremes": [
   {
    "coin": "KAITO",
-   "move_pct": 27.6
+   "move_pct": 27.7
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-26T16:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-KAITO",
+   "pnl": -4.11
+  },
+  {
+   "ts": "2026-07-26T16:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-26T16:31",
    "bot": "10_controle_aleatoire",
@@ -173,18 +185,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-26T15:30",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CASHCAT",
-   "pnl": 1.29
-  },
-  {
-   "ts": "2026-07-26T15:30",
-   "bot": "25_convergence_basis",
-   "marche": "conv-KAITO",
-   "pnl": -0.13
   }
  ],
  "calibration_arbitre": {
@@ -198,7 +198,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 8.6,
+  "age_avis_h": 8.8,
   "problemes": []
  },
  "autofinancement": {
