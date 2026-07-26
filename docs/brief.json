@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-26T04:45:38.593408+00:00",
+ "ts": "2026-07-26T05:00:58.479671+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -27,11 +27,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 1057,
-   "esperance": 0.4245,
-   "t": 3.7,
-   "pnl": 448.75,
-   "pnl_j": 13.436,
+   "n": 1059,
+   "esperance": 0.4228,
+   "t": 3.69,
+   "pnl": 447.78,
+   "pnl_j": 13.407,
    "fwd_j": 33.4
   },
   "27a_rev_premium": {
@@ -76,8 +76,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -1.34,
-   "fwd_j": 22.5
+   "pnl_j": -1.334,
+   "fwd_j": 22.6
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
@@ -112,23 +112,45 @@
    "esperance": 4.0271,
    "t": 3.7,
    "pnl": 330.23,
-   "pnl_j": 14.677,
-   "fwd_j": 22.5
+   "pnl_j": 14.612,
+   "fwd_j": 22.6
   }
  },
  "tendances_btc": {
-  "ret1": 0.0033,
-  "ret7": -0.0023,
-  "ret30": 0.0749,
-  "prix": 64571
+  "ret1": 0.0019,
+  "ret7": -0.0036,
+  "ret30": 0.0734,
+  "prix": 64486
  },
  "evenements_extremes": [
   {
    "coin": "kSHIB",
-   "move_pct": 27.2
+   "move_pct": 29.2
+  },
+  {
+   "coin": "ACE",
+   "move_pct": -20.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-26T05:00",
+   "bot": "25_convergence_basis",
+   "marche": "conv-ZRO",
+   "pnl": -0.51
+  },
+  {
+   "ts": "2026-07-26T05:00",
+   "bot": "25_convergence_basis",
+   "marche": "conv-INJ",
+   "pnl": -0.46
+  },
+  {
+   "ts": "2026-07-26T05:00",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-26T04:45",
    "bot": "10_controle_aleatoire",
@@ -158,24 +180,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-26T04:00",
-   "bot": "25_convergence_basis",
-   "marche": "conv-ACE",
-   "pnl": 3.68
-  },
-  {
-   "ts": "2026-07-26T04:00",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-26T03:45",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-KSHIB",
-   "pnl": -6.99
   }
  ],
  "calibration_arbitre": {
@@ -189,7 +193,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 21.2,
+  "age_avis_h": 21.4,
   "problemes": []
  },
  "autofinancement": {
