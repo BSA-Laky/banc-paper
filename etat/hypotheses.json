@@ -18,5 +18,26 @@
   },
   "besoin_ressource": "",
   "statut": "kill (ROUGE/decrochage a la gate)"
+ },
+ {
+  "id": "h2",
+  "date": "2026-07-26T08:10:00.324362+00:00",
+  "bot_mort": "23_carry_funding",
+  "cause": "ROUGE/decrochage",
+  "fiche": {
+   "titre": "Convergence basis intraday : mark vs proxy funding-implied",
+   "famille": "reversion",
+   "mecanisme": "Le mark spot/perp d'un coin devie d'un niveau d'equilibre implicite quand le funding horaire est fortement signe : un funding tres positif signale des longs surpayes qui tendent a corriger a la baisse (et inverse). On parie sur le retour du prix vers sa moyenne courte quand funding ET ret24h pointent dans le meme sens extreme (surextension). Seuil d'extension = percentile roulant maintenu dans etat, pas fixe.",
+   "signal_entree": "Entree SHORT si funding > P80 roulant de funding_positif ET ret24h>0 (longs surpayes + prix deja monte). Entree LONG si funding < P20 roulant ET ret24h<0. Un seul coin par passe (le plus extreme).",
+   "signal_sortie": "Sortie quand ret24h revient sous la mediane roulante (retour vers moyenne) OU apres 8h (32 passes) time-stop.",
+   "seuils": "P20/P80 percentiles roulants sur fenetre glissante de |funding| et funding signe (min 40 obs). Time-stop 8h. Mise 100$.",
+   "donnees_requises": "mark, funding, ret24h, vol par coin (tous fournis dans marche).",
+   "frais_slippage": "2*0.00035*100=0.07$ par trade round-trip, integres au pnl.",
+   "kill_criteres": "kill si esp_glissante_20 < borne_decrochage, ou t_stat<0.5 a n>=80, ou MDD>40$.",
+   "prior_honnete": "Faible : le carry funding est deja mort (23 ROUGE) et 24 multivenues negatif. La reversion sur surextension funding est plausible mais souvent arbitree ; ~20% de survie.",
+   "explication_simple": "Quand trop de gens parient que le prix d'une piece va monter, ils paient une petite taxe (le funding). Si cette taxe devient tres grosse ET que le prix a deja beaucoup monte, c'est souvent le signe qu'il va bientot redescendre. Alors on parie doucement sur la baisse, et on ferme quand le prix se calme. On mesure 'trop grosse' en regardant les valeurs des dernieres heures, pas un chiffre fixe."
+  },
+  "besoin_ressource": "",
+  "statut": "actif"
  }
 ]
