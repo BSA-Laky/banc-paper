@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-26T19:01:02.371838+00:00",
+ "ts": "2026-07-26T19:15:39.419616+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -49,8 +49,8 @@
    "esperance": 3.1784,
    "t": 1.62,
    "pnl": 187.53,
-   "pnl_j": 5.77,
-   "fwd_j": 32.5
+   "pnl_j": 5.752,
+   "fwd_j": 32.6
   },
   "27c_mom_move": {
    "statut": "ORANGE",
@@ -58,8 +58,8 @@
    "esperance": -3.3184,
    "t": -1.69,
    "pnl": -195.79,
-   "pnl_j": -6.024,
-   "fwd_j": 32.5
+   "pnl_j": -6.006,
+   "fwd_j": 32.6
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -76,8 +76,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -1.305,
-   "fwd_j": 23.1
+   "pnl_j": -1.299,
+   "fwd_j": 23.2
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 4.0066,
    "t": 3.73,
    "pnl": 332.55,
-   "pnl_j": 14.396,
-   "fwd_j": 23.1
+   "pnl_j": 14.334,
+   "fwd_j": 23.2
   },
   "rd_h2": {
    "statut": "GRIS",
@@ -126,18 +126,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0054,
-  "ret7": -0.0001,
-  "ret30": 0.0772,
-  "prix": 64710
+  "ret1": 0.0045,
+  "ret7": -0.0011,
+  "ret30": 0.0761,
+  "prix": 64648
  },
- "evenements_extremes": [
-  {
-   "coin": "KAITO",
-   "move_pct": 21.1
-  }
- ],
+ "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-26T19:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-26T19:00",
    "bot": "25_convergence_basis",
@@ -179,12 +180,6 @@
    "bot": "24_funding_multivenues",
    "marche": "pdxcarry-CL",
    "pnl": -0.95
-  },
-  {
-   "ts": "2026-07-26T18:30",
-   "bot": "24_funding_multivenues",
-   "marche": "pdxcarry-INTC",
-   "pnl": -0.36
   }
  ],
  "calibration_arbitre": {
@@ -198,7 +193,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 11.1,
+  "age_avis_h": 11.3,
   "problemes": []
  },
  "autofinancement": {
