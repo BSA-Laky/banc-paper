@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-26T01:30:52.144037+00:00",
+ "ts": "2026-07-26T01:45:40.061771+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -27,11 +27,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 1048,
-   "esperance": 0.4235,
-   "t": 3.66,
-   "pnl": 443.79,
-   "pnl_j": 13.327,
+   "n": 1049,
+   "esperance": 0.4227,
+   "t": 3.65,
+   "pnl": 443.45,
+   "pnl_j": 13.317,
    "fwd_j": 33.3
   },
   "27a_rev_premium": {
@@ -117,18 +117,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0017,
-  "ret7": -0.0038,
-  "ret30": 0.0732,
-  "prix": 64471
+  "ret1": 0.0014,
+  "ret7": -0.0042,
+  "ret30": 0.0728,
+  "prix": 64448
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": -21.4
+   "move_pct": -22.3
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-26T01:45",
+   "bot": "25_convergence_basis",
+   "marche": "conv-KAITO",
+   "pnl": -0.34
+  },
+  {
+   "ts": "2026-07-26T01:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-26T01:30",
    "bot": "10_controle_aleatoire",
@@ -164,18 +176,6 @@
    "bot": "27g10_selecteur",
    "marche": "sel-STX-REV-ia_piece",
    "pnl": -3.87
-  },
-  {
-   "ts": "2026-07-26T00:45",
-   "bot": "27f10_selecteur",
-   "marche": "sel-STX-REV-ia_piece",
-   "pnl": -3.87
-  },
-  {
-   "ts": "2026-07-26T00:45",
-   "bot": "25_convergence_basis",
-   "marche": "conv-CASHCAT",
-   "pnl": 1.51
   }
  ],
  "calibration_arbitre": {
@@ -189,7 +189,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 17.9,
+  "age_avis_h": 18.2,
   "problemes": []
  },
  "autofinancement": {
