@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-26 18:01 (Paris)
+# Brief Station — 2026-07-26 18:15 (Paris)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -16,14 +16,14 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.31 | 23.0 j |
 | 27f10_selecteur | ORANGE | 143 | 0.2789 | 0.34 | 39.89 | 1.813 | 22.0 j |
 | 27f_selecteur | ORANGE | 37 | -3.3111 | -1.37 | -122.51 | -5.569 | 22.0 j |
-| 27g10_selecteur | ORANGE | 30 | 0.9761 | 0.35 | 29.28 | 2.062 | 14.2 j |
+| 27g10_selecteur | ORANGE | 30 | 0.9761 | 0.35 | 29.28 | 2.048 | 14.3 j |
 | 28_carry_hold | ORANGE | 83 | 4.0066 | 3.73 | 332.55 | 14.459 | 23.0 j |
 | rd_h2 | GRIS | 1 | -0.3682 | 0.0 | -0.37 | -0.736 | 0.1 j |
 
 **P&L paper cumule (hors temoin)** : +675.34 $
 
-**BTC** 64749 $ — ret 1j +0.60% · 7j +0.05% · 30j +7.78%
-**Moves 24h ≥ 20 %** : KAITO +25.0%
+**BTC** 64694 $ — ret 1j +0.52% · 7j -0.04% · 30j +7.69%
+**Moves 24h ≥ 20 %** : KAITO +25.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 13, "taux_correct": 0.538, "brier_moyen": 0.252}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
