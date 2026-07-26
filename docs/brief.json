@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-26T02:15:38.630725+00:00",
+ "ts": "2026-07-26T02:30:52.776830+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -27,11 +27,11 @@
   },
   "25_convergence_basis": {
    "statut": "VERT",
-   "n": 1053,
-   "esperance": 0.4233,
+   "n": 1054,
+   "esperance": 0.4223,
    "t": 3.67,
-   "pnl": 445.73,
-   "pnl_j": 13.385,
+   "pnl": 445.1,
+   "pnl_j": 13.366,
    "fwd_j": 33.3
   },
   "27a_rev_premium": {
@@ -76,8 +76,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -1.346,
-   "fwd_j": 22.4
+   "pnl_j": -1.34,
+   "fwd_j": 22.5
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 4.0721,
    "t": 3.7,
    "pnl": 329.84,
-   "pnl_j": 14.725,
-   "fwd_j": 22.4
+   "pnl_j": 14.66,
+   "fwd_j": 22.5
   }
  },
  "tendances_btc": {
@@ -125,10 +125,26 @@
  "evenements_extremes": [
   {
    "coin": "kSHIB",
-   "move_pct": 23.4
+   "move_pct": 26.2
+  },
+  {
+   "coin": "ACE",
+   "move_pct": -21.0
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-26T02:30",
+   "bot": "25_convergence_basis",
+   "marche": "conv-MORPHO",
+   "pnl": -0.63
+  },
+  {
+   "ts": "2026-07-26T02:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-26T02:15",
    "bot": "10_controle_aleatoire",
@@ -164,18 +180,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-26T01:45",
-   "bot": "25_convergence_basis",
-   "marche": "conv-KAITO",
-   "pnl": -0.34
-  },
-  {
-   "ts": "2026-07-26T01:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -189,7 +193,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 18.7,
+  "age_avis_h": 18.9,
   "problemes": []
  },
  "autofinancement": {
