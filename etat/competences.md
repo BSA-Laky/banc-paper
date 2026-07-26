@@ -1,18 +1,19 @@
-# Bibliotheque — regles PROUVEES (maj 2026-07-19)
+# Bibliothèque — règles PROUVÉES (maj 2026-07-26)
 
 ## Statistique / lecture du banc
-- **[02-19/07]** t qui MONTE avec n croissant = credibilite reelle. Preuve : 25_conv t 2.39→2.41→2.62→2.91→3.33 sur n 262→681, E stable ~0.51 (5 confirmations consecutives).
-- **[03-12/07]** Chute ponctuelle de t (2.39→1.09 le 03/07) ne condamne pas : remontee ensuite avec n. Juger en tendance multi-semaines.
-- **[02-19/07]** t extreme sur n<30 = piege systematique : 27a-d affichaient t ±2.5 a n=4-20, tous retombes ou reveles miroirs.
-- **[12-19/07]** E elevee + t<2 qui stagne avec n croissant = E gonflee par outliers. Preuve : 23_carry E~1.0, t 1.08→1.79 plafonne sur n 98→138.
-- **[15/07]** E >> mu_ref exige AUDIT vs donnees reelles avant credit. Preuve : 28_carry E=4.22 vs ref 1.26, verifie funding reel HL (5/5 coherents) — regime riche + queue droite (top3=63% du P&L).
+- [02-26/07] t qui MONTE avec n croissant = crédibilité réelle. Preuve : 25_conv t 2.39→3.72 sur n 262→1068, E stable ~0.45 ; 28_carry t 2.86→3.70 sur n 58→82.
+- [02-19/07] t extrême sur n<30 = piège systématique (27a-d : t ±2.5 à n=4-20, tous retombés ou miroirs).
+- [12-22/07] E élevée + t<2 stagnant avec n croissant = E gonflée par outliers → finit en kill. Preuve : 23_carry E~1.0, t plafonné 1.0-1.8 sur n 98-159, décrochage R1 le 22/07.
+- [15/07] E >> mu_ref exige AUDIT vs données réelles avant crédit. Preuve : 28_carry E=4.2 vs ref 1.26, vérifié funding HL (5/5 cohérents, top3=63% du P&L).
+- [21-26/07] Dégradation monotone de t sur 4+ relevés = structurelle, pas du bruit. Preuve : 24_funding t -1.48→-2.97 (n 127→162).
 
-## Pieges verifies
-- **[09-19/07]** Miroirs 27b/27c : somme PnL ~nulle a chaque n (36→44 : -0.14→-6.16 sur ±160 de PnL brut). Ne JAMAIS lire un seul cote.
-- **[11-12/07]** PnL isole d'un jour ne fait pas edge : CASHCAT +11.12 → t inchange.
-- **[12/07]** MDD 217 (27c) sous statut ORANGE : le statut n'exonere pas un perdant significatif.
+## Pièges vérifiés
+- [09-26/07] Miroirs 27b/27c : somme PnL -6/-8 systématique à chaque n (36→58) pour ±190 de brut. DÉFINITIF : jamais lire un seul côté.
+- [21/07] Méta-bot ne bat pas son sous-jacent : 27e delta -3.88 vs 27b à n>=30 → kill R3. Prior négatif confirmé.
+- [22-26/07] KILL exécuté laisse des stats ROUGES résiduelles (23, 27e) : vérifier absence dans dernieres_actions avant re-signalement.
+- [12/07] MDD 217 sous statut ORANGE : le statut n'exonère pas un perdant significatif.
 
-## Controles
-- **[02-15/07]** Temoin 10 : t dans [0.37;0.84] sur n 107→310 → banc mesure le bruit. **[19/07]** t=-0.65 (n=395) hors plage : rupture a confirmer, gate le dit sain.
-- **[19/07]** Calibration J+7 a n=8 depuis 11j : aucune regle sur la valeur predictive de l'Arbitre n'est prouvable (n<20).
-- **[18/07]** Testnet : 77.6% des rejets = absence de contrepartie (111/143) — friction structurelle, pas une panne.
+## Contrôles
+- [02-26/07] Témoin10 : t=-0.81 (n=1104), sain ; hors plage [0.37;0.84] depuis 19/07 sans rupture → plage historique trop étroite, seuil d'alerte t<-1 pertinent.
+- [26/07] Calibration Arbitre n=13 : toujours n<20, aucune règle prouvable sur sa valeur prédictive.
+- [18-25/07] Testnet : rejets 'no match' = friction structurelle stable (77.6% des rejets ; fill 89%), pas une panne.
