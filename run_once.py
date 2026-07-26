@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """run_once.py - point d'entrée CLOUD (une passe par exécution, appelé par le cron).
@@ -17,12 +18,18 @@ from bot_24_funding_multivenues import FundingMultiVenues
 from bot_26_carry_nado import CarryNado
 from bot_27_convex_buckets import ConvexBuckets
 from bot_28_carry_hold import CarryHold
+from bot_29_carry_neutre import CarryNeutre
 from bot_27e_arbitre import ArbitreRegime
 from bot_27f_selecteur import SelecteurInforme
 from dashboard import construire_dashboard
 
 
 def lancer_passe() -> None:
+    try:                          # GARDE-FOU comptable : aucun bot ne doit inventer son P&L
+        import audit_conformite
+        audit_conformite.auditer()
+    except Exception as e:
+        print(f"[run_once] audit_conformite a leve : {e}", flush=True)
     try:                          # avis LLM par piece (best-effort, budget-cape, jamais bloquant)
         import avis_piece_ia
         avis_piece_ia.produire_avis()
@@ -35,7 +42,8 @@ def lancer_passe() -> None:
         FundingMultiVenues(),     # bot 24 : HL/Paradex/ADEN (seuils 1e-4)
         CarryNado(),              # bot 26 : carry cross-venue Nado (dormant si endpoint KO)
         ConvexBuckets(),          # bot 27 : experience edge convexe (4 buckets)
-        CarryHold(),              # bot 28 : carry-hold (edge VALIDE OOS, confirmation forward)
+        CarryHold(),              # bot 28 : carry-hold, comptabilite CORRIGEE le 26/07 (prix + funding signe)
+        CarryNeutre(),            # bot 29 : carry DOLLAR-NEUTRE (3 shorts/3 longs) - l'A/B montre que la neutralite EST l'edge
         ArbitreRegime(),          # bot 27e : arbitre regime 27b/27c (hypothese mesuree, prior negatif)
         SelecteurInforme(),               # bot 27f : selecteur informe (signal par piece + IA), seuil 20%
         SelecteurInforme(move_big=0.10),  # bot 27f10 : jumeau rapide seuil 10% (verdict ~1 sem.)
