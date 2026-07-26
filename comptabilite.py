@@ -1,6 +1,3 @@
-ligne1
-ligne2
-    ligne3 indentee
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
