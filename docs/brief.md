@@ -1,10 +1,7 @@
-# Brief Station — 2026-07-26 15:15 (Paris)
+# Brief Station — 2026-07-26 15:30 (Paris)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
-
-## Changements de statut depuis hier
-- 27g10_selecteur : GRIS → **ORANGE**
 
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -24,8 +21,8 @@
 
 **P&L paper cumule (hors temoin)** : +688.40 $
 
-**BTC** 64407 $ — ret 1j +0.07% · 7j -0.48% · 30j +7.21%
-**Moves 24h ≥ 20 %** : KAITO +26.7%, kSHIB +24.1%
+**BTC** 64437 $ — ret 1j +0.12% · 7j -0.43% · 30j +7.26%
+**Moves 24h ≥ 20 %** : KAITO +25.1%, kSHIB +21.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 13, "taux_correct": 0.538, "brier_moyen": 0.252}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
