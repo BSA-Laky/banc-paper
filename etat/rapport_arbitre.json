@@ -1,12 +1,5 @@
 [
  {
-  "date": "2026-07-12",
-  "regime": "neutre",
-  "confiance": 0.5,
-  "resume": "BTC 63719, ret1 -0.16% ret7 +0.13% ret30 +0.25% : quasi plat. 25_conv n=478 t=2.41 E=0.50 seule ref credible. Momentum atone. Conf 0.5 (calib null).",
-  "reponses_missions": []
- },
- {
   "date": "2026-07-13",
   "regime": "neutre",
   "confiance": 0.5,
@@ -263,6 +256,26 @@
    {
     "id": "m3",
     "reponse": "Témoin10: t=-0.81, n=1101, sain=true. Hors plage [0.37;0.84] depuis 19/07 mais stable, pas de rupture (seuil -1 non franchi). Pas d'alerte."
+   }
+  ]
+ },
+ {
+  "date": "2026-07-27",
+  "regime": "neutre",
+  "confiance": 0.55,
+  "resume": "25_conv VERT stable (t=3.83,n=1098). 28_carry credible (t=3.73,n=83). 24_funding ORANGE degradation t=-3.21 (n=168). BTC plat.",
+  "reponses_missions": [
+   {
+    "id": "m1",
+    "reponse": "24_funding: n=168,t=-3.21 (vs -2.97 hier),esp=-0.5038,pnl_j=-2.56. Toujours ORANGE, pas de bascule ROUGE/R1 aujourd'hui. Degradation 5e jour consecutif, proche seuil."
+   },
+   {
+    "id": "m2",
+    "reponse": "28_carry: n=83,t=3.73,esp=4.0066,pnl_j=14.33. t>2.3, esp>>borne. 8e confirmation credibilite, aucune alerte."
+   },
+   {
+    "id": "m3",
+    "reponse": "27a_rev_premium: n=41 (>30),t=-0.27,esp=-0.6486. Pas de t<-1.5, non significatif. Suivi vers n=50 poursuivi."
    }
   ]
  }

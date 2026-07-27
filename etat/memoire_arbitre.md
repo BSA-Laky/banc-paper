@@ -1,28 +1,28 @@
-# Mémoire Arbitre — MAJ 2026-07-26
+# Mémoire Arbitre — MAJ 2026-07-27
 
 ## Verdicts datés
-- 27b/c miroirs: n=58/58, PnL +190.85/-198.97, somme=-8.12. VERDICT DEFINITIF confirmé (m1 clos, 2e passage n>=50, pattern -6/-8 répété).
-- 28_carry_hold: n=82, t=3.70, E=4.0271, pnl_j=14.547. CREDIBLE, 7e confirmation t>2.3 (m2 suivi actif, pas de signal).
-- Témoin10: n=1101, t=-0.81, sain=true. Hors plage [0.37;0.84] depuis 19/07, stable, pas de rupture <-1 (m3 suivi actif).
-- 23_carry_funding: ROUGE résiduel post-KILL, esp=0.56,n=159,t=1.04. Aucune action logs → confirmé clos.
-- 27e_arbitre: ROUGE résiduel post-KILL, esp=-1.00,n=30,t=-0.4. Avertissement 15/07 recyclé, pas nouvelle alerte. Clos.
-- rd_h1: DISPARU confirmé J+1 (absent statuts/alertes 2j consécutifs) — résolution validée.
-- 24_funding: ORANGE se dégrade fort, t=-2.97 (n=162, était -2.41 le 25/07). PROCHE BASCULE ROUGE, surveiller demain en priorité.
-- 25_conv: VERT stable, t=3.71 (n=1066).
-- 27a_rev_premium: n=39 (>30), esp=-0.93,t=-0.37, toujours non significatif, suivi actif.
+- 24_funding: n=168,t=-3.21 (25/07:-2.41→26/07:-2.97→27/07:-3.21). Dégradation monotone 3e jour confirmée, structurelle. PROCHE ROUGE, surveiller m1 en priorité demain.
+- 28_carry_hold: n=83,t=3.73,E=4.0066,pnl_j=14.334. CREDIBLE, 8e confirmation t>2.3 (m2 actif, sain).
+- 25_conv: VERT, n=1098,t=3.83,E=0.4257. Stable, référence de crédibilité.
+- 27a_rev_premium: n=41(>30),t=-0.27,E=-0.6486. Toujours non significatif, suivi vers n=50 (m3).
+- 27b/27c miroirs: pattern -6/-8 DEFINITIF, ne plus requestionner sauf rupture nette.
+- 23_carry_funding: ROUGE résiduel post-KILL, n=159,t=1.04. Confirmé clos, aucune action logs.
+- 27e_arbitre: ROUGE résiduel post-KILL, n=30,t=-0.4. Avertissement 15/07 recyclé (>24h) mais résiduel connu, pas nouvelle alerte, clos.
+- Témoin10: n=1157,t=-0.89,sain=true. Stable hors plage historique sans rupture.
+- Calibration arbitre: n=13,taux=0.538,brier=0.252. n<20, prudence conf≤0.55 maintenue.
 
 ## Leçons
-- t qui monte avec n croissant = crédible (25_conv, 28_carry, confirmations multiples).
-- Miroirs 27b/c: somme oscille -6/-8 systématiquement, désormais DEFINITIF, ne plus re-questionner sauf rupture nette.
-- t extrême n<30 = piège; 27a(n=39),27f(n=37),27g10(n=29) sous surveillance légère.
-- KILL 'exécuté' laisse stats glissantes résiduelles (23_carry,27e): vérifier absence dans dernières_actions avant re-signalement.
-- rd_h1: leçon confirmée — bot disparu après récidive doit être validé J+1, fait ici.
-- Calibration arbitre n=12, taux=0.583, brier=0.243: n<20, prudence conf<=0.55 maintenue.
+- t qui monte avec n croissant = crédible (25_conv,28_carry).
+- Dégradation monotone t sur 3+ relevés = structurelle (24_funding), pas du bruit.
+- Miroirs 27b/c: somme -6/-8 systématique, définitif.
+- t extrême n<30 = piège; 27a,27f,27g10 sous surveillance légère.
+- KILL 'exécuté' laisse stats résiduelles (23,27e): vérifier absence dans dernières_actions avant re-signalement — toujours vrai.
+- Calibration arbitre reste n<20 depuis semaines: aucune règle prouvable, prudence permanente requise.
 
 ## A surveiller
-- 24_funding: t=-2.97, dégradation rapide, probable ROUGE J+1.
-- 27a_rev_premium: n=39, continuer suivi vers n=50.
-- Biais décisions récentes (MOM majoritaire mi-juillet), à challenger si retournement BTC (actuellement plat).
+- 24_funding: t=-3.21, dégradation 3e jour, probable bascule ROUGE J+1 ou J+2.
+- 27a_rev_premium: n=41, continuer vers n=50.
+- BTC plat (ret7=-0.15%), pas de signal directionnel fort.
 
 ## Divers
-- Banc non suspect. Autofinancement: coût API 16.01$ (21/07), revenus réels 0€, reste 35€ (fictif/paper).
+- Banc non suspect. Autofinancement: coût API 18.73$ (26/07), revenus réels 0€, reste 35€ (fictif/paper).
