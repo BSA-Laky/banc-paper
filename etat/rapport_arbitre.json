@@ -1,25 +1,5 @@
 [
  {
-  "date": "2026-07-13",
-  "regime": "neutre",
-  "confiance": 0.5,
-  "resume": "BTC 62796, ret1 -1.5% ret7 -2.0% ret30 -2.5% : glissement baissier mais mou. 25_conv n=489 t=2.52 E=0.52 tient. Conf plafonnee 0.5 (calibration null).",
-  "reponses_missions": [
-   {
-    "id": "m1",
-    "reponse": "Issues DYDX(02/07)/FARTCOIN(03/07) non presentes dans les dernieres actions du brief. Non verifiables aujourd'hui. Toujours en attente cote donnees fournies."
-   },
-   {
-    "id": "m2",
-    "reponse": "27b E=+5.72 t=2.37 n=37 / 27c E=-5.86 t=-2.43 n=37 : somme ~-0.14, quasi nulle, miroir confirme a n=37. Toujours <50, patienter."
-   },
-   {
-    "id": "m3",
-    "reponse": "calibration_arbitre TENDANCE non-null mais degeneree : n=1, taux_correct=1.0, brier=0.16. Un seul point = non exploitable, traiter comme null."
-   }
-  ]
- },
- {
   "date": "2026-07-14",
   "regime": "baissier",
   "confiance": 0.5,
@@ -276,6 +256,26 @@
    {
     "id": "m3",
     "reponse": "27a_rev_premium: n=41 (>30),t=-0.27,esp=-0.6486. Pas de t<-1.5, non significatif. Suivi vers n=50 poursuivi."
+   }
+  ]
+ },
+ {
+  "date": "2026-07-28",
+  "regime": "neutre",
+  "confiance": 0.55,
+  "resume": "24_funding stagne t=-3.21(n=168) ORANGE, pas de bascule. 28_carry sain t=3.73. 27a n=41 non signif. BTC plat. Pas d'escalade.",
+  "reponses_missions": [
+   {
+    "id": "m1",
+    "reponse": "24_funding: n=168,t=-3.21,E=-0.5038,pnl_j=-2.557. Identique au relevé precedent (stagnation, pas 4e degradation). Reste ORANGE, pas de bascule R1/ROUGE."
+   },
+   {
+    "id": "m2",
+    "reponse": "28_carry: n=83,t=3.73,E=4.0066,pnl_j=14.334,fwd_j=23.2. t>2.3, sain, 9e confirmation. Suivi vers n=100 poursuivi."
+   },
+   {
+    "id": "m3",
+    "reponse": "27a_rev_premium: n=41,t=-0.27,E=-0.6486. Pas de t<-1.5, toujours non significatif. Poursuite vers n=50."
    }
   ]
  }

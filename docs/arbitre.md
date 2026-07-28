@@ -1,7 +1,7 @@
-# Arbitre IA — 2026-07-27
+# Arbitre IA — 2026-07-28
 
 **Regime : neutre** (confiance 0.55)
 
-25_conv VERT stable (t=3.83,n=1098). 28_carry credible (t=3.73,n=83). 24_funding ORANGE degradation t=-3.21 (n=168). BTC plat.
+24_funding stagne t=-3.21(n=168) ORANGE, pas de bascule. 28_carry sain t=3.73. 27a n=41 non signif. BTC plat. Pas d'escalade.
 
-[Note du jour](../veille/2026-07-27.md) — modele `claude-sonnet-5`
+[Note du jour](../veille/2026-07-28.md) — modele `claude-sonnet-5`
