@@ -27,6 +27,29 @@ FICHIER_ETAT = {"28_carry_hold": "etat_bot28.json", "25_convergence_basis": "eta
 FRAIS = 0.00035
 
 
+
+def _positions_paper(bet: dict) -> dict:
+    """Positions OUVERTES d'un bot paper, quel que soit le format de son etat.
+
+    INCIDENT DU 26-29/07/2026 : la migration vers comptabilite.PositionReelle a
+    change le format d'etat des bots 25, 28 et 29, qui ecrivent desormais
+        {"positions": {coin: {side, notionnel, mark_entree, ouverte_le, ...}}, ...}
+    alors que les executeurs cherchaient l'ancien
+        {coin: {"ouvert": true, "side": ..., "entree_ts": ...}}
+    Resultat : 'ouverts' etait VIDE et les miroirs ne voyaient plus AUCUNE
+    position, sans que rien ne le signale.
+
+    Ce lecteur accepte les DEUX formats et normalise vers le format attendu.
+    """
+    pos = bet.get("positions")
+    if isinstance(pos, dict) and pos:
+        return {c: {"ouvert": True,
+                    "side": v.get("side"),
+                    "entree_ts": v.get("ouverte_le"),
+                    "notionnel": v.get("notionnel")}
+                for c, v in pos.items() if isinstance(v, dict)}
+    return {c: v for c, v in bet.items() if isinstance(v, dict) and v.get("ouvert")}
+
 def _lire_json(p, d):
     try:
         return json.loads(Path(p).read_text(encoding="utf-8"))
@@ -145,7 +168,7 @@ def executer():
 
     for bot in PILOTES:
         bet = _lire_json(ETAT / FICHIER_ETAT.get(bot, "etat_%s.json" % bot), {})
-        ouverts = {c: v for c, v in bet.items() if isinstance(v, dict) and v.get("ouvert")}
+        ouverts = _positions_paper(bet)
         mine = state.get(bot, {})
 
         # OUVRIR (avec verification du VRAI statut)
