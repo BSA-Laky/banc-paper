@@ -1,20 +1,24 @@
-# Brief Station — 2026-07-30 00:01 (Paris)
+# Brief Station — 2026-07-30 00:15 (Paris)
 
 ## 🔴 ALERTES
 - 24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens.
+- 25_convergence_basis: esp20 -0.72 < borne -0.60 -> COUPER LE BOT
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
 
+## Changements de statut depuis hier
+- 25_convergence_basis : ORANGE → **ROUGE**
+
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.412 | 36.1 j |
-| 25_convergence_basis | ORANGE | 76 | 0.118 | 0.77 | 8.97 | 2.639 | 3.4 j |
-| 27a_rev_premium | ORANGE | 43 | -0.776 | -0.33 | -33.37 | -0.927 | 36.0 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.405 | 36.2 j |
+| 25_convergence_basis | ROUGE | 78 | 0.0377 | 0.23 | 2.94 | 0.866 | 3.4 j |
+| 27a_rev_premium | ORANGE | 43 | -0.776 | -0.33 | -33.37 | -0.924 | 36.1 j |
 | 27b_rev_move | ORANGE | 62 | 2.415 | 1.26 | 149.73 | 4.194 | 35.7 j |
 | 27c_mom_move | ORANGE | 62 | -2.555 | -1.33 | -158.41 | -4.437 | 35.7 j |
-| 27d_rev_move_stop | ORANGE | 79 | -0.0233 | -0.01 | -1.84 | -0.061 | 30.0 j |
+| 27d_rev_move_stop | ORANGE | 79 | -0.0233 | -0.01 | -1.84 | -0.061 | 30.1 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.146 | 26.3 j |
 | 27f10_selecteur | ORANGE | 147 | 0.5237 | 0.64 | 76.98 | 3.055 | 25.2 j |
 | 27f_selecteur | ORANGE | 41 | -3.051 | -1.35 | -125.09 | -4.964 | 25.2 j |
@@ -22,10 +26,10 @@
 | 28_carry_hold | GRIS | 1 | 11.6387 | 0.0 | 11.64 | 3.754 | 3.1 j |
 | rd_h2 | ORANGE | 40 | 0.2609 | 0.36 | 10.44 | 3.162 | 3.3 j |
 
-**P&L paper cumule (hors temoin)** : -169.88 $
+**P&L paper cumule (hors temoin)** : -175.91 $
 
-**BTC** 63988 $ — ret 1j +0.13% · 7j -3.17% · 30j +6.24%
-**Moves 24h ≥ 20 %** : CASHCAT +34.5%
+**BTC** 64004 $ — ret 1j +0.15% · 7j -3.15% · 30j +6.27%
+**Moves 24h ≥ 20 %** : CASHCAT +26.8%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
