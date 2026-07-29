@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-29T17:15:50.799082+00:00",
+ "ts": "2026-07-29T17:30:56.934590+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -15,8 +15,8 @@
    "esperance": -0.5092,
    "t": -3.3,
    "pnl": -87.07,
-   "pnl_j": -2.425,
-   "fwd_j": 35.9
+   "pnl_j": -2.419,
+   "fwd_j": 36.0
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
@@ -33,8 +33,8 @@
    "esperance": -0.776,
    "t": -0.33,
    "pnl": -33.37,
-   "pnl_j": -0.932,
-   "fwd_j": 35.8
+   "pnl_j": -0.929,
+   "fwd_j": 35.9
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -61,7 +61,7 @@
    "t": -0.01,
    "pnl": -1.84,
    "pnl_j": -0.062,
-   "fwd_j": 29.8
+   "fwd_j": 29.9
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -119,18 +119,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0016,
-  "ret7": -0.0346,
-  "ret30": 0.0594,
-  "prix": 63802
+  "ret1": -0.0032,
+  "ret7": -0.0361,
+  "ret30": 0.0577,
+  "prix": 63700
  },
  "evenements_extremes": [
   {
    "coin": "KAITO",
-   "move_pct": 20.8
+   "move_pct": 23.8
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-29T17:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-29T17:15",
    "bot": "10_controle_aleatoire",
@@ -172,12 +178,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-29T16:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -191,7 +191,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 9.1,
+  "age_avis_h": 9.3,
   "problemes": []
  },
  "autofinancement": {
