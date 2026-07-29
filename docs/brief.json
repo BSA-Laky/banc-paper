@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-29T16:31:08.416184+00:00",
+ "ts": "2026-07-29T16:45:44.666136+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -42,8 +42,8 @@
    "esperance": 2.415,
    "t": 1.26,
    "pnl": 149.73,
-   "pnl_j": 4.23,
-   "fwd_j": 35.4
+   "pnl_j": 4.218,
+   "fwd_j": 35.5
   },
   "27c_mom_move": {
    "statut": "ORANGE",
@@ -51,8 +51,8 @@
    "esperance": -2.555,
    "t": -1.33,
    "pnl": -158.41,
-   "pnl_j": -4.475,
-   "fwd_j": 35.4
+   "pnl_j": -4.462,
+   "fwd_j": 35.5
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -110,22 +110,28 @@
   },
   "rd_h2": {
    "statut": "ORANGE",
-   "n": 36,
-   "esperance": 0.3388,
-   "t": 0.43,
-   "pnl": 12.2,
-   "pnl_j": 3.935,
+   "n": 38,
+   "esperance": 0.3426,
+   "t": 0.45,
+   "pnl": 13.02,
+   "pnl_j": 4.2,
    "fwd_j": 3.1
   }
  },
  "tendances_btc": {
-  "ret1": 0.0018,
-  "ret7": -0.0313,
-  "ret30": 0.063,
-  "prix": 64020
+  "ret1": -0.0041,
+  "ret7": -0.0369,
+  "ret30": 0.0568,
+  "prix": 63646
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-29T16:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-29T16:31",
    "bot": "25_convergence_basis",
@@ -167,12 +173,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-29T15:45",
-   "bot": "25_convergence_basis",
-   "marche": "FET-long",
-   "pnl": -0.19
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 8.3,
+  "age_avis_h": 8.6,
   "problemes": []
  },
  "autofinancement": {
