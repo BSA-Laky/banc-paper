@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-29T10:45:44.709251+00:00",
+ "ts": "2026-07-29T11:01:05.655979+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -20,11 +20,11 @@
   },
   "25_convergence_basis": {
    "statut": "GRIS",
-   "n": 14,
-   "esperance": 0.1558,
-   "t": 0.32,
-   "pnl": 2.18,
-   "pnl_j": 0.752,
+   "n": 15,
+   "esperance": 0.204,
+   "t": 0.45,
+   "pnl": 3.06,
+   "pnl_j": 1.055,
    "fwd_j": 2.9
   },
   "27a_rev_premium": {
@@ -119,13 +119,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.011,
-  "ret7": -0.0223,
-  "ret30": 0.0728,
-  "prix": 64609
+  "ret1": 0.0087,
+  "ret7": -0.0246,
+  "ret30": 0.0703,
+  "prix": 64463
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-29T11:01",
+   "bot": "25_convergence_basis",
+   "marche": "KAITO-long",
+   "pnl": 0.88
+  },
+  {
+   "ts": "2026-07-29T11:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-29T10:45",
    "bot": "10_controle_aleatoire",
@@ -161,18 +173,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-29T10:01",
-   "bot": "25_convergence_basis",
-   "marche": "CASHCAT-short",
-   "pnl": -0.47
-  },
-  {
-   "ts": "2026-07-29T10:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 2.6,
+  "age_avis_h": 2.8,
   "problemes": []
  },
  "autofinancement": {
