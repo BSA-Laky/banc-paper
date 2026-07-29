@@ -3,17 +3,28 @@
   "25_convergence_basis": {
    "etat": "actif",
    "relance": "2026-07-23T07:19:27.390936+00:00",
-   "note": "Relance Commandant 23/07. 23 (son rival) est lui-meme mort -> la regle 'battre 23' est caduque. 25 = meilleur bot (t 3,56, +399$). Auto-kill desactive."
+   "note": "CORRIGE le 29/07/2026 : la note precedente (\"meilleur bot, t 3,56, +399 $\") etait un ARTEFACT COMPTABLE. Le bot cumulait deux fautes (abs(funding) + P&L base sur la convergence du premium au lieu du prix reel). Son execution testnet reelle donnait t = -2,81 sur n = 96. Il a ete migre vers comptabilite.PositionReelle (bot_25_convergence_basis.py) et son historique d'avant le 26/07 est ecarte des statistiques. Il REPART DE ZERO : aucune conclusion ne peut en etre tiree avant plusieurs semaines."
   },
   "27e_arbitre": {
    "etat": "kill",
-   "raison": "R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
+   "raison": "R3 regle 15/07 : delta -3.88 $ < 0 vs 27b a n>=30",
    "ts": "2026-07-21T15:45:41.894175+00:00"
   },
   "23_carry_funding": {
    "etat": "kill",
-   "raison": "R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
+   "raison": "R1 decrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT. Code entierement RETIRE le 29/07 (classe supprimee de bots_cloud.py, etat purge).",
    "ts": "2026-07-22T14:15:49.980658+00:00"
+  },
+  "24_funding_multivenues": {
+   "etat": "kill",
+   "raison": "TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens.",
+   "ts": "2026-07-29T09:30:00+00:00"
+  },
+  "26_carry_nado": {
+   "etat": "kill",
+   "raison": "DORMANT depuis toujours (0 trade : endpoint Nado injoignable / schema non reconnu) et meme comptabilite fausse que le 24 (abs(funding) sans prix), sur une venue ou nous n'avons pas de compte. Purge du 29/07/2026.",
+   "ts": "2026-07-29T09:30:00+00:00"
   }
- }
+ },
+ "_doc": "Un bot en etat 'kill' n'est plus echantillonne par run_once ; son ledger et son etat sont conserves en archive. Reactivation humaine : 'relance <bot>' sur Telegram."
 }
