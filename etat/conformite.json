@@ -1,27 +1,24 @@
 {
- "ts": "2026-07-29T09:24:25.760240+00:00",
- "n_modules": 11,
- "n_non_conformes": 0,
- "n_a_migrer": 7,
+ "ts": "2026-07-29T09:30:57.731982+00:00",
+ "n_modules": 9,
+ "n_non_conformes": 2,
+ "n_a_migrer": 3,
  "a_migrer": [
-  "bot_24_funding_multivenues.py",
-  "bot_26_carry_nado.py",
   "bot_27_convex_buckets.py",
   "bot_27e_arbitre.py",
-  "bot_27f_selecteur.py",
-  "bot_trend.py",
-  "bot_variance.py"
+  "bot_27f_selecteur.py"
  ],
- "conforme": true,
- "bots_bloques_pour_le_reel": [],
+ "conforme": false,
+ "bots_bloques_pour_le_reel": [
+  "24_funding_multivenues",
+  "26_carry_nado"
+ ],
  "bots_non_promouvables": [
   "24_funding_multivenues",
   "26_carry_nado",
   "27_convex_buckets",
   "27e_arbitre",
-  "27f_selecteur",
-  "30_trend_following",
-  "31_variance_premium"
+  "27f_selecteur"
  ],
  "detail": [
   {
@@ -37,10 +34,8 @@
     207
    ],
    "abs_funding": [],
-   "verdict": "A MIGRER (anterieur a la regle) : fabrique des Trade/P&L sans passer par comptabilite.py",
-   "avertissements": [
-    "fabrique des Trade/P&L sans passer par comptabilite.py"
-   ]
+   "verdict": "NON CONFORME : fabrique des Trade/P&L sans passer par comptabilite.py",
+   "avertissements": []
   },
   {
    "fichier": "bot_25_convergence_basis.py",
@@ -67,10 +62,8 @@
     195
    ],
    "abs_funding": [],
-   "verdict": "A MIGRER (anterieur a la regle) : fabrique des Trade/P&L sans passer par comptabilite.py",
-   "avertissements": [
-    "fabrique des Trade/P&L sans passer par comptabilite.py"
-   ]
+   "verdict": "NON CONFORME : fabrique des Trade/P&L sans passer par comptabilite.py",
+   "avertissements": []
   },
   {
    "fichier": "bot_27_convex_buckets.py",
@@ -149,45 +142,6 @@
    "abs_funding": [],
    "verdict": "OK",
    "avertissements": []
-  },
-  {
-   "fichier": "bot_trend.py",
-   "bots": [
-    "30_trend_following",
-    "10b_controle_book"
-   ],
-   "importe_comptabilite": false,
-   "trade_direct": [
-    83,
-    130
-   ],
-   "close_direct": [
-    84,
-    131
-   ],
-   "abs_funding": [],
-   "verdict": "A MIGRER (anterieur a la regle) : fabrique des Trade/P&L sans passer par comptabilite.py",
-   "avertissements": [
-    "fabrique des Trade/P&L sans passer par comptabilite.py"
-   ]
-  },
-  {
-   "fichier": "bot_variance.py",
-   "bots": [
-    "31_variance_premium"
-   ],
-   "importe_comptabilite": false,
-   "trade_direct": [
-    70
-   ],
-   "close_direct": [
-    71
-   ],
-   "abs_funding": [],
-   "verdict": "A MIGRER (anterieur a la regle) : fabrique des Trade/P&L sans passer par comptabilite.py",
-   "avertissements": [
-    "fabrique des Trade/P&L sans passer par comptabilite.py"
-   ]
   },
   {
    "fichier": "bots_cloud.py",
