@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-29T20:30:53.356046+00:00",
+ "ts": "2026-07-29T20:45:38.775209+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -20,11 +20,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 61,
-   "esperance": 0.2227,
+   "n": 64,
+   "esperance": 0.2129,
    "t": 1.29,
-   "pnl": 13.59,
-   "pnl_j": 4.117,
+   "pnl": 13.63,
+   "pnl_j": 4.129,
    "fwd_j": 3.3
   },
   "27a_rev_premium": {
@@ -119,13 +119,37 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0064,
-  "ret7": -0.0392,
-  "ret30": 0.0543,
-  "prix": 63497
+  "ret1": -0.0056,
+  "ret7": -0.0384,
+  "ret30": 0.0552,
+  "prix": 63551
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-29T20:45",
+   "bot": "25_convergence_basis",
+   "marche": "JUP-long",
+   "pnl": 0.47
+  },
+  {
+   "ts": "2026-07-29T20:45",
+   "bot": "25_convergence_basis",
+   "marche": "ZEC-long",
+   "pnl": 0.08
+  },
+  {
+   "ts": "2026-07-29T20:45",
+   "bot": "25_convergence_basis",
+   "marche": "PENGU-long",
+   "pnl": -0.51
+  },
+  {
+   "ts": "2026-07-29T20:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-29T20:30",
    "bot": "10_controle_aleatoire",
@@ -149,30 +173,6 @@
    "bot": "25_convergence_basis",
    "marche": "WLD-long",
    "pnl": -0.96
-  },
-  {
-   "ts": "2026-07-29T20:00",
-   "bot": "25_convergence_basis",
-   "marche": "FET-long",
-   "pnl": -1.81
-  },
-  {
-   "ts": "2026-07-29T20:00",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-29T19:54",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-29T19:45",
-   "bot": "25_convergence_basis",
-   "marche": "KAITO-long",
-   "pnl": 0.25
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 12.3,
+  "age_avis_h": 12.6,
   "problemes": []
  },
  "autofinancement": {
