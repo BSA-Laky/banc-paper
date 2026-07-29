@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-29T11:45:47.539282+00:00",
+ "ts": "2026-07-29T11:47:24.041516+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -20,11 +20,11 @@
   },
   "25_convergence_basis": {
    "statut": "GRIS",
-   "n": 20,
-   "esperance": 0.2227,
-   "t": 0.61,
-   "pnl": 4.45,
-   "pnl_j": 1.484,
+   "n": 21,
+   "esperance": 0.2017,
+   "t": 0.58,
+   "pnl": 4.24,
+   "pnl_j": 1.412,
    "fwd_j": 3.0
   },
   "27a_rev_premium": {
@@ -119,13 +119,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0075,
-  "ret7": -0.0257,
-  "ret30": 0.0691,
-  "prix": 64386
+  "ret1": 0.0082,
+  "ret7": -0.025,
+  "ret30": 0.0698,
+  "prix": 64432
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-29T11:47",
+   "bot": "25_convergence_basis",
+   "marche": "PENGU-long",
+   "pnl": -0.22
+  },
+  {
+   "ts": "2026-07-29T11:47",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-29T11:45",
    "bot": "25_convergence_basis",
@@ -158,18 +170,6 @@
   },
   {
    "ts": "2026-07-29T11:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-29T11:15",
-   "bot": "25_convergence_basis",
-   "marche": "CASHCAT-short",
-   "pnl": 1.04
-  },
-  {
-   "ts": "2026-07-29T11:15",
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
