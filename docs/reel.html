@@ -48,7 +48,7 @@ footer{color:var(--muted);font-size:11px;margin-top:20px;border-top:1px solid va
 <h2>Positions ouvertes</h2>
 <div id="positions"></div>
 
-<h2>Par bot — réel vs signal paper <span class="tag">(suivi interne = estimation au mark, hors funding/frais)</span></h2>
+<h2>Par bot — réel (source Hyperliquid) vs signal paper <span class="tag">(réalisé − frais + funding + latent)</span></h2>
 <div id="bots"></div>
 
 <h2>Derniers fills réels (Hyperliquid)</h2>
@@ -60,7 +60,7 @@ footer{color:var(--muted);font-size:11px;margin-top:20px;border-top:1px solid va
 <footer id="foot">Contrôle sécurisé sur Telegram (page en lecture seule) : « 🛑 stopreel » coupe le réel,
 « reprends » relance. Le kill ferme toutes les positions à la passe suivante.<br>
 Méthode : le P&amp;L affiché en tête = équity du compte − dépôts nets (identique à l'app Hyperliquid).
-Décomposition : réalisé (fills) − frais + funding + latent. Le journal interne reste une estimation.</footer>
+Décomposition : réalisé (fills) − frais + funding + latent. Depuis le 29/07, le bloc « par bot » affiche cette vérité HL et non plus l'estimation interne au mark (qui ignorait frais et funding et s'écartait de ~18 $).</footer>
 
 <script>
 const FR={day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'};
@@ -111,11 +111,17 @@ P.forEach(p=>{const sens=p.sens==='short'?'<span class="short">short</span>':'<s
 h+='<tr><td>'+String(p.bot||'').replace('_',' ')+'</td><td><b>'+p.coin+'</b></td><td>'+sens+'</td><td>'+Number(p.notional||0).toFixed(2)+' $</td><td>'+p.entry+'</td><td class="'+cls(p.lat)+'">'+usd(p.lat)+'</td><td class="mut">'+(p.liq||'—')+'</td><td>'+(p.opened_at?depuis(p.opened_at):'—')+'</td><td class="tag">'+(SORTIE[p.bot]||'signal du bot')+'</td></tr>';});
 document.getElementById('positions').innerHTML=h+'</table><div class="note">Source : '+(P[0].src==='HL'?'positions réelles Hyperliquid (latent = unrealizedPnl HL)':'suivi interne + prix live (réconciliation HL en attente)')+'.</div>';
 } else document.getElementById('positions').innerHTML='<div class="card mut">Aucune position réelle ouverte — le bot attend un signal RICHE et FRAIS (règle figée 15/07).</div>';
-// ---- PAR BOT (estimation interne, inchangé) ----
+// ---- PAR BOT : la VERITE HL en premier, l'estimation interne reléguée au second plan ----
 let hb='';
 Object.entries(d.par_bot||{}).forEach(([b,x])=>{const r=x.reel||{},pa=x.paper||{};
 hb+='<div class="card"><b>'+b.replace('_',' ')+'</b> <span class="tag">enveloppe '+x.enveloppe+' $ · expo interne '+x.expo+' $</span><div class="grid2" style="margin-top:8px">'+
-'<div><div class="tag">RÉEL (journal interne — estimation)</div>n '+(r.n||0)+' · t '+(r.t_stat||0)+' · esp/trade '+usd(r.esp)+'<br>P&L estimé '+usd(r.pnl_total)+' · 7j '+usd(r.pnl_7j)+' · réussite '+(r.taux_reussite||0)+' %</div>'+
+(function(){const h=x.hl;
+ if(!h) return '<div><div class="tag">RÉEL — vérité Hyperliquid</div><span class="muted">réconciliation HL indisponible pour ce bot</span></div>';
+ return '<div><div class="tag">RÉEL — vérité Hyperliquid</div>'+
+  '<b style="font-size:1.15rem" class="'+(h.net>=0?'pos':'neg')+'">'+usd(h.net)+'</b> net'+
+  '<br>réalisé '+usd(h.realise)+' · frais '+usd(-Math.abs(h.frais))+' · funding '+usd(h.funding)+' · latent '+usd(h.latent)+
+  '<br><span class="muted">'+h.n_fills+' fills sur '+(h.pieces||[]).length+' pièces · funding réparti au prorata des fills</span>'+
+  '<br><span class="muted">estimation interne (au mark, hors frais/funding) : '+usd(r.pnl_total)+' — écart '+usd((r.pnl_total||0)-h.net)+'</span></div>';})()+
 '<div><div class="tag">SIGNAL (paper) — statut '+(pa.statut||'?')+'</div>n '+(pa.n||'?')+' · t '+(pa.t||'?')+' · esp '+(pa.esp||'?')+'<br>P&L paper '+(pa.pnl!=null?Number(pa.pnl).toFixed(0)+' $':'?')+' · rend/j '+(pa.rend_j!=null?pa.rend_j+' %':'?')+'</div></div></div>';});
 document.getElementById('bots').innerHTML=hb||'<div class="card mut">—</div>';
 // ---- FILLS HL ----
