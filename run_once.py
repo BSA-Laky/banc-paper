@@ -14,8 +14,6 @@ from pathlib import Path
 
 from banc_essai_paper_trading import ControleAleatoire, journaliser
 from bot_25_convergence_basis import ConvergenceBasis
-from bot_24_funding_multivenues import FundingMultiVenues
-from bot_26_carry_nado import CarryNado
 from bot_27_convex_buckets import ConvexBuckets
 from bot_28_carry_hold import CarryHold
 from bot_29_carry_neutre import CarryNeutre
@@ -38,8 +36,6 @@ def lancer_passe() -> None:
     bots = [
         ControleAleatoire(stake_usd=1.0),
         ConvergenceBasis(actifs="*"),   # bot 25 : comptabilite REELLE depuis le 29/07 (etait dans bots_cloud)
-        FundingMultiVenues(),     # bot 24 : HL/Paradex/ADEN (seuils 1e-4)
-        CarryNado(),              # bot 26 : carry cross-venue Nado (dormant si endpoint KO)
         ConvexBuckets(),          # bot 27 : experience edge convexe (4 buckets)
         CarryHold(),              # bot 28 : carry-hold, comptabilite CORRIGEE le 26/07 (prix + funding signe)
         CarryNeutre(),            # bot 29 : carry DOLLAR-NEUTRE (3 shorts/3 longs) - l'A/B montre que la neutralite EST l'edge
