@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-29T18:30:55.398266+00:00",
+ "ts": "2026-07-29T18:45:40.027344+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -96,8 +96,8 @@
    "esperance": 0.2671,
    "t": 0.1,
    "pnl": 8.28,
-   "pnl_j": 0.479,
-   "fwd_j": 17.3
+   "pnl_j": 0.476,
+   "fwd_j": 17.4
   },
   "28_carry_hold": {
    "statut": "GRIS",
@@ -119,18 +119,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0036,
-  "ret7": -0.0295,
-  "ret30": 0.0649,
-  "prix": 64137
+  "ret1": 0.007,
+  "ret7": -0.0262,
+  "ret30": 0.0685,
+  "prix": 64352
  },
  "evenements_extremes": [
   {
    "coin": "KAITO",
-   "move_pct": 22.3
+   "move_pct": 20.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-29T18:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-29T18:30",
    "bot": "25_convergence_basis",
@@ -172,12 +178,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-29T18:01",
-   "bot": "25_convergence_basis",
-   "marche": "TRUMP-long",
-   "pnl": 1.1
   }
  ],
  "calibration_arbitre": {
@@ -191,7 +191,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 10.3,
+  "age_avis_h": 10.6,
   "problemes": []
  },
  "autofinancement": {
