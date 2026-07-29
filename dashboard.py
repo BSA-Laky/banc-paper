@@ -12,19 +12,32 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from banc_essai_paper_trading import charger_journal, evaluer
+from banc_essai_paper_trading import charger_journal, evaluer, _coupure_comptable
+
+
+def _lignes_valides(lignes):
+    """Ecarte les trades d'AVANT la correction comptable du 26/07/2026.
+
+    Sans ce filtre, les KPI (issus de evaluer(), qui l'applique) et le "P&L 7 jours"
+    ou la courbe (qui lisaient le journal brut) racontaient deux histoires
+    differentes : on a vu "1 trade" affiche a cote de "+78,20 $ sur 7 jours".
+    """
+    bots, date = _coupure_comptable()
+    if not bots or not date:
+        return lignes
+    return [l for l in lignes
+            if not (l.get("bot") in bots and str(l.get("closed_at") or "") < date)]
 
 DOCS = Path("docs")
 ETAT = Path("etat")
 
-ORDRE = ["28_carry_hold", "25_convergence_basis", "23_carry_funding", "24_funding_multivenues", "26_carry_nado",
-         "27a_rev_premium", "27b_rev_move", "27c_mom_move", "27d_rev_move_stop", "27f_selecteur", "27f10_selecteur", "27g10_selecteur", "10_controle_aleatoire"]
+ORDRE = ["29_carry_neutre", "28_carry_hold", "25_convergence_basis",
+         "27a_rev_premium", "27b_rev_move", "27c_mom_move", "27d_rev_move_stop",
+         "27f_selecteur", "27f10_selecteur", "27g10_selecteur", "10_controle_aleatoire"]
 JOLI = {
-    "28_carry_hold": "Bot 28 — Carry-HOLD (edge VALIDÉ out-of-sample, t OOS +10)",
-    "25_convergence_basis": "Bot 25 — Convergence du basis (hypothèse)",
-    "23_carry_funding": "Bot 23 — Carry funding seul (baseline)",
-    "24_funding_multivenues": "Bot 24 — Funding multi-venues (HL/Paradex/ADEN)",
-    "26_carry_nado": "Bot 26 — Carry cross-venue Nado (candidat, dormant si endpoint KO)",
+    "29_carry_neutre": "Bot 29 — Carry DOLLAR-NEUTRE (3 shorts / 3 longs, hebdo)",
+    "28_carry_hold": "Bot 28 — Carry-HOLD, livre NU (comptabilité corrigée le 26/07)",
+    "25_convergence_basis": "Bot 25 — Convergence du basis (comptabilité corrigée le 29/07)",
     "27a_rev_premium": "Bot 27a — Convexe : réversion premium extrême",
     "27b_rev_move": "Bot 27b — Convexe : réversion move 24h extrême",
     "27c_mom_move": "Bot 27c — Convexe : momentum move 24h extrême",
@@ -130,19 +143,34 @@ def _carte(bot, r, spark, p7=None, etat="actif"):
 
 
 def _ab(res):
-    r25, r23 = res.get("25_convergence_basis"), res.get("23_carry_funding")
-    if not r25 or not r23:
-        return ('<div class="ab muted">A/B 25 vs 23 : en attente de trades fermés '
-                'des deux côtés.</div>')
-    d = r25["esperance_par_trade"] - r23["esperance_par_trade"]
-    cls = "pos" if d > 0 else "neg"
-    txt = "Bot 25 DEVANT le carry simple" if d > 0 else "Bot 25 derrière le carry simple"
-    return (f'<div class="ab"><b>A/B historique — convergence vs carry simple :</b> '
-            f'<span class="{cls}">Δ espérance = {d:+.4f} $/trade</span> — {txt}.'
-            f'<br><span class="muted">Règle d\'origine caduque depuis le 22/07 : le bot 23 (rival) '
-            f'a été tué par la gate (décrochage R1) ; le 25 est maintenu par décision du Commandant '
-            f'du 23/07 (meilleur bot du banc). Comparaison conservée à titre historique.</span></div>')
+    """A/B qui compte desormais : 29 (livre DOLLAR-NEUTRE) contre 28 (livre NU).
 
+    Meme famille de signal (funding extreme), seule la NEUTRALITE du livre change.
+    Le backtest 7 mois (64 perps, split train/test) donne au livre nu une derive de
+    prix de -1,4 a -2,8 %/semaine et deux fois plus de bruit que le livre equilibre.
+    C'est cette hypothese que le banc mesure maintenant en forward.
+
+    L'ancien A/B "25 vs 23" est caduc : le bot 23 a ete supprime le 29/07 (tue le
+    22/07). Il restait affiche "en attente de trades" indefiniment.
+    """
+    r29, r28 = res.get("29_carry_neutre"), res.get("28_carry_hold")
+    if not r29 or not r28:
+        manque = [n for n, r in (("29 (neutre)", r29), ("28 (nu)", r28)) if not r]
+        return ('<div class="ab muted"><b>A/B en cours &mdash; la neutralite du livre :</b> '
+                'bot 29 (DOLLAR-NEUTRE, 3 longs / 3 shorts) contre bot 28 (NU), '
+                'meme signal de funding. En attente de trades fermes cote '
+                + " et ".join(manque) + '.<br>Les deux sont repartis de zero le 26/07 '
+                '(comptabilite corrigee) : aucun verdict avant plusieurs semaines.</div>')
+    d = r29["esperance_par_trade"] - r28["esperance_par_trade"]
+    cls = "pos" if d > 0 else "neg"
+    txt = ("le livre EQUILIBRE fait mieux que le livre nu" if d > 0
+           else "le livre nu fait mieux que le livre equilibre")
+    return ('<div class="ab"><b>A/B &mdash; la neutralite du livre (29 vs 28) :</b> '
+            '<span class="%s">&Delta; esperance = %+.4f $/trade</span> &mdash; %s.'
+            '<br><span class="muted">Meme signal de funding, seule la neutralite change. '
+            'Backtest 7 mois : le livre nu subit une derive de prix de -1,4 a -2,8 %%/semaine '
+            'et deux fois plus de bruit. Mesure forward depuis le 26/07.</span></div>'
+            % (cls, d, txt))
 
 def _positions():
     try:
@@ -318,6 +346,7 @@ def construire_dashboard():
     _generer_reel_json()
     lignes = charger_journal()
     res = evaluer(lignes)
+    lignes = _lignes_valides(lignes)      # meme perimetre que les KPI
     series = _cumul(lignes)
     _now = datetime.now(timezone.utc)
     maj_iso = _now.isoformat()
