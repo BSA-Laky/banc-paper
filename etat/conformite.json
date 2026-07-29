@@ -1,19 +1,24 @@
 {
- "ts": "2026-07-29T17:30:54.842781+00:00",
- "n_modules": 7,
- "n_non_conformes": 0,
+ "ts": "2026-07-29T17:45:34.901252+00:00",
+ "n_modules": 8,
+ "n_non_conformes": 1,
  "n_a_migrer": 3,
  "a_migrer": [
   "bot_27_convex_buckets.py",
   "bot_27e_arbitre.py",
   "bot_27f_selecteur.py"
  ],
- "conforme": true,
- "bots_bloques_pour_le_reel": [],
+ "conforme": false,
+ "bots_bloques_pour_le_reel": [
+  "10c_controle_cfd",
+  "30b_trend_executable"
+ ],
  "bots_non_promouvables": [
+  "10c_controle_cfd",
   "27_convex_buckets",
   "27e_arbitre",
-  "27f_selecteur"
+  "27f_selecteur",
+  "30b_trend_executable"
  ],
  "detail": [
   {
@@ -104,6 +109,25 @@
    "close_direct": [],
    "abs_funding": [],
    "verdict": "OK",
+   "avertissements": []
+  },
+  {
+   "fichier": "bot_trend_executable.py",
+   "bots": [
+    "30b_trend_executable",
+    "10c_controle_cfd"
+   ],
+   "importe_comptabilite": false,
+   "trade_direct": [
+    162,
+    224
+   ],
+   "close_direct": [
+    163,
+    225
+   ],
+   "abs_funding": [],
+   "verdict": "NON CONFORME : fabrique des Trade/P&L sans passer par comptabilite.py",
    "avertissements": []
   },
   {
