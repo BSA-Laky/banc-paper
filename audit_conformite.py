@@ -42,10 +42,21 @@ BOTS_DISPENSES = {"10_controle_aleatoire", "10b_controle_book"}
 # Modules ANTERIEURS a la regle du 26/07/2026. Ils sont SIGNALES pour migration mais
 # ne font pas echouer l'audit. TOUT NOUVEAU MODULE est bloquant par defaut : c'est
 # ce qui garantit que le probleme du bot 28 ne se reproduira pas sur un bot futur.
+# Modules d'un AUTRE MARCHE que les perps Hyperliquid : livre d'ETF/options
+# (bot_trend, bot_variance, pilotes par run_book.py). Il n'y a PAS de funding sur
+# ces marches, et leur P&L est deja honnete : rendement reel de l'actif moins les
+# couts de transaction. comptabilite.PositionReelle, concue pour un perp HL avec
+# funding, ne s'y applique pas. Ils sont donc dispenses AVEC MOTIF, et non
+# "a migrer" : les laisser dans la liste noyait les vrais problemes.
+HORS_PERIMETRE_HL = {"bot_trend.py", "bot_variance.py"}
+
+# Modules ANTERIEURS a la regle du 26/07/2026, sur perps HL, dont la comptabilite
+# reste a router par comptabilite.py. Signales pour migration, non bloquants.
+# NB : bots_cloud.py n'y figure plus (reduit aux helpers le 29/07), pas plus que
+# bot_24 / bot_26 (tues le 29/07 : comptabilite fausse ET trades inexecutables,
+# faute de compte sur Paradex / Nado).
 LEGACY = {
-    "bots_cloud.py", "bot_24_funding_multivenues.py", "bot_26_carry_nado.py",
     "bot_27_convex_buckets.py", "bot_27e_arbitre.py", "bot_27f_selecteur.py",
-    "bot_trend.py", "bot_variance.py",
 }
 
 
@@ -55,7 +66,8 @@ def _fichiers_bots() -> list[Path]:
         p = Path(extra)
         if p.exists():
             out.append(p)
-    return sorted(p for p in out if p.name not in DISPENSES)
+    return sorted(p for p in out if p.name not in DISPENSES
+                  and p.name not in HORS_PERIMETRE_HL)
 
 
 def _analyser(p: Path) -> dict:
