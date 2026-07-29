@@ -329,6 +329,46 @@ def _generer_reel_json():
         hl = _lj(ETAT / "reel_hl.json", None)
         if isinstance(hl, dict) and hl.get("equity") is not None:
             doc["hl"] = hl
+            # VERITE HL VENTILEE PAR BOT (29/07). Avant, la colonne "reel" par bot
+            # affichait l'estimation interne au mark (hors frais, hors funding), qui
+            # s'ecartait de ~18 $ du compte. On rattache chaque piece a son bot via le
+            # journal d'execution et on recompose le P&L REEL :
+            #     realise (fills) - frais + funding + latent
+            coin2bot = {}
+            for t in trades:
+                if t.get("coin") and t.get("bot"):
+                    coin2bot[t["coin"]] = t["bot"]
+            lat = {}
+            for p in (hl.get("positions_hl") or []):
+                lat[p.get("coin")] = _f(p.get("unrealized"))
+            agg = {}
+            for coin, v in (hl.get("par_coin") or {}).items():
+                b = coin2bot.get(coin)
+                if not b:
+                    continue
+                a = agg.setdefault(b, {"n_fills": 0, "realise": 0.0, "frais": 0.0,
+                                       "latent": 0.0, "pieces": []})
+                a["n_fills"] += int(v.get("n") or 0)
+                a["realise"] += _f(v.get("closedPnl"))
+                a["frais"] += _f(v.get("fees"))
+                a["pieces"].append(coin)
+            for coin, u in lat.items():
+                b = coin2bot.get(coin)
+                if b in agg:
+                    agg[b]["latent"] += u
+            total_fills = sum(a["n_fills"] for a in agg.values()) or 1
+            fnet = _f(hl.get("funding_net"))
+            for b, a in agg.items():
+                # le funding HL n'est pas ventile par piece : reparti au prorata des fills
+                a["funding"] = round(fnet * a["n_fills"] / total_fills, 3)
+                a["net"] = round(a["realise"] - a["frais"] + a["funding"] + a["latent"], 2)
+                a["realise"] = round(a["realise"], 2)
+                a["frais"] = round(a["frais"], 3)
+                a["latent"] = round(a["latent"], 3)
+                a["pieces"] = sorted(a["pieces"])
+                if b in par_bot:
+                    par_bot[b]["hl"] = a
+            doc["par_bot"] = par_bot
             try:
                 doc["ecart_interne_vs_hl"] = round(float(hl.get("pnl_compte") or 0)
                                                    - float(doc["global"].get("pnl_total") or 0), 2)
