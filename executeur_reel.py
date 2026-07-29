@@ -46,6 +46,32 @@ FRAIS = 0.00035
 CAP_TOTAL_USD = 850.0   # exposition reelle totale plafonnee (marge de securite sous le depot)
 
 
+
+def _positions_paper(bet: dict) -> dict:
+    """Positions OUVERTES d'un bot paper, quel que soit le format de son etat.
+
+    INCIDENT DU 26-29/07/2026 : la migration vers comptabilite.PositionReelle a
+    change le format d'etat des bots 28 et 29, qui ecrivent desormais
+        {"positions": {coin: {side, notionnel, mark_entree, ouverte_le, ...}}, ...}
+    alors que les executeurs cherchaient l'ancien
+        {coin: {"ouvert": true, "side": ..., "entree_ts": ...}}
+    Resultat : 'ouverts' etait VIDE, les miroirs testnet et mainnet ne voyaient
+    plus AUCUNE position, et le bot 28 reel est reste aveugle 3 jours sans que
+    rien ne le signale (dernier fill reel : 26/07 10:31).
+
+    Ce lecteur accepte les DEUX formats et normalise vers le format attendu
+    (cle "side" + "entree_ts"), pour que l'ajout d'un bot ne puisse plus casser
+    silencieusement l'execution.
+    """
+    pos = bet.get("positions")
+    if isinstance(pos, dict) and pos:
+        return {c: {"ouvert": True,
+                    "side": v.get("side"),
+                    "entree_ts": v.get("ouverte_le"),
+                    "notionnel": v.get("notionnel")}
+                for c, v in pos.items() if isinstance(v, dict)}
+    return {c: v for c, v in bet.items() if isinstance(v, dict) and v.get("ouvert")}
+
 def _lire_json(p, d):
     try:
         return json.loads(Path(p).read_text(encoding="utf-8"))
@@ -212,7 +238,7 @@ def executer():
 
     for bot in PILOTES:
         bet = _lire_json(ETAT / FICHIER_ETAT.get(bot, "etat_%s.json" % bot), {})
-        ouverts = {} if stop else {c: v for c, v in bet.items() if isinstance(v, dict) and v.get("ouvert")}
+        ouverts = {} if stop else _positions_paper(bet)
         mine = state.get(bot, {})
 
         # OUVRIR (jamais si kill-switch actif)
