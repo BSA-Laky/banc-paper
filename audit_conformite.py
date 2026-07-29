@@ -37,7 +37,7 @@ ETAT = Path("etat")
 SORTIE = ETAT / "conformite.json"
 DISPENSES = {"banc_essai_paper_trading.py", "comptabilite.py", "audit_conformite.py"}
 # Bots sans position de marche reelle (temoin) : dispenses de comptabilite reelle.
-BOTS_DISPENSES = {"10_controle_aleatoire"}
+BOTS_DISPENSES = {"10_controle_aleatoire", "10b_controle_book"}
 
 # Modules ANTERIEURS a la regle du 26/07/2026. Ils sont SIGNALES pour migration mais
 # ne font pas echouer l'audit. TOUT NOUVEAU MODULE est bloquant par defaut : c'est
@@ -132,6 +132,13 @@ def auditer(ecrire: bool = True) -> dict:
     # Consequence AUTOMATIQUE : un bot dont la comptabilite est fausse ne peut pas
     # etre promu en argent reel. C'est le verrou qui aurait evite le bot 28.
     bloques = sorted({b for r in mauvais for b in r["bots"] if b not in BOTS_DISPENSES})
+    # Verrou ELARGI (29/07) : un bot ne peut aller en argent reel que si son module
+    # utilise la comptabilite reelle. Cela couvre les NON CONFORMES *et* les modules
+    # anterieurs a la regle ("a migrer") : leurs statistiques peuvent etre aussi
+    # fausses que celles du bot 28 avant correction. C'est le Tresorier qui lit
+    # cette liste (checklist) et refuse la promotion.
+    non_promouvables = sorted({b for r in lignes for b in r["bots"]
+                               if b not in BOTS_DISPENSES and not r["importe_comptabilite"]})
     doc = {
         "ts": datetime.now(timezone.utc).isoformat(),
         "n_modules": len(lignes),
@@ -140,6 +147,7 @@ def auditer(ecrire: bool = True) -> dict:
         "a_migrer": [r["fichier"] for r in a_migrer],
         "conforme": not mauvais,
         "bots_bloques_pour_le_reel": bloques,
+        "bots_non_promouvables": non_promouvables,
         "detail": lignes,
         "regle": "Tout bot a position de marche produit ses Trade via "
                  "comptabilite.PositionReelle : P&L = prix + funding signe - frais reels.",
@@ -152,6 +160,9 @@ def auditer(ecrire: bool = True) -> dict:
             pass
     if bloques:
         print("[conformite] PROMOTION REELLE BLOQUEE pour : %s" % ", ".join(bloques), flush=True)
+    if non_promouvables:
+        print("[conformite] non promouvables (comptabilite non reelle) : %s"
+              % ", ".join(non_promouvables), flush=True)
     if mauvais:
         print("[conformite] %d MODULE(S) NON CONFORME(S) :" % len(mauvais), flush=True)
         for r in mauvais:
