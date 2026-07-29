@@ -37,7 +37,24 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from banc_essai_paper_trading import charger_journal, evaluer, LEDGER_PATH
+from banc_essai_paper_trading import (charger_journal, evaluer, LEDGER_PATH,
+                                      _coupure_comptable)
+
+
+def _lignes_valides(lignes):
+    """Ecarte les trades d'AVANT la correction comptable du 26/07/2026.
+
+    CRITIQUE : ce gate autorise le passage en ARGENT REEL. Sans ce filtre, il
+    calculait n, pnl_cumule et le decrochage sur le journal BRUT (evaluer() etait
+    filtre, mais pas _pnls_et_dates) et publiait encore
+    '25_convergence_basis : n=1098, t=3,83, statut=VERT' -- exactement la donnee
+    fantasmee par l'ancienne comptabilite (abs(funding), aucun terme de prix).
+    """
+    bots, date = _coupure_comptable()
+    if not bots or not date:
+        return lignes
+    return [l for l in lignes
+            if not (l.get("bot") in bots and str(l.get("closed_at") or "") < date)]
 
 BOOK_LEDGER = Path("book_trades.csv")
 RD_LEDGER = Path("rd_trades.csv")   # bots generes par Nova (meme gate)
@@ -383,6 +400,7 @@ def _resume_calibration():
 # ----------------------------------------------------------------- production
 def produire_go_reel():
     lignes = charger_journal(LEDGER_PATH) + charger_journal(BOOK_LEDGER) + charger_journal(RD_LEDGER)
+    lignes = _lignes_valides(lignes)     # meme perimetre pour TOUT ce qui suit
     stats = evaluer(lignes)
     par_bot, premiers = _pnls_et_dates(lignes)
 
@@ -402,7 +420,13 @@ def produire_go_reel():
     # avec Welch sur les series JOURNALIERES alignees ; l'esp/trade reste affichee.
     for bot, cfg in GATE.items():
         rival = cfg.get("exige_battre")
-        if not rival or bot not in bots or rival not in par_bot:
+        # 'rival not in stats' : un rival SUPPRIME (bot 23, retire le 29/07) ou dont
+        # tous les trades sont ecartes par la coupure comptable ne figure plus dans
+        # stats. Sans ce garde, produire_go_reel() levait un KeyError, run_once
+        # l'attrapait en silence, et go_reel.json restait FIGE sur des donnees
+        # perimees -- le gate du reel gelait sur '25 VERT t=3,83'.
+        if (not rival or bot not in bots or rival not in par_bot
+                or rival not in stats or bot not in stats):
             continue
         delta = (stats[bot]["esperance_par_trade"]
                  - stats[rival]["esperance_par_trade"])
