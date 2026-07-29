@@ -1,7 +1,11 @@
 {
- "date": "2026-07-26T20:30:46.647348+00:00",
+ "date": "2026-07-26T20:00:00+00:00",
  "bots": [
-  "28_carry_hold"
+  "28_carry_hold",
+  "23_carry_funding",
+  "25_convergence_basis"
  ],
- "raison": "P&L paper passe de abs(funding) sans prix a prix + funding signe - frais reels (comptabilite.py). Les trades anterieurs mesuraient une autre grandeur et ne doivent pas etre agreges avec les suivants."
+ "raison": "P&L paper passe de abs(funding) sans terme de prix a prix + funding SIGNE - frais reels (comptabilite.py). Les trades anterieurs a cette date mesuraient une AUTRE GRANDEUR : les agreger avec les suivants produit un verdict faux. Ils sont ecartes du calcul des statistiques par banc_essai_paper_trading.evaluer(). Le journal brut paper_trades.csv reste INTACT (auditabilite).",
+ "impact_mesure": "1340 trades ecartes (23: 159, 25: 1098, 28: 83). Apres coupure, AUCUN bot du banc n'est gagnant : le meilleur est 27b a t=+1,62 (indistinguable du hasard) et 24_funding_multivenues est perdant SIGNIFICATIF a t=-3,21. Le t=+3,67 VERT du bot 25 etait entierement un artefact comptable.",
+ "consequence": "Les bots 23/25/28 repartent de zero avec une comptabilite honnete. Toute promotion en argent reel exige des donnees POSTERIEURES a cette date."
 }
