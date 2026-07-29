@@ -177,9 +177,27 @@ def gestion_enveloppe():
     return rap
 
 
+def _non_promouvables():
+    """Bots dont le module n'utilise PAS la comptabilite reelle (audit_conformite).
+
+    VERROU DU 29/07/2026. Le bot 28 est parti en argent reel avec un P&L paper qui
+    ne mesurait pas ce que le compte encaisse (funding en valeur absolue, aucun
+    terme de prix) : ecart de -0,46 pp par trade, invisible pendant des semaines.
+    Le bot 25 allait suivre avec un paper a t=+3,67 contre un testnet reel a
+    t=-2,81. Desormais aucun bot ne peut etre promu tant que sa comptabilite n'est
+    pas celle du compte. L'info etait produite depuis le 26/07 mais n'etait lue par
+    personne : c'est corrige ici.
+    """
+    d = _lire_json(ETAT / "conformite.json", {})
+    return set(d.get("bots_non_promouvables") or []) | set(d.get("bots_bloques_pour_le_reel") or [])
+
+
 def checklist(bot, v, histo, pnls, cap_dd_usd):
     """Renvoie (pret: bool, manquants: list[str]). Toute la liste doit passer."""
     m = []
+    if bot in _non_promouvables():
+        m.append("comptabilite NON REELLE (audit_conformite) -- promotion interdite "
+                 "tant que le bot ne passe pas par comptabilite.PositionReelle")
     if v.get("statut") != "VERT":
         m.append("statut != VERT (%s)" % v.get("statut"))
     if (v.get("t_stat") or 0) < 2:
