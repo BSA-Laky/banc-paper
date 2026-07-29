@@ -1,74 +1,88 @@
 {
- "ts": "2026-07-29T09:45:39.745241+00:00",
- "alertes": [],
+ "ts": "2026-07-29T10:01:05.348350+00:00",
+ "alertes": [
+  "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
+ ],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
  ],
  "banc_suspect": false,
- "changements_statut": [],
- "statuts": {
-  "23_carry_funding": {
-   "statut": "ROUGE",
-   "n": 159,
-   "esperance": 0.5601,
-   "t": 1.04,
-   "pnl": 89.05,
-   "pnl_j": 2.682,
-   "fwd_j": 33.2
+ "changements_statut": [
+  {
+   "bot": "24_funding_multivenues",
+   "avant": "ORANGE",
+   "apres": "ROUGE"
   },
+  {
+   "bot": "25_convergence_basis",
+   "avant": "VERT",
+   "apres": "GRIS"
+  },
+  {
+   "bot": "28_carry_hold",
+   "avant": "ORANGE",
+   "apres": "GRIS"
+  },
+  {
+   "bot": "rd_h2",
+   "avant": "GRIS",
+   "apres": "ORANGE"
+  }
+ ],
+ "statuts": {
   "24_funding_multivenues": {
-   "statut": "ORANGE",
-   "n": 168,
-   "esperance": -0.5038,
-   "t": -3.21,
-   "pnl": -84.63,
-   "pnl_j": -2.557,
-   "fwd_j": 33.1
+   "statut": "ROUGE",
+   "n": 171,
+   "esperance": -0.5092,
+   "t": -3.3,
+   "pnl": -87.07,
+   "pnl_j": -2.446,
+   "fwd_j": 35.6
   },
   "25_convergence_basis": {
-   "statut": "VERT",
-   "n": 1098,
-   "esperance": 0.4257,
-   "t": 3.83,
-   "pnl": 467.47,
-   "pnl_j": 13.709,
-   "fwd_j": 34.1
+   "statut": "GRIS",
+   "n": 11,
+   "esperance": 0.3413,
+   "t": 0.56,
+   "pnl": 3.75,
+   "pnl_j": 1.295,
+   "fwd_j": 2.9
   },
   "27a_rev_premium": {
    "statut": "ORANGE",
-   "n": 41,
-   "esperance": -0.6486,
-   "t": -0.27,
-   "pnl": -26.59,
-   "pnl_j": -0.806,
-   "fwd_j": 33.0
+   "n": 43,
+   "esperance": -0.776,
+   "t": -0.33,
+   "pnl": -33.37,
+   "pnl_j": -0.94,
+   "fwd_j": 35.5
   },
   "27b_rev_move": {
    "statut": "ORANGE",
-   "n": 59,
-   "esperance": 3.1784,
-   "t": 1.62,
-   "pnl": 187.53,
-   "pnl_j": 5.752,
-   "fwd_j": 32.6
+   "n": 62,
+   "esperance": 2.415,
+   "t": 1.26,
+   "pnl": 149.73,
+   "pnl_j": 4.254,
+   "fwd_j": 35.2
   },
   "27c_mom_move": {
    "statut": "ORANGE",
-   "n": 59,
-   "esperance": -3.3184,
-   "t": -1.69,
-   "pnl": -195.79,
-   "pnl_j": -6.006,
-   "fwd_j": 32.6
+   "n": 62,
+   "esperance": -2.555,
+   "t": -1.33,
+   "pnl": -158.41,
+   "pnl_j": -4.5,
+   "fwd_j": 35.2
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
-   "n": 76,
-   "esperance": -0.1111,
-   "t": -0.07,
-   "pnl": -8.44,
-   "pnl_j": -0.313,
-   "fwd_j": 27.0
+   "n": 79,
+   "esperance": -0.0233,
+   "t": -0.01,
+   "pnl": -1.84,
+   "pnl_j": -0.062,
+   "fwd_j": 29.5
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -76,63 +90,75 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -1.299,
-   "fwd_j": 23.2
+   "pnl_j": -1.168,
+   "fwd_j": 25.8
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
-   "n": 144,
-   "esperance": 0.2341,
-   "t": 0.29,
-   "pnl": 33.71,
-   "pnl_j": 1.518,
-   "fwd_j": 22.2
+   "n": 147,
+   "esperance": 0.5237,
+   "t": 0.64,
+   "pnl": 76.98,
+   "pnl_j": 3.117,
+   "fwd_j": 24.7
   },
   "27f_selecteur": {
    "statut": "ORANGE",
-   "n": 38,
-   "esperance": -3.3114,
-   "t": -1.4,
-   "pnl": -125.83,
-   "pnl_j": -5.668,
-   "fwd_j": 22.2
+   "n": 41,
+   "esperance": -3.051,
+   "t": -1.35,
+   "pnl": -125.09,
+   "pnl_j": -5.064,
+   "fwd_j": 24.7
   },
   "27g10_selecteur": {
    "statut": "ORANGE",
-   "n": 30,
-   "esperance": 0.9761,
-   "t": 0.35,
-   "pnl": 29.28,
-   "pnl_j": 2.034,
-   "fwd_j": 14.4
+   "n": 31,
+   "esperance": 0.2671,
+   "t": 0.1,
+   "pnl": 8.28,
+   "pnl_j": 0.487,
+   "fwd_j": 17.0
   },
   "28_carry_hold": {
-   "statut": "ORANGE",
-   "n": 83,
-   "esperance": 4.0066,
-   "t": 3.73,
-   "pnl": 332.55,
-   "pnl_j": 14.334,
-   "fwd_j": 23.2
+   "statut": "GRIS",
+   "n": 1,
+   "esperance": 11.6387,
+   "t": 0.0,
+   "pnl": 11.64,
+   "pnl_j": 4.476,
+   "fwd_j": 2.6
   },
   "rd_h2": {
-   "statut": "GRIS",
-   "n": 5,
-   "esperance": -0.7889,
-   "t": -0.75,
-   "pnl": -3.94,
-   "pnl_j": -7.889,
-   "fwd_j": 0.3
+   "statut": "ORANGE",
+   "n": 33,
+   "esperance": -0.3105,
+   "t": -0.72,
+   "pnl": -10.25,
+   "pnl_j": -3.659,
+   "fwd_j": 2.8
   }
  },
  "tendances_btc": {
-  "ret1": 0.0104,
-  "ret7": -0.0229,
-  "ret30": 0.0721,
-  "prix": 64571
+  "ret1": 0.012,
+  "ret7": -0.0214,
+  "ret30": 0.0738,
+  "prix": 64674
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-29T10:01",
+   "bot": "25_convergence_basis",
+   "marche": "CASHCAT-short",
+   "pnl": -0.47
+  },
+  {
+   "ts": "2026-07-29T10:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-29T09:45",
    "bot": "25_convergence_basis",
@@ -168,32 +194,20 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-29T09:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-29T09:01",
-   "bot": "27g10_selecteur",
-   "marche": "sel-CASHCAT-REV-ia_piece",
-   "pnl": -21.0
   }
  ],
  "calibration_arbitre": {
   "tendance": {
-   "n": 13,
-   "taux_correct": 0.538,
-   "brier_moyen": 0.252
+   "n": 20,
+   "taux_correct": 0.45,
+   "brier_moyen": 0.27
   }
  },
  "sante_equipage": {
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.6,
+  "age_avis_h": 1.8,
   "problemes": []
  },
  "autofinancement": {
