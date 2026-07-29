@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-29T16:52:59.478101+00:00",
+ "ts": "2026-07-29T17:01:05.559806+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -20,11 +20,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 40,
-   "esperance": 0.1748,
-   "t": 0.71,
-   "pnl": 6.99,
-   "pnl_j": 2.184,
+   "n": 44,
+   "esperance": 0.1818,
+   "t": 0.82,
+   "pnl": 8.0,
+   "pnl_j": 2.5,
    "fwd_j": 3.2
   },
   "27a_rev_premium": {
@@ -105,8 +105,8 @@
    "esperance": 11.6387,
    "t": 0.0,
    "pnl": 11.64,
-   "pnl_j": 4.157,
-   "fwd_j": 2.8
+   "pnl_j": 4.013,
+   "fwd_j": 2.9
   },
   "rd_h2": {
    "statut": "ORANGE",
@@ -119,18 +119,48 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0028,
-  "ret7": -0.0357,
-  "ret30": 0.0581,
-  "prix": 63724
+  "ret1": -0.0016,
+  "ret7": -0.0345,
+  "ret30": 0.0594,
+  "prix": 63804
  },
  "evenements_extremes": [
   {
    "coin": "KAITO",
-   "move_pct": 21.7
+   "move_pct": 21.8
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-29T17:01",
+   "bot": "25_convergence_basis",
+   "marche": "AAVE-long",
+   "pnl": 0.18
+  },
+  {
+   "ts": "2026-07-29T17:01",
+   "bot": "25_convergence_basis",
+   "marche": "FET-long",
+   "pnl": 0.13
+  },
+  {
+   "ts": "2026-07-29T17:01",
+   "bot": "25_convergence_basis",
+   "marche": "ONDO-long",
+   "pnl": 0.29
+  },
+  {
+   "ts": "2026-07-29T17:01",
+   "bot": "25_convergence_basis",
+   "marche": "KSHIB-long",
+   "pnl": 0.4
+  },
+  {
+   "ts": "2026-07-29T17:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-29T16:52",
    "bot": "10_controle_aleatoire",
@@ -148,36 +178,6 @@
    "bot": "25_convergence_basis",
    "marche": "ENA-long",
    "pnl": -0.57
-  },
-  {
-   "ts": "2026-07-29T16:31",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-29T16:15",
-   "bot": "25_convergence_basis",
-   "marche": "KAITO-long",
-   "pnl": 5.65
-  },
-  {
-   "ts": "2026-07-29T16:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-29T16:01",
-   "bot": "25_convergence_basis",
-   "marche": "CASHCAT-short",
-   "pnl": 1.24
-  },
-  {
-   "ts": "2026-07-29T16:01",
-   "bot": "25_convergence_basis",
-   "marche": "INJ-long",
-   "pnl": -0.49
   }
  ],
  "calibration_arbitre": {
@@ -191,7 +191,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 8.7,
+  "age_avis_h": 8.8,
   "problemes": []
  },
  "autofinancement": {
