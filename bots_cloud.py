@@ -1,25 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-bots_cloud.py - Strategies pour execution CLOUD (GitHub Actions, one-shot/cron)
-===============================================================================
+bots_cloud.py - HELPERS PARTAGES pour l'acces lecture-seule a Hyperliquid
+=========================================================================
+Ce module ne contient PLUS AUCUN BOT depuis le 29/07/2026. Il expose uniquement
+les utilitaires communs : _http_post_info, parse_ctxs, _now, _dt_h, ETAT_DIR et
+_EtatMixin, importes par les bots.
 
-PRINCIPE DE SECURITE (inchangé) :
-  - LECTURE SEULE sur l'API PUBLIQUE Hyperliquid (aucune clé, aucun wallet, aucun
-    ordre réel). 100 % FICTIF. On MESURE, sur des données réelles, l'espérance.
+POURQUOI les bots en sont partis :
+  - bot 23 (CarryFundingOnly) : TUE le 22/07 (etat/cycle_vie.json). Code retire,
+    il ne servait plus qu'a fausser l'audit de conformite.
+  - bot 25 (ConvergenceBasis) : deplace dans bot_25_convergence_basis.py, avec la
+    comptabilite REELLE.
+Les deux partageaient la meme faute : accrue += abs(f) * notional * dt, soit un
+funding en valeur absolue et AUCUN terme de prix. audit_conformite.py l'a
+detectee en analyse statique (lignes 169 et 275 de l'ancien fichier).
 
-Deux strategies, conçues pour l'A/B du projet :
-  - CarryFundingOnly  (= "23_carry_funding")    : réplique le bot 23 (coupon funding
-    seul). C'est la BASELINE.
-  - ConvergenceBasis  (= "25_convergence_basis"): l'hypothèse sous-exploitée. Entrée
-    sur PREMIUM étiré (signal avancé) ; P&L = funding + CONVERGENCE du basis - frais.
-
-DIFFERENCE CLE avec le code local : l'état JSON est écrit dans ./etat/ (relatif au
-repo) pour qu'il soit COMMITTÉ par le workflow et survive entre deux exécutions cron.
-Le %LOCALAPPDATA% / /tmp du local n'existe pas / n'est pas persistant sur le runner.
-
-Chaque appel = UNE passe (un step). Le cron rappelle ~toutes les 15 min.
-
+LECTURE SEULE sur l'API PUBLIQUE Hyperliquid : aucune cle, aucun wallet, aucun
+ordre. L'etat JSON est ecrit dans ./etat/ (relatif au repo) pour etre committe
+par le workflow et survivre entre deux passes cron.
 Python 3.10+ -- bibliotheque standard uniquement.
 """
 
@@ -123,205 +122,3 @@ class _EtatMixin:
                 json.dump(self._etat, f, indent=0)
         except OSError:
             pass
-
-
-# --------------------------------------------------------------------------
-# BASELINE : bot 23 (coupon funding seul). Réplique fidèle, état repo-relatif.
-# --------------------------------------------------------------------------
-class CarryFundingOnly(_EtatMixin, Strategy):
-    name = "23_carry_funding"
-    fichier_etat = "etat_bot23.json"
-
-    def __init__(self, notional: float = 1000.0, actifs="*",
-                 seuil_funding: float = 0.0001, frais_par_jambe: float = 0.00035,
-                 periode_settle_h: float = 24.0, vol_min: float = 1_000_000.0):
-        super().__init__(stake_usd=1.0)
-        self.notional = notional
-        if isinstance(actifs, str):
-            actifs = tuple(a.strip().upper() for a in actifs.split(",") if a.strip())
-        self.actifs = actifs or ("BTC", "ETH")
-        self.seuil_funding = seuil_funding
-        self.frais_par_jambe = frais_par_jambe
-        self.periode_settle_h = periode_settle_h
-        self.vol_min = vol_min
-        self._etat = self._charger()
-
-    def _a(self, a: str) -> dict:
-        if a not in self._etat:
-            self._etat[a] = {"accrue": 0.0, "ouvert": False, "dernier_ts": None,
-                             "debut_periode_ts": _now().isoformat()}
-        return self._etat[a]
-
-    def step(self) -> list[Trade]:
-        rep = _http_post_info({"type": "metaAndAssetCtxs"})
-        if rep is None:
-            return []
-        data = parse_ctxs(rep, self.actifs)
-        if not data:
-            return []
-        now = _now()
-        regles: list[Trade] = []
-        for a, info in data.items():
-            f = info["funding"]
-            st = self._a(a)
-            dt = _dt_h(st.get("dernier_ts"))
-            if st["ouvert"]:
-                st["accrue"] += abs(f) * self.notional * dt
-            if not st["ouvert"] and abs(f) >= self.seuil_funding and info["vol"] >= self.vol_min:
-                st["accrue"] -= 2 * self.frais_par_jambe * self.notional
-                st["ouvert"] = True
-            elif st["ouvert"] and abs(f) < self.seuil_funding / 2.0:
-                st["accrue"] -= 2 * self.frais_par_jambe * self.notional
-                st["ouvert"] = False
-            st["dernier_ts"] = now.isoformat()
-            try:
-                debut = datetime.fromisoformat(st["debut_periode_ts"])
-            except (ValueError, TypeError, KeyError):
-                debut = now
-                st["debut_periode_ts"] = now.isoformat()
-            if (now - debut).total_seconds() / 3600.0 >= self.periode_settle_h:
-                if st["ouvert"] or abs(st["accrue"]) > 1e-9:
-                    net = st["accrue"]
-                    t = Trade(self.name, f"carry-{a}", "funding", 1.0, self.notional)
-                    t.opened_at = debut.isoformat()   # vraie periode (expo/duree correctes)
-                    t.close(1.0 + net / self.notional)
-                    regles.append(t)
-                    st["accrue"] = 0.0
-                st["debut_periode_ts"] = now.isoformat()
-        # Balayage des périodes ORPHELINES (17/07) : pièce hors flux -> on solde
-        # à l'échéance normale (frais de sortie si position ouverte), side
-        # "funding-orphan" pour l'audit.
-        for a, st in self._etat.items():
-            if a in data:
-                continue
-            try:
-                debut = datetime.fromisoformat(st.get("debut_periode_ts") or "")
-            except (ValueError, TypeError):
-                continue
-            if (now - debut).total_seconds() / 3600.0 < self.periode_settle_h:
-                continue
-            if st.get("ouvert") or abs(st.get("accrue", 0.0)) > 1e-9:
-                if st.get("ouvert"):
-                    st["accrue"] = st.get("accrue", 0.0) - 2 * self.frais_par_jambe * self.notional
-                t = Trade(self.name, f"carry-{a}", "funding-orphan", 1.0, self.notional)
-                t.opened_at = debut.isoformat()
-                t.close(1.0 + st.get("accrue", 0.0) / self.notional)
-                regles.append(t)
-                st["accrue"] = 0.0
-                st["ouvert"] = False
-            st["debut_periode_ts"] = now.isoformat()
-        self._sauver()
-        return regles
-
-
-# --------------------------------------------------------------------------
-# HYPOTHESE : bot 25 - alpha de convergence du basis.
-# --------------------------------------------------------------------------
-class ConvergenceBasis(_EtatMixin, Strategy):
-    """Entrée sur PREMIUM étiré ; P&L = funding collecté + convergence du basis - frais.
-
-    convergence réalisée à la sortie = notional * (|premium_entree| - |premium_now|)
-      > 0 si le basis s'est resserré (le perp est revenu vers l'oracle) -> GAIN
-      < 0 si le basis s'est élargi (stop) -> PERTE mesurée honnêtement.
-    Un Trade est émis par POSITION fermée (profil event-driven attendu).
-    """
-    name = "25_convergence_basis"
-    fichier_etat = "etat_bot25.json"
-
-    def __init__(self, notional: float = 1000.0, actifs="*",
-                 premium_enter: float = 0.0010,   # 0,10 % : basis étiré
-                 premium_exit_frac: float = 0.30,  # sortie quand |prem| <= 30 % de l'entrée
-                 premium_stop_mult: float = 2.5,   # stop si |prem| >= 2,5 x l'entrée
-                 max_hold_h: float = 16.0,         # borne (~2 demi-vies OU)
-                 frais_par_jambe: float = 0.00035,
-                 vol_min: float = 1_000_000.0):
-        super().__init__(stake_usd=1.0)
-        self.notional = notional
-        if isinstance(actifs, str):
-            actifs = tuple(a.strip().upper() for a in actifs.split(",") if a.strip())
-        self.actifs = actifs or ("BTC", "ETH")
-        self.premium_enter = premium_enter
-        self.premium_exit_frac = premium_exit_frac
-        self.premium_stop_mult = premium_stop_mult
-        self.max_hold_h = max_hold_h
-        self.frais_par_jambe = frais_par_jambe
-        self.vol_min = vol_min
-        self._etat = self._charger()
-
-    def _a(self, a: str) -> dict:
-        if a not in self._etat:
-            self._etat[a] = {"ouvert": False, "premium_entree": 0.0, "accrue": 0.0,
-                             "entree_ts": None, "dernier_ts": None}
-        return self._etat[a]
-
-    def step(self) -> list[Trade]:
-        rep = _http_post_info({"type": "metaAndAssetCtxs"})
-        if rep is None:
-            return []
-        data = parse_ctxs(rep, self.actifs)
-        if not data:
-            return []
-        now = _now()
-        regles: list[Trade] = []
-        rt_fee_leg = 2 * self.frais_par_jambe * self.notional   # une jambe d'A/R = 2 cotés
-        for a, info in data.items():
-            prem = info["premium"]
-            f = info["funding"]
-            st = self._a(a)
-            dt = _dt_h(st.get("dernier_ts"))
-
-            if st["ouvert"]:
-                # 1) coupon funding accumulé sur l'intervalle
-                st["accrue"] += abs(f) * self.notional * dt
-                # 2) test de sortie
-                p_in = abs(st["premium_entree"])
-                p_now = abs(prem)
-                try:
-                    held = (now - datetime.fromisoformat(st["entree_ts"])).total_seconds() / 3600.0
-                except (ValueError, TypeError, KeyError):
-                    held = 0.0
-                converge = p_now <= self.premium_exit_frac * p_in
-                elargi = p_now >= self.premium_stop_mult * p_in
-                timeout = held >= self.max_hold_h
-                if converge or elargi or timeout:
-                    conv = self.notional * (p_in - p_now)         # gain de convergence
-                    net = st["accrue"] + conv - rt_fee_leg        # - frais de sortie
-                    t = Trade(self.name, f"conv-{a}", "basis", 1.0, self.notional)
-                    if st.get("entree_ts"):
-                        t.opened_at = st["entree_ts"]  # vraie entree (expo/duree correctes)
-                    t.close(1.0 + net / self.notional)
-                    regles.append(t)
-                    st.update({"ouvert": False, "premium_entree": 0.0,
-                               "accrue": 0.0, "entree_ts": None})
-            else:
-                # entrée sur premium étiré — filtre volume A L'ENTREE SEULEMENT
-                # (fix zombies 17/07 : une pièce sous le volume min doit toujours
-                # pouvoir SORTIR, sinon ses stops ne sont jamais comptés au ledger)
-                if abs(prem) >= self.premium_enter and info["vol"] >= self.vol_min:
-                    st["ouvert"] = True
-                    st["premium_entree"] = prem
-                    st["accrue"] = -rt_fee_leg                    # frais d'entrée
-                    st["entree_ts"] = now.isoformat()
-            st["dernier_ts"] = now.isoformat()
-        # Balayage des positions ORPHELINES (17/07) : pièce disparue du flux de
-        # données -> au-delà de max_hold_h, sortie forcée (convergence 0, frais de
-        # sortie comptés), side "basis-orphan" pour l'audit. Plus AUCUNE position
-        # ne peut rester ouverte indéfiniment sans être comptée.
-        for a, st in self._etat.items():
-            if not st.get("ouvert") or a in data:
-                continue
-            try:
-                held = (now - datetime.fromisoformat(st["entree_ts"])).total_seconds() / 3600.0
-            except (ValueError, TypeError, KeyError):
-                held = self.max_hold_h
-            if held >= self.max_hold_h:
-                net = st["accrue"] - rt_fee_leg
-                t = Trade(self.name, f"conv-{a}", "basis-orphan", 1.0, self.notional)
-                if st.get("entree_ts"):
-                    t.opened_at = st["entree_ts"]
-                t.close(1.0 + net / self.notional)
-                regles.append(t)
-                st.update({"ouvert": False, "premium_entree": 0.0,
-                           "accrue": 0.0, "entree_ts": None})
-        self._sauver()
-        return regles
