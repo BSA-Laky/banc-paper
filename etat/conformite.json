@@ -1,7 +1,7 @@
 {
- "ts": "2026-07-29T09:01:00.549040+00:00",
- "n_modules": 10,
- "n_non_conformes": 1,
+ "ts": "2026-07-29T09:15:36.608671+00:00",
+ "n_modules": 11,
+ "n_non_conformes": 0,
  "n_a_migrer": 7,
  "a_migrer": [
   "bot_24_funding_multivenues.py",
@@ -12,11 +12,8 @@
   "bot_trend.py",
   "bot_variance.py"
  ],
- "conforme": false,
- "bots_bloques_pour_le_reel": [
-  "23_carry_funding",
-  "25_convergence_basis"
- ],
+ "conforme": true,
+ "bots_bloques_pour_le_reel": [],
  "detail": [
   {
    "fichier": "bot_24_funding_multivenues.py",
@@ -35,6 +32,18 @@
    "avertissements": [
     "fabrique des Trade/P&L sans passer par comptabilite.py"
    ]
+  },
+  {
+   "fichier": "bot_25_convergence_basis.py",
+   "bots": [
+    "25_convergence_basis"
+   ],
+   "importe_comptabilite": true,
+   "trade_direct": [],
+   "close_direct": [],
+   "abs_funding": [],
+   "verdict": "OK",
+   "avertissements": []
   },
   {
    "fichier": "bot_26_carry_nado.py",
@@ -173,31 +182,13 @@
   },
   {
    "fichier": "bots_cloud.py",
-   "bots": [
-    "23_carry_funding",
-    "25_convergence_basis"
-   ],
+   "bots": [],
    "importe_comptabilite": false,
-   "trade_direct": [
-    206,
-    319,
-    185,
-    289
-   ],
-   "close_direct": [
-    208,
-    322,
-    187,
-    292
-   ],
-   "abs_funding": [
-    169,
-    275
-   ],
-   "verdict": "NON CONFORME : abs(funding) MULTIPLIE (l.169,275) : le funding a un SIGNE - c'est la faute exacte du bot 28",
-   "avertissements": [
-    "fabrique des Trade/P&L sans passer par comptabilite.py"
-   ]
+   "trade_direct": [],
+   "close_direct": [],
+   "abs_funding": [],
+   "verdict": "OK",
+   "avertissements": []
   }
  ],
  "regle": "Tout bot a position de marche produit ses Trade via comptabilite.PositionReelle : P&L = prix + funding signe - frais reels."
