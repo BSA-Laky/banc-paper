@@ -13,7 +13,7 @@ import json
 from pathlib import Path
 
 from banc_essai_paper_trading import ControleAleatoire, journaliser
-from bots_cloud import CarryFundingOnly, ConvergenceBasis
+from bot_25_convergence_basis import ConvergenceBasis
 from bot_24_funding_multivenues import FundingMultiVenues
 from bot_26_carry_nado import CarryNado
 from bot_27_convex_buckets import ConvexBuckets
@@ -37,8 +37,7 @@ def lancer_passe() -> None:
         print(f"[run_once] avis_piece a leve : {e}", flush=True)
     bots = [
         ControleAleatoire(stake_usd=1.0),
-        CarryFundingOnly(actifs="*"),
-        ConvergenceBasis(actifs="*"),
+        ConvergenceBasis(actifs="*"),   # bot 25 : comptabilite REELLE depuis le 29/07 (etait dans bots_cloud)
         FundingMultiVenues(),     # bot 24 : HL/Paradex/ADEN (seuils 1e-4)
         CarryNado(),              # bot 26 : carry cross-venue Nado (dormant si endpoint KO)
         ConvexBuckets(),          # bot 27 : experience edge convexe (4 buckets)
