@@ -1,11 +1,11 @@
 {
- "ts": "2026-07-30T17:30:54.986441+00:00",
+ "ts": "2026-07-30T17:45:46.736228+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 1297,
-   "t_stat": -1.25,
+   "n": 1298,
+   "t_stat": -1.22,
    "sain": true
   }
  },
@@ -29,7 +29,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 2091.0,
+   "expo_moyenne_usd": 2090.4,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -53,7 +53,7 @@
    "esp_glissante_20": -0.1499,
    "borne_decrochage": -0.6734,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 4643.6,
+   "expo_moyenne_usd": 4632.2,
    "rendement_j_pct": -0.022
   },
   "27a_rev_premium": {
@@ -76,8 +76,8 @@
    "esp_glissante_20": -4.3115,
    "borne_decrochage": -7.9601,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 119.4,
-   "rendement_j_pct": -1.092
+   "expo_moyenne_usd": 119.3,
+   "rendement_j_pct": -1.093
   },
   "27b_rev_move": {
    "n": 63,
@@ -98,7 +98,7 @@
    "esp_glissante_20": 0.4439,
    "borne_decrochage": -4.0982,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 172.7,
+   "expo_moyenne_usd": 172.6,
    "rendement_j_pct": 2.654
   },
   "27c_mom_move": {
@@ -121,8 +121,8 @@
    "esp_glissante_20": -0.5839,
    "borne_decrochage": -9.5476,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 172.7,
-   "rendement_j_pct": -2.794
+   "expo_moyenne_usd": 172.6,
+   "rendement_j_pct": -2.795
   },
   "27d_rev_move_stop": {
    "n": 81,
@@ -144,7 +144,7 @@
    "esp_glissante_20": -0.1086,
    "borne_decrochage": -6.3103,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 262.5,
+   "expo_moyenne_usd": 262.4,
    "rendement_j_pct": 0.088
   },
   "27e_arbitre": {
@@ -166,13 +166,13 @@
    "esp_glissante_20": -0.4443,
    "borne_decrochage": -7.2096,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 110.8,
+   "expo_moyenne_usd": 110.7,
    "rendement_j_pct": -1.004,
    "ab": {
     "contre": "27b_rev_move",
     "delta_esperance": -3.6593,
     "t_welch": -1.16,
-    "delta_rendement_j_pct": -0.5134,
+    "delta_rendement_j_pct": -0.5136,
     "t_welch_jour": -0.16,
     "jours_compares": 27
    }
@@ -197,7 +197,7 @@
    "esp_glissante_20": 0.1611,
    "borne_decrochage": -3.8427,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 587.7,
+   "expo_moyenne_usd": 587.5,
    "rendement_j_pct": 0.557
   },
   "27f_selecteur": {
@@ -222,7 +222,7 @@
    "borne_decrochage": -9.1119,
    "statut": "ORANGE",
    "expo_moyenne_usd": 161.3,
-   "rendement_j_pct": -2.565
+   "rendement_j_pct": -2.566
   },
   "27g10_selecteur": {
    "n": 35,
@@ -245,8 +245,8 @@
    "esp_glissante_20": 1.17,
    "borne_decrochage": -6.1051,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 191.2,
-   "rendement_j_pct": 0.475
+   "expo_moyenne_usd": 191.1,
+   "rendement_j_pct": 0.476
   },
   "28_carry_hold": {
    "n": 1,
@@ -263,15 +263,15 @@
    "pnl_par_jour": 2.984,
    "trop_beau_audite": "2026-07-15 : verifie vs funding reel HL (5/5 trades coherents, BLUR 77$ = 83-90$ reels, 0 flip de signe) — regime juillet riche + queue droite (top3 = 63% du P&L). Voir Bot/AUDIT_BOT28.",
    "statut": "GRIS",
-   "expo_moyenne_usd": 61.6,
-   "rendement_j_pct": 4.842
+   "expo_moyenne_usd": 61.5,
+   "rendement_j_pct": 4.855
   },
   "rd_h2": {
    "n": 51,
    "esperance": 0.2882,
    "t_stat": 0.5,
    "mdd_live": 15.06,
-   "jours_forward": 4.1,
+   "jours_forward": 4.2,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -282,13 +282,13 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 14.7,
-   "pnl_par_jour": 3.584,
+   "pnl_par_jour": 3.499,
    "trop_beau_audite": null,
    "esp_glissante_20": 1.1906,
    "borne_decrochage": -1.5522,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 1230.8,
-   "rendement_j_pct": 0.291
+   "expo_moyenne_usd": 1227.7,
+   "rendement_j_pct": 0.285
   }
  },
  "alertes": [
