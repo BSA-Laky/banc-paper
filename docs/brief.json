@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-30T04:15:41.558369+00:00",
+ "ts": "2026-07-30T04:31:01.646060+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -20,11 +20,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 102,
-   "esperance": 0.0841,
-   "t": 0.56,
-   "pnl": 8.57,
-   "pnl_j": 2.317,
+   "n": 103,
+   "esperance": 0.0805,
+   "t": 0.54,
+   "pnl": 8.29,
+   "pnl_j": 2.241,
    "fwd_j": 3.7
   },
   "27a_rev_premium": {
@@ -110,22 +110,39 @@
   },
   "rd_h2": {
    "statut": "ORANGE",
-   "n": 41,
-   "esperance": 0.2167,
-   "t": 0.31,
-   "pnl": 8.88,
-   "pnl_j": 2.467,
+   "n": 45,
+   "esperance": 0.2832,
+   "t": 0.44,
+   "pnl": 12.74,
+   "pnl_j": 3.54,
    "fwd_j": 3.6
   }
  },
  "tendances_btc": {
-  "ret1": 0.0022,
-  "ret7": -0.0149,
-  "ret30": 0.0938,
-  "prix": 64102
+  "ret1": 0.002,
+  "ret7": -0.015,
+  "ret30": 0.0937,
+  "prix": 64093
  },
- "evenements_extremes": [],
+ "evenements_extremes": [
+  {
+   "coin": "CASHCAT",
+   "move_pct": 20.8
+  }
+ ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-30T04:30",
+   "bot": "25_convergence_basis",
+   "marche": "SUI-long",
+   "pnl": -0.28
+  },
+  {
+   "ts": "2026-07-30T04:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-30T04:15",
    "bot": "25_convergence_basis",
@@ -161,18 +178,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-30T03:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-30T03:15",
-   "bot": "25_convergence_basis",
-   "marche": "KAITO-long",
-   "pnl": -0.64
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +191,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 20.1,
+  "age_avis_h": 20.3,
   "problemes": []
  },
  "autofinancement": {
