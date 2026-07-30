@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-30T03:45:37.718913+00:00",
+ "ts": "2026-07-30T04:01:03.894375+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -119,18 +119,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0029,
-  "ret7": -0.0142,
-  "ret30": 0.0946,
-  "prix": 64147
+  "ret1": 0.0025,
+  "ret7": -0.0145,
+  "ret30": 0.0942,
+  "prix": 64124
  },
- "evenements_extremes": [
-  {
-   "coin": "CASHCAT",
-   "move_pct": 27.3
-  }
- ],
+ "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-30T04:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-30T03:45",
    "bot": "10_controle_aleatoire",
@@ -172,12 +173,6 @@
    "bot": "25_convergence_basis",
    "marche": "CRV-long",
    "pnl": 1.08
-  },
-  {
-   "ts": "2026-07-30T03:15",
-   "bot": "25_convergence_basis",
-   "marche": "KBONK-long",
-   "pnl": 1.1
   }
  ],
  "calibration_arbitre": {
@@ -191,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 19.6,
+  "age_avis_h": 19.8,
   "problemes": []
  },
  "autofinancement": {
