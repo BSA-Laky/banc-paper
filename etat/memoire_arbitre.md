@@ -1,26 +1,27 @@
-# Mémoire Arbitre — MAJ 2026-07-29
+# Mémoire Arbitre — MAJ 2026-07-30
 
 ## Verdicts datés
-- 24_funding: n=168,t=-3.21,E=-0.5038 — IDENTIQUE au relevé 26-28/07. Suspicion de stagnation des données (3j sans update?). ORANGE maintenu (m1).
-- 28_carry_hold: n=83,t=3.73,E=4.0066,pnl_j=14.334 — identique aux relevés precedents, pas de progression vers n=100. Sain, m2 actif.
-- 27a_rev_premium: n=41,t=-0.27,E=-0.6486 — inchangé, suivi vers n=50 (m3), rien à signaler.
-- 25_conv: VERT,n=1098,t=3.83,E=0.4257 — référence stable.
+- 24_funding: KILL exécuté 29/07 (n=168→171,t=-3,21→-3,3,E=-0,504→-0,509). Résiduel ROUGE confirmé, clos (m1).
+- 28_carry_hold: RESET n=83→n=1 (30/07), t=0,0,E=11,64,statut GRIS. Anomalie de continuité, probable correction comptable (même faute funding abs que 24). NE PAS créditer, resuivre montée n vers 100 (m2).
+- 27a_rev_premium: n=41→43,t=-0,27→-0,33,E=-0,649→-0,776 — stable, suivi n→50 (m3).
+- 25_conv: ORANGE n=109,t=0,33,E=0,047 — faible mais sain, référence historique VERT à n=1098.
 - 27b/27c miroirs: pattern -6/-8 DEFINITIF, ne plus requestionner.
-- 23_carry_funding & 27e_arbitre: ROUGE résiduels post-KILL, clos, absents des dernières actions — avertissement 27e recyclé depuis 15/07 (>2 sem), toujours traité comme résiduel non-actif (pas de nouvelle action bot), donc pas d'escalade répétée tant que stats stagnantes et absentes des logs d'action.
-- Témoin10: n=1157,t=-0.89, sain, hors plage historique sans rupture.
-- Calibration arbitre: n=13,taux=0.538,brier=0.252 — toujours n<20, prudence conf≤0.55.
+- 27e_arbitre: ROUGE résiduel (n=30,t=-0,4), avertissement recyclé depuis 15/07, absent des dernières actions → pas d'escalade répétée.
+- Témoin10: n=1256,t=-1,1, sain, hors plage historique sans rupture.
+- Calibration arbitre: n=20 (SEUIL ATTEINT), taux_correct=0,45 ≤0,5 → règle stricte appliquée: confiance ≤0,5 désormais.
 
 ## Leçons
-- t qui monte avec n croissant = crédible (25_conv,28_carry historique).
+- t qui monte avec n croissant = crédible (25_conv,28_carry historique pré-reset).
 - Miroirs 27b/c définitif -6/-8.
-- KILL 'exécuté' laisse stats résiduelles (23,27e): vérifier absence dans dernières_actions avant re-signalement.
-- NOUVEAU 29/07: vérifier fraîcheur des données — brief daté 26/07 traité 29/07, stats missions identiques à J-3. Si répétition demain, escalader (donnees potentiellement figées).
+- KILL 'exécuté' laisse stats résiduelles: vérifier absence dans dernières_actions avant re-signalement.
+- NOUVEAU 30/07: reset brutal de n (28_carry 83→1) = signal de correction comptable, pas de corruption — mais toujours vérifier avant de créditer une E élevée sur petit n.
+- Calibration arbitre franchit n=20 avec taux=0,45: appliquer conf≤0,5 systématiquement tant que non redressé.
 
 ## A surveiller
-- Fraîcheur des relevés (priorité nouvelle)
-- 24_funding: guetter reprise dégradation si nouvelle donnée arrive
-- 27a: n=41→50
-- 28_carry: n=83→100
+- 28_carry: progression n=1→100 post-reset, vérifier cohérence comptable
+- 24_funding: confirmer absence totale dans logs futurs (clos)
+- 27a: n=43→50
+- Calibration arbitre: suivre taux_correct, si redresse >0,5 lever plafond conf
 
 ## Divers
-- Banc non suspect. Autofinancement: coût API 18.73$ (26/07), revenus réels 0€, reste 35€ (fictif).
+- Banc non suspect. Autofinancement: coût API 18,73$ (26/07), revenus réels 0€, reste 35€ (fictif).

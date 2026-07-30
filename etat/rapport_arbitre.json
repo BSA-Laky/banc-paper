@@ -1,25 +1,5 @@
 [
  {
-  "date": "2026-07-15",
-  "regime": "neutre",
-  "confiance": 0.5,
-  "resume": "BTC 64970, ret1 -0.05% ret7 +4.3% ret30 -2.0% (revenu sous seuil -3%). 25_conv n=519 t=2.62 E=0.51 tient. Calibration degeneree n=4. Neutre, conf 0.5.",
-  "reponses_missions": [
-   {
-    "id": "m1",
-    "reponse": "REV DYDX(02/07)/FARTCOIN(03/07) : issues toujours absentes des dernieres_actions/statuts. Rien a noter aujourd'hui. En attente de donnees d'echeance."
-   },
-   {
-    "id": "m2",
-    "reponse": "27b E=+5.35 t=2.25 (n=38) / 27c E=-5.49 t=-2.31 (n=38). Somme E ~ -0.14, quasi nulle, miroirs confirmes. n toujours <50, seuil non atteint."
-   },
-   {
-    "id": "m3",
-    "reponse": "calibration_arbitre.tendance NON null mais degeneree : n=4, taux_correct=0.5, brier=0.26. n<20 => traiter comme non prouvable. Conf plafonnee 0.5."
-   }
-  ]
- },
- {
   "date": "2026-07-17",
   "regime": "baissier",
   "confiance": 0.5,
@@ -276,6 +256,26 @@
    {
     "id": "m3",
     "reponse": "27a_rev_premium: n=41,t=-0.27,E=-0.6486 — inchangé, loin du seuil t<-1.5. Poursuite du suivi vers n=50."
+   }
+  ]
+ },
+ {
+  "date": "2026-07-30",
+  "regime": "neutre",
+  "confiance": 0.4,
+  "resume": "24_funding KILL confirmé (n=171,t=-3,3,E=-0,509). 28_carry RESET n=1 (ex n=83,E=11,6) à vérifier. 27a n=43,t=-0,33 stable. Calib arbitre n=20,taux=0,45→conf≤0,5.",
+  "reponses_missions": [
+   {
+    "id": "m1",
+    "reponse": "24_funding: n=171,t=-3,3,E=-0,5092,pnl=-87,07. KILL déjà exécuté 29/07 (triple motif). Statut ROUGE résiduel post-kill, cohérent, rien de nouveau à faire."
+   },
+   {
+    "id": "m2",
+    "reponse": "28_carry: n=1 (chute depuis n=83!), t=0,0, E=11,64. RUPTURE de série probable = reset comptable (même faute que 24_funding corrigée). Ne pas créditer E sur n=1, resuivre montée n."
+   },
+   {
+    "id": "m3",
+    "reponse": "27a_rev_premium: n=43 (vers 50), t=-0,33, E=-0,776. Pas de t<-1,5 confirmé 2j. Rien à signaler, suivi continue."
    }
   ]
  }
