@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-30T00:45:36.621559+00:00",
+ "ts": "2026-07-30T01:01:06.078760+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -20,11 +20,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 86,
-   "esperance": 0.0714,
-   "t": 0.46,
-   "pnl": 6.14,
-   "pnl_j": 1.755,
+   "n": 87,
+   "esperance": 0.0354,
+   "t": 0.23,
+   "pnl": 3.08,
+   "pnl_j": 0.88,
    "fwd_j": 3.5
   },
   "27a_rev_premium": {
@@ -114,18 +114,30 @@
    "esperance": 0.2167,
    "t": 0.31,
    "pnl": 8.88,
-   "pnl_j": 2.613,
-   "fwd_j": 3.4
+   "pnl_j": 2.538,
+   "fwd_j": 3.5
   }
  },
  "tendances_btc": {
-  "ret1": -0.0041,
-  "ret7": -0.0211,
-  "ret30": 0.087,
-  "prix": 63699
+  "ret1": -0.0045,
+  "ret7": -0.0215,
+  "ret30": 0.0865,
+  "prix": 63673
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-30T01:01",
+   "bot": "25_convergence_basis",
+   "marche": "CASHCAT-short",
+   "pnl": -3.06
+  },
+  {
+   "ts": "2026-07-30T01:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-30T00:45",
    "bot": "10_controle_aleatoire",
@@ -161,18 +173,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-29T23:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-29T23:30",
-   "bot": "25_convergence_basis",
-   "marche": "CASHCAT-short",
-   "pnl": 3.36
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 16.6,
+  "age_avis_h": 16.8,
   "problemes": []
  },
  "autofinancement": {
