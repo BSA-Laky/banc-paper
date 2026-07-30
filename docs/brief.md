@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-30 13:45 (Paris)
+# Brief Station — 2026-07-30 14:01 (Paris)
 
 ## 🔴 ALERTES
 - 24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens.
@@ -12,10 +12,10 @@
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.372 | 36.7 j |
 | 25_convergence_basis | ORANGE | 121 | -0.019 | -0.14 | -2.3 | -0.576 | 4.0 j |
 | 27a_rev_premium | ORANGE | 44 | -1.0937 | -0.47 | -48.12 | -1.315 | 36.6 j |
-| 27b_rev_move | ORANGE | 62 | 2.415 | 1.26 | 149.73 | 4.136 | 36.2 j |
-| 27c_mom_move | ORANGE | 62 | -2.555 | -1.33 | -158.41 | -4.376 | 36.2 j |
+| 27b_rev_move | ORANGE | 62 | 2.415 | 1.26 | 149.73 | 4.125 | 36.3 j |
+| 27c_mom_move | ORANGE | 62 | -2.555 | -1.33 | -158.41 | -4.364 | 36.3 j |
 | 27d_rev_move_stop | ORANGE | 80 | -0.1302 | -0.08 | -10.41 | -0.34 | 30.6 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.125 | 26.8 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.12 | 26.9 j |
 | 27f10_selecteur | ORANGE | 151 | 0.5864 | 0.73 | 88.55 | 3.432 | 25.8 j |
 | 27f_selecteur | ORANGE | 41 | -3.051 | -1.35 | -125.09 | -4.849 | 25.8 j |
 | 27g10_selecteur | ORANGE | 34 | 0.5447 | 0.21 | 18.52 | 1.023 | 18.1 j |
@@ -24,7 +24,7 @@
 
 **P&L paper cumule (hors temoin)** : -178.37 $
 
-**BTC** 64632 $ — ret 1j +1.05% · 7j -0.67% · 30j +10.29%
+**BTC** 64752 $ — ret 1j +1.24% · 7j -0.49% · 30j +10.49%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
