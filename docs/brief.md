@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-30 21:30 (Paris)
+# Brief Station — 2026-07-30 21:45 (Paris)
 
 ## 🔴 ALERTES
 - 24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens.
@@ -9,9 +9,9 @@
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.353 | 37.0 j |
-| 25_convergence_basis | ORANGE | 146 | -0.0442 | -0.37 | -6.45 | -1.499 | 4.3 j |
-| 27a_rev_premium | ORANGE | 44 | -1.0937 | -0.47 | -48.12 | -1.304 | 36.9 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.347 | 37.1 j |
+| 25_convergence_basis | ORANGE | 147 | -0.0484 | -0.41 | -7.11 | -1.653 | 4.3 j |
+| 27a_rev_premium | ORANGE | 44 | -1.0937 | -0.47 | -48.12 | -1.301 | 37.0 j |
 | 27b_rev_move | ORANGE | 63 | 2.6547 | 1.4 | 167.25 | 4.57 | 36.6 j |
 | 27c_mom_move | ORANGE | 63 | -2.7947 | -1.47 | -176.07 | -4.811 | 36.6 j |
 | 27d_rev_move_stop | ORANGE | 81 | 0.0877 | 0.06 | 7.1 | 0.23 | 30.9 j |
@@ -22,10 +22,10 @@
 | 28_carry_hold | GRIS | 1 | 11.6387 | 0.0 | 11.64 | 2.91 | 4.0 j |
 | rd_h2 | ORANGE | 53 | 0.303 | 0.55 | 16.06 | 3.823 | 4.2 j |
 
-**P&L paper cumule (hors temoin)** : -151.70 $
+**P&L paper cumule (hors temoin)** : -152.36 $
 
-**BTC** 64849 $ — ret 1j +1.39% · 7j -0.34% · 30j +10.66%
-**Moves 24h ≥ 20 %** : CASHCAT +24.9%
+**BTC** 64806 $ — ret 1j +1.32% · 7j -0.40% · 30j +10.58%
+**Moves 24h ≥ 20 %** : CASHCAT +24.2%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
