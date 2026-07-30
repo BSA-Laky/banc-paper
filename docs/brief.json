@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-30T17:06:11.076245+00:00",
+ "ts": "2026-07-30T17:15:39.194643+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -20,11 +20,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 141,
-   "esperance": -0.0266,
-   "t": -0.22,
-   "pnl": -3.75,
-   "pnl_j": -0.893,
+   "n": 143,
+   "esperance": -0.03,
+   "t": -0.25,
+   "pnl": -4.3,
+   "pnl_j": -1.023,
    "fwd_j": 4.2
   },
   "27a_rev_premium": {
@@ -119,18 +119,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0132,
-  "ret7": -0.004,
-  "ret30": 0.1059,
-  "prix": 64808
+  "ret1": 0.0126,
+  "ret7": -0.0047,
+  "ret30": 0.1051,
+  "prix": 64765
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 22.2
+   "move_pct": 22.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-30T17:15",
+   "bot": "25_convergence_basis",
+   "marche": "UNI-long",
+   "pnl": -0.75
+  },
+  {
+   "ts": "2026-07-30T17:15",
+   "bot": "25_convergence_basis",
+   "marche": "CASHCAT-short",
+   "pnl": 0.21
+  },
+  {
+   "ts": "2026-07-30T17:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-30T17:06",
    "bot": "25_convergence_basis",
@@ -160,24 +178,6 @@
    "bot": "27f_selecteur",
    "marche": "sel-KAITO-REV-ia_piece",
    "pnl": 17.51
-  },
-  {
-   "ts": "2026-07-30T17:01",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-KAITO",
-   "pnl": 17.51
-  },
-  {
-   "ts": "2026-07-30T17:01",
-   "bot": "27c_mom_move",
-   "marche": "mom_move-KAITO",
-   "pnl": -17.65
-  },
-  {
-   "ts": "2026-07-30T17:01",
-   "bot": "27b_rev_move",
-   "marche": "rev_move-KAITO",
-   "pnl": 17.51
   }
  ],
  "calibration_arbitre": {
@@ -191,7 +191,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 9.2,
+  "age_avis_h": 9.3,
   "problemes": []
  },
  "autofinancement": {
