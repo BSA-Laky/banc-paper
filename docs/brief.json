@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-30T04:45:41.106055+00:00",
+ "ts": "2026-07-30T05:01:02.762962+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -69,8 +69,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -1.137,
-   "fwd_j": 26.5
+   "pnl_j": -1.133,
+   "fwd_j": 26.6
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
@@ -105,8 +105,8 @@
    "esperance": 11.6387,
    "t": 0.0,
    "pnl": 11.64,
-   "pnl_j": 3.527,
-   "fwd_j": 3.3
+   "pnl_j": 3.423,
+   "fwd_j": 3.4
   },
   "rd_h2": {
    "statut": "ORANGE",
@@ -119,18 +119,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0018,
-  "ret7": -0.0153,
-  "ret30": 0.0934,
-  "prix": 64075
+  "ret1": 0.0004,
+  "ret7": -0.0166,
+  "ret30": 0.0919,
+  "prix": 63990
  },
- "evenements_extremes": [
-  {
-   "coin": "CASHCAT",
-   "move_pct": 21.5
-  }
- ],
+ "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-30T05:00",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-30T04:45",
    "bot": "10_controle_aleatoire",
@@ -172,12 +173,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-30T03:43",
-   "bot": "25_convergence_basis",
-   "marche": "AIXBT-long",
-   "pnl": 0.06
   }
  ],
  "calibration_arbitre": {
@@ -191,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 20.6,
+  "age_avis_h": 20.8,
   "problemes": []
  },
  "autofinancement": {
