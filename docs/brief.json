@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-30T22:15:41.021187+00:00",
+ "ts": "2026-07-30T22:30:55.784178+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -20,11 +20,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 154,
-   "esperance": -0.0321,
-   "t": -0.27,
-   "pnl": -4.94,
-   "pnl_j": -1.123,
+   "n": 156,
+   "esperance": -0.0974,
+   "t": -0.69,
+   "pnl": -15.19,
+   "pnl_j": -3.452,
    "fwd_j": 4.4
   },
   "27a_rev_premium": {
@@ -114,18 +114,36 @@
    "esperance": 0.282,
    "t": 0.53,
    "pnl": 15.51,
-   "pnl_j": 3.607,
-   "fwd_j": 4.3
+   "pnl_j": 3.525,
+   "fwd_j": 4.4
   }
  },
  "tendances_btc": {
-  "ret1": 0.0149,
-  "ret7": -0.0024,
-  "ret30": 0.1077,
-  "prix": 64915
+  "ret1": 0.0156,
+  "ret7": -0.0017,
+  "ret30": 0.1085,
+  "prix": 64961
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-30T22:30",
+   "bot": "25_convergence_basis",
+   "marche": "CASHCAT-short",
+   "pnl": -12.13
+  },
+  {
+   "ts": "2026-07-30T22:30",
+   "bot": "25_convergence_basis",
+   "marche": "XMR-long",
+   "pnl": 1.88
+  },
+  {
+   "ts": "2026-07-30T22:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-30T22:15",
    "bot": "25_convergence_basis",
@@ -155,24 +173,6 @@
    "bot": "27c_mom_move",
    "marche": "mom_move-CASHCAT",
    "pnl": -6.35
-  },
-  {
-   "ts": "2026-07-30T21:45",
-   "bot": "27b_rev_move",
-   "marche": "rev_move-CASHCAT",
-   "pnl": 6.21
-  },
-  {
-   "ts": "2026-07-30T21:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-30T21:30",
-   "bot": "25_convergence_basis",
-   "marche": "INJ-long",
-   "pnl": -0.33
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 14.3,
+  "age_avis_h": 14.6,
   "problemes": []
  },
  "autofinancement": {
