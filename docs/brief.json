@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-30T03:15:38.495113+00:00",
+ "ts": "2026-07-30T03:30:50.459339+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -78,8 +78,8 @@
    "esperance": 0.5237,
    "t": 0.64,
    "pnl": 76.98,
-   "pnl_j": 3.031,
-   "fwd_j": 25.4
+   "pnl_j": 3.019,
+   "fwd_j": 25.5
   },
   "27f_selecteur": {
    "statut": "ORANGE",
@@ -87,8 +87,8 @@
    "esperance": -3.051,
    "t": -1.35,
    "pnl": -125.09,
-   "pnl_j": -4.925,
-   "fwd_j": 25.4
+   "pnl_j": -4.906,
+   "fwd_j": 25.5
   },
   "27g10_selecteur": {
    "statut": "ORANGE",
@@ -114,23 +114,29 @@
    "esperance": 0.2167,
    "t": 0.31,
    "pnl": 8.88,
-   "pnl_j": 2.538,
-   "fwd_j": 3.5
+   "pnl_j": 2.467,
+   "fwd_j": 3.6
   }
  },
  "tendances_btc": {
   "ret1": 0.0033,
-  "ret7": -0.0138,
-  "ret30": 0.095,
-  "prix": 64170
+  "ret7": -0.0137,
+  "ret30": 0.0951,
+  "prix": 64176
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 21.7
+   "move_pct": 20.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-30T03:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-30T03:15",
    "bot": "25_convergence_basis",
@@ -172,12 +178,6 @@
    "bot": "25_convergence_basis",
    "marche": "CASHCAT-short",
    "pnl": -5.14
-  },
-  {
-   "ts": "2026-07-30T03:00",
-   "bot": "25_convergence_basis",
-   "marche": "KSHIB-long",
-   "pnl": 0.99
   }
  ],
  "calibration_arbitre": {
@@ -191,7 +191,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 19.1,
+  "age_avis_h": 19.3,
   "problemes": []
  },
  "autofinancement": {
