@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-31T19:45:39.059356+00:00",
+ "ts": "2026-07-31T20:01:09.613088+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -20,11 +20,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 236,
-   "esperance": -0.0251,
+   "n": 239,
+   "esperance": -0.0245,
    "t": -0.23,
-   "pnl": -5.92,
-   "pnl_j": -1.116,
+   "pnl": -5.85,
+   "pnl_j": -1.104,
    "fwd_j": 5.3
   },
   "27a_rev_premium": {
@@ -60,8 +60,8 @@
    "esperance": 0.2508,
    "t": 0.16,
    "pnl": 20.82,
-   "pnl_j": 0.653,
-   "fwd_j": 31.9
+   "pnl_j": 0.651,
+   "fwd_j": 32.0
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -119,13 +119,37 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0271,
-  "ret7": -0.0175,
-  "ret30": 0.0498,
-  "prix": 63000
+  "ret1": -0.0276,
+  "ret7": -0.0181,
+  "ret30": 0.0492,
+  "prix": 62964
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-31T20:01",
+   "bot": "25_convergence_basis",
+   "marche": "HYPE-long",
+   "pnl": -0.01
+  },
+  {
+   "ts": "2026-07-31T20:01",
+   "bot": "25_convergence_basis",
+   "marche": "FARTCOIN-short",
+   "pnl": 0.3
+  },
+  {
+   "ts": "2026-07-31T20:01",
+   "bot": "25_convergence_basis",
+   "marche": "CFX-long",
+   "pnl": -0.22
+  },
+  {
+   "ts": "2026-07-31T20:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-07-31T19:45",
    "bot": "10_controle_aleatoire",
@@ -149,30 +173,6 @@
    "bot": "25_convergence_basis",
    "marche": "FARTCOIN-short",
    "pnl": 0.33
-  },
-  {
-   "ts": "2026-07-31T19:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-31T19:01",
-   "bot": "25_convergence_basis",
-   "marche": "UNI-long",
-   "pnl": -0.21
-  },
-  {
-   "ts": "2026-07-31T19:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-31T18:45",
-   "bot": "25_convergence_basis",
-   "marche": "LIT-long",
-   "pnl": -0.47
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 11.4,
+  "age_avis_h": 11.7,
   "problemes": []
  },
  "autofinancement": {
