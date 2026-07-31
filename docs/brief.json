@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-31T20:01:09.613088+00:00",
+ "ts": "2026-07-31T20:05:36.689319+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -20,11 +20,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 239,
-   "esperance": -0.0245,
-   "t": -0.23,
-   "pnl": -5.85,
-   "pnl_j": -1.104,
+   "n": 240,
+   "esperance": -0.0279,
+   "t": -0.26,
+   "pnl": -6.7,
+   "pnl_j": -1.263,
    "fwd_j": 5.3
   },
   "27a_rev_premium": {
@@ -114,18 +114,30 @@
    "esperance": 0.539,
    "t": 1.11,
    "pnl": 35.57,
-   "pnl_j": 6.841,
-   "fwd_j": 5.2
+   "pnl_j": 6.712,
+   "fwd_j": 5.3
   }
  },
  "tendances_btc": {
-  "ret1": -0.0276,
-  "ret7": -0.0181,
-  "ret30": 0.0492,
-  "prix": 62964
+  "ret1": -0.0277,
+  "ret7": -0.0182,
+  "ret30": 0.0491,
+  "prix": 62958
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-31T20:05",
+   "bot": "25_convergence_basis",
+   "marche": "KAITO-long",
+   "pnl": -0.85
+  },
+  {
+   "ts": "2026-07-31T20:05",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-31T20:01",
    "bot": "25_convergence_basis",
@@ -161,18 +173,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-07-31T19:15",
-   "bot": "25_convergence_basis",
-   "marche": "ZRO-long",
-   "pnl": -0.12
-  },
-  {
-   "ts": "2026-07-31T19:15",
-   "bot": "25_convergence_basis",
-   "marche": "FARTCOIN-short",
-   "pnl": 0.33
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 11.7,
+  "age_avis_h": 11.8,
   "problemes": []
  },
  "autofinancement": {
