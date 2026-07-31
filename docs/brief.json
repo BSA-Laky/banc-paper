@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-31T11:45:46.351699+00:00",
+ "ts": "2026-07-31T12:01:02.732632+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -20,11 +20,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 208,
-   "esperance": -0.0673,
+   "n": 209,
+   "esperance": -0.0677,
    "t": -0.57,
-   "pnl": -14.0,
-   "pnl_j": -2.801,
+   "pnl": -14.14,
+   "pnl_j": -2.829,
    "fwd_j": 5.0
   },
   "27a_rev_premium": {
@@ -42,8 +42,8 @@
    "esperance": 2.7102,
    "t": 1.45,
    "pnl": 173.45,
-   "pnl_j": 4.663,
-   "fwd_j": 37.2
+   "pnl_j": 4.65,
+   "fwd_j": 37.3
   },
   "27c_mom_move": {
    "statut": "ORANGE",
@@ -51,8 +51,8 @@
    "esperance": -2.8502,
    "t": -1.52,
    "pnl": -182.41,
-   "pnl_j": -4.904,
-   "fwd_j": 37.2
+   "pnl_j": -4.89,
+   "fwd_j": 37.3
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -69,8 +69,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -1.084,
-   "fwd_j": 27.8
+   "pnl_j": -1.08,
+   "fwd_j": 27.9
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
@@ -119,13 +119,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0144,
-  "ret7": -0.0047,
-  "ret30": 0.0635,
-  "prix": 63822
+  "ret1": -0.0156,
+  "ret7": -0.0059,
+  "ret30": 0.0622,
+  "prix": 63745
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-31T12:01",
+   "bot": "25_convergence_basis",
+   "marche": "VVV-long",
+   "pnl": -0.14
+  },
+  {
+   "ts": "2026-07-31T12:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-31T11:45",
    "bot": "10_controle_aleatoire",
@@ -161,18 +173,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-07-31T11:15",
-   "bot": "27g10_selecteur",
-   "marche": "sel-KAITO-REV-ia_piece",
-   "pnl": 1.17
-  },
-  {
-   "ts": "2026-07-31T11:15",
-   "bot": "27f10_selecteur",
-   "marche": "sel-KAITO-REV-ia_piece",
-   "pnl": 1.17
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 3.4,
+  "age_avis_h": 3.7,
   "problemes": []
  },
  "autofinancement": {
