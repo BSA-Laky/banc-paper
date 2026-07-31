@@ -1,5 +1,5 @@
 {
- "ts": "2026-07-31T16:30:56.707244+00:00",
+ "ts": "2026-07-31T16:45:42.000281+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -42,8 +42,8 @@
    "esperance": 2.7102,
    "t": 1.45,
    "pnl": 173.45,
-   "pnl_j": 4.638,
-   "fwd_j": 37.4
+   "pnl_j": 4.625,
+   "fwd_j": 37.5
   },
   "27c_mom_move": {
    "statut": "ORANGE",
@@ -51,8 +51,8 @@
    "esperance": -2.8502,
    "t": -1.52,
    "pnl": -182.41,
-   "pnl_j": -4.877,
-   "fwd_j": 37.4
+   "pnl_j": -4.864,
+   "fwd_j": 37.5
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -119,13 +119,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0289,
-  "ret7": -0.0194,
-  "ret30": 0.0478,
-  "prix": 62880
+  "ret1": -0.0296,
+  "ret7": -0.0201,
+  "ret30": 0.0471,
+  "prix": 62836
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-07-31T16:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-07-31T16:30",
    "bot": "25_convergence_basis",
@@ -167,12 +173,6 @@
    "bot": "25_convergence_basis",
    "marche": "FARTCOIN-short",
    "pnl": -0.83
-  },
-  {
-   "ts": "2026-07-31T15:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 8.2,
+  "age_avis_h": 8.4,
   "problemes": []
  },
  "autofinancement": {
