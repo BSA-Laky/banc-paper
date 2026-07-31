@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-31 08:15 (Paris)
+# Brief Station — 2026-07-31 08:30 (Paris)
 
 ## 🔴 ALERTES
 - 24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens.
@@ -10,7 +10,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.322 | 37.5 j |
-| 25_convergence_basis | ORANGE | 184 | -0.0224 | -0.18 | -4.12 | -0.876 | 4.7 j |
+| 25_convergence_basis | ORANGE | 184 | -0.0224 | -0.18 | -4.12 | -0.858 | 4.8 j |
 | 27a_rev_premium | ORANGE | 44 | -1.0937 | -0.47 | -48.12 | -1.287 | 37.4 j |
 | 27b_rev_move | ORANGE | 64 | 2.7102 | 1.45 | 173.45 | 4.688 | 37.0 j |
 | 27c_mom_move | ORANGE | 64 | -2.8502 | -1.52 | -182.41 | -4.93 | 37.0 j |
@@ -24,7 +24,7 @@
 
 **P&L paper cumule (hors temoin)** : -126.54 $
 
-**BTC** 64356 $ — ret 1j -0.61% · 7j +0.36% · 30j +7.24%
+**BTC** 64408 $ — ret 1j -0.53% · 7j +0.44% · 30j +7.33%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
