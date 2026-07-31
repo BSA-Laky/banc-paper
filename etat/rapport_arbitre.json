@@ -1,25 +1,5 @@
 [
  {
-  "date": "2026-07-17",
-  "regime": "baissier",
-  "confiance": 0.5,
-  "resume": "BTC 62906$, ret30 -2.43% (baissier mou persiste). 25_conv seule ref solide t=2.83 n=581. Arbitre en panne (2 echecs), avis perime 50h.",
-  "reponses_missions": [
-   {
-    "id": "m1",
-    "reponse": "REV DYDX(02/07)/FARTCOIN(03/07) : toujours aucune donnee d'issue dans le brief. Rien a reporter, relancer verification source."
-   },
-   {
-    "id": "m2",
-    "reponse": "27b/27c n=41 (<50, seuil pas atteint) : PnL +188.39/-194.13, somme -5.74 quasi nulle. Miroir confirme, attendre n>50."
-   },
-   {
-    "id": "m3",
-    "reponse": "calibration_arbitre non-null : n=7, taux_correct=0.714, brier=0.217. n<20 = degenere, aucune conclusion tirable (regle memoire)."
-   }
-  ]
- },
- {
   "date": "2026-07-18",
   "regime": "neutre",
   "confiance": 0.58,
@@ -276,6 +256,26 @@
    {
     "id": "m3",
     "reponse": "27a_rev_premium: n=43 (vers 50), t=-0,33, E=-0,776. Pas de t<-1,5 confirmé 2j. Rien à signaler, suivi continue."
+   }
+  ]
+ },
+ {
+  "date": "2026-07-31",
+  "regime": "neutre",
+  "confiance": 0.4,
+  "resume": "BTC ret1 -1,24% ret30 +6,57%: neutre. Calib arbitre n=20 taux=0,45 -> conf plafonnee. 24_funding kill confirme, 27a stable, 28_carry n=1 a resuivre.",
+  "reponses_missions": [
+   {
+    "id": "m1",
+    "reponse": "24_funding ROUGE: n=171, t=-3,3, E=-0,5092, pnl_j=-2,316. KILL deja execute 29/07 (t=-3,21 a n=168). Pas de nouveau declenchement, residuel confirme, dossier clos."
+   },
+   {
+    "id": "m2",
+    "reponse": "28_carry GRIS: n=1 (post-reset comptable), t=0,0, E=11,6387. n insuffisant pour juger seuil t<2,3/esp20. A resuivre vers n=100, ne pas crediter E sur n=1."
+   },
+   {
+    "id": "m3",
+    "reponse": "27a_rev_premium ORANGE: n=44, t=-0,47, E=-1,0937. Pas de t<-1,5 confirme 2j. Stable, suivi vers n=50 en cours."
    }
   ]
  }
