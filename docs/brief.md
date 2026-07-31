@@ -1,4 +1,4 @@
-# Brief Station — 2026-07-31 13:15 (Paris)
+# Brief Station — 2026-07-31 13:30 (Paris)
 
 ## 🔴 ALERTES
 - 24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens.
@@ -10,7 +10,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.309 | 37.7 j |
-| 25_convergence_basis | ORANGE | 205 | -0.0567 | -0.47 | -11.63 | -2.373 | 4.9 j |
+| 25_convergence_basis | ORANGE | 206 | -0.0628 | -0.52 | -12.93 | -2.586 | 5.0 j |
 | 27a_rev_premium | ORANGE | 44 | -1.0937 | -0.47 | -48.12 | -1.28 | 37.6 j |
 | 27b_rev_move | ORANGE | 64 | 2.7102 | 1.45 | 173.45 | 4.663 | 37.2 j |
 | 27c_mom_move | ORANGE | 64 | -2.8502 | -1.52 | -182.41 | -4.904 | 37.2 j |
@@ -18,13 +18,13 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.084 | 27.8 j |
 | 27f10_selecteur | ORANGE | 154 | 0.5598 | 0.71 | 86.21 | 3.217 | 26.8 j |
 | 27f_selecteur | ORANGE | 43 | -2.3574 | -1.06 | -101.37 | -3.782 | 26.8 j |
-| 27g10_selecteur | ORANGE | 36 | 0.4948 | 0.2 | 17.81 | 0.938 | 19.0 j |
+| 27g10_selecteur | ORANGE | 36 | 0.4948 | 0.2 | 17.81 | 0.933 | 19.1 j |
 | 28_carry_hold | GRIS | 2 | 2.9024 | 0.33 | 5.8 | 1.262 | 4.6 j |
 | rd_h2 | ORANGE | 61 | 0.2657 | 0.54 | 16.21 | 3.308 | 4.9 j |
 
-**P&L paper cumule (hors temoin)** : -143.42 $
+**P&L paper cumule (hors temoin)** : -144.72 $
 
-**BTC** 63879 $ — ret 1j -1.35% · 7j -0.38% · 30j +6.45%
+**BTC** 63859 $ — ret 1j -1.38% · 7j -0.41% · 30j +6.41%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
