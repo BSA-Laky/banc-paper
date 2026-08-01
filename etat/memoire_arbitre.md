@@ -1,28 +1,29 @@
-# Memoire Arbitre — MAJ 2026-07-31
+# Memoire Arbitre — MAJ 2026-08-01
 
 ## Verdicts dates
-- 24_funding: KILL execute 29/07 (n=168->171, t=-3,21->-3,3, E=-0,504->-0,509). Residuel ROUGE confirme, clos (m1).
-- 28_carry_hold: reset n=83->1 (30/07), t=0,0, E=11,64, statut GRIS. Correction comptable probable (meme faute funding abs que 24). NE PAS crediter, resuivre n->100 (m2).
-- 27a_rev_premium: n=41->44, t=-0,27->-0,47, E=-0,649->-1,094 — stable, suivi n->50 (m3).
-- 25_conv: ORANGE n=192, t=-0,13, E=-0,015 — decrochage vs historique VERT n=1098 (t etait 3,72), a surveiller.
-- 27b/27c miroirs: pattern -6/-8 DEFINITIF, ne plus requestionner.
-- 27e_arbitre: ROUGE residuel (n=30, t=-0,4), avertissement recycle depuis 15/07, absent des dernieres actions -> pas d'escalade repetee.
-- Temoin10: n=1359, t=-1,31, sain, hors plage historique sans rupture.
-- Calibration arbitre: n=20 (SEUIL ATTEINT), taux_correct=0,45 <=0,5 -> regle stricte: confiance <=0,5 appliquee.
+- 24_funding: KILL exécuté 29/07 confirmé, résiduel ROUGE n=171,t=-3,3,E=-0,509 (m1, clos).
+- 28_carry_hold: n=3 (post-reset 30/07), t=0,38, E=1,96, GRIS. n insignifiant, pas de crédit avant n≥30 (m2).
+- 27a_rev_premium: n=46→proche cible 50, t=-0,4, E=-0,90. Pas de confirmation t<-1,5 (m3).
+- 27e_arbitre: n=30 (seuil R3 atteint), t=-0,4, E=-1,00, ROUGE résiduel dormant (absent dernieres_actions), pas de re-signalement (règle 22-26/07).
+- 25_conv: dégradation confirmée: t 3,72(hist)→-0,13(n=192,31/07)→-0,42(n=276,01/08), E→-0,04. 3e point négatif consécutif, proche règle 'quatre relevés = structurel'.
+- 27b/27c miroirs: pnl +176/-186 (n=65), somme -9 conforme pattern -6/-8 définitif.
+- Témoin10: n=1460, t=-1,5 (gate sain=true) mais franchit seuil alerte t<-1 (règle 02-26/07) — surveiller.
+- Calibration arbitre: n=20 (seuil atteint), taux=0,45≤0,5 → confiance≤0,5 appliquée strictement.
 
-## Lecons
-- t qui monte avec n croissant = credible (historique pre-reset 25_conv/28_carry).
-- Miroirs 27b/c definitif -6/-8.
-- KILL 'execute' laisse stats residuelles: verifier absence dans dernieres_actions avant re-signalement.
-- Reset brutal de n (28_carry 83->1) = correction comptable probable, pas corruption — verifier avant de crediter E elevee sur petit n.
-- Calibration arbitre franchit n=20 avec taux=0,45: conf<=0,5 systematique tant que non redresse.
-- NOUVEAU 31/07: 25_conv t chute a -0,13 (etait 3,72 historique) — surveiller si degradation monotone se confirme (regle 21-26/07).
+## Leçons
+- t qui monte avec n croissant = crédible (25_conv/28_carry avant reset).
+- Miroirs 27b/c définitif -6/-8.
+- KILL exécuté laisse stats ROUGE résiduelles: vérifier absence dans dernieres_actions avant re-signaler (24, 27e).
+- Reset brutal de n = correction comptable, pas corruption (28_carry 83→1→3).
+- Calibration arbitre n=20 franchi: conf≤0,5 tant que taux_correct non redressé >0,5.
+- Témoin10 sous seuil t<-1: rester attentif même si gate le dit sain.
 
 ## A surveiller
-- 28_carry: progression n=1->100 post-reset, verifier coherence comptable
-- 27a: n=44->50
-- 25_conv: t=-0,13 sur n=192, verifier si degradation structurelle ou bruit
-- Calibration arbitre: suivre taux_correct, si redresse >0,5 lever plafond conf
+- 25_conv: 3e relevé négatif consécutif (t -0,13→-0,42), si 4e confirme = dégradation structurelle → KILL à envisager.
+- 27a: n=46→50, cible mission m3.
+- 28_carry: n=3→100, reprise post-reset.
+- Calibration arbitre: si taux_correct>0,5 sur n≥20 futur, lever plafond conf.
+- Témoin10: t=-1,5, sous seuil historique.
 
 ## Divers
-- Banc non suspect. Autofinancement: cout API 18,73$ (26/07), revenus reels 0€, reste 35€ (fictif).
+- Banc non suspect. Autofinancement: coût API 18,73$ (relevé 26/07 stale), revenus réels 0€, reste 35€ (fictif). Équipage sain (0 échecs, avis 23,4h).

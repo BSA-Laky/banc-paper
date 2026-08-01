@@ -1,25 +1,5 @@
 [
  {
-  "date": "2026-07-18",
-  "regime": "neutre",
-  "confiance": 0.58,
-  "resume": "25_conv t=2.91(n=614) confirme tendance solide. 23_carry t=1.8(n=132) monte. 27b/c quasi-nul(-5.88,n=42). BTC ret30+1.63%.",
-  "reponses_missions": [
-   {
-    "id": "m1",
-    "reponse": "Issues REV DYDX(02/07)/FARTCOIN(03/07) toujours absentes des flux fournis (dernieres_actions ne les mentionne pas). A relancer aupres de la source."
-   },
-   {
-    "id": "m2",
-    "reponse": "27b/c a n=42/42 (identique): PnL +151.97/-157.85, somme=-5.88, quasi nulle. Seuil n=50 pas encore atteint, confirmation en cours."
-   },
-   {
-    "id": "m3",
-    "reponse": "calibration_arbitre reste n=8, taux_correct=0.625, brier=0.235. Toujours n<20, degenere, aucune conclusion tirable."
-   }
-  ]
- },
- {
   "date": "2026-07-19",
   "regime": "neutre",
   "confiance": 0.55,
@@ -276,6 +256,26 @@
    {
     "id": "m3",
     "reponse": "27a_rev_premium ORANGE: n=44, t=-0,47, E=-1,0937. Pas de t<-1,5 confirme 2j. Stable, suivi vers n=50 en cours."
+   }
+  ]
+ },
+ {
+  "date": "2026-08-01",
+  "regime": "neutre",
+  "confiance": 0.4,
+  "resume": "BTC neutre (ret7 -2,1%,ret30 +2,3%). 24_funding KILL confirmé. 27e ROUGE résiduel n=30 dormant. 25_conv esp→-0,04 à n=276 (3e baisse). Calib arbitre 0,45→conf≤0,5.",
+  "reponses_missions": [
+   {
+    "id": "m1",
+    "reponse": "24_funding: n=171,t=-3,3,E=-0,509. R4 satisfait, KILL exécuté 29/07, résiduel confirmé, rien de nouveau."
+   },
+   {
+    "id": "m2",
+    "reponse": "28_carry: n=3 (post-reset),t=0,38,E=1,96,GRIS. n trop faible pour juger seuil t<2,3, à resuivre vers n=100."
+   },
+   {
+    "id": "m3",
+    "reponse": "27a_rev_premium: n=46(→50),t=-0,4,E=-0,90. Pas de confirmation t<-1,5 sur 2 jours, pas d'alerte."
    }
   ]
  }

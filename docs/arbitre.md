@@ -1,7 +1,7 @@
-# Arbitre IA — 2026-07-31
+# Arbitre IA — 2026-08-01
 
 **Regime : neutre** (confiance 0.40)
 
-BTC ret1 -1,24% ret30 +6,57%: neutre. Calib arbitre n=20 taux=0,45 -> conf plafonnee. 24_funding kill confirme, 27a stable, 28_carry n=1 a resuivre.
+BTC neutre (ret7 -2,1%,ret30 +2,3%). 24_funding KILL confirmé. 27e ROUGE résiduel n=30 dormant. 25_conv esp→-0,04 à n=276 (3e baisse). Calib arbitre 0,45→conf≤0,5.
 
-[Note du jour](../veille/2026-07-31.md) — modele `claude-sonnet-5`
+[Note du jour](../veille/2026-08-01.md) — modele `claude-sonnet-5`
