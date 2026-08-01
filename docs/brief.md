@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-01 14:45 (Paris)
+# Brief Station — 2026-08-01 15:01 (Paris)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -17,7 +17,7 @@
 | 27f_selecteur | ORANGE | 44 | -2.2362 | -1.03 | -98.39 | -3.539 | 27.8 j |
 | 27g10_selecteur | ORANGE | 39 | 0.5777 | 0.26 | 22.53 | 1.121 | 20.1 j |
 | 28_carry_hold | GRIS | 3 | 1.9611 | 0.38 | 5.88 | 1.032 | 5.7 j |
-| rd_h2 | ORANGE | 73 | 0.4945 | 1.12 | 36.1 | 6.118 | 5.9 j |
+| rd_h2 | ORANGE | 73 | 0.4945 | 1.12 | 36.1 | 6.016 | 6.0 j |
 
 **P&L paper cumule (hors temoin)** : -112.93 $
 
