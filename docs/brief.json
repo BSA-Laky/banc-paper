@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-01T19:47:00.289821+00:00",
+ "ts": "2026-08-01T20:01:06.473647+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -18,11 +18,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 319,
-   "esperance": -0.0777,
-   "t": -0.91,
-   "pnl": -24.79,
-   "pnl_j": -3.934,
+   "n": 324,
+   "esperance": -0.083,
+   "t": -0.98,
+   "pnl": -26.89,
+   "pnl_j": -4.269,
    "fwd_j": 6.3
   },
   "27a_rev_premium": {
@@ -58,8 +58,8 @@
    "esperance": 0.2508,
    "t": 0.16,
    "pnl": 20.82,
-   "pnl_j": 0.633,
-   "fwd_j": 32.9
+   "pnl_j": 0.631,
+   "fwd_j": 33.0
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -108,22 +108,58 @@
   },
   "rd_h2": {
    "statut": "ORANGE",
-   "n": 78,
-   "esperance": 0.4743,
-   "t": 1.15,
-   "pnl": 37.0,
-   "pnl_j": 5.967,
+   "n": 79,
+   "esperance": 0.4775,
+   "t": 1.17,
+   "pnl": 37.72,
+   "pnl_j": 6.084,
    "fwd_j": 6.2
   }
  },
  "tendances_btc": {
-  "ret1": -0.0061,
-  "ret7": -0.0294,
-  "ret30": 0.0144,
-  "prix": 62472
+  "ret1": -0.0063,
+  "ret7": -0.0296,
+  "ret30": 0.0141,
+  "prix": 62457
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-01T20:01",
+   "bot": "25_convergence_basis",
+   "marche": "AAVE-short",
+   "pnl": -0.34
+  },
+  {
+   "ts": "2026-08-01T20:01",
+   "bot": "25_convergence_basis",
+   "marche": "CFX-long",
+   "pnl": 0.25
+  },
+  {
+   "ts": "2026-08-01T20:01",
+   "bot": "25_convergence_basis",
+   "marche": "FARTCOIN-short",
+   "pnl": -0.08
+  },
+  {
+   "ts": "2026-08-01T20:01",
+   "bot": "25_convergence_basis",
+   "marche": "CASHCAT-short",
+   "pnl": 0.67
+  },
+  {
+   "ts": "2026-08-01T20:01",
+   "bot": "25_convergence_basis",
+   "marche": "KSHIB-long",
+   "pnl": -2.61
+  },
+  {
+   "ts": "2026-08-01T20:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-01T19:46",
    "bot": "25_convergence_basis",
@@ -135,42 +171,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-01T19:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-01T19:30",
-   "bot": "25_convergence_basis",
-   "marche": "KPEPE-long",
-   "pnl": -0.53
-  },
-  {
-   "ts": "2026-08-01T19:30",
-   "bot": "25_convergence_basis",
-   "marche": "ADA-long",
-   "pnl": -0.51
-  },
-  {
-   "ts": "2026-08-01T19:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-01T19:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-01T19:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -184,7 +184,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 11.9,
+  "age_avis_h": 12.1,
   "problemes": []
  },
  "autofinancement": {
