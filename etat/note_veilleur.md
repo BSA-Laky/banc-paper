@@ -1,16 +1,12 @@
-_Note du Veilleur (Cadet Remy, claude-haiku-4-5-20251001) — 2026-07-25_
+_Note du Veilleur (Cadet Remy, claude-haiku-4-5-20251001) — 2026-08-01_
 
-## Veille semaine 2026-07-25
+## Veille semaine 2026-08-01
 
-**Execution testnet** 
-Taux de fill 89% (106/170 ordres fermes). 22 rejets consecutifs sur motif « Order could not immediately match » — friction d'execution stable. PnL cumule : -9.54 USD. Capital disponible : 0.0 USD, aucun manque detecte.
+### Execution testnet
+Testnet : 336 ordres ouverts, 263 fermes, 47 rejets (taux fill 88 %). Deux causes dominent : 35 rejets par arrondi notionnel à 0 (seuil trop bas), 12 par absence de match immédiat. PnL cumulé : -1,59 USD sur 7j.
 
-**Couts LLM** 
-1 avis du jour facture (budget OK). Temoin n=1004, t_stat=-0.63, regime sain.
+### Couts LLM
+Budget avis du jour : 2 avis. Capital disponible : 0,0 USD. Aucune allocation en cours, zéro deficit. Tresorier à jour (2026-08-01T07:45:39 UTC).
 
-**Anomalies & attention** 
-• 23_carry_funding : KILL execute 2026-07-22 (esp20 -2.60 vs borne -2.48) → statut ROUGE confirme, n=159, mdd=62.76 USD. 
-• 27c_mom_move : esp=-3.161, mdd=217.22 USD (derive drawdown majeure), statut ORANGE. 
-• 27f_selecteur : esp=-2.881, mdd=170.71 USD, statut ORANGE. 
-• 25_convergence_basis : seul statut VERT (esp=0.4387, t=3.62). 
-• 7 bots ORANGE, 2 bots ROUGE, 1 bot GRIS. Concentration risque confirmee. Aucun echo arbitre depuis 2026-07-25.
+### Anomalies & attention
+**KILL 24_funding_multivenues (2026-07-29)** : bot ROUGE, triple violation (1) regle R4 : t=-3,21 sur n=168 apres coupure → satisfait seuil PERDANT ; (2) comptabilité FAUSSE : accrue += abs(taux) × notionnel × dt, funding en valeur absolue, terme prix ABSENT (meme faute que bot 28) ; (3) INEXECUTABLE : mesure carry+spread Paradex/HL alors que seul HL actif, appels sans prix reçus. **27e_arbitre ROUGE** : n=30, esp=-1,00, t=-0,4. Echecs arbitre : 0 consecutifs. Temoin sain (t=-1,5 sur n=1460). Neuf bots ORANGE (derives faibles, |t|<1,6). **Attention** : anomalie comptable structurelle identifiee ; impact budget négatif marginal.
