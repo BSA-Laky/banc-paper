@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-01T12:15:39.440092+00:00",
+ "ts": "2026-08-01T12:30:55.839961+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -18,11 +18,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 288,
-   "esperance": -0.0548,
+   "n": 289,
+   "esperance": -0.0546,
    "t": -0.59,
-   "pnl": -15.78,
-   "pnl_j": -2.631,
+   "pnl": -15.79,
+   "pnl_j": -2.632,
    "fwd_j": 6.0
   },
   "27a_rev_premium": {
@@ -118,12 +118,24 @@
  },
  "tendances_btc": {
   "ret1": 0.0034,
-  "ret7": -0.02,
-  "ret30": 0.0241,
-  "prix": 63071
+  "ret7": -0.0201,
+  "ret30": 0.024,
+  "prix": 63068
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-01T12:30",
+   "bot": "25_convergence_basis",
+   "marche": "FARTCOIN-short",
+   "pnl": -0.01
+  },
+  {
+   "ts": "2026-08-01T12:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-01T12:15",
    "bot": "10_controle_aleatoire",
@@ -159,18 +171,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-01T11:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-01T11:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -184,7 +184,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 4.4,
+  "age_avis_h": 4.6,
   "problemes": []
  },
  "autofinancement": {
