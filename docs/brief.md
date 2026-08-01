@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-01 22:01 (Paris)
+# Brief Station — 2026-08-01 22:15 (Paris)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -17,11 +17,11 @@
 | 27f_selecteur | ORANGE | 44 | -2.2362 | -1.03 | -98.39 | -3.501 | 28.1 j |
 | 27g10_selecteur | ORANGE | 39 | 0.5777 | 0.26 | 22.53 | 1.104 | 20.4 j |
 | 28_carry_hold | GRIS | 4 | 2.0107 | 0.55 | 8.04 | 1.34 | 6.0 j |
-| rd_h2 | ORANGE | 79 | 0.4775 | 1.17 | 37.72 | 6.084 | 6.2 j |
+| rd_h2 | ORANGE | 79 | 0.4775 | 1.17 | 37.72 | 5.988 | 6.3 j |
 
 **P&L paper cumule (hors temoin)** : -118.99 $
 
-**BTC** 62457 $ — ret 1j -0.63% · 7j -2.96% · 30j +1.41%
+**BTC** 62525 $ — ret 1j -0.53% · 7j -2.85% · 30j +1.52%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
