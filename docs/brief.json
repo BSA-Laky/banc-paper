@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-01T04:02:53.344097+00:00",
+ "ts": "2026-08-01T04:15:38.151274+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -24,8 +24,8 @@
    "esperance": -0.0424,
    "t": -0.43,
    "pnl": -11.24,
-   "pnl_j": -2.007,
-   "fwd_j": 5.6
+   "pnl_j": -1.972,
+   "fwd_j": 5.7
   },
   "27a_rev_premium": {
    "statut": "ORANGE",
@@ -96,8 +96,8 @@
    "esperance": 0.5777,
    "t": 0.26,
    "pnl": 22.53,
-   "pnl_j": 1.144,
-   "fwd_j": 19.7
+   "pnl_j": 1.138,
+   "fwd_j": 19.8
   },
   "28_carry_hold": {
    "statut": "GRIS",
@@ -119,13 +119,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.002,
-  "ret7": -0.0215,
-  "ret30": 0.0226,
-  "prix": 62980
+  "ret1": 0.0021,
+  "ret7": -0.0213,
+  "ret30": 0.0228,
+  "prix": 62990
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-01T04:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-01T04:02",
    "bot": "25_convergence_basis",
@@ -167,12 +173,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-01T03:30",
-   "bot": "25_convergence_basis",
-   "marche": "AAVE-long",
-   "pnl": 0.41
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 19.7,
+  "age_avis_h": 19.9,
   "problemes": []
  },
  "autofinancement": {
