@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-01T00:45:39.399827+00:00",
+ "ts": "2026-08-01T01:01:10.279308+00:00",
  "alertes": [
   "24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens."
  ],
@@ -114,18 +114,24 @@
    "esperance": 0.539,
    "t": 1.11,
    "pnl": 35.57,
-   "pnl_j": 6.587,
-   "fwd_j": 5.4
+   "pnl_j": 6.468,
+   "fwd_j": 5.5
   }
  },
  "tendances_btc": {
-  "ret1": 0.0019,
-  "ret7": -0.0215,
-  "ret30": 0.0226,
-  "prix": 62977
+  "ret1": 0.0011,
+  "ret7": -0.0223,
+  "ret30": 0.0218,
+  "prix": 62927
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-01T01:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-01T00:45",
    "bot": "27f10_selecteur",
@@ -167,12 +173,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-01T00:01",
-   "bot": "27a_rev_premium",
-   "marche": "rev_premium-CASHCAT",
-   "pnl": 17.23
   }
  ],
  "calibration_arbitre": {
@@ -186,7 +186,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 16.4,
+  "age_avis_h": 16.7,
   "problemes": []
  },
  "autofinancement": {
