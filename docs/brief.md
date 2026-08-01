@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-01 07:15 (Paris)
+# Brief Station — 2026-08-01 07:30 (Paris)
 
 ## 🔴 ALERTES
 - 24_funding_multivenues: KILL exécuté (2026-07-29) : TRIPLE motif (29/07/2026) : (1) PERDANT SIGNIFICATIF, t = -3,21 sur n = 168 apres coupure comptable -- satisfait la regle R4 proposee (t <= -2 a n >= 100) ; (2) comptabilite FAUSSE, meme faute que le bot 28 : accrue += abs(taux_horaire) * notionnel * dt, funding en valeur absolue et AUCUN terme de prix ; (3) INEXECUTABLE : il mesure un carry Paradex et un spread HL<->Paradex alors que nous n'avons de compte que sur Hyperliquid. Ses appels ne recoivent meme pas de prix, le terme de prix est structurellement absent. Migrer sa comptabilite pour mesurer un trade impossible n'aurait aucun sens.
@@ -9,12 +9,12 @@
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.267 | 38.4 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.261 | 38.5 j |
 | 25_convergence_basis | ORANGE | 268 | -0.0383 | -0.39 | -10.26 | -1.801 | 5.7 j |
-| 27a_rev_premium | ORANGE | 45 | -0.6865 | -0.3 | -30.89 | -0.807 | 38.3 j |
+| 27a_rev_premium | ORANGE | 45 | -0.6865 | -0.3 | -30.89 | -0.804 | 38.4 j |
 | 27b_rev_move | ORANGE | 65 | 2.7143 | 1.47 | 176.43 | 4.643 | 38.0 j |
 | 27c_mom_move | ORANGE | 65 | -2.8543 | -1.55 | -185.53 | -4.882 | 38.0 j |
-| 27d_rev_move_stop | ORANGE | 83 | 0.2508 | 0.16 | 20.82 | 0.644 | 32.3 j |
+| 27d_rev_move_stop | ORANGE | 83 | 0.2508 | 0.16 | 20.82 | 0.643 | 32.4 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.054 | 28.6 j |
 | 27f10_selecteur | ORANGE | 158 | 0.6039 | 0.78 | 95.42 | 3.47 | 27.5 j |
 | 27f_selecteur | ORANGE | 44 | -2.2362 | -1.03 | -98.39 | -3.578 | 27.5 j |
@@ -24,7 +24,7 @@
 
 **P&L paper cumule (hors temoin)** : -82.15 $
 
-**BTC** 63102 $ — ret 1j +0.39% · 7j -1.96% · 30j +2.46%
+**BTC** 63068 $ — ret 1j +0.34% · 7j -2.01% · 30j +2.40%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
