@@ -1,10 +1,63 @@
 {
- "ts": "2026-08-02T09:45:40.676526+00:00",
+ "ts": "2026-08-02T11:19:50.777885+00:00",
  "criteres": {
   "funding_t_min": 2.0,
   "prix_ic95_contient_0": true,
   "neutralite_max": 0.1,
   "n_min_jambes": 20
  },
- "bots": {}
+ "bots": {
+  "25_convergence_basis": {
+   "n_jambes": 1,
+   "funding": {
+    "moyenne_pct": 0.0,
+    "t": 0.0
+   },
+   "prix": {
+    "moyenne_pct": -10.35871,
+    "t": 0.0,
+    "ic95_pct": [
+     0.0,
+     0.0
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": -0.09,
+   "ecart_neutralite": 1.0,
+   "verdict": "EN COURS",
+   "raisons": [
+    "n 1 < 20 jambes fermees",
+    "funding t 0.00 < 2.0 (capture non significative)",
+    "E[funding] 0.00000 <= E[frais] 0.00090",
+    "ecart de neutralite 1.00 > 0.10 (livre nu)"
+   ]
+  },
+  "28_carry_hold": {
+   "n_jambes": 2,
+   "funding": {
+    "moyenne_pct": 0.15406,
+    "t": 2.32
+   },
+   "prix": {
+    "moyenne_pct": -3.10231,
+    "t": -0.97,
+    "ic95_pct": [
+     -9.35018,
+     3.14556
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": 0.06406,
+   "ecart_neutralite": 0.333333,
+   "verdict": "EN COURS",
+   "raisons": [
+    "n 2 < 20 jambes fermees",
+    "ecart de neutralite 0.33 > 0.10 (livre nu)"
+   ]
+  }
+ }
 }
