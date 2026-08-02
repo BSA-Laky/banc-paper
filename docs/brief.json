@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-02T08:30:54.393546+00:00",
+ "ts": "2026-08-02T08:45:40.031996+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -117,13 +117,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0092,
-  "ret7": -0.0305,
-  "ret30": 0.0127,
-  "prix": 63370
+  "ret1": 0.0064,
+  "ret7": -0.0333,
+  "ret30": 0.0098,
+  "prix": 63190
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-02T08:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-02T08:30",
    "bot": "10_controle_aleatoire",
@@ -165,12 +171,6 @@
    "bot": "25_convergence_basis",
    "marche": "CASHCAT-short",
    "pnl": -2.06
-  },
-  {
-   "ts": "2026-08-02T07:15",
-   "bot": "25_convergence_basis",
-   "marche": "AVAX-long",
-   "pnl": 0.08
   }
  ],
  "calibration_arbitre": {
@@ -182,11 +182,12 @@
  },
  "sante_equipage": {
   "arbitre_echecs": 1,
-  "superviseur_echecs": 0,
+  "superviseur_echecs": 1,
   "veilleur_echecs": 0,
-  "age_avis_h": 24.6,
+  "age_avis_h": 24.9,
   "problemes": [
-   "ARBITRE : 1 echec et avis vieux de 25 h"
+   "ARBITRE : 1 echec et avis vieux de 25 h",
+   "SUPERVISEUR : 1 echec(s) (hebdo : 1 echec = 1 semaine muette)"
   ]
  },
  "autofinancement": {
