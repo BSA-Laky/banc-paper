@@ -1,32 +1,34 @@
-# Brief Station — 2026-08-02 11:30 (Paris)
+# Brief Station — 2026-08-02 12:01 (Paris)
 
-## 🔴 EQUIPAGE
-- ARBITRE : 1 echec et avis vieux de 26 h
-- SUPERVISEUR : 1 echec(s) (hebdo : 1 echec = 1 semaine muette)
+## 🔴 ALERTES
+- 27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
+
+## Changements de statut depuis hier
+- 27g10_selecteur : ORANGE → **ROUGE**
 
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.199 | 39.6 j |
-| 25_convergence_basis | ORANGE | 345 | -0.0856 | -1.06 | -29.53 | -4.28 | 6.9 j |
+| 25_convergence_basis | ORANGE | 346 | -0.1139 | -1.33 | -39.43 | -5.714 | 6.9 j |
 | 27a_rev_premium | ORANGE | 47 | -0.8563 | -0.39 | -40.24 | -1.019 | 39.5 j |
 | 27b_rev_move | ORANGE | 65 | 2.7143 | 1.47 | 176.43 | 4.501 | 39.2 j |
 | 27c_mom_move | ORANGE | 65 | -2.8543 | -1.55 | -185.53 | -4.733 | 39.2 j |
 | 27d_rev_move_stop | ORANGE | 83 | 0.2508 | 0.16 | 20.82 | 0.621 | 33.5 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.015 | 29.7 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.011 | 29.8 j |
 | 27f10_selecteur | ORANGE | 162 | 0.5151 | 0.68 | 83.45 | 2.908 | 28.7 j |
 | 27f_selecteur | ORANGE | 44 | -2.2362 | -1.03 | -98.39 | -3.428 | 28.7 j |
-| 27g10_selecteur | ORANGE | 41 | 0.3552 | 0.17 | 14.56 | 0.694 | 21.0 j |
-| 28_carry_hold | GRIS | 6 | -0.4577 | -0.16 | -2.75 | -0.423 | 6.5 j |
-| rd_h2 | ORANGE | 88 | 0.4444 | 1.19 | 39.11 | 5.751 | 6.8 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.694 | 21.0 j |
+| 28_carry_hold | GRIS | 6 | -0.4577 | -0.16 | -2.75 | -0.416 | 6.6 j |
+| rd_h2 | ORANGE | 89 | 0.4456 | 1.21 | 39.65 | 5.832 | 6.8 j |
 
-**P&L paper cumule (hors temoin)** : -139.28 $
+**P&L paper cumule (hors temoin)** : -148.64 $
 
-**BTC** 63226 $ — ret 1j +0.69% · 7j -3.27% · 30j +1.04%
-**Moves 24h ≥ 20 %** : HYPER +37.8%
+**BTC** 63242 $ — ret 1j +0.72% · 7j -3.25% · 30j +1.06%
+**Moves 24h ≥ 20 %** : HYPER +23.9%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
