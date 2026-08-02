@@ -1,0 +1,48 @@
+# .github/workflows/garde.yml — garde-fous du livre reel + gate par decomposition
+#
+# POURQUOI UN WORKFLOW SEPARE PLUTOT QU'UN APPEL DANS run_once.py
+# ---------------------------------------------------------------
+# Lecon du 17/07 inscrite dans alerte_issue.py : « l'alerte ne doit dependre
+# d'aucun des organes qu'elle surveille ». garde_reel.py verifie precisement que
+# la station ne ment pas (dashboard, ledger, executeur muet, bot reel non
+# justifie). Le loger dans run_once.py le ferait mourir avec elle.
+#
+# Il ne lit que des fichiers deja commites : il peut donc tourner seul, en
+# decale, sans rien casser. Aucune cle, aucun secret, lecture seule sur le
+# marche. Toutes les 30 min + a la demande.
+name: garde-reel
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: garde
+  cancel-in-progress: false
+
+jobs:
+  garde:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Garde-fous du livre reel
+        run: python garde_reel.py
+      - name: Committer les corrections
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Rien a committer."
+          else
+            git commit -m "garde $(date -u +%FT%Hh%MZ)"
+            git pull --rebase --autostash || true
+            git push || (git pull --rebase --autostash && git push)
+          fi
