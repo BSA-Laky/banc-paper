@@ -1,0 +1,13 @@
+{
+ "epuise": true,
+ "depuis": "2026-08-02",
+ "note": "Credit API Anthropic epuise. Les agents LLM (Arbitre, Superviseur, Veilleur, avis par piece) sont DORMANTS et c'est un etat VOULU, pas une panne. garde_reel.py maintient les compteurs d'echecs a zero et l'avis de regime a neutre tant que ce drapeau est vrai, pour que l'alerte quotidienne ne se declenche pas sur une situation connue.",
+ "pour_reactiver": "Remettre \"epuise\": false apres recharge. Les agents reprennent seuls a leur prochain cron, les compteurs d'echecs redeviennent significatifs, et un vrai echec redevient une vraie alerte.",
+ "impact_mesure": {
+  "banc_deterministe": "AUCUN - les bots 25, 27a-d, 27f, 28, 29, temoin et rd tournent normalement",
+  "27g10_selecteur": "PAUSE - bot PUR LLM, il n'a aucun signal sans avis IA",
+  "27f_selecteur": "degrade - retombe sur son signal par piece, la composante IA est neutre",
+  "27e_arbitre": "sans effet - deja tue le 21/07",
+  "cout_evite_usd_par_mois": 19.3
+ }
+}

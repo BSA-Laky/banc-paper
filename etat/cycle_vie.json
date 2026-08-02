@@ -3,7 +3,7 @@
   "25_convergence_basis": {
    "etat": "actif",
    "relance": "2026-07-23T07:19:27.390936+00:00",
-   "note": "CORRIGE le 29/07/2026 : la note precedente (\"meilleur bot, t 3,56, +399 $\") etait un ARTEFACT COMPTABLE. Le bot cumulait deux fautes (abs(funding) + P&L base sur la convergence du premium au lieu du prix reel). Son execution testnet reelle donnait t = -2,81 sur n = 96. Il a ete migre vers comptabilite.PositionReelle (bot_25_convergence_basis.py) et son historique d'avant le 26/07 est ecarte des statistiques. Il REPART DE ZERO : aucune conclusion ne peut en etre tiree avant plusieurs semaines."
+   "note": "CORRIGE le 29/07/2026 : la note precedente (\"meilleur bot, t 3,56, +399 $\") etait un ARTEFACT COMPTABLE. Le bot cumulait deux fautes (abs(funding) + P&L base sur la convergence du premium au lieu du prix reel). Son execution testnet reelle donnait t = -2,81 sur n = 96. Il a ete migre vers comptabilite.PositionReelle (bot_25_convergence_basis.py) et son historique d'avant le 26/07 est ecarte des statistiques. Il REPART DE ZERO : aucune conclusion ne peut en etre tiree avant plusieurs semaines. TRI DU 02/08 : GARDE (n=343, t=-1,11, esp -0,090 -- pas encore significatif, la regle R4 exige t<=-2 ; a surveiller, c'est le seul bot dont l'esperance derive nettement)."
   },
   "27e_arbitre": {
    "etat": "kill",
@@ -24,7 +24,33 @@
    "etat": "kill",
    "raison": "DORMANT depuis toujours (0 trade : endpoint Nado injoignable / schema non reconnu) et meme comptabilite fausse que le 24 (abs(funding) sans prix), sur une venue ou nous n'avons pas de compte. Purge du 29/07/2026.",
    "ts": "2026-07-29T09:30:00+00:00"
+  },
+  "27g10_selecteur": {
+   "etat": "kill",
+   "raison": "PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.",
+   "ts": "2026-08-02T09:30:00+00:00"
   }
  },
- "_doc": "Un bot en etat 'kill' n'est plus echantillonne par run_once ; son ledger et son etat sont conserves en archive. Reactivation humaine : 'relance <bot>' sur Telegram."
+ "_doc": "Un bot en etat 'kill' n'est plus echantillonne par run_once ; son ledger et son etat sont conserves en archive. Reactivation humaine : 'relance <bot>' sur Telegram.",
+ "_tri_02_08_2026": {
+  "gardes_actifs": {
+   "10_controle_aleatoire": "TEMOIN - jamais tue, c'est l'etalon du bruit. Sans lui aucun verdict n'a de sens.",
+   "29_carry_neutre": "PRIORITE ABSOLUE - solde son premier panier le 02/08 20:30 (168 h de tenue). C'est le premier chiffre honnete sur le carry neutre, l'hypothese la mieux etayee du banc (funding t +5,20 OOS, prix indiscernable de zero).",
+   "28_carry_hold": "GARDE - seul bot en argent reel, doit rester mesure. n=6 post-coupure, GRIS.",
+   "25_convergence_basis": "GARDE sous surveillance - t=-1,11 sur n=343, derive negative mais sous le seuil de kill.",
+   "27_convex_buckets": "GARDE - produit 27a/27b/27c/27d. Les miroirs 27b/27c ont un verdict definitif (somme ~0) mais ils ne sont PAS separables : la classe emet les quatre. Les tuer reviendrait a tuer aussi 27a et 27d, encore en cours.",
+   "27f_selecteur": "GARDE degrade - la composante IA devient neutre, il retombe sur son signal par piece. t=-1,03 sur n=44 : sous le seuil de kill (R4 = t<=-2 a n>=100), a re-examiner a n=100.",
+   "27f10_selecteur": "GARDE degrade - meme remarque, n=162, t=+0,68, bruit.",
+   "rd_h2": "GARDE - bot genere par Nova, n=88, t=+1,19, bruit. Meme gate que les autres."
+  },
+  "en_pause": {
+   "27g10_selecteur": "API epuisee - pur LLM, sans avis il ne mesure rien."
+  },
+  "au_tapis": {
+   "23_carry_funding": "R1 decrochage (22/07)",
+   "24_funding_multivenues": "perdant significatif + comptabilite fausse + inexecutable (29/07)",
+   "26_carry_nado": "0 trade depuis toujours, endpoint injoignable (29/07)",
+   "27e_arbitre": "R3, ne bat pas 27b (21/07)"
+  }
+ }
 }
