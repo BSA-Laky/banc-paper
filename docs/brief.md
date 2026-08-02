@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-02 12:45 (Paris)
+# Brief Station — 2026-08-02 13:01 (Paris)
 
 ## 🔴 ALERTES
 - 27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.
@@ -24,7 +24,8 @@
 
 **P&L paper cumule (hors temoin)** : -148.64 $
 
-**BTC** 63185 $ — ret 1j +0.63% · 7j -3.34% · 30j +0.97%
+**BTC** 63159 $ — ret 1j +0.59% · 7j -3.38% · 30j +0.93%
+**Moves 24h ≥ 20 %** : HYPER +20.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
