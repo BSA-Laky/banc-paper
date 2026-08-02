@@ -1,7 +1,7 @@
 {
- "ts": "2026-08-02T18:45:38.618455+00:00",
+ "ts": "2026-08-02T19:01:01.267445+00:00",
  "alertes": [
-  "25_convergence_basis: esp20 -0.97 < borne -0.84 -> COUPER LE BOT",
+  "25_convergence_basis: esp20 -0.84 < borne -0.83 -> COUPER LE BOT",
   "27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree."
  ],
  "avertissements": [
@@ -21,11 +21,11 @@
   },
   "25_convergence_basis": {
    "statut": "ROUGE",
-   "n": 356,
-   "esperance": -0.1312,
-   "t": -1.56,
-   "pnl": -46.7,
-   "pnl_j": -6.398,
+   "n": 357,
+   "esperance": -0.1222,
+   "t": -1.45,
+   "pnl": -43.62,
+   "pnl_j": -5.976,
    "fwd_j": 7.3
   },
   "27a_rev_premium": {
@@ -120,13 +120,25 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0102,
-  "ret7": -0.0296,
-  "ret30": 0.0137,
-  "prix": 63431
+  "ret1": 0.0088,
+  "ret7": -0.031,
+  "ret30": 0.0122,
+  "prix": 63340
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-02T19:00",
+   "bot": "25_convergence_basis",
+   "marche": "KAITO-short",
+   "pnl": 3.08
+  },
+  {
+   "ts": "2026-08-02T19:00",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-02T18:45",
    "bot": "10_controle_aleatoire",
@@ -162,18 +174,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-02T17:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-02T17:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -187,7 +187,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.2,
+  "age_avis_h": 1.5,
   "problemes": []
  },
  "autofinancement": {

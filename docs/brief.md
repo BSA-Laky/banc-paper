@@ -1,7 +1,7 @@
-# Brief Station — 2026-08-02 20:45 (Paris)
+# Brief Station — 2026-08-02 21:01 (Paris)
 
 ## 🔴 ALERTES
-- 25_convergence_basis: esp20 -0.97 < borne -0.84 -> COUPER LE BOT
+- 25_convergence_basis: esp20 -0.84 < borne -0.83 -> COUPER LE BOT
 - 27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.
 
 ## 🟠 Avertissements
@@ -11,7 +11,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.177 | 40.0 j |
-| 25_convergence_basis | ROUGE | 356 | -0.1312 | -1.56 | -46.7 | -6.398 | 7.3 j |
+| 25_convergence_basis | ROUGE | 357 | -0.1222 | -1.45 | -43.62 | -5.976 | 7.3 j |
 | 27a_rev_premium | ORANGE | 47 | -0.8563 | -0.39 | -40.24 | -1.009 | 39.9 j |
 | 27b_rev_move | ORANGE | 65 | 2.7143 | 1.47 | 176.43 | 4.467 | 39.5 j |
 | 27c_mom_move | ORANGE | 65 | -2.8543 | -1.55 | -185.53 | -4.697 | 39.5 j |
@@ -23,9 +23,9 @@
 | 28_carry_hold | GRIS | 6 | -0.4577 | -0.16 | -2.75 | -0.398 | 6.9 j |
 | rd_h2 | ORANGE | 95 | 0.3471 | 0.97 | 32.98 | 4.58 | 7.2 j |
 
-**P&L paper cumule (hors temoin)** : -176.14 $
+**P&L paper cumule (hors temoin)** : -173.06 $
 
-**BTC** 63431 $ — ret 1j +1.02% · 7j -2.96% · 30j +1.37%
+**BTC** 63340 $ — ret 1j +0.88% · 7j -3.10% · 30j +1.22%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
