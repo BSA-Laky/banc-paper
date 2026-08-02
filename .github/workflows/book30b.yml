@@ -1,0 +1,52 @@
+# .github/workflows/book30b.yml — jumeau EXECUTABLE du book trend (bot 30b)
+#
+# Le bot 30 mesure un panier de 14 ETF americains. Aucune maison prop ni aucun
+# broker CFD ne propose ces ETF : le book mesure donc une strategie qu'on ne
+# peut pas executer. C'est la faute exacte pour laquelle le bot 24 a ete tue le
+# 29/07 (« INEXECUTABLE »), passee inapercue sur le 30.
+#
+# Le bot 30b rejoue le MEME signal sur les seuls instruments reellement
+# disponibles en CFD, et paie les swaps overnight que l'ETF ne paie pas. La
+# traduction coute 36 % du book (toute la poche obligataire et credit) : c'est
+# precisement ce que l'A/B 30 vs 30b va chiffrer.
+#
+# Mensuel, comme le book principal, et 3 h apres lui pour utiliser les memes
+# donnees du mois sans se disputer le quota Twelve Data.
+name: book-30b
+on:
+  schedule:
+    - cron: "0 9 1 * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: book30b
+  cancel-in-progress: false
+
+jobs:
+  book30b:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Rotation mensuelle du book executable
+        env:
+          TD_KEY: ${{ secrets.TD_KEY }}
+        run: python run_book_30b.py
+      - name: Committer
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Rien a committer."
+          else
+            git commit -m "book30b $(date -u +%F)"
+            git pull --rebase --autostash || true
+            git push || (git pull --rebase --autostash && git push)
+          fi
