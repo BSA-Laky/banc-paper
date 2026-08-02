@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-02T09:01:02.671526+00:00",
+ "ts": "2026-08-02T09:15:39.778940+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -94,8 +94,8 @@
    "esperance": 0.3552,
    "t": 0.17,
    "pnl": 14.56,
-   "pnl_j": 0.697,
-   "fwd_j": 20.9
+   "pnl_j": 0.694,
+   "fwd_j": 21.0
   },
   "28_carry_hold": {
    "statut": "GRIS",
@@ -117,13 +117,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0067,
-  "ret7": -0.033,
-  "ret30": 0.0101,
-  "prix": 63209
+  "ret1": 0.0073,
+  "ret7": -0.0324,
+  "ret30": 0.0107,
+  "prix": 63246
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-02T09:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-02T09:01",
    "bot": "10_controle_aleatoire",
@@ -165,12 +171,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-02T07:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -184,7 +184,7 @@
   "arbitre_echecs": 1,
   "superviseur_echecs": 1,
   "veilleur_echecs": 0,
-  "age_avis_h": 25.1,
+  "age_avis_h": 25.4,
   "problemes": [
    "ARBITRE : 1 echec et avis vieux de 25 h",
    "SUPERVISEUR : 1 echec(s) (hebdo : 1 echec = 1 semaine muette)"

@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-02 11:01 (Paris)
+# Brief Station — 2026-08-02 11:15 (Paris)
 
 ## 🔴 EQUIPAGE
 - ARBITRE : 1 echec et avis vieux de 25 h
@@ -19,13 +19,13 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.015 | 29.7 j |
 | 27f10_selecteur | ORANGE | 162 | 0.5151 | 0.68 | 83.45 | 2.908 | 28.7 j |
 | 27f_selecteur | ORANGE | 44 | -2.2362 | -1.03 | -98.39 | -3.428 | 28.7 j |
-| 27g10_selecteur | ORANGE | 41 | 0.3552 | 0.17 | 14.56 | 0.697 | 20.9 j |
+| 27g10_selecteur | ORANGE | 41 | 0.3552 | 0.17 | 14.56 | 0.694 | 21.0 j |
 | 28_carry_hold | GRIS | 6 | -0.4577 | -0.16 | -2.75 | -0.423 | 6.5 j |
 | rd_h2 | ORANGE | 88 | 0.4444 | 1.19 | 39.11 | 5.751 | 6.8 j |
 
 **P&L paper cumule (hors temoin)** : -140.59 $
 
-**BTC** 63209 $ — ret 1j +0.67% · 7j -3.30% · 30j +1.01%
+**BTC** 63246 $ — ret 1j +0.73% · 7j -3.24% · 30j +1.07%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
