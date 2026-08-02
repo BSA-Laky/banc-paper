@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-02 10:01 (Paris)
+# Brief Station — 2026-08-02 10:15 (Paris)
 
 ## 🔴 EQUIPAGE
 - ARBITRE : 1 echec et avis vieux de 24 h
@@ -20,7 +20,7 @@
 | 27f_selecteur | ORANGE | 44 | -2.2362 | -1.03 | -98.39 | -3.44 | 28.6 j |
 | 27g10_selecteur | ORANGE | 41 | 0.3552 | 0.17 | 14.56 | 0.697 | 20.9 j |
 | 28_carry_hold | GRIS | 6 | -0.4577 | -0.16 | -2.75 | -0.423 | 6.5 j |
-| rd_h2 | ORANGE | 88 | 0.4444 | 1.19 | 39.11 | 5.837 | 6.7 j |
+| rd_h2 | ORANGE | 88 | 0.4444 | 1.19 | 39.11 | 5.751 | 6.8 j |
 
 **P&L paper cumule (hors temoin)** : -140.59 $
 
