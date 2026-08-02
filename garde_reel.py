@@ -84,6 +84,9 @@ ETAT = Path("etat")
 DOCS = Path("docs")
 
 F_SNAP = ETAT / "snap_positions.json"
+F_API_CREDIT = ETAT / "api_credit.json"
+F_REGIME = ETAT / "regime_ia.json"
+F_ECHECS = ("arbitre_echecs.json", "superviseur_echecs.json", "veilleur_echecs.json")
 F_COMPOSANTES = ETAT / "composantes.csv"
 F_DECOMPO = DOCS / "decomposition.json"
 F_REEL_HL = ETAT / "reel_hl.json"
@@ -537,6 +540,50 @@ def _garde_d5(alertes, gate, decompo):
                    d.get("verdict", "pas encore mesuree")))
 
 
+def mode_economie(avertissements):
+    """MODE ATTENTE DE RECHARGE (02/08/2026).
+
+    Sans credit API, les agents LLM n'entrent PAS dans leur branche dormante :
+    ils appellent l'API, prennent une erreur HTTP, et incrementent leur compteur
+    d'echecs. Consequences si on ne fait rien :
+      - arbitre_ia.py ouvre une issue GitHub a 2 echecs consecutifs ;
+      - alerte_issue.py en ouvre une PAR JOUR tant que echecs >= 1 et avis > 24 h.
+    Le Commandant recevrait une alerte quotidienne pour une situation connue,
+    volontaire et sans gravite. L'alerte perdrait tout son sens (c'est le defaut
+    exact qu'on a corrige le 29/07 : une alarme qui crie tout le temps ne dit rien).
+
+    Ce mode ne MASQUE pas une panne : il la REQUALIFIE. Tant que
+    etat/api_credit.json porte {"epuise": true}, l'absence d'avis IA est un etat
+    ATTENDU, pas un incident. Les compteurs sont remis a zero avec un motif
+    explicite, l'avis de regime est maintenu a NEUTRE (les bots qui le lisent
+    retombent sur leur regle deterministe), et l'etat est publie sur les
+    dashboards. Des que le fichier repasse a {"epuise": false}, tout redevient
+    normal et un vrai echec redeviendra une vraie alerte.
+    """
+    d = _lire_json(F_API_CREDIT, {}) or {}
+    if not d.get("epuise"):
+        return None
+    depuis = str(d.get("depuis") or "")[:10]
+    motif = "API sans credit depuis le %s - EN ATTENTE DE RECHARGE (etat voulu)" % depuis
+    now = datetime.now(timezone.utc)
+    for f in F_ECHECS:
+        _ecrire_json(ETAT / f, {"consecutifs": 0, "motif": motif,
+                                "maj": now.isoformat(), "mode": "attente_recharge"})
+    # avis de regime maintenu NEUTRE et frais : les bots qui le lisent (27e/27f)
+    # retombent proprement sur leur signal deterministe au lieu de rejouer un
+    # avis perime, et le garde-fou "avis vieux de X h" ne se declenche plus.
+    _ecrire_json(F_REGIME, {"date": now.isoformat().replace("+00:00", "Z"),
+                            "regime": "neutre", "confiance": 0.0,
+                            "resume": "Agents IA dormants - en attente de recharge API. "
+                                      "Aucun avis produit : regime force a neutre.",
+                            "mode": "attente_recharge"})
+    msg = ("STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, "
+           "avis par piece) dormants faute de credit API depuis le %s. Le banc "
+           "deterministe tourne normalement. Ce n'est PAS une panne." % depuis)
+    avertissements.append(msg)
+    return msg
+
+
 def _garde_d4(decompo):
     """D4 : perimer la memoire de l'Arbitre par une donnee qu'il lit chaque jour.
 
@@ -574,6 +621,11 @@ def executer():
 
     alertes, avertissements = [], []
     try:
+        eco = mode_economie(avertissements)
+    except Exception as e:  # noqa: BLE001
+        eco = None
+        print("[garde_reel] mode economie a leve : %s" % e, flush=True)
+    try:
         _garde_d1_d2(alertes)
     except Exception as e:  # noqa: BLE001
         print("[garde_reel] D1/D2 a leve : %s" % e, flush=True)
@@ -592,8 +644,10 @@ def executer():
         gate["alertes"] = sorted(set(list(gate.get("alertes") or []) + alertes))
         gate["avertissements"] = sorted(set(list(gate.get("avertissements") or [])
                                             + avertissements))
+        gate["mode_station"] = ("attente_recharge_api" if eco else "normal")
         gate["garde_reel"] = {
             "ts": datetime.now(timezone.utc).isoformat(),
+            "mode_station": ("attente_recharge_api" if eco else "normal"),
             "composantes_ajoutees": ajoutees,
             "n_alertes": len(alertes),
             "n_avertissements": len(avertissements),
@@ -612,6 +666,23 @@ def executer():
         _garde_d4(decompo)
     except Exception as e:  # noqa: BLE001
         print("[garde_reel] D4 a leve : %s" % e, flush=True)
+
+    # le mode station doit etre LISIBLE sur les tableaux de bord, pas seulement
+    # dans les logs : brief.json alimente la Station et l'Equipage.
+    try:
+        b = _lire_json(F_BRIEF)
+        if isinstance(b, dict):
+            b["mode_station"] = {
+                "mode": "attente_recharge_api" if eco else "normal",
+                "message": eco or "Agents IA operationnels.",
+                "banc_deterministe": "actif",
+                "maj": datetime.now(timezone.utc).isoformat()}
+            if eco:
+                b["sante_equipage"] = {**(b.get("sante_equipage") or {}),
+                                       "problemes": [], "mode": "attente_recharge_api"}
+            _ecrire_json(F_BRIEF, b)
+    except Exception as e:  # noqa: BLE001
+        print("[garde_reel] mode_station brief a leve : %s" % e, flush=True)
 
     for a in alertes:
         print("[garde_reel] ALERTE : %s" % a, flush=True)
