@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-02 10:45 (Paris)
+# Brief Station — 2026-08-02 10:56 (Paris)
 
 ## 🔴 EQUIPAGE
 - ARBITRE : 1 echec et avis vieux de 25 h
@@ -11,7 +11,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.199 | 39.6 j |
-| 25_convergence_basis | ORANGE | 343 | -0.0899 | -1.11 | -30.84 | -4.535 | 6.8 j |
+| 25_convergence_basis | ORANGE | 343 | -0.0899 | -1.11 | -30.84 | -4.469 | 6.9 j |
 | 27a_rev_premium | ORANGE | 47 | -0.8563 | -0.39 | -40.24 | -1.019 | 39.5 j |
 | 27b_rev_move | ORANGE | 65 | 2.7143 | 1.47 | 176.43 | 4.512 | 39.1 j |
 | 27c_mom_move | ORANGE | 65 | -2.8543 | -1.55 | -185.53 | -4.745 | 39.1 j |
@@ -25,7 +25,7 @@
 
 **P&L paper cumule (hors temoin)** : -140.59 $
 
-**BTC** 63190 $ — ret 1j +0.64% · 7j -3.33% · 30j +0.98%
+**BTC** 63180 $ — ret 1j +0.62% · 7j -3.34% · 30j +0.97%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
