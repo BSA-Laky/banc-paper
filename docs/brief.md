@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-02 16:15 (Paris)
+# Brief Station — 2026-08-02 16:30 (Paris)
 
 ## 🔴 ALERTES
 - 27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.
@@ -15,16 +15,16 @@
 | 27b_rev_move | ORANGE | 65 | 2.7143 | 1.47 | 176.43 | 4.478 | 39.4 j |
 | 27c_mom_move | ORANGE | 65 | -2.8543 | -1.55 | -185.53 | -4.709 | 39.4 j |
 | 27d_rev_move_stop | ORANGE | 83 | 0.2508 | 0.16 | 20.82 | 0.618 | 33.7 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.008 | 29.9 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -1.005 | 30.0 j |
 | 27f10_selecteur | ORANGE | 162 | 0.5151 | 0.68 | 83.45 | 2.888 | 28.9 j |
 | 27f_selecteur | ORANGE | 44 | -2.2362 | -1.03 | -98.39 | -3.405 | 28.9 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.687 | 21.2 j |
-| 28_carry_hold | GRIS | 6 | -0.4577 | -0.16 | -2.75 | -0.41 | 6.7 j |
+| 28_carry_hold | GRIS | 6 | -0.4577 | -0.16 | -2.75 | -0.404 | 6.8 j |
 | rd_h2 | ORANGE | 91 | 0.3474 | 0.93 | 31.61 | 4.516 | 7.0 j |
 
 **P&L paper cumule (hors temoin)** : -157.98 $
 
-**BTC** 63087 $ — ret 1j +0.47% · 7j -3.49% · 30j +0.82%
+**BTC** 63097 $ — ret 1j +0.49% · 7j -3.47% · 30j +0.83%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
