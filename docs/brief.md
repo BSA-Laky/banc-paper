@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-02 13:01 (Paris)
+# Brief Station — 2026-08-02 13:03 (Paris)
 
 ## 🔴 ALERTES
 - 27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.
@@ -10,7 +10,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.193 | 39.7 j |
-| 25_convergence_basis | ORANGE | 346 | -0.1139 | -1.33 | -39.43 | -5.714 | 6.9 j |
+| 25_convergence_basis | ORANGE | 347 | -0.1152 | -1.35 | -39.97 | -5.793 | 6.9 j |
 | 27a_rev_premium | ORANGE | 47 | -0.8563 | -0.39 | -40.24 | -1.016 | 39.6 j |
 | 27b_rev_move | ORANGE | 65 | 2.7143 | 1.47 | 176.43 | 4.501 | 39.2 j |
 | 27c_mom_move | ORANGE | 65 | -2.8543 | -1.55 | -185.53 | -4.733 | 39.2 j |
@@ -22,10 +22,10 @@
 | 28_carry_hold | GRIS | 6 | -0.4577 | -0.16 | -2.75 | -0.416 | 6.6 j |
 | rd_h2 | ORANGE | 89 | 0.4456 | 1.21 | 39.65 | 5.747 | 6.9 j |
 
-**P&L paper cumule (hors temoin)** : -148.64 $
+**P&L paper cumule (hors temoin)** : -149.18 $
 
-**BTC** 63159 $ — ret 1j +0.59% · 7j -3.38% · 30j +0.93%
-**Moves 24h ≥ 20 %** : HYPER +20.6%
+**BTC** 63156 $ — ret 1j +0.58% · 7j -3.38% · 30j +0.93%
+**Moves 24h ≥ 20 %** : HYPER +20.2%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
