@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-02 10:56 (Paris)
+# Brief Station — 2026-08-02 11:01 (Paris)
 
 ## 🔴 EQUIPAGE
 - ARBITRE : 1 echec et avis vieux de 25 h
@@ -25,7 +25,7 @@
 
 **P&L paper cumule (hors temoin)** : -140.59 $
 
-**BTC** 63180 $ — ret 1j +0.62% · 7j -3.34% · 30j +0.97%
+**BTC** 63209 $ — ret 1j +0.67% · 7j -3.30% · 30j +1.01%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
