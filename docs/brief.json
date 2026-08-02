@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-02T09:15:39.778940+00:00",
+ "ts": "2026-08-02T09:30:55.612745+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -18,11 +18,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 343,
-   "esperance": -0.0899,
-   "t": -1.11,
-   "pnl": -30.84,
-   "pnl_j": -4.469,
+   "n": 345,
+   "esperance": -0.0856,
+   "t": -1.06,
+   "pnl": -29.53,
+   "pnl_j": -4.28,
    "fwd_j": 6.9
   },
   "27a_rev_premium": {
@@ -40,8 +40,8 @@
    "esperance": 2.7143,
    "t": 1.47,
    "pnl": 176.43,
-   "pnl_j": 4.512,
-   "fwd_j": 39.1
+   "pnl_j": 4.501,
+   "fwd_j": 39.2
   },
   "27c_mom_move": {
    "statut": "ORANGE",
@@ -49,8 +49,8 @@
    "esperance": -2.8543,
    "t": -1.55,
    "pnl": -185.53,
-   "pnl_j": -4.745,
-   "fwd_j": 39.1
+   "pnl_j": -4.733,
+   "fwd_j": 39.2
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -117,13 +117,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0073,
-  "ret7": -0.0324,
-  "ret30": 0.0107,
-  "prix": 63246
+  "ret1": 0.0069,
+  "ret7": -0.0327,
+  "ret30": 0.0104,
+  "prix": 63226
  },
- "evenements_extremes": [],
+ "evenements_extremes": [
+  {
+   "coin": "HYPER",
+   "move_pct": 37.8
+  }
+ ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-02T09:30",
+   "bot": "25_convergence_basis",
+   "marche": "SAGA-long",
+   "pnl": 1.56
+  },
+  {
+   "ts": "2026-08-02T09:30",
+   "bot": "25_convergence_basis",
+   "marche": "PENGU-long",
+   "pnl": -0.25
+  },
+  {
+   "ts": "2026-08-02T09:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-02T09:15",
    "bot": "10_controle_aleatoire",
@@ -153,24 +176,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-02T08:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-02T08:00",
-   "bot": "25_convergence_basis",
-   "marche": "CASHCAT-short",
-   "pnl": -0.94
-  },
-  {
-   "ts": "2026-08-02T08:00",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -184,9 +189,9 @@
   "arbitre_echecs": 1,
   "superviseur_echecs": 1,
   "veilleur_echecs": 0,
-  "age_avis_h": 25.4,
+  "age_avis_h": 25.6,
   "problemes": [
-   "ARBITRE : 1 echec et avis vieux de 25 h",
+   "ARBITRE : 1 echec et avis vieux de 26 h",
    "SUPERVISEUR : 1 echec(s) (hebdo : 1 echec = 1 semaine muette)"
   ]
  },
