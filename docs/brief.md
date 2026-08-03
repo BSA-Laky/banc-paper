@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-03 10:31 (Paris)
+# Brief Station — 2026-08-03 10:46 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: esp20 -1.02 < borne -0.89 -> COUPER LE BOT
@@ -26,7 +26,7 @@
 
 **P&L paper cumule (hors temoin)** : -232.89 $
 
-**BTC** 62333 $ — ret 1j -1.92% · 7j -2.20% · 30j -1.26%
+**BTC** 62415 $ — ret 1j -1.80% · 7j -2.07% · 30j -1.13%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
