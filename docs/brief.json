@@ -201,7 +201,8 @@
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
   "age_avis_h": 3.1,
-  "problemes": []
+  "problemes": [],
+  "mode": "attente_recharge_api"
  },
  "autofinancement": {
   "cout_api_usd_dernier_releve": 18.73,
@@ -209,5 +210,93 @@
   "revenus_reels_eur": 0,
   "cible_remboursement_eur": 35.0,
   "reste_eur": 35.0
+ },
+ "avertissement_donnees": {
+  "coupure_comptable": "2026-07-26",
+  "bots_concernes": [
+   "28_carry_hold",
+   "23_carry_funding",
+   "25_convergence_basis"
+  ],
+  "regle": "Toute statistique de ces bots ANTERIEURE a la coupure est INVALIDE : elle mesurait abs(funding) sans terme de prix. Ne JAMAIS la citer, meme si elle figure dans ta memoire longue.",
+  "n_officiels_post_coupure": {
+   "24_funding_multivenues": {
+    "n": 171,
+    "t": -3.3,
+    "esperance": -0.5092
+   },
+   "25_convergence_basis": {
+    "n": 399,
+    "t": -1.79,
+    "esperance": -0.1478
+   },
+   "27a_rev_premium": {
+    "n": 50,
+    "t": -0.68,
+    "esperance": -1.4312
+   },
+   "27b_rev_move": {
+    "n": 66,
+    "t": 1.62,
+    "esperance": 2.975
+   },
+   "27c_mom_move": {
+    "n": 66,
+    "t": -1.7,
+    "esperance": -3.115
+   },
+   "27d_rev_move_stop": {
+    "n": 84,
+    "t": 0.31,
+    "esperance": 0.4849
+   },
+   "27e_arbitre": {
+    "n": 30,
+    "t": -0.4,
+    "esperance": -1.0046
+   },
+   "27f10_selecteur": {
+    "n": 166,
+    "t": 0.37,
+    "esperance": 0.2811
+   },
+   "27f_selecteur": {
+    "n": 45,
+    "t": -1.22,
+    "esperance": -2.6322
+   },
+   "27g10_selecteur": {
+    "n": 41,
+    "t": 0.17,
+    "esperance": 0.3552
+   },
+   "28_carry_hold": {
+    "n": 8,
+    "t": -0.5,
+    "esperance": -1.1732
+   },
+   "29_carry_neutre": {
+    "n": 6,
+    "t": -0.54,
+    "esperance": -4.1776
+   },
+   "rd_h2": {
+    "n": 102,
+    "t": 1.02,
+    "esperance": 0.3421
+   }
+  },
+  "exemple_de_donnee_perimee": "28_carry_hold n=83 t=3,73 E=4,01 -- ce sont exactement les 83 trades ECARTES le 26/07. Si tu lis cela quelque part, c'est perime.",
+  "verdicts_decomposition": {
+   "25_convergence_basis": "EN COURS",
+   "28_carry_hold": "EN COURS",
+   "29_carry_neutre": "EN COURS"
+  }
+ },
+ "mode_station": {
+  "mode": "attente_recharge_api",
+  "message": "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne.",
+  "banc_deterministe": "actif",
+  "maj": "2026-08-03T14:49:15.139769+00:00"
  }
 }

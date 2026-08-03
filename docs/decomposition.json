@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-03T11:37:05.858910+00:00",
+ "ts": "2026-08-03T14:49:15.138666+00:00",
  "criteres": {
   "funding_t_min": 2.0,
   "prix_ic95_contient_0": true,
@@ -8,29 +8,28 @@
  },
  "bots": {
   "25_convergence_basis": {
-   "n_jambes": 71,
+   "n_jambes": 73,
    "funding": {
-    "moyenne_pct": 0.04072,
-    "t": 1.98
+    "moyenne_pct": 0.04436,
+    "t": 2.17
    },
    "prix": {
-    "moyenne_pct": -0.41388,
-    "t": -1.55,
+    "moyenne_pct": -0.34152,
+    "t": -1.27,
     "ic95_pct": [
-     -0.93659,
-     0.10883
+     -0.86972,
+     0.18668
     ]
    },
    "frais": {
     "moyenne_pct": 0.09
    },
-   "esperance_nette_pct": -0.04928,
-   "ecart_neutralite": 0.5,
+   "esperance_nette_pct": -0.04564,
+   "ecart_neutralite": 0.666667,
    "verdict": "EN COURS",
    "raisons": [
-    "funding t 1.98 < 2.0 (capture non significative)",
-    "E[funding] 0.00041 <= E[frais] 0.00090",
-    "ecart de neutralite 0.50 > 0.10 (livre nu)"
+    "E[funding] 0.00044 <= E[frais] 0.00090",
+    "ecart de neutralite 0.67 > 0.10 (livre nu)"
    ]
   },
   "28_carry_hold": {
@@ -51,11 +50,11 @@
     "moyenne_pct": 0.09
    },
    "esperance_nette_pct": 0.04451,
-   "ecart_neutralite": 0.428571,
+   "ecart_neutralite": 0.5,
    "verdict": "EN COURS",
    "raisons": [
     "n 5 < 20 jambes fermees",
-    "ecart de neutralite 0.43 > 0.10 (livre nu)"
+    "ecart de neutralite 0.50 > 0.10 (livre nu)"
    ]
   },
   "29_carry_neutre": {
