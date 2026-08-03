@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-03 23:31 (Paris)
+# Brief Station — 2026-08-03 23:45 (Paris)
 
 ## 🔴 ALERTES
 - 27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.
@@ -15,18 +15,18 @@
 | 27b_rev_move | ORANGE | 66 | 2.975 | 1.62 | 196.35 | 4.824 | 40.7 j |
 | 27c_mom_move | ORANGE | 66 | -3.115 | -1.7 | -205.59 | -5.051 | 40.7 j |
 | 27d_rev_move_stop | ORANGE | 86 | 0.11 | 0.07 | 9.46 | 0.27 | 35.0 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.966 | 31.2 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.963 | 31.3 j |
 | 27f10_selecteur | ORANGE | 168 | 0.3125 | 0.42 | 52.49 | 1.738 | 30.2 j |
 | 27f_selecteur | ORANGE | 45 | -2.6322 | -1.22 | -118.45 | -3.922 | 30.2 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.647 | 22.5 j |
-| 28_carry_hold | GRIS | 8 | -1.1732 | -0.5 | -9.39 | -1.173 | 8.0 j |
-| 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -3.133 | 8.0 j |
+| 28_carry_hold | GRIS | 8 | -1.1732 | -0.5 | -9.39 | -1.159 | 8.1 j |
+| 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -3.095 | 8.1 j |
 | rd_h2 | ORANGE | 105 | 0.239 | 0.69 | 25.09 | 3.023 | 8.3 j |
 
 **P&L paper cumule (hors temoin)** : -296.05 $
 
-**BTC** 63703 $ — ret 1j +0.23% · 7j -0.05% · 30j +0.91%
-**Moves 24h ≥ 20 %** : CASHCAT +50.4%
+**BTC** 63638 $ — ret 1j +0.13% · 7j -0.15% · 30j +0.81%
+**Moves 24h ≥ 20 %** : CASHCAT +52.9%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
