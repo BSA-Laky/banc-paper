@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-03 14:01 (Paris)
+# Brief Station — 2026-08-03 14:15 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: esp20 -0.92 < borne -0.90 -> COUPER LE BOT
@@ -20,13 +20,13 @@
 | 27f10_selecteur | ORANGE | 166 | 0.2811 | 0.37 | 46.67 | 1.566 | 29.8 j |
 | 27f_selecteur | ORANGE | 45 | -2.6322 | -1.22 | -118.45 | -3.975 | 29.8 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.659 | 22.1 j |
-| 28_carry_hold | GRIS | 8 | -1.1732 | -0.5 | -9.39 | -1.235 | 7.6 j |
-| 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -3.298 | 7.6 j |
+| 28_carry_hold | GRIS | 8 | -1.1732 | -0.5 | -9.39 | -1.219 | 7.7 j |
+| 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -3.255 | 7.7 j |
 | rd_h2 | ORANGE | 100 | 0.3342 | 0.98 | 33.42 | 4.231 | 7.9 j |
 
 **P&L paper cumule (hors temoin)** : -280.71 $
 
-**BTC** 62566 $ — ret 1j -1.56% · 7j -1.84% · 30j -0.89%
+**BTC** 62558 $ — ret 1j -1.57% · 7j -1.85% · 30j -0.90%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
