@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-03 05:01 (Paris)
+# Brief Station — 2026-08-03 05:15 (Paris)
 
 ## 🔴 ALERTES
 - 27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.
@@ -10,7 +10,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.155 | 40.4 j |
-| 25_convergence_basis | ORANGE | 371 | -0.1156 | -1.38 | -42.89 | -5.643 | 7.6 j |
+| 25_convergence_basis | ORANGE | 372 | -0.131 | -1.54 | -48.75 | -6.414 | 7.6 j |
 | 27a_rev_premium | ORANGE | 48 | -0.9096 | -0.42 | -43.66 | -1.083 | 40.3 j |
 | 27b_rev_move | ORANGE | 65 | 2.7143 | 1.47 | 176.43 | 4.422 | 39.9 j |
 | 27c_mom_move | ORANGE | 65 | -2.8543 | -1.55 | -185.53 | -4.65 | 39.9 j |
@@ -23,9 +23,9 @@
 | 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -3.434 | 7.3 j |
 | rd_h2 | ORANGE | 98 | 0.3561 | 1.03 | 34.89 | 4.653 | 7.5 j |
 
-**P&L paper cumule (hors temoin)** : -205.55 $
+**P&L paper cumule (hors temoin)** : -211.41 $
 
-**BTC** 63118 $ — ret 1j -0.69% · 7j -0.97% · 30j -0.01%
+**BTC** 63076 $ — ret 1j -0.76% · 7j -1.04% · 30j -0.08%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
