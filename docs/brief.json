@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-03T04:09:29.476512+00:00",
+ "ts": "2026-08-03T04:15:45.759362+00:00",
  "alertes": [
   "27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree."
  ],
@@ -96,8 +96,8 @@
    "esperance": 0.3552,
    "t": 0.17,
    "pnl": 14.56,
-   "pnl_j": 0.671,
-   "fwd_j": 21.7
+   "pnl_j": 0.668,
+   "fwd_j": 21.8
   },
   "28_carry_hold": {
    "statut": "GRIS",
@@ -128,13 +128,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0107,
-  "ret7": -0.0134,
-  "ret30": -0.0039,
-  "prix": 62879
+  "ret1": -0.0105,
+  "ret7": -0.0133,
+  "ret30": -0.0038,
+  "prix": 62890
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-03T04:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-03T04:09",
    "bot": "10_controle_aleatoire",
@@ -176,12 +182,6 @@
    "bot": "25_convergence_basis",
    "marche": "SAGA-long",
    "pnl": 0.28
-  },
-  {
-   "ts": "2026-08-03T03:01",
-   "bot": "25_convergence_basis",
-   "marche": "XPL-long",
-   "pnl": -0.8
   }
  ],
  "calibration_arbitre": {
@@ -195,7 +195,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.0,
+  "age_avis_h": 0.1,
   "problemes": []
  },
  "autofinancement": {
