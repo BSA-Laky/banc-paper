@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-03T21:45:38.898344+00:00",
+ "ts": "2026-08-03T22:01:12.733826+00:00",
  "alertes": [
   "27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree."
  ],
@@ -128,18 +128,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0013,
-  "ret7": -0.0015,
-  "ret30": 0.0081,
-  "prix": 63638
+  "ret1": 0.0003,
+  "ret7": -0.0025,
+  "ret30": 0.0071,
+  "prix": 63577
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 52.9
+   "move_pct": 54.5
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-03T22:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-03T21:45",
    "bot": "10_controle_aleatoire",
@@ -181,12 +187,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-03T20:45",
-   "bot": "25_convergence_basis",
-   "marche": "ALGO-long",
-   "pnl": -0.59
   }
  ],
  "calibration_arbitre": {
@@ -200,7 +200,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.0,
+  "age_avis_h": 1.3,
   "problemes": []
  },
  "autofinancement": {
