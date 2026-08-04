@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-04 09:01 (Paris)
+# Brief Station — 2026-08-04 09:15 (Paris)
 
 ## 🔴 ALERTES
 - **BANC SUSPECT** : un temoin a |t| >= 2 — ne rien conclure.
@@ -11,12 +11,12 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.098 | 41.5 j |
-| 25_convergence_basis | ORANGE | 444 | -0.1688 | -2.2 | -74.95 | -8.517 | 8.8 j |
-| 27a_rev_premium | ORANGE | 51 | -1.2224 | -0.59 | -62.34 | -1.506 | 41.4 j |
-| 27b_rev_move | ORANGE | 66 | 2.975 | 1.62 | 196.35 | 4.789 | 41.0 j |
-| 27c_mom_move | ORANGE | 66 | -3.115 | -1.7 | -205.59 | -5.014 | 41.0 j |
+| 25_convergence_basis | ORANGE | 445 | -0.1742 | -2.27 | -77.52 | -8.809 | 8.8 j |
+| 27a_rev_premium | ORANGE | 52 | -2.3268 | -1.0 | -121.0 | -2.923 | 41.4 j |
+| 27b_rev_move | ORANGE | 66 | 2.975 | 1.62 | 196.35 | 4.777 | 41.1 j |
+| 27c_mom_move | ORANGE | 66 | -3.115 | -1.7 | -205.59 | -5.002 | 41.1 j |
 | 27d_rev_move_stop | ORANGE | 88 | -0.051 | -0.03 | -4.49 | -0.127 | 35.4 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.954 | 31.6 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.951 | 31.7 j |
 | 27f10_selecteur | ORANGE | 169 | 0.0566 | 0.07 | 9.56 | 0.312 | 30.6 j |
 | 27f_selecteur | ORANGE | 45 | -2.6322 | -1.22 | -118.45 | -3.871 | 30.6 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.636 | 22.9 j |
@@ -24,10 +24,10 @@
 | 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.984 | 8.4 j |
 | rd_h2 | ORANGE | 109 | 0.2749 | 0.82 | 29.97 | 3.444 | 8.7 j |
 
-**P&L paper cumule (hors temoin)** : -367.05 $
+**P&L paper cumule (hors temoin)** : -428.28 $
 
-**BTC** 63635 $ — ret 1j +0.23% · 7j -0.42% · 30j +0.00%
-**Moves 24h ≥ 20 %** : CASHCAT +60.1%
+**BTC** 63562 $ — ret 1j +0.11% · 7j -0.54% · 30j -0.11%
+**Moves 24h ≥ 20 %** : CASHCAT +58.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
