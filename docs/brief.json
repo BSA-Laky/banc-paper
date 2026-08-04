@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-04T09:30:58.164952+00:00",
+ "ts": "2026-08-04T09:45:48.809278+00:00",
  "alertes": [
   "27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree."
  ],
@@ -69,8 +69,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.951,
-   "fwd_j": 31.7
+   "pnl_j": -0.948,
+   "fwd_j": 31.8
   },
   "27f10_selecteur": {
    "statut": "ORANGE",
@@ -105,8 +105,8 @@
    "esperance": -3.124,
    "t": -1.1,
    "pnl": -28.12,
-   "pnl_j": -3.308,
-   "fwd_j": 8.5
+   "pnl_j": -3.269,
+   "fwd_j": 8.6
   },
   "29_carry_neutre": {
    "statut": "GRIS",
@@ -114,8 +114,8 @@
    "esperance": -4.1776,
    "t": -0.54,
    "pnl": -25.07,
-   "pnl_j": -2.949,
-   "fwd_j": 8.5
+   "pnl_j": -2.915,
+   "fwd_j": 8.6
   },
   "rd_h2": {
    "statut": "ORANGE",
@@ -128,18 +128,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0009,
-  "ret7": -0.0056,
-  "ret30": -0.0013,
-  "prix": 63550
+  "ret1": 0.0005,
+  "ret7": -0.006,
+  "ret30": -0.0018,
+  "prix": 63521
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 50.3
+   "move_pct": 48.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-04T09:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-04T09:30",
    "bot": "27f10_selecteur",
@@ -181,12 +187,6 @@
    "bot": "25_convergence_basis",
    "marche": "KAITO-short",
    "pnl": 0.5
-  },
-  {
-   "ts": "2026-08-04T09:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -200,7 +200,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.8,
+  "age_avis_h": 1.0,
   "problemes": []
  },
  "autofinancement": {

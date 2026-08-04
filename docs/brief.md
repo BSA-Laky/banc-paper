@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-04 11:30 (Paris)
+# Brief Station — 2026-08-04 11:45 (Paris)
 
 ## 🔴 ALERTES
 - **BANC SUSPECT** : un temoin a |t| >= 2 — ne rien conclure.
@@ -16,18 +16,18 @@
 | 27b_rev_move | ORANGE | 66 | 2.975 | 1.62 | 196.35 | 4.766 | 41.2 j |
 | 27c_mom_move | ORANGE | 66 | -3.115 | -1.7 | -205.59 | -4.99 | 41.2 j |
 | 27d_rev_move_stop | ORANGE | 88 | -0.051 | -0.03 | -4.49 | -0.126 | 35.5 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.951 | 31.7 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.948 | 31.8 j |
 | 27f10_selecteur | ORANGE | 170 | 0.0386 | 0.05 | 6.56 | 0.214 | 30.7 j |
 | 27f_selecteur | ORANGE | 45 | -2.6322 | -1.22 | -118.45 | -3.858 | 30.7 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.633 | 23.0 j |
-| 28_carry_hold | GRIS | 9 | -3.124 | -1.1 | -28.12 | -3.308 | 8.5 j |
-| 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.949 | 8.5 j |
+| 28_carry_hold | GRIS | 9 | -3.124 | -1.1 | -28.12 | -3.269 | 8.6 j |
+| 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.915 | 8.6 j |
 | rd_h2 | ORANGE | 110 | 0.2081 | 0.61 | 22.89 | 2.601 | 8.8 j |
 
 **P&L paper cumule (hors temoin)** : -455.85 $
 
-**BTC** 63550 $ — ret 1j +0.09% · 7j -0.56% · 30j -0.13%
-**Moves 24h ≥ 20 %** : CASHCAT +50.3%
+**BTC** 63521 $ — ret 1j +0.05% · 7j -0.60% · 30j -0.18%
+**Moves 24h ≥ 20 %** : CASHCAT +48.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
