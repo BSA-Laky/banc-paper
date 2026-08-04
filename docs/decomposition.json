@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-04T13:17:49.164850+00:00",
+ "ts": "2026-08-04T15:57:15.778159+00:00",
  "criteres": {
   "funding_t_min": 2.0,
   "prix_ic95_contient_0": true,
@@ -8,54 +8,54 @@
  },
  "bots": {
   "25_convergence_basis": {
-   "n_jambes": 127,
+   "n_jambes": 130,
    "funding": {
-    "moyenne_pct": 0.03394,
+    "moyenne_pct": 0.03315,
     "t": 2.69
    },
    "prix": {
-    "moyenne_pct": -0.29843,
+    "moyenne_pct": -0.29211,
     "t": -1.74,
     "ic95_pct": [
-     -0.63501,
-     0.03814
+     -0.6219,
+     0.03768
     ]
    },
    "frais": {
     "moyenne_pct": 0.09
    },
-   "esperance_nette_pct": -0.05606,
-   "ecart_neutralite": 0.333333,
+   "esperance_nette_pct": -0.05685,
+   "ecart_neutralite": 1.0,
    "verdict": "EN COURS",
    "raisons": [
-    "E[funding] 0.00034 <= E[frais] 0.00090",
-    "ecart de neutralite 0.33 > 0.10 (livre nu)"
+    "E[funding] 0.00033 <= E[frais] 0.00090",
+    "ecart de neutralite 1.00 > 0.10 (livre nu)"
    ]
   },
   "28_carry_hold": {
-   "n_jambes": 6,
+   "n_jambes": 7,
    "funding": {
-    "moyenne_pct": 0.5493,
-    "t": 1.32
+    "moyenne_pct": 0.69299,
+    "t": 1.82
    },
    "prix": {
-    "moyenne_pct": -5.5563,
-    "t": -1.45,
+    "moyenne_pct": -2.34459,
+    "t": -0.51,
     "ic95_pct": [
-     -13.08825,
-     1.97565
+     -11.29713,
+     6.60796
     ]
    },
    "frais": {
     "moyenne_pct": 0.09
    },
-   "esperance_nette_pct": 0.4593,
-   "ecart_neutralite": 0.333333,
+   "esperance_nette_pct": 0.60299,
+   "ecart_neutralite": 0.25,
    "verdict": "EN COURS",
    "raisons": [
-    "n 6 < 20 jambes fermees",
-    "funding t 1.32 < 2.0 (capture non significative)",
-    "ecart de neutralite 0.33 > 0.10 (livre nu)"
+    "n 7 < 20 jambes fermees",
+    "funding t 1.82 < 2.0 (capture non significative)",
+    "ecart de neutralite 0.25 > 0.10 (livre nu)"
    ]
   },
   "29_carry_neutre": {
