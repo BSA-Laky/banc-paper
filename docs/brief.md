@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-04 15:15 (Paris)
+# Brief Station — 2026-08-04 15:31 (Paris)
 
 ## 🔴 ALERTES
 - **BANC SUSPECT** : un temoin a |t| >= 2 — ne rien conclure.
@@ -11,7 +11,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.083 | 41.8 j |
-| 25_convergence_basis | ORANGE | 461 | -0.1672 | -2.25 | -77.08 | -8.565 | 9.0 j |
+| 25_convergence_basis | ORANGE | 462 | -0.1661 | -2.24 | -76.75 | -8.528 | 9.0 j |
 | 27a_rev_premium | ORANGE | 53 | -2.27 | -1.0 | -120.31 | -2.885 | 41.7 j |
 | 27b_rev_move | ORANGE | 67 | 2.3064 | 1.2 | 154.53 | 3.742 | 41.3 j |
 | 27c_mom_move | ORANGE | 67 | -2.4464 | -1.27 | -163.91 | -3.969 | 41.3 j |
@@ -24,10 +24,10 @@
 | 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.881 | 8.7 j |
 | rd_h2 | ORANGE | 112 | 0.2591 | 0.77 | 29.02 | 3.225 | 9.0 j |
 
-**P&L paper cumule (hors temoin)** : -408.17 $
+**P&L paper cumule (hors temoin)** : -407.84 $
 
-**BTC** 63924 $ — ret 1j +0.68% · 7j +0.03% · 30j +0.45%
-**Moves 24h ≥ 20 %** : CASHCAT +57.2%
+**BTC** 63997 $ — ret 1j +0.80% · 7j +0.14% · 30j +0.57%
+**Moves 24h ≥ 20 %** : CASHCAT +52.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
