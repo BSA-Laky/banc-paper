@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-04 05:51 (Paris)
+# Brief Station — 2026-08-04 06:01 (Paris)
 
 ## 🔴 ALERTES
 - **BANC SUSPECT** : un temoin a |t| >= 2 — ne rien conclure.
@@ -26,8 +26,8 @@
 
 **P&L paper cumule (hors temoin)** : -354.87 $
 
-**BTC** 63797 $ — ret 1j +0.48% · 7j -0.17% · 30j +0.25%
-**Moves 24h ≥ 20 %** : CASHCAT +59.8%
+**BTC** 63772 $ — ret 1j +0.44% · 7j -0.21% · 30j +0.22%
+**Moves 24h ≥ 20 %** : CASHCAT +61.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
