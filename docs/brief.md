@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-04 21:31 (Paris)
+# Brief Station — 2026-08-04 21:45 (Paris)
 
 ## 🔴 ALERTES
 - **BANC SUSPECT** : un temoin a |t| >= 2 — ne rien conclure.
@@ -10,9 +10,9 @@
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.073 | 42.0 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.068 | 42.1 j |
 | 25_convergence_basis | ORANGE | 484 | -0.1756 | -2.47 | -84.98 | -9.138 | 9.3 j |
-| 27a_rev_premium | ORANGE | 53 | -2.27 | -1.0 | -120.31 | -2.871 | 41.9 j |
+| 27a_rev_premium | ORANGE | 53 | -2.27 | -1.0 | -120.31 | -2.865 | 42.0 j |
 | 27b_rev_move | ORANGE | 67 | 2.3064 | 1.2 | 154.53 | 3.715 | 41.6 j |
 | 27c_mom_move | ORANGE | 67 | -2.4464 | -1.27 | -163.91 | -3.94 | 41.6 j |
 | 27d_rev_move_stop | ORANGE | 88 | -0.051 | -0.03 | -4.49 | -0.125 | 35.9 j |
@@ -26,7 +26,7 @@
 
 **P&L paper cumule (hors temoin)** : -380.52 $
 
-**BTC** 64270 $ — ret 1j +1.23% · 7j +0.57% · 30j +1.00%
+**BTC** 64351 $ — ret 1j +1.35% · 7j +0.70% · 30j +1.13%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
