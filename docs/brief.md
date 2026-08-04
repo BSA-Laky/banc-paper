@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-04 13:45 (Paris)
+# Brief Station — 2026-08-04 14:01 (Paris)
 
 ## 🔴 ALERTES
 - **BANC SUSPECT** : un temoin a |t| >= 2 — ne rien conclure.
@@ -11,12 +11,12 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.088 | 41.7 j |
-| 25_convergence_basis | ORANGE | 456 | -0.1633 | -2.18 | -74.44 | -8.271 | 9.0 j |
+| 25_convergence_basis | ORANGE | 458 | -0.1653 | -2.21 | -75.72 | -8.413 | 9.0 j |
 | 27a_rev_premium | ORANGE | 53 | -2.27 | -1.0 | -120.31 | -2.892 | 41.6 j |
-| 27b_rev_move | ORANGE | 67 | 2.3064 | 1.2 | 154.53 | 3.751 | 41.2 j |
-| 27c_mom_move | ORANGE | 67 | -2.4464 | -1.27 | -163.91 | -3.978 | 41.2 j |
+| 27b_rev_move | ORANGE | 67 | 2.3064 | 1.2 | 154.53 | 3.742 | 41.3 j |
+| 27c_mom_move | ORANGE | 67 | -2.4464 | -1.27 | -163.91 | -3.969 | 41.3 j |
 | 27d_rev_move_stop | ORANGE | 88 | -0.051 | -0.03 | -4.49 | -0.126 | 35.6 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.948 | 31.8 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.945 | 31.9 j |
 | 27f10_selecteur | ORANGE | 170 | 0.0386 | 0.05 | 6.56 | 0.213 | 30.8 j |
 | 27f_selecteur | ORANGE | 46 | -1.6663 | -0.72 | -76.65 | -2.489 | 30.8 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.63 | 23.1 j |
@@ -24,10 +24,10 @@
 | 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.915 | 8.6 j |
 | rd_h2 | ORANGE | 112 | 0.2591 | 0.77 | 29.02 | 3.261 | 8.9 j |
 
-**P&L paper cumule (hors temoin)** : -405.53 $
+**P&L paper cumule (hors temoin)** : -406.81 $
 
-**BTC** 63869 $ — ret 1j +0.59% · 7j -0.06% · 30j +0.37%
-**Moves 24h ≥ 20 %** : CASHCAT +48.6%
+**BTC** 63864 $ — ret 1j +0.59% · 7j -0.07% · 30j +0.36%
+**Moves 24h ≥ 20 %** : CASHCAT +52.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
