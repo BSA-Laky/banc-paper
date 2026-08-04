@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-04T16:31:00.752194+00:00",
+ "ts": "2026-08-04T16:45:41.099983+00:00",
  "alertes": [
   "27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree."
  ],
@@ -42,8 +42,8 @@
    "esperance": 2.3064,
    "t": 1.2,
    "pnl": 154.53,
-   "pnl_j": 3.733,
-   "fwd_j": 41.4
+   "pnl_j": 3.724,
+   "fwd_j": 41.5
   },
   "27c_mom_move": {
    "statut": "ORANGE",
@@ -51,8 +51,8 @@
    "esperance": -2.4464,
    "t": -1.27,
    "pnl": -163.91,
-   "pnl_j": -3.959,
-   "fwd_j": 41.4
+   "pnl_j": -3.95,
+   "fwd_j": 41.5
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -101,11 +101,11 @@
   },
   "28_carry_hold": {
    "statut": "GRIS",
-   "n": 10,
-   "esperance": -1.0698,
-   "t": -0.33,
-   "pnl": -10.7,
-   "pnl_j": -1.216,
+   "n": 11,
+   "esperance": 0.6221,
+   "t": 0.18,
+   "pnl": 6.84,
+   "pnl_j": 0.778,
    "fwd_j": 8.8
   },
   "29_carry_neutre": {
@@ -128,10 +128,10 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0075,
-  "ret7": 0.001,
-  "ret30": 0.0052,
-  "prix": 63968
+  "ret1": 0.0069,
+  "ret7": 0.0003,
+  "ret30": 0.0046,
+  "prix": 63927
  },
  "evenements_extremes": [
   {
@@ -140,6 +140,18 @@
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-04T16:45",
+   "bot": "28_carry_hold",
+   "marche": "KAITO-short",
+   "pnl": 17.54
+  },
+  {
+   "ts": "2026-08-04T16:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-04T16:30",
    "bot": "25_convergence_basis",
@@ -175,18 +187,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-04T15:45",
-   "bot": "25_convergence_basis",
-   "marche": "ONDO-long",
-   "pnl": 0.11
-  },
-  {
-   "ts": "2026-08-04T15:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -200,7 +200,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.6,
+  "age_avis_h": 0.8,
   "problemes": []
  },
  "autofinancement": {
