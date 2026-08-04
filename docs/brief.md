@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-04 21:45 (Paris)
+# Brief Station — 2026-08-04 22:01 (Paris)
 
 ## 🔴 ALERTES
 - **BANC SUSPECT** : un temoin a |t| >= 2 — ne rien conclure.
@@ -15,7 +15,7 @@
 | 27a_rev_premium | ORANGE | 53 | -2.27 | -1.0 | -120.31 | -2.865 | 42.0 j |
 | 27b_rev_move | ORANGE | 67 | 2.3064 | 1.2 | 154.53 | 3.715 | 41.6 j |
 | 27c_mom_move | ORANGE | 67 | -2.4464 | -1.27 | -163.91 | -3.94 | 41.6 j |
-| 27d_rev_move_stop | ORANGE | 88 | -0.051 | -0.03 | -4.49 | -0.125 | 35.9 j |
+| 27d_rev_move_stop | ORANGE | 88 | -0.051 | -0.03 | -4.49 | -0.125 | 36.0 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.936 | 32.2 j |
 | 27f10_selecteur | ORANGE | 171 | 0.0528 | 0.07 | 9.03 | 0.29 | 31.1 j |
 | 27f_selecteur | ORANGE | 46 | -1.6663 | -0.72 | -76.65 | -2.465 | 31.1 j |
@@ -26,7 +26,7 @@
 
 **P&L paper cumule (hors temoin)** : -380.52 $
 
-**BTC** 64351 $ — ret 1j +1.35% · 7j +0.70% · 30j +1.13%
+**BTC** 64190 $ — ret 1j +1.10% · 7j +0.44% · 30j +0.87%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 

@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-04T19:45:49.181503+00:00",
+ "ts": "2026-08-04T20:01:12.184914+00:00",
  "alertes": [
   "27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree."
  ],
@@ -61,7 +61,7 @@
    "t": -0.03,
    "pnl": -4.49,
    "pnl_j": -0.125,
-   "fwd_j": 35.9
+   "fwd_j": 36.0
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -128,13 +128,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0135,
-  "ret7": 0.007,
-  "ret30": 0.0113,
-  "prix": 64351
+  "ret1": 0.011,
+  "ret7": 0.0044,
+  "ret30": 0.0087,
+  "prix": 64190
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-04T20:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-04T19:45",
    "bot": "10_controle_aleatoire",
@@ -176,12 +182,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-04T18:30",
-   "bot": "27f10_selecteur",
-   "marche": "sel-KAITO-MOM-tendance_piece",
-   "pnl": 2.46
   }
  ],
  "calibration_arbitre": {
@@ -195,9 +195,8 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.8,
-  "problemes": [],
-  "mode": "attente_recharge_api"
+  "age_avis_h": 0.2,
+  "problemes": []
  },
  "autofinancement": {
   "cout_api_usd_dernier_releve": 18.73,
@@ -205,93 +204,5 @@
   "revenus_reels_eur": 0,
   "cible_remboursement_eur": 35.0,
   "reste_eur": 35.0
- },
- "avertissement_donnees": {
-  "coupure_comptable": "2026-07-26",
-  "bots_concernes": [
-   "28_carry_hold",
-   "23_carry_funding",
-   "25_convergence_basis"
-  ],
-  "regle": "Toute statistique de ces bots ANTERIEURE a la coupure est INVALIDE : elle mesurait abs(funding) sans terme de prix. Ne JAMAIS la citer, meme si elle figure dans ta memoire longue.",
-  "n_officiels_post_coupure": {
-   "24_funding_multivenues": {
-    "n": 171,
-    "t": -3.3,
-    "esperance": -0.5092
-   },
-   "25_convergence_basis": {
-    "n": 484,
-    "t": -2.47,
-    "esperance": -0.1756
-   },
-   "27a_rev_premium": {
-    "n": 53,
-    "t": -1.0,
-    "esperance": -2.27
-   },
-   "27b_rev_move": {
-    "n": 67,
-    "t": 1.2,
-    "esperance": 2.3064
-   },
-   "27c_mom_move": {
-    "n": 67,
-    "t": -1.27,
-    "esperance": -2.4464
-   },
-   "27d_rev_move_stop": {
-    "n": 88,
-    "t": -0.03,
-    "esperance": -0.051
-   },
-   "27e_arbitre": {
-    "n": 30,
-    "t": -0.4,
-    "esperance": -1.0046
-   },
-   "27f10_selecteur": {
-    "n": 171,
-    "t": 0.07,
-    "esperance": 0.0528
-   },
-   "27f_selecteur": {
-    "n": 46,
-    "t": -0.72,
-    "esperance": -1.6663
-   },
-   "27g10_selecteur": {
-    "n": 41,
-    "t": 0.17,
-    "esperance": 0.3552
-   },
-   "28_carry_hold": {
-    "n": 11,
-    "t": 0.18,
-    "esperance": 0.6221
-   },
-   "29_carry_neutre": {
-    "n": 6,
-    "t": -0.54,
-    "esperance": -4.1776
-   },
-   "rd_h2": {
-    "n": 115,
-    "t": 0.72,
-    "esperance": 0.236
-   }
-  },
-  "exemple_de_donnee_perimee": "28_carry_hold n=83 t=3,73 E=4,01 -- ce sont exactement les 83 trades ECARTES le 26/07. Si tu lis cela quelque part, c'est perime.",
-  "verdicts_decomposition": {
-   "25_convergence_basis": "EN COURS",
-   "28_carry_hold": "EN COURS",
-   "29_carry_neutre": "EN COURS"
-  }
- },
- "mode_station": {
-  "mode": "attente_recharge_api",
-  "message": "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne.",
-  "banc_deterministe": "actif",
-  "maj": "2026-08-04T19:48:55.745856+00:00"
  }
 }
