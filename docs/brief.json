@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-05T22:01:08.731781+00:00",
+ "ts": "2026-08-05T22:15:36.964853+00:00",
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.",
   "27f10_selecteur: KILL exécuté (2026-08-05) : R1 décrochage : esp20 -4.78 < borne -4.61 -> COUPER LE BOT"
@@ -16,8 +16,8 @@
    "esperance": -0.5092,
    "t": -3.3,
    "pnl": -87.07,
-   "pnl_j": -2.02,
-   "fwd_j": 43.1
+   "pnl_j": -2.015,
+   "fwd_j": 43.2
   },
   "25_convergence_basis": {
    "statut": "ROUGE",
@@ -34,8 +34,8 @@
    "esperance": -2.27,
    "t": -1.0,
    "pnl": -120.31,
-   "pnl_j": -2.798,
-   "fwd_j": 43.0
+   "pnl_j": -2.791,
+   "fwd_j": 43.1
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -61,8 +61,8 @@
    "esperance": -0.6255,
    "t": -0.45,
    "pnl": -60.05,
-   "pnl_j": -1.623,
-   "fwd_j": 37.0
+   "pnl_j": -1.619,
+   "fwd_j": 37.1
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -129,18 +129,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0103,
-  "ret7": 0.012,
-  "ret30": 0.0105,
-  "prix": 64728
+  "ret1": 0.0091,
+  "ret7": 0.0108,
+  "ret30": 0.0093,
+  "prix": 64650
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 51.6
+   "move_pct": 54.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-05T22:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-05T22:01",
    "bot": "10_controle_aleatoire",
@@ -182,12 +188,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-05T20:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -201,7 +201,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.2,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {
