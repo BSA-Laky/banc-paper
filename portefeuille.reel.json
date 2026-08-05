@@ -2,15 +2,27 @@
  "enveloppe_par_bot_eur": 794,
  "eurusd": 1.07,
  "levier_max": 1,
- "depot_usdc": 947.15, "seuil_funding_reel": 0.0003,
- "age_max_entree_h": 2,
+ "depot_usdc": 947.15,
+
+ "seuil_funding_reel": 0.0001,
+ "age_max_entree_h": 4,
  "hold_max_h": 50,
+
+ "_correctif_05_08_2026": "SEUIL RAMENE DE 0,0003 A 0,0001, ET FENETRE D'ENTREE DE 2 H A 4 H. Mesure du 05/08 sur les 46 perps liquides de HL : mediane du |funding| 0,0000125 (= la composante d'interet fixe : la prime est a ZERO sur plus de 90 % du marche), p95 0,0000345, p99 0,000141, MAXIMUM 0,000406. L'ancien seuil de 0,0003 valait 24 fois la mediane et se situait entre le p99 et le maximum : UNE SEULE piece sur 46 le franchissait. Resultat mesure : ZERO fill mainnet depuis le 26/07, soit 10 jours. Ce n'etait plus un filtre, c'etait un interrupteur en position off. Un bot qui ne trade jamais ne perd rien, mais il ne produit AUCUNE donnee : n reste bloque, la gate ne peut jamais conclure, et l'experience reelle est morte sans que rien ne le signale.",
+
+ "_pourquoi_0_0001": "C'est EXACTEMENT le seuil du bot 28 en paper (seuil_funding=1e-4). Le reel selectionne donc desormais les MEMES signaux que le paper. C'est le correctif du defaut de logique signale par le Commandant : jusqu'ici le paper accumulait des positions pendant que le reel restait muet, donc les deux ne mesuraient pas la meme strategie -- meme faute de fond que le bot 30 (panier d'ETF inexecutable) et que le bot 24 (tue le 29/07 pour avoir mesure un trade impossible). Les statistiques paper redeviennent predictives du reel.",
+
+ "_ce_qui_reste_a_corriger": "Un seuil FIXE reste fragile : il est trop haut dans un marche calme (le cas aujourd'hui) et trop bas dans une manie. Le correctif de fond est un seuil en PERCENTILE du marche courant (par ex. les 5 % de |funding| les plus eleves parmi les pieces liquides), ce qui garde une selectivite constante quel que soit le regime. Cela demande une modification de executeur_reel.py, non faite ici.",
+
+ "_garde_fous_inchanges": "Levier 1x, plafond d'exposition total 850 $, wallet agent trade-only (retrait impossible), kill-switch etat/reel_stop.json. Rien de tout cela n'est touche par ce correctif : on change QUELS signaux sont pris, pas la taille ni le risque par position.",
+
  "_doc": "REGISTRE UNIQUE des bots en argent reel (synergie 23/07). Ajouter/retirer un bot reel = editer CE fichier UNIQUEMENT ; executeur_reel + moniteur + dashboards le lisent.",
- "_doc2": "REGLE FIGEE 15/07 appliquee au reel (audit 24/07) : entree seulement si |funding| >= seuil_funding_reel (trades riches, coef survie ~0,31 sans filtre) ET episode paper age <= age_max_entree_h (fin des entrees tardives) ; sortie forcee a hold_max_h. depot_usdc = total NET des depots (A METTRE A JOUR a chaque depot/retrait : sert au calcul du P&L compte affiche).",
+ "_doc2": "REGLE FIGEE 15/07 appliquee au reel (audit 24/07) : entree seulement si |funding| >= seuil_funding_reel ET episode paper age <= age_max_entree_h ; sortie forcee a hold_max_h. depot_usdc = total NET des depots (A METTRE A JOUR a chaque depot/retrait : sert au calcul du P&L compte affiche).",
+
  "bots": {
   "28_carry_hold": {
    "positions_max": 10,
-   "raison": "promu par OVERRIDE (edge valide out-of-sample t OOS +10) ; n forward < 100 mais deja reel par decision Commandant du 21/07. Chemin unique de promotion anticipee."
+   "raison": "promu par OVERRIDE (edge valide out-of-sample t OOS +10) ; n forward < 100 mais deja reel par decision Commandant du 21/07. Chemin unique de promotion anticipee. ATTENTION 05/08 : statut GRIS, n=15, t=-0,72, P&L paper -71,06 $, compte reel -35,21 $. Aucun critere chiffre du projet n'autorise ce capital engage -- garde_reel.py le signale a chaque passe."
   }
  }
 }
