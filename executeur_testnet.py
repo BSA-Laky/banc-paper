@@ -22,7 +22,7 @@ from bot_27e_arbitre import _parse_ctxs
 ETAT = Path("etat")
 F_STATE = ETAT / "executeur_testnet.json"
 LEDGER = ETAT / "testnet_trades.csv"
-PILOTES = ["28_carry_hold", "25_convergence_basis", "29_carry_neutre"]
+PILOTES = ["28_carry_hold", "29_carry_neutre", "29b_carry_neutre_large", "29c_carry_decale"]
 FICHIER_ETAT = {"28_carry_hold": "etat_bot28.json", "25_convergence_basis": "etat_bot25.json", "29_carry_neutre": "etat_bot29.json"}   # noms non standards
 FRAIS = 0.00035
 
