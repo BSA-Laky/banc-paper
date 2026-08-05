@@ -31,6 +31,11 @@
    "etat": "kill",
    "raison": "PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.",
    "ts": "2026-08-02T09:30:00+00:00"
+  },
+  "27f10_selecteur": {
+   "etat": "kill",
+   "raison": "R1 décrochage : esp20 -4.78 < borne -4.61 -> COUPER LE BOT",
+   "ts": "2026-08-05T17:15:38.672240+00:00"
   }
  },
  "_doc": "Un bot en etat 'kill' n'est plus echantillonne par run_once ; son ledger et son etat sont conserves en archive. Reactivation humaine : 'relance <bot>' sur Telegram.",
