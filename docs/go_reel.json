@@ -1,11 +1,11 @@
 {
- "ts": "2026-08-05T11:30:56.609938+00:00",
+ "ts": "2026-08-05T11:38:25.416202+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 1882,
-   "t_stat": -1.93,
+   "n": 1883,
+   "t_stat": -1.9,
    "sain": true
   }
  },
@@ -27,7 +27,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1809.5,
+   "expo_moyenne_usd": 1809.3,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -39,8 +39,7 @@
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
    "decrochage": false,
    "raisons": [
-    "t < 2",
-    "forward 10 j < 28 j"
+    "KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat."
    ],
    "avertissements": [],
    "mu_ref": null,
@@ -49,8 +48,8 @@
    "trop_beau_audite": null,
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
-   "statut": "ORANGE",
-   "expo_moyenne_usd": 2191.8,
+   "statut": "ROUGE",
+   "expo_moyenne_usd": 2190.7,
    "rendement_j_pct": -0.553
   },
   "27a_rev_premium": {
@@ -74,7 +73,7 @@
    "borne_decrochage": -9.693,
    "statut": "ORANGE",
    "expo_moyenne_usd": 124.4,
-   "rendement_j_pct": -2.27
+   "rendement_j_pct": -2.271
   },
   "27b_rev_move": {
    "n": 68,
@@ -96,7 +95,7 @@
    "borne_decrochage": -5.5368,
    "statut": "ORANGE",
    "expo_moyenne_usd": 161.0,
-   "rendement_j_pct": 1.755
+   "rendement_j_pct": 1.756
   },
   "27c_mom_move": {
    "n": 68,
@@ -142,7 +141,7 @@
    "borne_decrochage": -6.7107,
    "statut": "ORANGE",
    "expo_moyenne_usd": 256.8,
-   "rendement_j_pct": -0.505
+   "rendement_j_pct": -0.506
   },
   "27e_arbitre": {
    "n": 30,
@@ -169,7 +168,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -2.7587,
     "t_welch": -0.86,
-    "delta_rendement_j_pct": -0.6561,
+    "delta_rendement_j_pct": -0.6562,
     "t_welch_jour": -0.21,
     "jours_compares": 33
    }
@@ -193,7 +192,7 @@
    "esp_glissante_20": -3.7688,
    "borne_decrochage": -4.472,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 544.3,
+   "expo_moyenne_usd": 544.2,
    "rendement_j_pct": 0.056
   },
   "27f_selecteur": {
@@ -236,7 +235,7 @@
    "esp_glissante_20": -0.195,
    "borne_decrochage": -5.745,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 170.5,
+   "expo_moyenne_usd": 170.4,
    "rendement_j_pct": 0.354
   },
   "28_carry_hold": {
@@ -254,8 +253,8 @@
    "pnl_par_jour": -7.402,
    "trop_beau_audite": "2026-07-15 : verifie vs funding reel HL (5/5 trades coherents, BLUR 77$ = 83-90$ reels, 0 flip de signe) — regime juillet riche + queue droite (top3 = 63% du P&L). Voir Bot/AUDIT_BOT28.",
    "statut": "GRIS",
-   "expo_moyenne_usd": 301.4,
-   "rendement_j_pct": -2.455
+   "expo_moyenne_usd": 301.3,
+   "rendement_j_pct": -2.457
   },
   "29_carry_neutre": {
    "n": 6,
@@ -272,8 +271,8 @@
    "pnl_par_jour": -2.611,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 689.8,
-   "rendement_j_pct": -0.378
+   "expo_moyenne_usd": 689.5,
+   "rendement_j_pct": -0.379
   },
   "rd_h2": {
    "n": 123,
@@ -295,11 +294,13 @@
    "esp_glissante_20": 0.0784,
    "borne_decrochage": -1.3288,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 1243.2,
-   "rendement_j_pct": 0.199
+   "expo_moyenne_usd": 1242.6,
+   "rendement_j_pct": 0.2
   }
  },
- "alertes": [],
+ "alertes": [
+  "25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat."
+ ],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
  ],
@@ -312,9 +313,11 @@
  },
  "cycle_vie": {
   "25_convergence_basis": {
-   "etat": "actif",
-   "relance": "2026-07-23T07:19:27.390936+00:00",
-   "note": "CORRIGE le 29/07/2026 : la note precedente (\"meilleur bot, t 3,56, +399 $\") etait un ARTEFACT COMPTABLE. Le bot cumulait deux fautes (abs(funding) + P&L base sur la convergence du premium au lieu du prix reel). Son execution testnet reelle donnait t = -2,81 sur n = 96. Il a ete migre vers comptabilite.PositionReelle (bot_25_convergence_basis.py) et son historique d'avant le 26/07 est ecarte des statistiques. Il REPART DE ZERO : aucune conclusion ne peut en etre tiree avant plusieurs semaines. TRI DU 02/08 : GARDE (n=343, t=-1,11, esp -0,090 -- pas encore significatif, la regle R4 exige t<=-2 ; a surveiller, c'est le seul bot dont l'esperance derive nettement)."
+   "etat": "kill",
+   "raison": "R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.",
+   "ts": "2026-08-05T13:00:00+00:00",
+   "note_relance_retiree": "Le drapeau 'relance' du 23/07 a ete RETIRE volontairement. Dans moniteur_go_reel.py, la ligne `if b not in KILLABLES or deja.get('relance'): continue` accordait a ce bot une immunite PERPETUELLE contre l'auto-kill : c'est pour cela que la gate l'a laisse deriver de -1,11 a -3,32 sans rien dire. Defaut de conception a corriger a la source : une relance humaine doit donner un SURSIS (14 j par ex.), jamais une immunite definitive, sinon le premier bot qu'on sauve devient increvable quoi qu'il fasse ensuite.",
+   "historique": "CORRIGE le 29/07 : la note (\"meilleur bot, t 3,56, +399 $\") etait un ARTEFACT COMPTABLE (abs(funding) + P&L base sur la convergence du premium au lieu du prix reel). Execution testnet reelle : t = -2,81 sur n = 96. Migre vers comptabilite.PositionReelle, historique d'avant le 26/07 ecarte. Il est reparti de zero le 26/07 et a mis 10 jours a se montrer perdant de facon significative."
   },
   "27e_arbitre": {
    "etat": "kill",
