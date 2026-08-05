@@ -72,7 +72,7 @@ HIST_MAX = 400           # points conserves par relation
 JOURS_AMORCAGE = 90
 
 # Frais aller-retour sur les DEUX jambes, par venue (taker, hypothese prudente).
-FRAIS = {"hyperliquid": 0.00045, "binance": 0.00045, "bybit": 0.00055}
+FRAIS = {"hyperliquid": 0.00045, "paradex": 0.00030, "dydx": 0.00050}
 TENUE_H = 24.0           # duree de detention de reference pour le seuil de frais
 
 
@@ -141,31 +141,40 @@ def hl_funding():
     return out
 
 
-def binance_funding():
-    """{BASE: funding_horaire} — Binance publie un taux par 8 h, on ramene a l'heure."""
-    r = _get("https://fapi.binance.com/fapi/v1/premiumIndex")
-    if not isinstance(r, list):
-        return {}
+def paradex_funding():
+    """{BASE: funding_horaire} sur Paradex. Publie un taux par 8 h -> ramene a l'heure.
+
+    Choix de venue impose par la mesure du 05/08 : Binance ET Bybit geo-bloquent les
+    IP des runners GitHub (situees aux Etats-Unis, erreur 451). Le scan renvoyait
+    {binance: 0, bybit: 0}. Paradex et dYdX repondent, eux.
+    Et ce n'est pas un pis-aller : le SEUL edge reel jamais mesure sur ce projet est
+    precisement le spread HL<->Paradex (t = 7,10 pendant 45 jours, avant compression
+    de 83 %). C'est la bonne venue a surveiller.
+    """
+    r = _get("https://api.prod.paradex.trade/v1/markets/summary?market=ALL")
     out = {}
-    for x in r:
+    for x in (r or {}).get("results") or []:
         s = str(x.get("symbol") or "")
-        if not s.endswith("USDT"):
+        if not s.endswith("-USD-PERP"):
             continue
-        out[s[:-4]] = {"funding": _f(x.get("lastFundingRate")) / 8.0,
-                       "mark": _f(x.get("markPrice"))}
+        mark = _f(x.get("mark_price"))
+        if mark <= 0:
+            continue
+        out[s[:-9]] = {"funding": _f(x.get("funding_rate")) / 8.0, "mark": mark}
     return out
 
 
-def bybit_funding():
-    r = _get("https://api.bybit.com/v5/market/tickers?category=linear")
-    lst = ((r or {}).get("result") or {}).get("list") or []
+def dydx_funding():
+    """{BASE: funding_horaire} sur dYdX v4. nextFundingRate est DEJA horaire."""
+    r = _get("https://indexer.dydx.trade/v4/perpetualMarkets")
     out = {}
-    for x in lst:
-        s = str(x.get("symbol") or "")
-        if not s.endswith("USDT"):
+    for tick, x in ((r or {}).get("markets") or {}).items():
+        if not str(tick).endswith("-USD"):
             continue
-        out[s[:-4]] = {"funding": _f(x.get("fundingRate")) / 8.0,
-                       "mark": _f(x.get("markPrice"))}
+        mark = _f(x.get("oraclePrice"))
+        if mark <= 0:
+            continue
+        out[str(tick)[:-4]] = {"funding": _f(x.get("nextFundingRate")), "mark": mark}
     return out
 
 
@@ -179,9 +188,9 @@ def relations(hl, bn, by):
     moins les frais des deux venues.
     """
     out = {}
-    paires = (("HL-BINANCE", hl, bn, "hyperliquid", "binance"),
-              ("HL-BYBIT", hl, by, "hyperliquid", "bybit"),
-              ("BINANCE-BYBIT", bn, by, "binance", "bybit"))
+    paires = (("HL-PARADEX", hl, bn, "hyperliquid", "paradex"),
+              ("HL-DYDX", hl, by, "hyperliquid", "dydx"),
+              ("PARADEX-DYDX", bn, by, "paradex", "dydx"))
     for nom, A, B, va, vb in paires:
         for coin in set(A) & set(B):
             fa, fb = A[coin]["funding"], B[coin]["funding"]
@@ -232,8 +241,8 @@ def amorcer(hist, coins_hl, budget_s=180.0):
         faits.add(coin)
         h = _post("https://api.hyperliquid.xyz/info",
                   {"type": "fundingHistory", "coin": coin, "startTime": t0, "endTime": t1})
-        b = _get("https://fapi.binance.com/fapi/v1/fundingRate?symbol=%sUSDT&startTime=%d&limit=1000"
-                 % (coin, t0))
+        b = _get("https://api.prod.paradex.trade/v1/funding/data?market=%s-USD-PERP"
+                 "&start_at=%d&end_at=%d&page_size=1" % (coin, t0, t0 + 120000))
         if not isinstance(h, list) or not isinstance(b, list) or not h or not b:
             continue
         H = {int(x["time"]) // 3600000: _f(x["fundingRate"]) for x in h}
@@ -244,7 +253,7 @@ def amorcer(hist, coins_hl, budget_s=180.0):
                 if k + d in H:
                     serie.append(round(H[k + d] - B[k], 10)); break
         if len(serie) >= 30:
-            hist.setdefault("rel", {})["HL-BINANCE:%s" % coin] = serie[-HIST_MAX:]
+            hist.setdefault("rel", {})["HL-PARADEX:%s" % coin] = serie[-HIST_MAX:]
             n += 1
         time.sleep(0.05)
     hist["_amorce"] = datetime.now(timezone.utc).isoformat()
@@ -256,14 +265,14 @@ def amorcer(hist, coins_hl, budget_s=180.0):
 # ----------------------------------------------------------------- passe
 def executer():
     now = datetime.now(timezone.utc)
-    hl, bn, by = hl_funding(), binance_funding(), bybit_funding()
+    hl, bn, by = hl_funding(), paradex_funding(), dydx_funding()
 
     # DEGRADATION PROPRE (constate le 05/08/2026) : Binance geo-bloque les IP des
     # runners GitHub (situes aux Etats-Unis) et renvoie 451. Exiger les trois
     # venues faisait donc echouer chaque passe en 2 s, en silence. Un scanner
     # doit fonctionner avec ce qu'il a : deux venues suffisent a former une
     # relation. On journalise ce qui manque au lieu de rendre la main.
-    dispo = {"hyperliquid": len(hl), "binance": len(bn), "bybit": len(by)}
+    dispo = {"hyperliquid": len(hl), "paradex": len(bn), "dydx": len(by)}
     vivantes = [k for k, v in dispo.items() if v > 0]
     if len(vivantes) < 2:
         print("[scanner] moins de 2 venues joignables %s -> aucune relation possible."
