@@ -1,12 +1,12 @@
 {
- "ts": "2026-08-05T05:45:38.345394+00:00",
+ "ts": "2026-08-05T06:01:07.935242+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
- "banc_suspect": true,
+ "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 1858,
-   "t_stat": -2.02,
-   "sain": false
+   "n": 1859,
+   "t_stat": -2.0,
+   "sain": true
   }
  },
  "bots": {
@@ -27,30 +27,30 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1819.7,
+   "expo_moyenne_usd": 1819.2,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
-   "n": 521,
-   "esperance": -0.2138,
-   "t_stat": -3.17,
-   "mdd_live": 128.86,
+   "n": 523,
+   "esperance": -0.2216,
+   "t_stat": -3.28,
+   "mdd_live": 133.23,
    "jours_forward": 9.7,
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
    "decrochage": true,
    "raisons": [
-    "esp20 -0.93 < borne -0.90 -> COUPER LE BOT"
+    "esp20 -1.04 < borne -0.91 -> COUPER LE BOT"
    ],
    "avertissements": [],
    "mu_ref": null,
-   "pnl_cumule": -111.37,
-   "pnl_par_jour": -11.482,
+   "pnl_cumule": -115.89,
+   "pnl_par_jour": -11.947,
    "trop_beau_audite": null,
-   "esp_glissante_20": -0.9292,
-   "borne_decrochage": -0.902,
+   "esp_glissante_20": -1.0359,
+   "borne_decrochage": -0.9119,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 2236.5,
-   "rendement_j_pct": -0.513
+   "expo_moyenne_usd": 2235.0,
+   "rendement_j_pct": -0.535
   },
   "27a_rev_premium": {
    "n": 53,
@@ -95,7 +95,7 @@
    "borne_decrochage": -4.7469,
    "statut": "ORANGE",
    "expo_moyenne_usd": 159.5,
-   "rendement_j_pct": 2.306
+   "rendement_j_pct": 2.307
   },
   "27c_mom_move": {
    "n": 67,
@@ -118,7 +118,7 @@
    "borne_decrochage": -9.4997,
    "statut": "ORANGE",
    "expo_moyenne_usd": 159.5,
-   "rendement_j_pct": -2.446
+   "rendement_j_pct": -2.447
   },
   "27d_rev_move_stop": {
    "n": 92,
@@ -140,7 +140,7 @@
    "esp_glissante_20": -2.5514,
    "borne_decrochage": -6.6159,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 253.0,
+   "expo_moyenne_usd": 252.9,
    "rendement_j_pct": -0.359
   },
   "27e_arbitre": {
@@ -168,7 +168,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -3.3111,
     "t_welch": -1.04,
-    "delta_rendement_j_pct": -0.6457,
+    "delta_rendement_j_pct": -0.6459,
     "t_welch_jour": -0.21,
     "jours_compares": 33
    }
@@ -178,7 +178,7 @@
    "esperance": 0.0558,
    "t_stat": 0.07,
    "mdd_live": 111.7,
-   "jours_forward": 31.5,
+   "jours_forward": 31.6,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -187,12 +187,12 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 9.66,
-   "pnl_par_jour": 0.307,
+   "pnl_par_jour": 0.306,
    "trop_beau_audite": null,
    "esp_glissante_20": -3.7688,
    "borne_decrochage": -4.472,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 548.4,
+   "expo_moyenne_usd": 548.3,
    "rendement_j_pct": 0.056
   },
   "27f_selecteur": {
@@ -200,7 +200,7 @@
    "esperance": -1.6663,
    "t_stat": -0.72,
    "mdd_live": 192.66,
-   "jours_forward": 31.5,
+   "jours_forward": 31.6,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -210,13 +210,13 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -76.65,
-   "pnl_par_jour": -2.433,
+   "pnl_par_jour": -2.426,
    "trop_beau_audite": null,
    "esp_glissante_20": -0.4791,
    "borne_decrochage": -8.7031,
    "statut": "ORANGE",
    "expo_moyenne_usd": 145.8,
-   "rendement_j_pct": -1.668
+   "rendement_j_pct": -1.664
   },
   "27g10_selecteur": {
    "n": 41,
@@ -237,8 +237,8 @@
    "esp_glissante_20": -0.195,
    "borne_decrochage": -5.745,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 172.2,
-   "rendement_j_pct": 0.355
+   "expo_moyenne_usd": 172.1,
+   "rendement_j_pct": 0.356
   },
   "28_carry_hold": {
    "n": 11,
@@ -255,8 +255,8 @@
    "pnl_par_jour": 0.728,
    "trop_beau_audite": "2026-07-15 : verifie vs funding reel HL (5/5 trades coherents, BLUR 77$ = 83-90$ reels, 0 flip de signe) — regime juillet riche + queue droite (top3 = 63% du P&L). Voir Bot/AUDIT_BOT28.",
    "statut": "GRIS",
-   "expo_moyenne_usd": 228.0,
-   "rendement_j_pct": 0.319
+   "expo_moyenne_usd": 227.7,
+   "rendement_j_pct": 0.32
   },
   "29_carry_neutre": {
    "n": 6,
@@ -273,7 +273,7 @@
    "pnl_par_jour": -2.667,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 707.5,
+   "expo_moyenne_usd": 706.7,
    "rendement_j_pct": -0.377
   },
   "rd_h2": {
@@ -296,12 +296,12 @@
    "esp_glissante_20": -0.6016,
    "borne_decrochage": -1.3381,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 1232.7,
+   "expo_moyenne_usd": 1231.3,
    "rendement_j_pct": 0.208
   }
  },
  "alertes": [
-  "25_convergence_basis: esp20 -0.93 < borne -0.90 -> COUPER LE BOT",
+  "25_convergence_basis: esp20 -1.04 < borne -0.91 -> COUPER LE BOT",
   "27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree."
  ],
  "avertissements": [
