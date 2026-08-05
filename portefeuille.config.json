@@ -1,34 +1,17 @@
 {
-  "commentaire": "Enveloppe de 300 EUR PAR BOT. mise/entree = enveloppe / positions_max. Un bot ne deploie JAMAIS plus que son enveloppe (gestion via portefeuille.py). Retrait = humain. capital_reel_usd = solde HL reel (0 tant que paper).",
-  "enveloppe_par_bot_eur": 300,
-  "eurusd": 1.07,
-  "capital_reel_usd": 0,
-  "bots": {
-    "27b_rev_move": {
-      "positions_max": 3
-    },
-    "27f_selecteur": {
-      "positions_max": 3
-    },
-    "27f10_selecteur": {
-      "positions_max": 10
-    },
-    "27g10_selecteur": {
-      "positions_max": 6
-    },
-    "23_carry_funding": {
-      "positions_max": 6
-    },
-    "24_funding_multivenues": {
-      "positions_max": 6
-    },
-    "25_convergence_basis": {
-      "positions_max": 25
-    },
-    "28_carry_hold": {
-      "positions_max": 10
-    }
-  },
-  "levier_max": 3,
-  "kelly_fraction": 0.25
+ "commentaire": "Enveloppe de 300 EUR PAR BOT. mise/entree = enveloppe / positions_max. Un bot ne deploie JAMAIS plus que son enveloppe (gestion via portefeuille.py). Retrait = humain. capital_reel_usd = solde HL reel.",
+ "_menage_05_08_2026": "Retires de la liste : 23_carry_funding (kill 22/07, code supprime le 29/07), 24_funding_multivenues (kill 29/07), 25_convergence_basis (kill R4 le 05/08), 27g10_selecteur (pause API le 02/08). Ils figuraient encore ici, et c'est CE fichier que lit le panneau 'Enveloppes chargees' de la Station : elle annoncait donc '23_carry_funding 92 %' et '24_funding_multivenues 80 %' pour deux bots morts depuis des semaines. Un bot tue doit sortir d'ici, sinon il continue d'occuper une enveloppe fictive et de fausser l'affichage.",
+ "enveloppe_par_bot_eur": 300,
+ "eurusd": 1.07,
+ "capital_reel_usd": 947.15,
+ "_capital_reel_usd_note": "Etait a 0 avec le commentaire '0 tant que paper'. C'est FAUX depuis le 21/07 : le bot 28 est en argent reel sur mainnet Hyperliquid avec 947,15 $ de depots nets. Le panneau COFFRE de la Station lit cette valeur : il affichait donc 'capital 0 $' et 'Aucun bot promu' sur la meme page qui annonce 'Bot 28 en ARGENT REEL'. Valeur = depot NET (voir portefeuille.reel.json). Equity courante : 911,94 $, soit -35,21 $ (dont -34,30 $ pour l'episode ETH manuel du 29/07). La verite du compte vit dans docs/verite.json.",
+ "bots": {
+  "27b_rev_move": {"positions_max": 3},
+  "27f_selecteur": {"positions_max": 3},
+  "27f10_selecteur": {"positions_max": 10},
+  "28_carry_hold": {"positions_max": 10},
+  "29_carry_neutre": {"positions_max": 6}
+ },
+ "levier_max": 3,
+ "kelly_fraction": 0.25
 }
