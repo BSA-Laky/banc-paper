@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-05 17:15 (Paris)
+# Brief Station — 2026-08-05 17:30 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.
@@ -16,17 +16,17 @@
 | 27c_mom_move | ORANGE | 68 | -1.894 | -0.96 | -128.79 | -3.038 | 42.4 j |
 | 27d_rev_move_stop | ORANGE | 94 | -0.5055 | -0.35 | -47.51 | -1.291 | 36.8 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.913 | 33.0 j |
-| 27f10_selecteur | ORANGE | 174 | 0.0331 | 0.04 | 5.76 | 0.181 | 31.9 j |
-| 27f_selecteur | ORANGE | 47 | -0.8845 | -0.37 | -41.57 | -1.303 | 31.9 j |
+| 27f10_selecteur | ORANGE | 174 | 0.0331 | 0.04 | 5.76 | 0.18 | 32.0 j |
+| 27f_selecteur | ORANGE | 47 | -0.8845 | -0.37 | -41.57 | -1.299 | 32.0 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.602 | 24.2 j |
 | 28_carry_hold | GRIS | 16 | -4.0572 | -0.65 | -64.92 | -6.624 | 9.8 j |
 | 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.558 | 9.8 j |
-| rd_h2 | ORANGE | 126 | 0.2148 | 0.71 | 27.06 | 2.706 | 10.0 j |
+| rd_h2 | ORANGE | 126 | 0.2148 | 0.71 | 27.06 | 2.679 | 10.1 j |
 
 **P&L paper cumule (hors temoin)** : -499.97 $
 
-**BTC** 64540 $ — ret 1j +0.74% · 7j +0.90% · 30j +0.76%
-**Moves 24h ≥ 20 %** : CASHCAT +38.7%, SKR +21.7%
+**BTC** 64503 $ — ret 1j +0.68% · 7j +0.85% · 30j +0.70%
+**Moves 24h ≥ 20 %** : CASHCAT +39.2%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
