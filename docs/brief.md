@@ -1,13 +1,10 @@
-# Brief Station — 2026-08-05 13:38 (Paris)
+# Brief Station — 2026-08-05 13:45 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
-
-## Changements de statut depuis hier
-- 25_convergence_basis : ORANGE → **ROUGE**
 
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -28,8 +25,8 @@
 
 **P&L paper cumule (hors temoin)** : -504.71 $
 
-**BTC** 64081 $ — ret 1j +0.02% · 7j +0.19% · 30j +0.04%
-**Moves 24h ≥ 20 %** : SKR +37.4%, CASHCAT +36.8%
+**BTC** 64038 $ — ret 1j -0.05% · 7j +0.12% · 30j -0.02%
+**Moves 24h ≥ 20 %** : SKR +38.1%, CASHCAT +32.5%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
