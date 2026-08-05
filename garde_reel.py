@@ -89,6 +89,16 @@ F_REGIME = ETAT / "regime_ia.json"
 F_ECHECS = ("arbitre_echecs.json", "superviseur_echecs.json", "veilleur_echecs.json")
 F_COMPOSANTES = ETAT / "composantes.csv"
 F_DECOMPO = DOCS / "decomposition.json"
+# ECRITURE A L'EPREUVE DE LA STATION (constate le 05/08/2026) : run_once.py
+# REGENERE docs/reel.json et docs/go_reel.json a chaque passe (~15 min), tandis
+# que ce module tourne toutes les ~30 min et est en pratique throttle a ~3 h par
+# GitHub. Les corrections ecrites dans ces deux fichiers etaient donc effacees
+# en quelques minutes : le dashboard est reste a +10,66 $ pendant 3 jours alors
+# que le compte etait a -35,21 $. La verite doit vivre dans un fichier que
+# personne d'autre n'ecrit, et les alertes doivent partir SANS passer par un
+# fichier partage. C'est la meme lecon que le 17/07 : une alarme ne doit
+# dependre d'aucun organe qu'elle surveille.
+F_VERITE = DOCS / "verite.json"
 F_REEL_HL = ETAT / "reel_hl.json"
 F_REEL_TRADES = ETAT / "reel_trades.csv"
 F_GO_REEL = DOCS / "go_reel.json"
@@ -611,6 +621,51 @@ def _garde_d4(decompo):
     _ecrire_json(F_BRIEF, brief)
 
 
+def _alerter_github(alertes):
+    """Ouvre UNE issue par jour si une alerte rouge est active.
+
+    Volontairement redondant avec alerte_issue.py : celui-ci lit go_reel.json,
+    que la station reecrit. Si nos alertes n'y survivent pas, elles ne sont
+    jamais notifiees. Ici on parle directement a l'API GitHub.
+    Dedup par titre : une seule issue par jour, jamais de spam.
+    """
+    import os
+    import urllib.error
+    import urllib.request
+    tok = os.environ.get("GITHUB_TOKEN", "")
+    if not tok:
+        return
+    depot = os.environ.get("GITHUB_REPOSITORY", "BSA-Laky/banc-paper")
+    api = "https://api.github.com/repos/%s/issues" % depot
+    titre = "Garde du livre reel — %s" % datetime.now(timezone.utc).date().isoformat()
+
+    def _req(url, data=None, methode="GET"):
+        r = urllib.request.Request(
+            url, method=methode,
+            data=(json.dumps(data).encode("utf-8") if data is not None else None),
+            headers={"Authorization": "Bearer " + tok,
+                     "Accept": "application/vnd.github+json",
+                     "User-Agent": "banc-paper-garde"})
+        try:
+            with urllib.request.urlopen(r, timeout=15) as rep:
+                return json.loads(rep.read().decode("utf-8"))
+        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError,
+                ValueError, OSError) as e:
+            print("[garde_reel] API GitHub KO : %s" % e, flush=True)
+            return None
+
+    ouvertes = _req(api + "?state=open&per_page=50") or []
+    if any(isinstance(i, dict) and i.get("title") == titre for i in ouvertes):
+        return
+    corps = ["_Constat automatique du garde. La gate decide, pas ce message._", "",
+             "## Alertes actives"] + ["- " + a for a in alertes] + [
+        "", "Verite du compte : https://bsa-laky.github.io/banc-paper/verite.json",
+        "", "_docs/reel.json est regenere par la station et perd ces corrections :",
+        "s'y fier pour le P&L reel serait une erreur._"]
+    _req(api, data={"title": titre, "body": "\n".join(corps),
+                    "labels": ["alerte-banc"]}, methode="POST")
+
+
 # ============================================================== point d'entree
 def executer():
     """Une passe complete. Jamais bloquant : toute exception est capturee ici."""
@@ -684,6 +739,28 @@ def executer():
     except Exception as e:  # noqa: BLE001
         print("[garde_reel] mode_station brief a leve : %s" % e, flush=True)
 
+    # --- SORTIE A L'EPREUVE DE LA STATION -----------------------------------
+    hl = _lire_json(F_REEL_HL, {}) or {}
+    interne, n_cl = _estimation_interne()
+    _ecrire_json(F_VERITE, {
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "_lire_ceci": ("Fichier ecrit UNIQUEMENT par garde_reel.py. docs/reel.json "
+                       "et docs/go_reel.json sont regeneres par la station toutes "
+                       "les 15 min et perdent ces corrections : ne pas s'y fier "
+                       "pour le P&L reel."),
+        "pnl_compte_reel": hl.get("pnl_compte"),
+        "equity": hl.get("equity"), "depot": hl.get("depot_usdc"),
+        "prix_realise": hl.get("realized_fills"), "funding": hl.get("funding_net"),
+        "frais": hl.get("fees_total"),
+        "estimation_interne_journal": (round(interne, 3) if interne is not None else None),
+        "ecart_journal_vs_compte": (round(interne - _f(hl.get("pnl_compte")), 2)
+                                    if interne is not None else None),
+        "mode_station": "attente_recharge_api" if eco else "normal",
+        "decomposition": decompo, "alertes": alertes, "avertissements": avertissements})
+
+    # alerte directe : ne transite par AUCUN fichier que la station reecrit
+    if alertes:
+        _alerter_github(alertes)
     for a in alertes:
         print("[garde_reel] ALERTE : %s" % a, flush=True)
     for a in avertissements:
