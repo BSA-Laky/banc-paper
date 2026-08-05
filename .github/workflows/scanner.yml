@@ -1,0 +1,51 @@
+# .github/workflows/scanner.yml — detecteur d'occasions ephemeres
+#
+# Mesure du 02/08 : seule une famille d'edges franchit un seuil honnete, celle
+# ou le terme de prix s'annule PAR CONSTRUCTION (meme actif, deux venues, sens
+# opposes). Le spread HL<->Paradex y etait a t=7,10 pendant 45 jours. Le
+# « funding anormal », lui, plafonne a 2,99 dans sa meilleure fenetre sur 7 ans
+# -- sous le maximum que produit le bruit pur (3,65).
+#
+# Seuil retenu : t >= 5,4, calibre par simulation sous H0 pour ~200 relations
+# surveillees. Il sonnera rarement : c'est le but. Une alarme qui sonne souvent
+# ne dit rien.
+#
+# Cadence horaire. Aucune cle, aucun ordre, lecture seule. Le premier passage
+# amorce l'historique sur 90 jours de funding public (budget de temps, reprise
+# incrementale a la passe suivante s'il n'a pas fini).
+name: scanner-dislocations
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scanner
+  cancel-in-progress: false
+
+jobs:
+  scanner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Scan des relations mecaniques
+        run: python scanner_dislocations.py
+      - name: Committer
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A docs/scanner.json etat/scanner_hist.json
+          if git diff --cached --quiet; then
+            echo "Rien a committer."
+          else
+            git commit -m "scanner $(date -u +%FT%HZ)"
+            git pull --rebase --autostash || true
+            git push || (git pull --rebase --autostash && git push)
+          fi
