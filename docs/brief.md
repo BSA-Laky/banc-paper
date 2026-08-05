@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-05 02:01 (Paris)
+# Brief Station — 2026-08-05 02:15 (Paris)
 
 ## 🔴 ALERTES
 - 27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.
@@ -10,7 +10,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.063 | 42.2 j |
-| 25_convergence_basis | ORANGE | 501 | -0.1852 | -2.68 | -92.79 | -9.767 | 9.5 j |
+| 25_convergence_basis | ORANGE | 502 | -0.1887 | -2.73 | -94.7 | -9.969 | 9.5 j |
 | 27a_rev_premium | ORANGE | 53 | -2.27 | -1.0 | -120.31 | -2.858 | 42.1 j |
 | 27b_rev_move | ORANGE | 67 | 2.3064 | 1.2 | 154.53 | 3.697 | 41.8 j |
 | 27c_mom_move | ORANGE | 67 | -2.4464 | -1.27 | -163.91 | -3.921 | 41.8 j |
@@ -19,14 +19,14 @@
 | 27f10_selecteur | ORANGE | 172 | 0.0565 | 0.07 | 9.72 | 0.31 | 31.3 j |
 | 27f_selecteur | ORANGE | 46 | -1.6663 | -0.72 | -76.65 | -2.449 | 31.3 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.617 | 23.6 j |
-| 28_carry_hold | GRIS | 11 | 0.6221 | 0.18 | 6.84 | 0.752 | 9.1 j |
-| 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.754 | 9.1 j |
+| 28_carry_hold | GRIS | 11 | 0.6221 | 0.18 | 6.84 | 0.744 | 9.2 j |
+| 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.725 | 9.2 j |
 | rd_h2 | ORANGE | 117 | 0.2239 | 0.7 | 26.2 | 2.787 | 9.4 j |
 
-**P&L paper cumule (hors temoin)** : -394.79 $
+**P&L paper cumule (hors temoin)** : -396.70 $
 
-**BTC** 64063 $ — ret 1j -0.01% · 7j +0.16% · 30j +0.01%
-**Moves 24h ≥ 20 %** : CASHCAT +26.6%
+**BTC** 63996 $ — ret 1j -0.11% · 7j +0.05% · 30j -0.09%
+**Moves 24h ≥ 20 %** : CASHCAT +25.5%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
