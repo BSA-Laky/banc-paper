@@ -1,16 +1,25 @@
-# .github/workflows/bot29b.yml — carry neutre LARGE (20 jambes)
+# .github/workflows/bot29b.yml — jumeaux du carry neutre (29b et 29c)
 #
-# A/B contre le bot 29 (6 jambes) : meme signal, meme tenue de 168 h, seul le
-# nombre de jambes change. Fondement chiffre (05/08) : sur les 38 anciens trades
-# du bot 28 recalcules proprement, le funding est REEL (t = +2,53) mais l'ecart-
-# type du prix atteint 16,15 % contre un signal net de 0,185 %. Le probleme est
-# la variance, pas la moyenne. Passer de 6 a 20 jambes divise le bruit du panier
-# par racine(20/6) = 1,83, sans reduire le nombre de paniers -- donc sans perdre
-# d'observations independantes. Temps de verdict divise par 3,3.
+# Trois bots qui isolent DEUX variables, et rien d'autre :
+#     29  ...  6 jambes, panier unique, tenue 168 h   (existant)
+#     29b ... 20 jambes, panier unique, tenue 168 h   -> effet du NOMBRE DE JAMBES
+#     29c ... 20 jambes, paniers DECALES toutes les 48 h, tenue 168 h
+#                                                     -> effet du DECALAGE
+# Meme signal, meme tenue, meme comptabilite, meme gate, meme journal.
 #
-# Meme cadence que la station (15 min) : le bot ne solde qu'a 168 h, les autres
-# passes ne font qu'accumuler le funding. Aucune cle, aucun ordre reel.
-name: bot-29b
+# FONDEMENT CHIFFRE (05/08). Sur les 38 anciens trades du bot 28 recalcules
+# proprement : funding +0,2752 %/trade a t = +2,53 (REEL), prix -1,3621 % a
+# t = -0,52 (moyenne nulle) mais ecart-type 16,15 %. Le probleme est la
+# VARIANCE, pas la moyenne : inutile de mieux predire, il faut moins de bruit.
+#   - 6 -> 20 jambes : bruit du panier / racine(20/6) = x1,83 sur le t,
+#     sans reduire le nombre de paniers. Verdict divise par 3,3.
+#   - raccourcir la tenue : ECARTE. Les frais sont fixes (0,09 % l'aller-retour),
+#     donc 48 h coute 3,5 mois de verdict pour gagner 5 jours de 1re donnee.
+#     Le decalage donne le meme confort de suivi sans ce cout.
+#
+# Cadence 30 min : le funding s'accumule a chaque passe, les clotures se font
+# a 168 h. Aucune cle, aucun ordre reel.
+name: bot-29bc
 on:
   schedule:
     - cron: "9,39 * * * *"
@@ -20,11 +29,11 @@ permissions:
   contents: write
 
 concurrency:
-  group: bot29b
+  group: bot29bc
   cancel-in-progress: false
 
 jobs:
-  bot29b:
+  bot29bc:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
@@ -32,8 +41,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Passe du carry neutre large
-        run: python run_29b.py
+      - name: Passe des jumeaux 29b et 29c
+        run: python run_29bc.py
       - name: Committer
         run: |
           git config user.name "github-actions[bot]"
@@ -42,7 +51,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Rien a committer."
           else
-            git commit -m "29b $(date -u +%FT%Hh%MZ)"
+            git commit -m "29bc $(date -u +%FT%Hh%MZ)"
             git pull --rebase --autostash || true
             git push || (git pull --rebase --autostash && git push)
           fi
