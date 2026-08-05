@@ -1,11 +1,11 @@
 {
- "ts": "2026-08-05T09:21:00.613647+00:00",
+ "ts": "2026-08-05T09:30:57.275278+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 1873,
-   "t_stat": -1.81,
+   "n": 1874,
+   "t_stat": -1.84,
    "sain": true
   }
  },
@@ -27,14 +27,14 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1813.3,
+   "expo_moyenne_usd": 1813.0,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
-   "n": 535,
-   "esperance": -0.223,
-   "t_stat": -3.36,
-   "mdd_live": 136.67,
+   "n": 536,
+   "esperance": -0.2227,
+   "t_stat": -3.37,
+   "mdd_live": 136.73,
    "jours_forward": 9.9,
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
    "decrochage": false,
@@ -44,13 +44,13 @@
    ],
    "avertissements": [],
    "mu_ref": null,
-   "pnl_cumule": -119.32,
-   "pnl_par_jour": -12.053,
+   "pnl_cumule": -119.38,
+   "pnl_par_jour": -12.059,
    "trop_beau_audite": null,
-   "esp_glissante_20": -0.7683,
-   "borne_decrochage": -0.9089,
+   "esp_glissante_20": -0.6812,
+   "borne_decrochage": -0.908,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 2208.1,
+   "expo_moyenne_usd": 2207.0,
    "rendement_j_pct": -0.546
   },
   "27a_rev_premium": {
@@ -73,7 +73,7 @@
    "esp_glissante_20": -5.0457,
    "borne_decrochage": -9.693,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 124.7,
+   "expo_moyenne_usd": 124.6,
    "rendement_j_pct": -2.271
   },
   "27b_rev_move": {
@@ -81,7 +81,7 @@
    "esperance": 2.3064,
    "t_stat": 1.2,
    "mdd_live": 86.55,
-   "jours_forward": 42.1,
+   "jours_forward": 42.2,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -90,20 +90,20 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 154.53,
-   "pnl_par_jour": 3.671,
+   "pnl_par_jour": 3.662,
    "trop_beau_audite": null,
    "esp_glissante_20": 1.3886,
    "borne_decrochage": -4.7469,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 159.0,
-   "rendement_j_pct": 2.309
+   "expo_moyenne_usd": 158.9,
+   "rendement_j_pct": 2.304
   },
   "27c_mom_move": {
    "n": 67,
    "esperance": -2.4464,
    "t_stat": -1.27,
    "mdd_live": 217.22,
-   "jours_forward": 42.1,
+   "jours_forward": 42.2,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -113,13 +113,13 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -163.91,
-   "pnl_par_jour": -3.893,
+   "pnl_par_jour": -3.884,
    "trop_beau_audite": null,
    "esp_glissante_20": -1.5286,
    "borne_decrochage": -9.4997,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 159.0,
-   "rendement_j_pct": -2.449
+   "expo_moyenne_usd": 158.9,
+   "rendement_j_pct": -2.444
   },
   "27d_rev_move_stop": {
    "n": 93,
@@ -141,7 +141,7 @@
    "esp_glissante_20": -2.5672,
    "borne_decrochage": -6.6649,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 254.7,
+   "expo_moyenne_usd": 254.6,
    "rendement_j_pct": -0.434
   },
   "27e_arbitre": {
@@ -169,7 +169,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -3.3111,
     "t_welch": -1.04,
-    "delta_rendement_j_pct": -0.649,
+    "delta_rendement_j_pct": -0.6491,
     "t_welch_jour": -0.21,
     "jours_compares": 33
    }
@@ -193,7 +193,7 @@
    "esp_glissante_20": -3.7688,
    "borne_decrochage": -4.472,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 545.9,
+   "expo_moyenne_usd": 545.7,
    "rendement_j_pct": 0.056
   },
   "27f_selecteur": {
@@ -227,9 +227,7 @@
    "jours_forward": 24.0,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
-   "raisons": [
-    "KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree."
-   ],
+   "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 14.56,
@@ -256,8 +254,8 @@
    "pnl_par_jour": -7.48,
    "trop_beau_audite": "2026-07-15 : verifie vs funding reel HL (5/5 trades coherents, BLUR 77$ = 83-90$ reels, 0 flip de signe) — regime juillet riche + queue droite (top3 = 63% du P&L). Voir Bot/AUDIT_BOT28.",
    "statut": "GRIS",
-   "expo_moyenne_usd": 304.3,
-   "rendement_j_pct": -2.458
+   "expo_moyenne_usd": 304.1,
+   "rendement_j_pct": -2.46
   },
   "29_carry_neutre": {
    "n": 6,
@@ -274,7 +272,7 @@
    "pnl_par_jour": -2.639,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 696.4,
+   "expo_moyenne_usd": 695.9,
    "rendement_j_pct": -0.379
   },
   "rd_h2": {
@@ -297,13 +295,11 @@
    "esp_glissante_20": -0.3651,
    "borne_decrochage": -1.3029,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 1244.4,
+   "expo_moyenne_usd": 1243.6,
    "rendement_j_pct": 0.226
   }
  },
- "alertes": [
-  "27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree."
- ],
+ "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
  ],

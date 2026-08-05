@@ -1,8 +1,6 @@
 {
- "ts": "2026-08-05T09:21:00.652294+00:00",
- "alertes": [
-  "27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree."
- ],
+ "ts": "2026-08-05T09:30:57.304597+00:00",
+ "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
  ],
@@ -20,11 +18,11 @@
   },
   "25_convergence_basis": {
    "statut": "ORANGE",
-   "n": 535,
-   "esperance": -0.223,
-   "t": -3.36,
-   "pnl": -119.32,
-   "pnl_j": -12.053,
+   "n": 536,
+   "esperance": -0.2227,
+   "t": -3.37,
+   "pnl": -119.38,
+   "pnl_j": -12.059,
    "fwd_j": 9.9
   },
   "27a_rev_premium": {
@@ -42,8 +40,8 @@
    "esperance": 2.3064,
    "t": 1.2,
    "pnl": 154.53,
-   "pnl_j": 3.671,
-   "fwd_j": 42.1
+   "pnl_j": 3.662,
+   "fwd_j": 42.2
   },
   "27c_mom_move": {
    "statut": "ORANGE",
@@ -51,8 +49,8 @@
    "esperance": -2.4464,
    "t": -1.27,
    "pnl": -163.91,
-   "pnl_j": -3.893,
-   "fwd_j": 42.1
+   "pnl_j": -3.884,
+   "fwd_j": 42.2
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -128,22 +126,34 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0013,
-  "ret7": 0.0029,
-  "ret30": 0.0015,
-  "prix": 64150
+  "ret1": 0.001,
+  "ret7": 0.0027,
+  "ret30": 0.0013,
+  "prix": 64135
  },
  "evenements_extremes": [
   {
    "coin": "SKR",
-   "move_pct": 38.5
+   "move_pct": 36.4
   },
   {
    "coin": "CASHCAT",
-   "move_pct": 28.7
+   "move_pct": 29.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-05T09:30",
+   "bot": "25_convergence_basis",
+   "marche": "ACE-long",
+   "pnl": -0.06
+  },
+  {
+   "ts": "2026-08-05T09:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-05T09:20",
    "bot": "25_convergence_basis",
@@ -179,18 +189,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-05T08:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-05T08:15",
-   "bot": "25_convergence_basis",
-   "marche": "CASHCAT-short",
-   "pnl": -2.79
   }
  ],
  "calibration_arbitre": {
@@ -204,7 +202,7 @@
   "arbitre_echecs": 1,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 2.8,
+  "age_avis_h": 3.0,
   "problemes": []
  },
  "autofinancement": {
