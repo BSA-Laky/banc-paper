@@ -1,0 +1,99 @@
+{
+ "ts": "2026-08-05T10:36:37.879063+00:00",
+ "_lire_ceci": "Fichier ecrit UNIQUEMENT par garde_reel.py. docs/reel.json et docs/go_reel.json sont regeneres par la station toutes les 15 min et perdent ces corrections : ne pas s'y fier pour le P&L reel.",
+ "pnl_compte_reel": -35.21,
+ "equity": 911.94,
+ "depot": 947.15,
+ "prix_realise": -16.21,
+ "funding": 3.244,
+ "frais": 22.24,
+ "estimation_interne_journal": 10.66,
+ "ecart_journal_vs_compte": 45.87,
+ "mode_station": "attente_recharge_api",
+ "decomposition": {
+  "25_convergence_basis": {
+   "n_jambes": 207,
+   "funding": {
+    "moyenne_pct": 0.02212,
+    "t": 2.83
+   },
+   "prix": {
+    "moyenne_pct": -0.349,
+    "t": -3.02,
+    "ic95_pct": [
+     -0.57564,
+     -0.12237
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": -0.06788,
+   "ecart_neutralite": 0.666667,
+   "verdict": "EN COURS",
+   "raisons": [
+    "prix t -3.02 : IC95 [-0.0058 ; -0.0012] ne contient pas 0 -> directionnel deguise",
+    "E[funding] 0.00022 <= E[frais] 0.00090",
+    "ecart de neutralite 0.67 > 0.10 (livre nu)"
+   ]
+  },
+  "28_carry_hold": {
+   "n_jambes": 12,
+   "funding": {
+    "moyenne_pct": 0.54622,
+    "t": 2.27
+   },
+   "prix": {
+    "moyenne_pct": -6.78268,
+    "t": -0.78,
+    "ic95_pct": [
+     -23.72554,
+     10.16019
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": 0.45622,
+   "ecart_neutralite": 0.25,
+   "verdict": "EN COURS",
+   "raisons": [
+    "n 12 < 20 jambes fermees",
+    "ecart de neutralite 0.25 > 0.10 (livre nu)"
+   ]
+  },
+  "29_carry_neutre": {
+   "n_jambes": 6,
+   "funding": {
+    "moyenne_pct": 0.30926,
+    "t": 1.13
+   },
+   "prix": {
+    "moyenne_pct": -2.86571,
+    "t": -0.56,
+    "ic95_pct": [
+     -12.8173,
+     7.08588
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": 0.21926,
+   "ecart_neutralite": 0.0,
+   "verdict": "EN COURS",
+   "raisons": [
+    "n 6 < 20 jambes fermees",
+    "funding t 1.13 < 2.0 (capture non significative)"
+   ]
+  }
+ },
+ "alertes": [
+  "LEDGER REEL FAUX de +45.87 $ : le journal d'execution totalise +10.66 $ sur 12 fermeture(s), le compte Hyperliquid est a -35.21 $ (seuil 4.74 $). Des fermetures hors executeur ne sont pas journalisees. La verite affichee est etat/reel_hl.json ; le journal reste une estimation.",
+  "ARGENT REEL NON JUSTIFIE : 28_carry_hold est en mainnet avec statut GRIS (n=15, t=-0.72, forward=9.6 j) -- raisons : n 15 < n_go 100 ; t -0.72 < 2 ; forward 10 j < 28 j. Decomposition : EN COURS. Aucun critere chiffre du projet n'autorise ce capital engage."
+ ],
+ "avertissements": [
+  "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne.",
+  "EXECUTEUR REEL SILENCIEUX : aucun ordre depuis 158 h alors que le paper tient 28_carry_hold=ACE,CASHCAT,CC,FARTCOIN,GRAM,HYPE,KAITO,SKR. L'executeur tourne (reconciliation il y a 0 h) : ce sont les filtres reels (seuil funding 0.0003 vs paper, fraicheur 2 h) qui bloquent. Le livre reel n'est donc PAS un miroir du paper."
+ ]
+}
