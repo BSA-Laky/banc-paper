@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-05T10:30:54.998596+00:00",
+ "ts": "2026-08-05T10:45:41.727206+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -76,8 +76,8 @@
    "esperance": 0.0558,
    "t": 0.07,
    "pnl": 9.66,
-   "pnl_j": 0.305,
-   "fwd_j": 31.7
+   "pnl_j": 0.304,
+   "fwd_j": 31.8
   },
   "27f_selecteur": {
    "statut": "ORANGE",
@@ -85,8 +85,8 @@
    "esperance": -0.8845,
    "t": -0.37,
    "pnl": -41.57,
-   "pnl_j": -1.311,
-   "fwd_j": 31.7
+   "pnl_j": -1.307,
+   "fwd_j": 31.8
   },
   "27g10_selecteur": {
    "statut": "ROUGE",
@@ -126,22 +126,28 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0015,
-  "ret7": 0.0031,
-  "ret30": 0.0017,
-  "prix": 64161
+  "ret1": 0.0014,
+  "ret7": 0.003,
+  "ret30": 0.0016,
+  "prix": 64157
  },
  "evenements_extremes": [
   {
    "coin": "SKR",
-   "move_pct": 40.3
+   "move_pct": 38.1
   },
   {
    "coin": "CASHCAT",
-   "move_pct": 34.8
+   "move_pct": 36.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-05T10:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-05T10:30",
    "bot": "27f_selecteur",
@@ -183,12 +189,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-05T10:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -202,9 +202,8 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.9,
-  "problemes": [],
-  "mode": "attente_recharge_api"
+  "age_avis_h": 0.2,
+  "problemes": []
  },
  "autofinancement": {
   "cout_api_usd_dernier_releve": 18.73,
@@ -212,93 +211,5 @@
   "revenus_reels_eur": 0,
   "cible_remboursement_eur": 35.0,
   "reste_eur": 35.0
- },
- "avertissement_donnees": {
-  "coupure_comptable": "2026-07-26",
-  "bots_concernes": [
-   "28_carry_hold",
-   "23_carry_funding",
-   "25_convergence_basis"
-  ],
-  "regle": "Toute statistique de ces bots ANTERIEURE a la coupure est INVALIDE : elle mesurait abs(funding) sans terme de prix. Ne JAMAIS la citer, meme si elle figure dans ta memoire longue.",
-  "n_officiels_post_coupure": {
-   "24_funding_multivenues": {
-    "n": 171,
-    "t": -3.3,
-    "esperance": -0.5092
-   },
-   "25_convergence_basis": {
-    "n": 542,
-    "t": -3.32,
-    "esperance": -0.2178
-   },
-   "27a_rev_premium": {
-    "n": 53,
-    "t": -1.0,
-    "esperance": -2.27
-   },
-   "27b_rev_move": {
-    "n": 68,
-    "t": 0.89,
-    "esperance": 1.754
-   },
-   "27c_mom_move": {
-    "n": 68,
-    "t": -0.96,
-    "esperance": -1.894
-   },
-   "27d_rev_move_stop": {
-    "n": 93,
-    "t": -0.3,
-    "esperance": -0.4338
-   },
-   "27e_arbitre": {
-    "n": 30,
-    "t": -0.4,
-    "esperance": -1.0046
-   },
-   "27f10_selecteur": {
-    "n": 173,
-    "t": 0.07,
-    "esperance": 0.0558
-   },
-   "27f_selecteur": {
-    "n": 47,
-    "t": -0.37,
-    "esperance": -0.8845
-   },
-   "27g10_selecteur": {
-    "n": 41,
-    "t": 0.17,
-    "esperance": 0.3552
-   },
-   "28_carry_hold": {
-    "n": 15,
-    "t": -0.72,
-    "esperance": -4.7371
-   },
-   "29_carry_neutre": {
-    "n": 6,
-    "t": -0.54,
-    "esperance": -4.1776
-   },
-   "rd_h2": {
-    "n": 123,
-    "t": 0.65,
-    "esperance": 0.1996
-   }
-  },
-  "exemple_de_donnee_perimee": "28_carry_hold n=83 t=3,73 E=4,01 -- ce sont exactement les 83 trades ECARTES le 26/07. Si tu lis cela quelque part, c'est perime.",
-  "verdicts_decomposition": {
-   "25_convergence_basis": "EN COURS",
-   "28_carry_hold": "EN COURS",
-   "29_carry_neutre": "EN COURS"
-  }
- },
- "mode_station": {
-  "mode": "attente_recharge_api",
-  "message": "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne.",
-  "banc_deterministe": "actif",
-  "maj": "2026-08-05T10:36:37.878407+00:00"
  }
 }
