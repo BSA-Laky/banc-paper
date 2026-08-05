@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-05 14:30 (Paris)
+# Brief Station — 2026-08-05 14:45 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.
@@ -9,12 +9,12 @@
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.039 | 42.7 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.034 | 42.8 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -12.124 | 10.0 j |
-| 27a_rev_premium | ORANGE | 53 | -2.27 | -1.0 | -120.31 | -2.824 | 42.6 j |
+| 27a_rev_premium | ORANGE | 53 | -2.27 | -1.0 | -120.31 | -2.818 | 42.7 j |
 | 27b_rev_move | ORANGE | 68 | 1.754 | 0.89 | 119.27 | 2.82 | 42.3 j |
 | 27c_mom_move | ORANGE | 68 | -1.894 | -0.96 | -128.79 | -3.045 | 42.3 j |
-| 27d_rev_move_stop | ORANGE | 94 | -0.5055 | -0.35 | -47.51 | -1.298 | 36.6 j |
+| 27d_rev_move_stop | ORANGE | 94 | -0.5055 | -0.35 | -47.51 | -1.295 | 36.7 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.916 | 32.9 j |
 | 27f10_selecteur | ORANGE | 173 | 0.0558 | 0.07 | 9.66 | 0.304 | 31.8 j |
 | 27f_selecteur | ORANGE | 47 | -0.8845 | -0.37 | -41.57 | -1.307 | 31.8 j |
@@ -25,8 +25,8 @@
 
 **P&L paper cumule (hors temoin)** : -504.71 $
 
-**BTC** 64441 $ — ret 1j +0.58% · 7j +0.75% · 30j +0.60%
-**Moves 24h ≥ 20 %** : CASHCAT +27.7%, SKR +24.6%
+**BTC** 64363 $ — ret 1j +0.46% · 7j +0.63% · 30j +0.48%
+**Moves 24h ≥ 20 %** : CASHCAT +23.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
