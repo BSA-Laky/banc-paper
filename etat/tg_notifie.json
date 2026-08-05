@@ -1,6 +1,5 @@
 {
  "alertes_envoyees": [
-  "2026-07-20:25_convergence_basis: ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.137 pt, t 1.96)",
   "2026-07-20:25_convergence_basis: KILL exécuté (2026-07-20) : R2 échéance A/B : ne bat pas 23 à capital égal (delta 0.137 pt/j, t 1.96)",
   "2026-07-20:25_convergence_basis: ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.138 pt, t 1.96)",
   "2026-07-20:25_convergence_basis: ne bat pas 23_carry_funding a capital egal (delta rendement/j 0.138 pt, t 1.97)",
@@ -59,7 +58,8 @@
   "2026-08-04:BANC SUSPECT : temoin |t| >= 2 — ne rien conclure",
   "2026-08-05:27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.",
   "2026-08-05:BANC SUSPECT : temoin |t| >= 2 — ne rien conclure",
-  "2026-08-05:25_convergence_basis: esp20 -1.09 < borne -0.90 -> COUPER LE BOT"
+  "2026-08-05:25_convergence_basis: esp20 -1.09 < borne -0.90 -> COUPER LE BOT",
+  "2026-08-05:25_convergence_basis: esp20 -1.03 < borne -0.90 -> COUPER LE BOT"
  ],
  "dernier_avis": "2026-08-05T03:45:23.117207Z",
  "dernier_rapport": "# Rapport du Superviseur — semaine du 2026-07-26",
