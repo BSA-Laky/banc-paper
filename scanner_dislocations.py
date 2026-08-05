@@ -257,9 +257,26 @@ def amorcer(hist, coins_hl, budget_s=180.0):
 def executer():
     now = datetime.now(timezone.utc)
     hl, bn, by = hl_funding(), binance_funding(), bybit_funding()
-    if not hl or not bn:
-        print("[scanner] venues injoignables -> passe annulee.", flush=True)
+
+    # DEGRADATION PROPRE (constate le 05/08/2026) : Binance geo-bloque les IP des
+    # runners GitHub (situes aux Etats-Unis) et renvoie 451. Exiger les trois
+    # venues faisait donc echouer chaque passe en 2 s, en silence. Un scanner
+    # doit fonctionner avec ce qu'il a : deux venues suffisent a former une
+    # relation. On journalise ce qui manque au lieu de rendre la main.
+    dispo = {"hyperliquid": len(hl), "binance": len(bn), "bybit": len(by)}
+    vivantes = [k for k, v in dispo.items() if v > 0]
+    if len(vivantes) < 2:
+        print("[scanner] moins de 2 venues joignables %s -> aucune relation possible."
+              % dispo, flush=True)
+        _ecrire(F_SORTIE, {"ts": now.isoformat(timespec="seconds"),
+                           "erreur": "moins de 2 venues joignables",
+                           "venues": dispo, "n_relations": 0, "n_alertes": 0,
+                           "alertes": [], "top20": []})
         return None
+    if len(vivantes) < 3:
+        print("[scanner] venues joignables : %s (manquantes : %s) -- on continue."
+              % (", ".join(vivantes),
+                 ", ".join(k for k in dispo if k not in vivantes)), flush=True)
     rels = relations(hl, bn, by)
     hist = _lire(F_HIST, {})
     hist = amorcer(hist, list(hl))
