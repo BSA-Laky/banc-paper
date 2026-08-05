@@ -18,7 +18,9 @@
    "jours_forward": 42.5,
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "t -3.30 < 2"
+   ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -87.07,
@@ -151,7 +153,10 @@
    "jours_forward": 32.6,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "n 30 < n_go 50",
+    "t -0.40 < 2"
+   ],
    "avertissements": [
     "REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
    ],
@@ -248,7 +253,11 @@
    "jours_forward": 9.4,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "n 12 < n_go 100",
+    "t 0.27 < 2",
+    "forward 9 j < 28 j"
+   ],
    "avertissements": [],
    "mu_ref": 1.26,
    "pnl_cumule": 10.14,
@@ -266,7 +275,11 @@
    "jours_forward": 9.4,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "n 6 < n_go 100",
+    "t -0.54 < 2",
+    "forward 9 j < 28 j"
+   ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -25.07,
@@ -302,10 +315,14 @@
  },
  "alertes": [
   "25_convergence_basis: esp20 -0.93 < borne -0.91 -> COUPER LE BOT",
-  "27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree."
+  "27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.",
+  "ARGENT REEL NON JUSTIFIE : 28_carry_hold est en mainnet avec statut GRIS (n=12, t=0.27, forward=9.4 j) -- raisons : n 12 < n_go 100 ; t 0.27 < 2 ; forward 9 j < 28 j. Decomposition : EN COURS. Aucun critere chiffre du projet n'autorise ce capital engage.",
+  "LEDGER REEL FAUX de +45.87 $ : le journal d'execution totalise +10.66 $ sur 12 fermeture(s), le compte Hyperliquid est a -35.21 $ (seuil 4.74 $). Des fermetures hors executeur ne sont pas journalisees. La verite affichee est etat/reel_hl.json ; le journal reste une estimation."
  ],
  "avertissements": [
-  "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
+  "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)",
+  "EXECUTEUR REEL SILENCIEUX : aucun ordre depuis 154 h alors que le paper tient 28_carry_hold=ACE,CASHCAT,CC,FARTCOIN,GRAM,HYPE,KAITO,ONDO,SKR. L'executeur tourne (reconciliation il y a 0 h) : ce sont les filtres reels (seuil funding 0.0003 vs paper, fraicheur 2 h) qui bloquent. Le livre reel n'est donc PAS un miroir du paper.",
+  "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne."
  ],
  "calibration_arbitre": {
   "tendance": {
@@ -348,5 +365,98 @@
  },
  "reels": [
   "28_carry_hold"
- ]
+ ],
+ "decomposition": {
+  "25_convergence_basis": {
+   "n_jambes": 188,
+   "funding": {
+    "moyenne_pct": 0.02414,
+    "t": 2.81
+   },
+   "prix": {
+    "moyenne_pct": -0.33787,
+    "t": -2.77,
+    "ic95_pct": [
+     -0.57684,
+     -0.09889
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": -0.06586,
+   "ecart_neutralite": 0.2,
+   "verdict": "EN COURS",
+   "raisons": [
+    "prix t -2.77 : IC95 [-0.0058 ; -0.0010] ne contient pas 0 -> directionnel deguise",
+    "E[funding] 0.00024 <= E[frais] 0.00090",
+    "ecart de neutralite 0.20 > 0.10 (livre nu)"
+   ]
+  },
+  "28_carry_hold": {
+   "n_jambes": 9,
+   "funding": {
+    "moyenne_pct": 0.56184,
+    "t": 1.85
+   },
+   "prix": {
+    "moyenne_pct": 0.61754,
+    "t": 0.15,
+    "ic95_pct": [
+     -7.58776,
+     8.82285
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": 0.47184,
+   "ecart_neutralite": 0.333333,
+   "verdict": "EN COURS",
+   "raisons": [
+    "n 9 < 20 jambes fermees",
+    "funding t 1.85 < 2.0 (capture non significative)",
+    "ecart de neutralite 0.33 > 0.10 (livre nu)"
+   ]
+  },
+  "29_carry_neutre": {
+   "n_jambes": 6,
+   "funding": {
+    "moyenne_pct": 0.30926,
+    "t": 1.13
+   },
+   "prix": {
+    "moyenne_pct": -2.86571,
+    "t": -0.56,
+    "ic95_pct": [
+     -12.8173,
+     7.08588
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": 0.21926,
+   "ecart_neutralite": 0.0,
+   "verdict": "EN COURS",
+   "raisons": [
+    "n 6 < 20 jambes fermees",
+    "funding t 1.13 < 2.0 (capture non significative)"
+   ]
+  }
+ },
+ "mode_station": "attente_recharge_api",
+ "garde_reel": {
+  "ts": "2026-08-05T06:32:25.590212+00:00",
+  "mode_station": "attente_recharge_api",
+  "composantes_ajoutees": 10,
+  "n_alertes": 2,
+  "n_avertissements": 2,
+  "criteres": {
+   "t_funding_min": 2.0,
+   "t_prix_max": 1.96,
+   "neutralite_max": 0.1,
+   "n_min": 20
+  }
+ }
 }

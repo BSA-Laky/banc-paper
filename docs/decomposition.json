@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-05T03:45:23.384417+00:00",
+ "ts": "2026-08-05T06:32:25.590910+00:00",
  "criteres": {
   "funding_t_min": 2.0,
   "prix_ic95_contient_0": true,
@@ -8,55 +8,55 @@
  },
  "bots": {
   "25_convergence_basis": {
-   "n_jambes": 179,
+   "n_jambes": 188,
    "funding": {
-    "moyenne_pct": 0.02525,
-    "t": 2.8
+    "moyenne_pct": 0.02414,
+    "t": 2.81
    },
    "prix": {
-    "moyenne_pct": -0.32116,
-    "t": -2.53,
+    "moyenne_pct": -0.33787,
+    "t": -2.77,
     "ic95_pct": [
-     -0.57043,
-     -0.07189
+     -0.57684,
+     -0.09889
     ]
    },
    "frais": {
     "moyenne_pct": 0.09
    },
-   "esperance_nette_pct": -0.06475,
-   "ecart_neutralite": 0.666667,
+   "esperance_nette_pct": -0.06586,
+   "ecart_neutralite": 0.2,
    "verdict": "EN COURS",
    "raisons": [
-    "prix t -2.53 : IC95 [-0.0057 ; -0.0007] ne contient pas 0 -> directionnel deguise",
-    "E[funding] 0.00025 <= E[frais] 0.00090",
-    "ecart de neutralite 0.67 > 0.10 (livre nu)"
+    "prix t -2.77 : IC95 [-0.0058 ; -0.0010] ne contient pas 0 -> directionnel deguise",
+    "E[funding] 0.00024 <= E[frais] 0.00090",
+    "ecart de neutralite 0.20 > 0.10 (livre nu)"
    ]
   },
   "28_carry_hold": {
-   "n_jambes": 8,
+   "n_jambes": 9,
    "funding": {
-    "moyenne_pct": 0.63563,
-    "t": 1.9
+    "moyenne_pct": 0.56184,
+    "t": 1.85
    },
    "prix": {
-    "moyenne_pct": 0.24532,
-    "t": 0.05,
+    "moyenne_pct": 0.61754,
+    "t": 0.15,
     "ic95_pct": [
-     -9.02177,
-     9.51241
+     -7.58776,
+     8.82285
     ]
    },
    "frais": {
     "moyenne_pct": 0.09
    },
-   "esperance_nette_pct": 0.54563,
-   "ecart_neutralite": 0.4,
+   "esperance_nette_pct": 0.47184,
+   "ecart_neutralite": 0.333333,
    "verdict": "EN COURS",
    "raisons": [
-    "n 8 < 20 jambes fermees",
-    "funding t 1.90 < 2.0 (capture non significative)",
-    "ecart de neutralite 0.40 > 0.10 (livre nu)"
+    "n 9 < 20 jambes fermees",
+    "funding t 1.85 < 2.0 (capture non significative)",
+    "ecart de neutralite 0.33 > 0.10 (livre nu)"
    ]
   },
   "29_carry_neutre": {
