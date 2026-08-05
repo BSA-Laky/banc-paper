@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-05 06:15 (Paris)
+# Brief Station — 2026-08-05 06:31 (Paris)
 
 ## 🔴 ALERTES
 - 27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.
@@ -10,7 +10,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.053 | 42.4 j |
-| 25_convergence_basis | ORANGE | 515 | -0.2019 | -2.98 | -103.96 | -10.717 | 9.7 j |
+| 25_convergence_basis | ORANGE | 516 | -0.205 | -3.03 | -105.76 | -10.903 | 9.7 j |
 | 27a_rev_premium | ORANGE | 53 | -2.27 | -1.0 | -120.31 | -2.844 | 42.3 j |
 | 27b_rev_move | ORANGE | 67 | 2.3064 | 1.2 | 154.53 | 3.688 | 41.9 j |
 | 27c_mom_move | ORANGE | 67 | -2.4464 | -1.27 | -163.91 | -3.912 | 41.9 j |
@@ -21,12 +21,12 @@
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.612 | 23.8 j |
 | 28_carry_hold | GRIS | 11 | 0.6221 | 0.18 | 6.84 | 0.736 | 9.3 j |
 | 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.695 | 9.3 j |
-| rd_h2 | ORANGE | 117 | 0.2239 | 0.7 | 26.2 | 2.729 | 9.6 j |
+| rd_h2 | ORANGE | 119 | 0.2087 | 0.66 | 24.84 | 2.587 | 9.6 j |
 
-**P&L paper cumule (hors temoin)** : -428.30 $
+**P&L paper cumule (hors temoin)** : -431.46 $
 
-**BTC** 64081 $ — ret 1j +0.02% · 7j +0.19% · 30j +0.04%
-**Moves 24h ≥ 20 %** : SKR +44.0%, CASHCAT +28.2%
+**BTC** 64130 $ — ret 1j +0.10% · 7j +0.26% · 30j +0.12%
+**Moves 24h ≥ 20 %** : SKR +48.5%, CASHCAT +36.5%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
