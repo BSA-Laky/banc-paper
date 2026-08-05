@@ -526,7 +526,7 @@ def produire_go_reel():
         pass
 
     temoins = {b: {"n": stats[b]["trades"], "t_stat": round(stats[b]["t_stat"], 2),
-                   "sain": abs(stats[b]["t_stat"]) < 2.0}
+                   "sain": abs(stats[b]["t_stat"] + 0.02 * stats[b]["trades"] ** 0.5) < 2.0}
                for b in TEMOINS if b in stats}
     banc_suspect = any(not v["sain"] for v in temoins.values())
     try:                                   # synergie B : bots reels = portefeuille.reel.json (source unique)
