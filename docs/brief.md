@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-05 22:01 (Paris)
+# Brief Station — 2026-08-05 22:11 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.
@@ -22,12 +22,12 @@
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.597 | 24.4 j |
 | 28_carry_hold | GRIS | 16 | -4.0572 | -0.65 | -64.92 | -6.492 | 10.0 j |
 | 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.507 | 10.0 j |
-| rd_h2 | ORANGE | 127 | 0.2128 | 0.71 | 27.03 | 2.65 | 10.2 j |
+| rd_h2 | ORANGE | 127 | 0.2128 | 0.71 | 27.03 | 2.624 | 10.3 j |
 
 **P&L paper cumule (hors temoin)** : -517.40 $
 
-**BTC** 64827 $ — ret 1j +1.18% · 7j +1.35% · 30j +1.21%
-**Moves 24h ≥ 20 %** : CASHCAT +58.9%
+**BTC** 64855 $ — ret 1j +1.23% · 7j +1.40% · 30j +1.25%
+**Moves 24h ≥ 20 %** : CASHCAT +65.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
