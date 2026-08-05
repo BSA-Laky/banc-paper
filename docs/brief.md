@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-05 15:15 (Paris)
+# Brief Station — 2026-08-05 15:30 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.
@@ -25,8 +25,8 @@
 
 **P&L paper cumule (hors temoin)** : -504.71 $
 
-**BTC** 64111 $ — ret 1j +0.07% · 7j +0.23% · 30j +0.09%
-**Moves 24h ≥ 20 %** : CASHCAT +24.4%
+**BTC** 64085 $ — ret 1j +0.03% · 7j +0.19% · 30j +0.05%
+**Moves 24h ≥ 20 %** : CASHCAT +26.1%, SKR +21.7%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
