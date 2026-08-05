@@ -1,9 +1,11 @@
 {
  "bots": {
   "25_convergence_basis": {
-   "etat": "actif",
-   "relance": "2026-07-23T07:19:27.390936+00:00",
-   "note": "CORRIGE le 29/07/2026 : la note precedente (\"meilleur bot, t 3,56, +399 $\") etait un ARTEFACT COMPTABLE. Le bot cumulait deux fautes (abs(funding) + P&L base sur la convergence du premium au lieu du prix reel). Son execution testnet reelle donnait t = -2,81 sur n = 96. Il a ete migre vers comptabilite.PositionReelle (bot_25_convergence_basis.py) et son historique d'avant le 26/07 est ecarte des statistiques. Il REPART DE ZERO : aucune conclusion ne peut en etre tiree avant plusieurs semaines. TRI DU 02/08 : GARDE (n=343, t=-1,11, esp -0,090 -- pas encore significatif, la regle R4 exige t<=-2 ; a surveiller, c'est le seul bot dont l'esperance derive nettement)."
+   "etat": "kill",
+   "raison": "R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.",
+   "ts": "2026-08-05T13:00:00+00:00",
+   "note_relance_retiree": "Le drapeau 'relance' du 23/07 a ete RETIRE volontairement. Dans moniteur_go_reel.py, la ligne `if b not in KILLABLES or deja.get('relance'): continue` accordait a ce bot une immunite PERPETUELLE contre l'auto-kill : c'est pour cela que la gate l'a laisse deriver de -1,11 a -3,32 sans rien dire. Defaut de conception a corriger a la source : une relance humaine doit donner un SURSIS (14 j par ex.), jamais une immunite definitive, sinon le premier bot qu'on sauve devient increvable quoi qu'il fasse ensuite.",
+   "historique": "CORRIGE le 29/07 : la note (\"meilleur bot, t 3,56, +399 $\") etait un ARTEFACT COMPTABLE (abs(funding) + P&L base sur la convergence du premium au lieu du prix reel). Execution testnet reelle : t = -2,81 sur n = 96. Migre vers comptabilite.PositionReelle, historique d'avant le 26/07 ecarte. Il est reparti de zero le 26/07 et a mis 10 jours a se montrer perdant de facon significative."
   },
   "27e_arbitre": {
    "etat": "kill",
