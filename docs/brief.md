@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-05 20:15 (Paris)
+# Brief Station — 2026-08-05 20:30 (Paris)
 
 ## 🔴 ALERTES
 - **BANC SUSPECT** : un temoin a |t| >= 2 — ne rien conclure.
@@ -12,7 +12,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.025 | 43.0 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -11.887 | 10.2 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -11.771 | 10.3 j |
 | 27a_rev_premium | ORANGE | 53 | -2.27 | -1.0 | -120.31 | -2.804 | 42.9 j |
 | 27b_rev_move | ORANGE | 68 | 1.754 | 0.89 | 119.27 | 2.806 | 42.5 j |
 | 27c_mom_move | ORANGE | 68 | -1.894 | -0.96 | -128.79 | -3.03 | 42.5 j |
@@ -27,8 +27,8 @@
 
 **P&L paper cumule (hors temoin)** : -517.40 $
 
-**BTC** 64775 $ — ret 1j +1.10% · 7j +1.27% · 30j +1.13%
-**Moves 24h ≥ 20 %** : CASHCAT +36.6%
+**BTC** 64659 $ — ret 1j +0.92% · 7j +1.09% · 30j +0.94%
+**Moves 24h ≥ 20 %** : CASHCAT +38.9%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
