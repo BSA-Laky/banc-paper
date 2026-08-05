@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-05 08:01 (Paris)
+# Brief Station — 2026-08-05 08:15 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: esp20 -1.04 < borne -0.91 -> COUPER LE BOT
@@ -20,14 +20,14 @@
 | 27f10_selecteur | ORANGE | 173 | 0.0558 | 0.07 | 9.66 | 0.306 | 31.6 j |
 | 27f_selecteur | ORANGE | 46 | -1.6663 | -0.72 | -76.65 | -2.426 | 31.6 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.612 | 23.8 j |
-| 28_carry_hold | GRIS | 11 | 0.6221 | 0.18 | 6.84 | 0.728 | 9.4 j |
+| 28_carry_hold | GRIS | 12 | 0.8446 | 0.27 | 10.14 | 1.078 | 9.4 j |
 | 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.667 | 9.4 j |
 | rd_h2 | ORANGE | 119 | 0.2087 | 0.66 | 24.84 | 2.561 | 9.7 j |
 
-**P&L paper cumule (hors temoin)** : -441.65 $
+**P&L paper cumule (hors temoin)** : -438.35 $
 
-**BTC** 64307 $ — ret 1j +0.37% · 7j +0.54% · 30j +0.39%
-**Moves 24h ≥ 20 %** : SKR +47.0%, CASHCAT +24.9%
+**BTC** 64286 $ — ret 1j +0.34% · 7j +0.51% · 30j +0.36%
+**Moves 24h ≥ 20 %** : SKR +48.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
