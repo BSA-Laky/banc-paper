@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-05T09:39:30.424842+00:00",
+ "ts": "2026-08-05T10:31:53.776184+00:00",
  "criteres": {
   "funding_t_min": 2.0,
   "prix_ic95_contient_0": true,
@@ -8,28 +8,29 @@
  },
  "bots": {
   "25_convergence_basis": {
-   "n_jambes": 201,
+   "n_jambes": 206,
    "funding": {
-    "moyenne_pct": 0.02276,
+    "moyenne_pct": 0.02223,
     "t": 2.83
    },
    "prix": {
-    "moyenne_pct": -0.37166,
-    "t": -3.15,
+    "moyenne_pct": -0.34785,
+    "t": -2.99,
     "ic95_pct": [
-     -0.60293,
-     -0.14039
+     -0.57558,
+     -0.12012
     ]
    },
    "frais": {
     "moyenne_pct": 0.09
    },
-   "esperance_nette_pct": -0.06724,
-   "ecart_neutralite": 0.0,
+   "esperance_nette_pct": -0.06777,
+   "ecart_neutralite": 0.666667,
    "verdict": "EN COURS",
    "raisons": [
-    "prix t -3.15 : IC95 [-0.0060 ; -0.0014] ne contient pas 0 -> directionnel deguise",
-    "E[funding] 0.00023 <= E[frais] 0.00090"
+    "prix t -2.99 : IC95 [-0.0058 ; -0.0012] ne contient pas 0 -> directionnel deguise",
+    "E[funding] 0.00022 <= E[frais] 0.00090",
+    "ecart de neutralite 0.67 > 0.10 (livre nu)"
    ]
   },
   "28_carry_hold": {
