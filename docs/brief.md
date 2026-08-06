@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-06 21:55 (Paris)
+# Brief Station — 2026-08-06 22:16 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.
@@ -22,12 +22,12 @@
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.573 | 25.4 j |
 | 28_carry_hold | GRIS | 21 | -3.085 | -0.65 | -64.78 | -5.89 | 11.0 j |
 | 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.279 | 11.0 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.096 | 11.2 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.096 | 11.3 j |
 
 **P&L paper cumule (hors temoin)** : -620.36 $
 
-**BTC** 64430 $ — ret 1j -0.30% · 7j -0.50% · 30j +1.70%
-**Moves 24h ≥ 20 %** : ACE +56.3%
+**BTC** 64491 $ — ret 1j -0.21% · 7j -0.41% · 30j +1.79%
+**Moves 24h ≥ 20 %** : ACE +68.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
