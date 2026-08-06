@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-06 06:01 (Paris)
+# Brief Station — 2026-08-06 06:15 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.
@@ -11,7 +11,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -2.006 | 43.4 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -11.438 | 10.6 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -11.331 | 10.7 j |
 | 27a_rev_premium | ORANGE | 55 | -2.8525 | -1.27 | -156.89 | -3.623 | 43.3 j |
 | 27b_rev_move | ORANGE | 69 | 1.8612 | 0.95 | 128.42 | 2.994 | 42.9 j |
 | 27c_mom_move | ORANGE | 69 | -2.0012 | -1.03 | -138.08 | -3.219 | 42.9 j |
@@ -19,15 +19,15 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.9 | 33.5 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.358 | 32.5 j |
 | 27f_selecteur | ORANGE | 48 | -1.0596 | -0.45 | -50.86 | -1.565 | 32.5 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.59 | 24.7 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.587 | 24.8 j |
 | 28_carry_hold | GRIS | 18 | -3.345 | -0.61 | -60.21 | -5.846 | 10.3 j |
 | 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.434 | 10.3 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.102 | 10.6 j |
 
 **P&L paper cumule (hors temoin)** : -609.06 $
 
-**BTC** 64484 $ — ret 1j -0.22% · 7j -0.42% · 30j +1.78%
-**Moves 24h ≥ 20 %** : CASHCAT +24.0%
+**BTC** 64560 $ — ret 1j -0.10% · 7j -0.30% · 30j +1.90%
+**Moves 24h ≥ 20 %** : CASHCAT +29.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
