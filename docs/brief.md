@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-07 11:01 (Paris)
+# Brief Station — 2026-08-07 11:15 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.
@@ -19,15 +19,15 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.869 | 34.7 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.345 | 33.7 j |
 | 27f_selecteur | ORANGE | 50 | -0.3032 | -0.13 | -15.16 | -0.45 | 33.7 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.562 | 25.9 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.56 | 26.0 j |
 | 28_carry_hold | GRIS | 22 | -3.466 | -0.76 | -76.25 | -6.631 | 11.5 j |
 | 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -2.18 | 11.5 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.092 | 11.8 j |
 
 **P&L paper cumule (hors temoin)** : -640.79 $
 
-**BTC** 64602 $ — ret 1j +0.48% · 7j +2.78% · 30j +3.72%
-**Moves 24h ≥ 20 %** : ACE +81.3%
+**BTC** 64701 $ — ret 1j +0.63% · 7j +2.94% · 30j +3.88%
+**Moves 24h ≥ 20 %** : ACE +83.4%, CASHCAT -23.7%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
