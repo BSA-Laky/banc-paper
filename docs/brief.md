@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-07 21:35 (Paris)
+# Brief Station — 2026-08-07 21:45 (Paris)
 
 ## 🔴 ALERTES
 - 25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.
@@ -10,9 +10,9 @@
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.935 | 45.0 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.931 | 45.1 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -9.857 | 12.3 j |
-| 27a_rev_premium | ORANGE | 59 | -1.8125 | -0.81 | -106.94 | -2.382 | 44.9 j |
+| 27a_rev_premium | ORANGE | 59 | -1.8125 | -0.81 | -106.94 | -2.376 | 45.0 j |
 | 27b_rev_move | ORANGE | 73 | 0.9494 | 0.47 | 69.31 | 1.554 | 44.6 j |
 | 27c_mom_move | ORANGE | 73 | -1.0894 | -0.54 | -79.53 | -1.783 | 44.6 j |
 | 27d_rev_move_stop | ORANGE | 109 | -1.0415 | -0.78 | -113.52 | -2.918 | 38.9 j |
@@ -26,8 +26,8 @@
 
 **P&L paper cumule (hors temoin)** : -478.59 $
 
-**BTC** 64955 $ — ret 1j +1.03% · 7j +3.34% · 30j +4.29%
-**Moves 24h ≥ 20 %** : NIL +26.8%
+**BTC** 64950 $ — ret 1j +1.02% · 7j +3.33% · 30j +4.28%
+**Moves 24h ≥ 20 %** : NIL +27.8%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
