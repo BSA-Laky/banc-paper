@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-07T02:45:45.015832+00:00",
+ "ts": "2026-08-07T03:01:03.587642+00:00",
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.",
   "27d_rev_move_stop: esp20 -8.18 < borne -7.37 -> COUPER LE BOT",
@@ -17,8 +17,8 @@
    "esperance": -0.5092,
    "t": -3.3,
    "pnl": -87.07,
-   "pnl_j": -1.965,
-   "fwd_j": 44.3
+   "pnl_j": -1.961,
+   "fwd_j": 44.4
   },
   "25_convergence_basis": {
    "statut": "ROUGE",
@@ -35,8 +35,8 @@
    "esperance": -2.8466,
    "t": -1.31,
    "pnl": -162.26,
-   "pnl_j": -3.671,
-   "fwd_j": 44.2
+   "pnl_j": -3.663,
+   "fwd_j": 44.3
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -62,8 +62,8 @@
    "esperance": -1.1818,
    "t": -0.87,
    "pnl": -122.91,
-   "pnl_j": -3.217,
-   "fwd_j": 38.2
+   "pnl_j": -3.209,
+   "fwd_j": 38.3
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -130,18 +130,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0014,
-  "ret7": 0.0243,
-  "ret30": 0.0337,
-  "prix": 64381
+  "ret1": -0.0001,
+  "ret7": 0.0228,
+  "ret30": 0.0322,
+  "prix": 64288
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 79.0
+   "move_pct": 73.0
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-07T03:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-07T02:45",
    "bot": "10_controle_aleatoire",
@@ -183,12 +189,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-07T01:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -202,7 +202,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 2.3,
+  "age_avis_h": 2.6,
   "problemes": []
  },
  "autofinancement": {
