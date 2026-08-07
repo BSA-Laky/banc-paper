@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-07T00:15:39.301305+00:00",
+ "ts": "2026-08-07T00:30:53.115882+00:00",
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.",
   "27f10_selecteur: KILL exécuté (2026-08-05) : R1 décrochage : esp20 -4.78 < borne -4.61 -> COUPER LE BOT"
@@ -129,18 +129,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0011,
-  "ret7": 0.0218,
-  "ret30": 0.0312,
-  "prix": 64225
+  "ret1": -0.0013,
+  "ret7": 0.0215,
+  "ret30": 0.0309,
+  "prix": 64209
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 59.5
+   "move_pct": 64.5
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-07T00:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-07T00:15",
    "bot": "10_controle_aleatoire",
@@ -182,12 +188,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-06T22:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -201,9 +201,8 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 9.3,
-  "problemes": [],
-  "mode": "attente_recharge_api"
+  "age_avis_h": 0.1,
+  "problemes": []
  },
  "autofinancement": {
   "cout_api_usd_dernier_releve": 18.73,
@@ -211,93 +210,5 @@
   "revenus_reels_eur": 0,
   "cible_remboursement_eur": 35.0,
   "reste_eur": 35.0
- },
- "avertissement_donnees": {
-  "coupure_comptable": "2026-07-26",
-  "bots_concernes": [
-   "28_carry_hold",
-   "23_carry_funding",
-   "25_convergence_basis"
-  ],
-  "regle": "Toute statistique de ces bots ANTERIEURE a la coupure est INVALIDE : elle mesurait abs(funding) sans terme de prix. Ne JAMAIS la citer, meme si elle figure dans ta memoire longue.",
-  "n_officiels_post_coupure": {
-   "24_funding_multivenues": {
-    "n": 171,
-    "t": -3.3,
-    "esperance": -0.5092
-   },
-   "25_convergence_basis": {
-    "n": 546,
-    "t": -3.4,
-    "esperance": -0.2221
-   },
-   "27a_rev_premium": {
-    "n": 56,
-    "t": -1.29,
-    "esperance": -2.8459
-   },
-   "27b_rev_move": {
-    "n": 70,
-    "t": 0.64,
-    "esperance": 1.2829
-   },
-   "27c_mom_move": {
-    "n": 70,
-    "t": -0.71,
-    "esperance": -1.4229
-   },
-   "27d_rev_move_stop": {
-    "n": 103,
-    "t": -0.8,
-    "esperance": -1.09
-   },
-   "27e_arbitre": {
-    "n": 30,
-    "t": -0.4,
-    "esperance": -1.0046
-   },
-   "27f10_selecteur": {
-    "n": 175,
-    "t": -0.09,
-    "esperance": -0.0665
-   },
-   "27f_selecteur": {
-    "n": 49,
-    "t": -0.1,
-    "esperance": -0.2543
-   },
-   "27g10_selecteur": {
-    "n": 41,
-    "t": 0.17,
-    "esperance": 0.3552
-   },
-   "28_carry_hold": {
-    "n": 21,
-    "t": -0.65,
-    "esperance": -3.085
-   },
-   "29_carry_neutre": {
-    "n": 6,
-    "t": -0.54,
-    "esperance": -4.1776
-   },
-   "rd_h2": {
-    "n": 133,
-    "t": -0.02,
-    "esperance": -0.0081
-   }
-  },
-  "exemple_de_donnee_perimee": "28_carry_hold n=83 t=3,73 E=4,01 -- ce sont exactement les 83 trades ECARTES le 26/07. Si tu lis cela quelque part, c'est perime.",
-  "verdicts_decomposition": {
-   "25_convergence_basis": "EN COURS",
-   "28_carry_hold": "EN COURS",
-   "29_carry_neutre": "EN COURS"
-  }
- },
- "mode_station": {
-  "mode": "attente_recharge_api",
-  "message": "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne.",
-  "banc_deterministe": "actif",
-  "maj": "2026-08-07T00:26:39.697192+00:00"
  }
 }
