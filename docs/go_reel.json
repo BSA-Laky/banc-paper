@@ -1,11 +1,11 @@
 {
- "ts": "2026-08-07T01:45:41.100110+00:00",
+ "ts": "2026-08-07T02:01:01.358749+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 2025,
-   "t_stat": -1.77,
+   "n": 2026,
+   "t_stat": -1.79,
    "sain": true
   }
  },
@@ -27,7 +27,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1744.4,
+   "expo_moyenne_usd": 1744.0,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -49,8 +49,8 @@
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1889.4,
-   "rendement_j_pct": -0.553
+   "expo_moyenne_usd": 1887.7,
+   "rendement_j_pct": -0.554
   },
   "27a_rev_premium": {
    "n": 56,
@@ -73,7 +73,7 @@
    "borne_decrochage": -10.2271,
    "statut": "ORANGE",
    "expo_moyenne_usd": 126.7,
-   "rendement_j_pct": -2.846
+   "rendement_j_pct": -2.847
   },
   "27b_rev_move": {
    "n": 70,
@@ -121,26 +121,26 @@
    "rendement_j_pct": -1.424
   },
   "27d_rev_move_stop": {
-   "n": 103,
-   "esperance": -1.09,
-   "t_stat": -0.8,
-   "mdd_live": 201.79,
+   "n": 104,
+   "esperance": -1.1818,
+   "t_stat": -0.87,
+   "mdd_live": 212.43,
    "jours_forward": 38.2,
    "verdict_banc": "indistinguable du hasard",
-   "decrochage": false,
+   "decrochage": true,
    "raisons": [
-    "t < 2"
+    "esp20 -8.18 < borne -7.37 -> COUPER LE BOT"
    ],
    "avertissements": [],
    "mu_ref": null,
-   "pnl_cumule": -112.27,
-   "pnl_par_jour": -2.939,
+   "pnl_cumule": -122.91,
+   "pnl_par_jour": -3.217,
    "trop_beau_audite": null,
-   "esp_glissante_20": -6.6542,
-   "borne_decrochage": -7.2952,
-   "statut": "ORANGE",
-   "expo_moyenne_usd": 269.6,
-   "rendement_j_pct": -1.09
+   "esp_glissante_20": -8.1822,
+   "borne_decrochage": -7.371,
+   "statut": "ROUGE",
+   "expo_moyenne_usd": 272.2,
+   "rendement_j_pct": -1.182
   },
   "27e_arbitre": {
    "n": 30,
@@ -162,12 +162,12 @@
    "borne_decrochage": -7.2096,
    "statut": "ROUGE",
    "expo_moyenne_usd": 87.1,
-   "rendement_j_pct": -1.005,
+   "rendement_j_pct": -1.006,
    "ab": {
     "contre": "27b_rev_move",
     "delta_esperance": -2.2875,
     "t_welch": -0.71,
-    "delta_rendement_j_pct": 0.4962,
+    "delta_rendement_j_pct": 0.4963,
     "t_welch_jour": 0.16,
     "jours_compares": 35
    }
@@ -191,7 +191,7 @@
    "esp_glissante_20": -4.7845,
    "borne_decrochage": -4.6086,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 524.3,
+   "expo_moyenne_usd": 524.1,
    "rendement_j_pct": -0.066
   },
   "27f_selecteur": {
@@ -222,20 +222,20 @@
    "esperance": 0.3552,
    "t_stat": 0.17,
    "mdd_live": 69.69,
-   "jours_forward": 25.6,
+   "jours_forward": 25.7,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 14.56,
-   "pnl_par_jour": 0.569,
+   "pnl_par_jour": 0.567,
    "trop_beau_audite": null,
    "esp_glissante_20": -0.195,
    "borne_decrochage": -5.745,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 159.9,
-   "rendement_j_pct": 0.356
+   "expo_moyenne_usd": 159.8,
+   "rendement_j_pct": 0.355
   },
   "28_carry_hold": {
    "n": 21,
@@ -252,8 +252,8 @@
    "pnl_par_jour": -5.784,
    "trop_beau_audite": "2026-07-15 : verifie vs funding reel HL (5/5 trades coherents, BLUR 77$ = 83-90$ reels, 0 flip de signe) — regime juillet riche + queue droite (top3 = 63% du P&L). Voir Bot/AUDIT_BOT28.",
    "statut": "GRIS",
-   "expo_moyenne_usd": 360.5,
-   "rendement_j_pct": -1.604
+   "expo_moyenne_usd": 360.2,
+   "rendement_j_pct": -1.606
   },
   "29_carry_neutre": {
    "n": 6,
@@ -270,7 +270,7 @@
    "pnl_par_jour": -2.238,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 591.9,
+   "expo_moyenne_usd": 591.3,
    "rendement_j_pct": -0.378
   },
   "rd_h2": {
@@ -293,12 +293,13 @@
    "esp_glissante_20": -1.459,
    "borne_decrochage": -1.7645,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 1157.8,
+   "expo_moyenne_usd": 1156.7,
    "rendement_j_pct": -0.008
   }
  },
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.",
+  "27d_rev_move_stop: esp20 -8.18 < borne -7.37 -> COUPER LE BOT",
   "27f10_selecteur: KILL exécuté (2026-08-05) : R1 décrochage : esp20 -4.78 < borne -4.61 -> COUPER LE BOT"
  ],
  "avertissements": [
