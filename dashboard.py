@@ -31,11 +31,11 @@ def _lignes_valides(lignes):
 DOCS = Path("docs")
 ETAT = Path("etat")
 
-ORDRE = ["29_carry_neutre", "28_carry_hold", "25_convergence_basis",
+ORDRE = ["29c_carry_decale", "29b_carry_neutre_large", "29_carry_neutre", "28_carry_hold", "25_convergence_basis",
          "27a_rev_premium", "27b_rev_move", "27c_mom_move", "27d_rev_move_stop",
          "27f_selecteur", "27f10_selecteur", "27g10_selecteur", "10_controle_aleatoire"]
 JOLI = {
-    "29_carry_neutre": "Bot 29 — Carry DOLLAR-NEUTRE (3 shorts / 3 longs, hebdo)",
+    "29c_carry_decale": "Bot 29c — Carry neutre, 20 jambes, paniers DECALES (48 h)", "29b_carry_neutre_large": "Bot 29b — Carry neutre LARGE (10 shorts / 10 longs, hebdo)", "29_carry_neutre": "Bot 29 — Carry DOLLAR-NEUTRE (3 shorts / 3 longs, hebdo)",
     "28_carry_hold": "Bot 28 — Carry-HOLD, livre NU (comptabilité corrigée le 26/07)",
     "25_convergence_basis": "Bot 25 — Convergence du basis (comptabilité corrigée le 29/07)",
     "27a_rev_premium": "Bot 27a — Convexe : réversion premium extrême",
