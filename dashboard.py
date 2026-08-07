@@ -174,7 +174,7 @@ def _ab(res):
 
 def _positions():
     try:
-        with (ETAT / "etat_bot25.json").open(encoding="utf-8") as f:
+        with (ETAT / "etat_bot25_RETIRE_05_08.json").open(encoding="utf-8") as f:
             etat = json.load(f)
     except (OSError, ValueError):
         return ""
@@ -392,7 +392,7 @@ def construire_dashboard():
     maj_iso = _now.isoformat()
     maj = _now.strftime("%Y-%m-%d %H:%M UTC")
     p7 = _pnl_7j(lignes)
-    reels = set((_lj(Path("portefeuille.reel.json"), {}).get("bots") or {}).keys())
+    _cr = _lj(Path("portefeuille.reel.json"), {}); reels = set() if _cr.get("reel_suspendu") else set((_cr.get("bots") or {}).keys())
     cv = (_lj(ETAT / "cycle_vie.json", {}).get("bots") or {})
     gate = (_lj(DOCS / "go_reel.json", {}).get("bots") or {})
 
