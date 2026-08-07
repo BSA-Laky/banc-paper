@@ -1,14 +1,14 @@
 {
- "ts": "2026-08-07T07:23:01.500244+00:00",
+ "ts": "2026-08-07T08:02:19.845488+00:00",
  "_lire_ceci": "Fichier ecrit UNIQUEMENT par garde_reel.py. docs/reel.json et docs/go_reel.json sont regeneres par la station toutes les 15 min et perdent ces corrections : ne pas s'y fier pour le P&L reel.",
- "pnl_compte_reel": -947.15,
+ "pnl_compte_reel": -35.21,
  "equity": 0.0,
- "depot": 947.15,
+ "depot": 35.21,
  "prix_realise": -16.21,
  "funding": 3.244,
  "frais": 22.24,
  "estimation_interne_journal": 10.66,
- "ecart_journal_vs_compte": 957.81,
+ "ecart_journal_vs_compte": 45.87,
  "mode_station": "attente_recharge_api",
  "decomposition": {
   "25_convergence_basis": {
@@ -37,27 +37,27 @@
    ]
   },
   "28_carry_hold": {
-   "n_jambes": 18,
+   "n_jambes": 19,
    "funding": {
-    "moyenne_pct": 0.51944,
-    "t": 2.48
+    "moyenne_pct": 0.54139,
+    "t": 2.72
    },
    "prix": {
-    "moyenne_pct": -4.27926,
-    "t": -0.74,
+    "moyenne_pct": -4.73582,
+    "t": -0.86,
     "ic95_pct": [
-     -15.64552,
-     7.08701
+     -15.52441,
+     6.05277
     ]
    },
    "frais": {
     "moyenne_pct": 0.09
    },
-   "esperance_nette_pct": 0.42944,
+   "esperance_nette_pct": 0.45139,
    "ecart_neutralite": 0.0,
    "verdict": "EN COURS",
    "raisons": [
-    "n 18 < 20 jambes fermees"
+    "n 19 < 20 jambes fermees"
    ]
   },
   "29_carry_neutre": {
@@ -87,9 +87,8 @@
   }
  },
  "alertes": [
-  "LEDGER REEL FAUX de +957.81 $ : le journal d'execution totalise +10.66 $ sur 12 fermeture(s), le compte Hyperliquid est a -947.15 $ (seuil 4.74 $). Des fermetures hors executeur ne sont pas journalisees. La verite affichee est etat/reel_hl.json ; le journal reste une estimation.",
-  "RECONCILIATION HL : residu d'identite -911.94 $ (depot/retrait non reporte, ou champ mal lu).",
-  "ARGENT REEL NON JUSTIFIE : 28_carry_hold est en mainnet avec statut GRIS (n=21, t=-0.65, forward=11.4 j) -- raisons : n 21 < n_go 100 ; t -0.65 < 2 ; forward 11 j < 28 j. Decomposition : EN COURS. Aucun critere chiffre du projet n'autorise ce capital engage."
+  "LEDGER REEL FAUX de +45.87 $ : le journal d'execution totalise +10.66 $ sur 12 fermeture(s), le compte Hyperliquid est a -35.21 $ (seuil 2.00 $). Des fermetures hors executeur ne sont pas journalisees. La verite affichee est etat/reel_hl.json ; le journal reste une estimation.",
+  "ARGENT REEL NON JUSTIFIE : 28_carry_hold est en mainnet avec statut GRIS (n=22, t=-0.76, forward=11.5 j) -- raisons : n 22 < n_go 100 ; t -0.76 < 2 ; forward 12 j < 28 j. Decomposition : EN COURS. Aucun critere chiffre du projet n'autorise ce capital engage."
  ],
  "avertissements": [
   "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne.",
