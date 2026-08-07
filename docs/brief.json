@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-07T04:01:06.131124+00:00",
+ "ts": "2026-08-07T04:15:38.115989+00:00",
  "alertes": [
   "25_convergence_basis: KILL exécuté (2026-08-05) : R4 (05/08/2026) : PERDANT SIGNIFICATIF, t = -3,32 sur n = 542, esperance -0,2178, P&L -118,06 $. C'est le critere EXACT qui a servi a tuer le bot 24 le 29/07 (t = -3,21 sur n = 168) -- applique ici a un echantillon 3x plus grand et a un t plus net. Progression sans ambiguite : t = -1,11 a n=343 le 02/08, t = -3,32 a n=542 le 05/08. La derive s'accentue avec l'echantillon, ce qui est la signature d'un vrai perdant et non du bruit. Kill decide par le Commandant le 05/08 apres constat.",
   "27d_rev_move_stop: esp20 -8.18 < borne -7.37 -> COUPER LE BOT",
@@ -26,8 +26,8 @@
    "esperance": -0.2221,
    "t": -3.4,
    "pnl": -121.24,
-   "pnl_j": -10.452,
-   "fwd_j": 11.6
+   "pnl_j": -10.363,
+   "fwd_j": 11.7
   },
   "27a_rev_premium": {
    "statut": "ORANGE",
@@ -98,8 +98,8 @@
    "esperance": 0.3552,
    "t": 0.17,
    "pnl": 14.56,
-   "pnl_j": 0.567,
-   "fwd_j": 25.7
+   "pnl_j": 0.565,
+   "fwd_j": 25.8
   },
   "28_carry_hold": {
    "statut": "GRIS",
@@ -130,18 +130,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0007,
-  "ret7": 0.0221,
-  "ret30": 0.0315,
-  "prix": 64245
+  "ret1": 0.0001,
+  "ret7": 0.0229,
+  "ret30": 0.0323,
+  "prix": 64297
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 79.8
+   "move_pct": 72.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-07T04:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-07T04:01",
    "bot": "10_controle_aleatoire",
@@ -183,12 +189,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-07T02:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -202,7 +202,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.5,
+  "age_avis_h": 0.7,
   "problemes": []
  },
  "autofinancement": {
