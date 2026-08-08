@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-08T19:15:47.834103+00:00",
+ "ts": "2026-08-08T19:30:54.617078+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)",
@@ -104,8 +104,8 @@
    "esperance": 0.2479,
    "t": 0.05,
    "pnl": 6.2,
-   "pnl_j": 0.481,
-   "fwd_j": 12.9
+   "pnl_j": 0.477,
+   "fwd_j": 13.0
   },
   "29_carry_neutre": {
    "statut": "GRIS",
@@ -113,8 +113,8 @@
    "esperance": -4.1776,
    "t": -0.54,
    "pnl": -25.07,
-   "pnl_j": -1.943,
-   "fwd_j": 12.9
+   "pnl_j": -1.928,
+   "fwd_j": 13.0
   },
   "rd_h2": {
    "statut": "ORANGE",
@@ -127,18 +127,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0015,
-  "ret7": 0.0349,
-  "ret30": 0.0278,
-  "prix": 64984
+  "ret1": 0.0016,
+  "ret7": 0.035,
+  "ret30": 0.0279,
+  "prix": 64986
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 21.1
+   "move_pct": 30.7
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-08T19:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-08T19:15",
    "bot": "10_controle_aleatoire",
@@ -180,12 +186,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-08T18:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -199,7 +199,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.5,
+  "age_avis_h": 0.8,
   "problemes": []
  },
  "autofinancement": {
