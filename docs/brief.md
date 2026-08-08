@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-08 22:30 (Paris)
+# Brief Station — 2026-08-08 22:45 (Paris)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -23,8 +23,8 @@
 
 **P&L paper cumule (hors temoin)** : -487.16 $
 
-**BTC** 65031 $ — ret 1j +0.23% · 7j +3.57% · 30j +2.86%
-**Moves 24h ≥ 20 %** : ACE +34.4%
+**BTC** 65035 $ — ret 1j +0.23% · 7j +3.58% · 30j +2.86%
+**Moves 24h ≥ 20 %** : ACE +30.3%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
