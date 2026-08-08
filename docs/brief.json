@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-08T15:45:45.954808+00:00",
+ "ts": "2026-08-08T15:58:53.282866+00:00",
  "alertes": [
   "27f10_selecteur: KILL exécuté (2026-08-05) : R1 décrochage : esp20 -4.78 < borne -4.61 -> COUPER LE BOT"
  ],
@@ -129,22 +129,28 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0022,
-  "ret7": 0.0357,
-  "ret30": 0.0285,
-  "prix": 65029
+  "ret1": 0.0029,
+  "ret7": 0.0363,
+  "ret30": 0.0292,
+  "prix": 65071
  },
  "evenements_extremes": [
   {
-   "coin": "KAITO",
-   "move_pct": -25.0
+   "coin": "ACE",
+   "move_pct": 27.3
   },
   {
-   "coin": "ACE",
-   "move_pct": 22.9
+   "coin": "KAITO",
+   "move_pct": -24.5
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-08T15:58",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-08T15:45",
    "bot": "10_controle_aleatoire",
@@ -186,12 +192,6 @@
    "bot": "27f_selecteur",
    "marche": "sel-ACE-MOM-tendance_piece",
    "pnl": 0.09
-  },
-  {
-   "ts": "2026-08-08T14:15",
-   "bot": "27c_mom_move",
-   "marche": "mom_move-ACE",
-   "pnl": 0.09
   }
  ],
  "calibration_arbitre": {
@@ -205,7 +205,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.2,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {
