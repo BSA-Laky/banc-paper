@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-08 15:31 (Paris)
+# Brief Station — 2026-08-08 15:45 (Paris)
 
 ## 🔴 ALERTES
 - 27f10_selecteur: KILL exécuté (2026-08-05) : R1 décrochage : esp20 -4.78 < borne -4.61 -> COUPER LE BOT
@@ -11,7 +11,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.901 | 45.8 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -9.327 | 13.0 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -9.255 | 13.1 j |
 | 27a_rev_premium | ORANGE | 61 | -1.9255 | -0.89 | -117.45 | -2.57 | 45.7 j |
 | 27b_rev_move | ORANGE | 75 | 1.0234 | 0.52 | 76.75 | 1.694 | 45.3 j |
 | 27c_mom_move | ORANGE | 75 | -1.1634 | -0.59 | -87.25 | -1.926 | 45.3 j |
@@ -26,8 +26,8 @@
 
 **P&L paper cumule (hors temoin)** : -486.91 $
 
-**BTC** 64981 $ — ret 1j +0.15% · 7j +3.49% · 30j +2.78%
-**Moves 24h ≥ 20 %** : KAITO -22.1%
+**BTC** 64979 $ — ret 1j +0.14% · 7j +3.49% · 30j +2.77%
+**Moves 24h ≥ 20 %** : KAITO -22.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
