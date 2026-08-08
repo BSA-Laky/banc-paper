@@ -1,11 +1,11 @@
 {
- "ts": "2026-08-08T17:01:10.911943+00:00",
+ "ts": "2026-08-08T17:15:46.724029+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 2197,
-   "t_stat": -1.85,
+   "n": 2198,
+   "t_stat": -1.88,
    "sain": true
   }
  },
@@ -27,7 +27,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1682.3,
+   "expo_moyenne_usd": 1681.9,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -47,7 +47,7 @@
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1655.1,
+   "expo_moyenne_usd": 1653.8,
    "rendement_j_pct": -0.555
   },
   "27a_rev_premium": {
@@ -70,8 +70,8 @@
    "esp_glissante_20": -3.6097,
    "borne_decrochage": -9.3922,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 135.3,
-   "rendement_j_pct": -1.894
+   "expo_moyenne_usd": 135.2,
+   "rendement_j_pct": -1.895
   },
   "27b_rev_move": {
    "n": 76,
@@ -92,7 +92,7 @@
    "esp_glissante_20": -4.8101,
    "borne_decrochage": -6.5725,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 167.2,
+   "expo_moyenne_usd": 167.1,
    "rendement_j_pct": 1.006
   },
   "27c_mom_move": {
@@ -115,7 +115,7 @@
    "esp_glissante_20": 4.6701,
    "borne_decrochage": -8.7262,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 167.2,
+   "expo_moyenne_usd": 167.1,
    "rendement_j_pct": -1.146
   },
   "27d_rev_move_stop": {
@@ -137,7 +137,7 @@
    "esp_glissante_20": -2.5914,
    "borne_decrochage": -7.0134,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 281.2,
+   "expo_moyenne_usd": 281.1,
    "rendement_j_pct": -0.758
   },
   "27e_arbitre": {
@@ -165,7 +165,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -2.0115,
     "t_welch": -0.63,
-    "delta_rendement_j_pct": 0.713,
+    "delta_rendement_j_pct": 0.7131,
     "t_welch_jour": 0.23,
     "jours_compares": 36
    }
@@ -178,9 +178,7 @@
    "jours_forward": 35.0,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": true,
-   "raisons": [
-    "KILL exécuté (2026-08-05) : R1 décrochage : esp20 -4.78 < borne -4.61 -> COUPER LE BOT"
-   ],
+   "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -11.64,
@@ -189,7 +187,7 @@
    "esp_glissante_20": -4.7845,
    "borne_decrochage": -4.6086,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 499.8,
+   "expo_moyenne_usd": 499.7,
    "rendement_j_pct": -0.066
   },
   "27f_selecteur": {
@@ -212,7 +210,7 @@
    "esp_glissante_20": 4.2787,
    "borne_decrochage": -8.0543,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 157.1,
+   "expo_moyenne_usd": 157.0,
    "rendement_j_pct": -0.337
   },
   "27g10_selecteur": {
@@ -232,7 +230,7 @@
    "esp_glissante_20": -0.195,
    "borne_decrochage": -5.745,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 150.3,
+   "expo_moyenne_usd": 150.2,
    "rendement_j_pct": 0.355
   },
   "28_carry_hold": {
@@ -254,7 +252,7 @@
    "esp_glissante_20": 0.066,
    "borne_decrochage": 0.6607,
    "statut": "GRIS",
-   "expo_moyenne_usd": 373.8,
+   "expo_moyenne_usd": 373.5,
    "rendement_j_pct": 0.129
   },
   "29_carry_neutre": {
@@ -272,7 +270,7 @@
    "pnl_par_jour": -1.943,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 516.5,
+   "expo_moyenne_usd": 516.1,
    "rendement_j_pct": -0.376
   },
   "rd_h2": {
@@ -295,13 +293,11 @@
    "esp_glissante_20": -1.459,
    "borne_decrochage": -1.7645,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 1013.5,
+   "expo_moyenne_usd": 1012.7,
    "rendement_j_pct": -0.008
   }
  },
- "alertes": [
-  "27f10_selecteur: KILL exécuté (2026-08-05) : R1 décrochage : esp20 -4.78 < borne -4.61 -> COUPER LE BOT"
- ],
+ "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)",
   "28_carry_hold: esp20 0.07 sous la borne 0.66 mais > 0 -- surveiller"
