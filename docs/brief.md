@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-08 17:01 (Paris)
+# Brief Station — 2026-08-08 17:15 (Paris)
 
 ## 🔴 ALERTES
 - 27f10_selecteur: KILL exécuté (2026-08-05) : R1 décrochage : esp20 -4.78 < borne -4.61 -> COUPER LE BOT
@@ -26,8 +26,8 @@
 
 **P&L paper cumule (hors temoin)** : -486.87 $
 
-**BTC** 65130 $ — ret 1j +0.38% · 7j +3.73% · 30j +3.01%
-**Moves 24h ≥ 20 %** : KAITO -24.3%
+**BTC** 65078 $ — ret 1j +0.30% · 7j +3.64% · 30j +2.93%
+**Moves 24h ≥ 20 %** : KAITO -23.9%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
