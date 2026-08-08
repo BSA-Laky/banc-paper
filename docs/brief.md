@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-08 18:30 (Paris)
+# Brief Station — 2026-08-08 18:45 (Paris)
 
 ## 🔴 ALERTES
 - 27f10_selecteur: KILL exécuté (2026-08-05) : R1 décrochage : esp20 -4.78 < borne -4.61 -> COUPER LE BOT
@@ -13,8 +13,8 @@
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.897 | 45.9 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -9.185 | 13.2 j |
 | 27a_rev_premium | ORANGE | 62 | -1.8929 | -0.89 | -117.36 | -2.562 | 45.8 j |
-| 27b_rev_move | ORANGE | 76 | 1.0069 | 0.52 | 76.52 | 1.685 | 45.4 j |
-| 27c_mom_move | ORANGE | 76 | -1.1469 | -0.59 | -87.16 | -1.92 | 45.4 j |
+| 27b_rev_move | ORANGE | 76 | 1.0069 | 0.52 | 76.52 | 1.682 | 45.5 j |
+| 27c_mom_move | ORANGE | 76 | -1.1469 | -0.59 | -87.16 | -1.916 | 45.5 j |
 | 27d_rev_move_stop | ORANGE | 112 | -0.7577 | -0.57 | -84.86 | -2.132 | 39.8 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.837 | 36.0 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.332 | 35.0 j |
@@ -26,8 +26,8 @@
 
 **P&L paper cumule (hors temoin)** : -486.87 $
 
-**BTC** 65031 $ — ret 1j +0.23% · 7j +3.57% · 30j +2.86%
-**Moves 24h ≥ 20 %** : ACE +41.9%, KAITO -25.5%
+**BTC** 65041 $ — ret 1j +0.24% · 7j +3.58% · 30j +2.87%
+**Moves 24h ≥ 20 %** : ACE +44.7%, KAITO -24.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
