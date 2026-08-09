@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-09 22:45 (Paris)
+# Brief Station — 2026-08-09 23:01 (Paris)
 
 ## 🔴 ALERTES
 - 28_carry_hold: KILL exécuté (2026-08-09) : R1 décrochage : esp20 -0.41 < borne 0.66 -> COUPER LE BOT
@@ -10,7 +10,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.849 | 47.1 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -8.479 | 14.3 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -8.42 | 14.4 j |
 | 27a_rev_premium | ORANGE | 64 | -1.9972 | -0.97 | -127.82 | -2.72 | 47.0 j |
 | 27b_rev_move | ORANGE | 80 | 0.9667 | 0.52 | 77.33 | 1.66 | 46.6 j |
 | 27c_mom_move | ORANGE | 80 | -1.1067 | -0.59 | -88.53 | -1.9 | 46.6 j |
@@ -20,13 +20,13 @@
 | 27f_selecteur | ORANGE | 59 | -0.3379 | -0.15 | -19.94 | -0.551 | 36.2 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.513 | 28.4 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.091 | 14.0 j |
-| 29_carry_neutre | GRIS | 6 | -4.1776 | -0.54 | -25.07 | -1.79 | 14.0 j |
+| 29_carry_neutre | GRIS | 12 | 20.1879 | 1.28 | 242.25 | 17.304 | 14.0 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.076 | 14.3 j |
 
-**P&L paper cumule (hors temoin)** : -506.81 $
+**P&L paper cumule (hors temoin)** : -239.49 $
 
-**BTC** 65105 $ — ret 1j +0.26% · 7j +2.44% · 30j +1.48%
-**Moves 24h ≥ 20 %** : BOME +32.6%, CASHCAT +25.6%, PEOPLE +23.8%
+**BTC** 65106 $ — ret 1j +0.27% · 7j +2.44% · 30j +1.48%
+**Moves 24h ≥ 20 %** : BOME +34.7%, PEOPLE +24.7%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
