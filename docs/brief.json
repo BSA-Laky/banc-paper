@@ -1,9 +1,8 @@
 {
- "ts": "2026-08-09T00:45:39.278943+00:00",
+ "ts": "2026-08-09T01:01:03.230563+00:00",
  "alertes": [],
  "avertissements": [
-  "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)",
-  "28_carry_hold: esp20 0.07 sous la borne 0.66 mais > 0 -- surveiller"
+  "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
  ],
  "banc_suspect": false,
  "changements_statut": [],
@@ -100,11 +99,11 @@
   },
   "28_carry_hold": {
    "statut": "GRIS",
-   "n": 25,
-   "esperance": 0.2479,
-   "t": 0.05,
-   "pnl": 6.2,
-   "pnl_j": 0.47,
+   "n": 26,
+   "esperance": 0.5836,
+   "t": 0.11,
+   "pnl": 15.17,
+   "pnl_j": 1.15,
    "fwd_j": 13.2
   },
   "29_carry_neutre": {
@@ -122,27 +121,39 @@
    "esperance": -0.0081,
    "t": -0.02,
    "pnl": -1.08,
-   "pnl_j": -0.081,
-   "fwd_j": 13.4
+   "pnl_j": -0.08,
+   "fwd_j": 13.5
   }
  },
  "tendances_btc": {
   "ret1": 0.0002,
   "ret7": 0.0219,
-  "ret30": 0.0124,
-  "prix": 64949
+  "ret30": 0.0123,
+  "prix": 64946
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 37.2
+   "move_pct": 36.2
   },
   {
    "coin": "CASHCAT",
-   "move_pct": 33.9
+   "move_pct": 35.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-09T01:01",
+   "bot": "28_carry_hold",
+   "marche": "VINE-short",
+   "pnl": 8.98
+  },
+  {
+   "ts": "2026-08-09T01:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-09T00:45",
    "bot": "10_controle_aleatoire",
@@ -178,18 +189,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-08T23:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-08T23:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -203,7 +202,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.2,
+  "age_avis_h": 1.5,
   "problemes": []
  },
  "autofinancement": {
