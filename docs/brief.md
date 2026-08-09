@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-09 09:36 (Paris)
+# Brief Station — 2026-08-09 09:45 (Paris)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -7,9 +7,9 @@
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.872 | 46.5 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.868 | 46.6 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -8.786 | 13.8 j |
-| 27a_rev_premium | ORANGE | 62 | -1.8929 | -0.89 | -117.36 | -2.529 | 46.4 j |
+| 27a_rev_premium | ORANGE | 62 | -1.8929 | -0.89 | -117.36 | -2.524 | 46.5 j |
 | 27b_rev_move | ORANGE | 77 | 1.1885 | 0.62 | 91.52 | 1.985 | 46.1 j |
 | 27c_mom_move | ORANGE | 77 | -1.3285 | -0.69 | -102.3 | -2.219 | 46.1 j |
 | 27d_rev_move_stop | ORANGE | 115 | -0.5084 | -0.39 | -58.46 | -1.447 | 40.4 j |
@@ -23,8 +23,8 @@
 
 **P&L paper cumule (hors temoin)** : -471.93 $
 
-**BTC** 64808 $ — ret 1j -0.19% · 7j +1.97% · 30j +1.02%
-**Moves 24h ≥ 20 %** : SAGA +25.2%
+**BTC** 64800 $ — ret 1j -0.20% · 7j +1.96% · 30j +1.01%
+**Moves 24h ≥ 20 %** : SAGA +26.2%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
