@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-09 12:06 (Paris)
+# Brief Station — 2026-08-09 12:15 (Paris)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -6,12 +6,12 @@
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.868 | 46.6 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.864 | 46.7 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -8.723 | 13.9 j |
-| 27a_rev_premium | ORANGE | 62 | -1.8929 | -0.89 | -117.36 | -2.524 | 46.5 j |
+| 27a_rev_premium | ORANGE | 62 | -1.8929 | -0.89 | -117.36 | -2.518 | 46.6 j |
 | 27b_rev_move | ORANGE | 77 | 1.1885 | 0.62 | 91.52 | 1.981 | 46.2 j |
 | 27c_mom_move | ORANGE | 77 | -1.3285 | -0.69 | -102.3 | -2.214 | 46.2 j |
-| 27d_rev_move_stop | ORANGE | 115 | -0.5084 | -0.39 | -58.46 | -1.444 | 40.5 j |
+| 27d_rev_move_stop | ORANGE | 115 | -0.5084 | -0.39 | -58.46 | -1.44 | 40.6 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.819 | 36.8 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.326 | 35.7 j |
 | 27f_selecteur | ORANGE | 56 | -0.6012 | -0.26 | -33.67 | -0.943 | 35.7 j |
@@ -22,8 +22,7 @@
 
 **P&L paper cumule (hors temoin)** : -482.59 $
 
-**BTC** 64874 $ — ret 1j -0.09% · 7j +2.07% · 30j +1.12%
-**Moves 24h ≥ 20 %** : SAGA +20.2%
+**BTC** 64929 $ — ret 1j -0.01% · 7j +2.16% · 30j +1.21%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
