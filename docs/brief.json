@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-09T07:15:38.980072+00:00",
+ "ts": "2026-08-09T07:30:59.546766+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)",
@@ -55,11 +55,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
-   "n": 114,
-   "esperance": -0.6784,
-   "t": -0.52,
-   "pnl": -77.33,
-   "pnl_j": -1.914,
+   "n": 115,
+   "esperance": -0.5084,
+   "t": -0.39,
+   "pnl": -58.46,
+   "pnl_j": -1.447,
    "fwd_j": 40.4
   },
   "27e_arbitre": {
@@ -104,8 +104,8 @@
    "esperance": 0.3709,
    "t": 0.07,
    "pnl": 10.02,
-   "pnl_j": 0.747,
-   "fwd_j": 13.4
+   "pnl_j": 0.742,
+   "fwd_j": 13.5
   },
   "29_carry_neutre": {
    "statut": "GRIS",
@@ -113,8 +113,8 @@
    "esperance": -4.1776,
    "t": -0.54,
    "pnl": -25.07,
-   "pnl_j": -1.871,
-   "fwd_j": 13.4
+   "pnl_j": -1.857,
+   "fwd_j": 13.5
   },
   "rd_h2": {
    "statut": "ORANGE",
@@ -127,18 +127,34 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0017,
-  "ret7": 0.02,
-  "ret30": 0.0104,
-  "prix": 64825
+  "ret1": -0.0019,
+  "ret7": 0.0197,
+  "ret30": 0.0102,
+  "prix": 64809
  },
  "evenements_extremes": [
   {
    "coin": "SAGA",
-   "move_pct": 23.3
+   "move_pct": 23.8
+  },
+  {
+   "coin": "ACE",
+   "move_pct": 21.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-09T07:30",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-ACE",
+   "pnl": 18.87
+  },
+  {
+   "ts": "2026-08-09T07:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-09T07:15",
    "bot": "28_carry_hold",
@@ -174,18 +190,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-09T06:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-09T05:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -197,10 +201,12 @@
  },
  "sante_equipage": {
   "arbitre_echecs": 1,
-  "superviseur_echecs": 0,
+  "superviseur_echecs": 1,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.1,
-  "problemes": []
+  "age_avis_h": 1.4,
+  "problemes": [
+   "SUPERVISEUR : 1 echec(s) (hebdo : 1 echec = 1 semaine muette)"
+  ]
  },
  "autofinancement": {
   "cout_api_usd_dernier_releve": 18.73,
