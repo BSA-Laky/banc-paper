@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-09 23:01 (Paris)
+# Brief Station — 2026-08-09 23:15 (Paris)
 
 ## 🔴 ALERTES
 - 28_carry_hold: KILL exécuté (2026-08-09) : R1 décrochage : esp20 -0.41 < borne 0.66 -> COUPER LE BOT
@@ -18,15 +18,15 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.81 | 37.2 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.321 | 36.2 j |
 | 27f_selecteur | ORANGE | 59 | -0.3379 | -0.15 | -19.94 | -0.551 | 36.2 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.513 | 28.4 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.511 | 28.5 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.091 | 14.0 j |
 | 29_carry_neutre | GRIS | 12 | 20.1879 | 1.28 | 242.25 | 17.304 | 14.0 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.076 | 14.3 j |
 
 **P&L paper cumule (hors temoin)** : -239.49 $
 
-**BTC** 65106 $ — ret 1j +0.27% · 7j +2.44% · 30j +1.48%
-**Moves 24h ≥ 20 %** : BOME +34.7%, PEOPLE +24.7%
+**BTC** 65100 $ — ret 1j +0.26% · 7j +2.43% · 30j +1.47%
+**Moves 24h ≥ 20 %** : BOME +33.7%, PEOPLE +21.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
