@@ -1,11 +1,11 @@
 {
- "ts": "2026-08-09T10:30:54.424421+00:00",
+ "ts": "2026-08-09T10:45:42.371968+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 2273,
-   "t_stat": -2.07,
+   "n": 2274,
+   "t_stat": -2.04,
    "sain": true
   }
  },
@@ -18,9 +18,7 @@
    "jours_forward": 46.7,
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
    "decrochage": false,
-   "raisons": [
-    "t -3.30 < 2"
-   ],
+   "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -87.07,
@@ -29,7 +27,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1656.0,
+   "expo_moyenne_usd": 1655.6,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -40,10 +38,7 @@
    "jours_forward": 13.9,
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
    "decrochage": false,
-   "raisons": [
-    "t -3.40 < 2",
-    "forward 14 j < 28 j"
-   ],
+   "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -121.24,
@@ -52,8 +47,8 @@
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1568.4,
-   "rendement_j_pct": -0.556
+   "expo_moyenne_usd": 1567.2,
+   "rendement_j_pct": -0.557
   },
   "27a_rev_premium": {
    "n": 62,
@@ -76,7 +71,7 @@
    "borne_decrochage": -9.3922,
    "statut": "ORANGE",
    "expo_moyenne_usd": 133.1,
-   "rendement_j_pct": -1.891
+   "rendement_j_pct": -1.892
   },
   "27b_rev_move": {
    "n": 77,
@@ -97,8 +92,8 @@
    "esp_glissante_20": -4.0339,
    "borne_decrochage": -6.3744,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 166.7,
-   "rendement_j_pct": 1.188
+   "expo_moyenne_usd": 166.6,
+   "rendement_j_pct": 1.189
   },
   "27c_mom_move": {
    "n": 77,
@@ -120,8 +115,8 @@
    "esp_glissante_20": 3.8939,
    "borne_decrochage": -8.8915,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 166.7,
-   "rendement_j_pct": -1.328
+   "expo_moyenne_usd": 166.6,
+   "rendement_j_pct": -1.329
   },
   "27d_rev_move_stop": {
    "n": 115,
@@ -142,7 +137,7 @@
    "esp_glissante_20": -0.2377,
    "borne_decrochage": -6.7758,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 283.5,
+   "expo_moyenne_usd": 283.4,
    "rendement_j_pct": -0.508
   },
   "27e_arbitre": {
@@ -153,10 +148,7 @@
    "jours_forward": 36.8,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
-   "raisons": [
-    "n 30 < n_go 50",
-    "t -0.40 < 2"
-   ],
+   "raisons": [],
    "avertissements": [
     "REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
    ],
@@ -168,7 +160,7 @@
    "borne_decrochage": -7.2096,
    "statut": "ROUGE",
    "expo_moyenne_usd": 81.5,
-   "rendement_j_pct": -1.004,
+   "rendement_j_pct": -1.005,
    "ab": {
     "contre": "27b_rev_move",
     "delta_esperance": -2.1932,
@@ -183,29 +175,27 @@
    "esperance": -0.0665,
    "t_stat": -0.09,
    "mdd_live": 129.9,
-   "jours_forward": 35.7,
+   "jours_forward": 35.8,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": true,
-   "raisons": [
-    "t -0.09 < 2"
-   ],
+   "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -11.64,
-   "pnl_par_jour": -0.326,
+   "pnl_par_jour": -0.325,
    "trop_beau_audite": null,
    "esp_glissante_20": -4.7845,
    "borne_decrochage": -4.6086,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 489.6,
-   "rendement_j_pct": -0.067
+   "expo_moyenne_usd": 489.5,
+   "rendement_j_pct": -0.066
   },
   "27f_selecteur": {
    "n": 56,
    "esperance": -0.6012,
    "t_stat": -0.26,
    "mdd_live": 192.66,
-   "jours_forward": 35.7,
+   "jours_forward": 35.8,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -215,13 +205,13 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -33.67,
-   "pnl_par_jour": -0.943,
+   "pnl_par_jour": -0.94,
    "trop_beau_audite": null,
    "esp_glissante_20": 3.5024,
    "borne_decrochage": -8.2991,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 156.7,
-   "rendement_j_pct": -0.602
+   "expo_moyenne_usd": 156.6,
+   "rendement_j_pct": -0.6
   },
   "27g10_selecteur": {
    "n": 41,
@@ -231,10 +221,7 @@
    "jours_forward": 28.0,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
-   "raisons": [
-    "n 41 < n_go 100",
-    "t 0.17 < 2"
-   ],
+   "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 14.56,
@@ -243,7 +230,7 @@
    "esp_glissante_20": -0.195,
    "borne_decrochage": -5.745,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 146.4,
+   "expo_moyenne_usd": 146.3,
    "rendement_j_pct": 0.355
   },
   "28_carry_hold": {
@@ -254,11 +241,7 @@
    "jours_forward": 13.6,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
-   "raisons": [
-    "n 29 < n_go 100",
-    "t -0.00 < 2",
-    "forward 14 j < 28 j"
-   ],
+   "raisons": [],
    "avertissements": [],
    "mu_ref": 1.26,
    "pnl_cumule": -0.64,
@@ -267,7 +250,7 @@
    "esp_glissante_20": 1.374,
    "borne_decrochage": 0.6607,
    "statut": "GRIS",
-   "expo_moyenne_usd": 396.3,
+   "expo_moyenne_usd": 396.0,
    "rendement_j_pct": -0.012
   },
   "29_carry_neutre": {
@@ -278,18 +261,14 @@
    "jours_forward": 13.6,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
-   "raisons": [
-    "n 6 < n_go 100",
-    "t -0.54 < 2",
-    "forward 14 j < 28 j"
-   ],
+   "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -25.07,
    "pnl_par_jour": -1.843,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 488.8,
+   "expo_moyenne_usd": 488.5,
    "rendement_j_pct": -0.377
   },
   "rd_h2": {
@@ -312,18 +291,13 @@
    "esp_glissante_20": -1.459,
    "borne_decrochage": -1.7645,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 960.1,
+   "expo_moyenne_usd": 959.4,
    "rendement_j_pct": -0.008
   }
  },
- "alertes": [
-  "ARGENT REEL NON JUSTIFIE : 28_carry_hold est en mainnet avec statut GRIS (n=29, t=-0.0, forward=13.6 j) -- raisons : n 29 < n_go 100 ; t -0.00 < 2 ; forward 14 j < 28 j. Decomposition : EN COURS. Aucun critere chiffre du projet n'autorise ce capital engage.",
-  "LEDGER REEL FAUX de +45.87 $ : le journal d'execution totalise +10.66 $ sur 12 fermeture(s), le compte Hyperliquid est a -35.21 $ (seuil 2.00 $). Des fermetures hors executeur ne sont pas journalisees. La verite affichee est etat/reel_hl.json ; le journal reste une estimation."
- ],
+ "alertes": [],
  "avertissements": [
-  "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)",
-  "EXECUTEUR REEL SILENCIEUX : aucun ordre depuis 254 h alors que le paper tient 28_carry_hold=ACE,CC,FARTCOIN,ICP,KAITO,NIL,XAI,ZRO. L'executeur tourne (reconciliation il y a 0 h) : ce sont les filtres reels (seuil funding 0.0001 vs paper, fraicheur 4 h) qui bloquent. Le livre reel n'est donc PAS un miroir du paper.",
-  "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne."
+  "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
  ],
  "calibration_arbitre": {
   "tendance": {
@@ -373,95 +347,5 @@
  },
  "reels": [
   "28_carry_hold"
- ],
- "decomposition": {
-  "25_convergence_basis": {
-   "n_jambes": 210,
-   "funding": {
-    "moyenne_pct": 0.02184,
-    "t": 2.84
-   },
-   "prix": {
-    "moyenne_pct": -0.34396,
-    "t": -3.02,
-    "ic95_pct": [
-     -0.56745,
-     -0.12047
-    ]
-   },
-   "frais": {
-    "moyenne_pct": 0.09
-   },
-   "esperance_nette_pct": -0.06816,
-   "ecart_neutralite": 0.0,
-   "verdict": "EN COURS",
-   "raisons": [
-    "prix t -3.02 : IC95 [-0.0057 ; -0.0012] ne contient pas 0 -> directionnel deguise",
-    "E[funding] 0.00022 <= E[frais] 0.00090"
-   ]
-  },
-  "28_carry_hold": {
-   "n_jambes": 26,
-   "funding": {
-    "moyenne_pct": 0.915,
-    "t": 2.7
-   },
-   "prix": {
-    "moyenne_pct": -0.94906,
-    "t": -0.18,
-    "ic95_pct": [
-     -11.39339,
-     9.49527
-    ]
-   },
-   "frais": {
-    "moyenne_pct": 0.09
-   },
-   "esperance_nette_pct": 0.825,
-   "ecart_neutralite": 0.5,
-   "verdict": "EN COURS",
-   "raisons": [
-    "ecart de neutralite 0.50 > 0.10 (livre nu)"
-   ]
-  },
-  "29_carry_neutre": {
-   "n_jambes": 6,
-   "funding": {
-    "moyenne_pct": 0.30926,
-    "t": 1.13
-   },
-   "prix": {
-    "moyenne_pct": -2.86571,
-    "t": -0.56,
-    "ic95_pct": [
-     -12.8173,
-     7.08588
-    ]
-   },
-   "frais": {
-    "moyenne_pct": 0.09
-   },
-   "esperance_nette_pct": 0.21926,
-   "ecart_neutralite": 0.0,
-   "verdict": "EN COURS",
-   "raisons": [
-    "n 6 < 20 jambes fermees",
-    "funding t 1.13 < 2.0 (capture non significative)"
-   ]
-  }
- },
- "mode_station": "attente_recharge_api",
- "garde_reel": {
-  "ts": "2026-08-09T10:39:00.607832+00:00",
-  "mode_station": "attente_recharge_api",
-  "composantes_ajoutees": 0,
-  "n_alertes": 2,
-  "n_avertissements": 2,
-  "criteres": {
-   "t_funding_min": 2.0,
-   "t_prix_max": 1.96,
-   "neutralite_max": 0.1,
-   "n_min": 20
-  }
- }
+ ]
 }
