@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-09T11:45:40.853852+00:00",
+ "ts": "2026-08-09T12:01:12.969021+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)",
@@ -37,29 +37,29 @@
   },
   "27b_rev_move": {
    "statut": "ORANGE",
-   "n": 77,
-   "esperance": 1.1885,
-   "t": 0.62,
-   "pnl": 91.52,
-   "pnl_j": 1.981,
-   "fwd_j": 46.2
+   "n": 78,
+   "esperance": 1.1378,
+   "t": 0.6,
+   "pnl": 88.75,
+   "pnl_j": 1.917,
+   "fwd_j": 46.3
   },
   "27c_mom_move": {
    "statut": "ORANGE",
-   "n": 77,
-   "esperance": -1.3285,
-   "t": -0.69,
-   "pnl": -102.3,
-   "pnl_j": -2.214,
-   "fwd_j": 46.2
+   "n": 78,
+   "esperance": -1.2778,
+   "t": -0.67,
+   "pnl": -99.67,
+   "pnl_j": -2.153,
+   "fwd_j": 46.3
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
-   "n": 115,
-   "esperance": -0.5084,
-   "t": -0.39,
-   "pnl": -58.46,
-   "pnl_j": -1.44,
+   "n": 116,
+   "esperance": -0.5279,
+   "t": -0.41,
+   "pnl": -61.23,
+   "pnl_j": -1.508,
    "fwd_j": 40.6
   },
   "27e_arbitre": {
@@ -68,8 +68,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.819,
-   "fwd_j": 36.8
+   "pnl_j": -0.817,
+   "fwd_j": 36.9
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -82,11 +82,11 @@
   },
   "27f_selecteur": {
    "statut": "ORANGE",
-   "n": 56,
-   "esperance": -0.6012,
-   "t": -0.26,
-   "pnl": -33.67,
-   "pnl_j": -0.94,
+   "n": 57,
+   "esperance": -0.5451,
+   "t": -0.24,
+   "pnl": -31.07,
+   "pnl_j": -0.868,
    "fwd_j": 35.8
   },
   "27g10_selecteur": {
@@ -127,18 +127,48 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0004,
-  "ret7": 0.0221,
-  "ret30": 0.0126,
-  "prix": 64961
+  "ret1": -0.0003,
+  "ret7": 0.0214,
+  "ret30": 0.0118,
+  "prix": 64915
  },
  "evenements_extremes": [
   {
    "coin": "SAGA",
-   "move_pct": 20.6
+   "move_pct": 20.0
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-09T12:01",
+   "bot": "27f_selecteur",
+   "marche": "sel-KAITO-MOM-tendance_piece",
+   "pnl": 2.59
+  },
+  {
+   "ts": "2026-08-09T12:01",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-KAITO",
+   "pnl": -2.77
+  },
+  {
+   "ts": "2026-08-09T12:01",
+   "bot": "27c_mom_move",
+   "marche": "mom_move-KAITO",
+   "pnl": 2.63
+  },
+  {
+   "ts": "2026-08-09T12:01",
+   "bot": "27b_rev_move",
+   "marche": "rev_move-KAITO",
+   "pnl": -2.77
+  },
+  {
+   "ts": "2026-08-09T12:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-09T11:45",
    "bot": "27a_rev_premium",
@@ -156,36 +186,6 @@
    "bot": "28_carry_hold",
    "marche": "XAI-long",
    "pnl": -0.39
-  },
-  {
-   "ts": "2026-08-09T11:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-09T11:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-09T11:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-09T10:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-09T10:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -199,7 +199,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.2,
+  "age_avis_h": 0.5,
   "problemes": []
  },
  "autofinancement": {
