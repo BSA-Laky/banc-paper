@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-10T06:01:10.170924+00:00",
+ "ts": "2026-08-10T06:15:44.160986+00:00",
  "alertes": [
   "28_carry_hold: KILL exécuté (2026-08-09) : R1 décrochage : esp20 -0.41 < borne 0.66 -> COUPER LE BOT"
  ],
@@ -128,26 +128,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0038,
-  "ret7": 0.0255,
-  "ret30": 0.0202,
-  "prix": 65112
+  "ret1": 0.0048,
+  "ret7": 0.0266,
+  "ret30": 0.0213,
+  "prix": 65182
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 31.5
+   "move_pct": 45.1
   },
   {
    "coin": "NIL",
-   "move_pct": 28.9
+   "move_pct": 27.8
   },
   {
    "coin": "BOME",
-   "move_pct": 24.3
+   "move_pct": 23.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-10T06:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-10T06:01",
    "bot": "10_controle_aleatoire",
@@ -189,12 +195,6 @@
    "bot": "27f_selecteur",
    "marche": "sel-SAGA-MOM-tendance_piece",
    "pnl": -27.68
-  },
-  {
-   "ts": "2026-08-10T04:45",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-SAGA",
-   "pnl": 27.54
   }
  ],
  "calibration_arbitre": {
@@ -208,7 +208,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {
