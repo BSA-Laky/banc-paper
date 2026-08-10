@@ -145,10 +145,9 @@
   </section>
 
   <section class="salle" id="salle-coffres">
-    <h2><span class="led" id="led-coffres"></span>COFFRE — argent réel (bot 28)</h2>
+    <h2><span class="led" id="led-coffres"></span>COFFRE — argent réel</h2>
     <div id="coffres" class="muted">Trésorier : en attente de données…</div>
-    <p class="muted">Bot 28 en ARGENT RÉEL sur mainnet Hyperliquid (levier 1×, garde-fous actifs).
-    Positions et P&L en direct : fenêtre <a href="reel.html">💰 Réel</a>.</p>
+    <p class="muted" id="statut-reel">Statut argent réel : en attente de données…</p>
   </section>
 
   <section class="salle" id="salle-biblio">
@@ -183,9 +182,7 @@
 
 <footer>
   100 % paper — la gate décide, le Commandant tranche<br>
-  <a href="brief.md">brief</a> · <a href="index.html">dashboard crypto</a> ·
-  <a href="book.html">book</a> · <a href="go_reel.json">go_reel.json</a> ·
-  <a href="equipage.html">équipage</a>
+  <a href="station.html">station</a> · <a href="index.html">dashboard crypto</a> · <a href="reel.html">💰 réel</a> · <a href="book.html">book</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a>
 </footer>
 
 <script>
@@ -418,7 +415,9 @@ function rendre(brief, gate){
     Object.entries(tm).map(([k,v])=>`témoin ${k.startsWith("10b")?"book":"crypto"} : t ${v.t_stat} (${v.sain?"sain":"SUSPECT"})`).join(" · ");
 
   const tb = document.querySelector("#tbl-bots tbody"); tb.innerHTML="";
-  const REELS = (gate && gate.reels) || ["28_carry_hold"];   // source unique : go_reel.json.reels (synergie B)
+  // 10/08/2026 : plus AUCUN fallback en dur. Si go_reel.json ne dit rien, il n'y a pas
+  // d'argent reel -- l'ancien `|| ["28_carry_hold"]` affichait un bot mort en "RÉEL".
+  const REELS = (gate && Array.isArray(gate.reels)) ? gate.reels : [];
   const cvie = (gate && gate.cycle_vie) || {};
   const etatBot = b => { const v=bots[b]||{}, d=cvie[b]||{};
     if(REELS.indexOf(b)>=0) return "reel";
@@ -427,6 +426,22 @@ function rendre(brief, gate){
   const ligne = (b,v)=>{ const e=etatBot(b);
     const chip = e==="reel" ? '<span class="chip VERT">💰 RÉEL</span>' : `<span class="chip ${v.statut}">${v.statut}</span>`;
     return `<tr><td>${b}</td><td>${chip}</td><td>${v.n}</td><td>${v.esperance}</td><td class="${(v.pnl||0)>=0?'pnl-pos':'pnl-neg'}" style="margin:0">${v.pnl===undefined||v.pnl===null?'?':v.pnl}</td><td>${v.t}</td><td>${v.fwd_j} j</td></tr>`; };
+  /* Statut argent reel : dit par les donnees, jamais code en dur (correctif 10/08). */
+  const elReel = document.getElementById("statut-reel");
+  if(elReel){
+    const lienReel = ' Detail : <a href="reel.html">\uD83D\uDCB0 R\u00e9el</a>.';
+    if(REELS.length){
+      elReel.innerHTML = '\uD83D\uDCB0 <b>' + REELS.join(", ") + '</b> en ARGENT R\u00c9EL sur mainnet Hyperliquid '
+        + '(levier 1\u00d7, garde-fous actifs).' + lienReel;
+    } else {
+      const motif = (gate && gate.reel_motif) ? String(gate.reel_motif) : "";
+      elReel.innerHTML = '\u26d4 <b>Aucun bot en argent r\u00e9el.</b> Exposition r\u00e9elle nulle, '
+        + 'le banc tourne \u00e0 100 % en argent fictif.'
+        + (motif ? '<br><span class="muted">Motif : ' + motif.replace(/</g,"&lt;").slice(0,320) + '</span>' : '')
+        + lienReel;
+    }
+  }
+
   let nbRouge=0, nbVert=0, pnlTotal=0, pnlConnu=false, morts=[];
   Object.entries(bots).forEach(([b,v])=>{
     if(v.statut==="ROUGE") nbRouge++; if(v.statut==="VERT") nbVert++;
