@@ -332,7 +332,7 @@ if d_treso and (n_cand or n_live or n_pause):
                        f"Promotions : {n_cand} candidat(s), {n_live} live, {n_pause} en pause"))
 if d_gate:
     evenements.append((d_gate, "Le Sas", "Station",
-                       f"Statuts reevalues : banc {'suspect' if banc_suspect else 'sain'}, "
+                       f"Statuts réévalués : banc {'suspect' if banc_suspect else 'sain'}, "
                        f"{n_orange} ORANGE / {n_gris} GRIS, {len(alertes)} alerte(s)"))
 if d_brief:
     evenements.append((d_brief, "La Passerelle", "Station",
