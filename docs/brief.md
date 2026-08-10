@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-10 11:15 (Paris)
+# Brief Station — 2026-08-10 11:30 (Paris)
 
 ## 🔴 ALERTES
 - 28_carry_hold: KILL exécuté (2026-08-09) : R1 décrochage : esp20 -0.41 < borne 0.66 -> COUPER LE BOT
@@ -12,8 +12,8 @@
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.829 | 47.6 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -8.137 | 14.9 j |
 | 27a_rev_premium | ORANGE | 64 | -1.9972 | -0.97 | -127.82 | -2.691 | 47.5 j |
-| 27b_rev_move | ORANGE | 81 | 1.2947 | 0.69 | 104.87 | 2.227 | 47.1 j |
-| 27c_mom_move | ORANGE | 81 | -1.4347 | -0.76 | -116.21 | -2.467 | 47.1 j |
+| 27b_rev_move | ORANGE | 81 | 1.2947 | 0.69 | 104.87 | 2.222 | 47.2 j |
+| 27c_mom_move | ORANGE | 81 | -1.4347 | -0.76 | -116.21 | -2.462 | 47.2 j |
 | 27d_rev_move_stop | ORANGE | 123 | -0.5669 | -0.45 | -69.73 | -1.68 | 41.5 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.799 | 37.7 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.317 | 36.7 j |
@@ -25,8 +25,8 @@
 
 **P&L paper cumule (hors temoin)** : -252.15 $
 
-**BTC** 65201 $ — ret 1j +0.51% · 7j +2.69% · 30j +2.16%
-**Moves 24h ≥ 20 %** : CASHCAT +43.9%, NIL +25.6%, BOME +23.8%
+**BTC** 65107 $ — ret 1j +0.37% · 7j +2.54% · 30j +2.01%
+**Moves 24h ≥ 20 %** : CASHCAT +41.8%, NIL +25.4%, BOME +20.8%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
