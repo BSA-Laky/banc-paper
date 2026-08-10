@@ -31,13 +31,32 @@ LEDGER = ETAT / "reel_trades.csv"
 F_STOP = ETAT / "reel_stop.json"
 def _pilotes_reels():
     """SOURCE UNIQUE des bots reels = portefeuille.reel.json (cles 'bots'). Ajouter un bot
-    reel = editer CE fichier UNIQUEMENT (synergie B, 23/07). Defaut sur 28 si illisible."""
+    reel = editer CE fichier UNIQUEMENT (synergie B, 23/07).
+
+    VERROU AJOUTE LE 10/08/2026 : un bot dont le cycle de vie dit "kill" est RETIRE de la
+    liste, meme s'il traine encore dans le registre. Sans ce verrou il restait un chemin
+    silencieux vers de l'argent reel sur un bot mort : le 28 a ete tue le 09/08 mais figurait
+    toujours dans portefeuille.reel.json ; il suffisait de repasser reel_suspendu a false
+    (geste normal apres un nouveau depot) pour qu'il se remette a trader du vrai argent sans
+    qu'aucune decision ne soit prise. En cas de doute la liste est VIDE : plus de defaut en
+    dur sur ["28_carry_hold"], qui ressuscitait justement le bot mort."""
     try:
         cfg = json.loads(Path(os.environ.get("PORTEFEUILLE_CONFIG", "portefeuille.reel.json"))
                          .read_text(encoding="utf-8"))
-        return list((cfg.get("bots") or {}).keys()) or ["28_carry_hold"]
+        if cfg.get("reel_suspendu"):
+            return []
+        pilotes = list((cfg.get("bots") or {}).keys())
     except (OSError, ValueError):
-        return ["28_carry_hold"]
+        return []
+    try:
+        cv = (json.loads((ETAT / "cycle_vie.json").read_text(encoding="utf-8")).get("bots") or {})
+    except (OSError, ValueError):
+        cv = {}
+    vivants = [b for b in pilotes if (cv.get(b) or {}).get("etat") != "kill"]
+    for mort in [b for b in pilotes if b not in vivants]:
+        print("[reel] REFUS : %s est TUE (cycle_vie) -- retire des pilotes reels." % mort,
+              flush=True)
+    return vivants
 
 
 PILOTES = _pilotes_reels()

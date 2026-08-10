@@ -213,7 +213,9 @@ def produire_brief():
         _hdr = datetime.fromisoformat(doc['ts']).astimezone(ZoneInfo("Europe/Paris")).strftime("%Y-%m-%d %H:%M (Paris)")
     except Exception:
         _hdr = doc['ts'][:16] + " UTC"
-    L = [f"# Brief Station — {_hdr}", ""]
+    L = [f"# Brief Station — {_hdr}", "",
+         "[station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · "
+         "[book](book.html) · [équipage](equipage.html)", ""]
     if doc["sante_equipage"]["problemes"]:
         L.append("## 🔴 EQUIPAGE")
         L += [f"- {pb}" for pb in doc["sante_equipage"]["problemes"]]

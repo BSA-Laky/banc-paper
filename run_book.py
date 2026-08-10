@@ -67,27 +67,29 @@ def construire_book_html():
         r = res.get(bot)
         if not r:
             cartes.append(f'<div class="carte"><h2>{titre}</h2>'
-                          f'<p class="muted">Aucun trade solde (attend la 1re rotation mensuelle).</p></div>')
+                          f'<p class="muted">Aucun trade soldé — <b>rotation mensuelle</b> : ce book ne produit qu\'un point de donnée par mois, par construction. Une page immobile est ici le comportement normal, pas une panne.</p></div>')
             continue
         esp = r["esperance_par_trade"]
         cls = "pos" if esp > 0 else ("neg" if esp < 0 else "")
         k = (f'<div><span class="lab">Trades (mois)</span><span class="val">{r["trades"]}</span></div>'
-             f'<div><span class="lab">Esperance / mois</span><span class="val {cls}">{esp:+.4f}</span></div>'
-             f'<div><span class="lab">P&amp;L cumule</span><span class="val">{r["pnl_total"]:+.3f}</span></div>'
+             f'<div><span class="lab">Espérance / mois</span><span class="val {cls}">{esp:+.4f}</span></div>'
+             f'<div><span class="lab">P&amp;L cumulé</span><span class="val">{r["pnl_total"]:+.3f}</span></div>'
              f'<div><span class="lab">t-stat</span><span class="val">{r["t_stat"]:+.2f}</span></div>')
         cartes.append(f'<div class="carte"><h2>{titre}</h2><div class="kpis">{k}</div>'
                       f'<p class="verdict">{html.escape(r["verdict"])}</p></div>')
     doc = ('<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">'
            '<meta name="viewport" content="width=device-width, initial-scale=1">'
-           '<title>Book marches traditionnels</title><style>' + css + '</style></head><body>'
-           '<h1>Book paper-forward - trend + prime de variance</h1>'
-           f'<div class="maj">Mis a jour : {maj} - rotation mensuelle - 100 % fictif</div>'
+           '<title>Book marchés traditionnels</title><style>.navbar{margin:18px 0 8px;font-size:.8rem;color:#9aa0a6}.navbar a{color:#8ab4f8;text-decoration:none;margin-right:2px}' + css + '</style></head><body>'
+           '<h1>Book paper-forward — trend + prime de variance</h1>'
+           f'<div class="maj">Mis à jour : {maj} — rotation mensuelle — 100 % fictif</div>'
            + "".join(cartes) +
            '<footer>Deux edges valides out-of-sample sur 30 ans (backtest). Ce book les '
-           'CONFIRME en forward, argent 100 % fictif, avant tout capital reel. Le verdict '
+           'CONFIRME en forward, argent 100 % fictif, avant tout capital réel. Le verdict '
            'mensuel est lent par nature (1 point/mois) : la preuve principale reste le '
-           'backtest ; le forward verifie les frictions live. Rien en reel sans verdict '
-           'confirme battant le temoin.</footer></body></html>')
+           'backtest ; le forward vérifie les frictions live. Rien en réel sans verdict '
+           'confirmé battant le témoin.</footer>'
+           '<nav class="navbar"><a href="station.html">station</a> · <a href="index.html">dashboard crypto</a> · <a href="reel.html">💰 réel</a> · <a href="book.html">book</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a></nav>'
+           '</body></html>')
     DOCS.mkdir(parents=True, exist_ok=True)
     (DOCS / "book.html").write_text(doc, encoding="utf-8")
     print("[book] docs/book.html regenere", flush=True)

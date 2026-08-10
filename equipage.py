@@ -142,7 +142,7 @@ officiers = []
 _next_ada = _next_weekly(6, 6, 30)
 _cls, _lbl = _statut_ia(d_consigne or d_rapport)
 officiers.append({
-    "nom": "Commandeure Ada", "poste": "Supervision generale", "role": "Superviseur",
+    "nom": "Commandeure Ada", "poste": "Supervision générale", "role": "Superviseur",
     "badge": "Fable 5", "type": "IA",
     "statut_cls": _cls, "statut": _lbl,
     "derniere": "Audit hebdomadaire + consigne posee", "derniere_dt": d_consigne or d_rapport,
@@ -196,27 +196,61 @@ if isinstance(_hyps, list):
 if _d_hyp is None:
     _d_hyp = _mtime(ETAT / "hypotheses.json")
 officiers.append({
-    "nom": "Enseigne Nova", "poste": "R&D - code et active les bots paper (autonome)", "role": "Stratege",
+    "nom": "Enseigne Nova", "poste": "R&D — code et active les bots paper (autonome)", "role": "Stratège",
     "badge": "Opus 4.8", "type": "IA",
     "statut_cls": ("actif" if (_d_hyp and (NOW - _d_hyp).total_seconds() < 8*86400) else "repos"),
     "statut": (f"{_n_hyp} fiche(s) au registre" if _n_hyp else "En poste, attend un kill"),
-    "derniere": "Fiche d'hypothese deposee", "derniere_dt": _d_hyp,
+    "derniere": "Fiche d'hypothèse déposée", "derniere_dt": _d_hyp,
     "prochain": "Ronde du dimanche (si invalidation)", "prochain_dt": _next_weekly(6, 6, 0),
-    "parole": ("Quand la gate tue un bot, je concois ET CODE son remplacant paper de A a Z "
+    "parole": ("Quand la gate tue un bot, je conçois ET CODE son remplacant paper de A a Z "
                "(sandbox sans secret, kill auto). Le GO reel reste au Commandant. Si je bute sur "
                "une ressource (cle, venue), je te la demande sur Telegram avec le tuto."),
 })
 
 # ---------- automates 24/7 ----------
-automates = []; automates.append({"nom": "L'Exécuteur réel", "poste": "Trade le bot 28 en ARGENT RÉEL (mainnet HL)", "role": "executeur_reel.py", "badge": "Automate", "type": "SYS", "statut_cls": "actif", "statut": "Actif — rails 1× + garde-fou levier + kill-switch", "derniere": "Miroir mainnet du 28", "derniere_dt": d_gate, "prochain": "Prochaine passe", "prochain_dt": d_gate, "parole": "Je réplique les positions du bot 28 sur Hyperliquid mainnet : levier 1× forcé, coins non-1× refusés, plafond d'expo total, kill-switch stopreel. Perte bornée au dépôt (wallet agent trade-only)."})
+# L'Executeur reel : son statut est LU, jamais ecrit en dur (correctif 10/08/2026).
+# Avant ce correctif la fiche disait "Actif -- trade le bot 28 en ARGENT REEL" en
+# permanence : elle a continue a l'affirmer apres le retrait des fonds (07/08) et
+# apres le kill du bot 28 (09/08). Une page d'equipage qui annonce de l'argent reel
+# a tort est le pire defaut possible sur un projet dont l'argument est la rigueur.
+# Source de verite unique : go_reel.json.reels, deja filtre par le Sas
+# (kill-switch > suspension > cycle_vie kill).
+_reels = gate.get("reels") if isinstance(gate.get("reels"), list) else []
+_reel_motif = (gate.get("reel_motif") or "").strip()
+if _reels:
+    _liste = ", ".join(_reels)
+    _exe = {
+        "poste": f"Trade {_liste} en ARGENT RÉEL (mainnet HL)",
+        "statut_cls": "actif",
+        "statut": "Actif — rails 1× + garde-fou levier + kill-switch",
+        "derniere": f"Miroir mainnet : {_liste}",
+        "parole": ("Je réplique les positions de " + _liste + " sur Hyperliquid mainnet : "
+                   "levier 1× forcé, coins non-1× refusés, plafond d'expo total, kill-switch "
+                   "stopreel. Perte bornée au dépôt (wallet agent trade-only)."),
+    }
+else:
+    _exe = {
+        "poste": "Aucun bot en argent réel — exposition nulle",
+        "statut_cls": "repos",
+        "statut": "En veille — 0 € engagé",
+        "derniere": "Dernière exposition réelle soldée",
+        "parole": ("Je ne trade rien en réel en ce moment : aucun bot ne m'est confié. "
+                   + (f"Motif : {_reel_motif} " if _reel_motif else "")
+                   + "Je reste armé — rails 1× forcé, plafond d'expo, kill-switch stopreel — "
+                     "et je ne reprendrai que sur un bot vivant remis au registre par le Commandant."),
+    }
+automates = []
+automates.append({"nom": "L'Exécuteur réel", "role": "executeur_reel.py", "badge": "Automate",
+                  "type": "SYS", "derniere_dt": d_gate,
+                  "prochain": "Prochaine passe", "prochain_dt": d_gate, **_exe})
 
 # Le Sas — gate GO-reel (moniteur_go_reel.py)
 automates.append({
-    "nom": "Le Sas", "poste": "Controle GO-reel", "role": "moniteur_go_reel.py",
+    "nom": "Le Sas", "poste": "Contrôle GO-réel", "role": "moniteur_go_reel.py",
     "badge": "Automate", "type": "SYS",
     "statut_cls": ("incident" if banc_suspect or n_rouge else "actif"),
     "statut": ("Banc suspect" if banc_suspect else (f"{n_rouge} ROUGE" if n_rouge else "Sain")),
-    "derniere": "Statuts GO-reel reevalues", "derniere_dt": d_gate,
+    "derniere": "Statuts GO-réel réévalués", "derniere_dt": d_gate,
     "prochain": "Prochain créneau", "prochain_dt": _next_quarter(),
     "parole": (f"Banc {'suspect' if banc_suspect else 'sain'}, temoin "
                f"{'sain' if temoin.get('sain') else 'a surveiller'} (t {temoin.get('t_stat', '?')}). "
@@ -232,7 +266,7 @@ automates.append({
     "statut_cls": "actif", "statut": "En service",
     "derniere": "Passe d'echantillonnage", "derniere_dt": d_brief,
     "prochain": "Prochain créneau", "prochain_dt": _next_quarter(),
-    "parole": (f"Bots echantillonnes (temoin, 23, 24, 25, 26, 27x, 28). Derniere action : "
+    "parole": (f"Bots échantillonnés (témoin, 23, 24, 25, 26, 27x, 28). Dernière action : "
                f"{_last_action.get('bot', '-')} sur {_last_action.get('marche', '-')} "
                f"(pnl {_last_action.get('pnl', '-')})." if _last_action
                else "Bots echantillonnes a chaque passe (creneau ~15 min, retards GitHub possibles)."),
@@ -313,7 +347,7 @@ def carte(a):
       <div class="tete"><span class="nom">{esc(a['nom'])}</span><span class="badge b-{esc(a['type'])}">{esc(a['badge'])}</span></div>
       <div class="poste">{esc(a['poste'])} &middot; <span class="role">{esc(a['role'])}</span></div>
       <div><span class="pill p-{esc(a['statut_cls'])}">{esc(a['statut'])}</span></div>
-      <div class="ligne"><b>Derniere tache :</b> {esc(a['derniere'])} <span class="muted">&middot; {_il_y_a(a['derniere_dt'])}</span></div>
+      <div class="ligne"><b>Dernière tâche :</b> {esc(a['derniere'])} <span class="muted">&middot; {_il_y_a(a['derniere_dt'])}</span></div>
       <div class="ligne"><b>{esc(a['prochain'])} :</b> {_dans(a['prochain_dt'])} <span class="muted">({_hhmm(a['prochain_dt'])})</span></div>
       <div class="parole">&laquo; {esc(a['parole'])} &raquo;</div>
     </div>"""
@@ -335,7 +369,8 @@ html_doc = f"""<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Equipage &middot; LA STATION</title>
-<style>
+<style>.navbar {{ margin:18px 0 8px; font-size:.8rem; color:#8894b8 }}
+.navbar a {{ color:#5b7cff; text-decoration:none; margin-right:2px }}
 :root {{ --bg:#0b1020; --card:#141b30; --card2:#101528; --line:#243050; --txt:#e6ecff;
   --muted:#8894b8; --actif:#28c76f; --repos:#5b7cff; --reserve:#8a93b0; --incident:#ff5b6e;
   --dormant:#54607f; }}
@@ -403,6 +438,7 @@ footer {{ color:var(--muted); font-size:11px; margin-top:22px; text-align:center
 {chr(10).join(ligne_journal(e) for e in evenements) if evenements else '    <li>Aucun &eacute;change enregistr&eacute; pour le moment.</li>'}
 </ul>
 
+<nav class="navbar"><a href="station.html">station</a> · <a href="index.html">dashboard crypto</a> · <a href="reel.html">💰 réel</a> · <a href="book.html">book</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a></nav>
 <footer>Page d&eacute;terministe &middot; 0 appel LLM &middot; g&eacute;n&eacute;r&eacute;e le {esc(NOW.strftime('%Y-%m-%d %H:%M UTC'))} &middot; rafra&icirc;chie &agrave; chaque passe du banc</footer>
 </body></html>"""
 

@@ -529,10 +529,34 @@ def produire_go_reel():
                    "sain": abs(stats[b]["t_stat"] + 0.02 * stats[b]["trades"] ** 0.5) < 2.0}
                for b in TEMOINS if b in stats}
     banc_suspect = any(not v["sain"] for v in temoins.values())
-    try:                                   # synergie B : bots reels = portefeuille.reel.json (source unique)
-        reels_list = list((json.loads(Path("portefeuille.reel.json").read_text(encoding="utf-8")).get("bots") or {}).keys())
+    # --- Bots reellement en ARGENT REEL (corrige le 10/08/2026) -----------------
+    # Trois verrous, du plus fort au plus faible. Un seul suffit a vider la liste :
+    #   (a) etat/reel_stop.json {"stop": true}  -> kill-switch, plus rien ne trade ;
+    #   (b) portefeuille.reel.json reel_suspendu -> fonds retires, equity 0 ;
+    #   (c) cycle_vie[bot].etat == "kill"        -> le bot est mort, meme s'il traine
+    #       encore dans le registre.
+    # Defaut d'origine : la liste tombait sur ["28_carry_hold"] en dur, si bien que le
+    # 28 -- tue le 09/08 et desargente depuis le 07/08 -- restait annonce "en ARGENT
+    # REEL" sur station.html et equipage.html. Un fallback en dur qui ressuscite un bot
+    # mort est pire que pas de fallback du tout : ici, en cas de doute, la liste est VIDE.
+    reel_suspendu, reel_motif = False, ""
+    try:
+        _stop = json.loads((Path("etat") / "reel_stop.json").read_text(encoding="utf-8"))
+        if _stop.get("stop"):
+            reel_suspendu = True
+            reel_motif = _stop.get("motif") or "kill-switch etat/reel_stop.json actif"
     except (OSError, ValueError):
-        reels_list = ["28_carry_hold"]
+        pass
+    try:
+        _cfg = json.loads(Path("portefeuille.reel.json").read_text(encoding="utf-8"))
+        if _cfg.get("reel_suspendu"):
+            reel_suspendu = True
+            reel_motif = reel_motif or "reel_suspendu dans portefeuille.reel.json"
+        reels_list = [] if reel_suspendu else list((_cfg.get("bots") or {}).keys())
+    except (OSError, ValueError):
+        reels_list = []
+    reels_list = [b for b in reels_list
+                  if (cv["bots"].get(b) or {}).get("etat") != "kill"]
 
     doc = {
         "ts": datetime.now(timezone.utc).isoformat(),
@@ -549,6 +573,8 @@ def produire_go_reel():
         "calibration_arbitre": _scorer_calibration(),
         "cycle_vie": cv["bots"],
         "reels": reels_list,
+        "reel_suspendu": reel_suspendu,
+        "reel_motif": reel_motif,
     }
     try:
         SORTIE_JSON.parent.mkdir(parents=True, exist_ok=True)

@@ -95,13 +95,39 @@ def main():
     suspect = bool(gr.get("banc_suspect"))
     pannes = (brief.get("sante_equipage") or {}).get("problemes", [])
     alertes = alertes + [f"EQUIPAGE : {pb}" for pb in pannes]   # rappel quotidien tant que ca dure
-    if not alertes and not suspect and not chg:
-        print("[alerte] rien a signaler.", flush=True)
-        return
-
     jour = datetime.now(timezone.utc).date().isoformat()
     titre = f"Alerte banc — {jour}"
+    rien = not alertes and not suspect and not chg
     ouvertes = _req(f"{API}?state=open&per_page=50") or []   # dedup par TITRE (pas par label)
+
+    # --- HYGIENE (10/08/2026) : une alerte quotidienne qui ne se referme jamais
+    # cesse d'etre une alerte. Au 10/08 il y avait 11 issues ouvertes, du 30/07 au
+    # 10/08, aucune fermee : le bruit noyait le signal, et une VRAIE alerte serait
+    # passee inapercue au milieu. On garde uniquement l'issue du jour ; les
+    # precedentes sont refermees automatiquement avec un mot expliquant pourquoi
+    # (elles restent consultables, rien n'est supprime).
+    _fermees = 0
+    for i in ouvertes:
+        if not isinstance(i, dict) or i.get("title") == titre:
+            continue
+        if not str(i.get("title", "")).startswith("Alerte banc"):
+            continue          # on ne touche qu'a NOS issues automatiques
+        num = i.get("number")
+        if not num:
+            continue
+        _req(f"{API}/{num}/comments",
+             data={"body": "Refermee automatiquement : remplacee par l'alerte du "
+                           f"{jour}. L'etat courant fait foi -> "
+                           "https://bsa-laky.github.io/banc-paper/brief.md"},
+             method="POST")
+        if _req(f"{API}/{num}", data={"state": "closed"}, method="PATCH"):
+            _fermees += 1
+    if _fermees:
+        print(f"[alerte] {_fermees} ancienne(s) alerte(s) refermee(s).", flush=True)
+
+    if rien:
+        print("[alerte] rien a signaler.", flush=True)
+        return
     if any(i.get("title") == titre for i in ouvertes if isinstance(i, dict)):
         print("[alerte] issue du jour deja ouverte.", flush=True)
         return
