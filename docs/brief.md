@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-10 14:30 (Paris)
+# Brief Station — 2026-08-10 14:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -11,12 +11,12 @@
 ## Statuts gate (GO-reel)
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.825 | 47.7 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.821 | 47.8 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -8.083 | 15.0 j |
-| 27a_rev_premium | ORANGE | 65 | -1.9676 | -0.97 | -127.9 | -2.687 | 47.6 j |
+| 27a_rev_premium | ORANGE | 65 | -1.9676 | -0.97 | -127.9 | -2.681 | 47.7 j |
 | 27b_rev_move | ORANGE | 81 | 1.2947 | 0.69 | 104.87 | 2.217 | 47.3 j |
 | 27c_mom_move | ORANGE | 81 | -1.4347 | -0.76 | -116.21 | -2.457 | 47.3 j |
-| 27d_rev_move_stop | ORANGE | 123 | -0.5669 | -0.45 | -69.73 | -1.676 | 41.6 j |
+| 27d_rev_move_stop | ORANGE | 123 | -0.5669 | -0.45 | -69.73 | -1.672 | 41.7 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.795 | 37.9 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.316 | 36.8 j |
 | 27f_selecteur | ORANGE | 60 | -0.7936 | -0.36 | -47.62 | -1.294 | 36.8 j |
@@ -27,8 +27,8 @@
 
 **P&L paper cumule (hors temoin)** : -252.23 $
 
-**BTC** 65036 $ — ret 1j +0.26% · 7j +2.43% · 30j +1.90%
-**Moves 24h ≥ 20 %** : CASHCAT +39.6%, NIL +22.3%
+**BTC** 64984 $ — ret 1j +0.18% · 7j +2.35% · 30j +1.82%
+**Moves 24h ≥ 20 %** : CASHCAT +39.9%, NIL +22.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
