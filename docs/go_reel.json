@@ -1,11 +1,11 @@
 {
- "ts": "2026-08-10T12:01:15.364255+00:00",
+ "ts": "2026-08-10T12:15:39.593058+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 2381,
-   "t_stat": -2.14,
+   "n": 2382,
+   "t_stat": -2.12,
    "sain": true
   }
  },
@@ -27,7 +27,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1619.1,
+   "expo_moyenne_usd": 1618.8,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -47,7 +47,7 @@
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1457.1,
+   "expo_moyenne_usd": 1456.1,
    "rendement_j_pct": -0.555
   },
   "27a_rev_premium": {
@@ -70,7 +70,7 @@
    "esp_glissante_20": -4.8503,
    "borne_decrochage": -9.2948,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 136.5,
+   "expo_moyenne_usd": 136.4,
    "rendement_j_pct": -1.969
   },
   "27b_rev_move": {
@@ -93,7 +93,7 @@
    "borne_decrochage": -6.278,
    "statut": "ORANGE",
    "expo_moyenne_usd": 171.4,
-   "rendement_j_pct": 1.293
+   "rendement_j_pct": 1.294
   },
   "27c_mom_move": {
    "n": 81,
@@ -116,7 +116,7 @@
    "borne_decrochage": -9.0075,
    "statut": "ORANGE",
    "expo_moyenne_usd": 171.4,
-   "rendement_j_pct": -1.433
+   "rendement_j_pct": -1.434
   },
   "27d_rev_move_stop": {
    "n": 123,
@@ -137,7 +137,7 @@
    "esp_glissante_20": 2.1269,
    "borne_decrochage": -6.779,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 295.5,
+   "expo_moyenne_usd": 295.4,
    "rendement_j_pct": -0.567
   },
   "27e_arbitre": {
@@ -159,14 +159,14 @@
    "esp_glissante_20": -0.4443,
    "borne_decrochage": -7.2096,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 79.3,
+   "expo_moyenne_usd": 79.2,
    "rendement_j_pct": -1.003,
    "ab": {
     "contre": "27b_rev_move",
     "delta_esperance": -2.2994,
     "t_welch": -0.73,
     "delta_rendement_j_pct": 0.4646,
-    "t_welch_jour": 0.16,
+    "t_welch_jour": 0.15,
     "jours_compares": 38
    }
   },
@@ -187,7 +187,7 @@
    "esp_glissante_20": -4.7845,
    "borne_decrochage": -4.6086,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 475.5,
+   "expo_moyenne_usd": 475.4,
    "rendement_j_pct": -0.066
   },
   "27f_selecteur": {
@@ -238,7 +238,7 @@
    "esperance": -0.0412,
    "t_stat": -0.01,
    "mdd_live": 90.29,
-   "jours_forward": 14.6,
+   "jours_forward": 14.7,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": true,
    "raisons": [
@@ -252,7 +252,7 @@
    "esp_glissante_20": -0.406,
    "borne_decrochage": 0.6607,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 368.5,
+   "expo_moyenne_usd": 368.2,
    "rendement_j_pct": -0.024
   },
   "29_carry_neutre": {
@@ -260,18 +260,18 @@
    "esperance": 20.1879,
    "t_stat": 1.28,
    "mdd_live": 50.49,
-   "jours_forward": 14.6,
+   "jours_forward": 14.7,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 242.25,
-   "pnl_par_jour": 16.593,
+   "pnl_par_jour": 16.48,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 906.7,
-   "rendement_j_pct": 1.83
+   "expo_moyenne_usd": 906.1,
+   "rendement_j_pct": 1.819
   },
   "rd_h2": {
    "n": 133,
@@ -293,7 +293,7 @@
    "esp_glissante_20": -1.459,
    "borne_decrochage": -1.7645,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 891.7,
+   "expo_moyenne_usd": 891.1,
    "rendement_j_pct": -0.008
   }
  },
@@ -354,7 +354,7 @@
    "ts": "2026-08-09T19:01:02.750173+00:00"
   }
  },
- "reels": [
-  "28_carry_hold"
- ]
+ "reels": [],
+ "reel_suspendu": true,
+ "reel_motif": "Retrait des fonds par le Commandant, duree indeterminee. Equity mainnet a 0, aucune position ouverte : sortie propre. Sans ce kill-switch, executeur_reel.py tenterait des ordres sur un compte vide et remplirait reel_trades.csv de REJET a chaque passe."
 }
