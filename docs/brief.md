@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-11 18:01 (Paris)
+# Brief Station — 2026-08-11 18:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -12,7 +12,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.781 | 48.9 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -7.531 | 16.1 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -7.484 | 16.2 j |
 | 27a_rev_premium | ORANGE | 68 | -2.075 | -1.07 | -141.1 | -2.891 | 48.8 j |
 | 27b_rev_move | ORANGE | 87 | 1.2652 | 0.72 | 110.07 | 2.274 | 48.4 j |
 | 27c_mom_move | ORANGE | 87 | -1.4052 | -0.8 | -122.25 | -2.526 | 48.4 j |
@@ -20,7 +20,7 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.773 | 39.0 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.306 | 38.0 j |
 | 27f_selecteur | ORANGE | 66 | -0.6378 | -0.31 | -42.1 | -1.108 | 38.0 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.482 | 30.2 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.481 | 30.3 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.081 | 15.8 j |
 | 29_carry_neutre | GRIS | 12 | 20.1879 | 1.28 | 242.25 | 15.333 | 15.8 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.067 | 16.1 j |
