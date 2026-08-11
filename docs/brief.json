@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-11T11:45:40.925018+00:00",
+ "ts": "2026-08-11T12:01:09.831631+00:00",
  "alertes": [
   "28_carry_hold: KILL exécuté (2026-08-09) : R1 décrochage : esp20 -0.41 < borne 0.66 -> COUPER LE BOT"
  ],
@@ -42,8 +42,8 @@
    "esperance": 1.2652,
    "t": 0.72,
    "pnl": 110.07,
-   "pnl_j": 2.284,
-   "fwd_j": 48.2
+   "pnl_j": 2.279,
+   "fwd_j": 48.3
   },
   "27c_mom_move": {
    "statut": "ORANGE",
@@ -51,8 +51,8 @@
    "esperance": -1.4052,
    "t": -0.8,
    "pnl": -122.25,
-   "pnl_j": -2.536,
-   "fwd_j": 48.2
+   "pnl_j": -2.531,
+   "fwd_j": 48.3
   },
   "27d_rev_move_stop": {
    "statut": "ORANGE",
@@ -69,8 +69,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.777,
-   "fwd_j": 38.8
+   "pnl_j": -0.775,
+   "fwd_j": 38.9
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -128,13 +128,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0057,
-  "ret7": 0.0039,
-  "ret30": 0.0084,
-  "prix": 64317
+  "ret1": 0.0063,
+  "ret7": 0.0045,
+  "ret30": 0.009,
+  "prix": 64356
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-11T12:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-11T11:45",
    "bot": "27a_rev_premium",
@@ -176,12 +182,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-11T10:27",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -195,7 +195,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.4,
+  "age_avis_h": 0.6,
   "problemes": []
  },
  "autofinancement": {
