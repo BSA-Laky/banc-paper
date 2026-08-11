@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-11 07:30 (Paris)
+# Brief Station — 2026-08-11 07:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -23,11 +23,11 @@
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.489 | 29.8 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.083 | 15.4 j |
 | 29_carry_neutre | GRIS | 12 | 20.1879 | 1.28 | 242.25 | 15.731 | 15.4 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.069 | 15.6 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.069 | 15.7 j |
 
 **P&L paper cumule (hors temoin)** : -223.99 $
 
-**BTC** 63960 $ — ret 1j +0.01% · 7j -0.17% · 30j +0.28%
+**BTC** 64033 $ — ret 1j +0.13% · 7j -0.05% · 30j +0.40%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
