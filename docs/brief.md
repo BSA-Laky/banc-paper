@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-12 23:01 (Paris)
+# Brief Station — 2026-08-12 23:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -17,7 +17,7 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.75 | 40.2 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.297 | 39.2 j |
 | 27f_selecteur | ORANGE | 67 | -0.4214 | -0.21 | -28.23 | -0.72 | 39.2 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.464 | 31.4 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.462 | 31.5 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.075 | 17.0 j |
 | 29_carry_neutre | GRIS | 12 | 20.1879 | 1.28 | 242.25 | 14.25 | 17.0 j |
 | 29b_carry_neutre_large | GRIS | 20 | 1.3233 | 0.78 | 26.47 | 3.676 | 7.2 j |
@@ -26,8 +26,8 @@
 
 **P&L paper cumule (hors temoin)** : -213.55 $
 
-**BTC** 63620 $ — ret 1j +0.09% · 7j -1.56% · 30j +2.07%
-**Moves 24h ≥ 20 %** : KAITO -27.9%, NIL +21.4%
+**BTC** 63573 $ — ret 1j +0.02% · 7j -1.63% · 30j +1.99%
+**Moves 24h ≥ 20 %** : KAITO -27.5%, NIL +23.9%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
