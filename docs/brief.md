@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-12 14:45 (Paris)
+# Brief Station — 2026-08-12 15:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -14,21 +14,21 @@
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.748 | 49.8 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -7.132 | 17.0 j |
 | 27a_rev_premium | ORANGE | 70 | -2.3321 | -1.22 | -163.25 | -3.285 | 49.7 j |
-| 27b_rev_move | ORANGE | 87 | 1.2652 | 0.72 | 110.07 | 2.233 | 49.3 j |
-| 27c_mom_move | ORANGE | 87 | -1.4052 | -0.8 | -122.25 | -2.48 | 49.3 j |
-| 27d_rev_move_stop | ORANGE | 128 | -0.2995 | -0.25 | -38.33 | -0.877 | 43.7 j |
+| 27b_rev_move | ORANGE | 88 | 1.4084 | 0.81 | 123.94 | 2.514 | 49.3 j |
+| 27c_mom_move | ORANGE | 88 | -1.5484 | -0.89 | -136.26 | -2.764 | 49.3 j |
+| 27d_rev_move_stop | ORANGE | 129 | -0.1897 | -0.16 | -24.47 | -0.56 | 43.7 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.755 | 39.9 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.3 | 38.8 j |
-| 27f_selecteur | ORANGE | 66 | -0.6378 | -0.31 | -42.1 | -1.085 | 38.8 j |
+| 27f_selecteur | ORANGE | 67 | -0.4214 | -0.21 | -28.23 | -0.728 | 38.8 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.468 | 31.1 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.076 | 16.7 j |
 | 29_carry_neutre | GRIS | 12 | 20.1879 | 1.28 | 242.25 | 14.506 | 16.7 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.064 | 16.9 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.064 | 17.0 j |
 
-**P&L paper cumule (hors temoin)** : -251.50 $
+**P&L paper cumule (hors temoin)** : -223.91 $
 
-**BTC** 64046 $ — ret 1j +0.76% · 7j -0.90% · 30j +2.75%
-**Moves 24h ≥ 20 %** : KAITO -24.9%
+**BTC** 64105 $ — ret 1j +0.86% · 7j -0.80% · 30j +2.85%
+**Moves 24h ≥ 20 %** : KAITO -25.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
