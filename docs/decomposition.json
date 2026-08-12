@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-12T17:32:31.330888+00:00",
+ "ts": "2026-08-12T19:06:50.093178+00:00",
  "criteres": {
   "funding_t_min": 2.0,
   "prix_ic95_contient_0": true,
@@ -79,6 +79,31 @@
    "raisons": [
     "n 12 < 20 jambes fermees",
     "funding t 0.79 < 2.0 (capture non significative)"
+   ]
+  },
+  "29b_carry_neutre_large": {
+   "n_jambes": 20,
+   "funding": {
+    "moyenne_pct": -0.53722,
+    "t": -0.38
+   },
+   "prix": {
+    "moyenne_pct": 3.42159,
+    "t": 0.91,
+    "ic95_pct": [
+     -3.92825,
+     10.77144
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": -0.62722,
+   "ecart_neutralite": 0.0,
+   "verdict": "EN COURS",
+   "raisons": [
+    "funding t -0.38 < 2.0 (capture non significative)",
+    "E[funding] -0.00537 <= E[frais] 0.00090"
    ]
   }
  }
