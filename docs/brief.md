@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-12 20:15 (Paris)
+# Brief Station — 2026-08-12 20:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -12,7 +12,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.741 | 50.0 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -7.049 | 17.2 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -7.008 | 17.3 j |
 | 27a_rev_premium | ORANGE | 70 | -2.3321 | -1.22 | -163.25 | -3.272 | 49.9 j |
 | 27b_rev_move | ORANGE | 88 | 1.4084 | 0.81 | 123.94 | 2.504 | 49.5 j |
 | 27c_mom_move | ORANGE | 88 | -1.5484 | -0.89 | -136.26 | -2.753 | 49.5 j |
@@ -28,7 +28,7 @@
 
 **P&L paper cumule (hors temoin)** : -205.21 $
 
-**BTC** 63429 $ — ret 1j -0.21% · 7j -1.85% · 30j +1.76%
+**BTC** 63455 $ — ret 1j -0.17% · 7j -1.81% · 30j +1.80%
 **Moves 24h ≥ 20 %** : KAITO -28.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
