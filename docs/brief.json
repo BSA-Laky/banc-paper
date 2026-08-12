@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-12T14:15:47.324511+00:00",
+ "ts": "2026-08-12T14:31:00.912352+00:00",
  "alertes": [
   "28_carry_hold: KILL exécuté (2026-08-09) : R1 décrochage : esp20 -0.41 < borne 0.66 -> COUPER LE BOT"
  ],
@@ -69,8 +69,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.755,
-   "fwd_j": 39.9
+   "pnl_j": -0.753,
+   "fwd_j": 40.0
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -106,7 +106,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.076,
-   "fwd_j": 16.7
+   "fwd_j": 16.8
   },
   "29_carry_neutre": {
    "statut": "GRIS",
@@ -114,8 +114,8 @@
    "esperance": 20.1879,
    "t": 1.28,
    "pnl": 242.25,
-   "pnl_j": 14.506,
-   "fwd_j": 16.7
+   "pnl_j": 14.42,
+   "fwd_j": 16.8
   },
   "rd_h2": {
    "statut": "ORANGE",
@@ -128,18 +128,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0036,
-  "ret7": -0.0129,
-  "ret30": 0.0234,
-  "prix": 63791
+  "ret1": 0.0014,
+  "ret7": -0.0151,
+  "ret30": 0.0211,
+  "prix": 63646
  },
  "evenements_extremes": [
   {
    "coin": "KAITO",
-   "move_pct": -26.8
+   "move_pct": -26.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-12T14:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-12T14:15",
    "bot": "10_controle_aleatoire",
@@ -181,12 +187,6 @@
    "bot": "27d_rev_move_stop",
    "marche": "rev_move_stop-NIL",
    "pnl": 13.86
-  },
-  {
-   "ts": "2026-08-12T13:01",
-   "bot": "27c_mom_move",
-   "marche": "mom_move-NIL",
-   "pnl": -14.0
   }
  ],
  "calibration_arbitre": {
@@ -200,7 +200,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.3,
+  "age_avis_h": 0.5,
   "problemes": []
  },
  "autofinancement": {
