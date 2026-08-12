@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-12 13:45 (Paris)
+# Brief Station — 2026-08-12 14:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -14,10 +14,10 @@
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.752 | 49.7 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -7.132 | 17.0 j |
 | 27a_rev_premium | ORANGE | 70 | -2.3321 | -1.22 | -163.25 | -3.291 | 49.6 j |
-| 27b_rev_move | ORANGE | 87 | 1.2652 | 0.72 | 110.07 | 2.237 | 49.2 j |
-| 27c_mom_move | ORANGE | 87 | -1.4052 | -0.8 | -122.25 | -2.485 | 49.2 j |
+| 27b_rev_move | ORANGE | 87 | 1.2652 | 0.72 | 110.07 | 2.233 | 49.3 j |
+| 27c_mom_move | ORANGE | 87 | -1.4052 | -0.8 | -122.25 | -2.48 | 49.3 j |
 | 27d_rev_move_stop | ORANGE | 128 | -0.2995 | -0.25 | -38.33 | -0.879 | 43.6 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.757 | 39.8 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.755 | 39.9 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.3 | 38.8 j |
 | 27f_selecteur | ORANGE | 66 | -0.6378 | -0.31 | -42.1 | -1.085 | 38.8 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.468 | 31.1 j |
@@ -27,8 +27,8 @@
 
 **P&L paper cumule (hors temoin)** : -251.50 $
 
-**BTC** 64162 $ — ret 1j +0.95% · 7j -0.72% · 30j +2.94%
-**Moves 24h ≥ 20 %** : KAITO -23.1%
+**BTC** 64209 $ — ret 1j +1.02% · 7j -0.64% · 30j +3.01%
+**Moves 24h ≥ 20 %** : KAITO -23.5%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
