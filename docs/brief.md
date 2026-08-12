@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-12 07:45 (Paris)
+# Brief Station — 2026-08-12 08:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -18,8 +18,8 @@
 | 27c_mom_move | ORANGE | 87 | -1.4052 | -0.8 | -122.25 | -2.495 | 49.0 j |
 | 27d_rev_move_stop | ORANGE | 128 | -0.2995 | -0.25 | -38.33 | -0.883 | 43.4 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.761 | 39.6 j |
-| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.302 | 38.5 j |
-| 27f_selecteur | ORANGE | 66 | -0.6378 | -0.31 | -42.1 | -1.093 | 38.5 j |
+| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.301 | 38.6 j |
+| 27f_selecteur | ORANGE | 66 | -0.6378 | -0.31 | -42.1 | -1.091 | 38.6 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.473 | 30.8 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.078 | 16.4 j |
 | 29_carry_neutre | GRIS | 12 | 20.1879 | 1.28 | 242.25 | 14.772 | 16.4 j |
@@ -27,7 +27,7 @@
 
 **P&L paper cumule (hors temoin)** : -228.41 $
 
-**BTC** 63821 $ — ret 1j +0.41% · 7j -1.24% · 30j +2.39%
+**BTC** 63764 $ — ret 1j +0.32% · 7j -1.33% · 30j +2.30%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
