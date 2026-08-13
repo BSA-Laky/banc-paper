@@ -62,7 +62,7 @@ CSS = (
     ".verdict{font-size:.86rem;color:#cdd2d8;margin:.4rem 0 0}"
     "table{width:100%;border-collapse:collapse;font-size:.86rem}"
     "th,td{text-align:left;padding:5px 6px;border-bottom:1px solid #262c38}"
-    "footer{color:#6b7280;font-size:.74rem;margin-top:18px;line-height:1.5}"
+    "footer{color:#8b93a1;font-size:.74rem;margin-top:18px;line-height:1.5}"
     ".bdg{font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:20px;margin-left:6px}"
     ".bdg.on{background:rgba(46,204,113,.16);color:#2ecc71}"
     ".bdg.reel{background:rgba(245,166,35,.18);color:#f5a623}"
@@ -188,7 +188,7 @@ def _positions():
         return ('<div class="carte"><h2>Positions bot 25 ouvertes</h2>'
                 '<p class="muted">Aucune (en attente d\'un premium étiré).</p></div>')
     return ('<div class="carte"><h2>Positions bot 25 ouvertes</h2><table>'
-            '<tr><th>Actif</th><th>Premium entrée</th><th>Depuis (UTC)</th></tr>'
+            '<tr><th scope=col>Actif</th><th scope=col>Premium entrée</th><th scope=col>Depuis (UTC)</th></tr>'
             + "".join(rows) + "</table></div>")
 
 
@@ -243,8 +243,8 @@ def _enveloppes(lignes):
     return ("<div class=\"carte\"><h2>Enveloppes 300 \u20ac \u2014 suivi depuis le "
             + ENVELOPPES_DEPUIS + " (paper)</h2>"
             "<table style=\"width:100%;border-collapse:collapse;font-size:.85rem\">"
-            "<tr style=\"text-align:left;color:#9aa0a6\"><th>Bot</th><th>Mise/entr\u00e9e</th>"
-            "<th>Trades</th><th>P&amp;L env.</th><th>Solde virtuel</th><th>Usage moy.</th></tr>"
+            "<tr style=\"text-align:left;color:#9aa0a6\"><th scope=col>Bot</th><th scope=col>Mise/entr\u00e9e</th>"
+            "<th scope=col>Trades</th><th scope=col>P&amp;L env.</th><th scope=col>Solde virtuel</th><th scope=col>Usage moy.</th></tr>"
             + "".join(rows) + "</table><div style=\"color:#9aa0a6;font-size:.75rem;margin-top:6px\">"
             "P&amp;L converti \u00e0 l'\u00e9chelle de l'enveloppe : rendement de chaque trade paper "
             "\u00d7 mise r\u00e9elle (300\u202f\u20ac \u00f7 positions max). 100 % fictif.</div></div>")

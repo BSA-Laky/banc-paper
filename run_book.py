@@ -60,7 +60,7 @@ def construire_book_html():
            ".lab{display:block;color:#9aa0a6;font-size:.72rem}.val{display:block;font-size:1rem;font-weight:600}"
            ".pos{color:#2ecc71}.neg{color:#e74c3c}.muted{color:#9aa0a6}"
            ".verdict{font-size:.85rem;color:#cdd2d8;margin:.4rem 0 0}"
-           "footer{color:#6b7280;font-size:.74rem;margin-top:18px;line-height:1.5}")
+           "footer{color:#8b93a1;font-size:.74rem;margin-top:18px;line-height:1.5}")
     cartes = []
     for bot in ORDRE:
         titre = html.escape(JOLI.get(bot, bot))
