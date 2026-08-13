@@ -22,9 +22,9 @@ DOCS = Path("docs")
 
 ORDRE = ["30_trend_following", "31_variance_premium", "10b_controle_book"]
 JOLI = {
-    "30_trend_following": "Bot 30 - Trend-following (edge VALIDE OOS, t 2,8)",
-    "31_variance_premium": "Bot 31 - Prime de variance risque defini (edge VALIDE OOS, t 3,7)",
-    "10b_controle_book": "Temoin book (signal aleatoire - etalon du bruit)",
+    "30_trend_following": "Bot 30 — Trend-following (edge VALIDÉ OOS, t 2,8)",
+    "31_variance_premium": "Bot 31 — Prime de variance à risque défini (edge VALIDÉ OOS, t 3,7)",
+    "10b_controle_book": "Témoin book (signal aléatoire — étalon du bruit)",
 }
 
 
