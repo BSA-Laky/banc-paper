@@ -79,6 +79,7 @@ def construire_book_html():
                       f'<p class="verdict">{html.escape(r["verdict"])}</p></div>')
     doc = ('<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">'
            '<meta name="viewport" content="width=device-width, initial-scale=1">'
+           '<meta name="theme-color" content="#0b1020">'
            '<title>Book marchés traditionnels</title><style>.navbar{margin:18px 0 8px;font-size:.8rem;color:#9aa0a6}.navbar a{color:#8ab4f8;text-decoration:none;margin-right:2px}' + css + '</style></head><body>'
            '<h1>Book paper-forward — trend + prime de variance</h1>'
            f'<div class="maj">Mis à jour : {maj} — rotation mensuelle — 100 % fictif</div>'

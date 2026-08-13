@@ -415,6 +415,7 @@ def construire_dashboard():
         '<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width, initial-scale=1">'
         '<meta http-equiv="refresh" content="900">'
+        '<meta name="theme-color" content="#0b1020">'
         '<title>Banc paper-trading</title><style>' + CSS + '</style></head><body>'
         '<h1>Banc paper-trading — argent 100 % fictif</h1>'
         f'<div class="maj">Mis à jour : <span id="maj" data-iso="{maj_iso}">{maj}</span> · régénéré à chaque passe (~15 min)</div>'

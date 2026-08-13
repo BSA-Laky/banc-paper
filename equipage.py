@@ -160,7 +160,7 @@ officiers.append({
     "statut_cls": _cls, "statut": (f"Incident ({n_echecs} echec(s))" if n_echecs else _lbl),
     "derniere": "Avis de regime rendu", "derniere_dt": d_regime,
     "prochain": "Prochain quart", "prochain_dt": _next_hugo,
-    "parole": (f"Regime {regime.get('regime', '?')} (confiance {regime.get('confiance', '?')})"
+    "parole": (f"Régime {regime.get('regime', '?')} (confiance {regime.get('confiance', '?')})"
                f" - {regime.get('resume', 'aucun avis encore')}"),
 })
 
@@ -170,10 +170,10 @@ officiers.append({
     "nom": "Cadet Remy", "poste": "Veille hebdomadaire de la station", "role": "Veilleur",
     "badge": "Haiku 4.5", "type": "IA",
     "statut_cls": ("actif" if (d_veille and (NOW - d_veille).total_seconds() < 8*86400) else "repos"),
-    "statut": ("Note de la semaine deposee" if note_veilleur else "En poste, 1re note samedi"),
+    "statut": ("Note de la semaine déposée" if note_veilleur else "En poste, 1re note samedi"),
     "derniere": "Note de veille pour la Commandeure", "derniere_dt": d_veille,
     "prochain": "Prochaine ronde", "prochain_dt": _next_remy,
-    "parole": ("Chaque samedi 05:50 : frictions d'execution testnet, budget des avis, "
+    "parole": ("Chaque samedi 05:50 : frictions d'exécution testnet, budget des avis, "
                "anomalies de la semaine -> note pour l'audit du dimanche d'Ada. Cout ~centimes."),
 })
 
@@ -258,18 +258,28 @@ automates.append({
                f"{len(alertes)} alerte(s)."),
 })
 
+# Liste VIVANTE des bots echantillonnes (10/08/2026). Elle etait ecrite en dur et
+# citait encore 23, 24, 25 et 26 -- tous tues, le 23 et le 26 avec le code retire.
+# Meme faute de fond que le bot 28 annonce "en argent reel" : une liste figee finit
+# toujours par mentir. Elle est desormais deduite de la gate, morts exclus.
+_cv_etats = {b: (v or {}).get("etat") for b, v in (gate.get("cycle_vie") or {}).items()}
+_vivants = sorted(b for b in (gate.get("bots") or {}) if _cv_etats.get(b) != "kill")
+_vivants_txt = (("Bots échantillonnés : " + ", ".join(_vivants) + ".") if _vivants
+                else "Aucun bot vivant au banc.")
+
 # La Salle des machines — sampler / bots (run_once.py)
 _last_action = actions[0] if actions else {}
 automates.append({
     "nom": "La Salle des machines", "poste": "Echantillonnage des bots", "role": "run_once.py",
     "badge": "Automate", "type": "SYS",
     "statut_cls": "actif", "statut": "En service",
-    "derniere": "Passe d'echantillonnage", "derniere_dt": d_brief,
+    "derniere": "Passe d'échantillonnage", "derniere_dt": d_brief,
     "prochain": "Prochain créneau", "prochain_dt": _next_quarter(),
-    "parole": (f"Bots échantillonnés (témoin, 23, 24, 25, 26, 27x, 28). Dernière action : "
+    "parole": (f"{_vivants_txt} Dernière action : "
                f"{_last_action.get('bot', '-')} sur {_last_action.get('marche', '-')} "
                f"(pnl {_last_action.get('pnl', '-')})." if _last_action
-               else "Bots echantillonnes a chaque passe (creneau ~15 min, retards GitHub possibles)."),
+               else f"{_vivants_txt} Échantillonnage à chaque passe "
+                    "(créneau ~15 min, retards GitHub possibles)."),
 })
 
 # La Passerelle — brief (tour_de_controle.py)
@@ -323,7 +333,7 @@ if d_regime:
                        f"(conf {regime.get('confiance', '?')}) - {regime.get('resume', '')}"))
 if d_veille:
     evenements.append((d_veille, "Cadet Remy", "Commandeure Ada",
-                       "Note de veille hebdomadaire deposee (frictions, budget, anomalies)"))
+                       "Note de veille hebdomadaire déposée (frictions, budget, anomalies)"))
 if n_echecs:
     evenements.append((_dt(echecs.get("maj")) or NOW, "Lieutenant Hugo", "Commandant",
                        f"Incident API signale : {n_echecs} echec(s) consecutif(s)"))
@@ -368,6 +378,7 @@ html_doc = f"""<!doctype html>
 <html lang="fr"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
 <title>Equipage &middot; LA STATION</title>
 <style>.navbar {{ margin:18px 0 8px; font-size:.8rem; color:#8894b8 }}
 .navbar a {{ color:#5b7cff; text-decoration:none; margin-right:2px }}

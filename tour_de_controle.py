@@ -32,6 +32,15 @@ MOVE_EXTREME = 0.20
 VOL_MIN = 1_000_000.0
 
 
+def _lire_go_reel():
+    """Etat de cycle de vie des bots (qui est mort) — lu depuis la sortie du Sas."""
+    try:
+        with GO_REEL.open(encoding="utf-8") as fh:
+            return json.load(fh)
+    except (OSError, ValueError):
+        return {}
+
+
 def _http_post_info(body, timeout=12.0):
     data = json.dumps(body).encode("utf-8")
     req = urllib.request.Request(HL_INFO_URL, data=data,
@@ -234,18 +243,40 @@ def produire_brief():
         L.append("## Changements de statut depuis hier")
         L += [f"- {c['bot']} : {c['avant']} → **{c['apres']}**" for c in doc["changements_statut"]]
         L.append("")
-    L.append("## Statuts gate (GO-reel)")
-    L.append("| Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |")
-    L.append("|---|---|---|---|---|---|---|---|")
+    # 10/08/2026 : les bots TUES etaient melanges aux vivants dans un tableau unique,
+    # leurs statistiques figees presentees comme si elles vivaient encore. Le dashboard
+    # et la station les separaient deja ; le brief, non. Deux tableaux desormais : le
+    # banc actif, puis les morts -- gardes pour la trace, sans ambiguite possible. Le
+    # P&L cumule reste calcule sur TOUT : l'argent perdu par un bot tue reste perdu.
+    try:
+        _cv = {b: (v or {}).get("etat")
+               for b, v in (_lire_go_reel().get("cycle_vie") or {}).items()}
+    except Exception:
+        _cv = {}
+    ENTETE = ["| Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |",
+              "|---|---|---|---|---|---|---|---|"]
+
+    def _ligne(b, v):
+        return (f"| {b} | {v['statut']} | {v['n']} | {v['esperance']} | {v['t']} "
+                f"| {v.get('pnl', '?')} | {v.get('pnl_j', '?')} | {v['fwd_j']} j |")
+
     total_pnl = 0.0
+    vivants, morts = [], []
     for b, v in doc["statuts"].items():
         try:
             total_pnl += float(v.get("pnl") or 0)
         except (TypeError, ValueError):
             pass
-        L.append(f"| {b} | {v['statut']} | {v['n']} | {v['esperance']} | {v['t']} "
-                 f"| {v.get('pnl', '?')} | {v.get('pnl_j', '?')} | {v['fwd_j']} j |")
-    L.append(f"\n**P&L paper cumule (hors temoin)** : {total_pnl:+.2f} $")
+        (morts if _cv.get(b) == "kill" else vivants).append(_ligne(b, v))
+
+    L.append("## Statuts gate (GO-reel) — banc actif")
+    L += ENTETE + (vivants or ["| _aucun bot actif_ | | | | | | | |"])
+    if morts:
+        L.append("")
+        L.append(f"### 🛑 Bots arretes / tues ({len(morts)}) — retires du banc, "
+                 "statistiques figees")
+        L += ENTETE + morts
+    L.append(f"\n**P&L paper cumule (hors temoin, morts inclus)** : {total_pnl:+.2f} $")
     L.append("")
     tb = doc["tendances_btc"]
     if tb:
