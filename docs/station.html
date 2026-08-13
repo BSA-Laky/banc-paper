@@ -420,8 +420,17 @@ function rendre(brief, gate){
   document.getElementById("chg").innerHTML = chg.length
     ? "<ul>"+chg.map(c=>`<li>Δ ${c.bot} : ${c.avant} → <b>${c.apres}</b></li>`).join("")+"</ul>" : "";
   const tm = (gate&&gate.temoins)||{};
+  // 13/08 : on affiche le t CORRIGE de la derive construite. Le t brut d'un temoin
+  // qui paie un spread s'enfonce en -s*racine(n) sans qu'aucune anomalie n'existe :
+  // l'afficher seul se lit comme une alarme (trois audits s'y sont trompes).
   document.getElementById("temoin-note").textContent =
-    Object.entries(tm).map(([k,v])=>`témoin ${k.startsWith("10b")?"book":"crypto"} : t ${v.t_stat} (${v.sain?"sain":"SUSPECT"})`).join(" · ");
+    Object.entries(tm).map(([k,v])=>{
+      const nom = k.startsWith("10b") ? "book" : "crypto";
+      const etat = v.sain ? "sain" : "SUSPECT";
+      return (v.t_corrige !== undefined && v.derive_attendue)
+        ? `témoin ${nom} : t ${v.t_corrige} corrigé du spread (brut ${v.t_stat}) — ${etat}`
+        : `témoin ${nom} : t ${v.t_stat} — ${etat}`;
+    }).join(" · ");
 
   const tb = document.querySelector("#tbl-bots tbody"); tb.innerHTML="";
   // 10/08/2026 : plus AUCUN fallback en dur. Si go_reel.json ne dit rien, il n'y a pas
