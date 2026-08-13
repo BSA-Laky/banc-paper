@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-13 08:45 (Paris)
+# Brief Station — 2026-08-13 09:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -26,8 +26,8 @@
 
 **P&L paper cumule (hors temoin)** : -213.55 $
 
-**BTC** 63727 $ — ret 1j +0.41% · 7j -0.88% · 30j -1.96%
-**Moves 24h ≥ 20 %** : KAITO -25.7%
+**BTC** 63899 $ — ret 1j +0.68% · 7j -0.61% · 30j -1.69%
+**Moves 24h ≥ 20 %** : KAITO -24.7%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
