@@ -19,7 +19,7 @@ a{color:var(--bleu)}
 .on{background:rgba(40,199,111,.15);color:var(--vert)} .off{background:rgba(255,91,110,.15);color:var(--rouge)}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:10px 0 6px}
 .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
-.kpi.hl{border-color:#2a5d8f}
+.kpi.hl{border-color:#3d7cb8}
 .kpi .l{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
 .kpi .v{font-size:19px;font-weight:700;margin-top:2px}
 h2{font-size:15px;margin:18px 0 6px;border-left:3px solid var(--bleu);padding-left:8px}
@@ -106,7 +106,7 @@ P=hl.positions_hl.map(q=>{const i=internes[q.coin]||{};return {coin:q.coin, sens
 } else {
 P=(d.positions||[]).map(p=>{const mk=marks?(marks[p.coin]||0):0;const ret=(mk>0&&p.entry>0)?p.side*(mk-p.entry)/p.entry:0;return {coin:p.coin, sens:p.side<0?'short':'long', notional:p.notional, entry:p.entry, lat:p.notional*ret, liq:null, bot:p.bot, opened_at:p.opened_at, src:'interne'};});
 }
-if(P.length){let h='<table><tr><th>Bot</th><th>Coin</th><th>Sens</th><th>Valeur</th><th>Entrée</th><th>P&L latent</th><th>Liq. px</th><th>Ouvert depuis</th><th>Sortie</th></tr>';
+if(P.length){let h='<table><tr><th scope="col">Bot</th><th scope="col">Coin</th><th scope="col">Sens</th><th scope="col">Valeur</th><th scope="col">Entrée</th><th scope="col">P&L latent</th><th scope="col">Liq. px</th><th scope="col">Ouvert depuis</th><th scope="col">Sortie</th></tr>';
 P.forEach(p=>{const sens=p.sens==='short'?'<span class="short">short</span>':'<span class="long">long</span>';
 h+='<tr><td>'+String(p.bot||'').replace('_',' ')+'</td><td><b>'+p.coin+'</b></td><td>'+sens+'</td><td>'+Number(p.notional||0).toFixed(2)+' $</td><td>'+p.entry+'</td><td class="'+cls(p.lat)+'">'+usd(p.lat)+'</td><td class="mut">'+(p.liq||'—')+'</td><td>'+(p.opened_at?depuis(p.opened_at):'—')+'</td><td class="tag">'+(SORTIE[p.bot]||'signal du bot')+'</td></tr>';});
 document.getElementById('positions').innerHTML=h+'</table><div class="note">Source : '+(P[0].src==='HL'?'positions réelles Hyperliquid (latent = unrealizedPnl HL)':'suivi interne + prix live (réconciliation HL en attente)')+'.</div>';
@@ -126,13 +126,13 @@ hb+='<div class="card"><b>'+b.replace('_',' ')+'</b> <span class="tag">enveloppe
 document.getElementById('bots').innerHTML=hb||'<div class="card mut">—</div>';
 // ---- FILLS HL ----
 const F=(hl&&hl.fills_recents)||[];
-if(F.length){let h='<table><tr><th>Heure (UTC)</th><th>Coin</th><th>Dir</th><th>Px</th><th>Taille</th><th>P&L réalisé</th><th>Frais</th></tr>';
+if(F.length){let h='<table><tr><th scope="col">Heure (UTC)</th><th scope="col">Coin</th><th scope="col">Dir</th><th scope="col">Px</th><th scope="col">Taille</th><th scope="col">P&L réalisé</th><th scope="col">Frais</th></tr>';
 F.forEach(f=>{h+='<tr><td>'+String(f.ts||'').replace('T',' ')+'</td><td><b>'+f.coin+'</b></td><td>'+(f.dir||'')+'</td><td>'+f.px+'</td><td>'+f.sz+'</td><td class="'+cls(f.closedPnl)+'">'+usd(f.closedPnl)+'</td><td class="mut">'+Number(f.fee||0).toFixed(4)+' $</td></tr>';});
 document.getElementById('fills').innerHTML=h+'</table>';
 } else document.getElementById('fills').innerHTML='<div class="card mut">Fills en attente de la première réconciliation.</div>';
 // ---- JOURNAL INTERNE ----
 const T=(d.trades||[]).slice().reverse();
-if(T.length){let h='<table><tr><th>Heure</th><th>Bot</th><th>Coin</th><th>Action</th><th>Sens</th><th>Notional</th><th>P&L estimé</th></tr>';
+if(T.length){let h='<table><tr><th scope="col">Heure</th><th scope="col">Bot</th><th scope="col">Coin</th><th scope="col">Action</th><th scope="col">Sens</th><th scope="col">Notional</th><th scope="col">P&L estimé</th></tr>';
 T.slice(0,25).forEach(t=>{const pnl=t.pnl_est_usd?parseFloat(t.pnl_est_usd):null;const sd=Number(t.side)<0?'short':'long';
 h+='<tr><td>'+loc(t.ts)+'</td><td>'+String(t.bot||'').replace('_',' ')+'</td><td>'+t.coin+'</td><td>'+t.action+'</td><td>'+sd+'</td><td>'+Number(t.notional_usd||0).toFixed(2)+' $</td><td class="'+(pnl!=null?cls(pnl):'mut')+'">'+(pnl!=null?usd(pnl):'—')+'</td></tr>';});
 document.getElementById('trades').innerHTML=h+'</table>';

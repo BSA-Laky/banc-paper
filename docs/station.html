@@ -94,9 +94,9 @@
   .kpi b{display:block; font-size:15px; color:#fff}
   #journal li{display:flex; gap:8px; align-items:baseline; font-size:11.5px; padding:4px 0;
     border-bottom:1px dashed #14203a}
-  #journal .h{color:#5d739a; flex:none; font-size:10px}
+  #journal .h{color:#7b8db5; flex:none; font-size:10px}
   #journal .pnl-pos{color:var(--vert); margin-left:auto} #journal .pnl-neg{color:var(--rouge); margin-left:auto}
-  footer{margin-top:14px; font-size:11px; color:#5d739a; text-align:center; line-height:1.9}
+  footer{margin-top:14px; font-size:11px; color:#7b8db5; text-align:center; line-height:1.9}
   footer a{color:var(--cyan); text-decoration:none; padding:6px 4px}
   @media (max-width:430px){
     body{font-size:14px}
@@ -125,7 +125,7 @@
 
 <section id="carte">
   <h2>PONT PRINCIPAL <span class="muted" style="letter-spacing:0">(cadence réelle : 1 passe / ~15 min · tape une salle)</span></h2>
-  <div class="cadre-cv"><canvas id="cv" width="384" height="240"></canvas></div>
+  <div class="cadre-cv"><canvas id="cv" width="384" height="240" role="img" aria-label="Plan pixel-art de la station : six salles (contrôle, trading, bibliothèque, archives, commerce, R&amp;D) dont la couleur reprend le code vert / orange / rouge / gris. La même information est donnée en texte dans les sections ci-dessous ; ce plan est purement décoratif."></canvas></div>
   <div id="legende">
     <span><i class="pastille p-vert"></i>VERT — critères GO remplis</span>
     <span><i class="pastille p-orange"></i>ORANGE — en mesure, rien d'anormal</span>
@@ -144,8 +144,8 @@
 
   <section class="salle" id="salle-trading">
     <h2><span class="led vert"></span>SALLE TRADING — banc paper (24/7)</h2>
-    <table id="tbl-bots"><thead>
-      <tr><th>bot</th><th>statut</th><th>n</th><th>esp</th><th>P&L $</th><th>t</th><th>fwd</th></tr>
+    <table id="tbl-bots"><th scope="col"ead>
+      <tr><th scope="col">bot</th><th scope="col">statut</th><th scope="col">n</th><th scope="col">esp</th><th scope="col">P&L $</th><th scope="col">t</th><th scope="col">fwd</th></tr>
     </thead><tbody></tbody></table>
     <div id="arret-bots"></div>
     <h2 style="margin-top:10px"><span class="led vert"></span>JOURNAL DE BORD</h2>
