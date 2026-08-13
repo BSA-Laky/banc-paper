@@ -43,6 +43,10 @@
   @keyframes cligno{50%{opacity:.35}}
   #bandeau-demo{display:none; margin:10px 0 0; padding:8px 10px; font-size:12px;
     border:1px dashed var(--orange); color:var(--orange); border-radius:10px}
+  #bandeau-demo a{color:var(--orange)}
+  .avert-nojs{margin:10px 0 0; padding:8px 10px; font-size:12px; line-height:1.5;
+    border:1px dashed var(--orange); color:var(--orange); border-radius:10px}
+  .avert-nojs a{color:var(--orange)}
 
   /* ---------- carte pixel-art ---------- */
   #carte{margin-top:12px; border:1px solid #23406b; border-radius:14px; padding:10px;
@@ -112,7 +116,12 @@
     <span id="etat-alerte" class="ok">● NOMINAL</span>
   </div>
 </header>
-<div id="bandeau-demo">MODE DÉMO — données d'exemple (la page s'alimente en réel une fois servie par GitHub Pages à côté de brief.json / go_reel.json)</div>
+<noscript><div class="avert-nojs">⚠️ <b>Cette page est alimentée par JavaScript.</b>
+  Ses tableaux sont remplis au chargement depuis <code>brief.json</code> et
+  <code>go_reel.json</code> ; sans JavaScript ils restent vides, ce qui n'indique
+  <b>aucune panne</b>. Pour les mêmes données en texte pur, lisez
+  <a href="brief.md">brief.md</a> ou <a href="go_reel.json">go_reel.json</a>.</div></noscript>
+<div id="bandeau-demo">⚠️ ÉCHEC DE CHARGEMENT — brief.json / go_reel.json injoignables à l'instant : les valeurs ci-dessous sont un EXEMPLE et ne reflètent pas l'état du banc. Données sûres : <a href="brief.md">brief.md</a></div>
 
 <section id="carte">
   <h2>PONT PRINCIPAL <span class="muted" style="letter-spacing:0">(cadence réelle : 1 passe / ~15 min · tape une salle)</span></h2>
