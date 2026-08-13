@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-13T15:31:05.768986+00:00",
+ "ts": "2026-08-13T15:45:43.398866+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -144,18 +144,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.002,
-  "ret7": -0.0109,
-  "ret30": -0.0216,
-  "prix": 63595
+  "ret1": 0.0037,
+  "ret7": -0.0092,
+  "ret30": -0.02,
+  "prix": 63701
  },
- "evenements_extremes": [
-  {
-   "coin": "AVNT",
-   "move_pct": 24.9
-  }
- ],
+ "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-13T15:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-13T15:31",
    "bot": "27d_rev_move_stop",
@@ -197,12 +198,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-13T14:02",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -216,7 +211,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.4,
+  "age_avis_h": 0.6,
   "problemes": []
  },
  "autofinancement": {
