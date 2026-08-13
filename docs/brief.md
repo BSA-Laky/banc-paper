@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-13 19:15 (Paris)
+# Brief Station — 2026-08-13 19:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -8,20 +8,20 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 27a_rev_premium | ORANGE | 72 | -2.5848 | -1.38 | -186.11 | -3.664 | 50.8 j |
+| 27a_rev_premium | ORANGE | 72 | -2.5848 | -1.38 | -186.11 | -3.656 | 50.9 j |
 | 27b_rev_move | ORANGE | 89 | 1.2997 | 0.75 | 115.67 | 2.291 | 50.5 j |
 | 27c_mom_move | ORANGE | 89 | -1.4397 | -0.83 | -128.13 | -2.537 | 50.5 j |
-| 27d_rev_move_stop | ORANGE | 131 | -0.2404 | -0.2 | -31.5 | -0.703 | 44.8 j |
+| 27d_rev_move_stop | ORANGE | 131 | -0.2404 | -0.2 | -31.5 | -0.701 | 44.9 j |
 | 27f_selecteur | ORANGE | 68 | -0.2957 | -0.15 | -20.11 | -0.503 | 40.0 j |
 | 29_carry_neutre | GRIS | 12 | 20.1879 | 1.28 | 242.25 | 13.534 | 17.9 j |
 | 29b_carry_neutre_large | GRIS | 20 | 1.3233 | 0.78 | 26.47 | 3.308 | 8.0 j |
-| 29c_carry_decale | GRIS | 20 | -0.4168 | -1.04 | -8.34 | -1.055 | 7.9 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.06 | 18.1 j |
+| 29c_carry_decale | GRIS | 20 | -0.4168 | -1.04 | -8.34 | -1.042 | 8.0 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.059 | 18.2 j |
 
 ### 🛑 Bots arretes / tues (6) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.711 | 50.9 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.707 | 51.0 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -6.662 | 18.2 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.733 | 41.1 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.291 | 40.0 j |
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -227.69 $
 
-**BTC** 63110 $ — ret 1j -0.56% · 7j -1.84% · 30j -2.91%
-**Moves 24h ≥ 20 %** : AVNT +24.1%
+**BTC** 63268 $ — ret 1j -0.32% · 7j -1.59% · 30j -2.66%
+**Moves 24h ≥ 20 %** : AVNT +24.5%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
