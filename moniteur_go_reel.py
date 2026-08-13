@@ -525,9 +525,43 @@ def produire_go_reel():
     except OSError:
         pass
 
-    temoins = {b: {"n": stats[b]["trades"], "t_stat": round(stats[b]["t_stat"], 2),
-                   "sain": abs(stats[b]["t_stat"] + 0.02 * stats[b]["trades"] ** 0.5) < 2.0}
-               for b in TEMOINS if b in stats}
+    # --- Sante des temoins (revu le 13/08/2026) -------------------------------
+    # Un temoin qui paie un spread DOIT perdre : son t-stat vaut -s*racine(n) et
+    # part vers le rouge a mesure que n grandit, sans qu'aucune anomalie n'existe.
+    # On retire donc cette derive AVANT de juger. Le t corrige est exactement le
+    # test "le taux de reussite vaut-il 50 % ?" -- la seule question qui compte.
+    #
+    # Deux corrections apportees a l'ancienne version :
+    #  (a) la valeur 0,02 etait ecrite en dur ici alors que le spread est defini
+    #      dans banc_essai_paper_trading. Un changement de spread aurait rendu la
+    #      gate silencieusement fausse. Chaque temoin declare desormais sa derive.
+    #  (b) la meme correction de 2 % etait appliquee au temoin du BOOK, qui ne
+    #      paie aucun spread construit : on lui offrait 2 %*racine(n) de mauvaise
+    #      performance gratuite, ce qui aurait masque un temoin reellement casse.
+    derives = {}
+    for nom, mod, cls in (("10_controle_aleatoire", "banc_essai_paper_trading", "ControleAleatoire"),
+                          ("10b_controle_book", "bot_trend", "ControleBook")):
+        try:
+            derives[nom] = float(getattr(__import__(mod), cls).DERIVE_ATTENDUE)
+        except Exception:
+            derives[nom] = 0.02 if nom == "10_controle_aleatoire" else 0.0
+
+    temoins = {}
+    for b in TEMOINS:
+        if b not in stats:
+            continue
+        n, t = stats[b]["trades"], stats[b]["t_stat"]
+        d = derives.get(b, 0.0)
+        t_corr = t + d * n ** 0.5
+        temoins[b] = {"n": n, "t_stat": round(t, 2),
+                      "derive_attendue": d,
+                      "t_corrige": round(t_corr, 2),
+                      "sain": abs(t_corr) < 2.0,
+                      "lecture": (f"t brut {t:+.2f} dont {-d * n ** 0.5:+.2f} de spread "
+                                  f"par construction -> t corrige {t_corr:+.2f} "
+                                  f"({'sain' if abs(t_corr) < 2.0 else 'SUSPECT'})")
+                      if d else (f"t {t:+.2f} ({'sain' if abs(t_corr) < 2.0 else 'SUSPECT'}) "
+                                 "-- aucun spread construit, derive attendue nulle")}
     banc_suspect = any(not v["sain"] for v in temoins.values())
     # --- Bots reellement en ARGENT REEL (corrige le 10/08/2026) -----------------
     # Trois verrous, du plus fort au plus faible. Un seul suffit a vider la liste :

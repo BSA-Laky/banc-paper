@@ -56,13 +56,32 @@ class Strategy:
         return None
 
 
-class ControleAleatoire(Strategy):
-    """Bot temoin : decisions a pile ou face, paie un spread. L'etalon du bruit."""
-    name = "10_controle_aleatoire"
+SPREAD_TEMOIN = 0.02          # spread paye par le temoin (source unique)
 
-    def __init__(self, stake_usd: float = 1.0, spread: float = 0.02):
+
+class ControleAleatoire(Strategy):
+    """Bot temoin : decisions a pile ou face, paie un spread. L'etalon du bruit.
+
+    DERIVE ATTENDUE -- ce bot DOIT perdre, et d'une quantite exactement calculable.
+    Il achete a entry = 0,5 + s/2 un binaire qui paie 1 avec probabilite 1/2 :
+        gain   = (1 - entry)/entry = (1 - s)/(1 + s)
+        perte  = -1
+        E      = -s / (1 + s)
+        ecart-type = (gain + 1)/2 = 1 / (1 + s)
+        E / ecart-type = -s          <-- EXACTEMENT, pas une approximation
+    Le t-stat d'un temoin sain vaut donc -s*racine(n) : il derive vers le rouge a
+    mesure que n grandit, sans que rien n'aille mal. C'est pour cela que la gate
+    corrige de +s*racine(n) avant de juger. La constante vit ICI, aupres du spread
+    qu'elle decrit : la coder en dur ailleurs la rendrait fausse au premier
+    changement de spread (meme faute que la liste de bots reels ecrite en dur).
+    """
+    name = "10_controle_aleatoire"
+    DERIVE_ATTENDUE = SPREAD_TEMOIN     # |E| / ecart-type, par construction
+
+    def __init__(self, stake_usd: float = 1.0, spread: float = SPREAD_TEMOIN):
         super().__init__(stake_usd)
         self.spread = spread
+        self.DERIVE_ATTENDUE = spread
 
     def step(self) -> list[Trade]:
         entry = 0.50 + self.spread / 2
@@ -72,6 +91,15 @@ class ControleAleatoire(Strategy):
         t.close(1.0 if gagnant else 0.0)
         return [t]
 
+
+# Derive attendue de chaque temoin (|E| / ecart-type). Voir ControleAleatoire :
+# pour un binaire achete a 0,5 + s/2, ce rapport vaut EXACTEMENT s. Le temoin du
+# book (bot_trend.ControleBook) ne paie aucun spread construit -> derive nulle ;
+# lui appliquer celle du temoin crypto masquerait un temoin reellement casse.
+DERIVES_TEMOINS = {
+    ControleAleatoire.name: ControleAleatoire.DERIVE_ATTENDUE,
+    "10b_controle_book": 0.0,
+}
 
 CHAMPS = ["bot", "market", "side", "entry_price", "size_usd",
           "opened_at", "closed_at", "exit_price", "pnl", "status"]
@@ -166,6 +194,23 @@ def evaluer(lignes: list[dict]) -> dict[str, dict]:
                 verdict = "edge POSITIF plausible (a confirmer)"
         else:
             verdict = "perdant de facon SIGNIFICATIVE"
+
+        # Cas des TEMOINS (13/08/2026) : un temoin qui paie un spread DOIT perdre.
+        # Son t-stat brut vaut -s*racine(n) et s'enfonce a mesure que n grandit,
+        # sans qu'aucune anomalie n'existe -- trois audits successifs ont lu ce
+        # "-2,39 perdant SIGNIFICATIVEMENT" comme une alarme. Le verdict utile est
+        # celui qui retire d'abord la derive construite : il repond a la seule
+        # question qui compte, "le taux de reussite vaut-il toujours 50 % ?".
+        derive = DERIVES_TEMOINS.get(bot)
+        if derive is not None and n >= 30:
+            t_corrige = t_stat + derive * math.sqrt(n)
+            if abs(t_corrige) < 2:
+                verdict = (f"temoin SAIN -- perd comme prevu (spread {derive:.0%}) ; "
+                           f"t corrige {t_corrige:+.2f}, taux {taux:.1%} vs 50 % attendu")
+            else:
+                verdict = (f"temoin SUSPECT -- ecart au hasard apres retrait du spread "
+                           f"{derive:.0%} : t corrige {t_corrige:+.2f}. NE RIEN CONCLURE "
+                           "du banc tant que ce n'est pas elucide.")
 
         resultats[bot] = {
             "trades": n,

@@ -99,8 +99,16 @@ class TrendFollowing(Strategy):
 
 class ControleBook(Strategy):
     """Temoin du book : memes actifs, mais signal ALEATOIRE (0/1) au lieu du momentum.
-    Etalon du bruit : le trend doit le battre."""
+    Etalon du bruit : le trend doit le battre.
+
+    DERIVE ATTENDUE NULLE, contrairement au temoin crypto : celui-ci ne paie aucun
+    spread construit (il prend des positions sur les memes actifs reels que le bot
+    30). Lui appliquer la correction de 2 % du temoin crypto reviendrait a lui
+    accorder 2 %*racine(n) de mauvaise performance gratuite -- et donc a MASQUER un
+    temoin reellement casse. Chaque temoin declare sa propre derive.
+    """
     name = "10b_controle_book"
+    DERIVE_ATTENDUE = 0.0
 
     def __init__(self, notional: float = 1000.0):
         super().__init__(stake_usd=1.0)
