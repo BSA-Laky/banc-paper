@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-13T21:30:57.137577+00:00",
+ "ts": "2026-08-13T21:45:38.308492+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -67,8 +67,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.732,
-   "fwd_j": 41.2
+   "pnl_j": -0.73,
+   "fwd_j": 41.3
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.071,
-   "fwd_j": 18.0
+   "fwd_j": 18.1
   },
   "29_carry_neutre": {
    "statut": "GRIS",
@@ -112,8 +112,8 @@
    "esperance": 20.1879,
    "t": 1.28,
    "pnl": 242.25,
-   "pnl_j": 13.459,
-   "fwd_j": 18.0
+   "pnl_j": 13.384,
+   "fwd_j": 18.1
   },
   "29b_carry_neutre_large": {
    "statut": "GRIS",
@@ -144,18 +144,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0001,
-  "ret7": -0.013,
-  "ret30": -0.0237,
-  "prix": 63459
+  "ret1": -0.0004,
+  "ret7": -0.0132,
+  "ret30": -0.0239,
+  "prix": 63444
  },
  "evenements_extremes": [
   {
    "coin": "AVNT",
-   "move_pct": 23.9
+   "move_pct": 20.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-13T21:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-13T21:30",
    "bot": "10_controle_aleatoire",
@@ -197,12 +203,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-13T19:45",
-   "bot": "27f_selecteur",
-   "marche": "sel-NIL-MOM-tendance_piece",
-   "pnl": -3.98
   }
  ],
  "calibration_arbitre": {
@@ -216,7 +216,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {
