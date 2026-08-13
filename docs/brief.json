@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-13T07:30:58.426147+00:00",
+ "ts": "2026-08-13T07:45:41.589541+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -13,8 +13,8 @@
    "esperance": -0.5092,
    "t": -3.3,
    "pnl": -87.07,
-   "pnl_j": -1.724,
-   "fwd_j": 50.5
+   "pnl_j": -1.721,
+   "fwd_j": 50.6
   },
   "25_convergence_basis": {
    "statut": "ROUGE",
@@ -31,8 +31,8 @@
    "esperance": -2.3321,
    "t": -1.22,
    "pnl": -163.25,
-   "pnl_j": -3.239,
-   "fwd_j": 50.4
+   "pnl_j": -3.233,
+   "fwd_j": 50.5
   },
   "27b_rev_move": {
    "statut": "ORANGE",
@@ -144,18 +144,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0063,
-  "ret7": -0.0066,
-  "ret30": -0.0174,
-  "prix": 63870
+  "ret1": 0.0059,
+  "ret7": -0.007,
+  "ret30": -0.0178,
+  "prix": 63840
  },
  "evenements_extremes": [
   {
    "coin": "KAITO",
-   "move_pct": -24.2
+   "move_pct": -24.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-13T07:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-13T07:30",
    "bot": "10_controle_aleatoire",
@@ -197,12 +203,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-13T05:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -216,7 +216,7 @@
   "arbitre_echecs": 1,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.6,
+  "age_avis_h": 0.8,
   "problemes": []
  },
  "autofinancement": {
