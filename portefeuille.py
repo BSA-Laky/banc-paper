@@ -78,8 +78,34 @@ class Portefeuille:
     def dispo_bot(self, bot):
         return max(0.0, self.plafond_notional(bot) - float(self.expo.get(bot, 0.0)))
 
+    # Plancher d'ordre Hyperliquid. La doc annonce 10 $ ; le plus petit ordre
+    # REELLEMENT passe par le banc sur testnet vaut 12,84 $. En dessous, l'ordre
+    # part quand meme et se fait refuser cote venue -- on prefere le refuser ici,
+    # avec un motif qui dit quoi faire.
+    MIN_NOTIONAL_USD = 10.0
+
     def peut_ouvrir(self, bot, notional=None):
+        """REFUS EXPLICITES (14/08/2026). Avant ce correctif, un bot mal configure
+        partait quand meme a l'ordre et collectionnait des rejets identiques sans
+        que rien ne s'allume : 29b_carry_neutre_large a accumule 192 rejets 'taille
+        arrondie a 0' du 07/08 au 13/08 parce qu'il etait pilote testnet mais absent
+        de portefeuille.config.json -- enveloppe 0, donc mise 0,00 $. Six jours de
+        panne muette, zero donnee produite, gate incapable de conclure. Un refus
+        qui NOMME sa cause vaut mieux qu'un ordre voue au rejet."""
         notional = self.taille_entree(bot) if notional is None else notional
+        if bot not in self.cfg.get("bots", {}):
+            return False, ("%s ABSENT de portefeuille.config.json : aucune enveloppe, "
+                           "mise 0,00 $. Ajouter {\"positions_max\": N} dans 'bots'." % bot)
+        if notional <= 0:
+            return False, ("mise nulle pour %s (enveloppe %.2f$ / %d positions) : "
+                           "verifier positions_max." % (bot, self.plafond_notional(bot),
+                                                        self.positions_max(bot)))
+        if notional < self.MIN_NOTIONAL_USD:
+            return False, ("mise %.2f$ sous le plancher Hyperliquid de %.0f$ pour %s : "
+                           "%d positions se partagent %.2f$. Reduire positions_max ou "
+                           "augmenter l'enveloppe." % (notional, self.MIN_NOTIONAL_USD, bot,
+                                                       self.positions_max(bot),
+                                                       self.plafond_notional(bot)))
         if notional > self.dispo_bot(bot) + 1e-9:
             return False, "enveloppe %s pleine (%.2f$ libres, mise %.2f$)" % (bot, self.dispo_bot(bot), notional)
         return True, "ok"

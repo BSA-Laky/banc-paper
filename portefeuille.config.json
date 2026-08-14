@@ -6,12 +6,27 @@
  "capital_reel_usd": 947.15,
  "_capital_reel_usd_note": "Etait a 0 avec le commentaire '0 tant que paper'. C'est FAUX depuis le 21/07 : le bot 28 est en argent reel sur mainnet Hyperliquid avec 947,15 $ de depots nets. Le panneau COFFRE de la Station lit cette valeur : il affichait donc 'capital 0 $' et 'Aucun bot promu' sur la meme page qui annonce 'Bot 28 en ARGENT REEL'. Valeur = depot NET (voir portefeuille.reel.json). Equity courante : 911,94 $, soit -35,21 $ (dont -34,30 $ pour l'episode ETH manuel du 29/07). La verite du compte vit dans docs/verite.json.",
  "bots": {
-  "27b_rev_move": {"positions_max": 3},
-  "27f_selecteur": {"positions_max": 3},
-  "27f10_selecteur": {"positions_max": 10},
-  "28_carry_hold": {"positions_max": 10},
-  "29_carry_neutre": {"positions_max": 6}
+  "27b_rev_move": {
+   "positions_max": 3
+  },
+  "27f_selecteur": {
+   "positions_max": 3
+  },
+  "27f10_selecteur": {
+   "positions_max": 10
+  },
+  "28_carry_hold": {
+   "positions_max": 10
+  },
+  "29_carry_neutre": {
+   "positions_max": 6
+  },
+  "29b_carry_neutre_large": {
+   "positions_max": 20
+  }
  },
  "levier_max": 3,
- "kelly_fraction": 0.25
+ "kelly_fraction": 0.25,
+ "_correctif_14_08_2026": "AJOUT de 29b_carry_neutre_large. Il etait PILOTE testnet (executeur_testnet.PILOTES) mais ABSENT de ce fichier : portefeuille.enveloppe() renvoie 0 pour un bot inconnu, donc taille_entree = 0/1 = 0,00 $, donc sz = round(0/prix) = 0, donc REJET. 192 rejets identiques du 07/08 au 13/08, zero ordre passe, et rien ne le signalait : un bot qui ne trade jamais ne perd rien, mais il ne produit AUCUNE donnee et sa gate ne peut jamais conclure. Il avait pourtant 20 positions paper en attente de miroir. positions_max = 20 (k=10 -> 10 shorts + 10 longs) -> 321 $ / 20 = 16,05 $ par jambe, au-dessus du plancher Hyperliquid de 10 $ (ordres reussis observes des 12,84 $).",
+ "_29c_non_executable": "29c_carry_decale reste VOLONTAIREMENT absent. Il tient 4 paniers x 20 jambes = 80 jambes simultanees : 321 $ / 80 = 4,01 $ par jambe, SOUS le plancher Hyperliquid de 10 $. L'ajouter ici ne ferait que remplacer 192 rejets 'taille 0' par un nouveau mur de rejets 'invalid size'. Le probleme n'est pas la configuration, c'est que la strategie n'est pas executable a 300 EUR/bot : il lui faudrait ~800 $ d'enveloppe. Decision de capital, pas de plomberie -- elle revient au Commandant. Meme famille que le bot 24 (tue le 29/07 pour avoir mesure un trade impossible) et le bot 30 (panier d'ETF inexecutable) : une strategie inexecutable ne doit pas compter comme candidate."
 }

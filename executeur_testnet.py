@@ -183,6 +183,23 @@ def executer():
                   % (bot, len(state[bot])), flush=True)
         mine = state.get(bot, {})
 
+        # GARDE DE CONFIGURATION (14/08/2026). Un bot mal configure partait
+        # autrefois a l'ordre coin par coin et remplissait le journal de rejets
+        # identiques : 192 lignes "taille arrondie a 0" pour 29b en six jours,
+        # sans que rien ne s'allume. On teste UNE fois avant la boucle, on
+        # journalise UNE ligne, et on passe au bot suivant. Le journal dit
+        # desormais pourquoi, au lieu de repeter le symptome.
+        if ouverts:
+            _ok, _raison = pf.peut_ouvrir(bot)
+            if not _ok and ("ABSENT" in _raison or "mise nulle" in _raison
+                            or "plancher" in _raison):
+                _log({"ts": now.isoformat(), "bot": bot, "coin": "-",
+                      "action": "CONFIG", "side": 0, "notional_usd": 0.0,
+                      "mark": 0.0, "resp": _raison[:120]})
+                print("[executeur] %s NON EXECUTABLE : %s" % (bot, _raison), flush=True)
+                state[bot] = mine
+                continue
+
         # OUVRIR (avec verification du VRAI statut)
         for coin, v in ouverts.items():
             if coin in mine:

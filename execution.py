@@ -84,6 +84,9 @@ def _resume(histo: list) -> dict:
         "pnl_total": pnl,
         "pnl_moyen": round(pnl / len(fermes), 4) if fermes else None,
         "taux_reussite": round(len(gagnants) / len(fermes), 3) if fermes else None,
+        # Motif de configuration le plus recent (action CONFIG) : dit POURQUOI un
+        # bot ne place aucun ordre, au lieu de laisser deviner.
+        "config": next((h["resp"] for h in histo if h["action"] == "CONFIG"), ""),
     }
 
 
@@ -92,6 +95,8 @@ def _alerte_bot(resume: dict, ouvertes: list) -> str:
     C'est la panne la plus couteuse du banc parce qu'elle est silencieuse : n
     reste bloque a zero, la gate ne peut jamais conclure, et rien ne le signale.
     Meme faute de fond que le seuil de funding trop haut du bot 28 (05/08)."""
+    if resume.get("config"):
+        return "NON EXECUTABLE : " + resume["config"]
     if resume["ordres"] == 0 and resume["rejets"] >= 10:
         return ("MUET : %d tentatives, aucune position ouverte. Ce bot ne produit "
                 "AUCUNE donnee -- sa gate ne pourra jamais conclure." % resume["rejets"])
