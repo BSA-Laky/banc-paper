@@ -1,9 +1,12 @@
-# Brief Station — 2026-08-14 22:01 (Paris)
+# Brief Station — 2026-08-14 22:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
+
+## Changements de statut depuis hier
+- 29c_carry_decale : GRIS → **ORANGE**
 
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -15,8 +18,8 @@
 | 27f_selecteur | ORANGE | 70 | -0.4356 | -0.22 | -30.49 | -0.742 | 41.1 j |
 | 29_carry_neutre | GRIS | 12 | 20.1879 | 1.28 | 242.25 | 12.75 | 19.0 j |
 | 29b_carry_neutre_large | GRIS | 20 | 1.3233 | 0.78 | 26.47 | 2.908 | 9.1 j |
-| 29c_carry_decale | GRIS | 20 | -0.4168 | -1.04 | -8.34 | -0.926 | 9.0 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.056 | 19.2 j |
+| 29c_carry_decale | ORANGE | 40 | -0.1912 | -0.94 | -7.65 | -0.84 | 9.1 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.056 | 19.3 j |
 
 ### 🛑 Bots arretes / tues (6) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -28,10 +31,10 @@
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.436 | 33.4 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.067 | 19.0 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -334.19 $
+**P&L paper cumule (hors temoin, morts inclus)** : -333.50 $
 
-**BTC** 62960 $ — ret 1j -0.82% · 7j -2.97% · 30j -2.75%
-**Moves 24h ≥ 20 %** : ACE +168.8%, CASHCAT -20.2%
+**BTC** 62937 $ — ret 1j -0.86% · 7j -3.00% · 30j -2.78%
+**Moves 24h ≥ 20 %** : ACE +168.0%, CASHCAT -21.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
