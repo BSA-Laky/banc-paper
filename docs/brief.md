@@ -1,6 +1,6 @@
-# Brief Station — 2026-08-14 10:45 (Paris)
+# Brief Station — 2026-08-14 11:01 (Paris)
 
-[station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [book](book.html) · [équipage](equipage.html)
+[station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -14,7 +14,7 @@
 | 27d_rev_move_stop | ORANGE | 134 | -0.3237 | -0.28 | -43.38 | -0.953 | 45.5 j |
 | 27f_selecteur | ORANGE | 69 | -0.3491 | -0.18 | -24.09 | -0.592 | 40.7 j |
 | 29_carry_neutre | GRIS | 12 | 20.1879 | 1.28 | 242.25 | 13.095 | 18.5 j |
-| 29b_carry_neutre_large | GRIS | 20 | 1.3233 | 0.78 | 26.47 | 3.078 | 8.6 j |
+| 29b_carry_neutre_large | GRIS | 20 | 1.3233 | 0.78 | 26.47 | 3.042 | 8.7 j |
 | 29c_carry_decale | GRIS | 20 | -0.4168 | -1.04 | -8.34 | -0.969 | 8.6 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.057 | 18.8 j |
 
@@ -22,7 +22,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.687 | 51.6 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -6.449 | 18.8 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -6.415 | 18.9 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.723 | 41.7 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.286 | 40.7 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.443 | 32.9 j |
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -244.13 $
 
-**BTC** 62806 $ — ret 1j -1.06% · 7j -3.20% · 30j -2.98%
-**Moves 24h ≥ 20 %** : ACE +47.8%
+**BTC** 62915 $ — ret 1j -0.89% · 7j -3.04% · 30j -2.82%
+**Moves 24h ≥ 20 %** : ACE +49.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
