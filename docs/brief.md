@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-14 19:30 (Paris)
+# Brief Station — 2026-08-14 19:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -15,8 +15,8 @@
 | 27f_selecteur | ORANGE | 70 | -0.4356 | -0.22 | -30.49 | -0.744 | 41.0 j |
 | 29_carry_neutre | GRIS | 12 | 20.1879 | 1.28 | 242.25 | 12.818 | 18.9 j |
 | 29b_carry_neutre_large | GRIS | 20 | 1.3233 | 0.78 | 26.47 | 2.941 | 9.0 j |
-| 29c_carry_decale | GRIS | 20 | -0.4168 | -1.04 | -8.34 | -0.937 | 8.9 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.057 | 19.1 j |
+| 29c_carry_decale | GRIS | 20 | -0.4168 | -1.04 | -8.34 | -0.926 | 9.0 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.056 | 19.2 j |
 
 ### 🛑 Bots arretes / tues (6) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -327.11 $
 
-**BTC** 63172 $ — ret 1j -0.49% · 7j -2.64% · 30j -2.42%
-**Moves 24h ≥ 20 %** : ACE +156.0%, CASHCAT -23.2%
+**BTC** 63093 $ — ret 1j -0.61% · 7j -2.76% · 30j -2.54%
+**Moves 24h ≥ 20 %** : ACE +143.9%, CASHCAT -21.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
