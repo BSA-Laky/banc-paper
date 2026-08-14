@@ -44,6 +44,12 @@ jobs:
       - name: Passe d'échantillonnage (banc complet)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Adresses PUBLIQUES de lecture, publiees sur la page Execution pour
+          # pouvoir retrouver chaque position sur l'explorateur Hyperliquid.
+          # Ce sont des VARIABLES, pas des secrets : une adresse ne permet aucun
+          # ordre. Absentes, la page marche, simplement sans lien.
+          HL_ADDRESS_TESTNET_PUBLIC: ${{ vars.HL_ADDRESS_TESTNET_PUBLIC }}
+          HL_ADDRESS_MAINNET_PUBLIC: ${{ vars.HL_ADDRESS_MAINNET_PUBLIC }}
           MODELE_AVIS: ${{ vars.MODELE_AVIS || 'claude-haiku-4-5-20251001' }}
           # 17/07 : 20 -> 10 (plafond budget 15 $/mois, trajectoire mesurée ~18 $)
           AVIS_MAX_JOUR: "10"
