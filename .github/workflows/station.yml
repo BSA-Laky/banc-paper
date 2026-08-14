@@ -88,6 +88,20 @@ jobs:
           pip -q install hyperliquid-python-sdk eth-account
           python executeur_reel.py
 
+      # 3ter) La page Execution est regeneree APRES les executeurs.
+      #       run_once.py la produit deja, mais il tourne a l'etape 2, AVANT les
+      #       miroirs testnet et mainnet : la page etait donc systematiquement une
+      #       passe en retard sur exactement les donnees qu'elle sert a montrer.
+      #       Constate le 14/08 : le bot 29b a ouvert 19 positions a 09:45 et la
+      #       page annonçait encore "MUET, aucune position". On la rejoue ici, sur
+      #       l'etat frais. Idempotent : c'est une simple relecture de fichiers.
+      - name: Page Exécution (après les exécuteurs)
+        continue-on-error: true
+        env:
+          HL_ADDRESS_TESTNET_PUBLIC: ${{ vars.HL_ADDRESS_TESTNET_PUBLIC }}
+          HL_ADDRESS_MAINNET_PUBLIC: ${{ vars.HL_ADDRESS_MAINNET_PUBLIC }}
+        run: python execution.py
+
       # 4) UN commit pour toute la passe.
       - name: Committer la passe
         run: |
