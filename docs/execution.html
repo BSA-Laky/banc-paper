@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Exécution">
+<title>Exécution — ordres réellement passés</title>
+<style>
+:root{--bg:#0b1020;--card:#141b30;--card2:#101528;--line:#243050;--txt:#e6ecff;
+  --muted:#8894b8;--vert:#28c76f;--rouge:#ff5b6e;--orange:#ffab3d;--bleu:#5b7cff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);padding:14px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px}
+h1{font-size:1.15rem;margin:.1rem 0}
+.sub{color:var(--muted);font-size:.78rem;margin:4px 0 12px}
+.onglets{display:flex;gap:6px;margin:12px 0}
+.onglet{flex:1;padding:9px 6px;text-align:center;border:1px solid var(--line);
+  border-radius:10px;background:var(--card2);color:var(--muted);cursor:pointer;
+  font-size:.82rem;font-weight:600}
+.onglet[aria-selected="true"]{background:var(--card);color:var(--txt);border-color:var(--bleu)}
+.bilan{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.bilan div{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:8px}
+.bilan .l{display:block;color:var(--muted);font-size:.66rem;text-transform:uppercase;letter-spacing:.03em}
+.bilan .v{display:block;font-size:1.02rem;font-weight:700;margin-top:2px}
+.bot{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:11px 12px;margin-bottom:10px}
+.bot h2{font-size:.95rem;margin:0 0 2px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.tag{font-size:.62rem;padding:2px 7px;border-radius:8px;font-weight:700;letter-spacing:.02em}
+.tag.mort{background:var(--rouge);color:#210409}
+.tag.vif{background:var(--vert);color:#04190d}
+.chiffres{color:var(--muted);font-size:.74rem;margin:3px 0 8px}
+.chiffres b{color:var(--txt)}
+.alerte{background:#2a1c0a;border:1px solid var(--orange);color:var(--orange);
+  border-radius:9px;padding:7px 9px;font-size:.74rem;margin:6px 0;line-height:1.45}
+table{width:100%;border-collapse:collapse;font-size:.74rem}
+th,td{text-align:left;padding:4px 5px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--muted);font-weight:600;font-size:.66rem;text-transform:uppercase}
+.pos{color:var(--vert)}.neg{color:var(--rouge)}.muted{color:var(--muted)}
+.long{color:var(--vert);font-weight:700}.short{color:var(--rouge);font-weight:700}
+.orph{background:#2a0d12}
+details{margin-top:8px}
+summary{cursor:pointer;color:var(--bleu);font-size:.76rem;padding:5px 0;font-weight:600}
+.defil{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.vide{color:var(--muted);font-size:.76rem;font-style:italic;padding:5px 0}
+a{color:var(--bleu)}
+.navbar{margin:20px 0 8px;font-size:.8rem;color:var(--muted)}
+.navbar a{margin-right:2px;text-decoration:none}
+footer{color:var(--muted);font-size:.72rem;line-height:1.55;margin-top:6px}
+.avert-nojs{margin:10px 0;padding:8px 10px;font-size:.76rem;line-height:1.5;
+  border:1px dashed var(--orange);color:var(--orange);border-radius:10px}
+</style></head><body>
+
+<h1>⚙️ Exécution — ordres réellement passés</h1>
+<div class="sub" id="maj">chargement…</div>
+
+<noscript><div class="avert-nojs">⚠️ <b>Cette page est alimentée par JavaScript.</b>
+Ses tableaux sont remplis au chargement depuis <code>execution.json</code> ; sans
+JavaScript ils restent vides, ce qui n'indique <b>aucune panne</b>. Les données
+brutes se lisent directement dans <a href="execution.json">execution.json</a>.</div></noscript>
+
+<div class="onglets" role="tablist">
+  <div class="onglet" role="tab" id="t-testnet" aria-selected="true">🧪 Testnet</div>
+  <div class="onglet" role="tab" id="t-mainnet" aria-selected="false">💰 Mainnet</div>
+</div>
+
+<div id="bandeau"></div>
+<div class="bilan" id="bilan"></div>
+<div id="bots"></div>
+
+<nav class="navbar">
+  <a href="station.html">station</a> · <a href="index.html">dashboard crypto</a> ·
+  <a href="reel.html">💰 réel</a> · <a href="execution.html">exécution</a> ·
+  <a href="book.html">book</a> · <a href="equipage.html">équipage</a> ·
+  <a href="brief.md">brief</a>
+</nav>
+<footer>
+  Le <b>testnet</b> exécute de vrais ordres avec des jetons sans valeur : c'est le
+  banc d'essai de l'exécution, pas de la stratégie. Le <b>mainnet</b> est le seul
+  environnement où de l'argent réel a été engagé.<br>
+  P&amp;L d'une position soldée = prix + frais estimés à l'exécution. La vérité
+  comptable du compte réel reste <a href="reel.html">💰 Réel</a>.
+</footer>
+
+<script>
+const F = n => (n === null || n === undefined) ? "—" : n;
+const usd = n => (n === null || n === undefined) ? "—" : (n >= 0 ? "+" : "") + n.toFixed(2) + " $";
+const pct = n => (n === null || n === undefined) ? "—" : (100 * n).toFixed(1) + " %";
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dt = s => { if (!s) return "—"; const d = new Date(s);
+  return isNaN(d) ? String(s).slice(0, 16) : d.toISOString().slice(0, 16).replace("T", " "); };
+const age = h => h === null || h === undefined ? "—"
+  : h < 48 ? h.toFixed(0) + " h" : (h / 24).toFixed(1) + " j";
+
+let DOC = null, ENV = "testnet";
+
+function lienCompte() {
+  const a = (DOC.adresses || {})[ENV], base = (DOC.explorateur || {})[ENV];
+  if (!a) return `<span class="muted">Adresse du compte non publiée — ajoute la variable
+    <code>HL_ADDRESS_${ENV.toUpperCase()}_PUBLIC</code> au dépôt pour activer les liens
+    vers l'explorateur.</span>`;
+  return `Compte : <a href="${base}${a}" target="_blank" rel="noopener">${a.slice(0,8)}…${a.slice(-6)}</a>
+    — chaque position ci-dessous s'y retrouve.`;
+}
+
+function rendre() {
+  const bots = (DOC.env || {})[ENV] || {};
+  document.getElementById("t-testnet").setAttribute("aria-selected", ENV === "testnet");
+  document.getElementById("t-mainnet").setAttribute("aria-selected", ENV === "mainnet");
+
+  let ban = `<div class="chiffres">${lienCompte()}</div>`;
+  if (ENV === "mainnet" && DOC.mainnet_suspendu)
+    ban += `<div class="alerte">⛔ <b>Mainnet suspendu.</b> ${esc(DOC.mainnet_suspendu).slice(0,260)}</div>`;
+  document.getElementById("bandeau").innerHTML = ban;
+
+  const noms = Object.keys(bots).sort();
+  let nOuv = 0, nOrd = 0, pnl = 0, nSol = 0;
+  noms.forEach(b => { nOuv += bots[b].ouvertes.length; nOrd += bots[b].resume.ordres;
+                      pnl += bots[b].resume.pnl_total; nSol += bots[b].resume.soldes; });
+  document.getElementById("bilan").innerHTML =
+    `<div><span class="l">bots</span><span class="v">${noms.length}</span></div>
+     <div><span class="l">positions ouvertes</span><span class="v">${nOuv}</span></div>
+     <div><span class="l">ordres passés</span><span class="v">${nOrd}</span></div>
+     <div><span class="l">P&amp;L soldé</span><span class="v ${pnl>=0?'pos':'neg'}">${usd(pnl)}</span></div>`;
+
+  if (!noms.length) {
+    document.getElementById("bots").innerHTML =
+      `<p class="vide">Aucun ordre enregistré sur ${ENV}.</p>`;
+    return;
+  }
+
+  document.getElementById("bots").innerHTML = noms.map(b => {
+    const v = bots[b], r = v.resume;
+    const tag = v.tue ? '<span class="tag mort">🛑 TUÉ</span>' : '<span class="tag vif">actif</span>';
+    const alerte = v.alerte ? `<div class="alerte">⚠️ ${esc(v.alerte)}</div>` : "";
+
+    const ouvertes = v.ouvertes.length
+      ? `<div class="defil"><table><thead><tr>
+           <th scope="col">coin</th><th scope="col">sens</th><th scope="col">taille</th>
+           <th scope="col">entrée</th><th scope="col">ouverte depuis</th></tr></thead><tbody>` +
+        v.ouvertes.map(p => `<tr class="${p.orpheline ? "orph" : ""}">
+           <td><b>${esc(p.coin)}</b>${p.orpheline ? ' <span class="neg">orpheline</span>' : ""}</td>
+           <td class="${p.side > 0 ? "long" : "short"}">${p.side > 0 ? "LONG" : "SHORT"}</td>
+           <td>${p.notional.toFixed(2)} $</td><td>${p.entry}</td>
+           <td>${age(p.age_h)} <span class="muted">· ${dt(p.ts)}</span></td></tr>`).join("") +
+        `</tbody></table></div>`
+      : `<p class="vide">Aucune position ouverte en ce moment.</p>`;
+
+    const histo = v.histo.length
+      ? `<details><summary>📜 Historique — ${v.histo.length} mouvement(s)${
+            v.histo_tronque ? ` <span class="muted">(+${v.histo_tronque} plus anciens, voir le CSV)</span>` : ""}</summary>
+         <div class="defil"><table><thead><tr>
+           <th scope="col">date (UTC)</th><th scope="col">coin</th><th scope="col">action</th>
+           <th scope="col">sens</th><th scope="col">taille</th><th scope="col">prix</th>
+           <th scope="col">résultat</th><th scope="col">motif</th></tr></thead><tbody>` +
+         v.histo.map(h => `<tr>
+           <td class="muted">${dt(h.ts)}</td><td><b>${esc(h.coin)}</b></td>
+           <td class="${h.action === "REJET" ? "neg" : ""}">${esc(h.action)}</td>
+           <td class="${h.side > 0 ? "long" : "short"}">${h.side > 0 ? "L" : "S"}</td>
+           <td>${h.notional ? h.notional.toFixed(2) + " $" : "—"}</td><td>${F(h.mark)}</td>
+           <td class="${h.pnl === null ? "muted" : (h.pnl >= 0 ? "pos" : "neg")}">${
+             h.pnl === null ? "—" : usd(h.pnl)}</td>
+           <td class="muted">${esc(h.resp)}</td></tr>`).join("") +
+         `</tbody></table></div></details>`
+      : `<p class="vide">Aucun mouvement enregistré.</p>`;
+
+    return `<section class="bot"><h2>${esc(b)} ${tag}</h2>
+      <div class="chiffres">
+        <b>${r.ordres}</b> ordre(s) passé(s) · <b>${r.soldes}</b> soldé(s) ·
+        <b>${r.rejets}</b> rejet(s) · P&amp;L <b class="${r.pnl_total>=0?'pos':'neg'}">${usd(r.pnl_total)}</b>
+        ${r.pnl_moyen !== null ? ` (moyenne ${usd(r.pnl_moyen)}/trade)` : ""}
+        ${r.taux_reussite !== null ? ` · réussite <b>${pct(r.taux_reussite)}</b>` : ""}
+      </div>${alerte}${ouvertes}${histo}</section>`;
+  }).join("");
+}
+
+async function charger() {
+  try {
+    DOC = await fetch("execution.json?t=" + Date.now(), {cache: "no-store"}).then(r => {
+      if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
+  } catch (e) {
+    document.getElementById("maj").textContent =
+      "execution.json injoignable — attends une passe de la station.";
+    return;
+  }
+  const d = new Date(DOC.ts), min = Math.round((Date.now() - d) / 60000);
+  document.getElementById("maj").textContent =
+    "Mis à jour : " + dt(DOC.ts) + " UTC · il y a " + (min < 60 ? min + " min" : Math.round(min/60) + " h")
+    + " · régénéré à chaque passe (~15 min)";
+  rendre();
+}
+
+document.getElementById("t-testnet").onclick = () => { ENV = "testnet"; rendre(); };
+document.getElementById("t-mainnet").onclick = () => { ENV = "mainnet"; rendre(); };
+charger();
+setInterval(charger, 3 * 60 * 1000);
+</script>
+</body></html>
