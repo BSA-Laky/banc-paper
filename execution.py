@@ -71,6 +71,22 @@ def _age_h(iso: str, maintenant: datetime):
         return None
 
 
+def _recents(histo: list, maintenant: datetime, jours: float = 7.0) -> list:
+    """Mouvements des N derniers jours. Une alerte doit porter sur ce que le bot
+    fait MAINTENANT : le bot 29 traine 66 rejets d'une seule passe du 29/07, tous
+    dus a la meme enveloppe manquante, corrigee depuis. Les compter a vie le
+    ferait clignoter pour toujours et noierait un vrai probleme recent."""
+    seuil = maintenant.timestamp() - jours * 86400
+    out = []
+    for h in histo:
+        try:
+            if datetime.fromisoformat(h["ts"]).timestamp() >= seuil:
+                out.append(h)
+        except (TypeError, ValueError):
+            pass
+    return out
+
+
 def _resume(histo: list) -> dict:
     """Bilan d'un bot sur un environnement. Le taux de reussite ne porte que sur
     les positions SOLDEES : une position encore ouverte n'a pas de resultat."""
@@ -90,19 +106,25 @@ def _resume(histo: list) -> dict:
     }
 
 
-def _alerte_bot(resume: dict, ouvertes: list) -> str:
+def _alerte_bot(resume: dict, ouvertes: list, recent: dict = None) -> str:
     """Un bot qui ne parvient jamais a ouvrir ne perd rien -- et ne prouve rien.
     C'est la panne la plus couteuse du banc parce qu'elle est silencieuse : n
     reste bloque a zero, la gate ne peut jamais conclure, et rien ne le signale.
     Meme faute de fond que le seuil de funding trop haut du bot 28 (05/08)."""
     if resume.get("config"):
         return "NON EXECUTABLE : " + resume["config"]
-    if resume["ordres"] == 0 and resume["rejets"] >= 10:
-        return ("MUET : %d tentatives, aucune position ouverte. Ce bot ne produit "
-                "AUCUNE donnee -- sa gate ne pourra jamais conclure." % resume["rejets"])
-    if resume["ordres"] and resume["rejets"] > 3 * resume["ordres"]:
-        return ("Taux de rejet eleve : %d rejets pour %d ordres passes."
-                % (resume["rejets"], resume["ordres"]))
+    r = recent or resume          # on juge sur les 7 derniers jours
+    if r["ordres"] == 0 and r["rejets"] >= 10:
+        return ("MUET : %d tentatives sur 7 jours, aucune position ouverte. Ce bot "
+                "ne produit AUCUNE donnee -- sa gate ne pourra jamais conclure."
+                % r["rejets"])
+    if r["ordres"] and r["rejets"] > 3 * r["ordres"]:
+        return ("Taux de rejet eleve sur 7 jours : %d rejets pour %d ordres passes."
+                % (r["rejets"], r["ordres"]))
+    if resume["ordres"] == 0 and resume["rejets"] >= 10 and r["rejets"] == 0:
+        return ("Aucun ordre passe a ce jour (%d rejets, tous anterieurs a 7 jours). "
+                "Rien de recent a signaler -- surveiller la prochaine tentative."
+                % resume["rejets"])
     return ""
 
 
@@ -151,10 +173,12 @@ def _environnement(journal: Path, positions: Path, tues: set, maintenant: dateti
     for bot, d in bots.items():
         histo = sorted(d["histo"], key=lambda h: h["ts"], reverse=True)
         resume = _resume(histo)
+        recent = _resume(_recents(histo, maintenant))
         ouvertes = sorted(d["ouvertes"], key=lambda p: p["ts"], reverse=True)
         sortie[bot] = {
             "tue": bot in tues,
-            "alerte": _alerte_bot(resume, ouvertes),
+            "alerte": _alerte_bot(resume, ouvertes, recent),
+            "resume_7j": {k: recent[k] for k in ("ordres", "soldes", "rejets", "pnl_total")},
             "ouvertes": ouvertes,
             "resume": resume,
             "histo": histo[:MAX_HISTO],

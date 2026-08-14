@@ -163,7 +163,7 @@ def executer():
                     del state[bot][coin]
     # recalcule l'exposition du portefeuille depuis l'etat reconcilie
     pf.expo = {b: round(sum(p.get("notional", 0.0) for p in m.values()), 4)
-               for b, m in state.items() if b != "_rejets"}
+               for b, m in state.items() if not b.startswith("_")}
     pf._sauver_expo()
 
     # Cycle de vie : un bot TUE n'a plus personne pour solder ses positions.
@@ -189,6 +189,25 @@ def executer():
         # sans que rien ne s'allume. On teste UNE fois avant la boucle, on
         # journalise UNE ligne, et on passe au bot suivant. Le journal dit
         # desormais pourquoi, au lieu de repeter le symptome.
+        # PURGE DES PENALITES APRES CORRECTION DE CONFIG (14/08/2026).
+        # Le compteur de rejets met un coin en pause 24 h apres 3 echecs. Utile
+        # quand c'est LE COIN qui refuse ; injuste quand c'est le bot qui etait
+        # mal configure : 29b a garde 20 coins sur 29 en pause alors que sa cause
+        # (mise a 0,00 $) venait d'etre reparee. Le compteur confondait "ce coin
+        # me refuse" et "j'etais mal regle". On memorise donc la mise du bot : si
+        # elle change, ses penalites sont effacees -- corriger une config doit
+        # prendre effet tout de suite, pas 24 h plus tard.
+        _mises = state.setdefault("_mises", {})
+        _mise_now = round(pf.taille_entree(bot), 4)
+        if _mises.get(bot) != _mise_now:
+            _purges = [k for k in list(rejets) if k.startswith(bot + ":")]
+            for k in _purges:
+                rejets.pop(k, None)
+            _mises[bot] = _mise_now
+            if _purges:
+                print("[executeur] %s : mise passee a %.2f$ -> %d penalite(s) de rejet purgee(s)."
+                      % (bot, _mise_now, len(_purges)), flush=True)
+
         if ouverts:
             _ok, _raison = pf.peut_ouvrir(bot)
             if not _ok and ("ABSENT" in _raison or "mise nulle" in _raison
