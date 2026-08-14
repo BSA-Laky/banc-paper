@@ -39,8 +39,38 @@ def _positions_paper(bet: dict) -> dict:
     Resultat : 'ouverts' etait VIDE et les miroirs ne voyaient plus AUCUNE
     position, sans que rien ne le signale.
 
-    Ce lecteur accepte les DEUX formats et normalise vers le format attendu.
+    TROISIEME FORMAT (14/08/2026) : le bot 29c tient des PANIERS qui se
+    chevauchent, et ecrit
+        {"paniers": {"p002": {"ouvert_le": ..., "positions": {coin: {...}}}, ...}}
+    Ce lecteur renvoyait donc 0 position pour lui -- exactement la panne muette
+    decrite ci-dessus, deuxieme edition. Les jambes de tous les paniers ouverts
+    sont desormais fusionnees. Un meme coin peut apparaitre dans plusieurs
+    paniers : on AGREGE les notionnels et on garde le sens dominant, parce que
+    l'executeur ne tient qu'UNE position par coin sur la venue. Si les deux sens
+    s'annulent, la jambe nette est nulle et le coin est simplement omis.
+
+    Ce lecteur accepte les TROIS formats et normalise vers le format attendu.
     """
+    paniers = bet.get("paniers")
+    if isinstance(paniers, dict) and paniers:
+        net = {}
+        for pan in paniers.values():
+            if not isinstance(pan, dict):
+                continue
+            for c, v in (pan.get("positions") or {}).items():
+                if not isinstance(v, dict):
+                    continue
+                a = net.setdefault(c, {"n": 0.0, "ts": None})
+                a["n"] += float(v.get("side") or 0) * float(v.get("notionnel") or 0)
+                ts = v.get("ouverte_le")
+                if ts and (a["ts"] is None or ts < a["ts"]):
+                    a["ts"] = ts                      # la plus ancienne jambe
+        return {c: {"ouvert": True,
+                    "side": 1 if a["n"] > 0 else -1,
+                    "entree_ts": a["ts"],
+                    "notionnel": abs(a["n"])}
+                for c, a in net.items() if abs(a["n"]) > 1e-9}
+
     pos = bet.get("positions")
     if isinstance(pos, dict) and pos:
         return {c: {"ouvert": True,

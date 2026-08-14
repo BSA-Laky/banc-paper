@@ -47,9 +47,23 @@ class Portefeuille:
         return float(self.cfg.get("eurusd", 1.07))
 
     def enveloppe(self, bot):
-        """Enveloppe (marge) du bot en USD. 0 si bot inconnu."""
-        if bot not in self.cfg.get("bots", {}):
+        """Enveloppe (MARGE engagee) du bot en USD. 0 si bot inconnu.
+
+        ENVELOPPE PAR BOT (14/08/2026). Jusqu'ici tous les bots recevaient la
+        meme enveloppe de 300 EUR. C'etait tenable tant que les bots avaient un
+        nombre de jambes comparable ; ca ne l'est plus. Un bot a 80 jambes et un
+        bot a 6 jambes n'ont pas les memes besoins : a enveloppe egale, le
+        premier descend a 4 $ par jambe et devient INEXECUTABLE (plancher
+        Hyperliquid : 10 $ par ordre), le second gaspille 53 $ la ou 11 $
+        suffisent a mesurer la meme friction.
+        Un bot peut donc declarer "enveloppe_usd" dans portefeuille.config.json.
+        Sans cette cle, le comportement historique (300 EUR) est conserve.
+        """
+        b = self.cfg.get("bots", {}).get(bot)
+        if b is None:
             return 0.0
+        if b.get("enveloppe_usd") is not None:
+            return float(b["enveloppe_usd"])
         return float(self.cfg.get("enveloppe_par_bot_eur", 0)) * self._eurusd()
 
     def positions_max(self, bot):
@@ -64,7 +78,14 @@ class Portefeuille:
         c = self.exec.cfg
         if c.live_arme and c.net == "mainnet" and not b.get("kelly_confirme"):
             return 1.0
-        l = float(b.get("levier", 1.0))
+        # Levier de repli lu dans portefeuille.config.json (testnet uniquement :
+        # la ligne ci-dessus force deja 1x en mainnet tant que Kelly n'est pas
+        # confirme). Un livre DOLLAR-NEUTRE gaspille son pouvoir d'achat a 1x :
+        # la venue marge le BRUT alors que le risque est porte par le NET, mesure
+        # a 13 % du brut le 14/08. Le levier ne change NI les frais NI le
+        # glissement -- il ne change que la marge initiale immobilisee.
+        defaut = float((self.cfg.get("bots", {}).get(bot) or {}).get("levier_testnet", 1.0))
+        l = float(b.get("levier", defaut))
         return max(1.0, min(l, float(self.cfg.get("levier_max", 3.0))))
 
     def plafond_notional(self, bot):

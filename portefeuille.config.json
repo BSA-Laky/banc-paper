@@ -6,27 +6,28 @@
  "capital_reel_usd": 947.15,
  "_capital_reel_usd_note": "Etait a 0 avec le commentaire '0 tant que paper'. C'est FAUX depuis le 21/07 : le bot 28 est en argent reel sur mainnet Hyperliquid avec 947,15 $ de depots nets. Le panneau COFFRE de la Station lit cette valeur : il affichait donc 'capital 0 $' et 'Aucun bot promu' sur la meme page qui annonce 'Bot 28 en ARGENT REEL'. Valeur = depot NET (voir portefeuille.reel.json). Equity courante : 911,94 $, soit -35,21 $ (dont -34,30 $ pour l'episode ETH manuel du 29/07). La verite du compte vit dans docs/verite.json.",
  "bots": {
-  "27b_rev_move": {
-   "positions_max": 3
-  },
-  "27f_selecteur": {
-   "positions_max": 3
-  },
-  "27f10_selecteur": {
-   "positions_max": 10
-  },
-  "28_carry_hold": {
-   "positions_max": 10
-  },
   "29_carry_neutre": {
-   "positions_max": 6
+   "positions_max": 6,
+   "enveloppe_usd": 22.0,
+   "levier_testnet": 3
   },
   "29b_carry_neutre_large": {
-   "positions_max": 20
+   "positions_max": 20,
+   "enveloppe_usd": 73.33,
+   "levier_testnet": 3
+  },
+  "29c_carry_decale": {
+   "positions_max": 80,
+   "enveloppe_usd": 293.33,
+   "levier_testnet": 3
   }
  },
  "levier_max": 3,
  "kelly_fraction": 0.25,
  "_correctif_14_08_2026": "AJOUT de 29b_carry_neutre_large. Il etait PILOTE testnet (executeur_testnet.PILOTES) mais ABSENT de ce fichier : portefeuille.enveloppe() renvoie 0 pour un bot inconnu, donc taille_entree = 0/1 = 0,00 $, donc sz = round(0/prix) = 0, donc REJET. 192 rejets identiques du 07/08 au 13/08, zero ordre passe, et rien ne le signalait : un bot qui ne trade jamais ne perd rien, mais il ne produit AUCUNE donnee et sa gate ne peut jamais conclure. Il avait pourtant 20 positions paper en attente de miroir. positions_max = 20 (k=10 -> 10 shorts + 10 longs) -> 321 $ / 20 = 16,05 $ par jambe, au-dessus du plancher Hyperliquid de 10 $ (ordres reussis observes des 12,84 $).",
- "_29c_non_executable": "29c_carry_decale reste VOLONTAIREMENT absent. Il tient 4 paniers x 20 jambes = 80 jambes simultanees : 321 $ / 80 = 4,01 $ par jambe, SOUS le plancher Hyperliquid de 10 $. L'ajouter ici ne ferait que remplacer 192 rejets 'taille 0' par un nouveau mur de rejets 'invalid size'. Le probleme n'est pas la configuration, c'est que la strategie n'est pas executable a 300 EUR/bot : il lui faudrait ~800 $ d'enveloppe. Decision de capital, pas de plomberie -- elle revient au Commandant. Meme famille que le bot 24 (tue le 29/07 pour avoir mesure un trade impossible) et le bot 30 (panier d'ETF inexecutable) : une strategie inexecutable ne doit pas compter comme candidate."
+ "_29c_non_executable": "29c_carry_decale reste VOLONTAIREMENT absent. Il tient 4 paniers x 20 jambes = 80 jambes simultanees : 321 $ / 80 = 4,01 $ par jambe, SOUS le plancher Hyperliquid de 10 $. L'ajouter ici ne ferait que remplacer 192 rejets 'taille 0' par un nouveau mur de rejets 'invalid size'. Le probleme n'est pas la configuration, c'est que la strategie n'est pas executable a 300 EUR/bot : il lui faudrait ~800 $ d'enveloppe. Decision de capital, pas de plomberie -- elle revient au Commandant. Meme famille que le bot 24 (tue le 29/07 pour avoir mesure un trade impossible) et le bot 30 (panier d'ETF inexecutable) : une strategie inexecutable ne doit pas compter comme candidate.",
+ "_refonte_14_08_2026": "ALLOCATION ADAPTEE AU CAPITAL REEL. Constat : 1 926 $ d'enveloppes configurees pour 522 $ d'equity testnet (3,7x de sur-engagement), marge utilisee a 100,0 %, 0,05 $ libre -- et 642 $ immobilises par DEUX BOTS MORTS (27f10 tue le 05/08, 28 tue le 09/08) plus 642 $ par deux bots qui ne sont meme pas pilotes testnet (27b, 27f). Ne restent que les trois bots reellement miroites. DIMENSIONNEMENT : 11 $ par jambe. Mesure du 14/08 sur les 32 coins de l'univers de la famille 29 : a 10 $ seulement 20/32 passent, a 11 $ les 32/32 passent. Et la friction ne se degrade PAS quand la position retrecit -- glissement median mesure sur 1 491 fills reels : 1,7 bp sous 20 $ contre 9,2 bp au-dessus de 70 $. Descendre de 53 $ a 11 $ par jambe ne coute donc rien a la mesure. TOTAL : 106 jambes, 1 166 $ de notionnel, 388,67 $ de marge a 3x = 74 % de l'equity, 134 $ libres.",
+ "_pourquoi_le_levier_3": "Un livre DOLLAR-NEUTRE gaspille son pouvoir d'achat a 1x : la venue marge le BRUT (537 $) alors que le risque est porte par le NET, mesure a 71,66 $ soit 13,3 % du brut. La marge de MAINTENANCE -- celle qui liquide -- vaut ~notionnel/40 = 29 $ pour 522 $ d'equity, soit 18x de coussin. Le levier ne change NI les frais NI le glissement : il ne change que la marge initiale immobilisee. Il ne s'applique qu'au TESTNET : portefeuille.levier() force 1x en mainnet tant que kelly_confirme est absent, cette regle n'est pas touchee.",
+ "_transition": "29 et 29b tiennent aujourd'hui 572 $ de positions aux anciennes tailles, au-dessus de leurs nouvelles enveloppes. peut_ouvrir() va donc refuser leurs nouvelles entrees jusqu'a ce que les positions existantes se soldent (tenue 168 h). C'est voulu et sans danger : aucune position n'est fermee de force, le livre converge vers la nouvelle taille en une semaine.",
+ "_29c_42_jambes_nettes": "MESURE DU 14/08 : les 80 jambes brutes de 29c (4 paniers x 20) se reduisent a 42 COINS DISTINCTS, parce que les paniers qui se chevauchent retombent souvent sur les memes pieces et que certains sens s'annulent. L'executeur ne tient qu'UNE position par coin sur la venue : le besoin reel est donc 42 x 11 $ = 462 $, pas 880 $. positions_max reste a 80 (le plafond doit couvrir le pire cas ou les 4 paniers tombent sur 80 pieces differentes) mais la consommation courante sera d'environ 462 $, soit 154 $ de marge a 3x. BILAN : usage courant ~249 $ de marge (48 % de l'equity), pire cas 389 $ (74 %). C'est ce pire cas qui impose le levier 3 : a 2x il monterait a 583 $, au-dessus des 522 $ disponibles."
 }
