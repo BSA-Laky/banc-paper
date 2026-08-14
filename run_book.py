@@ -89,7 +89,7 @@ def construire_book_html():
            'mensuel est lent par nature (1 point/mois) : la preuve principale reste le '
            'backtest ; le forward vérifie les frictions live. Rien en réel sans verdict '
            'confirmé battant le témoin.</footer>'
-           '<nav class="navbar"><a href="station.html">station</a> · <a href="index.html">dashboard crypto</a> · <a href="reel.html">💰 réel</a> · <a href="book.html">book</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a></nav>'
+           '<nav class="navbar"><a href="station.html">station</a> · <a href="index.html">dashboard crypto</a> · <a href="reel.html">💰 réel</a> · <a href="execution.html">exécution</a> · <a href="book.html">book</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a></nav>'
            '</body></html>')
     DOCS.mkdir(parents=True, exist_ok=True)
     (DOCS / "book.html").write_text(doc, encoding="utf-8")

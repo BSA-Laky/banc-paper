@@ -166,9 +166,21 @@ def executer():
                for b, m in state.items() if b != "_rejets"}
     pf._sauver_expo()
 
+    # Cycle de vie : un bot TUE n'a plus personne pour solder ses positions.
+    # Constat du 13/08/2026 : le bot 28, tue le 09/08, gardait 7 positions
+    # ouvertes sur le testnet, datees du 07/08. Personne ne les fermait parce que
+    # son etat paper etait fige : elles n'apparaissaient jamais comme "soldees".
+    # En forcant ouverts = {} pour un bot mort, la boucle de fermeture ci-dessous
+    # les solde a la passe suivante, et la boucle d'ouverture ne peut rien rouvrir.
+    _cv = (_lire_json(ETAT / "cycle_vie.json", {}).get("bots") or {})
+    _tues = set(b for b, v in _cv.items() if (v or {}).get("etat") == "kill")
+
     for bot in PILOTES:
         bet = _lire_json(ETAT / FICHIER_ETAT.get(bot, "etat_%s.json" % bot), {})
-        ouverts = _positions_paper(bet)
+        ouverts = {} if bot in _tues else _positions_paper(bet)
+        if bot in _tues and state.get(bot):
+            print("[executeur] %s est TUE : fermeture de ses %d position(s) testnet."
+                  % (bot, len(state[bot])), flush=True)
         mine = state.get(bot, {})
 
         # OUVRIR (avec verification du VRAI statut)

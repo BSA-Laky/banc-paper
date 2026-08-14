@@ -449,7 +449,7 @@ footer {{ color:var(--muted); font-size:11px; margin-top:22px; text-align:center
 {chr(10).join(ligne_journal(e) for e in evenements) if evenements else '    <li>Aucun &eacute;change enregistr&eacute; pour le moment.</li>'}
 </ul>
 
-<nav class="navbar"><a href="station.html">station</a> · <a href="index.html">dashboard crypto</a> · <a href="reel.html">💰 réel</a> · <a href="book.html">book</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a></nav>
+<nav class="navbar"><a href="station.html">station</a> · <a href="index.html">dashboard crypto</a> · <a href="reel.html">💰 réel</a> · <a href="execution.html">exécution</a> · <a href="book.html">book</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a></nav>
 <footer>Page d&eacute;terministe &middot; 0 appel LLM &middot; g&eacute;n&eacute;r&eacute;e le {esc(NOW.strftime('%Y-%m-%d %H:%M UTC'))} &middot; rafra&icirc;chie &agrave; chaque passe du banc</footer>
 </body></html>"""
 

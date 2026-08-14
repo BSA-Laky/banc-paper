@@ -223,7 +223,7 @@ def produire_brief():
     except Exception:
         _hdr = doc['ts'][:16] + " UTC"
     L = [f"# Brief Station — {_hdr}", "",
-         "[station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · "
+         "[station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · "
          "[book](book.html) · [équipage](equipage.html)", ""]
     if doc["sante_equipage"]["problemes"]:
         L.append("## 🔴 EQUIPAGE")

@@ -90,6 +90,11 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"[run_once] tour de controle a leve : {e}", flush=True)
     try:                          # tableau Equipage (deterministe, jamais bloquant)
+        import execution          # docs/execution.json : ordres testnet + mainnet
+        execution.produire()
+    except Exception as e:                       # jamais bloquant pour la passe
+        print("[run_once] execution KO : %s" % e, flush=True)
+    try:
         import equipage           # s'execute a l'import : ecrit docs/equipage.html
     except Exception as e:
         print(f"[run_once] equipage a leve : {e}", flush=True)

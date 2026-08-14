@@ -419,7 +419,7 @@ def construire_dashboard():
         '<title>Banc paper-trading</title><style>' + CSS + '</style></head><body>'
         '<h1>Banc paper-trading — argent 100 % fictif</h1>'
         f'<div class="maj">Mis à jour : <span id="maj" data-iso="{maj_iso}">{maj}</span> · régénéré à chaque passe (~15 min)</div>'
-        '<div class="maj"><a href="station.html">station</a> · <a href="index.html">dashboard crypto</a> · <a href="reel.html">💰 réel</a> · <a href="book.html">book</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a></div>'
+        '<div class="maj"><a href="station.html">station</a> · <a href="index.html">dashboard crypto</a> · <a href="reel.html">💰 réel</a> · <a href="execution.html">exécution</a> · <a href="book.html">book</a> · <a href="equipage.html">équipage</a> · <a href="brief.md">brief</a></div>'
         + _ab(res) + cartes + _positions() + _enveloppes(lignes) + bloc_arret +
         '<footer>Lecture seule sur APIs publiques (Hyperliquid, Paradex, ADEN). '
         'Aucun ordre réel, aucun wallet, aucune clé. Le t-stat est peu fiable pour '
