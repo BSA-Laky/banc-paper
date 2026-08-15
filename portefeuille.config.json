@@ -8,7 +8,7 @@
  "bots": {
   "29_carry_neutre": {
    "positions_max": 6,
-   "enveloppe_usd": 22.0,
+   "enveloppe_usd": 22,
    "levier_testnet": 3
   },
   "29b_carry_neutre_large": {
@@ -17,8 +17,8 @@
    "levier_testnet": 3
   },
   "29c_carry_decale": {
-   "positions_max": 80,
-   "enveloppe_usd": 293.33,
+   "positions_max": 24,
+   "enveloppe_usd": 88,
    "levier_testnet": 3
   }
  },
@@ -29,5 +29,6 @@
  "_refonte_14_08_2026": "ALLOCATION ADAPTEE AU CAPITAL REEL. Constat : 1 926 $ d'enveloppes configurees pour 522 $ d'equity testnet (3,7x de sur-engagement), marge utilisee a 100,0 %, 0,05 $ libre -- et 642 $ immobilises par DEUX BOTS MORTS (27f10 tue le 05/08, 28 tue le 09/08) plus 642 $ par deux bots qui ne sont meme pas pilotes testnet (27b, 27f). Ne restent que les trois bots reellement miroites. DIMENSIONNEMENT : 11 $ par jambe. Mesure du 14/08 sur les 32 coins de l'univers de la famille 29 : a 10 $ seulement 20/32 passent, a 11 $ les 32/32 passent. Et la friction ne se degrade PAS quand la position retrecit -- glissement median mesure sur 1 491 fills reels : 1,7 bp sous 20 $ contre 9,2 bp au-dessus de 70 $. Descendre de 53 $ a 11 $ par jambe ne coute donc rien a la mesure. TOTAL : 106 jambes, 1 166 $ de notionnel, 388,67 $ de marge a 3x = 74 % de l'equity, 134 $ libres.",
  "_pourquoi_le_levier_3": "Un livre DOLLAR-NEUTRE gaspille son pouvoir d'achat a 1x : la venue marge le BRUT (537 $) alors que le risque est porte par le NET, mesure a 71,66 $ soit 13,3 % du brut. La marge de MAINTENANCE -- celle qui liquide -- vaut ~notionnel/40 = 29 $ pour 522 $ d'equity, soit 18x de coussin. Le levier ne change NI les frais NI le glissement : il ne change que la marge initiale immobilisee. Il ne s'applique qu'au TESTNET : portefeuille.levier() force 1x en mainnet tant que kelly_confirme est absent, cette regle n'est pas touchee.",
  "_transition": "29 et 29b tiennent aujourd'hui 572 $ de positions aux anciennes tailles, au-dessus de leurs nouvelles enveloppes. peut_ouvrir() va donc refuser leurs nouvelles entrees jusqu'a ce que les positions existantes se soldent (tenue 168 h). C'est voulu et sans danger : aucune position n'est fermee de force, le livre converge vers la nouvelle taille en une semaine.",
- "_29c_42_jambes_nettes": "MESURE DU 14/08 : les 80 jambes brutes de 29c (4 paniers x 20) se reduisent a 42 COINS DISTINCTS, parce que les paniers qui se chevauchent retombent souvent sur les memes pieces et que certains sens s'annulent. L'executeur ne tient qu'UNE position par coin sur la venue : le besoin reel est donc 42 x 11 $ = 462 $, pas 880 $. positions_max reste a 80 (le plafond doit couvrir le pire cas ou les 4 paniers tombent sur 80 pieces differentes) mais la consommation courante sera d'environ 462 $, soit 154 $ de marge a 3x. BILAN : usage courant ~249 $ de marge (48 % de l'equity), pire cas 389 $ (74 %). C'est ce pire cas qui impose le levier 3 : a 2x il monterait a 583 $, au-dessus des 522 $ disponibles."
+ "_29c_42_jambes_nettes": "MESURE DU 14/08 : les 80 jambes brutes de 29c (4 paniers x 20) se reduisent a 42 COINS DISTINCTS, parce que les paniers qui se chevauchent retombent souvent sur les memes pieces et que certains sens s'annulent. L'executeur ne tient qu'UNE position par coin sur la venue : le besoin reel est donc 42 x 11 $ = 462 $, pas 880 $. positions_max reste a 80 (le plafond doit couvrir le pire cas ou les 4 paniers tombent sur 80 pieces differentes) mais la consommation courante sera d'environ 462 $, soit 154 $ de marge a 3x. BILAN : usage courant ~249 $ de marge (48 % de l'equity), pire cas 389 $ (74 %). C'est ce pire cas qui impose le levier 3 : a 2x il monterait a 583 $, au-dessus des 522 $ disponibles.",
+ "_plafond_reel_15_08_2026": "DIMENSIONNEMENT SUR LE CAPITAL REELLEMENT DISPONIBLE. Verifie le 15/08 : le compartiment PERP ne contient que 164,88 $ d'USDC (237,6 $ d'equity avec le latent). Les 876 $ visibles en SPOT sont INACCESSIBLES : le bouton 'Perps <-> Spot' de l'interface Hyperliquid est desactive et l'a toujours ete -- l'historique du compte ne montre qu'UN seul mouvement depuis sa creation, le robinet de 1 000 USDC du 04/07, et aucun transfert de classe. Inutile de compter sur ces 876 $. Le plafond est donc 237,6 $ d'equity. A 3x et 78 % d'utilisation : 185 $ de marge, 556 $ de notionnel, soit 50 jambes a 11 $. 29 (6) et 29b (20) sont servis en entier -- ce sont eux qui portent les mesures les plus avancees. 29c prend le reste : 24 jambes sur ses 42 nettes. C'est un ECHANTILLON de friction, pas une replique du livre : le miroir testnet mesure les frais et le glissement, qui se mesurent PAR JAMBE ; le verdict de strategie vient du paper, ou les 80 jambes existent toutes. Amputer le miroir ne coute donc rien a la mesure, la saturation si : a 100 % de marge plus rien ne s'ouvre, et un livre a moitie rempli n'est plus neutre."
 }
