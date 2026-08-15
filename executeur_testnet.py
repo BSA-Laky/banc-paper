@@ -249,6 +249,26 @@ def executer():
                 state[bot] = mine
                 continue
 
+        # HARMONISATION DU LEVIER SUR LES POSITIONS DEJA OUVERTES (15/08/2026).
+        # set_leverage n'etait appele qu'a l'OUVERTURE. Une position ouverte avant
+        # un changement de levier gardait donc l'ancien, et immobilisait la marge
+        # correspondante jusqu'a sa cloture -- jusqu'a 7 jours (tenue 168 h).
+        # Constat du 15/08 : 727 $ de notionnel consommaient 339 $ de marge, soit
+        # un levier effectif de 2,1x au lieu de 3x, et le compte saturait a 100 %.
+        # Resultat : 34 jambes ouvertes sur les 68 attendues, donc des livres
+        # dollar-neutres A MOITIE REMPLIS -- qui ne sont plus neutres du tout.
+        # Ce n'est pas un probleme d'argent (testnet), c'est un probleme de MESURE.
+        # On aligne donc le levier a chaque passe, y compris sur l'existant :
+        # l'operation ne touche pas les positions, elle ne fait que liberer la
+        # marge initiale immobilisee a tort.
+        if mine:
+            _lev = pf.levier(bot)
+            for _coin in list(mine):
+                try:
+                    ex.set_leverage(_coin, _lev)
+                except Exception as _e:
+                    print("[executeur] levier %s %s KO : %s" % (bot, _coin, _e), flush=True)
+
         # OUVRIR (avec verification du VRAI statut)
         for coin, v in ouverts.items():
             if coin in mine:
