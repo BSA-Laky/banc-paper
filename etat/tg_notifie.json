@@ -1,10 +1,5 @@
 {
  "alertes_envoyees": [
-  "2026-07-23:27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
-  "2026-07-23:27e_arbitre: forward 19 j < 28 j",
-  "2026-07-23:27e_arbitre: n 30 < n_go 50",
-  "2026-07-23:27e_arbitre: t < 2",
-  "2026-07-23:rd_h1: esp20 -0.41 < borne -0.32 -> COUPER LE BOT",
   "2026-07-23:27e_arbitre: forward 20 j < 28 j",
   "2026-07-24:23_carry_funding: KILL exécuté (2026-07-22) : R1 décrochage : esp20 -2.60 < borne -2.48 -> COUPER LE BOT",
   "2026-07-24:27e_arbitre: KILL exécuté (2026-07-21) : R3 règle 15/07 : delta -3.88 $ < 0 vs 27b à n>=30",
@@ -59,7 +54,12 @@
   "2026-08-10:28_carry_hold: KILL exécuté (2026-08-09) : R1 décrochage : esp20 -0.41 < borne 0.66 -> COUPER LE BOT",
   "2026-08-11:28_carry_hold: KILL exécuté (2026-08-09) : R1 décrochage : esp20 -0.41 < borne 0.66 -> COUPER LE BOT",
   "2026-08-12:28_carry_hold: KILL exécuté (2026-08-09) : R1 décrochage : esp20 -0.41 < borne 0.66 -> COUPER LE BOT",
-  "2026-08-15:EQUIPAGE : VEILLEUR : 1 echec(s) (hebdo)"
+  "2026-08-15:EQUIPAGE : VEILLEUR : 1 echec(s) (hebdo)",
+  "2026-08-15:27a_rev_premium: KILL exécuté (2026-08-15) : retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
+  "2026-08-15:27b_rev_move: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
+  "2026-08-15:27c_mom_move: KILL exécuté (2026-08-15) : retrait 15/08 : miroir deterministe de 27b (somme -14 bp constants, 92/92) — zero information",
+  "2026-08-15:27d_rev_move_stop: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t -0,86 ; le stop detruit 221 $ sur 146 trades",
+  "2026-08-15:27f_selecteur: KILL exécuté (2026-08-15) : retrait 15/08 : question deja tranchee par le jumeau 27f10 (n=175, t -0,09)"
  ],
  "dernier_avis": "2026-08-15T12:45:34.556402Z",
  "dernier_rapport": "# Rapport du Superviseur — semaine du 2026-07-26",
