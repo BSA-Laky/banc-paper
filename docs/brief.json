@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-15T06:15:40.532266+00:00",
+ "ts": "2026-08-15T06:30:54.010257+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -22,8 +22,8 @@
    "esperance": -0.2221,
    "t": -3.4,
    "pnl": -121.24,
-   "pnl_j": -6.155,
-   "fwd_j": 19.7
+   "pnl_j": -6.123,
+   "fwd_j": 19.8
   },
   "27a_rev_premium": {
    "statut": "ORANGE",
@@ -147,15 +147,21 @@
   "ret1": 0.0,
   "ret7": -0.0293,
   "ret30": -0.0123,
-  "prix": 63031
+  "prix": 63032
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 79.4
+   "move_pct": 87.8
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-15T06:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-15T06:15",
    "bot": "10_controle_aleatoire",
@@ -197,12 +203,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-15T04:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -216,7 +216,7 @@
   "arbitre_echecs": 1,
   "superviseur_echecs": 0,
   "veilleur_echecs": 1,
-  "age_avis_h": 0.3,
+  "age_avis_h": 0.6,
   "problemes": [
    "VEILLEUR : 1 echec(s) (hebdo)"
   ]
