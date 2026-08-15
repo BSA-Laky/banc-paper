@@ -97,6 +97,21 @@ NON_EXECUTABLES = {
 }
 TEMOINS = ("10_controle_aleatoire", "10b_controle_book")
 
+# RETRAITS DU 15/08/2026 — la famille 27 est close. Motifs mesures, pas d'opinion :
+# la somme 27b+27c vaut -14 bp CONSTANTS sur 92/92 trades apparies (ecart-type nul),
+# donc 27c est une transformation deterministe de 27b et n'apporte aucun degre de
+# liberte ; 27b et 27d ont epuise n_go ET la fenetre forward sans atteindre t=2 ;
+# 27f a ete devance par son propre jumeau rapide 27f10 (n=175, t=-0,09, tue le 05/08).
+# 27a est arrete non pour ses chiffres mais parce que meme a t=2 son rendement serait
+# inexploitable au capital disponible (cf. Bot fi/COUTS_EXECUTION_BOOK_2026-08-15.md).
+RETIRES = {
+    "27c_mom_move":      "retrait 15/08 : miroir deterministe de 27b (somme -14 bp constants, 92/92) — zero information",
+    "27b_rev_move":      "retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
+    "27d_rev_move_stop": "retrait 15/08 : n_go et forward atteints, t -0,86 ; le stop detruit 221 $ sur 146 trades",
+    "27f_selecteur":     "retrait 15/08 : question deja tranchee par le jumeau 27f10 (n=175, t -0,09)",
+    "27a_rev_premium":   "retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
+}
+
 
 def _pnls_et_dates(lignes):
     """Par bot : liste chronologique des pnl + date du 1er trade ouvert."""
@@ -490,6 +505,14 @@ def produire_go_reel():
     except (OSError, ValueError):
         cv = {}
     cv.setdefault("bots", {})
+    # --- RETRAITS DECIDES LE 15/08/2026 -------------------------------------
+    # Declares ICI plutot qu'edites a la main dans cycle_vie.json : le fichier
+    # d'etat est reecrit a chaque passe, une edition manuelle serait ecrasee ou
+    # entrerait en collision. Un kill est sticky, donc une seule ecriture suffit.
+    for _b, _r in RETIRES.items():
+        if _b not in cv["bots"] and not cv["bots"].get(_b, {}).get("relance"):
+            cv["bots"][_b] = {"etat": "kill", "raison": _r,
+                              "ts": datetime.now(timezone.utc).isoformat()}
     KILLABLES = {"23_carry_funding", "24_funding_multivenues", "25_convergence_basis",
                  "26_carry_nado", "27e_arbitre", "27f_selecteur", "27f10_selecteur",
                  "27g10_selecteur", "28_carry_hold"}

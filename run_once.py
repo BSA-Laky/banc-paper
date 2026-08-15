@@ -29,6 +29,11 @@ def lancer_passe() -> None:
         audit_conformite.auditer()
     except Exception as e:
         print(f"[run_once] audit_conformite a leve : {e}", flush=True)
+    try:                          # gate du PROJET lui-meme (echeance 31/12/2026, critere capital)
+        import regle_arret_projet
+        regle_arret_projet.evaluer()
+    except Exception as e:
+        print(f"[run_once] regle_arret a leve : {e}", flush=True)
     try:                          # jalon 15/09 famille 29 : photographie le funding capte (lecture seule)
         import jalon_29
         jalon_29.observer()
