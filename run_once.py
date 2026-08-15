@@ -17,6 +17,7 @@ from bot_25_convergence_basis import ConvergenceBasis
 from bot_27_convex_buckets import ConvexBuckets
 from bot_28_carry_hold import CarryHold
 from bot_29_carry_neutre import CarryNeutre
+from bot_32_carry_crossvenue import CarryCrossVenue
 from bot_27e_arbitre import ArbitreRegime
 from bot_27f_selecteur import SelecteurInforme
 from dashboard import construire_dashboard
@@ -28,6 +29,11 @@ def lancer_passe() -> None:
         audit_conformite.auditer()
     except Exception as e:
         print(f"[run_once] audit_conformite a leve : {e}", flush=True)
+    try:                          # jalon 15/09 famille 29 : photographie le funding capte (lecture seule)
+        import jalon_29
+        jalon_29.observer()
+    except Exception as e:
+        print(f"[run_once] jalon_29 a leve : {e}", flush=True)
     try:                          # avis LLM par piece (best-effort, budget-cape, jamais bloquant)
         import avis_piece_ia
         avis_piece_ia.produire_avis()
@@ -43,6 +49,8 @@ def lancer_passe() -> None:
         SelecteurInforme(),               # bot 27f : selecteur informe (signal par piece + IA), seuil 20%
         SelecteurInforme(move_big=0.10),  # bot 27f10 : jumeau rapide seuil 10% (verdict ~1 sem.)
         SelecteurInforme(move_big=0.10, ia_seule=True),  # bot 27g10 : PUR LLM (agit uniquement sur avis IA)
+        CarryCrossVenue(),        # bot 32 : carry de funding croise HL<->Nado. MESURE SEULEMENT :
+                                  # NON_EXECUTABLES le bloque avant VERT (pas de compte Nado).
     ]
     # Cycle de vie (17/07) : un bot au verdict KILL pré-enregistré (etat/cycle_vie.json,
     # écrit par le moniteur) n'est plus échantillonné ; ledger et état conservés

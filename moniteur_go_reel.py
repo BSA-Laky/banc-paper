@@ -86,6 +86,15 @@ GATE = {
     "31_variance_premium":  {"n_go": 4,   "jours_min": 120, "mu_ref": None, "sigma_ref": None, "mdd_ref": None},
 }
 DEFAUT = {"n_go": 100, "jours_min": 28, "mu_ref": None, "sigma_ref": None, "mdd_ref": None}
+
+# NON PROMOUVABLES (15/08) : bots dont le trade N'EST PAS EXECUTABLE avec les
+# comptes dont nous disposons. Lecon des bots 24 et 26, tues le 29/07 pour avoir
+# mesure finement un trade impossible. Ils sont MESURES (la connaissance a de la
+# valeur) mais ne peuvent JAMAIS atteindre VERT.
+NON_EXECUTABLES = {
+    "32_carry_crossvenue": "aucun compte Nado ; audit securite Nado non confirme ; "
+                           "min_size Nado 100 $/ordre",
+}
 TEMOINS = ("10_controle_aleatoire", "10b_controle_book")
 
 
@@ -278,6 +287,13 @@ def _statut_bot(bot, pnls, stats, premiers):
             res["raisons"].append(f"forward {res['jours_forward']:.0f} j < {cfg['jours_min']} j")
     else:
         res["statut"] = "VERT"
+    # verrou d'executabilite : un trade impossible ne devient jamais VERT
+    motif = NON_EXECUTABLES.get(bot)
+    if motif:
+        res["non_executable"] = motif
+        if res["statut"] == "VERT":
+            res["statut"] = "ORANGE"
+            res["raisons"].append("NON EXECUTABLE : " + motif)
     return res
 
 
