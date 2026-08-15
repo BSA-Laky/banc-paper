@@ -41,6 +41,31 @@
    "etat": "kill",
    "raison": "R1 décrochage : esp20 -0.41 < borne 0.66 -> COUPER LE BOT",
    "ts": "2026-08-09T19:01:02.750173+00:00"
+  },
+  "27c_mom_move": {
+   "etat": "kill",
+   "raison": "retrait 15/08 : miroir deterministe de 27b (somme -14 bp constants, 92/92) — zero information",
+   "ts": "2026-08-15T13:01:06.876515+00:00"
+  },
+  "27b_rev_move": {
+   "etat": "kill",
+   "raison": "retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
+   "ts": "2026-08-15T13:01:06.876522+00:00"
+  },
+  "27d_rev_move_stop": {
+   "etat": "kill",
+   "raison": "retrait 15/08 : n_go et forward atteints, t -0,86 ; le stop detruit 221 $ sur 146 trades",
+   "ts": "2026-08-15T13:01:06.876526+00:00"
+  },
+  "27f_selecteur": {
+   "etat": "kill",
+   "raison": "retrait 15/08 : question deja tranchee par le jumeau 27f10 (n=175, t -0,09)",
+   "ts": "2026-08-15T13:01:06.876529+00:00"
+  },
+  "27a_rev_premium": {
+   "etat": "kill",
+   "raison": "retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
+   "ts": "2026-08-15T13:01:06.876531+00:00"
   }
  },
  "_doc": "Un bot en etat 'kill' n'est plus echantillonne par run_once ; son ledger et son etat sont conserves en archive. Reactivation humaine : 'relance <bot>' sur Telegram.",
