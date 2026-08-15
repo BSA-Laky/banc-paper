@@ -1,9 +1,6 @@
-# Brief Station — 2026-08-15 08:30 (Paris)
+# Brief Station — 2026-08-15 09:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
-
-## 🔴 EQUIPAGE
-- VEILLEUR : 1 echec(s) (hebdo)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -17,7 +14,7 @@
 | 27d_rev_move_stop | ORANGE | 145 | -0.904 | -0.82 | -131.08 | -2.825 | 46.4 j |
 | 27f_selecteur | ORANGE | 71 | 0.1566 | 0.08 | 11.12 | 0.267 | 41.6 j |
 | 29_carry_neutre | GRIS | 12 | 20.1879 | 1.28 | 242.25 | 12.487 | 19.4 j |
-| 29b_carry_neutre_large | GRIS | 20 | 1.3233 | 0.78 | 26.47 | 2.786 | 9.5 j |
+| 29b_carry_neutre_large | GRIS | 20 | 1.3233 | 0.78 | 26.47 | 2.757 | 9.6 j |
 | 29c_carry_decale | ORANGE | 40 | -0.1912 | -0.94 | -7.65 | -0.805 | 9.5 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.055 | 19.7 j |
 
@@ -28,13 +25,13 @@
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -6.123 | 19.8 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.707 | 42.6 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.28 | 41.6 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.431 | 33.8 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.43 | 33.9 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.066 | 19.4 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -180.73 $
 
-**BTC** 63032 $ — ret 1j +0.00% · 7j -2.93% · 30j -1.23%
-**Moves 24h ≥ 20 %** : ACE +87.8%
+**BTC** 63097 $ — ret 1j +0.11% · 7j -2.83% · 30j -1.13%
+**Moves 24h ≥ 20 %** : ACE +90.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
