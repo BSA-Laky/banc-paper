@@ -78,6 +78,10 @@ brutes se lisent directement dans <a href="execution.json">execution.json</a>.</
   Le <b>testnet</b> exécute de vrais ordres avec des jetons sans valeur : c'est le
   banc d'essai de l'exécution, pas de la stratégie. Le <b>mainnet</b> est le seul
   environnement où de l'argent réel a été engagé.<br>
+  <b>P&amp;L latent</b> : recalculé en direct depuis le prix d'entrée de CHAQUE bot et
+  le mark Hyperliquid du moment, aller-retour de frais déduit (4,5 bp par jambe,
+  médiane mesurée sur 1 643 fills réels). Il se rafraîchit à chaque chargement,
+  sans attendre la passe.<br>
   P&amp;L d'une position soldée = prix + frais estimés à l'exécution. La vérité
   comptable du compte réel reste <a href="reel.html">💰 Réel</a>.
 </footer>
@@ -93,7 +97,34 @@ const dt = s => { if (!s) return "—"; const d = new Date(s);
 const age = h => h === null || h === undefined ? "—"
   : h < 48 ? h.toFixed(0) + " h" : (h / 24).toFixed(1) + " j";
 
-let DOC = null, ENV = "testnet";
+let DOC = null, ENV = "testnet", MIDS = {};
+
+/* Frais reels mesures sur 1 643 fills testnet : 4,5 bp par jambe (mediane).
+   On deduit l'ALLER-RETOUR, comme le fait l'executeur a la cloture : une position
+   encore ouverte devra payer sa sortie, l'ignorer surestimerait le resultat. */
+const FRAIS_AR = 2 * 0.00045;
+
+/* P&L latent d'une position, calcule sur SON prix d'entree a elle. On ne prend pas
+   l'unrealizedPnl d'Hyperliquid : la venue ne connait qu'UNE position par piece,
+   alors que plusieurs bots peuvent tenir le meme coin. Repartir son chiffre entre
+   eux serait arbitraire ; recalculer depuis l'entree du bot est exact. */
+function pnlLatent(p) {
+  const m = MIDS[p.coin];
+  if (!m || !p.entry) return null;
+  return p.notional * (p.side * (m - p.entry) / p.entry - FRAIS_AR);
+}
+
+async function chargerMids() {
+  const base = ENV === "mainnet" ? "https://api.hyperliquid.xyz/info"
+                                 : "https://api.hyperliquid-testnet.xyz/info";
+  try {
+    const r = await fetch(base, {method: "POST", headers: {"Content-Type": "application/json"},
+                                 body: JSON.stringify({type: "allMids"})});
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const j = await r.json();
+    MIDS = {}; for (const k in j) MIDS[k] = parseFloat(j[k]);
+  } catch (e) { MIDS = {}; }      // sans marks, la page affiche simplement "—"
+}
 
 function lienCompte() {
   const a = (DOC.adresses || {})[ENV], base = (DOC.explorateur || {})[ENV];
@@ -118,9 +149,13 @@ function rendre() {
   let nOuv = 0, nOrd = 0, pnl = 0, nSol = 0;
   noms.forEach(b => { nOuv += bots[b].ouvertes.length; nOrd += bots[b].resume.ordres;
                       pnl += bots[b].resume.pnl_total; nSol += bots[b].resume.soldes; });
+  let latGlobal = null;
+  noms.forEach(b => bots[b].ouvertes.forEach(p => {
+    const q = pnlLatent(p); if (q !== null) latGlobal = (latGlobal || 0) + q;
+  }));
   document.getElementById("bilan").innerHTML =
-    `<div><span class="l">bots</span><span class="v">${noms.length}</span></div>
-     <div><span class="l">positions ouvertes</span><span class="v">${nOuv}</span></div>
+    `<div><span class="l">positions ouvertes</span><span class="v">${nOuv}</span></div>
+     <div><span class="l">P&amp;L latent</span><span class="v ${latGlobal===null?'muted':(latGlobal>=0?'pos':'neg')}">${latGlobal===null?"—":usd(latGlobal)}</span></div>
      <div><span class="l">ordres passés</span><span class="v">${nOrd}</span></div>
      <div><span class="l">P&amp;L soldé</span><span class="v ${pnl>=0?'pos':'neg'}">${usd(pnl)}</span></div>`;
 
@@ -135,15 +170,27 @@ function rendre() {
     const tag = v.tue ? '<span class="tag mort">🛑 TUÉ</span>' : '<span class="tag vif">actif</span>';
     const alerte = v.alerte ? `<div class="alerte">⚠️ ${esc(v.alerte)}</div>` : "";
 
+    const lat = v.ouvertes.map(pnlLatent);
+    const latTotal = lat.some(x => x !== null)
+      ? lat.reduce((a, x) => a + (x || 0), 0) : null;
     const ouvertes = v.ouvertes.length
       ? `<div class="defil"><table><thead><tr>
            <th scope="col">coin</th><th scope="col">sens</th><th scope="col">taille</th>
-           <th scope="col">entrée</th><th scope="col">ouverte depuis</th></tr></thead><tbody>` +
-        v.ouvertes.map(p => `<tr class="${p.orpheline ? "orph" : ""}">
+           <th scope="col">entrée</th><th scope="col">prix actuel</th>
+           <th scope="col">P&amp;L latent</th><th scope="col">ouverte depuis</th></tr></thead><tbody>` +
+        v.ouvertes.map((p, i) => {
+          const m = MIDS[p.coin], q = lat[i];
+          const varPct = m ? 100 * (m - p.entry) / p.entry : null;
+          return `<tr class="${p.orpheline ? "orph" : ""}">
            <td><b>${esc(p.coin)}</b>${p.orpheline ? ' <span class="neg">orpheline</span>' : ""}</td>
            <td class="${p.side > 0 ? "long" : "short"}">${p.side > 0 ? "LONG" : "SHORT"}</td>
            <td>${p.notional.toFixed(2)} $</td><td>${p.entry}</td>
-           <td>${age(p.age_h)} <span class="muted">· ${dt(p.ts)}</span></td></tr>`).join("") +
+           <td>${m ? m + (varPct !== null ? ` <span class="muted">${varPct >= 0 ? "+" : ""}${varPct.toFixed(2)} %</span>` : "") : "—"}</td>
+           <td class="${q === null ? "muted" : (q >= 0 ? "pos" : "neg")}"><b>${q === null ? "—" : usd(q)}</b></td>
+           <td>${age(p.age_h)} <span class="muted">· ${dt(p.ts)}</span></td></tr>`;
+        }).join("") +
+        (latTotal !== null ? `<tr><td colspan="5" class="muted"><b>Total latent</b></td>
+           <td class="${latTotal >= 0 ? "pos" : "neg"}"><b>${usd(latTotal)}</b></td><td></td></tr>` : "") +
         `</tbody></table></div>`
       : `<p class="vide">Aucune position ouverte en ce moment.</p>`;
 
@@ -187,12 +234,13 @@ async function charger() {
   const d = new Date(DOC.ts), min = Math.round((Date.now() - d) / 60000);
   document.getElementById("maj").textContent =
     "Mis à jour : " + dt(DOC.ts) + " UTC · il y a " + (min < 60 ? min + " min" : Math.round(min/60) + " h")
-    + " · régénéré à chaque passe (~15 min)";
+    + " · régénéré à chaque passe (~15 min) · prix rafraîchis en direct";
+  await chargerMids();
   rendre();
 }
 
-document.getElementById("t-testnet").onclick = () => { ENV = "testnet"; rendre(); };
-document.getElementById("t-mainnet").onclick = () => { ENV = "mainnet"; rendre(); };
+document.getElementById("t-testnet").onclick = async () => { ENV = "testnet"; await chargerMids(); rendre(); };
+document.getElementById("t-mainnet").onclick = async () => { ENV = "mainnet"; await chargerMids(); rendre(); };
 charger();
 setInterval(charger, 3 * 60 * 1000);
 </script>
