@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-16T07:15:38.284401+00:00",
+ "ts": "2026-08-16T07:30:53.075526+00:00",
  "alertes": [
   "27a_rev_premium: KILL exécuté (2026-08-15) : retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
   "27b_rev_move: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
@@ -42,29 +42,29 @@
   },
   "27b_rev_move": {
    "statut": "ROUGE",
-   "n": 94,
-   "esperance": 1.179,
-   "t": 0.68,
-   "pnl": 110.83,
-   "pnl_j": 2.087,
+   "n": 95,
+   "esperance": 1.3203,
+   "t": 0.77,
+   "pnl": 125.43,
+   "pnl_j": 2.362,
    "fwd_j": 53.1
   },
   "27c_mom_move": {
    "statut": "ROUGE",
-   "n": 94,
-   "esperance": -1.319,
-   "t": -0.76,
-   "pnl": -123.99,
-   "pnl_j": -2.335,
+   "n": 95,
+   "esperance": -1.4603,
+   "t": -0.85,
+   "pnl": -138.73,
+   "pnl_j": -2.613,
    "fwd_j": 53.1
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 154,
-   "esperance": -0.9141,
-   "t": -0.82,
-   "pnl": -140.77,
-   "pnl_j": -2.97,
+   "n": 155,
+   "esperance": -0.814,
+   "t": -0.73,
+   "pnl": -126.17,
+   "pnl_j": -2.662,
    "fwd_j": 47.4
   },
   "27e_arbitre": {
@@ -109,8 +109,8 @@
    "esperance": -0.0412,
    "t": -0.01,
    "pnl": -1.28,
-   "pnl_j": -0.063,
-   "fwd_j": 20.4
+   "pnl_j": -0.062,
+   "fwd_j": 20.5
   },
   "29_carry_neutre": {
    "statut": "GRIS",
@@ -118,8 +118,8 @@
    "esperance": 20.1879,
    "t": 1.28,
    "pnl": 242.25,
-   "pnl_j": 11.875,
-   "fwd_j": 20.4
+   "pnl_j": 11.817,
+   "fwd_j": 20.5
   },
   "29b_carry_neutre_large": {
    "statut": "GRIS",
@@ -152,20 +152,44 @@
  "tendances_btc": {
   "ret1": -0.0003,
   "ret7": -0.0282,
-  "ret30": -0.014,
-  "prix": 63036
+  "ret30": -0.0139,
+  "prix": 63038
  },
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": 56.6
+   "move_pct": 57.5
   },
   {
    "coin": "ACE",
-   "move_pct": -50.2
+   "move_pct": -43.0
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-16T07:30",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-NIL",
+   "pnl": 14.6
+  },
+  {
+   "ts": "2026-08-16T07:30",
+   "bot": "27c_mom_move",
+   "marche": "mom_move-NIL",
+   "pnl": -14.74
+  },
+  {
+   "ts": "2026-08-16T07:30",
+   "bot": "27b_rev_move",
+   "marche": "rev_move-NIL",
+   "pnl": 14.6
+  },
+  {
+   "ts": "2026-08-16T07:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-16T07:15",
    "bot": "10_controle_aleatoire",
@@ -189,30 +213,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-16T06:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-16T06:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-16T06:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-16T06:01",
-   "bot": "27a_rev_premium",
-   "marche": "rev_premium-ACE",
-   "pnl": -54.75
   }
  ],
  "calibration_arbitre": {
@@ -226,7 +226,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 1,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.4,
+  "age_avis_h": 0.7,
   "problemes": [
    "SUPERVISEUR : 1 echec(s) (hebdo : 1 echec = 1 semaine muette)"
   ]
