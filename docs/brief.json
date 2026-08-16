@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-16T05:45:38.413642+00:00",
+ "ts": "2026-08-16T06:01:05.909991+00:00",
  "alertes": [
   "27a_rev_premium: KILL exécuté (2026-08-15) : retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
   "27b_rev_move: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
@@ -33,11 +33,11 @@
   },
   "27a_rev_premium": {
    "statut": "ROUGE",
-   "n": 79,
-   "esperance": -1.0971,
-   "t": -0.46,
-   "pnl": -86.67,
-   "pnl_j": -1.623,
+   "n": 80,
+   "esperance": -1.7678,
+   "t": -0.72,
+   "pnl": -141.42,
+   "pnl_j": -2.648,
    "fwd_j": 53.4
   },
   "27b_rev_move": {
@@ -82,8 +82,8 @@
    "esperance": -0.0665,
    "t": -0.09,
    "pnl": -11.64,
-   "pnl_j": -0.274,
-   "fwd_j": 42.5
+   "pnl_j": -0.273,
+   "fwd_j": 42.6
   },
   "27f_selecteur": {
    "statut": "ROUGE",
@@ -91,8 +91,8 @@
    "esperance": 0.1566,
    "t": 0.08,
    "pnl": 11.12,
-   "pnl_j": 0.262,
-   "fwd_j": 42.5
+   "pnl_j": 0.261,
+   "fwd_j": 42.6
   },
   "27g10_selecteur": {
    "statut": "ROUGE",
@@ -150,22 +150,34 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0005,
-  "ret7": -0.0284,
-  "ret30": -0.0141,
-  "prix": 63026
+  "ret1": -0.0003,
+  "ret7": -0.0283,
+  "ret30": -0.014,
+  "prix": 63034
  },
  "evenements_extremes": [
   {
-   "coin": "ACE",
-   "move_pct": -55.6
+   "coin": "HEMI",
+   "move_pct": 50.0
   },
   {
-   "coin": "HEMI",
-   "move_pct": 53.1
+   "coin": "ACE",
+   "move_pct": -45.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-16T06:01",
+   "bot": "27a_rev_premium",
+   "marche": "rev_premium-ACE",
+   "pnl": -54.75
+  },
+  {
+   "ts": "2026-08-16T06:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-16T05:45",
    "bot": "10_controle_aleatoire",
@@ -201,18 +213,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-16T04:10",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-16T04:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -223,12 +223,11 @@
   }
  },
  "sante_equipage": {
-  "arbitre_echecs": 0,
+  "arbitre_echecs": 1,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.7,
-  "problemes": [],
-  "mode": "attente_recharge_api"
+  "age_avis_h": 0.1,
+  "problemes": []
  },
  "autofinancement": {
   "cout_api_usd_dernier_releve": 18.73,
@@ -236,104 +235,5 @@
   "revenus_reels_eur": 0,
   "cible_remboursement_eur": 35.0,
   "reste_eur": 35.0
- },
- "avertissement_donnees": {
-  "coupure_comptable": "2026-07-26",
-  "bots_concernes": [
-   "28_carry_hold",
-   "23_carry_funding",
-   "25_convergence_basis"
-  ],
-  "regle": "Toute statistique de ces bots ANTERIEURE a la coupure est INVALIDE : elle mesurait abs(funding) sans terme de prix. Ne JAMAIS la citer, meme si elle figure dans ta memoire longue.",
-  "n_officiels_post_coupure": {
-   "24_funding_multivenues": {
-    "n": 171,
-    "t": -3.3,
-    "esperance": -0.5092
-   },
-   "25_convergence_basis": {
-    "n": 546,
-    "t": -3.4,
-    "esperance": -0.2221
-   },
-   "27a_rev_premium": {
-    "n": 79,
-    "t": -0.46,
-    "esperance": -1.0971
-   },
-   "27b_rev_move": {
-    "n": 94,
-    "t": 0.68,
-    "esperance": 1.179
-   },
-   "27c_mom_move": {
-    "n": 94,
-    "t": -0.76,
-    "esperance": -1.319
-   },
-   "27d_rev_move_stop": {
-    "n": 153,
-    "t": -0.78,
-    "esperance": -0.8766
-   },
-   "27e_arbitre": {
-    "n": 30,
-    "t": -0.4,
-    "esperance": -1.0046
-   },
-   "27f10_selecteur": {
-    "n": 175,
-    "t": -0.09,
-    "esperance": -0.0665
-   },
-   "27f_selecteur": {
-    "n": 71,
-    "t": 0.08,
-    "esperance": 0.1566
-   },
-   "27g10_selecteur": {
-    "n": 41,
-    "t": 0.17,
-    "esperance": 0.3552
-   },
-   "28_carry_hold": {
-    "n": 31,
-    "t": -0.01,
-    "esperance": -0.0412
-   },
-   "29_carry_neutre": {
-    "n": 12,
-    "t": 1.28,
-    "esperance": 20.1879
-   },
-   "29b_carry_neutre_large": {
-    "n": 20,
-    "t": 0.78,
-    "esperance": 1.3233
-   },
-   "29c_carry_decale": {
-    "n": 40,
-    "t": -0.94,
-    "esperance": -0.1912
-   },
-   "rd_h2": {
-    "n": 133,
-    "t": -0.02,
-    "esperance": -0.0081
-   }
-  },
-  "exemple_de_donnee_perimee": "28_carry_hold n=83 t=3,73 E=4,01 -- ce sont exactement les 83 trades ECARTES le 26/07. Si tu lis cela quelque part, c'est perime.",
-  "verdicts_decomposition": {
-   "25_convergence_basis": "EN COURS",
-   "28_carry_hold": "EN COURS",
-   "29_carry_neutre": "EN COURS",
-   "29b_carry_neutre_large": "EN COURS"
-  }
- },
- "mode_station": {
-  "mode": "attente_recharge_api",
-  "message": "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne.",
-  "banc_deterministe": "actif",
-  "maj": "2026-08-16T05:55:31.488232+00:00"
  }
 }
