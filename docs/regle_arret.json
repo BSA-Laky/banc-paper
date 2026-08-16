@@ -1,24 +1,30 @@
 {
  "date_pose": "2026-08-15",
- "echeance": "2026-12-31",
- "jours_restants": 137.5,
+ "date_revision": "2026-08-15",
+ "regle": "declencheur de capital, SANS date — une echeance intenable fabrique un faux echec et pousse a compenser par du risque",
  "capital_usd": 900.0,
  "capital_maj": "defaut (947,15 $ deposes - 35,21 $ de P&L reel)",
- "capital_cible_usd": 4500.0,
- "capital_manquant_usd": 3600.0,
- "detail_cible": {
-  "30_trend_following": {
-   "minimum_usd": 2800.0,
-   "motif": "frais <= 20 % de l'edge (2,17 ordres/mois x 1 $)"
+ "paliers": [
+  {
+   "seuil_usd": 1700.0,
+   "debloque": "31_variance_premium",
+   "motif": "bot 31 deployable : perte maximale <= 10 % du compte (spreads de 2 $)",
+   "atteint": false
   },
-  "31_variance_premium": {
-   "minimum_usd": 1700.0,
-   "motif": "perte maximale <= 10 % du compte (spreads 2 $)"
+  {
+   "seuil_usd": 4500.0,
+   "debloque": "book 30+31",
+   "motif": "book complet : 2 800 $ (frais <= 20 % de l'edge du bot 30) + 1 700 $",
+   "atteint": false
   }
- },
+ ],
+ "prochain_palier_usd": 1700.0,
+ "manque_usd": 800.0,
+ "paliers_atteints": 0,
  "strategies_vertes": [],
- "verdict": "EN COURS",
- "lecture": "echeance dans 138 j — capital 900 $ / 4500 $ (il manque 3600 $), strategies VERTES : aucune",
- "rappel": "L'arret n'est pas un echec de methode : c'est un constat de portee. Une strategie correcte hors d'atteinte du capital disponible n'est pas une source de revenu.",
- "ts": "2026-08-16T11:45:38.234396+00:00"
+ "verdict": "EN ATTENTE DE CAPITAL",
+ "lecture": "capital 900 $ — il manque 800 $ (x1.9) pour le palier 1700 $ : bot 31 deployable : perte maximale <= 10 % du compte (spreads de 2 $)",
+ "interdit": "AUCUN argent reel avant le palier 1, quelle que soit la tentation. Le risque ne remplace pas le capital manquant.",
+ "cout_du_banc": "0 $/mois depuis le 15/08 (couche IA payante coupee, 21,27 $/mois economises) — le projet peut attendre indefiniment",
+ "ts": "2026-08-16T12:01:05.532672+00:00"
 }
