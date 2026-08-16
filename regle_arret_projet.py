@@ -25,19 +25,39 @@ montre que ce n'est PAS la bonne question :
 Autrement dit : **ce qui bloque n'est pas l'edge, c'est le capital.** Le critere
 d'arret doit donc porter sur le capital, pas sur la recherche.
 
-LE CRITERE, FIGE, NON REVISABLE
---------------------------------
-    Au 31/12/2026 :
-      POURSUITE  si capital disponible >= 4 500 $
-                    ET au moins une strategie a passe la gate
-                    ET elle est executable a ce capital
-      ARRET      sinon.
+LE CRITERE — REVISE LE 15/08/2026 (memes donnees, meilleure regle)
+------------------------------------------------------------------
+La v1 posait une DATE : arret au 31/12/2026 si le capital n'atteignait pas
+4 500 $. Revise le jour meme, apres avoir chiffre honnetement les voies de
+financement disponibles : aucune ne pouvait apporter 3 600 $ en 138 jours.
 
-    4 500 $ = 2 800 $ (bot 30 : frais <= 20 % de l'edge)
-            + 1 700 $ (bot 31 : perte maximale <= 10 % du compte)
+Une echeance qu'on ne peut pas tenir ne mesure rien. Elle fabrique un faux
+echec, et surtout elle cree la MAUVAISE incitation : quand la date approche et
+que le capital manque, la tentation est de compenser par du risque (levier,
+strategie non validee, retour en reel "pour accelerer"). C'est le chemin le plus
+court de 900 $ vers 0 $.
 
-L'arret n'est pas un constat d'echec. C'est un constat de PORTEE : une strategie
-correcte hors d'atteinte du capital disponible n'est pas une source de revenu.
+Donc le critere n'est plus une date. C'est un DECLENCHEUR de capital, en deux
+paliers, sans limite de temps :
+
+    PALIER 1 — 1 700 $  : le bot 31 (prime de variance) devient deployable
+                          (perte maximale <= 10 % du compte, spreads de 2 $)
+    PALIER 2 — 4 500 $  : le book complet 30+31 devient deployable
+                          (= 2 800 $ pour le bot 30, frais <= 20 % de l'edge ;
+                           confirme independamment par la taille de lot : 4 202 $)
+
+Tant que le palier 1 n'est pas atteint : le banc MESURE, il ne DEPLOIE PAS, et
+il ne coute rien (couche IA payante coupee le 15/08, 21,27 $/mois economises).
+
+CE QUE CE FICHIER N'EST PAS
+---------------------------
+Ce n'est pas un abandon deguise. Le projet ne meurt pas d'un calendrier : il
+attend, a cout nul, avec un plan d'execution pret (13 tickers UCITS verifies,
+turnover mesure, planchers chiffres). Le jour ou le capital arrive, il n'y a
+rien a redecouvrir.
+
+La seule discipline qui reste, et elle est dure : AUCUN argent reel avant le
+palier 1, quelle que soit la tentation.
 
 MISE A JOUR DU CAPITAL
 -----------------------
@@ -62,14 +82,14 @@ PUBLIC = Path("docs") / "regle_arret.json"
 
 # --- le critere. Modifier ces constantes invaliderait la regle. -------------
 DATE_POSE = "2026-08-15"
-ECHEANCE = "2026-12-31"
-CAPITAL_CIBLE_USD = 4500.0
-DETAIL_CIBLE = {
-    "30_trend_following": {"minimum_usd": 2800.0,
-                           "motif": "frais <= 20 % de l'edge (2,17 ordres/mois x 1 $)"},
-    "31_variance_premium": {"minimum_usd": 1700.0,
-                            "motif": "perte maximale <= 10 % du compte (spreads 2 $)"},
-}
+DATE_REVISION = "2026-08-15"      # date -> declencheur, cf. en-tete
+PALIERS = [
+    (1700.0, "31_variance_premium",
+     "bot 31 deployable : perte maximale <= 10 % du compte (spreads de 2 $)"),
+    (4500.0, "book 30+31",
+     "book complet : 2 800 $ (frais <= 20 % de l'edge du bot 30) + 1 700 $"),
+]
+CAPITAL_CIBLE_USD = PALIERS[-1][0]
 CAPITAL_DEFAUT = 900.0
 
 
@@ -102,48 +122,40 @@ def evaluer(ecrire: bool = True) -> dict:
     cap, maj = capital_declare()
     vertes = _strategies_vertes()
     now = datetime.now(timezone.utc)
-    fin = datetime.fromisoformat(ECHEANCE + "T23:59:59+00:00")
-    jours = (fin - now).total_seconds() / 86400.0
 
-    manque = max(0.0, CAPITAL_CIBLE_USD - cap)
-    cap_ok = cap >= CAPITAL_CIBLE_USD
-    strat_ok = bool(vertes)
+    atteints = [p for p in PALIERS if cap >= p[0]]
+    prochain = next((p for p in PALIERS if cap < p[0]), None)
 
-    if jours > 0:
-        verdict = "EN COURS"
-        lecture = ("echeance dans %.0f j — capital %.0f $ / %.0f $ (%s), "
-                   "strategies VERTES : %s"
-                   % (jours, cap, CAPITAL_CIBLE_USD,
-                      "atteint" if cap_ok else "il manque %.0f $" % manque,
-                      ", ".join(vertes) if vertes else "aucune"))
-    elif cap_ok and strat_ok:
-        verdict = "POURSUITE"
-        lecture = ("capital %.0f $ suffisant et strategie(s) validee(s) : %s"
-                   % (cap, ", ".join(vertes)))
+    if prochain is None:
+        verdict = "CAPITAL SUFFISANT"
+        lecture = ("capital %.0f $ : tous les paliers sont franchis. Le deploiement "
+                   "reste conditionne a une gate VERTE (%s)."
+                   % (cap, ", ".join(vertes) if vertes else "aucune a ce jour"))
     else:
-        raisons = []
-        if not cap_ok:
-            raisons.append("capital %.0f $ < %.0f $" % (cap, CAPITAL_CIBLE_USD))
-        if not strat_ok:
-            raisons.append("aucune strategie n'a passe la gate")
-        verdict = "ARRET"
-        lecture = "; ".join(raisons) + " — la branche trading automatise se ferme"
+        seuil, quoi, motif = prochain
+        verdict = "EN ATTENTE DE CAPITAL"
+        lecture = ("capital %.0f $ — il manque %.0f $ (x%.1f) pour le palier %.0f $ : %s"
+                   % (cap, seuil - cap, seuil / max(cap, 1), seuil, motif))
 
     res = {
         "date_pose": DATE_POSE,
-        "echeance": ECHEANCE,
-        "jours_restants": round(jours, 1),
+        "date_revision": DATE_REVISION,
+        "regle": "declencheur de capital, SANS date — une echeance intenable "
+                 "fabrique un faux echec et pousse a compenser par du risque",
         "capital_usd": cap,
         "capital_maj": maj,
-        "capital_cible_usd": CAPITAL_CIBLE_USD,
-        "capital_manquant_usd": round(manque, 2),
-        "detail_cible": DETAIL_CIBLE,
+        "paliers": [{"seuil_usd": s_, "debloque": q, "motif": m,
+                     "atteint": cap >= s_} for s_, q, m in PALIERS],
+        "prochain_palier_usd": prochain[0] if prochain else None,
+        "manque_usd": round(prochain[0] - cap, 2) if prochain else 0.0,
+        "paliers_atteints": len(atteints),
         "strategies_vertes": vertes,
         "verdict": verdict,
         "lecture": lecture,
-        "rappel": ("L'arret n'est pas un echec de methode : c'est un constat de "
-                   "portee. Une strategie correcte hors d'atteinte du capital "
-                   "disponible n'est pas une source de revenu."),
+        "interdit": "AUCUN argent reel avant le palier 1, quelle que soit la tentation. "
+                    "Le risque ne remplace pas le capital manquant.",
+        "cout_du_banc": "0 $/mois depuis le 15/08 (couche IA payante coupee, "
+                        "21,27 $/mois economises) — le projet peut attendre indefiniment",
         "ts": now.isoformat(),
     }
     if ecrire:
@@ -159,10 +171,11 @@ def evaluer(ecrire: bool = True) -> dict:
 
 if __name__ == "__main__":
     r = evaluer()
-    print("REGLE D'ARRET DU PROJET — echeance %s (%s j)"
-          % (r["echeance"], r["jours_restants"]))
+    print("REGLE D'ARRET DU PROJET — declencheur de capital (revise le %s)"
+          % r["date_revision"])
     print("  verdict : %s" % r["verdict"])
     print("  %s" % r["lecture"])
-    if r["capital_manquant_usd"] > 0:
-        print("  il manque %.0f $ (facteur %.1f sur le capital actuel)"
-              % (r["capital_manquant_usd"], r["capital_cible_usd"] / max(r["capital_usd"], 1)))
+    for p in r["paliers"]:
+        print("    [%s] %6.0f $  %s" % ("x" if p["atteint"] else " ",
+                                        p["seuil_usd"], p["debloque"]))
+    print("  %s" % r["interdit"])

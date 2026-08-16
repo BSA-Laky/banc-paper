@@ -39,11 +39,9 @@ def lancer_passe() -> None:
         jalon_29.observer()
     except Exception as e:
         print(f"[run_once] jalon_29 a leve : {e}", flush=True)
-    try:                          # avis LLM par piece (best-effort, budget-cape, jamais bloquant)
-        import avis_piece_ia
-        avis_piece_ia.produire_avis()
-    except Exception as e:
-        print(f"[run_once] avis_piece a leve : {e}", flush=True)
+    # avis_piece_ia RETIRE le 15/08/2026 : son seul consommateur etait le bot 27f,
+    # retire le meme jour. Appel payant sans lecteur -> supprime. Le module reste
+    # dans le depot, il suffit de remettre l'appel pour le rallumer.
     bots = [
         ControleAleatoire(stake_usd=1.0),
         ConvergenceBasis(actifs="*"),   # bot 25 : comptabilite REELLE depuis le 29/07 (etait dans bots_cloud)
