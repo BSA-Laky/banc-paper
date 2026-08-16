@@ -1,15 +1,15 @@
 {
- "ts": "2026-08-16T13:01:03.730108+00:00",
+ "ts": "2026-08-16T13:12:06.188673+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 2998,
-   "t_stat": -2.15,
+   "n": 2999,
+   "t_stat": -2.14,
    "derive_attendue": 0.02,
-   "t_corrige": -1.06,
+   "t_corrige": -1.04,
    "sain": true,
-   "lecture": "t brut -2.15 dont -1.10 de spread par construction -> t corrige -1.06 (sain)"
+   "lecture": "t brut -2.14 dont -1.10 de spread par construction -> t corrige -1.04 (sain)"
   }
  },
  "bots": {
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1437.2,
+   "expo_moyenne_usd": 1437.0,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -50,7 +50,7 @@
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1038.3,
+   "expo_moyenne_usd": 1038.0,
    "rendement_j_pct": -0.556
   },
   "27a_rev_premium": {
@@ -72,7 +72,7 @@
    "esp_glissante_20": -1.9127,
    "borne_decrochage": -11.6411,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 149.1,
+   "expo_moyenne_usd": 149.0,
    "rendement_j_pct": -1.767
   },
   "27b_rev_move": {
@@ -138,7 +138,7 @@
    "esp_glissante_20": -2.858,
    "borne_decrochage": -6.9592,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 329.4,
+   "expo_moyenne_usd": 329.3,
    "rendement_j_pct": -0.806
   },
   "27e_arbitre": {
@@ -176,27 +176,27 @@
    "esperance": -0.0665,
    "t_stat": -0.09,
    "mdd_live": 129.9,
-   "jours_forward": 42.8,
+   "jours_forward": 42.9,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": true,
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -11.64,
-   "pnl_par_jour": -0.272,
+   "pnl_par_jour": -0.271,
    "trop_beau_audite": null,
    "esp_glissante_20": -4.7845,
    "borne_decrochage": -4.6086,
    "statut": "ROUGE",
    "expo_moyenne_usd": 408.4,
-   "rendement_j_pct": -0.067
+   "rendement_j_pct": -0.066
   },
   "27f_selecteur": {
    "n": 71,
    "esperance": 0.1566,
    "t_stat": 0.08,
    "mdd_live": 192.66,
-   "jours_forward": 42.8,
+   "jours_forward": 42.9,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -205,13 +205,13 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 11.12,
-   "pnl_par_jour": 0.26,
+   "pnl_par_jour": 0.259,
    "trop_beau_audite": null,
    "esp_glissante_20": 2.2974,
    "borne_decrochage": -7.3816,
    "statut": "ROUGE",
    "expo_moyenne_usd": 165.7,
-   "rendement_j_pct": 0.157
+   "rendement_j_pct": 0.156
   },
   "27g10_selecteur": {
    "n": 41,
@@ -230,8 +230,8 @@
    "esp_glissante_20": -0.195,
    "borne_decrochage": -5.745,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 116.8,
-   "rendement_j_pct": 0.355
+   "expo_moyenne_usd": 116.7,
+   "rendement_j_pct": 0.356
   },
   "28_carry_hold": {
    "n": 31,
@@ -250,7 +250,7 @@
    "esp_glissante_20": -0.406,
    "borne_decrochage": 0.6607,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 260.9,
+   "expo_moyenne_usd": 260.8,
    "rendement_j_pct": -0.024
   },
   "29_carry_neutre": {
@@ -268,8 +268,8 @@
    "pnl_par_jour": 11.703,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 641.9,
-   "rendement_j_pct": 1.823
+   "expo_moyenne_usd": 641.7,
+   "rendement_j_pct": 1.824
   },
   "29b_carry_neutre_large": {
    "n": 20,
@@ -286,8 +286,8 @@
    "pnl_par_jour": 2.451,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 613.8,
-   "rendement_j_pct": 0.399
+   "expo_moyenne_usd": 613.4,
+   "rendement_j_pct": 0.4
   },
   "29c_carry_decale": {
    "n": 40,
@@ -310,7 +310,7 @@
    "esp_glissante_20": 0.0344,
    "borne_decrochage": -0.7639,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 160.7,
+   "expo_moyenne_usd": 160.6,
    "rendement_j_pct": -0.441
   },
   "rd_h2": {
@@ -333,7 +333,7 @@
    "esp_glissante_20": -1.459,
    "borne_decrochage": -1.7645,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 634.7,
+   "expo_moyenne_usd": 634.4,
    "rendement_j_pct": -0.008
   }
  },
