@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-16T01:45:40.184239+00:00",
+ "ts": "2026-08-16T02:01:05.448438+00:00",
  "alertes": [
   "27a_rev_premium: KILL exécuté (2026-08-15) : retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
   "27b_rev_move: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
@@ -33,11 +33,11 @@
   },
   "27a_rev_premium": {
    "statut": "ROUGE",
-   "n": 78,
-   "esperance": -1.0228,
-   "t": -0.42,
-   "pnl": -79.78,
-   "pnl_j": -1.5,
+   "n": 79,
+   "esperance": -1.0971,
+   "t": -0.46,
+   "pnl": -86.67,
+   "pnl_j": -1.629,
    "fwd_j": 53.2
   },
   "27b_rev_move": {
@@ -100,8 +100,8 @@
    "esperance": 0.3552,
    "t": 0.17,
    "pnl": 14.56,
-   "pnl_j": 0.421,
-   "fwd_j": 34.6
+   "pnl_j": 0.42,
+   "fwd_j": 34.7
   },
   "28_carry_hold": {
    "statut": "ROUGE",
@@ -150,22 +150,38 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0002,
-  "ret7": -0.0281,
-  "ret30": -0.0138,
-  "prix": 63043
+  "ret1": -0.0,
+  "ret7": -0.0279,
+  "ret30": -0.0137,
+  "prix": 63055
  },
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": 39.7
+   "move_pct": 36.5
   },
   {
    "coin": "ACE",
-   "move_pct": -30.6
+   "move_pct": -31.3
+  },
+  {
+   "coin": "CHIP",
+   "move_pct": 21.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-16T02:01",
+   "bot": "27a_rev_premium",
+   "marche": "rev_premium-MOVE",
+   "pnl": -6.89
+  },
+  {
+   "ts": "2026-08-16T02:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-16T01:45",
    "bot": "27d_rev_move_stop",
@@ -201,18 +217,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-16T00:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-16T00:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -226,7 +230,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {
