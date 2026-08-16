@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-16 15:30 (Paris)
+# Brief Station — 2026-08-16 15:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -16,7 +16,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 12 | 20.1879 | 1.28 | 242.25 | 11.703 | 20.7 j |
-| 29b_carry_neutre_large | GRIS | 20 | 1.3233 | 0.78 | 26.47 | 2.451 | 10.8 j |
+| 29b_carry_neutre_large | GRIS | 20 | 1.3233 | 0.78 | 26.47 | 2.428 | 10.9 j |
 | 29c_carry_decale | ORANGE | 40 | -0.1912 | -0.94 | -7.65 | -0.708 | 10.8 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.051 | 21.0 j |
 
@@ -24,7 +24,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.618 | 53.8 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -5.774 | 21.0 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -5.746 | 21.1 j |
 | 27a_rev_premium | ROUGE | 80 | -1.7678 | -0.72 | -141.42 | -2.634 | 53.7 j |
 | 27b_rev_move | ROUGE | 96 | 1.1118 | 0.65 | 106.73 | 2.002 | 53.3 j |
 | 27c_mom_move | ROUGE | 96 | -1.2518 | -0.73 | -120.17 | -2.255 | 53.3 j |
