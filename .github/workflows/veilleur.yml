@@ -2,9 +2,13 @@
 # Samedi 05:50 UTC : note operationnelle de la semaine -> lue par le Superviseur
 # dimanche 06:30. Cout ~centimes/mois. Dormant sans ANTHROPIC_API_KEY.
 name: veilleur-ia
+# CRON COUPE LE 15/08/2026 — cette couche IA coutait 21,27 $/mois et TOUS ses
+# consommateurs sont morts (27e, 27f, 27f10, 27g10 : kill). Elle ne produisait
+# plus que du texte d'affichage. Le coeur de mesure (gate, temoin, comptabilite,
+# bots) n'appelle AUCUNE API payante. Reactivation : bouton "Run workflow".
 on:
-  schedule:
-    - cron: "50 5 * * 6"
+  # schedule:
+  #   - cron: "50 5 * * 6"
   workflow_dispatch: {}
 
 permissions:

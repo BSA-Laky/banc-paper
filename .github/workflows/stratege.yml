@@ -2,9 +2,13 @@
 # Dimanche 06:00 UTC (avant le Superviseur 06:30). EVENEMENTIEL : le script sort
 # immediatement (0 appel API) s'il n'y a aucune invalidation nouvelle a la gate.
 name: stratege-ia
+# CRON COUPE LE 15/08/2026 — cette couche IA coutait 21,27 $/mois et TOUS ses
+# consommateurs sont morts (27e, 27f, 27f10, 27g10 : kill). Elle ne produisait
+# plus que du texte d'affichage. Le coeur de mesure (gate, temoin, comptabilite,
+# bots) n'appelle AUCUNE API payante. Reactivation : bouton "Run workflow".
 on:
-  schedule:
-    - cron: "0 6 * * 0"
+  # schedule:
+  #   - cron: "0 6 * * 0"
   workflow_dispatch: {}
 
 permissions:

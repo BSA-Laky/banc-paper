@@ -1,9 +1,13 @@
 # .github/workflows/superviseur.yml — le Superviseur Fable 5 (1 appel/semaine)
 # A DEPOSER dans .github/workflows/. Dormant tant que ANTHROPIC_API_KEY n'existe pas.
 name: superviseur-ia
+# CRON COUPE LE 15/08/2026 — cette couche IA coutait 21,27 $/mois et TOUS ses
+# consommateurs sont morts (27e, 27f, 27f10, 27g10 : kill). Elle ne produisait
+# plus que du texte d'affichage. Le coeur de mesure (gate, temoin, comptabilite,
+# bots) n'appelle AUCUNE API payante. Reactivation : bouton "Run workflow".
 on:
-  schedule:
-    - cron: "30 6 * * 0"    # dimanche ~08h30 Paris (ete)
+  # schedule:
+  #   - cron: "30 6 * * 0"    # dimanche ~08h30 Paris (ete)
   workflow_dispatch: {}
 
 permissions:
