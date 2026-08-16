@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-16T13:45:38.392428+00:00",
+ "ts": "2026-08-16T14:01:04.317000+00:00",
  "alertes": [
   "27a_rev_premium: KILL exécuté (2026-08-15) : retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
   "27b_rev_move: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
@@ -100,8 +100,8 @@
    "esperance": 0.3552,
    "t": 0.17,
    "pnl": 14.56,
-   "pnl_j": 0.415,
-   "fwd_j": 35.1
+   "pnl_j": 0.414,
+   "fwd_j": 35.2
   },
   "28_carry_hold": {
    "statut": "ROUGE",
@@ -150,13 +150,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0002,
+  "ret1": -0.0003,
   "ret7": -0.0282,
   "ret30": -0.0139,
-  "prix": 63041
+  "prix": 63040
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-16T14:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-16T13:45",
    "bot": "10_controle_aleatoire",
@@ -198,12 +204,6 @@
    "bot": "27c_mom_move",
    "marche": "mom_move-HEMI",
    "pnl": 18.56
-  },
-  {
-   "ts": "2026-08-16T12:30",
-   "bot": "27b_rev_move",
-   "marche": "rev_move-HEMI",
-   "pnl": -18.7
   }
  ],
  "calibration_arbitre": {
@@ -217,7 +217,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.2,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {
