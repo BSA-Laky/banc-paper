@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-16T10:30:54.930458+00:00",
+ "ts": "2026-08-16T10:45:40.979311+00:00",
  "alertes": [
   "27a_rev_premium: KILL exécuté (2026-08-15) : retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
   "27b_rev_move: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
@@ -60,11 +60,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 156,
-   "esperance": -0.7699,
-   "t": -0.7,
-   "pnl": -120.11,
-   "pnl_j": -2.523,
+   "n": 157,
+   "esperance": -0.8065,
+   "t": -0.73,
+   "pnl": -126.63,
+   "pnl_j": -2.66,
    "fwd_j": 47.6
   },
   "27e_arbitre": {
@@ -82,8 +82,8 @@
    "esperance": -0.0665,
    "t": -0.09,
    "pnl": -11.64,
-   "pnl_j": -0.273,
-   "fwd_j": 42.7
+   "pnl_j": -0.272,
+   "fwd_j": 42.8
   },
   "27f_selecteur": {
    "statut": "ROUGE",
@@ -92,7 +92,7 @@
    "t": 0.08,
    "pnl": 11.12,
    "pnl_j": 0.26,
-   "fwd_j": 42.7
+   "fwd_j": 42.8
   },
   "27g10_selecteur": {
    "statut": "ROUGE",
@@ -158,18 +158,30 @@
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": 61.5
+   "move_pct": 56.9
   },
   {
    "coin": "ACE",
-   "move_pct": -28.5
+   "move_pct": -26.5
   },
   {
    "coin": "CHIP",
-   "move_pct": 20.8
+   "move_pct": 22.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-16T10:45",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-CHIP",
+   "pnl": -6.52
+  },
+  {
+   "ts": "2026-08-16T10:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-16T10:30",
    "bot": "10_controle_aleatoire",
@@ -205,18 +217,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-16T09:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-16T08:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -230,7 +230,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {
