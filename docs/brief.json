@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-16T00:15:37.602138+00:00",
+ "ts": "2026-08-16T00:30:52.884541+00:00",
  "alertes": [
   "27a_rev_premium: KILL exécuté (2026-08-15) : retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
   "27b_rev_move: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
@@ -158,14 +158,24 @@
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": 43.3
+   "move_pct": 38.8
   },
   {
    "coin": "ACE",
-   "move_pct": -41.6
+   "move_pct": -33.4
+  },
+  {
+   "coin": "CHIP",
+   "move_pct": 21.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-16T00:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-16T00:15",
    "bot": "10_controle_aleatoire",
@@ -207,12 +217,6 @@
    "bot": "27d_rev_move_stop",
    "marche": "rev_move_stop-ACE",
    "pnl": 58.52
-  },
-  {
-   "ts": "2026-08-15T22:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -226,7 +230,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.9,
+  "age_avis_h": 1.1,
   "problemes": []
  },
  "autofinancement": {
