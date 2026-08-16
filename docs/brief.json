@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-16T20:01:01.066679+00:00",
+ "ts": "2026-08-16T20:15:37.403574+00:00",
  "alertes": [
   "27a_rev_premium: KILL exécuté (2026-08-15) : retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
   "27b_rev_move: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
@@ -136,8 +136,8 @@
    "esperance": -0.1279,
    "t": -0.95,
    "pnl": -7.68,
-   "pnl_j": -0.698,
-   "fwd_j": 11.0
+   "pnl_j": -0.691,
+   "fwd_j": 11.1
   },
   "rd_h2": {
    "statut": "ORANGE",
@@ -146,17 +146,23 @@
    "t": -0.02,
    "pnl": -1.08,
    "pnl_j": -0.051,
-   "fwd_j": 21.2
+   "fwd_j": 21.3
   }
  },
  "tendances_btc": {
-  "ret1": 0.0004,
-  "ret7": -0.0275,
-  "ret30": -0.0132,
-  "prix": 63081
+  "ret1": 0.0008,
+  "ret7": -0.0272,
+  "ret30": -0.0129,
+  "prix": 63105
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-16T20:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-16T20:00",
    "bot": "10_controle_aleatoire",
@@ -198,12 +204,6 @@
    "bot": "29c_carry_decale",
    "marche": "XAI-long",
    "pnl": 0.02
-  },
-  {
-   "ts": "2026-08-16T19:52",
-   "bot": "29c_carry_decale",
-   "marche": "JUP-long",
-   "pnl": -0.04
   }
  ],
  "calibration_arbitre": {
@@ -217,7 +217,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.3,
+  "age_avis_h": 0.5,
   "problemes": []
  },
  "autofinancement": {
