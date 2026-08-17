@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-17 11:30 (Paris)
+# Brief Station — 2026-08-17 11:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -15,7 +15,7 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 11.255 | 21.5 j |
+| 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 11.203 | 21.6 j |
 | 29b_carry_neutre_large | GRIS | 20 | 1.3233 | 0.78 | 26.47 | 2.262 | 11.7 j |
 | 29c_carry_decale | ORANGE | 60 | -0.1279 | -0.95 | -7.68 | -0.662 | 11.6 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.05 | 21.8 j |
@@ -29,16 +29,16 @@
 | 27b_rev_move | ROUGE | 98 | 1.2212 | 0.72 | 119.67 | 2.208 | 54.2 j |
 | 27c_mom_move | ROUGE | 98 | -1.3612 | -0.81 | -133.39 | -2.461 | 54.2 j |
 | 27d_rev_move_stop | ROUGE | 161 | -0.6452 | -0.59 | -103.87 | -2.142 | 48.5 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.674 | 44.7 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.673 | 44.8 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.266 | 43.7 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.254 | 43.7 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.405 | 36.0 j |
-| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.059 | 21.5 j |
+| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.059 | 21.6 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -230.01 $
 
-**BTC** 63340 $ — ret 1j +0.74% · 7j -0.96% · 30j -2.29%
-**Moves 24h ≥ 20 %** : HEMI -23.5%
+**BTC** 63272 $ — ret 1j +0.63% · 7j -1.06% · 30j -2.40%
+**Moves 24h ≥ 20 %** : HEMI -24.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
