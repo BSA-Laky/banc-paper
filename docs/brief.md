@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-17 09:45 (Paris)
+# Brief Station — 2026-08-17 10:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -28,7 +28,7 @@
 | 27a_rev_premium | ROUGE | 84 | -1.7432 | -0.74 | -146.43 | -2.687 | 54.5 j |
 | 27b_rev_move | ROUGE | 98 | 1.2212 | 0.72 | 119.67 | 2.212 | 54.1 j |
 | 27c_mom_move | ROUGE | 98 | -1.3612 | -0.81 | -133.39 | -2.466 | 54.1 j |
-| 27d_rev_move_stop | ROUGE | 161 | -0.6452 | -0.59 | -103.87 | -2.146 | 48.4 j |
+| 27d_rev_move_stop | ROUGE | 161 | -0.6452 | -0.59 | -103.87 | -2.142 | 48.5 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.674 | 44.7 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.267 | 43.6 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.255 | 43.6 j |
@@ -37,8 +37,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -230.01 $
 
-**BTC** 63508 $ — ret 1j +1.01% · 7j -0.69% · 30j -2.03%
-**Moves 24h ≥ 20 %** : HEMI -26.7%
+**BTC** 63506 $ — ret 1j +1.01% · 7j -0.70% · 30j -2.04%
+**Moves 24h ≥ 20 %** : HEMI -28.2%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 

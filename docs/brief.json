@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-17T07:45:41.238413+00:00",
+ "ts": "2026-08-17T08:01:06.254843+00:00",
  "alertes": [
   "27a_rev_premium: KILL exécuté (2026-08-15) : retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
   "27b_rev_move: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
@@ -64,8 +64,8 @@
    "esperance": -0.6452,
    "t": -0.59,
    "pnl": -103.87,
-   "pnl_j": -2.146,
-   "fwd_j": 48.4
+   "pnl_j": -2.142,
+   "fwd_j": 48.5
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -151,17 +151,23 @@
  },
  "tendances_btc": {
   "ret1": 0.0101,
-  "ret7": -0.0069,
-  "ret30": -0.0203,
-  "prix": 63508
+  "ret7": -0.007,
+  "ret30": -0.0204,
+  "prix": 63506
  },
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": -26.7
+   "move_pct": -28.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-17T08:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-17T07:45",
    "bot": "10_controle_aleatoire",
@@ -203,12 +209,6 @@
    "bot": "27d_rev_move_stop",
    "marche": "rev_move_stop-CHIP",
    "pnl": -7.32
-  },
-  {
-   "ts": "2026-08-17T06:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -222,7 +222,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.2,
+  "age_avis_h": 0.5,
   "problemes": []
  },
  "autofinancement": {
