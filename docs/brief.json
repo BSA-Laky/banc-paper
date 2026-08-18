@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-18T11:30:52.161929+00:00",
+ "ts": "2026-08-18T11:45:37.461575+00:00",
  "alertes": [
   "27a_rev_premium: KILL exécuté (2026-08-15) : retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
   "27b_rev_move: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
@@ -150,13 +150,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0028,
-  "ret7": 0.0119,
-  "ret30": -0.0062,
-  "prix": 64316
+  "ret1": -0.002,
+  "ret7": 0.0127,
+  "ret30": -0.0054,
+  "prix": 64366
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-18T11:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-18T11:30",
    "bot": "10_controle_aleatoire",
@@ -198,12 +204,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-18T10:00",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -217,7 +217,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.0,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {
