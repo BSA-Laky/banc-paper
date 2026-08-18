@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-18T18:15:39.537010+00:00",
+ "ts": "2026-08-18T18:30:56.210942+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -22,8 +22,8 @@
    "esperance": -0.2221,
    "t": -3.4,
    "pnl": -121.24,
-   "pnl_j": -5.226,
-   "fwd_j": 23.2
+   "pnl_j": -5.204,
+   "fwd_j": 23.3
   },
   "27a_rev_premium": {
    "statut": "ROUGE",
@@ -144,18 +144,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.003,
-  "ret7": 0.0178,
-  "ret30": -0.0004,
-  "prix": 64690
+  "ret1": 0.0043,
+  "ret7": 0.0191,
+  "ret30": 0.0008,
+  "prix": 64772
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 26.3
+   "move_pct": 32.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-18T18:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-18T18:15",
    "bot": "10_controle_aleatoire",
@@ -197,12 +203,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-18T16:15",
-   "bot": "27c_mom_move",
-   "marche": "mom_move-HEMI",
-   "pnl": -6.21
   }
  ],
  "calibration_arbitre": {
@@ -216,7 +216,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.7,
+  "age_avis_h": 1.0,
   "problemes": []
  },
  "autofinancement": {
