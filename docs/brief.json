@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-18T07:15:37.897566+00:00",
+ "ts": "2026-08-18T07:21:50.600275+00:00",
  "alertes": [
   "27a_rev_premium: KILL exécuté (2026-08-15) : retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
   "27b_rev_move: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
@@ -60,11 +60,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 162,
-   "esperance": -0.683,
-   "t": -0.63,
-   "pnl": -110.65,
-   "pnl_j": -2.24,
+   "n": 163,
+   "esperance": -0.6302,
+   "t": -0.59,
+   "pnl": -102.72,
+   "pnl_j": -2.079,
    "fwd_j": 49.4
   },
   "27e_arbitre": {
@@ -110,7 +110,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.057,
-   "fwd_j": 22.4
+   "fwd_j": 22.5
   },
   "29_carry_neutre": {
    "statut": "GRIS",
@@ -118,8 +118,8 @@
    "esperance": 13.4441,
    "t": 1.27,
    "pnl": 241.99,
-   "pnl_j": 10.803,
-   "fwd_j": 22.4
+   "pnl_j": 10.755,
+   "fwd_j": 22.5
   },
   "29b_carry_neutre_large": {
    "statut": "GRIS",
@@ -150,18 +150,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0029,
-  "ret7": 0.0118,
-  "ret30": -0.0064,
-  "prix": 64307
+  "ret1": -0.0031,
+  "ret7": 0.0115,
+  "ret30": -0.0066,
+  "prix": 64292
  },
  "evenements_extremes": [
   {
    "coin": "ACE",
-   "move_pct": 27.6
+   "move_pct": 28.7
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-18T07:21",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-HEMI",
+   "pnl": 7.93
+  },
+  {
+   "ts": "2026-08-18T07:21",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-18T07:15",
    "bot": "10_controle_aleatoire",
@@ -197,18 +209,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-18T06:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-18T05:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -222,7 +222,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.4,
+  "age_avis_h": 0.5,
   "problemes": []
  },
  "autofinancement": {
