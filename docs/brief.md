@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-19 23:01 (Paris)
+# Brief Station — 2026-08-19 23:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -25,13 +25,13 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.639 | 47.2 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.252 | 46.2 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.241 | 46.2 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.379 | 38.4 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.378 | 38.5 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.053 | 24.0 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -181.48 $
 
-**BTC** 68976 $ — ret 1j +6.62% · 7j +8.68% · 30j +5.75%
-**Moves 24h ≥ 20 %** : HEMI +32.3%, PURR +29.1%, HYPE +20.8%
+**BTC** 69472 $ — ret 1j +7.38% · 7j +9.46% · 30j +6.51%
+**Moves 24h ≥ 20 %** : HEMI +32.9%, PURR +26.4%, BOME +20.9%, TRUMP +20.8%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
