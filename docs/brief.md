@@ -1,12 +1,9 @@
-# Brief Station — 2026-08-19 20:01 (Paris)
+# Brief Station — 2026-08-19 20:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
-
-## Changements de statut depuis hier
-- 29b_carry_neutre_large : GRIS → **ORANGE**
 
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -33,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -201.01 $
 
-**BTC** 68166 $ — ret 1j +5.36% · 7j +7.40% · 30j +4.51%
-**Moves 24h ≥ 20 %** : HEMI +33.3%
+**BTC** 68163 $ — ret 1j +5.36% · 7j +7.40% · 30j +4.50%
+**Moves 24h ≥ 20 %** : HEMI +36.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 

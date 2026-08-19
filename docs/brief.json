@@ -1,17 +1,11 @@
 {
- "ts": "2026-08-19T18:01:05.370713+00:00",
+ "ts": "2026-08-19T18:15:37.273991+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
  ],
  "banc_suspect": false,
- "changements_statut": [
-  {
-   "bot": "29b_carry_neutre_large",
-   "avant": "GRIS",
-   "apres": "ORANGE"
-  }
- ],
+ "changements_statut": [],
  "statuts": {
   "24_funding_multivenues": {
    "statut": "ROUGE",
@@ -152,16 +146,22 @@
  "tendances_btc": {
   "ret1": 0.0536,
   "ret7": 0.074,
-  "ret30": 0.0451,
-  "prix": 68166
+  "ret30": 0.045,
+  "prix": 68163
  },
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": 33.3
+   "move_pct": 36.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-19T18:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-19T18:01",
    "bot": "10_controle_aleatoire",
@@ -203,12 +203,6 @@
    "bot": "29b_carry_neutre_large",
    "marche": "TIA-long",
    "pnl": 0.03
-  },
-  {
-   "ts": "2026-08-19T17:58",
-   "bot": "29b_carry_neutre_large",
-   "marche": "AERO-long",
-   "pnl": 0.01
   }
  ],
  "calibration_arbitre": {
@@ -222,7 +216,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {
