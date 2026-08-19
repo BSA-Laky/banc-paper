@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-19T17:54:08.705728+00:00",
+ "ts": "2026-08-19T18:40:51.690863+00:00",
  "_lire_ceci": "Fichier ecrit UNIQUEMENT par garde_reel.py. docs/reel.json et docs/go_reel.json sont regeneres par la station toutes les 15 min et perdent ces corrections : ne pas s'y fier pour le P&L reel.",
  "pnl_compte_reel": -35.21,
  "equity": 0.0,
@@ -86,28 +86,28 @@
    ]
   },
   "29b_carry_neutre_large": {
-   "n_jambes": 20,
+   "n_jambes": 40,
    "funding": {
-    "moyenne_pct": -0.53722,
-    "t": -0.38
+    "moyenne_pct": -0.09373,
+    "t": -0.13
    },
    "prix": {
-    "moyenne_pct": 3.42159,
-    "t": 0.91,
+    "moyenne_pct": 1.90622,
+    "t": 0.86,
     "ic95_pct": [
-     -3.92825,
-     10.77144
+     -2.44311,
+     6.25554
     ]
    },
    "frais": {
     "moyenne_pct": 0.09
    },
-   "esperance_nette_pct": -0.62722,
+   "esperance_nette_pct": -0.18373,
    "ecart_neutralite": 0.0,
    "verdict": "EN COURS",
    "raisons": [
-    "funding t -0.38 < 2.0 (capture non significative)",
-    "E[funding] -0.00537 <= E[frais] 0.00090"
+    "funding t -0.13 < 2.0 (capture non significative)",
+    "E[funding] -0.00094 <= E[frais] 0.00090"
    ]
   }
  },
@@ -117,6 +117,6 @@
  ],
  "avertissements": [
   "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne.",
-  "EXECUTEUR REEL SILENCIEUX : aucun ordre depuis 501 h alors que le paper tient 28_carry_hold=ACE,CASHCAT,CC,FARTCOIN,ICP,KAITO,XMR,ZRO. L'executeur tourne (reconciliation il y a 0 h) : ce sont les filtres reels (seuil funding 0.0001 vs paper, fraicheur 4 h) qui bloquent. Le livre reel n'est donc PAS un miroir du paper."
+  "EXECUTEUR REEL SILENCIEUX : aucun ordre depuis 502 h alors que le paper tient 28_carry_hold=ACE,CASHCAT,CC,FARTCOIN,ICP,KAITO,XMR,ZRO. L'executeur tourne (reconciliation il y a 0 h) : ce sont les filtres reels (seuil funding 0.0001 vs paper, fraicheur 4 h) qui bloquent. Le livre reel n'est donc PAS un miroir du paper."
  ]
 }
