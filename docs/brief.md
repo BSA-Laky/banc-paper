@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-20 00:15 (Paris)
+# Brief Station — 2026-08-20 00:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -10,8 +10,8 @@
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 10.041 | 24.1 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.88 | 14.2 j |
-| 29c_carry_decale | ORANGE | 80 | -0.0885 | -0.87 | -7.08 | -0.502 | 14.1 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.044 | 24.3 j |
+| 29c_carry_decale | ORANGE | 80 | -0.0885 | -0.87 | -7.08 | -0.498 | 14.2 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.044 | 24.4 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -181.48 $
 
-**BTC** 69343 $ — ret 1j +7.18% · 7j +9.26% · 30j +6.31%
-**Moves 24h ≥ 20 %** : PURR +30.1%, CASHCAT +26.9%, HEMI +25.7%, HYPE +22.0%, TRUMP +21.0%
+**BTC** 69172 $ — ret 1j +6.92% · 7j +8.99% · 30j +6.05%
+**Moves 24h ≥ 20 %** : PURR +32.6%, HEMI +25.5%, TRUMP +23.5%, HYPE +21.6%, CASHCAT +21.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
