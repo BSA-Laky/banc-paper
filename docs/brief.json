@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-19T23:30:52.585487+00:00",
+ "ts": "2026-08-19T23:45:42.824545+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -54,11 +54,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 170,
-   "esperance": -0.6535,
-   "t": -0.63,
-   "pnl": -111.09,
-   "pnl_j": -2.174,
+   "n": 171,
+   "esperance": -0.6939,
+   "t": -0.67,
+   "pnl": -118.66,
+   "pnl_j": -2.322,
    "fwd_j": 51.1
   },
   "27e_arbitre": {
@@ -144,34 +144,42 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0718,
-  "ret7": 0.0925,
-  "ret30": 0.0631,
-  "prix": 69341
+  "ret1": 0.0703,
+  "ret7": 0.0911,
+  "ret30": 0.0616,
+  "prix": 69247
  },
  "evenements_extremes": [
   {
    "coin": "TRUMP",
-   "move_pct": 25.6
+   "move_pct": 28.5
   },
   {
    "coin": "HEMI",
-   "move_pct": 25.3
+   "move_pct": 23.1
   },
   {
    "coin": "PURR",
-   "move_pct": 22.5
+   "move_pct": 21.6
   },
   {
    "coin": "CASHCAT",
-   "move_pct": 20.6
-  },
-  {
-   "coin": "HYPE",
-   "move_pct": 20.3
+   "move_pct": 20.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-19T23:45",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-TRUMP",
+   "pnl": -7.57
+  },
+  {
+   "ts": "2026-08-19T23:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-19T23:30",
    "bot": "10_controle_aleatoire",
@@ -207,18 +215,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-19T22:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-19T21:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -232,7 +228,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {
