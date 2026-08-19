@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-19 08:30 (Paris)
+# Brief Station — 2026-08-19 08:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -9,7 +9,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 10.342 | 23.4 j |
-| 29b_carry_neutre_large | GRIS | 20 | 1.3233 | 0.78 | 26.47 | 1.961 | 13.5 j |
+| 29b_carry_neutre_large | GRIS | 20 | 1.3233 | 0.78 | 26.47 | 1.946 | 13.6 j |
 | 29c_carry_decale | ORANGE | 80 | -0.0885 | -0.87 | -7.08 | -0.524 | 13.5 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.046 | 23.7 j |
 
@@ -18,20 +18,20 @@
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.541 | 56.5 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -5.094 | 23.8 j |
-| 27a_rev_premium | ROUGE | 86 | -1.504 | -0.65 | -129.34 | -2.293 | 56.4 j |
+| 27a_rev_premium | ROUGE | 87 | -1.0438 | -0.45 | -90.81 | -1.61 | 56.4 j |
 | 27b_rev_move | ROUGE | 101 | 1.3058 | 0.8 | 131.88 | 2.355 | 56.0 j |
 | 27c_mom_move | ROUGE | 101 | -1.4458 | -0.88 | -146.02 | -2.608 | 56.0 j |
 | 27d_rev_move_stop | ROUGE | 166 | -0.7025 | -0.66 | -116.61 | -2.314 | 50.4 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.647 | 46.6 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.255 | 45.6 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.244 | 45.6 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.385 | 37.8 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.384 | 37.9 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.055 | 23.4 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -225.48 $
+**P&L paper cumule (hors temoin, morts inclus)** : -186.95 $
 
-**BTC** 64248 $ — ret 1j -0.69% · 7j +1.23% · 30j -1.50%
-**Moves 24h ≥ 20 %** : ACE +45.8%, HEMI +28.9%
+**BTC** 64250 $ — ret 1j -0.69% · 7j +1.23% · 30j -1.50%
+**Moves 24h ≥ 20 %** : ACE +31.6%, HEMI +26.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
