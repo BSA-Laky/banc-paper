@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-20 15:45 (Paris)
+# Brief Station — 2026-08-20 16:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -25,13 +25,13 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.629 | 47.9 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.248 | 46.9 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.237 | 46.9 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.372 | 39.1 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.372 | 39.2 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.052 | 24.7 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -240.55 $
 
-**BTC** 71648 $ — ret 1j +3.35% · 7j +12.87% · 30j +7.70%
-**Moves 24h ≥ 20 %** : BOME +62.0%, CASHCAT +35.4%, PURR +25.3%, HYPE +22.4%, MET +21.3%, kPEPE +20.8%
+**BTC** 71619 $ — ret 1j +3.31% · 7j +12.82% · 30j +7.65%
+**Moves 24h ≥ 20 %** : BOME +63.9%, CASHCAT +37.3%, PURR +26.0%, HYPE +22.3%, kPEPE +21.0%, MET +20.8%, XRP +20.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
