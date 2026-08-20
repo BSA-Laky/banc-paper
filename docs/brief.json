@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-20T00:01:06.554644+00:00",
+ "ts": "2026-08-20T00:15:39.144107+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.053,
-   "fwd_j": 24.1
+   "fwd_j": 24.2
   },
   "29_carry_neutre": {
    "statut": "GRIS",
@@ -112,8 +112,8 @@
    "esperance": 13.4441,
    "t": 1.27,
    "pnl": 241.99,
-   "pnl_j": 10.041,
-   "fwd_j": 24.1
+   "pnl_j": 10.0,
+   "fwd_j": 24.2
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -144,30 +144,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0009,
-  "ret7": 0.093,
-  "ret30": 0.0429,
-  "prix": 69382
+  "ret1": 0.0038,
+  "ret7": 0.0962,
+  "ret30": 0.046,
+  "prix": 69584
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 27.5
-  },
-  {
-   "coin": "TRUMP",
    "move_pct": 26.6
   },
   {
-   "coin": "HEMI",
-   "move_pct": 22.5
+   "coin": "TRUMP",
+   "move_pct": 24.4
   },
   {
-   "coin": "PURR",
-   "move_pct": 20.8
+   "coin": "HEMI",
+   "move_pct": 24.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-20T00:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-20T00:01",
    "bot": "10_controle_aleatoire",
@@ -209,12 +211,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-19T22:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -228,7 +224,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.2,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {
