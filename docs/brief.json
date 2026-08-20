@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-20T10:01:06.445458+00:00",
+ "ts": "2026-08-20T10:03:02.988647+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -54,11 +54,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 178,
-   "esperance": -0.9498,
-   "t": -0.95,
-   "pnl": -169.07,
-   "pnl_j": -3.283,
+   "n": 179,
+   "esperance": -0.98,
+   "t": -0.98,
+   "pnl": -175.42,
+   "pnl_j": -3.406,
    "fwd_j": 51.5
   },
   "27e_arbitre": {
@@ -144,19 +144,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.035,
-  "ret7": 0.1302,
-  "ret30": 0.0785,
-  "prix": 71747
+  "ret1": 0.036,
+  "ret7": 0.1314,
+  "ret30": 0.0796,
+  "prix": 71822
  },
  "evenements_extremes": [
   {
    "coin": "BOME",
-   "move_pct": 58.4
+   "move_pct": 60.3
   },
   {
    "coin": "BIO",
-   "move_pct": 30.2
+   "move_pct": 29.9
   },
   {
    "coin": "PURR",
@@ -164,7 +164,7 @@
   },
   {
    "coin": "HYPE",
-   "move_pct": 25.4
+   "move_pct": 25.7
   },
   {
    "coin": "CASHCAT",
@@ -172,14 +172,26 @@
   },
   {
    "coin": "MET",
-   "move_pct": 24.2
+   "move_pct": 24.1
   },
   {
    "coin": "LIT",
-   "move_pct": 24.0
+   "move_pct": 23.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-20T10:03",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-BOME",
+   "pnl": -6.35
+  },
+  {
+   "ts": "2026-08-20T10:03",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-20T10:01",
    "bot": "10_controle_aleatoire",
@@ -215,18 +227,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-20T09:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-20T08:45",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-BIO",
-   "pnl": -8.64
   }
  ],
  "calibration_arbitre": {
