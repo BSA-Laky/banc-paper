@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-20 07:15 (Paris)
+# Brief Station — 2026-08-20 07:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -16,22 +16,22 @@
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.517 | 57.4 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.514 | 57.5 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.909 | 24.7 j |
-| 27a_rev_premium | ROUGE | 88 | -0.5783 | -0.25 | -50.89 | -0.888 | 57.3 j |
-| 27b_rev_move | ROUGE | 103 | 1.1327 | 0.7 | 116.67 | 2.047 | 57.0 j |
-| 27c_mom_move | ROUGE | 103 | -1.2727 | -0.79 | -131.09 | -2.3 | 57.0 j |
-| 27d_rev_move_stop | ROUGE | 172 | -0.7281 | -0.7 | -125.23 | -2.441 | 51.3 j |
+| 27a_rev_premium | ROUGE | 88 | -0.5783 | -0.25 | -50.89 | -0.887 | 57.4 j |
+| 27b_rev_move | ROUGE | 104 | 0.9657 | 0.6 | 100.43 | 1.762 | 57.0 j |
+| 27c_mom_move | ROUGE | 104 | -1.1057 | -0.69 | -114.99 | -2.017 | 57.0 j |
+| 27d_rev_move_stop | ROUGE | 172 | -0.7281 | -0.7 | -125.23 | -2.436 | 51.4 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.633 | 47.6 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.25 | 46.5 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.239 | 46.5 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.375 | 38.8 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.052 | 24.4 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -155.70 $
+**P&L paper cumule (hors temoin, morts inclus)** : -155.84 $
 
-**BTC** 69475 $ — ret 1j +0.22% · 7j +9.44% · 30j +4.43%
-**Moves 24h ≥ 20 %** : CASHCAT +33.6%, MET +24.1%, HEMI +23.5%, LIT +22.1%, HYPE +21.0%, BOME +20.5%
+**BTC** 69582 $ — ret 1j +0.37% · 7j +9.61% · 30j +4.59%
+**Moves 24h ≥ 20 %** : CASHCAT +35.9%, LIT +23.9%, MET +21.7%, BOME +21.1%, HYPE +21.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
