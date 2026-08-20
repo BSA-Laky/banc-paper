@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-20T06:30:59.177396+00:00",
+ "ts": "2026-08-20T06:45:44.406134+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -94,8 +94,8 @@
    "esperance": 0.3552,
    "t": 0.17,
    "pnl": 14.56,
-   "pnl_j": 0.375,
-   "fwd_j": 38.8
+   "pnl_j": 0.374,
+   "fwd_j": 38.9
   },
   "28_carry_hold": {
    "statut": "ROUGE",
@@ -121,8 +121,8 @@
    "esperance": 0.6674,
    "t": 0.79,
    "pnl": 26.7,
-   "pnl_j": 1.841,
-   "fwd_j": 14.5
+   "pnl_j": 1.828,
+   "fwd_j": 14.6
   },
   "29c_carry_decale": {
    "statut": "ORANGE",
@@ -144,42 +144,48 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0041,
-  "ret7": 0.0965,
-  "ret30": 0.0463,
-  "prix": 69608
+  "ret1": 0.0078,
+  "ret7": 0.1006,
+  "ret30": 0.0502,
+  "prix": 69864
  },
  "evenements_extremes": [
   {
    "coin": "BOME",
-   "move_pct": 29.1
+   "move_pct": 31.5
   },
   {
    "coin": "CASHCAT",
-   "move_pct": 26.7
+   "move_pct": 25.8
   },
   {
    "coin": "LIT",
-   "move_pct": 24.4
+   "move_pct": 23.4
   },
   {
    "coin": "HYPE",
-   "move_pct": 24.1
-  },
-  {
-   "coin": "ACE",
-   "move_pct": -23.9
+   "move_pct": 23.3
   },
   {
    "coin": "MET",
-   "move_pct": 21.8
+   "move_pct": 21.4
   },
   {
-   "coin": "BIO",
-   "move_pct": 20.3
+   "coin": "ACE",
+   "move_pct": -20.9
+  },
+  {
+   "coin": "PURR",
+   "move_pct": 20.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-20T06:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-20T06:30",
    "bot": "27a_rev_premium",
@@ -221,12 +227,6 @@
    "bot": "27c_mom_move",
    "marche": "mom_move-HEMI",
    "pnl": 16.1
-  },
-  {
-   "ts": "2026-08-20T05:30",
-   "bot": "27b_rev_move",
-   "marche": "rev_move-HEMI",
-   "pnl": -16.24
   }
  ],
  "calibration_arbitre": {
@@ -240,7 +240,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.9,
+  "age_avis_h": 1.2,
   "problemes": []
  },
  "autofinancement": {
