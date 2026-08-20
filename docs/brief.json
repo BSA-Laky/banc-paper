@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-20T07:45:39.083144+00:00",
+ "ts": "2026-08-20T08:01:05.524555+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -58,8 +58,8 @@
    "esperance": -0.8749,
    "t": -0.86,
    "pnl": -153.99,
-   "pnl_j": -2.996,
-   "fwd_j": 51.4
+   "pnl_j": -2.99,
+   "fwd_j": 51.5
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -144,38 +144,44 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0036,
-  "ret7": 0.096,
-  "ret30": 0.0458,
-  "prix": 69571
+  "ret1": 0.007,
+  "ret7": 0.0996,
+  "ret30": 0.0493,
+  "prix": 69805
  },
  "evenements_extremes": [
   {
    "coin": "BOME",
-   "move_pct": 44.8
+   "move_pct": 47.6
   },
   {
    "coin": "LIT",
-   "move_pct": 26.7
+   "move_pct": 28.0
   },
   {
    "coin": "MET",
-   "move_pct": 25.5
-  },
-  {
-   "coin": "CASHCAT",
-   "move_pct": 22.9
+   "move_pct": 26.5
   },
   {
    "coin": "HYPE",
-   "move_pct": 22.8
+   "move_pct": 23.8
   },
   {
    "coin": "BIO",
-   "move_pct": 22.1
+   "move_pct": 23.7
+  },
+  {
+   "coin": "CASHCAT",
+   "move_pct": 22.5
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-20T08:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-20T07:45",
    "bot": "10_controle_aleatoire",
@@ -217,12 +223,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-20T07:01",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-ACE",
-   "pnl": -6.93
   }
  ],
  "calibration_arbitre": {
@@ -236,7 +236,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.0,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {

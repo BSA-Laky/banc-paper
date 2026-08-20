@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-20 09:45 (Paris)
+# Brief Station — 2026-08-20 10:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -21,7 +21,7 @@
 | 27a_rev_premium | ROUGE | 90 | -0.8581 | -0.37 | -77.22 | -1.343 | 57.5 j |
 | 27b_rev_move | ROUGE | 104 | 0.9657 | 0.6 | 100.43 | 1.759 | 57.1 j |
 | 27c_mom_move | ROUGE | 104 | -1.1057 | -0.69 | -114.99 | -2.014 | 57.1 j |
-| 27d_rev_move_stop | ROUGE | 176 | -0.8749 | -0.86 | -153.99 | -2.996 | 51.4 j |
+| 27d_rev_move_stop | ROUGE | 176 | -0.8749 | -0.86 | -153.99 | -2.99 | 51.5 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.632 | 47.7 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.25 | 46.6 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.239 | 46.6 j |
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -210.93 $
 
-**BTC** 69571 $ — ret 1j +0.36% · 7j +9.60% · 30j +4.58%
-**Moves 24h ≥ 20 %** : BOME +44.8%, LIT +26.7%, MET +25.5%, CASHCAT +22.9%, HYPE +22.8%, BIO +22.1%
+**BTC** 69805 $ — ret 1j +0.70% · 7j +9.96% · 30j +4.93%
+**Moves 24h ≥ 20 %** : BOME +47.6%, LIT +28.0%, MET +26.5%, HYPE +23.8%, BIO +23.7%, CASHCAT +22.5%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
