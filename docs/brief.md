@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-21 01:15 (Paris)
+# Brief Station — 2026-08-21 01:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -9,7 +9,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.641 | 25.1 j |
-| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.756 | 15.2 j |
+| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.745 | 15.3 j |
 | 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.442 | 15.2 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.043 | 25.4 j |
 
@@ -17,7 +17,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.496 | 58.2 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.773 | 25.4 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.755 | 25.5 j |
 | 27a_rev_premium | ROUGE | 91 | -0.924 | -0.4 | -84.08 | -1.447 | 58.1 j |
 | 27b_rev_move | ROUGE | 110 | 0.6919 | 0.45 | 76.11 | 1.319 | 57.7 j |
 | 27c_mom_move | ROUGE | 110 | -0.8319 | -0.54 | -91.51 | -1.586 | 57.7 j |
@@ -25,13 +25,13 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.624 | 48.3 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.246 | 47.3 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.235 | 47.3 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.369 | 39.5 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.368 | 39.6 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.051 | 25.1 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -286.35 $
 
-**BTC** 72898 $ — ret 1j +5.16% · 7j +14.84% · 30j +9.58%
-**Moves 24h ≥ 20 %** : ACE +33.2%, BOME +33.0%, kNEIRO +31.3%, PUMP +28.7%, PEOPLE +28.0%, ENA +22.9%
+**BTC** 73269 $ — ret 1j +5.69% · 7j +15.42% · 30j +10.13%
+**Moves 24h ≥ 20 %** : ACE +35.8%, PUMP +31.9%, BOME +31.8%, kNEIRO +31.2%, PEOPLE +28.9%, ENA +25.3%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
