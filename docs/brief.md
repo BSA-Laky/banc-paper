@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-20 11:30 (Paris)
+# Brief Station — 2026-08-20 11:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -8,7 +8,7 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.877 | 24.5 j |
+| 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.837 | 24.6 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.816 | 14.7 j |
 | 29c_carry_decale | ORANGE | 80 | -0.0885 | -0.87 | -7.08 | -0.485 | 14.6 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.044 | 24.8 j |
@@ -19,19 +19,19 @@
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.512 | 57.6 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.869 | 24.9 j |
 | 27a_rev_premium | ROUGE | 90 | -0.8581 | -0.37 | -77.22 | -1.343 | 57.5 j |
-| 27b_rev_move | ROUGE | 104 | 0.9657 | 0.6 | 100.43 | 1.756 | 57.2 j |
-| 27c_mom_move | ROUGE | 104 | -1.1057 | -0.69 | -114.99 | -2.01 | 57.2 j |
+| 27b_rev_move | ROUGE | 105 | 1.0274 | 0.64 | 107.88 | 1.886 | 57.2 j |
+| 27c_mom_move | ROUGE | 105 | -1.1674 | -0.73 | -122.58 | -2.143 | 57.2 j |
 | 27d_rev_move_stop | ROUGE | 178 | -0.9498 | -0.95 | -169.07 | -3.283 | 51.5 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.632 | 47.7 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.631 | 47.8 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.249 | 46.7 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.238 | 46.7 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.373 | 39.0 j |
-| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.052 | 24.5 j |
+| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.052 | 24.6 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -226.01 $
+**P&L paper cumule (hors temoin, morts inclus)** : -226.15 $
 
-**BTC** 71826 $ — ret 1j +3.61% · 7j +13.15% · 30j +7.97%
-**Moves 24h ≥ 20 %** : BOME +51.2%, BIO +33.3%, PURR +27.8%, MET +27.1%, HYPE +25.9%, CASHCAT +23.8%, LIT +23.5%, kPEPE +21.0%, TRUMP +20.1%
+**BTC** 71962 $ — ret 1j +3.81% · 7j +13.36% · 30j +8.17%
+**Moves 24h ≥ 20 %** : BOME +58.7%, PURR +29.6%, BIO +29.3%, HYPE +25.4%, MET +25.2%, CASHCAT +24.9%, LIT +24.3%, kPEPE +21.5%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
