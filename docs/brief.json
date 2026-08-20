@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-20T02:45:39.023655+00:00",
+ "ts": "2026-08-20T03:01:02.312717+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -13,8 +13,8 @@
    "esperance": -0.5092,
    "t": -3.3,
    "pnl": -87.07,
-   "pnl_j": -1.519,
-   "fwd_j": 57.3
+   "pnl_j": -1.517,
+   "fwd_j": 57.4
   },
   "25_convergence_basis": {
    "statut": "ROUGE",
@@ -31,8 +31,8 @@
    "esperance": -1.0438,
    "t": -0.45,
    "pnl": -90.81,
-   "pnl_j": -1.588,
-   "fwd_j": 57.2
+   "pnl_j": -1.585,
+   "fwd_j": 57.3
   },
   "27b_rev_move": {
    "statut": "ROUGE",
@@ -58,8 +58,8 @@
    "esperance": -0.7281,
    "t": -0.7,
    "pnl": -125.23,
-   "pnl_j": -2.446,
-   "fwd_j": 51.2
+   "pnl_j": -2.441,
+   "fwd_j": 51.3
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -144,30 +144,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0,
-  "ret7": 0.0921,
-  "ret30": 0.0421,
-  "prix": 69325
+  "ret1": -0.0014,
+  "ret7": 0.0905,
+  "ret30": 0.0406,
+  "prix": 69228
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 38.1
+   "move_pct": 35.4
   },
   {
    "coin": "MET",
-   "move_pct": 25.7
+   "move_pct": 26.3
   },
   {
    "coin": "HEMI",
-   "move_pct": 23.6
-  },
-  {
-   "coin": "TRUMP",
-   "move_pct": 21.2
+   "move_pct": 25.0
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-20T03:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-20T02:45",
    "bot": "10_controle_aleatoire",
@@ -209,12 +211,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-20T01:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -228,7 +224,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {
