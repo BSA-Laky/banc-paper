@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-21 15:45 (Paris)
+# Brief Station — 2026-08-21 16:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -25,13 +25,13 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.616 | 48.9 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.243 | 47.9 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.232 | 47.9 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.363 | 40.1 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.362 | 40.2 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.05 | 25.7 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -370.30 $
 
-**BTC** 77390 $ — ret 1j +6.02% · 7j +22.78% · 30j +17.10%
-**Moves 24h ≥ 20 %** : ENA +45.8%, PEOPLE +42.4%, ZORA +41.6%, HEMI +41.2%, kNEIRO +28.9%, XPL +26.7%, BCH +23.2%, BERA +21.7%, STX +20.9%
+**BTC** 77144 $ — ret 1j +5.68% · 7j +22.39% · 30j +16.73%
+**Moves 24h ≥ 20 %** : ENA +48.3%, ZORA +42.8%, HEMI +40.0%, PEOPLE +39.8%, XPL +26.8%, BCH +23.3%, BERA +23.3%, kNEIRO +22.5%, FARTCOIN +21.3%, STX +21.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
