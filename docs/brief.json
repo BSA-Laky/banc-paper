@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-21T17:45:38.048679+00:00",
+ "ts": "2026-08-21T18:01:02.040516+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -77,7 +77,7 @@
    "t": -0.09,
    "pnl": -11.64,
    "pnl_j": -0.242,
-   "fwd_j": 48.0
+   "fwd_j": 48.1
   },
   "27f_selecteur": {
    "statut": "ROUGE",
@@ -85,8 +85,8 @@
    "esperance": 0.1566,
    "t": 0.08,
    "pnl": 11.12,
-   "pnl_j": 0.232,
-   "fwd_j": 48.0
+   "pnl_j": 0.231,
+   "fwd_j": 48.1
   },
   "27g10_selecteur": {
    "statut": "ROUGE",
@@ -144,42 +144,48 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0596,
-  "ret7": 0.2272,
-  "ret30": 0.1704,
-  "prix": 77349
+  "ret1": 0.0608,
+  "ret7": 0.2285,
+  "ret30": 0.1717,
+  "prix": 77434
  },
  "evenements_extremes": [
   {
    "coin": "ENA",
-   "move_pct": 40.7
+   "move_pct": 38.0
   },
   {
    "coin": "ZORA",
-   "move_pct": 32.3
+   "move_pct": 30.7
   },
   {
    "coin": "BCH",
-   "move_pct": 31.6
+   "move_pct": 29.7
   },
   {
    "coin": "kNEIRO",
-   "move_pct": 30.5
+   "move_pct": 27.7
   },
   {
    "coin": "kPEPE",
-   "move_pct": 22.4
+   "move_pct": 25.3
   },
   {
    "coin": "USUAL",
-   "move_pct": 21.1
+   "move_pct": 22.2
   },
   {
-   "coin": "HEMI",
-   "move_pct": 20.7
+   "coin": "BERA",
+   "move_pct": 20.8
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-21T18:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-21T17:45",
    "bot": "27d_rev_move_stop",
@@ -221,12 +227,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-21T16:30",
-   "bot": "27c_mom_move",
-   "marche": "mom_move-PEOPLE",
-   "pnl": 20.08
   }
  ],
  "calibration_arbitre": {
@@ -240,7 +240,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.2,
+  "age_avis_h": 0.5,
   "problemes": []
  },
  "autofinancement": {
