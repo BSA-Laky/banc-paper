@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-21T19:08:18.909138+00:00",
+ "ts": "2026-08-21T19:15:40.064852+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -67,8 +67,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.614,
-   "fwd_j": 49.1
+   "pnl_j": -0.613,
+   "fwd_j": 49.2
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -144,38 +144,48 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.055,
-  "ret7": 0.2218,
-  "ret30": 0.1653,
-  "prix": 77008
+  "ret1": 0.0562,
+  "ret7": 0.2232,
+  "ret30": 0.1666,
+  "prix": 77096
  },
  "evenements_extremes": [
   {
    "coin": "BCH",
-   "move_pct": 31.7
+   "move_pct": 32.0
   },
   {
    "coin": "ZORA",
-   "move_pct": 28.0
+   "move_pct": 28.5
   },
   {
    "coin": "ENA",
-   "move_pct": 26.0
+   "move_pct": 25.9
   },
   {
    "coin": "USUAL",
-   "move_pct": 22.4
+   "move_pct": 23.2
   },
   {
    "coin": "CRV",
-   "move_pct": 21.4
+   "move_pct": 22.0
   },
   {
    "coin": "kPEPE",
    "move_pct": 21.2
+  },
+  {
+   "coin": "ENS",
+   "move_pct": 20.3
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-21T19:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-21T19:08",
    "bot": "27a_rev_premium",
@@ -217,12 +227,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-21T17:45",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-STX",
-   "pnl": -6.39
   }
  ],
  "calibration_arbitre": {
@@ -236,7 +240,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.4,
+  "age_avis_h": 0.6,
   "problemes": []
  },
  "autofinancement": {

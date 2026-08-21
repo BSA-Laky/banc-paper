@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-21 21:08 (Paris)
+# Brief Station — 2026-08-21 21:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -22,7 +22,7 @@
 | 27b_rev_move | ROUGE | 123 | -0.4565 | -0.31 | -56.15 | -0.958 | 58.6 j |
 | 27c_mom_move | ROUGE | 123 | 0.3165 | 0.22 | 38.93 | 0.664 | 58.6 j |
 | 27d_rev_move_stop | ROUGE | 219 | -1.7351 | -2.01 | -380.0 | -7.183 | 52.9 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.614 | 49.1 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.613 | 49.2 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.242 | 48.1 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.231 | 48.1 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.361 | 40.4 j |
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -408.97 $
 
-**BTC** 77008 $ — ret 1j +5.50% · 7j +22.18% · 30j +16.53%
-**Moves 24h ≥ 20 %** : BCH +31.7%, ZORA +28.0%, ENA +26.0%, USUAL +22.4%, CRV +21.4%, kPEPE +21.2%
+**BTC** 77096 $ — ret 1j +5.62% · 7j +22.32% · 30j +16.66%
+**Moves 24h ≥ 20 %** : BCH +32.0%, ZORA +28.5%, ENA +25.9%, USUAL +23.2%, CRV +22.0%, kPEPE +21.2%, ENS +20.3%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
