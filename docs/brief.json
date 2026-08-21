@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-21T21:30:56.137487+00:00",
+ "ts": "2026-08-21T21:45:39.172486+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -54,11 +54,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 221,
-   "esperance": -1.781,
-   "t": -2.08,
-   "pnl": -393.61,
-   "pnl_j": -7.427,
+   "n": 222,
+   "esperance": -1.8088,
+   "t": -2.12,
+   "pnl": -401.55,
+   "pnl_j": -7.576,
    "fwd_j": 53.0
   },
   "27e_arbitre": {
@@ -67,8 +67,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.613,
-   "fwd_j": 49.2
+   "pnl_j": -0.611,
+   "fwd_j": 49.3
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.049,
-   "fwd_j": 26.0
+   "fwd_j": 26.1
   },
   "29_carry_neutre": {
    "statut": "GRIS",
@@ -112,8 +112,8 @@
    "esperance": 13.4441,
    "t": 1.27,
    "pnl": 241.99,
-   "pnl_j": 9.307,
-   "fwd_j": 26.0
+   "pnl_j": 9.272,
+   "fwd_j": 26.1
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -144,43 +144,43 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0714,
-  "ret7": 0.2408,
-  "ret30": 0.1834,
-  "prix": 78206
+  "ret1": 0.0739,
+  "ret7": 0.2437,
+  "ret30": 0.1861,
+  "prix": 78387
  },
  "evenements_extremes": [
   {
    "coin": "BCH",
-   "move_pct": 30.5
+   "move_pct": 30.8
   },
   {
-   "coin": "ZORA",
+   "coin": "ENA",
+   "move_pct": 29.8
+  },
+  {
+   "coin": "ENS",
    "move_pct": 28.6
   },
   {
    "coin": "STX",
-   "move_pct": 27.2
+   "move_pct": 27.9
   },
   {
-   "coin": "ENA",
-   "move_pct": 26.9
-  },
-  {
-   "coin": "USUAL",
-   "move_pct": 25.7
+   "coin": "ZORA",
+   "move_pct": 25.3
   },
   {
    "coin": "ZEC",
-   "move_pct": 24.7
+   "move_pct": 25.2
   },
   {
-   "coin": "ENS",
-   "move_pct": 24.0
+   "coin": "USUAL",
+   "move_pct": 24.8
   },
   {
    "coin": "PURR",
-   "move_pct": 23.5
+   "move_pct": 24.5
   },
   {
    "coin": "CRV",
@@ -188,10 +188,22 @@
   },
   {
    "coin": "AAVE",
-   "move_pct": 21.2
+   "move_pct": 21.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-21T21:45",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-ENS",
+   "pnl": -7.94
+  },
+  {
+   "ts": "2026-08-21T21:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-21T21:30",
    "bot": "27c_mom_move",
@@ -227,18 +239,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-21T20:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-21T20:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -252,7 +252,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.0,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {
