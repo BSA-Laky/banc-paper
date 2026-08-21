@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-21 11:30 (Paris)
+# Brief Station — 2026-08-21 11:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -8,7 +8,7 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.49 | 25.5 j |
+| 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.453 | 25.6 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.7 | 15.7 j |
 | 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.431 | 15.6 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.042 | 25.8 j |
@@ -22,16 +22,16 @@
 | 27b_rev_move | ROUGE | 114 | 0.5312 | 0.35 | 60.55 | 1.04 | 58.2 j |
 | 27c_mom_move | ROUGE | 114 | -0.6712 | -0.45 | -76.51 | -1.315 | 58.2 j |
 | 27d_rev_move_stop | ROUGE | 206 | -1.2664 | -1.4 | -260.87 | -4.969 | 52.5 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.619 | 48.7 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.618 | 48.8 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.244 | 47.7 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.233 | 47.7 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.364 | 40.0 j |
-| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.05 | 25.5 j |
+| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.05 | 25.6 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -269.61 $
 
-**BTC** 77734 $ — ret 1j +6.49% · 7j +23.33% · 30j +17.63%
-**Moves 24h ≥ 20 %** : PEOPLE +44.7%, ENA +41.1%, kNEIRO +33.8%, HEMI +23.2%
+**BTC** 78306 $ — ret 1j +7.27% · 7j +24.24% · 30j +18.49%
+**Moves 24h ≥ 20 %** : PEOPLE +48.3%, ENA +43.0%, kNEIRO +38.4%, XPL +23.5%, BCH +21.4%, XRP +20.9%, FET +20.2%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
