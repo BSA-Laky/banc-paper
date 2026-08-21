@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-21T07:45:40.534836+00:00",
+ "ts": "2026-08-21T08:01:05.783084+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -58,8 +58,8 @@
    "esperance": -1.1574,
    "t": -1.25,
    "pnl": -231.47,
-   "pnl_j": -4.417,
-   "fwd_j": 52.4
+   "pnl_j": -4.409,
+   "fwd_j": 52.5
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -144,46 +144,52 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0489,
-  "ret7": 0.2148,
-  "ret30": 0.1586,
-  "prix": 76569
+  "ret1": 0.0461,
+  "ret7": 0.2115,
+  "ret30": 0.1555,
+  "prix": 76362
  },
  "evenements_extremes": [
   {
    "coin": "kNEIRO",
-   "move_pct": 46.9
-  },
-  {
-   "coin": "ENA",
-   "move_pct": 43.5
+   "move_pct": 48.9
   },
   {
    "coin": "PEOPLE",
-   "move_pct": 42.4
+   "move_pct": 43.4
   },
   {
-   "coin": "BOME",
-   "move_pct": 33.2
+   "coin": "ENA",
+   "move_pct": 40.9
   },
   {
    "coin": "ACE",
-   "move_pct": 32.9
+   "move_pct": 34.3
   },
   {
-   "coin": "HEMI",
-   "move_pct": 25.0
+   "coin": "BOME",
+   "move_pct": 28.3
+  },
+  {
+   "coin": "GALA",
+   "move_pct": 24.4
   },
   {
    "coin": "BCH",
-   "move_pct": 22.2
+   "move_pct": 23.0
   },
   {
-   "coin": "PUMP",
-   "move_pct": 21.4
+   "coin": "HEMI",
+   "move_pct": 22.5
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-21T08:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-21T07:45",
    "bot": "27a_rev_premium",
@@ -225,12 +231,6 @@
    "bot": "27d_rev_move_stop",
    "marche": "rev_move_stop-MON",
    "pnl": -6.87
-  },
-  {
-   "ts": "2026-08-21T07:15",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-ACE",
-   "pnl": 38.63
   }
  ],
  "calibration_arbitre": {
@@ -244,7 +244,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.7,
+  "age_avis_h": 1.0,
   "problemes": []
  },
  "autofinancement": {
