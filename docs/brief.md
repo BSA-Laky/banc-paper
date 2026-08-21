@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-21 14:45 (Paris)
+# Brief Station — 2026-08-21 15:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -10,8 +10,8 @@
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.416 | 25.7 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.69 | 15.8 j |
-| 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.428 | 15.7 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.042 | 25.9 j |
+| 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.425 | 15.8 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.042 | 26.0 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -370.16 $
 
-**BTC** 77450 $ — ret 1j +6.10% · 7j +22.88% · 30j +17.20%
-**Moves 24h ≥ 20 %** : HEMI +46.2%, ENA +43.3%, PEOPLE +39.4%, ZORA +36.3%, XPL +24.1%, BERA +22.8%, BCH +22.1%, kNEIRO +22.1%, STX +20.6%, PUMP +20.4%
+**BTC** 77179 $ — ret 1j +5.73% · 7j +22.45% · 30j +16.79%
+**Moves 24h ≥ 20 %** : ENA +40.0%, ZORA +39.8%, HEMI +38.2%, PEOPLE +37.9%, XPL +24.3%, BERA +22.8%, BCH +21.6%, STX +20.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
