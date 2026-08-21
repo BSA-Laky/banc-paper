@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-21 19:15 (Paris)
+# Brief Station — 2026-08-21 19:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -16,12 +16,12 @@
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.478 | 58.9 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.476 | 59.0 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.628 | 26.2 j |
-| 27a_rev_premium | ROUGE | 95 | -0.3728 | -0.17 | -35.41 | -0.602 | 58.8 j |
+| 27a_rev_premium | ROUGE | 95 | -0.3728 | -0.17 | -35.41 | -0.601 | 58.9 j |
 | 27b_rev_move | ROUGE | 123 | -0.4565 | -0.31 | -56.15 | -0.96 | 58.5 j |
 | 27c_mom_move | ROUGE | 123 | 0.3165 | 0.22 | 38.93 | 0.665 | 58.5 j |
-| 27d_rev_move_stop | ROUGE | 218 | -1.7138 | -1.98 | -373.6 | -7.076 | 52.8 j |
+| 27d_rev_move_stop | ROUGE | 218 | -1.7138 | -1.98 | -373.6 | -7.062 | 52.9 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.614 | 49.1 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.242 | 48.0 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.232 | 48.0 j |
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -391.03 $
 
-**BTC** 77506 $ — ret 1j +6.18% · 7j +22.97% · 30j +17.28%
-**Moves 24h ≥ 20 %** : ENA +41.1%, BCH +32.3%, kNEIRO +28.6%, ZORA +26.8%, kPEPE +22.5%, STX +20.6%, USUAL +20.3%, BERA +20.2%
+**BTC** 77588 $ — ret 1j +6.29% · 7j +23.10% · 30j +17.40%
+**Moves 24h ≥ 20 %** : ENA +41.8%, BCH +31.4%, kNEIRO +31.4%, ZORA +28.7%, kPEPE +21.9%, USUAL +20.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
