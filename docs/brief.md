@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-21 22:45 (Paris)
+# Brief Station — 2026-08-21 23:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -9,7 +9,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.307 | 26.0 j |
-| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.658 | 16.1 j |
+| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.648 | 16.2 j |
 | 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.417 | 16.1 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.041 | 26.3 j |
 
@@ -17,7 +17,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.473 | 59.1 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.61 | 26.3 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.593 | 26.4 j |
 | 27a_rev_premium | ROUGE | 96 | -0.4891 | -0.22 | -46.95 | -0.796 | 59.0 j |
 | 27b_rev_move | ROUGE | 123 | -0.4565 | -0.31 | -56.15 | -0.958 | 58.6 j |
 | 27c_mom_move | ROUGE | 123 | 0.3165 | 0.22 | 38.93 | 0.664 | 58.6 j |
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -415.91 $
 
-**BTC** 77454 $ — ret 1j +6.11% · 7j +22.89% · 30j +17.20%
-**Moves 24h ≥ 20 %** : BCH +30.3%, ZORA +28.3%, ENA +28.1%, USUAL +25.7%, ZEC +22.5%, ENS +21.0%, kPEPE +20.1%
+**BTC** 77464 $ — ret 1j +6.12% · 7j +22.90% · 30j +17.22%
+**Moves 24h ≥ 20 %** : BCH +29.7%, USUAL +28.0%, ZORA +27.9%, STX +27.5%, ENA +25.9%, ZEC +23.0%, ENS +22.9%, AAVE +20.9%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
