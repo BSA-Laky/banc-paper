@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-22 00:01 (Paris)
+# Brief Station — 2026-08-22 00:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -16,22 +16,22 @@
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.473 | 59.1 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.471 | 59.2 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.593 | 26.4 j |
-| 27a_rev_premium | ROUGE | 96 | -0.4891 | -0.22 | -46.95 | -0.796 | 59.0 j |
-| 27b_rev_move | ROUGE | 124 | -0.5018 | -0.35 | -62.22 | -1.06 | 58.7 j |
-| 27c_mom_move | ROUGE | 124 | 0.3618 | 0.25 | 44.86 | 0.764 | 58.7 j |
-| 27d_rev_move_stop | ROUGE | 222 | -1.8088 | -2.12 | -401.55 | -7.576 | 53.0 j |
+| 27a_rev_premium | ROUGE | 96 | -0.4891 | -0.22 | -46.95 | -0.794 | 59.1 j |
+| 27b_rev_move | ROUGE | 125 | -0.6398 | -0.44 | -79.97 | -1.362 | 58.7 j |
+| 27c_mom_move | ROUGE | 125 | 0.4998 | 0.35 | 62.47 | 1.064 | 58.7 j |
+| 27d_rev_move_stop | ROUGE | 222 | -1.8088 | -2.12 | -401.55 | -7.562 | 53.1 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.611 | 49.3 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.241 | 48.2 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.231 | 48.2 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.36 | 40.5 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.049 | 26.1 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -430.66 $
+**P&L paper cumule (hors temoin, morts inclus)** : -430.80 $
 
-**BTC** 78490 $ — ret 1j +7.53% · 7j +24.53% · 30j +18.77%
-**Moves 24h ≥ 20 %** : BCH +31.8%, STX +30.2%, ENS +28.7%, ZORA +27.4%, ZEC +27.3%, ENA +26.6%, PURR +25.1%, USUAL +24.8%, AAVE +24.3%, kPEPE +23.7%
+**BTC** 78697 $ — ret 1j +7.81% · 7j +24.86% · 30j +19.08%
+**Moves 24h ≥ 20 %** : BCH +32.3%, STX +31.1%, ENS +29.7%, ZORA +29.5%, ZEC +29.0%, PURR +27.8%, USUAL +25.2%, kPEPE +25.1%, ENA +25.0%, AAVE +23.2%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
