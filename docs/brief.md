@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-21 20:15 (Paris)
+# Brief Station — 2026-08-21 20:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -17,7 +17,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.476 | 59.0 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.628 | 26.2 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.61 | 26.3 j |
 | 27a_rev_premium | ROUGE | 95 | -0.3728 | -0.17 | -35.41 | -0.601 | 58.9 j |
 | 27b_rev_move | ROUGE | 123 | -0.4565 | -0.31 | -56.15 | -0.96 | 58.5 j |
 | 27c_mom_move | ROUGE | 123 | 0.3165 | 0.22 | 38.93 | 0.665 | 58.5 j |
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -397.43 $
 
-**BTC** 77388 $ — ret 1j +6.02% · 7j +22.78% · 30j +17.10%
-**Moves 24h ≥ 20 %** : ENA +40.7%, ZORA +34.2%, BCH +32.9%, kPEPE +28.2%, kNEIRO +27.3%, USUAL +23.6%, XPL +21.0%, BERA +20.5%, kBONK +20.4%
+**BTC** 77365 $ — ret 1j +5.99% · 7j +22.75% · 30j +17.07%
+**Moves 24h ≥ 20 %** : ENA +39.1%, ZORA +35.1%, BCH +33.5%, kPEPE +29.3%, kNEIRO +27.0%, USUAL +23.8%, kBONK +21.4%, ENS +20.6%, BERA +20.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
