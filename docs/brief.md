@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-21 20:01 (Paris)
+# Brief Station — 2026-08-21 20:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -397.43 $
 
-**BTC** 77434 $ — ret 1j +6.08% · 7j +22.85% · 30j +17.17%
-**Moves 24h ≥ 20 %** : ENA +38.0%, ZORA +30.7%, BCH +29.7%, kNEIRO +27.7%, kPEPE +25.3%, USUAL +22.2%, BERA +20.8%
+**BTC** 77388 $ — ret 1j +6.02% · 7j +22.78% · 30j +17.10%
+**Moves 24h ≥ 20 %** : ENA +40.7%, ZORA +34.2%, BCH +32.9%, kPEPE +28.2%, kNEIRO +27.3%, USUAL +23.6%, XPL +21.0%, BERA +20.5%, kBONK +20.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
