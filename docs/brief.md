@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-21 22:01 (Paris)
+# Brief Station — 2026-08-21 22:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -10,8 +10,8 @@
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.307 | 26.0 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.658 | 16.1 j |
-| 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.42 | 16.0 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.041 | 26.2 j |
+| 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.417 | 16.1 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.041 | 26.3 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -415.91 $
 
-**BTC** 76979 $ — ret 1j +5.46% · 7j +22.13% · 30j +16.48%
-**Moves 24h ≥ 20 %** : BCH +28.2%, ZORA +27.8%, ENA +26.8%, USUAL +23.2%, CRV +22.8%, kPEPE +21.4%
+**BTC** 77341 $ — ret 1j +5.95% · 7j +22.71% · 30j +17.03%
+**Moves 24h ≥ 20 %** : BCH +30.1%, ZORA +27.4%, ENA +25.5%, USUAL +24.7%, kPEPE +21.7%, ZEC +20.2%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
