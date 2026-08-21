@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-21 04:10 (Paris)
+# Brief Station — 2026-08-21 04:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -19,19 +19,19 @@
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.493 | 58.3 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.736 | 25.6 j |
 | 27a_rev_premium | ROUGE | 92 | -0.9616 | -0.42 | -88.47 | -1.52 | 58.2 j |
-| 27b_rev_move | ROUGE | 111 | 0.6744 | 0.44 | 74.85 | 1.295 | 57.8 j |
-| 27c_mom_move | ROUGE | 111 | -0.8144 | -0.53 | -90.39 | -1.564 | 57.8 j |
-| 27d_rev_move_stop | ROUGE | 191 | -1.1542 | -1.22 | -220.46 | -4.223 | 52.2 j |
+| 27b_rev_move | ROUGE | 111 | 0.6744 | 0.44 | 74.85 | 1.293 | 57.9 j |
+| 27c_mom_move | ROUGE | 111 | -0.8144 | -0.53 | -90.39 | -1.561 | 57.9 j |
+| 27d_rev_move_stop | ROUGE | 192 | -1.1799 | -1.26 | -226.53 | -4.34 | 52.2 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.623 | 48.4 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.246 | 47.4 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.234 | 47.4 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.367 | 39.7 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.051 | 25.2 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -289.27 $
+**P&L paper cumule (hors temoin, morts inclus)** : -295.34 $
 
-**BTC** 74910 $ — ret 1j +2.62% · 7j +18.85% · 30j +13.35%
-**Moves 24h ≥ 20 %** : BOME +32.7%, PEOPLE +31.0%, ENA +30.4%, kNEIRO +30.1%, ACE +25.1%, PUMP +20.9%
+**BTC** 74772 $ — ret 1j +2.43% · 7j +18.63% · 30j +13.14%
+**Moves 24h ≥ 20 %** : BOME +34.5%, PEOPLE +31.6%, kNEIRO +30.1%, ENA +28.6%, ACE +26.8%, PUMP +22.3%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
