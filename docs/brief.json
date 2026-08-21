@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-21T10:03:10.197972+00:00",
+ "ts": "2026-08-21T10:15:38.359675+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -13,8 +13,8 @@
    "esperance": -0.5092,
    "t": -3.3,
    "pnl": -87.07,
-   "pnl_j": -1.486,
-   "fwd_j": 58.6
+   "pnl_j": -1.483,
+   "fwd_j": 58.7
   },
   "25_convergence_basis": {
    "statut": "ROUGE",
@@ -31,8 +31,8 @@
    "esperance": -0.2977,
    "t": -0.13,
    "pnl": -27.98,
-   "pnl_j": -0.478,
-   "fwd_j": 58.5
+   "pnl_j": -0.477,
+   "fwd_j": 58.6
   },
   "27b_rev_move": {
    "statut": "ROUGE",
@@ -58,8 +58,8 @@
    "esperance": -1.2995,
    "t": -1.45,
    "pnl": -268.99,
-   "pnl_j": -5.124,
-   "fwd_j": 52.5
+   "pnl_j": -5.114,
+   "fwd_j": 52.6
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -144,42 +144,52 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.066,
-  "ret7": 0.2346,
-  "ret30": 0.1775,
-  "prix": 77814
+  "ret1": 0.0697,
+  "ret7": 0.2389,
+  "ret30": 0.1816,
+  "prix": 78084
  },
  "evenements_extremes": [
   {
-   "coin": "PEOPLE",
-   "move_pct": 49.9
-  },
-  {
    "coin": "ENA",
-   "move_pct": 41.1
+   "move_pct": 40.2
   },
   {
    "coin": "kNEIRO",
-   "move_pct": 38.7
+   "move_pct": 35.2
+  },
+  {
+   "coin": "PEOPLE",
+   "move_pct": 33.8
   },
   {
    "coin": "GALA",
-   "move_pct": 27.2
+   "move_pct": 30.4
   },
   {
    "coin": "XPL",
-   "move_pct": 24.9
-  },
-  {
-   "coin": "XRP",
-   "move_pct": 23.5
+   "move_pct": 27.0
   },
   {
    "coin": "BCH",
-   "move_pct": 20.8
+   "move_pct": 21.4
+  },
+  {
+   "coin": "HEMI",
+   "move_pct": 21.3
+  },
+  {
+   "coin": "XRP",
+   "move_pct": 20.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-21T10:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-21T10:03",
    "bot": "27d_rev_move_stop",
@@ -221,12 +231,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-21T08:45",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-BIO",
-   "pnl": -0.15
   }
  ],
  "calibration_arbitre": {
@@ -240,7 +244,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.0,
+  "age_avis_h": 0.2,
   "problemes": []
  },
  "autofinancement": {
