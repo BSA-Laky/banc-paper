@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-21 18:30 (Paris)
+# Brief Station — 2026-08-21 18:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -19,19 +19,19 @@
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.478 | 58.9 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.628 | 26.2 j |
 | 27a_rev_premium | ROUGE | 95 | -0.3728 | -0.17 | -35.41 | -0.602 | 58.8 j |
-| 27b_rev_move | ROUGE | 123 | -0.4565 | -0.31 | -56.15 | -0.961 | 58.4 j |
-| 27c_mom_move | ROUGE | 123 | 0.3165 | 0.22 | 38.93 | 0.667 | 58.4 j |
-| 27d_rev_move_stop | ROUGE | 217 | -1.6872 | -1.94 | -366.13 | -6.934 | 52.8 j |
+| 27b_rev_move | ROUGE | 123 | -0.4565 | -0.31 | -56.15 | -0.96 | 58.5 j |
+| 27c_mom_move | ROUGE | 123 | 0.3165 | 0.22 | 38.93 | 0.665 | 58.5 j |
+| 27d_rev_move_stop | ROUGE | 218 | -1.7138 | -1.98 | -373.6 | -7.076 | 52.8 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.615 | 49.0 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.242 | 48.0 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.232 | 48.0 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.361 | 40.3 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.049 | 25.8 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -383.56 $
+**P&L paper cumule (hors temoin, morts inclus)** : -391.03 $
 
-**BTC** 77327 $ — ret 1j +5.93% · 7j +22.68% · 30j +17.01%
-**Moves 24h ≥ 20 %** : ENA +50.2%, kNEIRO +32.2%, ZORA +32.1%, BCH +29.4%, PEOPLE +21.5%, STX +21.4%, BERA +21.0%, FARTCOIN +20.9%, ENS +20.4%
+**BTC** 77324 $ — ret 1j +5.93% · 7j +22.68% · 30j +17.01%
+**Moves 24h ≥ 20 %** : ENA +48.2%, BCH +31.0%, ZORA +29.9%, kNEIRO +26.3%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
