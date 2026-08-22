@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-22 18:01 (Paris)
+# Brief Station — 2026-08-22 18:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -9,30 +9,30 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.03 | 26.8 j |
-| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.58 | 16.9 j |
+| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.57 | 17.0 j |
 | 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.397 | 16.9 j |
-| 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.011 | 7.1 j |
+| 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.01 | 7.2 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.04 | 27.1 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.454 | 59.9 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.474 | 27.1 j |
-| 27a_rev_premium | ROUGE | 100 | -0.2809 | -0.13 | -28.09 | -0.47 | 59.8 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.458 | 27.2 j |
+| 27a_rev_premium | ROUGE | 101 | -0.2409 | -0.11 | -24.34 | -0.407 | 59.8 j |
 | 27b_rev_move | ROUGE | 139 | -0.9156 | -0.7 | -127.27 | -2.143 | 59.4 j |
 | 27c_mom_move | ROUGE | 139 | 0.7756 | 0.59 | 107.81 | 1.815 | 59.4 j |
 | 27d_rev_move_stop | ROUGE | 269 | -2.1565 | -2.89 | -580.1 | -10.783 | 53.8 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.603 | 50.0 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.237 | 49.0 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.227 | 49.0 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.354 | 41.2 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.353 | 41.3 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.048 | 26.8 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -592.53 $
+**P&L paper cumule (hors temoin, morts inclus)** : -588.78 $
 
-**BTC** 77034 $ — ret 1j -1.72% · 7j +22.17% · 30j +18.39%
-**Moves 24h ≥ 20 %** : TRUMP +30.3%, POL +22.8%, ZEC +20.6%
+**BTC** 77156 $ — ret 1j -1.57% · 7j +22.36% · 30j +18.58%
+**Moves 24h ≥ 20 %** : TRUMP +36.1%, POL +24.6%, ZEC +20.3%, STX +20.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
