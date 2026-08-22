@@ -1,15 +1,15 @@
 {
- "ts": "2026-08-22T21:01:03.443911+00:00",
+ "ts": "2026-08-22T21:15:39.587727+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 3629,
-   "t_stat": -2.48,
+   "n": 3630,
+   "t_stat": -2.47,
    "derive_attendue": 0.02,
-   "t_corrige": -1.28,
+   "t_corrige": -1.26,
    "sain": true,
-   "lecture": "t brut -2.48 dont -1.20 de spread par construction -> t corrige -1.28 (sain)"
+   "lecture": "t brut -2.47 dont -1.20 de spread par construction -> t corrige -1.26 (sain)"
   }
  },
  "bots": {
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1285.8,
+   "expo_moyenne_usd": 1285.5,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -50,7 +50,7 @@
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 797.9,
+   "expo_moyenne_usd": 797.6,
    "rendement_j_pct": -0.555
   },
   "27a_rev_premium": {
@@ -74,9 +74,9 @@
    "rendement_j_pct": -0.318
   },
   "27b_rev_move": {
-   "n": 146,
-   "esperance": -1.1321,
-   "t_stat": -0.89,
+   "n": 147,
+   "esperance": -0.9991,
+   "t_stat": -0.79,
    "mdd_live": 378.59,
    "jours_forward": 59.6,
    "verdict_banc": "indistinguable du hasard",
@@ -84,19 +84,19 @@
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
-   "pnl_cumule": -165.28,
-   "pnl_par_jour": -2.773,
+   "pnl_cumule": -146.86,
+   "pnl_par_jour": -2.464,
    "trop_beau_audite": null,
-   "esp_glissante_20": -4.3315,
-   "borne_decrochage": -7.9874,
+   "esp_glissante_20": -2.8812,
+   "borne_decrochage": -7.8688,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 244.8,
-   "rendement_j_pct": -1.133
+   "expo_moyenne_usd": 246.5,
+   "rendement_j_pct": -1.0
   },
   "27c_mom_move": {
-   "n": 146,
-   "esperance": 0.9921,
-   "t_stat": 0.78,
+   "n": 147,
+   "esperance": 0.8591,
+   "t_stat": 0.68,
    "mdd_live": 217.22,
    "jours_forward": 59.6,
    "verdict_banc": "indistinguable du hasard",
@@ -104,19 +104,19 @@
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
-   "pnl_cumule": 144.84,
-   "pnl_par_jour": 2.43,
+   "pnl_cumule": 126.28,
+   "pnl_par_jour": 2.119,
    "trop_beau_audite": null,
-   "esp_glissante_20": 4.1915,
-   "borne_decrochage": -5.8632,
+   "esp_glissante_20": 2.7412,
+   "borne_decrochage": -6.0107,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 244.8,
-   "rendement_j_pct": 0.993
+   "expo_moyenne_usd": 246.5,
+   "rendement_j_pct": 0.86
   },
   "27d_rev_move_stop": {
-   "n": 274,
-   "esperance": -2.1821,
-   "t_stat": -2.97,
+   "n": 275,
+   "esperance": -2.1072,
+   "t_stat": -2.87,
    "mdd_live": 759.26,
    "jours_forward": 54.0,
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
@@ -124,14 +124,14 @@
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
-   "pnl_cumule": -597.9,
-   "pnl_par_jour": -11.072,
+   "pnl_cumule": -579.48,
+   "pnl_par_jour": -10.731,
    "trop_beau_audite": null,
-   "esp_glissante_20": 2.0318,
-   "borne_decrochage": -7.6137,
+   "esp_glissante_20": 3.2995,
+   "borne_decrochage": -7.5572,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 507.4,
-   "rendement_j_pct": -2.182
+   "expo_moyenne_usd": 509.2,
+   "rendement_j_pct": -2.108
   },
   "27e_arbitre": {
    "n": 30,
@@ -142,7 +142,9 @@
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
-   "avertissements": [],
+   "avertissements": [
+    "REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
+   ],
    "mu_ref": null,
    "pnl_cumule": -30.14,
    "pnl_par_jour": -0.6,
@@ -154,9 +156,9 @@
    "rendement_j_pct": -1.005,
    "ab": {
     "contre": "27b_rev_move",
-    "delta_esperance": 0.1274,
-    "t_welch": 0.04,
-    "delta_rendement_j_pct": 1.0554,
+    "delta_esperance": -0.0056,
+    "t_welch": -0.0,
+    "delta_rendement_j_pct": 1.0415,
     "t_welch_jour": 0.36,
     "jours_compares": 50
    }
@@ -198,7 +200,7 @@
    "esp_glissante_20": 2.2974,
    "borne_decrochage": -7.3816,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 144.4,
+   "expo_moyenne_usd": 144.3,
    "rendement_j_pct": 0.157
   },
   "27g10_selecteur": {
@@ -206,20 +208,20 @@
    "esperance": 0.3552,
    "t_stat": 0.17,
    "mdd_live": 69.69,
-   "jours_forward": 41.4,
+   "jours_forward": 41.5,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 14.56,
-   "pnl_par_jour": 0.352,
+   "pnl_par_jour": 0.351,
    "trop_beau_audite": null,
    "esp_glissante_20": -0.195,
    "borne_decrochage": -5.745,
    "statut": "ROUGE",
    "expo_moyenne_usd": 98.9,
-   "rendement_j_pct": 0.356
+   "rendement_j_pct": 0.355
   },
   "28_carry_hold": {
    "n": 31,
@@ -256,8 +258,8 @@
    "pnl_par_jour": 8.963,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 500.6,
-   "rendement_j_pct": 1.79
+   "expo_moyenne_usd": 500.4,
+   "rendement_j_pct": 1.791
   },
   "29b_carry_neutre_large": {
    "n": 40,
@@ -280,8 +282,8 @@
    "esp_glissante_20": 0.0115,
    "borne_decrochage": -1.733,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 401.6,
-   "rendement_j_pct": 0.386
+   "expo_moyenne_usd": 401.4,
+   "rendement_j_pct": 0.387
   },
   "29c_carry_decale": {
    "n": 100,
@@ -303,7 +305,7 @@
    "esp_glissante_20": 0.0181,
    "borne_decrochage": -0.4316,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 112.0,
+   "expo_moyenne_usd": 111.9,
    "rendement_j_pct": -0.351
   },
   "32_carry_crossvenue": {
@@ -344,12 +346,14 @@
    "esp_glissante_20": -1.459,
    "borne_decrochage": -1.7645,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 487.4,
+   "expo_moyenne_usd": 487.2,
    "rendement_j_pct": -0.008
   }
  },
  "alertes": [],
- "avertissements": [],
+ "avertissements": [
+  "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
+ ],
  "calibration_arbitre": {
   "tendance": {
    "n": 20,
