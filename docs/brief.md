@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-22 07:15 (Paris)
+# Brief Station — 2026-08-22 07:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -10,18 +10,18 @@
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.166 | 26.4 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.618 | 16.5 j |
-| 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.41 | 16.4 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.041 | 26.6 j |
+| 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.407 | 16.5 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.04 | 26.7 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.466 | 59.4 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.463 | 59.5 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.541 | 26.7 j |
-| 27a_rev_premium | ROUGE | 96 | -0.4891 | -0.22 | -46.95 | -0.792 | 59.3 j |
+| 27a_rev_premium | ROUGE | 96 | -0.4891 | -0.22 | -46.95 | -0.79 | 59.4 j |
 | 27b_rev_move | ROUGE | 128 | -0.6625 | -0.47 | -84.8 | -1.437 | 59.0 j |
 | 27c_mom_move | ROUGE | 128 | 0.5225 | 0.37 | 66.88 | 1.133 | 59.0 j |
-| 27d_rev_move_stop | ROUGE | 258 | -2.5959 | -3.48 | -669.73 | -12.565 | 53.3 j |
+| 27d_rev_move_stop | ROUGE | 258 | -2.5959 | -3.48 | -669.73 | -12.542 | 53.4 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.608 | 49.6 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.24 | 48.5 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.229 | 48.5 j |
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -699.40 $
 
-**BTC** 77537 $ — ret 1j -1.08% · 7j +22.97% · 30j +19.16%
-**Moves 24h ≥ 20 %** : TRUMP +82.2%, MELANIA +68.9%, ZEC +32.7%, ENS +26.3%, TRB +25.2%, CASHCAT -25.2%, GALA +23.7%, STX +23.6%, POL +23.1%, WIF +22.9%
+**BTC** 77174 $ — ret 1j -1.54% · 7j +22.39% · 30j +18.60%
+**Moves 24h ≥ 20 %** : TRUMP +73.0%, MELANIA +58.8%, POL +29.7%, ZEC +29.0%, ENS +25.2%, TRB +23.0%, STX +22.9%, WIF +21.9%, BCH +21.5%, USUAL +21.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
