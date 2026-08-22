@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-22 06:30 (Paris)
+# Brief Station — 2026-08-22 06:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -19,19 +19,19 @@
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.466 | 59.4 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.541 | 26.7 j |
 | 27a_rev_premium | ROUGE | 96 | -0.4891 | -0.22 | -46.95 | -0.792 | 59.3 j |
-| 27b_rev_move | ROUGE | 128 | -0.6625 | -0.47 | -84.8 | -1.44 | 58.9 j |
-| 27c_mom_move | ROUGE | 128 | 0.5225 | 0.37 | 66.88 | 1.135 | 58.9 j |
-| 27d_rev_move_stop | ROUGE | 247 | -2.3997 | -3.09 | -592.73 | -11.121 | 53.3 j |
+| 27b_rev_move | ROUGE | 128 | -0.6625 | -0.47 | -84.8 | -1.437 | 59.0 j |
+| 27c_mom_move | ROUGE | 128 | 0.5225 | 0.37 | 66.88 | 1.133 | 59.0 j |
+| 27d_rev_move_stop | ROUGE | 254 | -2.5139 | -3.32 | -638.53 | -11.98 | 53.3 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.609 | 49.5 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.24 | 48.5 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.229 | 48.5 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.357 | 40.8 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.049 | 26.3 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -622.40 $
+**P&L paper cumule (hors temoin, morts inclus)** : -668.20 $
 
-**BTC** 78587 $ — ret 1j +0.26% · 7j +24.63% · 30j +20.77%
-**Moves 24h ≥ 20 %** : TRUMP +64.9%, MELANIA +59.3%, ZEC +42.4%, kPEPE +37.0%, WIF +35.9%, ENS +34.7%, GALA +32.9%, DASH +32.8%, STX +32.5%, PURR +32.1%
+**BTC** 78678 $ — ret 1j +0.38% · 7j +24.77% · 30j +20.91%
+**Moves 24h ≥ 20 %** : TRUMP +76.2%, MELANIA +69.0%, ZEC +41.0%, kPEPE +38.7%, WIF +37.0%, ENS +36.5%, kBONK +36.0%, DASH +34.4%, STX +32.9%, PURR +32.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
