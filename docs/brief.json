@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-22T23:01:04.581097+00:00",
+ "ts": "2026-08-22T23:15:38.483785+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -54,11 +54,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 276,
-   "esperance": -2.0674,
-   "t": -2.82,
-   "pnl": -570.6,
-   "pnl_j": -10.547,
+   "n": 277,
+   "esperance": -2.0144,
+   "t": -2.75,
+   "pnl": -558.0,
+   "pnl_j": -10.314,
    "fwd_j": 54.1
   },
   "27e_arbitre": {
@@ -153,22 +153,34 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0176,
-  "ret7": 0.2212,
-  "ret30": 0.1835,
-  "prix": 77006
+  "ret1": -0.0173,
+  "ret7": 0.2216,
+  "ret30": 0.1838,
+  "prix": 77027
  },
  "evenements_extremes": [
   {
-   "coin": "PUMP",
-   "move_pct": 24.9
+   "coin": "TRUMP",
+   "move_pct": 25.8
   },
   {
-   "coin": "TRUMP",
-   "move_pct": 23.3
+   "coin": "PUMP",
+   "move_pct": 24.0
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-22T23:15",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-GALA",
+   "pnl": 12.6
+  },
+  {
+   "ts": "2026-08-22T23:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-22T23:01",
    "bot": "27a_rev_premium",
@@ -204,18 +216,6 @@
    "bot": "27c_mom_move",
    "marche": "mom_move-KSHIB",
    "pnl": -9.03
-  },
-  {
-   "ts": "2026-08-22T22:45",
-   "bot": "27b_rev_move",
-   "marche": "rev_move-KSHIB",
-   "pnl": 8.89
-  },
-  {
-   "ts": "2026-08-22T22:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +229,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.2,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {
