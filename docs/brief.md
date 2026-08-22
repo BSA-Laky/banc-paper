@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-22 09:30 (Paris)
+# Brief Station — 2026-08-22 09:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -16,22 +16,22 @@
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.463 | 59.5 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.461 | 59.6 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.524 | 26.8 j |
-| 27a_rev_premium | ROUGE | 96 | -0.4891 | -0.22 | -46.95 | -0.79 | 59.4 j |
+| 27a_rev_premium | ROUGE | 96 | -0.4891 | -0.22 | -46.95 | -0.789 | 59.5 j |
 | 27b_rev_move | ROUGE | 129 | -0.7392 | -0.53 | -95.35 | -1.613 | 59.1 j |
 | 27c_mom_move | ROUGE | 129 | 0.5992 | 0.43 | 77.29 | 1.308 | 59.1 j |
-| 27d_rev_move_stop | ROUGE | 261 | -2.5094 | -3.38 | -654.95 | -12.265 | 53.4 j |
+| 27d_rev_move_stop | ROUGE | 262 | -2.5234 | -3.41 | -661.14 | -12.381 | 53.4 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.606 | 49.7 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.239 | 48.6 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.229 | 48.6 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.356 | 40.9 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.048 | 26.5 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -684.76 $
+**P&L paper cumule (hors temoin, morts inclus)** : -690.95 $
 
-**BTC** 77536 $ — ret 1j -1.08% · 7j +22.96% · 30j +19.16%
-**Moves 24h ≥ 20 %** : TRUMP +74.2%, MELANIA +42.7%, MOVE +34.4%, ZEC +31.6%, POL +27.2%, ENS +24.9%, TRB +24.5%, kPEPE +24.4%, XRP +23.4%, STX +23.1%
+**BTC** 77463 $ — ret 1j -1.17% · 7j +22.85% · 30j +19.05%
+**Moves 24h ≥ 20 %** : TRUMP +65.5%, MOVE +35.9%, MELANIA +35.4%, POL +29.6%, ZEC +26.5%, TRB +23.7%, ENS +21.8%, PURR +21.6%, STX +21.5%, XRP +20.8%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
