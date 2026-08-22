@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-22 03:30 (Paris)
+# Brief Station — 2026-08-22 03:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -9,7 +9,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.236 | 26.2 j |
-| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.638 | 16.3 j |
+| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.628 | 16.4 j |
 | 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.412 | 16.3 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.041 | 26.5 j |
 
@@ -17,7 +17,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.468 | 59.3 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.575 | 26.5 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.558 | 26.6 j |
 | 27a_rev_premium | ROUGE | 96 | -0.4891 | -0.22 | -46.95 | -0.793 | 59.2 j |
 | 27b_rev_move | ROUGE | 125 | -0.6398 | -0.44 | -79.97 | -1.36 | 58.8 j |
 | 27c_mom_move | ROUGE | 125 | 0.4998 | 0.35 | 62.47 | 1.062 | 58.8 j |
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -482.52 $
 
-**BTC** 78053 $ — ret 1j -0.42% · 7j +23.78% · 30j +19.95%
-**Moves 24h ≥ 20 %** : ENS +37.3%, STX +32.4%, BCH +31.8%, ZEC +30.9%, GALA +29.3%, ETC +28.4%, kPEPE +28.1%, WIF +27.5%, kFLOKI +27.1%, AAVE +24.9%
+**BTC** 77974 $ — ret 1j -0.52% · 7j +23.66% · 30j +19.83%
+**Moves 24h ≥ 20 %** : ENS +36.3%, STX +34.1%, ZEC +32.1%, BCH +30.0%, GALA +29.5%, WIF +28.0%, ETC +27.9%, kPEPE +27.5%, ZORA +26.6%, AAVE +25.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
