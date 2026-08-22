@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-22 13:30 (Paris)
+# Brief Station — 2026-08-22 13:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -30,8 +30,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -656.13 $
 
-**BTC** 76994 $ — ret 1j -1.77% · 7j +22.10% · 30j +18.33%
-**Moves 24h ≥ 20 %** : TRUMP +45.8%, MELANIA +27.8%, MOVE +26.6%, ACE +25.3%, ZEC +21.6%, POL +20.9%
+**BTC** 77230 $ — ret 1j -1.47% · 7j +22.48% · 30j +18.69%
+**Moves 24h ≥ 20 %** : TRUMP +52.3%, MELANIA +29.8%, MOVE +28.8%, ZEC +24.2%, POL +22.4%, CASHCAT -22.3%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 

@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-22T11:30:54.130264+00:00",
+ "ts": "2026-08-22T11:45:36.758213+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -144,38 +144,44 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0177,
-  "ret7": 0.221,
-  "ret30": 0.1833,
-  "prix": 76994
+  "ret1": -0.0147,
+  "ret7": 0.2248,
+  "ret30": 0.1869,
+  "prix": 77230
  },
  "evenements_extremes": [
   {
    "coin": "TRUMP",
-   "move_pct": 45.8
+   "move_pct": 52.3
   },
   {
    "coin": "MELANIA",
-   "move_pct": 27.8
+   "move_pct": 29.8
   },
   {
    "coin": "MOVE",
-   "move_pct": 26.6
-  },
-  {
-   "coin": "ACE",
-   "move_pct": 25.3
+   "move_pct": 28.8
   },
   {
    "coin": "ZEC",
-   "move_pct": 21.6
+   "move_pct": 24.2
   },
   {
    "coin": "POL",
-   "move_pct": 20.9
+   "move_pct": 22.4
+  },
+  {
+   "coin": "CASHCAT",
+   "move_pct": -22.3
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-22T11:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-22T11:30",
    "bot": "27c_mom_move",
@@ -217,12 +223,6 @@
    "bot": "27b_rev_move",
    "marche": "rev_move-BERA",
    "pnl": -2.03
-  },
-  {
-   "ts": "2026-08-22T11:15",
-   "bot": "27c_mom_move",
-   "marche": "mom_move-STX",
-   "pnl": 19.04
   }
  ],
  "calibration_arbitre": {
@@ -236,7 +236,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {
