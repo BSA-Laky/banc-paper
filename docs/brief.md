@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-22 02:15 (Paris)
+# Brief Station — 2026-08-22 02:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -21,17 +21,17 @@
 | 27a_rev_premium | ROUGE | 96 | -0.4891 | -0.22 | -46.95 | -0.794 | 59.1 j |
 | 27b_rev_move | ROUGE | 125 | -0.6398 | -0.44 | -79.97 | -1.36 | 58.8 j |
 | 27c_mom_move | ROUGE | 125 | 0.4998 | 0.35 | 62.47 | 1.062 | 58.8 j |
-| 27d_rev_move_stop | ROUGE | 225 | -1.8787 | -2.23 | -422.7 | -7.96 | 53.1 j |
+| 27d_rev_move_stop | ROUGE | 227 | -1.9324 | -2.31 | -438.66 | -8.261 | 53.1 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.61 | 49.4 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.241 | 48.3 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.23 | 48.3 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.359 | 40.6 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.049 | 26.2 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -451.95 $
+**P&L paper cumule (hors temoin, morts inclus)** : -467.91 $
 
-**BTC** 78000 $ — ret 1j -0.49% · 7j +23.70% · 30j +19.87%
-**Moves 24h ≥ 20 %** : GALA +35.1%, ENS +30.1%, ZEC +30.0%, STX +29.2%, BCH +28.9%, kPEPE +27.1%, ZORA +25.5%, PENGU +25.0%, AAVE +24.7%, kFLOKI +24.1%
+**BTC** 78010 $ — ret 1j -0.48% · 7j +23.72% · 30j +19.89%
+**Moves 24h ≥ 20 %** : ENS +39.6%, GALA +33.9%, STX +31.2%, BCH +30.5%, ZEC +29.2%, kPEPE +27.9%, kFLOKI +25.7%, PENGU +25.4%, AAVE +24.9%, ZORA +24.9%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
