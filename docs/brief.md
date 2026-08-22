@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-22 14:15 (Paris)
+# Brief Station — 2026-08-22 14:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -11,6 +11,7 @@
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.063 | 26.7 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.589 | 16.8 j |
 | 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.402 | 16.7 j |
+| 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.011 | 7.0 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.04 | 26.9 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
@@ -18,20 +19,20 @@
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.458 | 59.7 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.491 | 27.0 j |
-| 27a_rev_premium | ROUGE | 99 | -0.2245 | -0.1 | -22.23 | -0.373 | 59.6 j |
-| 27b_rev_move | ROUGE | 137 | -0.8655 | -0.65 | -118.58 | -2.0 | 59.3 j |
-| 27c_mom_move | ROUGE | 137 | 0.7255 | 0.54 | 99.4 | 1.676 | 59.3 j |
-| 27d_rev_move_stop | ROUGE | 266 | -2.299 | -3.1 | -611.53 | -11.409 | 53.6 j |
+| 27a_rev_premium | ROUGE | 100 | -0.2809 | -0.13 | -28.09 | -0.471 | 59.6 j |
+| 27b_rev_move | ROUGE | 138 | -0.9017 | -0.68 | -124.44 | -2.098 | 59.3 j |
+| 27c_mom_move | ROUGE | 138 | 0.7617 | 0.57 | 105.12 | 1.773 | 59.3 j |
+| 27d_rev_move_stop | ROUGE | 267 | -2.1674 | -2.89 | -578.71 | -10.797 | 53.6 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.604 | 49.9 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.238 | 48.8 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.228 | 48.8 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.354 | 41.1 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.048 | 26.7 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -617.74 $
+**P&L paper cumule (hors temoin, morts inclus)** : -591.00 $
 
-**BTC** 77287 $ — ret 1j -1.40% · 7j +22.57% · 30j +18.78%
-**Moves 24h ≥ 20 %** : TRUMP +49.6%, HEMI -31.3%, MELANIA +30.8%, ZEC +26.2%, STX +22.4%
+**BTC** 77347 $ — ret 1j -1.32% · 7j +22.66% · 30j +18.87%
+**Moves 24h ≥ 20 %** : TRUMP +43.0%, HEMI -30.7%, MELANIA +26.8%, ZEC +26.8%, STX +22.4%, POL +22.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
