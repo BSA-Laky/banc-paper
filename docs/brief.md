@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-22 19:30 (Paris)
+# Brief Station — 2026-08-22 19:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -10,9 +10,9 @@
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 8.996 | 26.9 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.57 | 17.0 j |
-| 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.397 | 16.9 j |
+| 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.395 | 17.0 j |
 | 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.01 | 7.2 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.04 | 27.1 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.04 | 27.2 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -584.23 $
 
-**BTC** 77194 $ — ret 1j -1.52% · 7j +22.42% · 30j +18.63%
-**Moves 24h ≥ 20 %** : TRUMP +38.9%, POL +24.3%, MELANIA +22.9%, ZEC +22.9%, STX +22.6%
+**BTC** 77273 $ — ret 1j -1.42% · 7j +22.55% · 30j +18.76%
+**Moves 24h ≥ 20 %** : TRUMP +40.3%, POL +23.4%, ZEC +23.1%, MELANIA +22.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
