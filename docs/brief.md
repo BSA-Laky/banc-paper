@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-22 19:45 (Paris)
+# Brief Station — 2026-08-22 20:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -22,17 +22,17 @@
 | 27a_rev_premium | ROUGE | 101 | -0.2409 | -0.11 | -24.34 | -0.406 | 59.9 j |
 | 27b_rev_move | ROUGE | 143 | -0.8925 | -0.7 | -127.63 | -2.145 | 59.5 j |
 | 27c_mom_move | ROUGE | 143 | 0.7525 | 0.59 | 107.61 | 1.809 | 59.5 j |
-| 27d_rev_move_stop | ROUGE | 270 | -2.1296 | -2.86 | -574.99 | -10.668 | 53.9 j |
+| 27d_rev_move_stop | ROUGE | 271 | -2.1501 | -2.9 | -582.67 | -10.81 | 53.9 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.602 | 50.1 j |
-| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.237 | 49.0 j |
-| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.227 | 49.0 j |
+| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.237 | 49.1 j |
+| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.226 | 49.1 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.353 | 41.3 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.047 | 26.9 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -584.23 $
+**P&L paper cumule (hors temoin, morts inclus)** : -591.91 $
 
-**BTC** 77273 $ — ret 1j -1.42% · 7j +22.55% · 30j +18.76%
-**Moves 24h ≥ 20 %** : TRUMP +40.3%, POL +23.4%, ZEC +23.1%, MELANIA +22.4%
+**BTC** 77330 $ — ret 1j -1.34% · 7j +22.64% · 30j +18.84%
+**Moves 24h ≥ 20 %** : TRUMP +39.0%, STX +27.6%, POL +23.4%, ZEC +23.4%, MELANIA +20.9%, DASH +20.3%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
