@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-22T00:01:05.463443+00:00",
+ "ts": "2026-08-22T00:15:38.277207+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.049,
-   "fwd_j": 26.1
+   "fwd_j": 26.2
   },
   "29_carry_neutre": {
    "statut": "GRIS",
@@ -112,8 +112,8 @@
    "esperance": 13.4441,
    "t": 1.27,
    "pnl": 241.99,
-   "pnl_j": 9.272,
-   "fwd_j": 26.1
+   "pnl_j": 9.236,
+   "fwd_j": 26.2
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -144,35 +144,35 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0005,
-  "ret7": 0.2425,
-  "ret30": 0.204,
-  "prix": 78344
+  "ret1": -0.0049,
+  "ret7": 0.237,
+  "ret30": 0.1987,
+  "prix": 78000
  },
  "evenements_extremes": [
   {
    "coin": "GALA",
-   "move_pct": 36.3
+   "move_pct": 35.1
   },
   {
    "coin": "ENS",
-   "move_pct": 31.3
+   "move_pct": 30.1
   },
   {
    "coin": "ZEC",
-   "move_pct": 29.4
+   "move_pct": 30.0
   },
   {
    "coin": "STX",
-   "move_pct": 29.3
-  },
-  {
-   "coin": "kPEPE",
-   "move_pct": 28.9
+   "move_pct": 29.2
   },
   {
    "coin": "BCH",
-   "move_pct": 28.7
+   "move_pct": 28.9
+  },
+  {
+   "coin": "kPEPE",
+   "move_pct": 27.1
   },
   {
    "coin": "ZORA",
@@ -180,18 +180,24 @@
   },
   {
    "coin": "PENGU",
-   "move_pct": 24.8
-  },
-  {
-   "coin": "kFLOKI",
-   "move_pct": 24.4
+   "move_pct": 25.0
   },
   {
    "coin": "AAVE",
-   "move_pct": 23.6
+   "move_pct": 24.7
+  },
+  {
+   "coin": "kFLOKI",
+   "move_pct": 24.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-22T00:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-22T00:01",
    "bot": "10_controle_aleatoire",
@@ -233,12 +239,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-21T22:45",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-WIF",
-   "pnl": -6.94
   }
  ],
  "calibration_arbitre": {
@@ -252,7 +252,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.2,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {
