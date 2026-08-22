@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-22 20:15 (Paris)
+# Brief Station — 2026-08-22 20:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -18,7 +18,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.451 | 60.0 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.458 | 27.2 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.441 | 27.3 j |
 | 27a_rev_premium | ROUGE | 101 | -0.2409 | -0.11 | -24.34 | -0.406 | 59.9 j |
 | 27b_rev_move | ROUGE | 144 | -0.9198 | -0.72 | -132.45 | -2.226 | 59.5 j |
 | 27c_mom_move | ROUGE | 144 | 0.7798 | 0.61 | 112.29 | 1.887 | 59.5 j |
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -592.05 $
 
-**BTC** 77317 $ — ret 1j -1.36% · 7j +22.62% · 30j +18.82%
-**Moves 24h ≥ 20 %** : TRUMP +40.7%, STX +26.8%, ZEC +24.4%, POL +22.4%, MELANIA +21.5%
+**BTC** 77344 $ — ret 1j -1.33% · 7j +22.66% · 30j +18.86%
+**Moves 24h ≥ 20 %** : TRUMP +40.6%, STX +24.8%, ZEC +24.6%, MELANIA +22.5%, POL +21.7%, DASH +21.4%, PUMP +20.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
