@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-22 06:45 (Paris)
+# Brief Station — 2026-08-22 07:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -8,7 +8,7 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.201 | 26.3 j |
+| 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 9.166 | 26.4 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.618 | 16.5 j |
 | 29c_carry_decale | ORANGE | 100 | -0.0672 | -0.82 | -6.72 | -0.41 | 16.4 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.041 | 26.6 j |
@@ -21,17 +21,17 @@
 | 27a_rev_premium | ROUGE | 96 | -0.4891 | -0.22 | -46.95 | -0.792 | 59.3 j |
 | 27b_rev_move | ROUGE | 128 | -0.6625 | -0.47 | -84.8 | -1.437 | 59.0 j |
 | 27c_mom_move | ROUGE | 128 | 0.5225 | 0.37 | 66.88 | 1.133 | 59.0 j |
-| 27d_rev_move_stop | ROUGE | 254 | -2.5139 | -3.32 | -638.53 | -11.98 | 53.3 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.609 | 49.5 j |
+| 27d_rev_move_stop | ROUGE | 258 | -2.5959 | -3.48 | -669.73 | -12.565 | 53.3 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.608 | 49.6 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.24 | 48.5 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.229 | 48.5 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.357 | 40.8 j |
-| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.049 | 26.3 j |
+| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.048 | 26.4 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -668.20 $
+**P&L paper cumule (hors temoin, morts inclus)** : -699.40 $
 
-**BTC** 78678 $ — ret 1j +0.38% · 7j +24.77% · 30j +20.91%
-**Moves 24h ≥ 20 %** : TRUMP +76.2%, MELANIA +69.0%, ZEC +41.0%, kPEPE +38.7%, WIF +37.0%, ENS +36.5%, kBONK +36.0%, DASH +34.4%, STX +32.9%, PURR +32.4%
+**BTC** 78566 $ — ret 1j +0.23% · 7j +24.60% · 30j +20.74%
+**Moves 24h ≥ 20 %** : TRUMP +95.2%, MELANIA +76.6%, ZEC +39.3%, WIF +37.0%, kBONK +36.5%, ENS +35.1%, kPEPE +32.9%, POL +32.8%, GALA +32.3%, PURR +32.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
