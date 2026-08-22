@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-22T13:01:04.623546+00:00",
+ "ts": "2026-08-22T13:12:01.766857+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -77,7 +77,7 @@
    "t": -0.09,
    "pnl": -11.64,
    "pnl_j": -0.238,
-   "fwd_j": 48.8
+   "fwd_j": 48.9
   },
   "27f_selecteur": {
    "statut": "ROUGE",
@@ -85,8 +85,8 @@
    "esperance": 0.1566,
    "t": 0.08,
    "pnl": 11.12,
-   "pnl_j": 0.228,
-   "fwd_j": 48.8
+   "pnl_j": 0.227,
+   "fwd_j": 48.9
   },
   "27g10_selecteur": {
    "statut": "ROUGE",
@@ -153,38 +153,40 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0131,
-  "ret7": 0.2268,
-  "ret30": 0.1889,
-  "prix": 77358
+  "ret1": -0.014,
+  "ret7": 0.2257,
+  "ret30": 0.1877,
+  "prix": 77285
  },
  "evenements_extremes": [
   {
    "coin": "TRUMP",
-   "move_pct": 31.2
-  },
-  {
-   "coin": "ZEC",
-   "move_pct": 23.4
-  },
-  {
-   "coin": "STX",
-   "move_pct": 21.9
-  },
-  {
-   "coin": "MELANIA",
-   "move_pct": 20.8
+   "move_pct": 34.9
   },
   {
    "coin": "HEMI",
-   "move_pct": -20.4
+   "move_pct": -23.1
+  },
+  {
+   "coin": "STX",
+   "move_pct": 22.4
+  },
+  {
+   "coin": "ZEC",
+   "move_pct": 21.7
   },
   {
    "coin": "POL",
-   "move_pct": 20.2
+   "move_pct": 20.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-22T13:11",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-22T13:01",
    "bot": "10_controle_aleatoire",
@@ -226,12 +228,6 @@
    "bot": "27c_mom_move",
    "marche": "mom_move-ZORA",
    "pnl": 5.72
-  },
-  {
-   "ts": "2026-08-22T12:30",
-   "bot": "27b_rev_move",
-   "marche": "rev_move-ZORA",
-   "pnl": -5.86
   }
  ],
  "calibration_arbitre": {
@@ -245,7 +241,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.2,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {
