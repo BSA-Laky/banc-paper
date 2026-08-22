@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-22T16:15:38.408809+00:00",
+ "ts": "2026-08-22T16:30:53.385068+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -153,30 +153,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0157,
-  "ret7": 0.2236,
-  "ret30": 0.1858,
-  "prix": 77156
+  "ret1": -0.0145,
+  "ret7": 0.2251,
+  "ret30": 0.1872,
+  "prix": 77248
  },
  "evenements_extremes": [
   {
    "coin": "TRUMP",
-   "move_pct": 36.1
+   "move_pct": 37.5
   },
   {
    "coin": "POL",
-   "move_pct": 24.6
+   "move_pct": 26.0
   },
   {
-   "coin": "ZEC",
+   "coin": "MELANIA",
    "move_pct": 20.3
-  },
-  {
-   "coin": "STX",
-   "move_pct": 20.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-22T16:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-22T16:15",
    "bot": "27a_rev_premium",
@@ -218,12 +220,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-22T15:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -237,9 +233,8 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.4,
-  "problemes": [],
-  "mode": "attente_recharge_api"
+  "age_avis_h": 0.0,
+  "problemes": []
  },
  "autofinancement": {
   "cout_api_usd_dernier_releve": 18.73,
@@ -247,110 +242,5 @@
   "revenus_reels_eur": 0,
   "cible_remboursement_eur": 35.0,
   "reste_eur": 35.0
- },
- "avertissement_donnees": {
-  "coupure_comptable": "2026-07-26",
-  "bots_concernes": [
-   "28_carry_hold",
-   "23_carry_funding",
-   "25_convergence_basis"
-  ],
-  "regle": "Toute statistique de ces bots ANTERIEURE a la coupure est INVALIDE : elle mesurait abs(funding) sans terme de prix. Ne JAMAIS la citer, meme si elle figure dans ta memoire longue.",
-  "n_officiels_post_coupure": {
-   "24_funding_multivenues": {
-    "n": 171,
-    "t": -3.3,
-    "esperance": -0.5092
-   },
-   "25_convergence_basis": {
-    "n": 546,
-    "t": -3.4,
-    "esperance": -0.2221
-   },
-   "27a_rev_premium": {
-    "n": 101,
-    "t": -0.11,
-    "esperance": -0.2409
-   },
-   "27b_rev_move": {
-    "n": 139,
-    "t": -0.7,
-    "esperance": -0.9156
-   },
-   "27c_mom_move": {
-    "n": 139,
-    "t": 0.59,
-    "esperance": 0.7756
-   },
-   "27d_rev_move_stop": {
-    "n": 269,
-    "t": -2.89,
-    "esperance": -2.1565
-   },
-   "27e_arbitre": {
-    "n": 30,
-    "t": -0.4,
-    "esperance": -1.0046
-   },
-   "27f10_selecteur": {
-    "n": 175,
-    "t": -0.09,
-    "esperance": -0.0665
-   },
-   "27f_selecteur": {
-    "n": 71,
-    "t": 0.08,
-    "esperance": 0.1566
-   },
-   "27g10_selecteur": {
-    "n": 41,
-    "t": 0.17,
-    "esperance": 0.3552
-   },
-   "28_carry_hold": {
-    "n": 31,
-    "t": -0.01,
-    "esperance": -0.0412
-   },
-   "29_carry_neutre": {
-    "n": 18,
-    "t": 1.27,
-    "esperance": 13.4441
-   },
-   "29b_carry_neutre_large": {
-    "n": 40,
-    "t": 0.79,
-    "esperance": 0.6674
-   },
-   "29c_carry_decale": {
-    "n": 100,
-    "t": -0.82,
-    "esperance": -0.0672
-   },
-   "32_carry_crossvenue": {
-    "n": 2,
-    "t": -0.01,
-    "esperance": -0.0376
-   },
-   "rd_h2": {
-    "n": 133,
-    "t": -0.02,
-    "esperance": -0.0081
-   }
-  },
-  "exemple_de_donnee_perimee": "28_carry_hold n=83 t=3,73 E=4,01 -- ce sont exactement les 83 trades ECARTES le 26/07. Si tu lis cela quelque part, c'est perime.",
-  "verdicts_decomposition": {
-   "25_convergence_basis": "EN COURS",
-   "28_carry_hold": "EN COURS",
-   "29_carry_neutre": "EN COURS",
-   "29b_carry_neutre_large": "EN COURS",
-   "32_carry_crossvenue": "EN COURS"
-  }
- },
- "mode_station": {
-  "mode": "attente_recharge_api",
-  "message": "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne.",
-  "banc_deterministe": "actif",
-  "maj": "2026-08-22T16:29:28.980954+00:00"
  }
 }
