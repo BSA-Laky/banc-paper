@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-23T13:45:38.568753+00:00",
+ "ts": "2026-08-23T14:01:04.401621+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -54,11 +54,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 317,
-   "esperance": -0.5575,
-   "t": -0.8,
-   "pnl": -176.73,
-   "pnl_j": -3.231,
+   "n": 318,
+   "esperance": -0.559,
+   "t": -0.81,
+   "pnl": -177.77,
+   "pnl_j": -3.25,
    "fwd_j": 54.7
   },
   "27e_arbitre": {
@@ -94,8 +94,8 @@
    "esperance": 0.3552,
    "t": 0.17,
    "pnl": 14.56,
-   "pnl_j": 0.346,
-   "fwd_j": 42.1
+   "pnl_j": 0.345,
+   "fwd_j": 42.2
   },
   "28_carry_hold": {
    "statut": "ROUGE",
@@ -153,26 +153,34 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0045,
-  "ret7": 0.2324,
-  "ret30": 0.2083,
-  "prix": 77483
+  "ret1": 0.0059,
+  "ret7": 0.234,
+  "ret30": 0.21,
+  "prix": 77586
  },
  "evenements_extremes": [
   {
    "coin": "PURR",
-   "move_pct": 24.7
+   "move_pct": 23.7
   },
   {
    "coin": "ZRO",
-   "move_pct": 23.3
-  },
-  {
-   "coin": "STX",
-   "move_pct": 21.4
+   "move_pct": 22.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-23T14:01",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-HEMI",
+   "pnl": -1.04
+  },
+  {
+   "ts": "2026-08-23T14:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-23T13:45",
    "bot": "10_controle_aleatoire",
@@ -208,18 +216,6 @@
    "bot": "27d_rev_move_stop",
    "marche": "rev_move_stop-STX",
    "pnl": -6.28
-  },
-  {
-   "ts": "2026-08-23T12:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-23T12:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -233,7 +229,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.2,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {
