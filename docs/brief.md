@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-23 07:30 (Paris)
+# Brief Station — 2026-08-23 07:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -10,9 +10,9 @@
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 8.832 | 27.4 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.525 | 17.5 j |
-| 29c_carry_decale | ORANGE | 120 | -0.0534 | -0.78 | -6.4 | -0.368 | 17.4 j |
+| 29c_carry_decale | ORANGE | 120 | -0.0534 | -0.78 | -6.4 | -0.366 | 17.5 j |
 | 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.01 | 7.7 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.039 | 27.6 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.039 | 27.7 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -22,17 +22,17 @@
 | 27a_rev_premium | ROUGE | 112 | 0.4858 | 0.25 | 54.41 | 0.901 | 60.4 j |
 | 27b_rev_move | ROUGE | 172 | 0.088 | 0.08 | 15.14 | 0.252 | 60.0 j |
 | 27c_mom_move | ROUGE | 172 | -0.228 | -0.2 | -39.22 | -0.654 | 60.0 j |
-| 27d_rev_move_stop | ROUGE | 308 | -0.7294 | -1.03 | -224.65 | -4.13 | 54.4 j |
+| 27d_rev_move_stop | ROUGE | 309 | -0.7469 | -1.06 | -230.78 | -4.242 | 54.4 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.596 | 50.6 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.235 | 49.5 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.225 | 49.5 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.348 | 41.8 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.047 | 27.4 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -158.88 $
+**P&L paper cumule (hors temoin, morts inclus)** : -165.01 $
 
-**BTC** 76293 $ — ret 1j -1.09% · 7j +21.34% · 30j +18.98%
-**Moves 24h ≥ 20 %** : MELANIA -22.3%
+**BTC** 76207 $ — ret 1j -1.20% · 7j +21.21% · 30j +18.85%
+**Moves 24h ≥ 20 %** : MELANIA -20.4%, TRUMP -20.3%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
