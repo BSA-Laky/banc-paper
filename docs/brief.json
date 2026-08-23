@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-23T04:45:38.444793+00:00",
+ "ts": "2026-08-23T05:01:05.381695+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -67,8 +67,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.597,
-   "fwd_j": 50.5
+   "pnl_j": -0.596,
+   "fwd_j": 50.6
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.047,
-   "fwd_j": 27.3
+   "fwd_j": 27.4
   },
   "29_carry_neutre": {
    "statut": "GRIS",
@@ -112,8 +112,8 @@
    "esperance": 13.4441,
    "t": 1.27,
    "pnl": 241.99,
-   "pnl_j": 8.864,
-   "fwd_j": 27.3
+   "pnl_j": 8.832,
+   "fwd_j": 27.4
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -153,26 +153,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0036,
-  "ret7": 0.2224,
-  "ret30": 0.1985,
-  "prix": 76854
+  "ret1": -0.0051,
+  "ret7": 0.2206,
+  "ret30": 0.1968,
+  "prix": 76741
  },
  "evenements_extremes": [
   {
    "coin": "MELANIA",
-   "move_pct": -27.4
+   "move_pct": -29.8
   },
   {
    "coin": "TRUMP",
-   "move_pct": -23.5
+   "move_pct": -29.2
   },
   {
    "coin": "PURR",
-   "move_pct": -22.9
+   "move_pct": -23.0
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-23T05:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-23T04:45",
    "bot": "27a_rev_premium",
@@ -214,12 +220,6 @@
    "bot": "27d_rev_move_stop",
    "marche": "rev_move_stop-KBONK",
    "pnl": 13.69
-  },
-  {
-   "ts": "2026-08-23T04:45",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-APT",
-   "pnl": 13.37
   }
  ],
  "calibration_arbitre": {
@@ -233,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.6,
+  "age_avis_h": 0.9,
   "problemes": []
  },
  "autofinancement": {
