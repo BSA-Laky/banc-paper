@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-23 02:30 (Paris)
+# Brief Station — 2026-08-23 02:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -17,22 +17,22 @@
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.446 | 60.2 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.444 | 60.3 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.409 | 27.5 j |
-| 27a_rev_premium | ROUGE | 104 | -0.2674 | -0.13 | -27.81 | -0.463 | 60.1 j |
-| 27b_rev_move | ROUGE | 152 | -0.8353 | -0.68 | -126.97 | -2.123 | 59.8 j |
-| 27c_mom_move | ROUGE | 152 | 0.6953 | 0.57 | 105.69 | 1.767 | 59.8 j |
-| 27d_rev_move_stop | ROUGE | 278 | -1.9761 | -2.7 | -549.36 | -10.155 | 54.1 j |
+| 27a_rev_premium | ROUGE | 104 | -0.2674 | -0.13 | -27.81 | -0.462 | 60.2 j |
+| 27b_rev_move | ROUGE | 153 | -0.7378 | -0.6 | -112.89 | -1.888 | 59.8 j |
+| 27c_mom_move | ROUGE | 153 | 0.5978 | 0.49 | 91.47 | 1.53 | 59.8 j |
+| 27d_rev_move_stop | ROUGE | 278 | -1.9761 | -2.7 | -549.36 | -10.136 | 54.2 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.598 | 50.4 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.236 | 49.3 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.225 | 49.3 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.35 | 41.6 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.047 | 27.2 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -563.01 $
+**P&L paper cumule (hors temoin, morts inclus)** : -563.15 $
 
-**BTC** 77292 $ — ret 1j +0.21% · 7j +22.93% · 30j +20.54%
-**Moves 24h ≥ 20 %** : TRUMP +27.3%, PUMP +22.4%
+**BTC** 77347 $ — ret 1j +0.28% · 7j +23.02% · 30j +20.62%
+**Moves 24h ≥ 20 %** : TRUMP +25.9%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
