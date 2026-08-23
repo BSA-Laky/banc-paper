@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-23T14:01:04.401621+00:00",
+ "ts": "2026-08-23T14:15:43.345785+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -41,7 +41,7 @@
    "t": 0.05,
    "pnl": 9.46,
    "pnl_j": 0.157,
-   "fwd_j": 60.3
+   "fwd_j": 60.4
   },
   "27c_mom_move": {
    "statut": "ROUGE",
@@ -49,8 +49,8 @@
    "esperance": -0.1929,
    "t": -0.18,
    "pnl": -34.52,
-   "pnl_j": -0.573,
-   "fwd_j": 60.3
+   "pnl_j": -0.572,
+   "fwd_j": 60.4
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
@@ -153,22 +153,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0059,
-  "ret7": 0.234,
-  "ret30": 0.21,
-  "prix": 77586
+  "ret1": 0.0064,
+  "ret7": 0.2347,
+  "ret30": 0.2106,
+  "prix": 77629
  },
  "evenements_extremes": [
   {
    "coin": "PURR",
-   "move_pct": 23.7
+   "move_pct": 28.7
   },
   {
    "coin": "ZRO",
-   "move_pct": 22.2
+   "move_pct": 26.8
+  },
+  {
+   "coin": "STX",
+   "move_pct": 21.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-23T14:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-23T14:01",
    "bot": "27d_rev_move_stop",
@@ -210,12 +220,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-23T12:30",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-STX",
-   "pnl": -6.28
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.4,
+  "age_avis_h": 0.7,
   "problemes": []
  },
  "autofinancement": {
