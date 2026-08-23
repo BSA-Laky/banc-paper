@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-23T00:45:39.167126+00:00",
+ "ts": "2026-08-23T01:01:01.797608+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -54,11 +54,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 278,
-   "esperance": -1.9761,
-   "t": -2.7,
-   "pnl": -549.36,
-   "pnl_j": -10.136,
+   "n": 279,
+   "esperance": -1.9338,
+   "t": -2.65,
+   "pnl": -539.53,
+   "pnl_j": -9.954,
    "fwd_j": 54.2
   },
   "27e_arbitre": {
@@ -130,8 +130,8 @@
    "esperance": -0.0534,
    "t": -0.78,
    "pnl": -6.4,
-   "pnl_j": -0.372,
-   "fwd_j": 17.2
+   "pnl_j": -0.37,
+   "fwd_j": 17.3
   },
   "32_carry_crossvenue": {
    "statut": "GRIS",
@@ -149,22 +149,34 @@
    "t": -0.02,
    "pnl": -1.08,
    "pnl_j": -0.039,
-   "fwd_j": 27.4
+   "fwd_j": 27.5
   }
  },
  "tendances_btc": {
-  "ret1": 0.0028,
-  "ret7": 0.2302,
-  "ret30": 0.2062,
-  "prix": 77347
+  "ret1": 0.0024,
+  "ret7": 0.2298,
+  "ret30": 0.2058,
+  "prix": 77320
  },
  "evenements_extremes": [
   {
    "coin": "TRUMP",
-   "move_pct": 25.9
+   "move_pct": 25.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-23T01:01",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-FARTCOIN",
+   "pnl": 9.84
+  },
+  {
+   "ts": "2026-08-23T01:00",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-23T00:45",
    "bot": "27c_mom_move",
@@ -200,18 +212,6 @@
    "bot": "27d_rev_move_stop",
    "marche": "rev_move_stop-ENS",
    "pnl": 8.63
-  },
-  {
-   "ts": "2026-08-23T00:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-23T00:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -225,7 +225,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.0,
+  "age_avis_h": 1.2,
   "problemes": []
  },
  "autofinancement": {

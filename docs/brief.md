@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-23 02:45 (Paris)
+# Brief Station — 2026-08-23 03:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -10,9 +10,9 @@
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 8.897 | 27.2 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.543 | 17.3 j |
-| 29c_carry_decale | ORANGE | 120 | -0.0534 | -0.78 | -6.4 | -0.372 | 17.2 j |
+| 29c_carry_decale | ORANGE | 120 | -0.0534 | -0.78 | -6.4 | -0.37 | 17.3 j |
 | 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.01 | 7.5 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.039 | 27.4 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.039 | 27.5 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -22,17 +22,17 @@
 | 27a_rev_premium | ROUGE | 104 | -0.2674 | -0.13 | -27.81 | -0.462 | 60.2 j |
 | 27b_rev_move | ROUGE | 153 | -0.7378 | -0.6 | -112.89 | -1.888 | 59.8 j |
 | 27c_mom_move | ROUGE | 153 | 0.5978 | 0.49 | 91.47 | 1.53 | 59.8 j |
-| 27d_rev_move_stop | ROUGE | 278 | -1.9761 | -2.7 | -549.36 | -10.136 | 54.2 j |
+| 27d_rev_move_stop | ROUGE | 279 | -1.9338 | -2.65 | -539.53 | -9.954 | 54.2 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.598 | 50.4 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.236 | 49.3 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.225 | 49.3 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.35 | 41.6 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.047 | 27.2 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -563.15 $
+**P&L paper cumule (hors temoin, morts inclus)** : -553.32 $
 
-**BTC** 77347 $ — ret 1j +0.28% · 7j +23.02% · 30j +20.62%
-**Moves 24h ≥ 20 %** : TRUMP +25.9%
+**BTC** 77320 $ — ret 1j +0.24% · 7j +22.98% · 30j +20.58%
+**Moves 24h ≥ 20 %** : TRUMP +25.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
