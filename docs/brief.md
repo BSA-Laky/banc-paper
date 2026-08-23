@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-23 09:30 (Paris)
+# Brief Station — 2026-08-23 09:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -17,9 +17,9 @@
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.439 | 60.5 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.437 | 60.6 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.361 | 27.8 j |
-| 27a_rev_premium | ROUGE | 113 | 0.5689 | 0.29 | 64.29 | 1.064 | 60.4 j |
+| 27a_rev_premium | ROUGE | 113 | 0.5689 | 0.29 | 64.29 | 1.063 | 60.5 j |
 | 27b_rev_move | ROUGE | 173 | 0.1436 | 0.13 | 24.84 | 0.413 | 60.1 j |
 | 27c_mom_move | ROUGE | 173 | -0.2836 | -0.25 | -49.06 | -0.816 | 60.1 j |
 | 27d_rev_move_stop | ROUGE | 311 | -0.7 | -1.0 | -217.7 | -4.002 | 54.4 j |
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -142.19 $
 
-**BTC** 76266 $ — ret 1j -1.12% · 7j +21.30% · 30j +18.94%
-**Moves 24h ≥ 20 %** : ZRO +22.9%
+**BTC** 76118 $ — ret 1j -1.32% · 7j +21.07% · 30j +18.71%
+**Moves 24h ≥ 20 %** : ZRO +22.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
