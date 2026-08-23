@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-23T21:51:23.892123+00:00",
+ "ts": "2026-08-23T22:01:10.425462+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -54,11 +54,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 322,
-   "esperance": -0.609,
-   "t": -0.89,
-   "pnl": -196.11,
-   "pnl_j": -3.566,
+   "n": 323,
+   "esperance": -0.6274,
+   "t": -0.92,
+   "pnl": -202.65,
+   "pnl_j": -3.685,
    "fwd_j": 55.0
   },
   "27e_arbitre": {
@@ -153,34 +153,50 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0094,
-  "ret7": 0.2383,
-  "ret30": 0.2142,
-  "prix": 77855
+  "ret1": 0.0101,
+  "ret7": 0.2392,
+  "ret30": 0.2151,
+  "prix": 77913
  },
  "evenements_extremes": [
   {
    "coin": "PURR",
-   "move_pct": 61.4
+   "move_pct": 58.7
   },
   {
    "coin": "APEX",
-   "move_pct": 27.3
+   "move_pct": 27.2
   },
   {
    "coin": "MORPHO",
-   "move_pct": 24.6
+   "move_pct": 26.5
   },
   {
    "coin": "GRASS",
-   "move_pct": 21.0
+   "move_pct": 22.1
   },
   {
    "coin": "PENGU",
-   "move_pct": 20.5
+   "move_pct": 21.0
+  },
+  {
+   "coin": "CASHCAT",
+   "move_pct": 20.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-23T22:01",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-MORPHO",
+   "pnl": -6.54
+  },
+  {
+   "ts": "2026-08-23T22:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-23T21:51",
    "bot": "10_controle_aleatoire",
@@ -216,18 +232,6 @@
    "bot": "29_carry_neutre",
    "marche": "DOGE-short",
    "pnl": -2.05
-  },
-  {
-   "ts": "2026-08-23T21:30",
-   "bot": "29_carry_neutre",
-   "marche": "FARTCOIN-short",
-   "pnl": -1.52
-  },
-  {
-   "ts": "2026-08-23T21:30",
-   "bot": "29_carry_neutre",
-   "marche": "XMR-short",
-   "pnl": -0.23
   }
  ],
  "calibration_arbitre": {
@@ -241,7 +245,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.2,
   "problemes": []
  },
  "autofinancement": {
