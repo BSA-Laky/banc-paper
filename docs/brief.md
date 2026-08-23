@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-23 15:30 (Paris)
+# Brief Station — 2026-08-23 15:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -9,16 +9,16 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 8.736 | 27.7 j |
-| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.5 | 17.8 j |
+| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.491 | 17.9 j |
 | 29c_carry_decale | ORANGE | 120 | -0.0534 | -0.78 | -6.4 | -0.36 | 17.8 j |
-| 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.009 | 8.0 j |
+| 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.009 | 8.1 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.039 | 28.0 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.432 | 60.8 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.33 | 28.0 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.315 | 28.1 j |
 | 27a_rev_premium | ROUGE | 115 | 0.3174 | 0.17 | 36.5 | 0.601 | 60.7 j |
 | 27b_rev_move | ROUGE | 179 | 0.0529 | 0.05 | 9.46 | 0.157 | 60.3 j |
 | 27c_mom_move | ROUGE | 179 | -0.1929 | -0.18 | -34.52 | -0.573 | 60.3 j |
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -129.85 $
 
-**BTC** 77449 $ — ret 1j +0.41% · 7j +23.18% · 30j +20.78%
-**Moves 24h ≥ 20 %** : ZRO +25.0%, PURR +22.2%, STX +21.0%
+**BTC** 77483 $ — ret 1j +0.45% · 7j +23.24% · 30j +20.83%
+**Moves 24h ≥ 20 %** : PURR +24.7%, ZRO +23.3%, STX +21.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
