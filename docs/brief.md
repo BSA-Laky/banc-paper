@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-23 20:30 (Paris)
+# Brief Station — 2026-08-23 20:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -9,9 +9,9 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 8.674 | 27.9 j |
-| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.483 | 18.0 j |
+| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.475 | 18.1 j |
 | 29c_carry_decale | ORANGE | 120 | -0.0534 | -0.78 | -6.4 | -0.356 | 18.0 j |
-| 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.009 | 8.2 j |
+| 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.009 | 8.3 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.038 | 28.2 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
@@ -22,17 +22,17 @@
 | 27a_rev_premium | ROUGE | 116 | -0.1577 | -0.08 | -18.29 | -0.3 | 60.9 j |
 | 27b_rev_move | ROUGE | 179 | 0.0529 | 0.05 | 9.46 | 0.156 | 60.5 j |
 | 27c_mom_move | ROUGE | 179 | -0.1929 | -0.18 | -34.52 | -0.571 | 60.5 j |
-| 27d_rev_move_stop | ROUGE | 321 | -0.5874 | -0.86 | -188.55 | -3.434 | 54.9 j |
+| 27d_rev_move_stop | ROUGE | 322 | -0.609 | -0.89 | -196.11 | -3.572 | 54.9 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.59 | 51.1 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.232 | 50.1 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.222 | 50.1 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.344 | 42.3 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.343 | 42.4 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.046 | 27.9 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -196.46 $
+**P&L paper cumule (hors temoin, morts inclus)** : -204.02 $
 
-**BTC** 77389 $ — ret 1j +0.33% · 7j +23.09% · 30j +20.69%
-**Moves 24h ≥ 20 %** : PURR +54.2%
+**BTC** 77370 $ — ret 1j +0.31% · 7j +23.06% · 30j +20.66%
+**Moves 24h ≥ 20 %** : PURR +49.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
