@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-23T05:15:39.605580+00:00",
+ "ts": "2026-08-23T05:30:53.460232+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -13,8 +13,8 @@
    "esperance": -0.5092,
    "t": -3.3,
    "pnl": -87.07,
-   "pnl_j": -1.442,
-   "fwd_j": 60.4
+   "pnl_j": -1.439,
+   "fwd_j": 60.5
   },
   "25_convergence_basis": {
    "statut": "ROUGE",
@@ -27,39 +27,39 @@
   },
   "27a_rev_premium": {
    "statut": "ROUGE",
-   "n": 111,
-   "esperance": 0.5881,
-   "t": 0.3,
-   "pnl": 65.28,
-   "pnl_j": 1.083,
-   "fwd_j": 60.3
+   "n": 112,
+   "esperance": 0.4858,
+   "t": 0.25,
+   "pnl": 54.41,
+   "pnl_j": 0.901,
+   "fwd_j": 60.4
   },
   "27b_rev_move": {
    "statut": "ROUGE",
-   "n": 171,
-   "esperance": 0.0671,
-   "t": 0.06,
-   "pnl": 11.48,
-   "pnl_j": 0.191,
+   "n": 172,
+   "esperance": 0.088,
+   "t": 0.08,
+   "pnl": 15.14,
+   "pnl_j": 0.252,
    "fwd_j": 60.0
   },
   "27c_mom_move": {
    "statut": "ROUGE",
-   "n": 171,
-   "esperance": -0.2071,
-   "t": -0.18,
-   "pnl": -35.42,
-   "pnl_j": -0.59,
+   "n": 172,
+   "esperance": -0.228,
+   "t": -0.2,
+   "pnl": -39.22,
+   "pnl_j": -0.654,
    "fwd_j": 60.0
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 307,
-   "esperance": -0.7437,
-   "t": -1.05,
-   "pnl": -228.31,
-   "pnl_j": -4.205,
-   "fwd_j": 54.3
+   "n": 308,
+   "esperance": -0.7294,
+   "t": -1.03,
+   "pnl": -224.65,
+   "pnl_j": -4.13,
+   "fwd_j": 54.4
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -153,22 +153,48 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.014,
-  "ret7": 0.2097,
-  "ret30": 0.1861,
-  "prix": 76055
+  "ret1": -0.0109,
+  "ret7": 0.2134,
+  "ret30": 0.1898,
+  "prix": 76293
  },
  "evenements_extremes": [
   {
    "coin": "MELANIA",
-   "move_pct": -29.4
-  },
-  {
-   "coin": "TRUMP",
-   "move_pct": -24.1
+   "move_pct": -22.3
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-23T05:30",
+   "bot": "27a_rev_premium",
+   "marche": "rev_premium-FARTCOIN",
+   "pnl": -10.88
+  },
+  {
+   "ts": "2026-08-23T05:30",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-TRB",
+   "pnl": 3.67
+  },
+  {
+   "ts": "2026-08-23T05:30",
+   "bot": "27c_mom_move",
+   "marche": "mom_move-TRB",
+   "pnl": -3.81
+  },
+  {
+   "ts": "2026-08-23T05:30",
+   "bot": "27b_rev_move",
+   "marche": "rev_move-TRB",
+   "pnl": 3.67
+  },
+  {
+   "ts": "2026-08-23T05:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-23T05:15",
    "bot": "27d_rev_move_stop",
@@ -186,36 +212,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-23T05:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-23T04:45",
-   "bot": "27a_rev_premium",
-   "marche": "rev_premium-AERO",
-   "pnl": 10.63
-  },
-  {
-   "ts": "2026-08-23T04:45",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-MELANIA",
-   "pnl": 26.66
-  },
-  {
-   "ts": "2026-08-23T04:45",
-   "bot": "27a_rev_premium",
-   "marche": "rev_premium-POPCAT",
-   "pnl": 14.55
-  },
-  {
-   "ts": "2026-08-23T04:45",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-KFLOKI",
-   "pnl": 17.08
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +225,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.2,
+  "age_avis_h": 0.5,
   "problemes": []
  },
  "autofinancement": {
