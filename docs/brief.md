@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-23 10:45 (Paris)
+# Brief Station — 2026-08-23 11:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -9,16 +9,16 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 8.8 | 27.5 j |
-| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.517 | 17.6 j |
+| 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.508 | 17.7 j |
 | 29c_carry_decale | ORANGE | 120 | -0.0534 | -0.78 | -6.4 | -0.364 | 17.6 j |
-| 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.01 | 7.8 j |
+| 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.01 | 7.9 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.039 | 27.8 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.437 | 60.6 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.361 | 27.8 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.346 | 27.9 j |
 | 27a_rev_premium | ROUGE | 114 | 0.4374 | 0.23 | 49.86 | 0.824 | 60.5 j |
 | 27b_rev_move | ROUGE | 175 | 0.1054 | 0.1 | 18.45 | 0.307 | 60.1 j |
 | 27c_mom_move | ROUGE | 175 | -0.2454 | -0.22 | -42.95 | -0.715 | 60.1 j |
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -137.33 $
 
-**BTC** 76600 $ — ret 1j -0.69% · 7j +21.83% · 30j +19.46%
-**Moves 24h ≥ 20 %** : ZRO +22.2%
+**BTC** 76528 $ — ret 1j -0.78% · 7j +21.72% · 30j +19.35%
+**Moves 24h ≥ 20 %** : ZRO +22.7%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
