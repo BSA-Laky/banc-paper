@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-23T22:30:55.258497+00:00",
+ "ts": "2026-08-23T22:45:40.644265+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -76,8 +76,8 @@
    "esperance": -0.0665,
    "t": -0.09,
    "pnl": -11.64,
-   "pnl_j": -0.232,
-   "fwd_j": 50.2
+   "pnl_j": -0.231,
+   "fwd_j": 50.3
   },
   "27f_selecteur": {
    "statut": "ROUGE",
@@ -86,7 +86,7 @@
    "t": 0.08,
    "pnl": 11.12,
    "pnl_j": 0.221,
-   "fwd_j": 50.2
+   "fwd_j": 50.3
   },
   "27g10_selecteur": {
    "statut": "ROUGE",
@@ -153,30 +153,40 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0081,
-  "ret7": 0.2368,
-  "ret30": 0.2127,
-  "prix": 77759
+  "ret1": 0.0073,
+  "ret7": 0.2358,
+  "ret30": 0.2117,
+  "prix": 77696
  },
  "evenements_extremes": [
   {
    "coin": "PURR",
-   "move_pct": 54.6
+   "move_pct": 64.7
   },
   {
    "coin": "APEX",
-   "move_pct": 30.3
-  },
-  {
-   "coin": "CASHCAT",
-   "move_pct": 25.6
+   "move_pct": 29.7
   },
   {
    "coin": "MORPHO",
-   "move_pct": 23.8
+   "move_pct": 24.5
+  },
+  {
+   "coin": "CASHCAT",
+   "move_pct": 23.6
+  },
+  {
+   "coin": "GRASS",
+   "move_pct": 20.7
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-23T22:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-23T22:30",
    "bot": "27d_rev_move_stop",
@@ -218,12 +228,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-23T21:30",
-   "bot": "29_carry_neutre",
-   "marche": "ACE-long",
-   "pnl": 4.8
   }
  ],
  "calibration_arbitre": {
@@ -237,7 +241,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {
