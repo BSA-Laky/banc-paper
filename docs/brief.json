@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-23T16:30:57.943618+00:00",
+ "ts": "2026-08-23T16:45:40.012613+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -40,8 +40,8 @@
    "esperance": 0.0529,
    "t": 0.05,
    "pnl": 9.46,
-   "pnl_j": 0.157,
-   "fwd_j": 60.4
+   "pnl_j": 0.156,
+   "fwd_j": 60.5
   },
   "27c_mom_move": {
    "statut": "ROUGE",
@@ -49,8 +49,8 @@
    "esperance": -0.1929,
    "t": -0.18,
    "pnl": -34.52,
-   "pnl_j": -0.572,
-   "fwd_j": 60.4
+   "pnl_j": -0.571,
+   "fwd_j": 60.5
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
@@ -153,22 +153,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0029,
-  "ret7": 0.2303,
-  "ret30": 0.2063,
-  "prix": 77353
+  "ret1": 0.0039,
+  "ret7": 0.2315,
+  "ret30": 0.2075,
+  "prix": 77431
  },
  "evenements_extremes": [
   {
    "coin": "PURR",
-   "move_pct": 44.7
+   "move_pct": 42.8
+  },
+  {
+   "coin": "ZRO",
+   "move_pct": 20.5
   },
   {
    "coin": "MORPHO",
-   "move_pct": 21.4
+   "move_pct": 20.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-23T16:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-23T16:30",
    "bot": "10_controle_aleatoire",
@@ -210,12 +220,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-23T15:15",
-   "bot": "27d_rev_move_stop",
-   "marche": "rev_move_stop-CASHCAT",
-   "pnl": 4.19
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.0,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {
