@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-23T21:01:05.284324+00:00",
+ "ts": "2026-08-23T21:15:41.388404+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -95,7 +95,7 @@
    "t": 0.17,
    "pnl": 14.56,
    "pnl_j": 0.343,
-   "fwd_j": 42.4
+   "fwd_j": 42.5
   },
   "28_carry_hold": {
    "statut": "ROUGE",
@@ -153,18 +153,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0046,
-  "ret7": 0.2324,
-  "ret30": 0.2084,
-  "prix": 77487
+  "ret1": 0.0086,
+  "ret7": 0.2374,
+  "ret30": 0.2133,
+  "prix": 77800
  },
  "evenements_extremes": [
   {
    "coin": "PURR",
-   "move_pct": 45.2
+   "move_pct": 58.0
+  },
+  {
+   "coin": "APEX",
+   "move_pct": 26.0
+  },
+  {
+   "coin": "MORPHO",
+   "move_pct": 22.2
+  },
+  {
+   "coin": "PENGU",
+   "move_pct": 21.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-23T21:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-23T21:01",
    "bot": "10_controle_aleatoire",
@@ -206,12 +224,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-23T19:15",
-   "bot": "27c_mom_move",
-   "marche": "mom_move-ZEC",
-   "pnl": 2.94
   }
  ],
  "calibration_arbitre": {
@@ -225,7 +237,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {

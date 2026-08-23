@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-23 23:01 (Paris)
+# Brief Station — 2026-08-23 23:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -26,13 +26,13 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.589 | 51.2 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.232 | 50.2 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.221 | 50.2 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.343 | 42.4 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.343 | 42.5 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.046 | 28.0 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -204.16 $
 
-**BTC** 77487 $ — ret 1j +0.46% · 7j +23.24% · 30j +20.84%
-**Moves 24h ≥ 20 %** : PURR +45.2%
+**BTC** 77800 $ — ret 1j +0.86% · 7j +23.74% · 30j +21.33%
+**Moves 24h ≥ 20 %** : PURR +58.0%, APEX +26.0%, MORPHO +22.2%, PENGU +21.9%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
