@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-23 15:01 (Paris)
+# Brief Station — 2026-08-23 15:14 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -24,15 +24,15 @@
 | 27c_mom_move | ROUGE | 179 | -0.1929 | -0.18 | -34.52 | -0.573 | 60.3 j |
 | 27d_rev_move_stop | ROUGE | 317 | -0.5575 | -0.8 | -176.73 | -3.231 | 54.7 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.592 | 50.9 j |
-| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.234 | 49.8 j |
-| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.223 | 49.8 j |
+| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.233 | 49.9 j |
+| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.223 | 49.9 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.346 | 42.1 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.046 | 27.7 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -129.85 $
 
-**BTC** 77259 $ — ret 1j +0.16% · 7j +22.88% · 30j +20.49%
-**Moves 24h ≥ 20 %** : PURR +26.4%, ZRO +23.0%
+**BTC** 77388 $ — ret 1j +0.33% · 7j +23.09% · 30j +20.69%
+**Moves 24h ≥ 20 %** : PURR +29.0%, ZRO +22.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
