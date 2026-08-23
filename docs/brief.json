@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-23T21:30:55.559015+00:00",
+ "ts": "2026-08-23T21:45:41.235560+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -67,8 +67,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.589,
-   "fwd_j": 51.2
+   "pnl_j": -0.588,
+   "fwd_j": 51.3
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -103,8 +103,8 @@
    "esperance": -0.0412,
    "t": -0.01,
    "pnl": -1.28,
-   "pnl_j": -0.046,
-   "fwd_j": 28.0
+   "pnl_j": -0.045,
+   "fwd_j": 28.1
   },
   "29_carry_neutre": {
    "statut": "GRIS",
@@ -112,8 +112,8 @@
    "esperance": 10.1396,
    "t": 1.27,
    "pnl": 243.35,
-   "pnl_j": 8.691,
-   "fwd_j": 28.0
+   "pnl_j": 8.66,
+   "fwd_j": 28.1
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -153,26 +153,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0123,
-  "ret7": 0.2419,
-  "ret30": 0.2177,
-  "prix": 78083
+  "ret1": 0.0082,
+  "ret7": 0.2369,
+  "ret30": 0.2128,
+  "prix": 77769
  },
  "evenements_extremes": [
   {
    "coin": "PURR",
-   "move_pct": 56.7
-  },
-  {
-   "coin": "MORPHO",
-   "move_pct": 25.8
+   "move_pct": 60.0
   },
   {
    "coin": "APEX",
-   "move_pct": 24.6
+   "move_pct": 26.8
+  },
+  {
+   "coin": "MORPHO",
+   "move_pct": 23.9
+  },
+  {
+   "coin": "PENGU",
+   "move_pct": 20.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-23T21:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-23T21:30",
    "bot": "29_carry_neutre",
@@ -214,12 +224,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-23T21:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -233,7 +237,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {
