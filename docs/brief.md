@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-23 23:15 (Paris)
+# Brief Station — 2026-08-23 23:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -8,7 +8,7 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 29_carry_neutre | GRIS | 18 | 13.4441 | 1.27 | 241.99 | 8.643 | 28.0 j |
+| 29_carry_neutre | GRIS | 24 | 10.1396 | 1.27 | 243.35 | 8.691 | 28.0 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.467 | 18.2 j |
 | 29c_carry_decale | ORANGE | 120 | -0.0534 | -0.78 | -6.4 | -0.354 | 18.1 j |
 | 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.009 | 8.4 j |
@@ -20,8 +20,8 @@
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.425 | 61.1 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.269 | 28.4 j |
 | 27a_rev_premium | ROUGE | 116 | -0.1577 | -0.08 | -18.29 | -0.3 | 61.0 j |
-| 27b_rev_move | ROUGE | 180 | 0.0354 | 0.03 | 6.38 | 0.105 | 60.6 j |
-| 27c_mom_move | ROUGE | 180 | -0.1754 | -0.16 | -31.58 | -0.521 | 60.6 j |
+| 27b_rev_move | ROUGE | 180 | 0.0354 | 0.03 | 6.38 | 0.105 | 60.7 j |
+| 27c_mom_move | ROUGE | 180 | -0.1754 | -0.16 | -31.58 | -0.52 | 60.7 j |
 | 27d_rev_move_stop | ROUGE | 322 | -0.609 | -0.89 | -196.11 | -3.566 | 55.0 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.589 | 51.2 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.232 | 50.2 j |
@@ -29,10 +29,10 @@
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.343 | 42.5 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.046 | 28.0 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -204.16 $
+**P&L paper cumule (hors temoin, morts inclus)** : -202.80 $
 
-**BTC** 77800 $ — ret 1j +0.86% · 7j +23.74% · 30j +21.33%
-**Moves 24h ≥ 20 %** : PURR +58.0%, APEX +26.0%, MORPHO +22.2%, PENGU +21.9%
+**BTC** 78083 $ — ret 1j +1.23% · 7j +24.19% · 30j +21.77%
+**Moves 24h ≥ 20 %** : PURR +56.7%, MORPHO +25.8%, APEX +24.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
