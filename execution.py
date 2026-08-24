@@ -97,6 +97,13 @@ def _resume(histo: list) -> dict:
         "ordres": len([h for h in histo if h["action"] == "open"]),
         "soldes": len(fermes),
         "rejets": len([h for h in histo if h["action"] == "REJET"]),
+        # 24/08/2026 : on ne melange plus "la venue a refuse mon ordre" avec
+        # "il n'y avait pas de marche en face". Le second n'est pas un echec de
+        # la strategie, et le confondre avec le premier a masque pendant des
+        # semaines que le testnet n'a tout simplement pas de contrepartie.
+        "illiquides": len([h for h in histo if h["action"] == "ILLIQUIDE"]),
+        "non_apparies": len([h for h in histo if h["action"] == "NON_APPARIE"]),
+        "clotures_refusees": len([h for h in histo if h["action"] == "REJET_CLOSE"]),
         "pnl_total": pnl,
         "pnl_moyen": round(pnl / len(fermes), 4) if fermes else None,
         "taux_reussite": round(len(gagnants) / len(fermes), 3) if fermes else None,
@@ -106,7 +113,8 @@ def _resume(histo: list) -> dict:
     }
 
 
-def _alerte_bot(resume: dict, ouvertes: list, recent: dict = None) -> str:
+def _alerte_bot(resume: dict, ouvertes: list, recent: dict = None,
+                neutralite: dict = None) -> str:
     """Un bot qui ne parvient jamais a ouvrir ne perd rien -- et ne prouve rien.
     C'est la panne la plus couteuse du banc parce qu'elle est silencieuse : n
     reste bloque a zero, la gate ne peut jamais conclure, et rien ne le signale.
@@ -121,6 +129,20 @@ def _alerte_bot(resume: dict, ouvertes: list, recent: dict = None) -> str:
     if r["ordres"] and r["rejets"] > 3 * r["ordres"]:
         return ("Taux de rejet eleve sur 7 jours : %d rejets pour %d ordres passes."
                 % (r["rejets"], r["ordres"]))
+    if r.get("clotures_refusees", 0) >= 3:
+        return ("%d cloture(s) REFUSEE(S) sur 7 jours : des positions restent ouvertes "
+                "au-dela de leur tenue, le miroir ne suit plus le bot."
+                % r["clotures_refusees"])
+    if neutralite and neutralite.get("ecart", 0) > 0.20:
+        return ("Livre NON NEUTRE : exposition nette %+.0f $ sur %.0f $ brut (%.0f %%). "
+                "La neutralite dollar EST l'edge de cette famille -- un panier "
+                "desequilibre mesure un pari directionnel, pas la strategie."
+                % (neutralite.get("net_usd", 0), neutralite.get("brut_usd", 0),
+                   100 * neutralite.get("ecart", 0)))
+    if r.get("illiquides", 0) >= 10 and r["ordres"] == 0:
+        return ("%d jambe(s) ecartee(s) faute de carnet sur 7 jours, aucun ordre passe. "
+                "Le testnet n'a pas de contrepartie sur ces pieces."
+                % r["illiquides"])
     if resume["ordres"] == 0 and resume["rejets"] >= 10 and r["rejets"] == 0:
         return ("Aucun ordre passe a ce jour (%d rejets, tous anterieurs a 7 jours). "
                 "Rien de recent a signaler -- surveiller la prochaine tentative."
@@ -177,8 +199,12 @@ def _environnement(journal: Path, positions: Path, tues: set, maintenant: dateti
         ouvertes = sorted(d["ouvertes"], key=lambda p: p["ts"], reverse=True)
         sortie[bot] = {
             "tue": bot in tues,
-            "alerte": _alerte_bot(resume, ouvertes, recent),
-            "resume_7j": {k: recent[k] for k in ("ordres", "soldes", "rejets", "pnl_total")},
+            "neutralite": (etat_pos.get("_neutralite") or {}).get(bot),
+            "alerte": _alerte_bot(resume, ouvertes, recent,
+                                  (etat_pos.get("_neutralite") or {}).get(bot)),
+            "resume_7j": {k: recent[k] for k in ("ordres", "soldes", "rejets", "pnl_total",
+                                                 "illiquides", "non_apparies",
+                                                 "clotures_refusees")},
             "ouvertes": ouvertes,
             "resume": resume,
             "histo": histo[:MAX_HISTO],

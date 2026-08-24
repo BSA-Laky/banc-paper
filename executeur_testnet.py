@@ -119,6 +119,57 @@ def _info(base_url, body):
         return None
 
 
+# --- LIQUIDITE DU CARNET TESTNET (ajoute le 24/08/2026) ---------------------
+# Constat : le testnet n'a pas de contrepartie sur beaucoup de pieces. Mesure du
+# 24/08 : CASHCAT cote 21,78 % de spread avec 3 $ de profondeur (0,14 % et
+# 1 107 $ sur le mainnet) ; PURR et ZEC ont un carnet VIDE ; HYPE cote 73,16 %.
+# Les ordres IOC partaient quand meme et se faisaient refuser avec
+# "could not immediately match against any resting orders".
+# On refuse donc EN AMONT, et on le journalise comme ILLIQUIDE (pas comme REJET) :
+# ce n'est pas un echec de la strategie, c'est une absence de marche.
+SPREAD_MAX = 0.01          # 1 % ; au-dela le testnet ne cote plus rien de reel
+_BOOK = {}
+
+
+def _carnet(base_url, coin):
+    """{bid, ask, spread, prof_bid, prof_ask} ou None si le carnet est vide."""
+    if coin in _BOOK:
+        return _BOOK[coin]
+    b = _info(base_url, {"type": "l2Book", "coin": coin})
+    r = None
+    try:
+        lv = b["levels"]
+        bid, ask = float(lv[0][0]["px"]), float(lv[1][0]["px"])
+        if bid > 0 and ask > 0:
+            r = {"bid": bid, "ask": ask, "spread": (ask - bid) / bid,
+                 "prof_bid": sum(float(x["sz"]) * float(x["px"]) for x in lv[0][:5]),
+                 "prof_ask": sum(float(x["sz"]) * float(x["px"]) for x in lv[1][:5])}
+    except (KeyError, IndexError, TypeError, ValueError, ZeroDivisionError):
+        r = None
+    _BOOK[coin] = r
+    return r
+
+
+def _negociable(base_url, coin, notional, side):
+    """(bool, motif). side>0 = on achete -> on consomme le cote ASK."""
+    c = _carnet(base_url, coin)
+    if not c:
+        return False, "carnet testnet vide"
+    if c["spread"] > SPREAD_MAX:
+        return False, "spread testnet %.1f %% (> %.0f %%)" % (c["spread"] * 100, SPREAD_MAX * 100)
+    prof = c["prof_ask"] if side > 0 else c["prof_bid"]
+    if prof < notional:
+        return False, "profondeur %.0f $ < mise %.0f $" % (prof, notional)
+    return True, ""
+
+
+# Bots dont la NEUTRALITE DOLLAR est l'edge : un panier a moitie rempli n'est pas
+# une version degradee de la strategie, c'est un pari directionnel. Constat du
+# 24/08 : le bot 29 tenait 1 short pour 3 longs sur le testnet (au lieu de 3/3),
+# et 29c 9 shorts pour 15 longs. On n'ouvre donc que des PAIRES appariees.
+NEUTRES = {"29_carry_neutre", "29b_carry_neutre_large", "29c_carry_decale"}
+
+
 def _ordre_reussi(resp):
     """Vrai statut d'un ordre HL. (ok: bool, detail). Gere aussi le paper."""
     if isinstance(resp, dict) and resp.get("status") == "paper_simule":
@@ -186,7 +237,15 @@ def executer():
     reelles = _positions_reelles(ex.cfg.base_url, ex.cfg.account)
     if reelles is not None:
         for bot in list(state):
-            if bot == "_rejets":
+            if bot in ("_rejets", "_mises", "_neutralite"):
+                # BUG CORRIGE LE 24/08/2026 : "_mises" n'etait pas exclu de la
+                # reconciliation. Ses cles sont des NOMS DE BOTS, jamais des coins
+                # ouverts, donc elles etaient toutes supprimees a chaque passe.
+                # Consequence : `_mises.get(bot) != _mise_now` etait TOUJOURS vrai,
+                # la purge des penalites de rejet se declenchait a chaque passe, et
+                # `_rejet_bloque` n'atteignait jamais 3. Resultat mesure : 497 rejets
+                # CASHCAT en 7 jours sur 449 passes, la ou le garde-fou en autorisait
+                # ~1 par jour. Le garde-fou existait, il etait desarme par ce bug.
                 continue
             for coin in list(state.get(bot, {})):
                 if coin not in reelles:
@@ -269,7 +328,12 @@ def executer():
                 except Exception as _e:
                     print("[executeur] levier %s %s KO : %s" % (bot, _coin, _e), flush=True)
 
-        # OUVRIR (avec verification du VRAI statut)
+        # OUVRIR — en deux temps depuis le 24/08/2026 : on PLANIFIE, puis on execute.
+        # Avant, chaque jambe partait seule ; celles dont le carnet testnet etait vide
+        # se faisaient refuser et le livre finissait dollar-DESEQUILIBRE, ce qui detruit
+        # precisement l'edge que la famille 29 est censee mesurer.
+        base_url = ex.cfg.base_url
+        candidats = []
         for coin, v in ouverts.items():
             if coin in mine:
                 continue
@@ -278,13 +342,45 @@ def executer():
                 continue
             if _rejet_bloque(bot, coin):    # 3 rejets consecutifs -> pause 24 h
                 continue
-            ok, raison = pf.peut_ouvrir(bot)
-            if not ok:
-                print("[executeur] %s %s non ouvert : %s" % (bot, coin, raison), flush=True)
-                continue
             side = int(v.get("side") or 0) or (-1 if (v.get("premium_entree") or 0) > 0 else (1 if v.get("premium_entree") else 0))
             if side == 0:                   # position sans direction connue (ex. 28 pre-16/07)
                 continue
+            notion = pf.taille_entree(bot)
+            negoc, motif = _negociable(base_url, coin, notion, side)
+            if not negoc:
+                _log({"ts": now.isoformat(), "bot": bot, "coin": coin, "action": "ILLIQUIDE",
+                      "side": side, "notional_usd": round(notion, 2), "mark": d["mark"],
+                      "resp": motif[:60]})
+                continue
+            candidats.append((coin, side))
+
+        # APPARIEMENT : pour un bot dollar-neutre, on n'ouvre que des paires, et on
+        # utilise les jambes en trop pour corriger un desequilibre deja present.
+        if bot in NEUTRES:
+            net = sum(int(p.get("side", 0)) for p in mine.values())   # >0 = trop de longs
+            courts = [c for c in candidats if c[1] < 0]
+            longs = [c for c in candidats if c[1] > 0]
+            k = min(len(courts), len(longs))
+            plan = courts[:k] + longs[:k]
+            if net > 0:
+                plan += courts[k:k + net]
+            elif net < 0:
+                plan += longs[k:k - net]
+            ecarte = len(candidats) - len(plan)
+            if ecarte:
+                _log({"ts": now.isoformat(), "bot": bot, "coin": "-", "action": "NON_APPARIE",
+                      "side": 0, "notional_usd": 0.0, "mark": 0.0,
+                      "resp": "%d jambe(s) ecartee(s) : %d courts / %d longs negociables, net %+d"
+                              % (ecarte, len(courts), len(longs), net)})
+        else:
+            plan = candidats
+
+        for coin, side in plan:
+            ok, raison = pf.peut_ouvrir(bot)
+            if not ok:
+                print("[executeur] %s %s non ouvert : %s" % (bot, coin, raison), flush=True)
+                break
+            d = data.get(coin)
             notion = pf.taille_entree(bot)
             lev = pf.levier(bot)
             ex.set_leverage(coin, lev)     # fixe le levier voulu (1x tant que non promu)
@@ -316,10 +412,32 @@ def executer():
             d = data.get(coin)
             mark = d["mark"] if d else st["entry"]
             side, entry, notion = st["side"], st["entry"], st["notional"]
+            # 24/08/2026 : la cloture ne verifiait PAS son statut. Un ordre refuse
+            # (carnet vide) etait soit avale par le except (retente a l'infini sans
+            # trace), soit journalise comme "close ok" alors que la position restait
+            # ouverte sur la venue. Symptome trouve : AERO tenu 9,8 jours a l'ancienne
+            # taille de 16,05 $, tres au-dela de la tenue de 168 h.
             try:
                 r = ex.market_close(coin)
             except Exception as e:
+                _log({"ts": now.isoformat(), "bot": bot, "coin": coin, "action": "REJET_CLOSE",
+                      "side": side, "notional_usd": round(notion, 2), "mark": mark,
+                      "resp": str(e)[:60]})
                 print("[executeur] FERMER %s %s KO : %s" % (bot, coin, e), flush=True)
+                continue
+            ferme, det_c = _ordre_reussi(r)
+            if not ferme:
+                # on GARDE la position dans `mine` : elle sera retentee a la passe
+                # suivante. Et on crie si elle traine au-dela de 2x la tenue.
+                try:
+                    age_h = (now - datetime.fromisoformat(str(st.get("ts")))).total_seconds() / 3600
+                except (ValueError, TypeError):
+                    age_h = 0.0
+                _log({"ts": now.isoformat(), "bot": bot, "coin": coin, "action": "REJET_CLOSE",
+                      "side": side, "notional_usd": round(notion, 2), "mark": mark,
+                      "resp": ("%s | ouverte depuis %.0f h" % (str(det_c)[:40], age_h))})
+                print("[executeur] CLOTURE REFUSEE %s %s (%.0f h) : %s"
+                      % (bot, coin, age_h, str(det_c)[:60]), flush=True)
                 continue
             ret = side * (mark - entry) / entry if entry else 0.0
             pnl = notion * ret - 2 * FRAIS * notion
@@ -330,6 +448,19 @@ def executer():
             del mine[coin]
             print("[executeur] CLOSE testnet %s %s pnl~%.2f$" % (bot, coin, pnl), flush=True)
 
+        # TRACE DE NEUTRALITE (24/08/2026) : c'est la mesure qui manquait. Un livre
+        # cense etre dollar-neutre et qui ne l'est pas ne mesure plus la strategie.
+        if bot in NEUTRES and mine:
+            brut = sum(p.get("notional", 0.0) for p in mine.values())
+            netv = sum(int(p.get("side", 0)) * p.get("notional", 0.0) for p in mine.values())
+            ecart = abs(netv) / brut if brut else 0.0
+            state.setdefault("_neutralite", {})[bot] = {
+                "jambes": len(mine), "brut_usd": round(brut, 2),
+                "net_usd": round(netv, 2), "ecart": round(ecart, 4),
+                "ts": now.isoformat()}
+            if ecart > 0.20:
+                print("[executeur] ALERTE neutralite %s : net %+.0f $ sur %.0f $ brut (%.0f %%)"
+                      % (bot, netv, brut, 100 * ecart), flush=True)
         state[bot] = mine
     _ecrire_json(F_STATE, state)
     print("[executeur] positions testnet : " +
