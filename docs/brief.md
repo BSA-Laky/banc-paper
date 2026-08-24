@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-24 14:45 (Paris)
+# Brief Station — 2026-08-24 15:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -10,16 +10,16 @@
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 24 | 10.1396 | 1.27 | 243.35 | 8.479 | 28.7 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.42 | 18.8 j |
-| 29c_carry_decale | ORANGE | 120 | -0.0534 | -0.78 | -6.4 | -0.342 | 18.7 j |
+| 29c_carry_decale | ORANGE | 120 | -0.0534 | -0.78 | -6.4 | -0.341 | 18.8 j |
 | 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.008 | 9.0 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.037 | 28.9 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.037 | 29.0 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.409 | 61.8 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -4.181 | 29.0 j |
-| 27a_rev_premium | ROUGE | 119 | -0.0635 | -0.03 | -7.56 | -0.122 | 61.7 j |
+| 27a_rev_premium | ROUGE | 120 | -0.1005 | -0.05 | -12.07 | -0.196 | 61.7 j |
 | 27b_rev_move | ROUGE | 186 | 0.4789 | 0.44 | 89.08 | 1.453 | 61.3 j |
 | 27c_mom_move | ROUGE | 186 | -0.6189 | -0.57 | -115.12 | -1.878 | 61.3 j |
 | 27d_rev_move_stop | ROUGE | 331 | -0.5724 | -0.86 | -189.47 | -3.402 | 55.7 j |
@@ -29,10 +29,10 @@
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.338 | 43.1 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.044 | 28.7 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -186.27 $
+**P&L paper cumule (hors temoin, morts inclus)** : -190.78 $
 
-**BTC** 78831 $ — ret 1j +1.32% · 7j +22.23% · 30j +22.48%
-**Moves 24h ≥ 20 %** : CASHCAT +45.8%, PURR +22.6%
+**BTC** 79128 $ — ret 1j +1.70% · 7j +22.69% · 30j +22.94%
+**Moves 24h ≥ 20 %** : CASHCAT +46.5%, APEX +20.5%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
