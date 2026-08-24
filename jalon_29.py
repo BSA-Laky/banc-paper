@@ -34,13 +34,30 @@ Donc on mesure le FUNDING CAPTE, pas le P&L. Sur la composante funding, dont
 l'ecart-type hebdomadaire vaut ~0,21 %, quatre paniers suffisent a atteindre
 t ~ 3 si l'effet historique tient. C'est ca, le jalon.
 
-CRITERE, FIGE LE 15/08/2026, NON REVISABLE
--------------------------------------------
+CRITERE — CORRIGE LE 24/08/2026 (le critere du 15/08 etait FAUX)
+-----------------------------------------------------------------
+La v1 declarait REUSSI sur la seule capture de funding, au motif que le terme de
+prix est "du bruit d'esperance nulle". Le 24/08, les donnees ont montre que c'est
+faux en pratique : le bot 29c capte +0,671 %/panier de funding avec t = +9,71 et
+affiche pourtant **t = -0,78 sur son P&L reel** (n=120, P&L -6,40 $).
+
+Le jalon allait donc rendre un verdict REUSSI sur un bot perdant. C'est exactement
+le faux vert que le bot 25 avait produit le 05/08 (t 3,56 annonce, -3,32 reel) et
+que tout ce dispositif existe pour empecher. La capture de funding est une
+CONDITION NECESSAIRE, jamais suffisante.
+
 Au 15/09/2026, sur les paniers CLOS depuis le 15/08 :
-    REUSSI  : t(funding capte) >= 2,0  ET  funding moyen > frais du panier
-    ECHOUE  : t(funding capte) <  1,0
+    REUSSI    : t(funding) CORRIGE >= 2,0  ET  funding moyen > frais
+                ET  P&L cumule >= 0  ET  t(P&L) >= 0      <-- ajoutes le 24/08
+    ECHOUE    : t(funding) corrige < 1,0  OU  P&L cumule < 0  OU  t(P&L) < 0
     POURSUITE : entre les deux
-Minimum de 3 paniers clos, sinon "DONNEES INSUFFISANTES" (pas un echec).
+Minimum de 3 paniers clos, sinon DONNEES INSUFFISANTES.
+
+AVERTISSEMENT SUR L'INDEPENDANCE
+---------------------------------
+Le bot 29c ouvre un panier toutes les 48 h et les tient 168 h : ses paniers se
+CHEVAUCHENT d'un facteur 3,5. Son t brut est donc surestime d'environ racine(3,5).
+Le module publie les deux, et c'est le t CORRIGE qui fait foi.
 
 COMMENT LA MESURE EST PRISE
 ----------------------------
@@ -71,6 +88,8 @@ DATE_ECHEANCE = "2026-09-15"
 T_REUSSI = 2.0
 T_ECHEC = 1.0
 N_MIN = 3
+T_PNL_MIN = 0.0           # ajoute le 24/08 : un t(P&L) negatif interdit le REUSSI
+CHEVAUCHEMENT = {"29c_carry_decale": 168.0/48.0}   # tenue / cadence
 
 BOTS = {
     "29_carry_neutre": "etat_bot29.json",
@@ -127,6 +146,16 @@ def _t_stat(xs: list[float]) -> float | None:
     return m / ((v / n) ** 0.5)
 
 
+def _pnl_gate() -> dict:
+    """{bot: (n, t_stat, pnl_total)} depuis le dernier verdict de la gate."""
+    for p in (Path("docs") / "go_reel.json", ETAT / "go_reel.json"):
+        g = _lire(p)
+        if g:
+            return {b: (v.get("n"), v.get("t_stat"), v.get("pnl_cumule"))
+                    for b, v in (g.get("bots") or {}).items()}
+    return {}
+
+
 def observer() -> dict:
     """Une passe : photographie, detecte les rotations, evalue le jalon."""
     hist = _lire(SORTIE)
@@ -137,6 +166,7 @@ def observer() -> dict:
                                 "mesure": "funding capte par panier, pondere notionnel"})
     bots = hist.setdefault("bots", {})
     now = datetime.now(timezone.utc).isoformat()
+    gate = _pnl_gate()
 
     for bot, fichier in BOTS.items():
         etat = _lire(ETAT / fichier)
@@ -165,19 +195,36 @@ def observer() -> dict:
                  if p.get("clos_le", "") >= DATE_POSE]
         t = _t_stat(serie)
         moy = (sum(serie) / len(serie)) if serie else None
+        k = CHEVAUCHEMENT.get(bot, 1.0)
+        t_corr = (t / (k ** 0.5)) if t is not None else None
+        n_pnl, t_pnl, pnl_tot = gate.get(bot, (None, None, None))
+        # un bot ne peut pas etre declare REUSSI si son P&L reel va dans le mauvais sens
+        perdant = (t_pnl is not None and t_pnl < T_PNL_MIN) or \
+                  (pnl_tot is not None and pnl_tot < 0)
         if len(serie) < N_MIN:
             verdict, lecture = "DONNEES_INSUFFISANTES", (
                 "%d panier(s) clos sur %d requis" % (len(serie), N_MIN))
-        elif t is not None and t >= T_REUSSI and moy is not None and moy / 100 > FRAIS_PANIER:
-            verdict, lecture = "REUSSI", (
-                "funding capte %+.3f %%/panier, t %+.2f — la capture est reelle" % (moy, t))
-        elif t is not None and t < T_ECHEC:
+        elif perdant:
             verdict, lecture = "ECHOUE", (
-                "funding capte %+.3f %%/panier, t %+.2f — la selection ne capte rien" % (moy, t))
+                "funding capte %+.3f %%/panier (t corrige %+.2f) MAIS le bot PERD : "
+                "t(P&L) %+.2f sur n=%s, P&L %+.2f $ — capter le funding ne suffit pas"
+                % (moy or 0.0, t_corr or 0.0, t_pnl or 0.0, n_pnl, pnl_tot or 0.0))
+        elif (t_corr is not None and t_corr >= T_REUSSI and moy is not None
+              and moy / 100 > FRAIS_PANIER):
+            verdict, lecture = "REUSSI", (
+                "funding %+.3f %%/panier, t corrige %+.2f, et le P&L ne contredit pas "
+                "(t %+.2f, %+.2f $)" % (moy, t_corr, t_pnl or 0.0, pnl_tot or 0.0))
+        elif t_corr is not None and t_corr < T_ECHEC:
+            verdict, lecture = "ECHOUE", (
+                "funding %+.3f %%/panier, t corrige %+.2f — la selection ne capte rien"
+                % (moy, t_corr))
         else:
             verdict, lecture = "POURSUITE", (
-                "funding capte %+.3f %%/panier, t %+.2f — non concluant" % (moy or 0.0, t or 0.0))
-
+                "funding %+.3f %%/panier, t corrige %+.2f — non concluant"
+                % (moy or 0.0, t_corr or 0.0))
+        b["t_funding_corrige"] = round(t_corr, 3) if t_corr is not None else None
+        b["chevauchement"] = k
+        b["pnl_gate"] = {"n": n_pnl, "t": t_pnl, "pnl": pnl_tot}
         b["n_paniers_clos"] = len(serie)
         b["funding_moyen_pct"] = round(moy, 5) if moy is not None else None
         b["t_funding"] = round(t, 3) if t is not None else None
