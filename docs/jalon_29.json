@@ -24,18 +24,25 @@
     }
    ],
    "photo": {
-    "cap": 0.002363153778909491,
+    "cap": 0.002376121901279646,
     "jambes": 6,
-    "ts": "2026-08-24T06:01:10.775006+00:00"
+    "ts": "2026-08-24T06:15:43.431871+00:00"
    },
    "ouvert_le": "2026-08-23T21:30:54.621229+00:00",
-   "funding_courant_pct": 0.23632,
+   "funding_courant_pct": 0.23761,
    "jambes_ouvertes": 6,
    "n_paniers_clos": 2,
    "funding_moyen_pct": 3.28505,
    "t_funding": 3.853,
    "verdict": "DONNEES_INSUFFISANTES",
-   "lecture": "2 panier(s) clos sur 3 requis"
+   "lecture": "2 panier(s) clos sur 3 requis",
+   "t_funding_corrige": 3.853,
+   "chevauchement": 1.0,
+   "pnl_gate": {
+    "n": 24,
+    "t": 1.27,
+    "pnl": 243.35
+   }
   },
   "29b_carry_neutre_large": {
    "paniers": [
@@ -47,18 +54,25 @@
     }
    ],
    "photo": {
-    "cap": 0.003975442187411237,
+    "cap": 0.003992861367537061,
     "jambes": 20,
-    "ts": "2026-08-24T06:01:10.775006+00:00"
+    "ts": "2026-08-24T06:15:43.431871+00:00"
    },
    "ouvert_le": "2026-08-19T17:58:36.541989+00:00",
-   "funding_courant_pct": 0.39754,
+   "funding_courant_pct": 0.39929,
    "jambes_ouvertes": 20,
    "n_paniers_clos": 1,
    "funding_moyen_pct": 0.34976,
    "t_funding": null,
    "verdict": "DONNEES_INSUFFISANTES",
-   "lecture": "1 panier(s) clos sur 3 requis"
+   "lecture": "1 panier(s) clos sur 3 requis",
+   "t_funding_corrige": null,
+   "chevauchement": 1.0,
+   "pnl_gate": {
+    "n": 40,
+    "t": 0.79,
+    "pnl": 26.7
+   }
   },
   "29c_carry_decale": {
    "paniers": [
@@ -118,21 +132,28 @@
     }
    ],
    "photo": {
-    "cap": 0.003923179744237984,
+    "cap": 0.003946172665553683,
     "jambes": 80,
-    "ts": "2026-08-24T06:01:10.775006+00:00"
+    "ts": "2026-08-24T06:15:43.431871+00:00"
    },
    "ouvert_le": "p007,p008,p009,p010",
-   "funding_courant_pct": 0.39232,
+   "funding_courant_pct": 0.39462,
    "jambes_ouvertes": 80,
    "n_paniers_clos": 9,
    "funding_moyen_pct": 0.67133,
    "t_funding": 9.713,
-   "verdict": "REUSSI",
-   "lecture": "funding capte +0.671 %/panier, t +9.71 — la capture est reelle"
+   "verdict": "ECHOUE",
+   "lecture": "funding capte +0.671 %/panier (t corrige +5.19) MAIS le bot PERD : t(P&L) -0.78 sur n=120, P&L -6.40 $ — capter le funding ne suffit pas",
+   "t_funding_corrige": 5.192,
+   "chevauchement": 3.5,
+   "pnl_gate": {
+    "n": 120,
+    "t": -0.78,
+    "pnl": -6.4
+   }
   }
  },
- "maj": "2026-08-24T06:01:10.775006+00:00",
+ "maj": "2026-08-24T06:15:43.431871+00:00",
  "jours_restants": 21.7,
  "echu": false
 }
