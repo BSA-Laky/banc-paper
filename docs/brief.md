@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-24 18:45 (Paris)
+# Brief Station — 2026-08-24 19:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -8,7 +8,7 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 29_carry_neutre | GRIS | 24 | 10.1396 | 1.27 | 243.35 | 8.45 | 28.8 j |
+| 29_carry_neutre | GRIS | 24 | 10.1396 | 1.27 | 243.35 | 8.42 | 28.9 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.405 | 19.0 j |
 | 29c_carry_decale | ORANGE | 120 | -0.0534 | -0.78 | -6.4 | -0.339 | 18.9 j |
 | 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.008 | 9.2 j |
@@ -23,16 +23,16 @@
 | 27b_rev_move | ROUGE | 188 | 0.4673 | 0.44 | 87.85 | 1.428 | 61.5 j |
 | 27c_mom_move | ROUGE | 188 | -0.6073 | -0.57 | -114.17 | -1.856 | 61.5 j |
 | 27d_rev_move_stop | ROUGE | 333 | -0.5943 | -0.89 | -197.9 | -3.547 | 55.8 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.58 | 52.0 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.578 | 52.1 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.228 | 51.0 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.218 | 51.0 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.336 | 43.3 j |
-| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.044 | 28.8 j |
+| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.044 | 28.9 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -199.49 $
 
-**BTC** 79349 $ — ret 1j +1.99% · 7j +23.03% · 30j +23.29%
-**Moves 24h ≥ 20 %** : CASHCAT +52.2%
+**BTC** 78801 $ — ret 1j +1.28% · 7j +22.18% · 30j +22.44%
+**Moves 24h ≥ 20 %** : CASHCAT +48.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
