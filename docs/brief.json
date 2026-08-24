@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-24T08:01:14.375393+00:00",
+ "ts": "2026-08-24T08:15:40.503800+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -130,8 +130,8 @@
    "esperance": -0.0534,
    "t": -0.78,
    "pnl": -6.4,
-   "pnl_j": -0.346,
-   "fwd_j": 18.5
+   "pnl_j": -0.344,
+   "fwd_j": 18.6
   },
   "32_carry_crossvenue": {
    "statut": "GRIS",
@@ -149,30 +149,36 @@
    "t": -0.02,
    "pnl": -1.08,
    "pnl_j": -0.038,
-   "fwd_j": 28.7
+   "fwd_j": 28.8
   }
  },
  "tendances_btc": {
-  "ret1": -0.0054,
-  "ret7": 0.1998,
-  "ret30": 0.2023,
-  "prix": 77381
+  "ret1": -0.0069,
+  "ret7": 0.198,
+  "ret30": 0.2005,
+  "prix": 77267
  },
  "evenements_extremes": [
   {
    "coin": "PURR",
-   "move_pct": 51.4
+   "move_pct": 48.0
   },
   {
    "coin": "APEX",
-   "move_pct": 30.6
+   "move_pct": 32.0
   },
   {
    "coin": "GRASS",
-   "move_pct": 25.5
+   "move_pct": 25.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-24T08:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-24T08:01",
    "bot": "27a_rev_premium",
@@ -214,12 +220,6 @@
    "bot": "27c_mom_move",
    "marche": "mom_move-ZRO",
    "pnl": -4.65
-  },
-  {
-   "ts": "2026-08-24T07:15",
-   "bot": "27b_rev_move",
-   "marche": "rev_move-ZRO",
-   "pnl": 4.51
   }
  ],
  "calibration_arbitre": {
@@ -233,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.4,
+  "age_avis_h": 0.6,
   "problemes": []
  },
  "autofinancement": {
