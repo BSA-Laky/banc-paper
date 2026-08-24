@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-24 07:30 (Paris)
+# Brief Station — 2026-08-24 07:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -10,9 +10,9 @@
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 24 | 10.1396 | 1.27 | 243.35 | 8.569 | 28.4 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.443 | 18.5 j |
-| 29c_carry_decale | ORANGE | 120 | -0.0534 | -0.78 | -6.4 | -0.348 | 18.4 j |
+| 29c_carry_decale | ORANGE | 120 | -0.0534 | -0.78 | -6.4 | -0.346 | 18.5 j |
 | 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.009 | 8.7 j |
-| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.038 | 28.6 j |
+| rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.038 | 28.7 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -196.28 $
 
-**BTC** 77035 $ — ret 1j -0.99% · 7j +19.45% · 30j +19.69%
-**Moves 24h ≥ 20 %** : PURR +52.3%, APEX +28.9%, CASHCAT +25.1%, MORPHO +22.4%, LIT +21.6%, GRASS +20.9%
+**BTC** 77162 $ — ret 1j -0.83% · 7j +19.64% · 30j +19.89%
+**Moves 24h ≥ 20 %** : PURR +52.6%, APEX +30.3%, CASHCAT +25.7%, GRASS +24.4%, MORPHO +23.9%, LIT +20.8%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
