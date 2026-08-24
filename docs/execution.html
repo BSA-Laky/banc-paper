@@ -54,6 +54,16 @@ footer{color:var(--muted);font-size:.72rem;line-height:1.55;margin-top:6px}
 <h1>⚙️ Exécution — ordres réellement passés</h1>
 <div class="sub" id="maj">chargement…</div>
 
+<div class="alerte" style="background:#0d1b2a;border-color:#3d5a80;color:#a8c0d8">
+📖 <b>Cette page montre le MIROIR TESTNET, pas le banc papier.</b> Trois registres
+coexistent et ne peuvent pas coïncider :
+<b>le dashboard</b> lit le bot papier (c'est lui que juge la gate) ·
+<b>cette page</b> lit les ordres réellement envoyés au testnet ·
+<b>le compte Hyperliquid</b> ne montre que ce qui a rempli.
+Le testnet manque de contrepartie sur beaucoup de pièces (mesure du 24/08 :
+CASHCAT y cote 21,8 % de spread avec 3 $ de profondeur, contre 0,14 % et 1 107 $
+sur le mainnet), donc le miroir est un <b>sous-ensemble biaisé</b> du papier.
+Les chiffres ci-dessous valent pour la plomberie d'exécution, jamais pour juger une stratégie.</div>
 <noscript><div class="avert-nojs">⚠️ <b>Cette page est alimentée par JavaScript.</b>
 Ses tableaux sont remplis au chargement depuis <code>execution.json</code> ; sans
 JavaScript ils restent vides, ce qui n'indique <b>aucune panne</b>. Les données
@@ -169,6 +179,13 @@ function rendre() {
     const v = bots[b], r = v.resume;
     const tag = v.tue ? '<span class="tag mort">🛑 TUÉ</span>' : '<span class="tag vif">actif</span>';
     const alerte = v.alerte ? `<div class="alerte">⚠️ ${esc(v.alerte)}</div>` : "";
+    // NEUTRALITE (24/08/2026) : pour la famille 29, un livre déséquilibré ne
+    // mesure plus la stratégie mais un pari directionnel. On l'affiche toujours.
+    const nz = v.neutralite;
+    const neutre = nz ? `<div class="chiffres">Neutralité du livre :
+        <b>${nz.jambes}</b> jambe(s), brut <b>${usd(nz.brut_usd)}</b>, net
+        <b class="${Math.abs(nz.ecart)<=0.10?'pos':'neg'}">${usd(nz.net_usd)}</b>
+        (écart <b>${pct(nz.ecart)}</b> — 0 % = parfaitement neutre)</div>` : "";
 
     const lat = v.ouvertes.map(pnlLatent);
     const latTotal = lat.some(x => x !== null)
@@ -218,7 +235,10 @@ function rendre() {
         <b>${r.rejets}</b> rejet(s) · P&amp;L <b class="${r.pnl_total>=0?'pos':'neg'}">${usd(r.pnl_total)}</b>
         ${r.pnl_moyen !== null ? ` (moyenne ${usd(r.pnl_moyen)}/trade)` : ""}
         ${r.taux_reussite !== null ? ` · réussite <b>${pct(r.taux_reussite)}</b>` : ""}
-      </div>${alerte}${ouvertes}${histo}</section>`;
+        ${r.illiquides ? ` · <b>${r.illiquides}</b> écartée(s) faute de carnet` : ""}
+        ${r.non_apparies ? ` · <b>${r.non_apparies}</b> non appariée(s)` : ""}
+        ${r.clotures_refusees ? ` · <b class="neg">${r.clotures_refusees}</b> clôture(s) refusée(s)` : ""}
+      </div>${neutre}${alerte}${ouvertes}${histo}</section>`;
   }).join("");
 }
 
