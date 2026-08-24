@@ -21,7 +21,9 @@
    "jours_forward": 61.5,
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "t -3.30 < 2"
+   ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -87.07,
@@ -41,7 +43,9 @@
    "jours_forward": 28.8,
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "t -3.40 < 2"
+   ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -121.24,
@@ -61,7 +65,9 @@
    "jours_forward": 61.4,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "t -0.05 < 2"
+   ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -11.43,
@@ -81,7 +87,9 @@
    "jours_forward": 61.1,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "t 0.37 < 2"
+   ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 73.62,
@@ -101,7 +109,9 @@
    "jours_forward": 61.1,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": true,
-   "raisons": [],
+   "raisons": [
+    "t -0.50 < 2"
+   ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -99.38,
@@ -121,7 +131,9 @@
    "jours_forward": 55.4,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "t -0.87 < 2"
+   ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -191.52,
@@ -141,7 +153,10 @@
    "jours_forward": 51.7,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "n 30 < n_go 50",
+    "t -0.40 < 2"
+   ],
    "avertissements": [
     "REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
    ],
@@ -171,7 +186,9 @@
    "jours_forward": 50.6,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": true,
-   "raisons": [],
+   "raisons": [
+    "t -0.09 < 2"
+   ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -11.64,
@@ -191,7 +208,10 @@
    "jours_forward": 50.6,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "n 71 < n_go 100",
+    "t 0.08 < 2"
+   ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 11.12,
@@ -211,7 +231,10 @@
    "jours_forward": 42.9,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "n 41 < n_go 100",
+    "t 0.17 < 2"
+   ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 14.56,
@@ -231,7 +254,10 @@
    "jours_forward": 28.5,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": true,
-   "raisons": [],
+   "raisons": [
+    "n 31 < n_go 100",
+    "t -0.01 < 2"
+   ],
    "avertissements": [],
    "mu_ref": 1.26,
    "pnl_cumule": -1.28,
@@ -251,7 +277,10 @@
    "jours_forward": 28.5,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "n 24 < n_go 100",
+    "t 1.27 < 2"
+   ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 243.35,
@@ -316,7 +345,11 @@
    "jours_forward": 8.8,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "n 2 < n_go 100",
+    "t -0.01 < 2",
+    "forward 9 j < 28 j"
+   ],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -0.08,
@@ -349,9 +382,14 @@
    "rendement_j_pct": -0.008
   }
  },
- "alertes": [],
+ "alertes": [
+  "ARGENT REEL NON JUSTIFIE : 28_carry_hold est en mainnet avec statut ROUGE (n=31, t=-0.01, forward=28.5 j) -- raisons : n 31 < n_go 100 ; t -0.01 < 2. Decomposition : EN COURS. Aucun critere chiffre du projet n'autorise ce capital engage.",
+  "LEDGER REEL FAUX de +45.87 $ : le journal d'execution totalise +10.66 $ sur 12 fermeture(s), le compte Hyperliquid est a -35.21 $ (seuil 2.00 $). Des fermetures hors executeur ne sont pas journalisees. La verite affichee est etat/reel_hl.json ; le journal reste une estimation."
+ ],
  "avertissements": [
-  "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
+  "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)",
+  "EXECUTEUR REEL SILENCIEUX : aucun ordre depuis 611 h alors que le paper tient 28_carry_hold=ACE,CASHCAT,CC,FARTCOIN,ICP,KAITO,XMR,ZRO. L'executeur tourne (reconciliation il y a 0 h) : ce sont les filtres reels (seuil funding 0.0001 vs paper, fraicheur 4 h) qui bloquent. Le livre reel n'est donc PAS un miroir du paper.",
+  "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne."
  ],
  "calibration_arbitre": {
   "tendance": {
@@ -431,5 +469,145 @@
  },
  "reels": [],
  "reel_suspendu": true,
- "reel_motif": "Retrait des fonds par le Commandant, duree indeterminee. Equity mainnet a 0, aucune position ouverte : sortie propre. Sans ce kill-switch, executeur_reel.py tenterait des ordres sur un compte vide et remplirait reel_trades.csv de REJET a chaque passe."
+ "reel_motif": "Retrait des fonds par le Commandant, duree indeterminee. Equity mainnet a 0, aucune position ouverte : sortie propre. Sans ce kill-switch, executeur_reel.py tenterait des ordres sur un compte vide et remplirait reel_trades.csv de REJET a chaque passe.",
+ "decomposition": {
+  "25_convergence_basis": {
+   "n_jambes": 210,
+   "funding": {
+    "moyenne_pct": 0.02184,
+    "t": 2.84
+   },
+   "prix": {
+    "moyenne_pct": -0.34396,
+    "t": -3.02,
+    "ic95_pct": [
+     -0.56745,
+     -0.12047
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": -0.06816,
+   "ecart_neutralite": 0.0,
+   "verdict": "EN COURS",
+   "raisons": [
+    "prix t -3.02 : IC95 [-0.0057 ; -0.0012] ne contient pas 0 -> directionnel deguise",
+    "E[funding] 0.00022 <= E[frais] 0.00090"
+   ]
+  },
+  "28_carry_hold": {
+   "n_jambes": 28,
+   "funding": {
+    "moyenne_pct": 0.86077,
+    "t": 2.72
+   },
+   "prix": {
+    "moyenne_pct": -1.53492,
+    "t": -0.31,
+    "ic95_pct": [
+     -11.25431,
+     8.18446
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": 0.77077,
+   "ecart_neutralite": 0.25,
+   "verdict": "EN COURS",
+   "raisons": [
+    "ecart de neutralite 0.25 > 0.10 (livre nu)"
+   ]
+  },
+  "29_carry_neutre": {
+   "n_jambes": 24,
+   "funding": {
+    "moyenne_pct": 2.21237,
+    "t": 1.97
+   },
+   "prix": {
+    "moyenne_pct": 5.05005,
+    "t": 0.8,
+    "ic95_pct": [
+     -7.31979,
+     17.41988
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": 2.12237,
+   "ecart_neutralite": 0.0,
+   "verdict": "EN COURS",
+   "raisons": [
+    "funding t 1.97 < 2.0 (capture non significative)"
+   ]
+  },
+  "29b_carry_neutre_large": {
+   "n_jambes": 40,
+   "funding": {
+    "moyenne_pct": -0.09373,
+    "t": -0.13
+   },
+   "prix": {
+    "moyenne_pct": 1.90622,
+    "t": 0.86,
+    "ic95_pct": [
+     -2.44311,
+     6.25554
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": -0.18373,
+   "ecart_neutralite": 0.0,
+   "verdict": "EN COURS",
+   "raisons": [
+    "funding t -0.13 < 2.0 (capture non significative)",
+    "E[funding] -0.00094 <= E[frais] 0.00090"
+   ]
+  },
+  "32_carry_crossvenue": {
+   "n_jambes": 2,
+   "funding": {
+    "moyenne_pct": -0.09061,
+    "t": -0.1
+   },
+   "prix": {
+    "moyenne_pct": -0.03281,
+    "t": -0.0,
+    "ic95_pct": [
+     -74.68791,
+     74.62228
+    ]
+   },
+   "frais": {
+    "moyenne_pct": 0.09
+   },
+   "esperance_nette_pct": -0.18061,
+   "ecart_neutralite": 0.0,
+   "verdict": "EN COURS",
+   "raisons": [
+    "n 2 < 20 jambes fermees",
+    "funding t -0.10 < 2.0 (capture non significative)",
+    "E[funding] -0.00091 <= E[frais] 0.00090"
+   ]
+  }
+ },
+ "mode_station": "attente_recharge_api",
+ "garde_reel": {
+  "ts": "2026-08-24T07:38:50.645964+00:00",
+  "mode_station": "attente_recharge_api",
+  "composantes_ajoutees": 0,
+  "n_alertes": 2,
+  "n_avertissements": 2,
+  "criteres": {
+   "t_funding_min": 2.0,
+   "t_prix_max": 1.96,
+   "neutralite_max": 0.1,
+   "n_min": 20
+  }
+ }
 }
