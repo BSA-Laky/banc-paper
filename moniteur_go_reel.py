@@ -84,6 +84,14 @@ GATE = {
                              "exige_battre": "27b_rev_move"},
     "30_trend_following":   {"n_go": 4,   "jours_min": 120, "mu_ref": None, "sigma_ref": None, "mdd_ref": None},
     "31_variance_premium":  {"n_go": 4,   "jours_min": 120, "mu_ref": None, "sigma_ref": None, "mdd_ref": None},
+    # 30b ajoute le 25/08/2026, avec exige_battre. Mesure sur 143 mois de prix reels :
+    # le bot rend +0,564 %/mois (Sharpe 0,67, t +2,30) mais son TEMOIN ALEATOIRE, qui
+    # tient les memes instruments au hasard, rend deja +0,249 %/mois. L'apport du signal
+    # est donc +0,315 %/mois avec t = +1,62 -- et sur 15 tirages du temoin, t depasse 2
+    # dans 2 cas sur 15 seulement. Sans cette clause, 30b passerait VERT sur un t brut
+    # gonfle par le simple fait d'etre long un marche haussier.
+    "30b_trend_executable": {"n_go": 24,  "jours_min": 120, "mu_ref": None, "sigma_ref": None, "mdd_ref": None,
+                             "exige_battre": "10c_controle_cfd"},
 }
 DEFAUT = {"n_go": 100, "jours_min": 28, "mu_ref": None, "sigma_ref": None, "mdd_ref": None}
 

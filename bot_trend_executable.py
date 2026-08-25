@@ -43,6 +43,36 @@ backtest est une propriete du book ETF, pas du signal -- et il ne voyagera pas.
 Aucun parametre du signal n'est retouche : la traduction doit etre un test
 PROPRE de la seule executabilite.
 
+COMPTABILITE — MIGRE LE 25/08/2026
+----------------------------------
+Ce module fabriquait ses Trade a la main (`Trade(...)` puis `.close(1+port)`),
+et l'audit de conformite le signalait comme NON CONFORME depuis le 26/07. Le
+reflexe aurait ete de le dispenser comme bot_trend.py et bot_variance.py, qui le
+sont AVEC MOTIF : sur un book d'ETF ou d'options il n'y a pas de funding, donc
+comptabilite.PositionReelle (concue pour un perp avec portage) ne s'applique pas.
+
+Ce motif ne vaut PAS ici. Un CFD tenu au mois paie un SWAP overnight, et ce swap
+est exactement le terme de portage que la comptabilite auditee existe pour
+traiter. Le dispenser aurait laisse hors audit la variable que ce module declare
+lui-meme comme "l'hypothese la plus sensible". Il est donc migre pour de vrai.
+
+Ce que la migration change concretement :
+  - chaque ligne detenue est une comptabilite.PositionReelle (side +1, long only) ;
+  - le swap passe par `accumuler()`, donc par `funding_signe()` : pour un LONG,
+    la convention rend bien un COUT (-side*f*dt avec side=+1 et f>0) ;
+  - les frais deviennent ceux de comptabilite (FRAIS_PAR_JAMBE, aller-retour),
+    soit 9 bp par ligne au lieu des 5 bp forfaitaires supposes avant. C'est PLUS
+    PESSIMISTE, et c'est voulu : on ne discute pas les constantes du coeur audite ;
+  - le rendement mensuel du book reste l'unite de mesure (les lignes d'un meme
+    book ne sont pas independantes : compter chaque ligne comme un trade
+    surestimerait le t-stat). On agrege donc les lignes AUDITEES en un trade
+    mensuel, au lieu de fabriquer ce trade a partir de rien.
+
+Timing des frais : l'aller-retour est impute au mois d'OUVERTURE, puis les mois
+suivants ne portent que la variation de prix et le swap. La somme sur la vie de
+la position est donc exactement `rendement_net()` a la cloture ; seul le calendrier
+est legerement conservateur.
+
 stdlib uniquement. Meme interface que bot_trend.py (step(marche)).
 """
 from __future__ import annotations
@@ -52,8 +82,10 @@ import random
 from pathlib import Path
 
 from banc_essai_paper_trading import Strategy, Trade
+from comptabilite import FRAIS_PAR_JAMBE, Livre
 
 ETAT_DIR = Path("etat")
+HEURES_PAR_MOIS = 8760.0 / 12.0      # 730 h : duree d'accumulation du swap
 
 # --- Univers EXECUTABLE en CFD chez une maison prop -------------------------
 # Cle = symbole de donnees (Twelve Data, comme bot_trend) ; valeur = l'instrument
@@ -119,6 +151,56 @@ def _sig_momentum(m, asof):
     return 1 if (m[asof] / m[passe] - 1.0) > 0 else 0
 
 
+def _pas_mensuel(livre: Livre, marks: dict, monthly: dict, asof: str,
+                 signaux: dict, notional: float, swap_annuel: float) -> tuple:
+    """Un mois de book, comptabilise ligne par ligne via comptabilite.PositionReelle.
+
+    Renvoie (rendement_du_book, part_exposee, nb_rotations). Le rendement est la
+    moyenne equiponderee sur les lignes DISPONIBLES : une ligne non detenue
+    contribue zero, exactement comme dans bot_trend.
+    """
+    swap_h = swap_annuel / 8760.0        # taux horaire ; >0 = le LONG paie
+    contribs, rotations = [], 0
+    par_ligne = notional / max(1, len(UNIVERS))
+
+    for s in UNIVERS:
+        m = monthly.get(s)
+        if not m or asof not in m:
+            continue
+        cfd = UNIVERS_CFD[s]
+        mark = float(m[asof])
+        veut = int(signaux.get(s, 0))
+        p = livre.positions.get(cfd)
+
+        if p is None and veut:                       # OUVERTURE
+            p = livre.ouvrir(cfd, +1, par_ligne, mark)
+            marks[cfd] = mark
+            contribs.append(-p.frais)                # l'aller-retour, impute a l'ouverture
+            rotations += 1
+            continue
+        if p is None:                                # ligne restee en cash
+            contribs.append(0.0)
+            continue
+
+        # ligne detenue : swap du mois, puis variation depuis le dernier releve
+        avant = p.rendement_net(marks.get(cfd, p.mark_entree))
+        p.accumuler(swap_h, HEURES_PAR_MOIS)
+        apres = p.rendement_net(mark)
+        contribs.append(apres - avant)
+        marks[cfd] = mark
+
+        if not veut:                                 # FERMETURE
+            livre.fermer(cfd, mark)
+            marks.pop(cfd, None)
+            rotations += 1
+
+    if not contribs:
+        return None, 0.0, 0
+    detenues = sum(1 for s in UNIVERS if UNIVERS_CFD[s] in livre.positions)
+    return (sum(contribs) / len(contribs),
+            detenues / max(1, len(contribs)), rotations)
+
+
 class TrendExecutable(Strategy):
     """Bot 30b : le book trend restreint a ce qui est reellement executable."""
     name = "30b_trend_executable"
@@ -129,6 +211,8 @@ class TrendExecutable(Strategy):
         self.swap_annuel = float(swap_annuel)
         self._f = ETAT_DIR / "etat_bot30b.json"
         self._etat = _charger(self._f)
+        self.livre = Livre(self.name)
+        self.livre.charger(self._etat.get("positions", {}))
 
     def step(self, marche: dict):
         monthly = marche.get("monthly") or {}
@@ -138,48 +222,28 @@ class TrendExecutable(Strategy):
         if self._etat.get("dernier_mois") == asof:
             return []
 
+        signaux = {s: _sig_momentum(monthly.get(s), asof) for s in UNIVERS}
+        marks = self._etat.setdefault("marks", {})
+        rendement, part, rot = _pas_mensuel(self.livre, marks, monthly, asof,
+                                            signaux, self.notional, self.swap_annuel)
         trades = []
-        pos = self._etat.get("positions")
-        entree = self._etat.get("prix_entree")
-        if pos and entree:
-            rets, change, exposes = [], 0, 0
-            for s in UNIVERS:
-                m = monthly.get(s)
-                if not m or s not in entree or asof not in m:
-                    continue
-                r = m[asof] / entree[s] - 1.0
-                p = pos.get(s, 0)
-                rets.append(p * r)
-                exposes += p
-                if p != _sig_momentum(m, asof):
-                    change += 1
-            if rets:
-                turn = change / max(1, len(UNIVERS))
-                # exposition moyenne du mois : seules les lignes DETENUES paient le swap
-                part_exposee = exposes / max(1, len(rets))
-                swap = self.swap_annuel / MOIS_PAR_AN * part_exposee
-                port = sum(rets) / len(rets) - COST * turn - swap
-                t = Trade(self.name, "trend-cfd", "long_flat", 1.0, self.notional)
-                t.close(1.0 + port)
-                trades.append(t)
-                self._etat["dernier_swap"] = round(swap, 6)
-                self._etat["part_exposee"] = round(part_exposee, 4)
+        if rendement is not None and self._etat.get("dernier_mois"):
+            # UN trade par MOIS de book : les lignes d'un meme book ne sont pas
+            # independantes, les compter separement gonflerait le t-stat.
+            t = Trade(self.name, "trend-cfd", "long_flat", 1.0, self.notional)
+            t.close(1.0 + rendement)
+            trades.append(t)
+            self._etat["dernier_rendement"] = round(rendement, 6)
 
-        newpos, newentree = {}, {}
-        for s in UNIVERS:
-            m = monthly.get(s)
-            newpos[s] = _sig_momentum(m, asof)
-            if m and asof in m:
-                newentree[s] = m[asof]
-        self._etat.update({"dernier_mois": asof, "positions": newpos,
-                           "prix_entree": newentree,
+        self._etat.update({"dernier_mois": asof, "part_exposee": round(part, 4),
+                           "rotations": rot, "positions": self.livre.vers_dict(),
                            "univers_cfd": UNIVERS_CFD, "perdus_vs_bot30": PERDUS,
-                           "swap_annuel": self.swap_annuel})
+                           "swap_annuel": self.swap_annuel,
+                           "frais_par_ligne_ar": round(2 * FRAIS_PAR_JAMBE, 6)})
         _sauver(self._f, self._etat)
         if trades:
-            print("[30b] trend EXECUTABLE : book solde %s (swap %.4f, expose %.0f %%)"
-                  % (asof, self._etat.get("dernier_swap", 0),
-                     100 * self._etat.get("part_exposee", 0)), flush=True)
+            print("[30b] trend EXECUTABLE : book solde %s (rendement %+.4f, expose %.0f %%, %d rotation(s))"
+                  % (asof, rendement, 100 * part, rot), flush=True)
         return trades
 
 
@@ -197,6 +261,8 @@ class ControleCFD(Strategy):
         self.swap_annuel = float(swap_annuel)
         self._f = ETAT_DIR / "etat_controle_cfd.json"
         self._etat = _charger(self._f)
+        self.livre = Livre(self.name)
+        self.livre.charger(self._etat.get("positions", {}))
 
     def step(self, marche: dict):
         monthly = marche.get("monthly") or {}
@@ -205,32 +271,19 @@ class ControleCFD(Strategy):
             return []
         if self._etat.get("dernier_mois") == asof:
             return []
+        # MEME comptabilite auditee que le 30b : sans ca, un ecart de P&L entre le
+        # bot et son temoin pourrait venir de la methode de calcul, pas du signal.
+        signaux = {s: random.choice([0, 1]) for s in UNIVERS}
+        marks = self._etat.setdefault("marks", {})
+        rendement, part, rot = _pas_mensuel(self.livre, marks, monthly, asof,
+                                            signaux, self.notional, self.swap_annuel)
         trades = []
-        pos = self._etat.get("positions")
-        entree = self._etat.get("prix_entree")
-        if pos and entree:
-            rets, exposes = [], 0
-            for s in UNIVERS:
-                m = monthly.get(s)
-                if not m or s not in entree or asof not in m:
-                    continue
-                p = pos.get(s, 0)
-                rets.append(p * (m[asof] / entree[s] - 1.0))
-                exposes += p
-            if rets:
-                part = exposes / max(1, len(rets))
-                port = (sum(rets) / len(rets) - COST * 0.5
-                        - self.swap_annuel / MOIS_PAR_AN * part)
-                t = Trade(self.name, "controle-cfd", "aleatoire", 1.0, self.notional)
-                t.close(1.0 + port)
-                trades.append(t)
-        newpos, newentree = {}, {}
-        for s in UNIVERS:
-            m = monthly.get(s)
-            newpos[s] = random.choice([0, 1])
-            if m and asof in m:
-                newentree[s] = m[asof]
-        self._etat = {"dernier_mois": asof, "positions": newpos, "prix_entree": newentree}
+        if rendement is not None and self._etat.get("dernier_mois"):
+            t = Trade(self.name, "controle-cfd", "aleatoire", 1.0, self.notional)
+            t.close(1.0 + rendement)
+            trades.append(t)
+        self._etat.update({"dernier_mois": asof, "part_exposee": round(part, 4),
+                           "rotations": rot, "positions": self.livre.vers_dict()})
         _sauver(self._f, self._etat)
         return trades
 
