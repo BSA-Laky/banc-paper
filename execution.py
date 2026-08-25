@@ -213,6 +213,80 @@ def _environnement(journal: Path, positions: Path, tues: set, maintenant: dateti
     return sortie
 
 
+# --- POURQUOI LES CHIFFRES DIFFERENT (25/08/2026) ---------------------------
+# Question posee : "je ne vois pas les memes chiffres sur le dashboard, sur
+# execution.html et sur le testnet Hyperliquid". Reponse : ce sont TROIS
+# registres distincts, et rien ne l'expliquait nulle part.
+#   dashboard      = paper_trades.csv    -> le bot PAPIER, c'est lui que juge la gate
+#   execution.html = testnet_trades.csv  -> les ordres REELLEMENT envoyes
+#   compte testnet = ce qui a effectivement REMPLI
+# Ils ne peuvent pas coincider : le testnet refuse des jambes (carnets vides), donc
+# il execute un SOUS-ENSEMBLE du papier. Mesure du 24/08 : 40 % des jambes de 29c
+# etaient ouvertes. Le bloc ci-dessous met les trois cote a cote avec le taux de
+# remplissage, pour que l'ecart soit LU au lieu d'etre subi.
+BOTS_NEUTRES = ("29_carry_neutre", "29b_carry_neutre_large", "29c_carry_decale")
+
+
+def _paper_par_bot() -> dict:
+    out = {}
+    try:
+        import csv as _csv
+        with open("paper_trades.csv", encoding="utf-8") as f:
+            for r in _csv.DictReader(f):
+                if not r.get("pnl"):
+                    continue
+                d = out.setdefault(r["bot"], {"n": 0, "pnl": 0.0})
+                d["n"] += 1
+                d["pnl"] += _f(r["pnl"])
+    except (OSError, ValueError):
+        pass
+    return out
+
+
+def _comparaison(maintenant: datetime) -> dict:
+    """Papier vs testnet, bot par bot, avec le taux de remplissage."""
+    paper = _paper_par_bot()
+    etat = _lj(ETAT / "executeur_testnet.json", {})
+    neutre = etat.get("_neutralite") or {}
+    demande = {}
+    for bot, fic in (("29_carry_neutre", "etat_bot29.json"),
+                     ("29b_carry_neutre_large", "etat_bot29b.json"),
+                     ("29c_carry_decale", "etat_bot29c.json")):
+        e = _lj(ETAT / fic, {})
+        pos = e.get("positions") or {}
+        if not pos:
+            pos = {}
+            for pid, pan in (e.get("paniers") or {}).items():
+                for c, v in (pan.get("positions") or {}).items():
+                    pos["%s/%s" % (pid, c)] = v
+        demande[bot] = len(pos)
+    lignes = []
+    for bot in BOTS_NEUTRES:
+        ouvert = len([k for k, v in (etat.get(bot) or {}).items() if isinstance(v, dict)])
+        veut = demande.get(bot, 0)
+        pa = paper.get(bot, {})
+        nz = neutre.get(bot) or {}
+        lignes.append({
+            "bot": bot,
+            "paper_n": pa.get("n"), "paper_pnl": round(pa.get("pnl", 0.0), 2),
+            "jambes_demandees": veut, "jambes_ouvertes": ouvert,
+            "remplissage": round(ouvert / veut, 3) if veut else None,
+            "ecart_neutralite": nz.get("ecart"),
+            "net_usd": nz.get("net_usd"),
+        })
+    morts = sorted((etat.get("_illiquides") or {}).keys())
+    return {
+        "lignes": lignes,
+        "carnets_morts": morts,
+        "n_carnets_morts": len(morts),
+        "note": ("Le dashboard lit le bot PAPIER (juge par la gate). Cette page lit les "
+                 "ordres REELLEMENT envoyes au testnet. Le testnet n'a pas de contrepartie "
+                 "sur toutes les pieces : il execute donc un sous-ensemble du papier, et "
+                 "les deux P&L n'ont aucune raison de coincider."),
+        "ts": maintenant.isoformat(),
+    }
+
+
 def produire() -> dict:
     maintenant = datetime.now(timezone.utc)
     cv = (_lj(ETAT / "cycle_vie.json", {}).get("bots") or {})
@@ -236,6 +310,8 @@ def produire() -> dict:
                                       ETAT / "executeur_reel.json", tues, maintenant),
         },
     }
+
+    doc["comparaison"] = _comparaison(maintenant)
 
     hl = _lj(ETAT / "reel_hl.json", {})
     if hl:

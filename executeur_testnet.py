@@ -130,6 +130,48 @@ def _info(base_url, body):
 SPREAD_MAX = 0.01          # 1 % ; au-dela le testnet ne cote plus rien de reel
 _BOOK = {}
 
+# --- MEMOIRE DES CARNETS MORTS (25/08/2026) ---------------------------------
+# Le filtre du 24/08 marche, mais il n'a pas de memoire : il redecouvre a CHAQUE
+# passe que CASHCAT a un carnet vide, refait l'appel l2Book, et ecrit une ligne.
+# Mesure sur 24 h : 1 069 lignes ILLIQUIDE et autant d'appels API, dont 231 pour
+# CASHCAT seule et 200 pour PURR. Le bruit avait juste change de nom (REJET ->
+# ILLIQUIDE), il n'avait pas disparu.
+# On memorise donc le verdict, avec une duree de vie qui depend du motif : un
+# carnet VIDE est structurel (12 h), une profondeur insuffisante est passagere
+# (1 h). Une seule ligne de journal a l'entree en liste, plus rien ensuite.
+TTL_ILLIQ_H = {"vide": 12.0, "spread": 6.0, "profondeur": 1.0}
+
+
+def _motif_cle(motif: str) -> str:
+    if "vide" in motif:
+        return "vide"
+    if "spread" in motif:
+        return "spread"
+    return "profondeur"
+
+
+def _illiq_encore(state: dict, coin: str, now) -> dict | None:
+    """Le coin est-il encore en liste noire ? Renvoie l'entree, ou None."""
+    e = (state.get("_illiquides") or {}).get(coin)
+    if not e:
+        return None
+    try:
+        age = (now - datetime.fromisoformat(str(e["ts"]))).total_seconds() / 3600.0
+    except (KeyError, ValueError, TypeError):
+        return None
+    return e if age < float(e.get("ttl_h", 12.0)) else None
+
+
+def _illiq_noter(state: dict, coin: str, motif: str, now) -> bool:
+    """Inscrit le coin. Renvoie True s'il faut journaliser (premiere fois)."""
+    lst = state.setdefault("_illiquides", {})
+    cle = _motif_cle(motif)
+    deja = lst.get(coin)
+    lst[coin] = {"ts": now.isoformat(), "motif": motif[:60], "cle": cle,
+                 "ttl_h": TTL_ILLIQ_H.get(cle, 12.0),
+                 "n_vus": int((deja or {}).get("n_vus", 0)) + 1}
+    return deja is None or deja.get("cle") != cle
+
 
 def _carnet(base_url, coin):
     """{bid, ask, spread, prof_bid, prof_ask} ou None si le carnet est vide."""
@@ -237,7 +279,7 @@ def executer():
     reelles = _positions_reelles(ex.cfg.base_url, ex.cfg.account)
     if reelles is not None:
         for bot in list(state):
-            if bot in ("_rejets", "_mises", "_neutralite"):
+            if bot in ("_rejets", "_mises", "_neutralite", "_illiquides"):
                 # BUG CORRIGE LE 24/08/2026 : "_mises" n'etait pas exclu de la
                 # reconciliation. Ses cles sont des NOMS DE BOTS, jamais des coins
                 # ouverts, donc elles etaient toutes supprimees a chaque passe.
@@ -346,12 +388,17 @@ def executer():
             if side == 0:                   # position sans direction connue (ex. 28 pre-16/07)
                 continue
             notion = pf.taille_entree(bot)
+            memo = _illiq_encore(state, coin, now)
+            if memo:                        # carnet deja juge mort : ni appel API ni ligne
+                continue
             negoc, motif = _negociable(base_url, coin, notion, side)
             if not negoc:
-                _log({"ts": now.isoformat(), "bot": bot, "coin": coin, "action": "ILLIQUIDE",
-                      "side": side, "notional_usd": round(notion, 2), "mark": d["mark"],
-                      "resp": motif[:60]})
+                if _illiq_noter(state, coin, motif, now):
+                    _log({"ts": now.isoformat(), "bot": bot, "coin": coin, "action": "ILLIQUIDE",
+                          "side": side, "notional_usd": round(notion, 2), "mark": d["mark"],
+                          "resp": "%s (silence %.0f h)" % (motif[:44], TTL_ILLIQ_H.get(_motif_cle(motif), 12.0))})
                 continue
+            (state.get("_illiquides") or {}).pop(coin, None)   # le carnet est revenu
             candidats.append((coin, side))
 
         # APPARIEMENT : pour un bot dollar-neutre, on n'ouvre que des paires, et on
