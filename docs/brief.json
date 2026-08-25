@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-25T00:45:37.496540+00:00",
+ "ts": "2026-08-25T01:01:05.487856+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -54,11 +54,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 339,
-   "esperance": -0.538,
-   "t": -0.82,
-   "pnl": -182.37,
-   "pnl_j": -3.245,
+   "n": 340,
+   "esperance": -0.557,
+   "t": -0.85,
+   "pnl": -189.37,
+   "pnl_j": -3.369,
    "fwd_j": 56.2
   },
   "27e_arbitre": {
@@ -130,8 +130,8 @@
    "esperance": -0.0465,
    "t": -0.79,
    "pnl": -6.5,
-   "pnl_j": -0.339,
-   "fwd_j": 19.2
+   "pnl_j": -0.337,
+   "fwd_j": 19.3
   },
   "32_carry_crossvenue": {
    "statut": "GRIS",
@@ -149,22 +149,34 @@
    "t": -0.02,
    "pnl": -1.08,
    "pnl_j": -0.037,
-   "fwd_j": 29.4
+   "fwd_j": 29.5
   }
  },
  "tendances_btc": {
-  "ret1": 0.006,
-  "ret7": 0.2284,
-  "ret30": 0.2158,
-  "prix": 79471
+  "ret1": 0.0102,
+  "ret7": 0.2335,
+  "ret30": 0.2209,
+  "prix": 79804
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 43.8
+   "move_pct": 45.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-25T01:01",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-CASHCAT",
+   "pnl": -7.0
+  },
+  {
+   "ts": "2026-08-25T01:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-25T00:45",
    "bot": "10_controle_aleatoire",
@@ -200,18 +212,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-24T23:15",
-   "bot": "27a_rev_premium",
-   "marche": "rev_premium-APEX",
-   "pnl": 0.35
-  },
-  {
-   "ts": "2026-08-24T23:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -225,7 +225,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.9,
+  "age_avis_h": 1.2,
   "problemes": []
  },
  "autofinancement": {
