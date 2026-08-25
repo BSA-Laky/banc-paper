@@ -14,6 +14,13 @@ body{margin:0;background:var(--bg);color:var(--txt);padding:14px;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px}
 h1{font-size:1.15rem;margin:.1rem 0}
 .sub{color:var(--muted);font-size:.78rem;margin:4px 0 12px}
+.cmp{margin:14px 0;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--card)}
+.cmp h3{margin:0 0 6px;font-size:.95rem}
+.cmp table{width:100%;border-collapse:collapse;font-size:.83rem}
+.cmp th,.cmp td{padding:4px 6px;text-align:right;border-bottom:1px solid var(--line)}
+.cmp th:first-child,.cmp td:first-child{text-align:left}
+.cmp .note{margin-top:8px;font-size:.78rem;color:var(--mut);line-height:1.45}
+.bar{display:inline-block;height:8px;border-radius:4px;background:var(--bleu);vertical-align:middle}
 .onglets{display:flex;gap:6px;margin:12px 0}
 .onglet{flex:1;padding:9px 6px;text-align:center;border:1px solid var(--line);
   border-radius:10px;background:var(--card2);color:var(--muted);cursor:pointer;
@@ -76,6 +83,7 @@ brutes se lisent directement dans <a href="execution.json">execution.json</a>.</
 
 <div id="bandeau"></div>
 <div class="bilan" id="bilan"></div>
+<div id="comparaison"></div>
 <div id="bots"></div>
 
 <nav class="navbar">
@@ -90,7 +98,7 @@ brutes se lisent directement dans <a href="execution.json">execution.json</a>.</
   environnement où de l'argent réel a été engagé.<br>
   <b>P&amp;L latent</b> : recalculé en direct depuis le prix d'entrée de CHAQUE bot et
   le mark Hyperliquid du moment, aller-retour de frais déduit (4,5 bp par jambe,
-  médiane mesurée sur 1 643 fills réels). Il se rafraîchit à chaque chargement,
+  médiane mesurée sur 1 643 fills réels). <b>Réserve ajoutée le 25/08 :</b> les <i>frais</i> mesurés sur ces fills sont valides, mais la mesure de <i>glissement</i> qui en a été tirée le 14/08 (« 1,7 bp sous 20 $ ») est biaisée — seules les pièces liquides du testnet remplissaient, les autres étaient refusées. Elle ne dit rien du mainnet. Il se rafraîchit à chaque chargement,
   sans attendre la passe.<br>
   P&amp;L d'une position soldée = prix + frais estimés à l'exécution. La vérité
   comptable du compte réel reste <a href="reel.html">💰 Réel</a>.
@@ -168,6 +176,34 @@ function rendre() {
      <div><span class="l">P&amp;L latent</span><span class="v ${latGlobal===null?'muted':(latGlobal>=0?'pos':'neg')}">${latGlobal===null?"—":usd(latGlobal)}</span></div>
      <div><span class="l">ordres passés</span><span class="v">${nOrd}</span></div>
      <div><span class="l">P&amp;L soldé</span><span class="v ${pnl>=0?'pos':'neg'}">${usd(pnl)}</span></div>`;
+
+  // POURQUOI LES CHIFFRES DIFFERENT (25/08/2026) — le dashboard lit le bot PAPIER,
+  // cette page lit les ordres REELLEMENT envoyes. Sans ce bloc, l'ecart ressemblait
+  // a une incoherence alors que c'est une mesure : le taux de remplissage.
+  const C = DOC.comparaison;
+  const boxC = document.getElementById("comparaison");
+  if (ENV === "testnet" && C && C.lignes && C.lignes.length) {
+    const pct = x => x === null || x === undefined ? "—" : (100 * x).toFixed(0) + " %";
+    let r = `<div class="cmp"><h3>🔀 Papier vs testnet — pourquoi les chiffres diffèrent</h3>
+      <table><thead><tr><th>bot</th><th>papier n</th><th>papier P&amp;L</th>
+      <th>jambes voulues</th><th>ouvertes</th><th>remplissage</th><th>écart neutralité</th></tr></thead><tbody>`;
+    C.lignes.forEach(l => {
+      const rem = l.remplissage;
+      const cls = rem === null ? "muted" : (rem >= 0.9 ? "pos" : (rem >= 0.6 ? "" : "neg"));
+      const ec = l.ecart_neutralite;
+      const ecl = ec === null || ec === undefined ? "muted" : (ec <= 0.10 ? "pos" : (ec <= 0.20 ? "" : "neg"));
+      r += `<tr><td>${esc(l.bot)}</td><td>${l.paper_n ?? "—"}</td>
+        <td class="${(l.paper_pnl||0)>=0?'pos':'neg'}">${usd(l.paper_pnl||0)}</td>
+        <td>${l.jambes_demandees}</td><td>${l.jambes_ouvertes}</td>
+        <td class="${cls}"><span class="bar" style="width:${Math.round(38*(rem||0))}px"></span> ${pct(rem)}</td>
+        <td class="${ecl}">${pct(ec)}</td></tr>`;
+    });
+    r += `</tbody></table><div class="note">${esc(C.note)}`;
+    if (C.n_carnets_morts)
+      r += `<br><b>${C.n_carnets_morts} carnet(s) testnet mort(s)</b> en mémoire (rejeu bloqué 12 h) : ${esc(C.carnets_morts.slice(0,14).join(", "))}.`;
+    r += `<br>Un <b>écart de neutralité</b> au-dessus de 20 % signifie que le livre n'est plus dollar-neutre — et la neutralité <i>est</i> l'edge de la famille 29.</div></div>`;
+    boxC.innerHTML = r;
+  } else { boxC.innerHTML = ""; }
 
   if (!noms.length) {
     document.getElementById("bots").innerHTML =
