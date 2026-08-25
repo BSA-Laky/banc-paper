@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-25T07:30:57.955887+00:00",
+ "ts": "2026-08-25T07:45:41.657335+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -13,8 +13,8 @@
    "esperance": -0.5092,
    "t": -3.3,
    "pnl": -87.07,
-   "pnl_j": -1.393,
-   "fwd_j": 62.5
+   "pnl_j": -1.391,
+   "fwd_j": 62.6
   },
   "25_convergence_basis": {
    "statut": "ROUGE",
@@ -31,8 +31,8 @@
    "esperance": -0.4504,
    "t": -0.24,
    "pnl": -55.85,
-   "pnl_j": -0.895,
-   "fwd_j": 62.4
+   "pnl_j": -0.894,
+   "fwd_j": 62.5
   },
   "27b_rev_move": {
    "statut": "ROUGE",
@@ -54,11 +54,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 341,
-   "esperance": -0.535,
-   "t": -0.82,
-   "pnl": -182.44,
-   "pnl_j": -3.235,
+   "n": 342,
+   "esperance": -0.5534,
+   "t": -0.85,
+   "pnl": -189.27,
+   "pnl_j": -3.356,
    "fwd_j": 56.4
   },
   "27e_arbitre": {
@@ -153,22 +153,30 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0208,
-  "ret7": 0.2464,
-  "ret30": 0.2336,
-  "prix": 80636
+  "ret1": 0.0191,
+  "ret7": 0.2443,
+  "ret30": 0.2316,
+  "prix": 80502
  },
  "evenements_extremes": [
   {
    "coin": "CASHCAT",
-   "move_pct": 66.7
-  },
-  {
-   "coin": "STX",
-   "move_pct": 20.3
+   "move_pct": 68.5
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-25T07:45",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-CASHCAT",
+   "pnl": -6.83
+  },
+  {
+   "ts": "2026-08-25T07:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-25T07:30",
    "bot": "10_controle_aleatoire",
@@ -204,18 +212,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-25T06:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-25T06:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +225,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.5,
+  "age_avis_h": 0.7,
   "problemes": []
  },
  "autofinancement": {
