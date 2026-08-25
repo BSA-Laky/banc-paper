@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-25 04:15 (Paris)
+# Brief Station — 2026-08-25 04:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -8,7 +8,7 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 29_carry_neutre | GRIS | 24 | 10.1396 | 1.27 | 243.35 | 8.334 | 29.2 j |
+| 29_carry_neutre | GRIS | 24 | 10.1396 | 1.27 | 243.35 | 8.305 | 29.3 j |
 | 29b_carry_neutre_large | ORANGE | 40 | 0.6674 | 0.79 | 26.7 | 1.376 | 19.4 j |
 | 29c_carry_decale | ORANGE | 140 | -0.0465 | -0.79 | -6.5 | -0.337 | 19.3 j |
 | 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.008 | 9.6 j |
@@ -23,16 +23,16 @@
 | 27b_rev_move | ROUGE | 192 | 0.2669 | 0.25 | 51.24 | 0.828 | 61.9 j |
 | 27c_mom_move | ROUGE | 192 | -0.4069 | -0.38 | -78.12 | -1.262 | 61.9 j |
 | 27d_rev_move_stop | ROUGE | 340 | -0.557 | -0.85 | -189.37 | -3.369 | 56.2 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.575 | 52.4 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.574 | 52.5 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.226 | 51.4 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.216 | 51.4 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.333 | 43.7 j |
-| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.044 | 29.2 j |
+| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.044 | 29.3 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -235.40 $
 
-**BTC** 79881 $ — ret 1j +1.12% · 7j +23.47% · 30j +22.21%
-**Moves 24h ≥ 20 %** : CASHCAT +47.3%
+**BTC** 80952 $ — ret 1j +2.48% · 7j +25.13% · 30j +23.84%
+**Moves 24h ≥ 20 %** : CASHCAT +44.3%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
