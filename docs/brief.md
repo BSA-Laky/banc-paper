@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-26 22:45 (Paris)
+# Brief Station — 2026-08-26 23:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -9,16 +9,16 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 24 | 10.1396 | 1.27 | 243.35 | 7.85 | 31.0 j |
-| 29b_carry_neutre_large | ORANGE | 60 | 0.4336 | 0.77 | 26.02 | 1.233 | 21.1 j |
+| 29b_carry_neutre_large | ORANGE | 60 | 0.4336 | 0.77 | 26.02 | 1.227 | 21.2 j |
 | 29c_carry_decale | ORANGE | 140 | -0.0465 | -0.79 | -6.5 | -0.308 | 21.1 j |
-| 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.007 | 11.3 j |
+| 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.007 | 11.4 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.035 | 31.3 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.358 | 64.1 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -3.874 | 31.3 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -3.861 | 31.4 j |
 | 27a_rev_premium | ROUGE | 129 | -0.4153 | -0.23 | -53.57 | -0.837 | 64.0 j |
 | 27b_rev_move | ROUGE | 201 | 0.4507 | 0.44 | 90.6 | 1.424 | 63.6 j |
 | 27c_mom_move | ROUGE | 201 | -0.5907 | -0.57 | -118.74 | -1.867 | 63.6 j |
@@ -31,7 +31,7 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -191.80 $
 
-**BTC** 78381 $ — ret 1j -0.14% · 7j +13.07% · 30j +22.98%
+**BTC** 78423 $ — ret 1j -0.09% · 7j +13.13% · 30j +23.04%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
