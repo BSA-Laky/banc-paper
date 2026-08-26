@@ -1,15 +1,15 @@
 {
- "ts": "2026-08-26T16:36:35.764011+00:00",
+ "ts": "2026-08-26T16:45:42.643675+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 4019,
-   "t_stat": -2.64,
+   "n": 4020,
+   "t_stat": -2.66,
    "derive_attendue": 0.02,
-   "t_corrige": -1.37,
+   "t_corrige": -1.39,
    "sain": true,
-   "lecture": "t brut -2.64 dont -1.27 de spread par construction -> t corrige -1.37 (sain)"
+   "lecture": "t brut -2.66 dont -1.27 de spread par construction -> t corrige -1.39 (sain)"
   }
  },
  "bots": {
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1209.0,
+   "expo_moyenne_usd": 1208.9,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -50,7 +50,7 @@
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 700.2,
+   "expo_moyenne_usd": 700.1,
    "rendement_j_pct": -0.555
   },
   "27a_rev_premium": {
@@ -78,40 +78,40 @@
    "esperance": 0.4507,
    "t_stat": 0.44,
    "mdd_live": 378.59,
-   "jours_forward": 63.4,
+   "jours_forward": 63.5,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 90.6,
-   "pnl_par_jour": 1.429,
+   "pnl_par_jour": 1.427,
    "trop_beau_audite": null,
    "esp_glissante_20": 1.8332,
    "borne_decrochage": -6.0817,
    "statut": "ROUGE",
    "expo_moyenne_usd": 316.8,
-   "rendement_j_pct": 0.451
+   "rendement_j_pct": 0.45
   },
   "27c_mom_move": {
    "n": 201,
    "esperance": -0.5907,
    "t_stat": -0.57,
    "mdd_live": 268.72,
-   "jours_forward": 63.4,
+   "jours_forward": 63.5,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -118.74,
-   "pnl_par_jour": -1.873,
+   "pnl_par_jour": -1.87,
    "trop_beau_audite": null,
    "esp_glissante_20": -1.9732,
    "borne_decrochage": -7.1232,
    "statut": "ROUGE",
    "expo_moyenne_usd": 316.8,
-   "rendement_j_pct": -0.591
+   "rendement_j_pct": -0.59
   },
   "27d_rev_move_stop": {
    "n": 350,
@@ -130,7 +130,7 @@
    "esp_glissante_20": 1.8067,
    "borne_decrochage": -5.7788,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 605.4,
+   "expo_moyenne_usd": 605.3,
    "rendement_j_pct": -0.418
   },
   "27e_arbitre": {
@@ -221,7 +221,7 @@
    "borne_decrochage": -5.745,
    "statut": "ROUGE",
    "expo_moyenne_usd": 90.6,
-   "rendement_j_pct": 0.355
+   "rendement_j_pct": 0.356
   },
   "28_carry_hold": {
    "n": 31,
@@ -258,7 +258,7 @@
    "pnl_par_jour": 7.901,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 446.7,
+   "expo_moyenne_usd": 446.6,
    "rendement_j_pct": 1.769
   },
   "29b_carry_neutre_large": {
@@ -282,7 +282,7 @@
    "esp_glissante_20": 0.0115,
    "borne_decrochage": -1.733,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 328.5,
+   "expo_moyenne_usd": 328.4,
    "rendement_j_pct": 0.387
   },
   "29c_carry_decale": {
@@ -345,7 +345,7 @@
    "esp_glissante_20": -1.459,
    "borne_decrochage": -1.7645,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 427.6,
+   "expo_moyenne_usd": 427.5,
    "rendement_j_pct": -0.008
   }
  },
