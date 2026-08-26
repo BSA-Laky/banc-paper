@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-26T18:18:28.327775+00:00",
+ "ts": "2026-08-26T20:39:57.652310+00:00",
  "_lire_ceci": "Fichier ecrit UNIQUEMENT par garde_reel.py. docs/reel.json et docs/go_reel.json sont regeneres par la station toutes les 15 min et perdent ces corrections : ne pas s'y fier pour le P&L reel.",
  "pnl_compte_reel": -35.21,
  "equity": 0.0,
@@ -85,28 +85,27 @@
    ]
   },
   "29b_carry_neutre_large": {
-   "n_jambes": 40,
+   "n_jambes": 60,
    "funding": {
-    "moyenne_pct": -0.09373,
-    "t": -0.13
+    "moyenne_pct": 0.13379,
+    "t": 0.27
    },
    "prix": {
-    "moyenne_pct": 1.90622,
-    "t": 0.86,
+    "moyenne_pct": 0.46099,
+    "t": 0.18,
     "ic95_pct": [
-     -2.44311,
-     6.25554
+     -4.55165,
+     5.47363
     ]
    },
    "frais": {
     "moyenne_pct": 0.09
    },
-   "esperance_nette_pct": -0.18373,
+   "esperance_nette_pct": 0.04379,
    "ecart_neutralite": 0.0,
    "verdict": "EN COURS",
    "raisons": [
-    "funding t -0.13 < 2.0 (capture non significative)",
-    "E[funding] -0.00094 <= E[frais] 0.00090"
+    "funding t 0.27 < 2.0 (capture non significative)"
    ]
   },
   "32_carry_crossvenue": {
@@ -138,10 +137,10 @@
  },
  "alertes": [
   "LEDGER REEL FAUX de +45.87 $ : le journal d'execution totalise +10.66 $ sur 12 fermeture(s), le compte Hyperliquid est a -35.21 $ (seuil 2.00 $). Des fermetures hors executeur ne sont pas journalisees. La verite affichee est etat/reel_hl.json ; le journal reste une estimation.",
-  "ARGENT REEL NON JUSTIFIE : 28_carry_hold est en mainnet avec statut ROUGE (n=31, t=-0.01, forward=30.9 j) -- raisons : n 31 < n_go 100 ; t -0.01 < 2. Decomposition : EN COURS. Aucun critere chiffre du projet n'autorise ce capital engage."
+  "ARGENT REEL NON JUSTIFIE : 28_carry_hold est en mainnet avec statut ROUGE (n=31, t=-0.01, forward=31.0 j) -- raisons : n 31 < n_go 100 ; t -0.01 < 2. Decomposition : EN COURS. Aucun critere chiffre du projet n'autorise ce capital engage."
  ],
  "avertissements": [
   "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne.",
-  "EXECUTEUR REEL SILENCIEUX : aucun ordre depuis 670 h alors que le paper tient 28_carry_hold=ACE,CASHCAT,CC,FARTCOIN,ICP,KAITO,XMR,ZRO. L'executeur tourne (reconciliation il y a 0 h) : ce sont les filtres reels (seuil funding 0.0001 vs paper, fraicheur 4 h) qui bloquent. Le livre reel n'est donc PAS un miroir du paper."
+  "EXECUTEUR REEL SILENCIEUX : aucun ordre depuis 672 h alors que le paper tient 28_carry_hold=ACE,CASHCAT,CC,FARTCOIN,ICP,KAITO,XMR,ZRO. L'executeur tourne (reconciliation il y a 0 h) : ce sont les filtres reels (seuil funding 0.0001 vs paper, fraicheur 4 h) qui bloquent. Le livre reel n'est donc PAS un miroir du paper."
  ]
 }
