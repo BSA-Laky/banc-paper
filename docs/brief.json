@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-27T16:15:44.124312+00:00",
+ "ts": "2026-08-27T16:31:02.936241+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -54,11 +54,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 353,
-   "esperance": -0.4151,
-   "t": -0.65,
-   "pnl": -146.54,
-   "pnl_j": -2.492,
+   "n": 354,
+   "esperance": -0.4388,
+   "t": -0.69,
+   "pnl": -155.33,
+   "pnl_j": -2.642,
    "fwd_j": 58.8
   },
   "27e_arbitre": {
@@ -153,26 +153,42 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0174,
-  "ret7": 0.1014,
-  "ret30": 0.2581,
-  "prix": 80398
+  "ret1": 0.0162,
+  "ret7": 0.1002,
+  "ret30": 0.2567,
+  "prix": 80309
  },
  "evenements_extremes": [
   {
-   "coin": "CHIP",
-   "move_pct": 27.3
+   "coin": "TRUMP",
+   "move_pct": 29.5
   },
   {
-   "coin": "TRUMP",
-   "move_pct": 26.6
+   "coin": "CHIP",
+   "move_pct": 28.1
   },
   {
    "coin": "CASHCAT",
-   "move_pct": 26.2
+   "move_pct": 27.6
+  },
+  {
+   "coin": "ENA",
+   "move_pct": 23.5
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-27T16:31",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-TRUMP",
+   "pnl": -8.79
+  },
+  {
+   "ts": "2026-08-27T16:31",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-27T16:15",
    "bot": "10_controle_aleatoire",
@@ -208,18 +224,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-27T15:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-27T14:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -233,7 +237,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 5.2,
+  "age_avis_h": 5.5,
   "problemes": []
  },
  "autofinancement": {
