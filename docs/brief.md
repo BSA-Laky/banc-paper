@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-27 21:01 (Paris)
+# Brief Station — 2026-08-27 21:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -20,19 +20,19 @@
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.339 | 65.0 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -3.754 | 32.3 j |
 | 27a_rev_premium | ROUGE | 131 | -0.4878 | -0.27 | -63.9 | -0.985 | 64.9 j |
-| 27b_rev_move | ROUGE | 202 | 0.4714 | 0.46 | 95.23 | 1.476 | 64.5 j |
-| 27c_mom_move | ROUGE | 202 | -0.6114 | -0.6 | -123.51 | -1.915 | 64.5 j |
-| 27d_rev_move_stop | ROUGE | 354 | -0.4388 | -0.69 | -155.33 | -2.637 | 58.9 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.547 | 55.1 j |
+| 27b_rev_move | ROUGE | 202 | 0.4714 | 0.46 | 95.23 | 1.474 | 64.6 j |
+| 27c_mom_move | ROUGE | 202 | -0.6114 | -0.6 | -123.51 | -1.912 | 64.6 j |
+| 27d_rev_move_stop | ROUGE | 355 | -0.4601 | -0.73 | -163.35 | -2.773 | 58.9 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.546 | 55.2 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.215 | 54.1 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.205 | 54.1 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.314 | 46.4 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.04 | 31.9 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -212.53 $
+**P&L paper cumule (hors temoin, morts inclus)** : -220.55 $
 
-**BTC** 80129 $ — ret 1j +1.40% · 7j +9.77% · 30j +25.39%
-**Moves 24h ≥ 20 %** : HEMI +26.8%, ENA +22.2%, CHIP +20.7%
+**BTC** 80077 $ — ret 1j +1.33% · 7j +9.70% · 30j +25.30%
+**Moves 24h ≥ 20 %** : HEMI +37.3%, ENA +22.4%, CASHCAT +22.3%, CHIP +20.3%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
