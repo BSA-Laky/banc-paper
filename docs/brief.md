@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-27 22:45 (Paris)
+# Brief Station — 2026-08-27 23:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -9,16 +9,16 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | GRIS | 24 | 10.1396 | 1.27 | 243.35 | 7.605 | 32.0 j |
-| 29b_carry_neutre_large | ORANGE | 60 | 0.4336 | 0.77 | 26.02 | 1.177 | 22.1 j |
+| 29b_carry_neutre_large | ORANGE | 60 | 0.4336 | 0.77 | 26.02 | 1.172 | 22.2 j |
 | 29c_carry_decale | ORANGE | 160 | -0.0471 | -0.92 | -7.54 | -0.341 | 22.1 j |
-| 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.006 | 12.3 j |
+| 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.006 | 12.4 j |
 | rd_h2 | ORANGE | 133 | -0.0081 | -0.02 | -1.08 | -0.033 | 32.3 j |
 
 ### 🛑 Bots arretes / tues (11) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.337 | 65.1 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -3.754 | 32.3 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -3.742 | 32.4 j |
 | 27a_rev_premium | ROUGE | 131 | -0.4878 | -0.27 | -63.9 | -0.983 | 65.0 j |
 | 27b_rev_move | ROUGE | 202 | 0.4714 | 0.46 | 95.23 | 1.474 | 64.6 j |
 | 27c_mom_move | ROUGE | 202 | -0.6114 | -0.6 | -123.51 | -1.912 | 64.6 j |
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -220.55 $
 
-**BTC** 79976 $ — ret 1j +1.20% · 7j +9.56% · 30j +25.15%
-**Moves 24h ≥ 20 %** : HEMI +33.5%, ENA +21.9%
+**BTC** 80014 $ — ret 1j +1.25% · 7j +9.61% · 30j +25.21%
+**Moves 24h ≥ 20 %** : HEMI +29.3%, ENA +21.5%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
