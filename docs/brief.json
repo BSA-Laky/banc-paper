@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-27T14:01:14.764121+00:00",
+ "ts": "2026-08-27T14:15:45.738787+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -40,8 +40,8 @@
    "esperance": 0.4714,
    "t": 0.46,
    "pnl": 95.23,
-   "pnl_j": 1.481,
-   "fwd_j": 64.3
+   "pnl_j": 1.479,
+   "fwd_j": 64.4
   },
   "27c_mom_move": {
    "statut": "ROUGE",
@@ -49,8 +49,8 @@
    "esperance": -0.6114,
    "t": -0.6,
    "pnl": -123.51,
-   "pnl_j": -1.921,
-   "fwd_j": 64.3
+   "pnl_j": -1.918,
+   "fwd_j": 64.4
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
@@ -153,18 +153,28 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0053,
-  "ret7": 0.0883,
-  "ret30": 0.2431,
-  "prix": 79443
+  "ret1": 0.0051,
+  "ret7": 0.0881,
+  "ret30": 0.2429,
+  "prix": 79428
  },
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": 26.5
+   "move_pct": 25.7
+  },
+  {
+   "coin": "CHIP",
+   "move_pct": 21.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-27T14:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-08-27T14:01",
    "bot": "10_controle_aleatoire",
@@ -206,12 +216,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-27T12:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -225,7 +229,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 3.0,
+  "age_avis_h": 3.2,
   "problemes": []
  },
  "autofinancement": {
