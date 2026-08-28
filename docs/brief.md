@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-28 04:15 (Paris)
+# Brief Station — 2026-08-28 04:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -8,7 +8,7 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 29_carry_neutre | GRIS | 24 | 10.1396 | 1.27 | 243.35 | 7.557 | 32.2 j |
+| 29_carry_neutre | GRIS | 24 | 10.1396 | 1.27 | 243.35 | 7.534 | 32.3 j |
 | 29b_carry_neutre_large | ORANGE | 60 | 0.4336 | 0.77 | 26.02 | 1.161 | 22.4 j |
 | 29c_carry_decale | ORANGE | 160 | -0.0471 | -0.92 | -7.54 | -0.338 | 22.3 j |
 | 32_carry_crossvenue | GRIS | 2 | -0.0376 | -0.01 | -0.08 | -0.006 | 12.6 j |
@@ -23,16 +23,16 @@
 | 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 1.767 | 64.9 j |
 | 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -2.209 | 64.9 j |
 | 27d_rev_move_stop | ROUGE | 360 | -0.4496 | -0.72 | -161.86 | -2.734 | 59.2 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.544 | 55.4 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.543 | 55.5 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.214 | 54.4 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.204 | 54.4 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.312 | 46.7 j |
-| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.04 | 32.2 j |
+| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.04 | 32.3 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -217.63 $
 
-**BTC** 80183 $ — ret 1j -0.05% · 7j +2.30% · 30j +25.36%
-**Moves 24h ≥ 20 %** : HEMI +41.0%, ENA +26.4%, TRUMP +20.3%
+**BTC** 79833 $ — ret 1j -0.48% · 7j +1.85% · 30j +24.81%
+**Moves 24h ≥ 20 %** : HEMI +31.5%, ENA +22.8%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
