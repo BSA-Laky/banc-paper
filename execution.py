@@ -260,6 +260,10 @@ def _comparaison(maintenant: datetime) -> dict:
                 for c, v in (pan.get("positions") or {}).items():
                     pos["%s/%s" % (pid, c)] = v
         demande[bot] = len(pos)
+    try:
+        from executeur_testnet import HORS_MIROIR
+    except Exception:
+        HORS_MIROIR = set()
     lignes = []
     for bot in BOTS_NEUTRES:
         ouvert = len([k for k, v in (etat.get(bot) or {}).items() if isinstance(v, dict)])
@@ -273,13 +277,16 @@ def _comparaison(maintenant: datetime) -> dict:
             "remplissage": round(ouvert / veut, 3) if veut else None,
             "ecart_neutralite": nz.get("ecart"),
             "net_usd": nz.get("net_usd"),
+            # 28/08 : un bot retire du miroir n'est pas "a 0 % de remplissage",
+            # il n'est simplement plus miroite. Son bot PAPIER continue.
+            "hors_miroir": bot in HORS_MIROIR,
         })
     morts = sorted((etat.get("_illiquides") or {}).keys())
     return {
         "lignes": lignes,
         "carnets_morts": morts,
         "n_carnets_morts": len(morts),
-        "note": ("Le dashboard lit le bot PAPIER (juge par la gate). Cette page lit les "
+        "note": ("29c est RETIRE du miroir depuis le 28/08 : le compte testnet n'a que 38 jambes de capacite et il en reclamait 80 a lui seul, ce qui affamait les deux autres. Son bot papier, lui, tourne normalement. Le dashboard lit le bot PAPIER (juge par la gate). Cette page lit les "
                  "ordres REELLEMENT envoyes au testnet. Le testnet n'a pas de contrepartie "
                  "sur toutes les pieces : il execute donc un sous-ensemble du papier, et "
                  "les deux P&L n'ont aucune raison de coincider."),

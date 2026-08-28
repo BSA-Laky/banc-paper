@@ -211,6 +211,27 @@ def _negociable(base_url, coin, notional, side):
 # et 29c 9 shorts pour 15 longs. On n'ouvre donc que des PAIRES appariees.
 NEUTRES = {"29_carry_neutre", "29b_carry_neutre_large", "29c_carry_decale"}
 
+# --- RETRAIT DU MIROIR (28/08/2026) -----------------------------------------
+# Un bot d'ici est SOLDE puis n'ouvre plus rien sur le testnet, mais son bot
+# PAPIER continue de tourner normalement : c'est le papier que juge la gate, le
+# miroir ne sert qu'a mesurer la plomberie d'execution.
+#
+# Constat qui l'impose : le compartiment perp du compte testnet vaut 141 $ pour
+# 141 $ de marge deja utilisee (marge libre NEGATIVE). Sa capacite a 3x est de
+# 422 $ de notionnel, soit 38 jambes a 11 $. Les trois bots en reclament 106,
+# dont 80 pour 29c a lui seul (880 $). Resultat mesure le 28/08 : remplissage
+# tombe a 25 % pour 29c et 50 % pour 29b, et l'ecart de neutralite remonte a
+# 50 % sur le bot 29 -- or la neutralite EST l'edge de cette famille.
+#
+# 29c n'a jamais ete mirroitable : c'etait ecrit le 14/08 ("il lui faudrait
+# ~800 $") et une enveloppe lui a ete donnee quand meme. On le retire donc du
+# miroir plutot que de le laisser affamer les deux autres.
+#
+# Pour l'y remettre : vider ce set. Le vrai deblocage serait un transfert
+# spot -> perp (890 $ dorment cote spot), mais c'est un mouvement de fonds qui
+# demande la signature du portefeuille : il n'appartient pas a l'executeur.
+HORS_MIROIR = {"29c_carry_decale"}
+
 
 def _ordre_reussi(resp):
     """Vrai statut d'un ordre HL. (ok: bool, detail). Gere aussi le paper."""
@@ -308,7 +329,11 @@ def executer():
 
     for bot in PILOTES:
         bet = _lire_json(ETAT / FICHIER_ETAT.get(bot, "etat_%s.json" % bot), {})
-        ouverts = {} if bot in _tues else _positions_paper(bet)
+        retire = bot in HORS_MIROIR
+        ouverts = {} if (bot in _tues or retire) else _positions_paper(bet)
+        if retire and state.get(bot):
+            print("[executeur] %s RETIRE DU MIROIR : fermeture de ses %d position(s) "
+                  "(le bot papier, lui, continue)." % (bot, len(state[bot])), flush=True)
         if bot in _tues and state.get(bot):
             print("[executeur] %s est TUE : fermeture de ses %d position(s) testnet."
                   % (bot, len(state[bot])), flush=True)
