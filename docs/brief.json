@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-28T18:31:00.255063+00:00",
+ "ts": "2026-08-28T18:45:48.160456+00:00",
  "alertes": [
   "rd_h2: KILL exécuté (2026-08-28) : retrait 28/08 : n 133 >= n_go 100 et forward 33 j, t -0,02 — indiscernable du hasard"
  ],
@@ -96,8 +96,8 @@
    "esperance": 0.3552,
    "t": 0.17,
    "pnl": 14.56,
-   "pnl_j": 0.308,
-   "fwd_j": 47.3
+   "pnl_j": 0.307,
+   "fwd_j": 47.4
   },
   "28_carry_hold": {
    "statut": "ROUGE",
@@ -123,8 +123,8 @@
    "esperance": 0.4336,
    "t": 0.77,
    "pnl": 26.02,
-   "pnl_j": 1.131,
-   "fwd_j": 23.0
+   "pnl_j": 1.126,
+   "fwd_j": 23.1
   },
   "29c_carry_decale": {
    "statut": "ORANGE",
@@ -155,26 +155,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0335,
-  "ret7": -0.0108,
-  "ret30": 0.2122,
-  "prix": 77535
+  "ret1": -0.0362,
+  "ret7": -0.0136,
+  "ret30": 0.2088,
+  "prix": 77320
  },
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": 26.9
-  },
-  {
-   "coin": "CASHCAT",
-   "move_pct": -24.0
+   "move_pct": 27.3
   },
   {
    "coin": "PURR",
-   "move_pct": -21.6
+   "move_pct": -23.6
+  },
+  {
+   "coin": "CASHCAT",
+   "move_pct": -22.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-28T18:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-28T18:30",
    "bot": "10_controle_aleatoire",
@@ -216,12 +222,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-08-28T16:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -235,7 +235,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {
