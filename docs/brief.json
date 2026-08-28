@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-28T06:15:48.471958+00:00",
+ "ts": "2026-08-28T06:30:59.438209+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -22,8 +22,8 @@
    "esperance": -0.2221,
    "t": -3.4,
    "pnl": -121.24,
-   "pnl_j": -3.708,
-   "fwd_j": 32.7
+   "pnl_j": -3.696,
+   "fwd_j": 32.8
   },
   "27a_rev_premium": {
    "statut": "ROUGE",
@@ -54,11 +54,11 @@
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
-   "n": 360,
-   "esperance": -0.4496,
-   "t": -0.72,
-   "pnl": -161.86,
-   "pnl_j": -2.725,
+   "n": 361,
+   "esperance": -0.4723,
+   "t": -0.76,
+   "pnl": -170.49,
+   "pnl_j": -2.87,
    "fwd_j": 59.4
   },
   "27e_arbitre": {
@@ -140,7 +140,7 @@
    "t": -0.01,
    "pnl": -0.08,
    "pnl_j": -0.006,
-   "fwd_j": 12.7
+   "fwd_j": 12.8
   },
   "rd_h2": {
    "statut": "ORANGE",
@@ -153,22 +153,34 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0045,
-  "ret7": 0.0188,
-  "ret30": 0.2485,
-  "prix": 79859
+  "ret1": -0.0053,
+  "ret7": 0.018,
+  "ret30": 0.2475,
+  "prix": 79794
  },
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": 38.2
+   "move_pct": 47.0
   },
   {
    "coin": "TRUMP",
-   "move_pct": 24.9
+   "move_pct": 24.3
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-28T06:30",
+   "bot": "27d_rev_move_stop",
+   "marche": "rev_move_stop-HEMI",
+   "pnl": -8.63
+  },
+  {
+   "ts": "2026-08-28T06:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-28T06:15",
    "bot": "10_controle_aleatoire",
@@ -204,18 +216,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-28T04:45",
-   "bot": "27a_rev_premium",
-   "marche": "rev_premium-ACE",
-   "pnl": 0.36
-  },
-  {
-   "ts": "2026-08-28T04:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +229,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.7,
+  "age_avis_h": 1.0,
   "problemes": []
  },
  "autofinancement": {
