@@ -67,9 +67,21 @@ def lancer_passe() -> None:
         bots = [b for b in bots if b.name not in tues]
         print(f"[run_once] au tapis (verdict pré-enregistré) : {sorted(tues)}", flush=True)
     nouveaux = []
+    # VERROU UNIVERSEL (28/08/2026). Le filtre ci-dessus teste le nom de l'OBJET.
+    # Un module qui emet sous d'autres etiquettes lui echappe : c'est arrive avec
+    # bot_27_convex_buckets, un seul objet "27_convex_buckets" qui emet 27a/27b/
+    # 27c/27d -- retires le 15/08, ils ont ecrit 491 trades de plus. On filtre donc
+    # aussi a la SORTIE, sur l'etiquette portee par chaque Trade.
+    def _vivant(t):
+        etiquette = getattr(t, "bot", None)
+        if etiquette in tues:
+            print(f"[run_once] trade ignore : {etiquette} est tue", flush=True)
+            return False
+        return True
+
     for b in bots:
         try:
-            nouveaux.extend(b.step())
+            nouveaux.extend(t for t in b.step() if _vivant(t))
         except Exception as e:    # un bot ne doit jamais tuer la passe
             print(f"[run_once] {b.name} a leve : {e}", flush=True)
     if nouveaux:

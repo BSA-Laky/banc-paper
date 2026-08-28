@@ -110,7 +110,27 @@ class ConvexBuckets(Strategy):
         except OSError:
             pass
 
+    def _buckets_tues(self) -> set:
+        """Buckets marques kill dans cycle_vie.json.
+
+        BUG TROUVE LE 28/08/2026 : ce module est UN SEUL objet Strategy nomme
+        "27_convex_buckets", mais il emet des Trade sous QUATRE etiquettes
+        (27a/27b/27c/27d). Le filtre de run_once teste `b.name not in tues` :
+        il regarde le nom de l'OBJET, jamais les etiquettes. Consequence mesuree :
+        les quatre buckets, retires le 15/08, ont ouvert 491 trades de plus --
+        annonces arretes sur les pages, ils continuaient d'ecrire au registre.
+        On solde ce qui est ouvert, on n'ouvre plus rien.
+        """
+        try:
+            cv = json.loads((ETAT_DIR / "cycle_vie.json").read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            return set()
+        return {b for b, v in (cv.get("bots") or {}).items()
+                if (v or {}).get("etat") == "kill"}
+
     def _try_open(self, bucket, coin, side, mark, now):
+        if bucket in self._tues:
+            return
         slot = self._etat[bucket]
         if coin in slot and slot[coin].get("ouvert"):
             return
@@ -147,6 +167,7 @@ class ConvexBuckets(Strategy):
             return []
         now = datetime.now(timezone.utc)
         out = []
+        self._tues = self._buckets_tues()
         for coin, d in data.items():
             mark = d["mark"]
             for b in BUCKETS:               # solder d'abord (meme si vol a baisse)

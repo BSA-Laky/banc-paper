@@ -165,12 +165,31 @@ def _ab(res):
     cls = "pos" if d > 0 else "neg"
     txt = ("le livre EQUILIBRE fait mieux que le livre nu" if d > 0
            else "le livre nu fait mieux que le livre equilibre")
+    # RESERVE AJOUTEE LE 28/08/2026. Ce Delta est porte par le bot 29, dont le
+    # +243,35 $ tient dans TROIS trades sur 24 : sans eux il est a -30,65 $, soit
+    # -1,46 $/trade. Annoncer "le livre equilibre fait mieux" sans le dire, c'est
+    # exactement le genre de titre flatteur que ce banc existe pour desamorcer.
+    concentration = ""
+    try:
+        pnls = sorted((float(l["pnl"]) for l in _lignes_valides(charger_journal())
+                       if l.get("bot") == "29_carry_neutre" and l.get("pnl") not in (None, "")),
+                      reverse=True)
+        if len(pnls) >= 6:
+            tot, top3 = sum(pnls), sum(pnls[:3])
+            if tot > 0 and top3 > 0.8 * tot:
+                reste = (tot - top3) / max(1, len(pnls) - 3)
+                concentration = (' <b>Reserve :</b> %.0f %% du resultat du bot 29 vient de '
+                                 '3 trades sur %d ; sans eux son esperance est de %+.2f $/trade. '
+                                 'Ce Delta n\'est pas un edge etabli.'
+                                 % (100 * top3 / tot, len(pnls), reste))
+    except (TypeError, ValueError):
+        concentration = ""
     return ('<div class="ab"><b>A/B &mdash; la neutralite du livre (29 vs 28) :</b> '
             '<span class="%s">&Delta; esperance = %+.4f $/trade</span> &mdash; %s.'
             '<br><span class="muted">Meme signal de funding, seule la neutralite change. '
             'Backtest 7 mois : le livre nu subit une derive de prix de -1,4 a -2,8 %%/semaine '
-            'et deux fois plus de bruit. Mesure forward depuis le 26/07.</span></div>'
-            % (cls, d, txt))
+            'et deux fois plus de bruit. Mesure forward depuis le 26/07.%s</span></div>'
+            % (cls, d, txt, concentration))
 
 def _positions():
     try:
