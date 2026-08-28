@@ -1,6 +1,5 @@
 {
  "alertes_envoyees": [
-  "2026-08-03:27g10_selecteur: KILL exécuté (2026-08-02) : PAUSE TECHNIQUE, PAS UN VERDICT (02/08/2026). Ce bot est PUR LLM : ia_seule=True, il n'agit QUE sur les pieces ayant un avis IA frais (avis_piece_ia.py). Le credit API est epuise depuis le 02/08 -> plus aucun avis n'est produit. Le laisser tourner ne mesurerait rien : soit il ne trade pas du tout, soit il rejoue des avis perimes, ce qui polluerait son echantillon avec des donnees d'une autre nature (meme faute de fond que la coupure comptable du 26/07). Ses statistiques au moment de la pause : n=41, esp +0,3552, t=+0,17 -- indistinguable du hasard, aucune conclusion perdue. A RELANCER des le rechargement de l'API : 'relance 27g10_selecteur' sur Telegram, ou passer etat/api_credit.json a epuise=false puis retirer cette entree.",
   "2026-08-03:25_convergence_basis: esp20 -0.90 < borne -0.88 -> COUPER LE BOT",
   "2026-08-03:25_convergence_basis: esp20 -1.01 < borne -0.89 -> COUPER LE BOT",
   "2026-08-03:25_convergence_basis: esp20 -1.02 < borne -0.89 -> COUPER LE BOT",
@@ -59,7 +58,8 @@
   "2026-08-18:27b_rev_move: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t +0,52 — indiscernable du hasard",
   "2026-08-18:27c_mom_move: KILL exécuté (2026-08-15) : retrait 15/08 : miroir deterministe de 27b (somme -14 bp constants, 92/92) — zero information",
   "2026-08-18:27d_rev_move_stop: KILL exécuté (2026-08-15) : retrait 15/08 : n_go et forward atteints, t -0,86 ; le stop detruit 221 $ sur 146 trades",
-  "2026-08-18:27f_selecteur: KILL exécuté (2026-08-15) : retrait 15/08 : question deja tranchee par le jumeau 27f10 (n=175, t -0,09)"
+  "2026-08-18:27f_selecteur: KILL exécuté (2026-08-15) : retrait 15/08 : question deja tranchee par le jumeau 27f10 (n=175, t -0,09)",
+  "2026-08-28:rd_h2: KILL exécuté (2026-08-28) : retrait 28/08 : n 133 >= n_go 100 et forward 33 j, t -0,02 — indiscernable du hasard"
  ],
  "dernier_avis": "2026-08-28T05:33:25.550357Z",
  "dernier_rapport": "# Rapport du Superviseur — semaine du 2026-07-26",
