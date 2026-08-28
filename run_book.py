@@ -22,8 +22,8 @@ DOCS = Path("docs")
 
 ORDRE = ["30_trend_following", "31_variance_premium", "10b_controle_book"]
 JOLI = {
-    "30_trend_following": "Bot 30 — Trend-following (edge VALIDÉ OOS, t 2,8)",
-    "31_variance_premium": "Bot 31 — Prime de variance à risque défini (edge VALIDÉ OOS, t 3,7)",
+    "30_trend_following": "Bot 30 — Trend-following (edge validé OOS t 2,8 — mais univers NON ACHETABLE en Europe)",
+    "31_variance_premium": "Bot 31 — Prime de variance à risque défini (edge validé OOS t 3,7 — plancher ~1 700 $)",
     "10b_controle_book": "Témoin book (signal aléatoire — étalon du bruit)",
 }
 
@@ -84,6 +84,19 @@ def construire_book_html():
            '<h1>Book paper-forward — trend + prime de variance</h1>'
            f'<div class="maj">Mis à jour : {maj} — rotation mensuelle — 100 % fictif</div>'
            + "".join(cartes) +
+           '<div class="carte"><h2>⚠ Ce que le backtest ne dit pas (mesuré le 15/08)</h2>'
+           '<p class="muted"><b>Le bot 30 n\'est pas achetable tel quel.</b> Ses 14 ETF sont '
+           'domiciliés aux États-Unis : le règlement PRIIPs en interdit la vente aux '
+           'particuliers de l\'UE, et tous les grands courtiers l\'appliquent. Le backtest '
+           '30 ans porte donc sur des instruments qui ne peuvent pas être achetés ici.<br>'
+           '<b>Un univers de substitution existe et tient.</b> Rejoué sur 13 ETF/ETC UCITS '
+           'réellement achetables (223 mois) : Sharpe 0,78, t +3,34 — contre 0,86 et +3,73 '
+           'pour la version américaine. Sur la fenêtre où les 13 substituts existent tous, '
+           'les deux sont indiscernables (Sharpe 1,05 contre 1,02).<br>'
+           '<b>Et il faut du capital.</b> Les commissions étant un montant FIXE par ordre et '
+           'non un pourcentage, à 900 $ elles absorbent 63 % de l\'edge (Sharpe 0,81 → 0,30, '
+           'soit 16 $/an). Seuils calculés : ~2 800 $ pour le bot 30, ~1 700 $ pour le bot 31.'
+           '</p></div>'
            '<footer>Deux edges valides out-of-sample sur 30 ans (backtest). Ce book les '
            'CONFIRME en forward, argent 100 % fictif, avant tout capital réel. Le verdict '
            'mensuel est lent par nature (1 point/mois) : la preuve principale reste le '

@@ -118,6 +118,12 @@ RETIRES = {
     "27d_rev_move_stop": "retrait 15/08 : n_go et forward atteints, t -0,86 ; le stop detruit 221 $ sur 146 trades",
     "27f_selecteur":     "retrait 15/08 : question deja tranchee par le jumeau 27f10 (n=175, t -0,09)",
     "27a_rev_premium":   "retrait 15/08 : signal independant mais rendement inexploitable au capital disponible",
+    # 28/08 : rd_h2 (bot genere par Nova) a ATTEINT ses conditions d'echantillon --
+    # n=133 >= n_go 100 et forward 32,7 j >= 28 -- avec t = -0,02. Son verdict est
+    # rendu par la regle pre-enregistree : indiscernable du hasard. Le laisser
+    # tourner n'ajouterait rien, exactement comme 27b et 27d le 15/08. Ce n'est pas
+    # une nouvelle decision, c'est l'application de la regle.
+    "rd_h2":             "retrait 28/08 : n 133 >= n_go 100 et forward 33 j, t -0,02 — indiscernable du hasard",
 }
 
 
