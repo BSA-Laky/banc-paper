@@ -1,15 +1,15 @@
 {
- "ts": "2026-08-30T21:28:14.857871+00:00",
+ "ts": "2026-08-30T21:31:07.698102+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 4435,
-   "t_stat": -2.7,
+   "n": 4436,
+   "t_stat": -2.71,
    "derive_attendue": 0.02,
-   "t_corrige": -1.37,
+   "t_corrige": -1.38,
    "sain": true,
-   "lecture": "t brut -2.70 dont -1.33 de spread par construction -> t corrige -1.37 (sain)"
+   "lecture": "t brut -2.71 dont -1.33 de spread par construction -> t corrige -1.38 (sain)"
   }
  },
  "bots": {
@@ -180,7 +180,7 @@
    "esp_glissante_20": -4.7845,
    "borne_decrochage": -4.6086,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 306.0,
+   "expo_moyenne_usd": 305.9,
    "rendement_j_pct": -0.066
   },
   "27f_selecteur": {
@@ -244,22 +244,27 @@
    "rendement_j_pct": -0.023
   },
   "29_carry_neutre": {
-   "n": 24,
-   "esperance": 10.1396,
-   "t_stat": 1.27,
+   "n": 30,
+   "esperance": 8.0291,
+   "t_stat": 1.25,
    "mdd_live": 50.49,
    "jours_forward": 35.0,
-   "verdict_banc": "echantillon trop faible -- continuer",
+   "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
-   "raisons": [],
+   "raisons": [
+    "n 30 < n_go 100",
+    "t < 2"
+   ],
    "avertissements": [],
    "mu_ref": null,
-   "pnl_cumule": 243.35,
-   "pnl_par_jour": 6.953,
+   "pnl_cumule": 240.87,
+   "pnl_par_jour": 6.882,
    "trop_beau_audite": null,
-   "statut": "GRIS",
-   "expo_moyenne_usd": 393.1,
-   "rendement_j_pct": 1.769
+   "esp_glissante_20": 2.7778,
+   "borne_decrochage": -7.6569,
+   "statut": "ORANGE",
+   "expo_moyenne_usd": 400.1,
+   "rendement_j_pct": 1.72
   },
   "29b_carry_neutre_large": {
    "n": 60,

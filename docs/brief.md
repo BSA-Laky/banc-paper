@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-30 23:28 (Paris)
+# Brief Station — 2026-08-30 23:31 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -8,10 +8,13 @@
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
 
+## Changements de statut depuis hier
+- 29_carry_neutre : GRIS → **ORANGE**
+
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 29_carry_neutre | GRIS | 24 | 10.1396 | 1.27 | 243.35 | 6.953 | 35.0 j |
+| 29_carry_neutre | ORANGE | 30 | 8.0291 | 1.25 | 240.87 | 6.882 | 35.0 j |
 | 29b_carry_neutre_large | ORANGE | 60 | 0.4336 | 0.77 | 26.02 | 1.032 | 25.2 j |
 | 29c_carry_decale | ORANGE | 180 | -0.0414 | -0.91 | -7.45 | -0.297 | 25.1 j |
 | 32_carry_crossvenue | GRIS | 14 | -0.0114 | -0.02 | -0.16 | -0.01 | 15.4 j |
@@ -32,10 +35,10 @@
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.036 | 35.0 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.031 | 35.3 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -225.90 $
+**P&L paper cumule (hors temoin, morts inclus)** : -228.38 $
 
-**BTC** 78631 $ — ret 1j +0.52% · 7j +1.06% · 30j +25.10%
-**Moves 24h ≥ 20 %** : SKR +106.7%, ZORA +40.5%
+**BTC** 78685 $ — ret 1j +0.58% · 7j +1.13% · 30j +25.18%
+**Moves 24h ≥ 20 %** : SKR +105.6%, ZORA +38.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
