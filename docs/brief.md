@@ -1,4 +1,4 @@
-# Brief Station — 2026-08-31 14:15 (Paris)
+# Brief Station — 2026-08-31 14:31 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -228.38 $
 
-**BTC** 78410 $ — ret 1j +0.97% · 7j -0.74% · 30j +24.88%
-**Moves 24h ≥ 20 %** : SKR +76.9%, ZORA +38.3%, HEMI +34.1%, 0G +28.9%
+**BTC** 78024 $ — ret 1j +0.47% · 7j -1.23% · 30j +24.26%
+**Moves 24h ≥ 20 %** : SKR +70.6%, ZORA +41.5%, HEMI +33.4%, 0G +27.7%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
