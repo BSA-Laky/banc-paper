@@ -1,15 +1,15 @@
 {
- "ts": "2026-08-31T21:31:01.996619+00:00",
+ "ts": "2026-08-31T21:45:46.477585+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 4535,
-   "t_stat": -2.82,
+   "n": 4536,
+   "t_stat": -2.8,
    "derive_attendue": 0.02,
-   "t_corrige": -1.47,
+   "t_corrige": -1.46,
    "sain": true,
-   "lecture": "t brut -2.82 dont -1.35 de spread par construction -> t corrige -1.47 (sain)"
+   "lecture": "t brut -2.80 dont -1.35 de spread par construction -> t corrige -1.46 (sain)"
   }
  },
  "bots": {
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1118.0,
+   "expo_moyenne_usd": 1117.8,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -50,7 +50,7 @@
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 600.0,
+   "expo_moyenne_usd": 599.9,
    "rendement_j_pct": -0.555
   },
   "27a_rev_premium": {
@@ -130,7 +130,7 @@
    "esp_glissante_20": 0.5974,
    "borne_decrochage": -5.7808,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 572.8,
+   "expo_moyenne_usd": 572.7,
    "rendement_j_pct": -0.472
   },
   "27e_arbitre": {
@@ -138,7 +138,7 @@
    "esperance": -1.0046,
    "t_stat": -0.4,
    "mdd_live": 63.61,
-   "jours_forward": 59.2,
+   "jours_forward": 59.3,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
@@ -147,18 +147,18 @@
    ],
    "mu_ref": null,
    "pnl_cumule": -30.14,
-   "pnl_par_jour": -0.509,
+   "pnl_par_jour": -0.508,
    "trop_beau_audite": null,
    "esp_glissante_20": -0.4443,
    "borne_decrochage": -7.2096,
    "statut": "ROUGE",
    "expo_moyenne_usd": 50.6,
-   "rendement_j_pct": -1.005,
+   "rendement_j_pct": -1.003,
    "ab": {
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.6789,
+    "delta_rendement_j_pct": -0.6791,
     "t_welch_jour": -0.24,
     "jours_compares": 59
    }
@@ -180,7 +180,7 @@
    "esp_glissante_20": -4.7845,
    "borne_decrochage": -4.6086,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 300.7,
+   "expo_moyenne_usd": 300.6,
    "rendement_j_pct": -0.067
   },
   "27f_selecteur": {
@@ -228,7 +228,7 @@
    "esperance": -0.0412,
    "t_stat": -0.01,
    "mdd_live": 90.29,
-   "jours_forward": 36.0,
+   "jours_forward": 36.1,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": true,
    "raisons": [],
@@ -248,7 +248,7 @@
    "esperance": 8.0291,
    "t_stat": 1.25,
    "mdd_live": 50.49,
-   "jours_forward": 36.0,
+   "jours_forward": 36.1,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -258,13 +258,13 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 240.87,
-   "pnl_par_jour": 6.691,
+   "pnl_par_jour": 6.672,
    "trop_beau_audite": null,
    "esp_glissante_20": 2.7778,
    "borne_decrochage": -7.6569,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 389.0,
-   "rendement_j_pct": 1.72
+   "expo_moyenne_usd": 388.9,
+   "rendement_j_pct": 1.716
   },
   "29b_carry_neutre_large": {
    "n": 60,
@@ -287,7 +287,7 @@
    "esp_glissante_20": -0.034,
    "borne_decrochage": -1.5277,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 272.7,
+   "expo_moyenne_usd": 272.6,
    "rendement_j_pct": 0.364
   },
   "29c_carry_decale": {
@@ -310,8 +310,8 @@
    "esp_glissante_20": -0.0004,
    "borne_decrochage": -0.2975,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 85.3,
-   "rendement_j_pct": -0.335
+   "expo_moyenne_usd": 85.2,
+   "rendement_j_pct": -0.336
   },
   "32_carry_crossvenue": {
    "n": 14,
@@ -348,7 +348,7 @@
    "esp_glissante_20": -1.459,
    "borne_decrochage": -1.7645,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 366.3,
+   "expo_moyenne_usd": 366.2,
    "rendement_j_pct": -0.008
   }
  },
