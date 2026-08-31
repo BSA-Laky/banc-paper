@@ -1,5 +1,5 @@
 {
- "ts": "2026-08-31T00:01:22.707117+00:00",
+ "ts": "2026-08-31T00:15:47.817107+00:00",
  "alertes": [
   "rd_h2: KILL exécuté (2026-08-28) : retrait 28/08 : n 133 >= n_go 100 et forward 33 j, t -0,02 — indiscernable du hasard"
  ],
@@ -106,7 +106,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.036,
-   "fwd_j": 35.1
+   "fwd_j": 35.2
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -114,8 +114,8 @@
    "esperance": 8.0291,
    "t": 1.25,
    "pnl": 240.87,
-   "pnl_j": 6.862,
-   "fwd_j": 35.1
+   "pnl_j": 6.843,
+   "fwd_j": 35.2
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -155,26 +155,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0009,
-  "ret7": -0.0178,
-  "ret30": 0.2357,
-  "prix": 77589
+  "ret1": 0.0012,
+  "ret7": -0.0157,
+  "ret30": 0.2383,
+  "prix": 77755
  },
  "evenements_extremes": [
   {
    "coin": "SKR",
-   "move_pct": 120.1
+   "move_pct": 97.6
   },
   {
    "coin": "ZORA",
-   "move_pct": 26.6
+   "move_pct": 23.7
   },
   {
    "coin": "HEMI",
-   "move_pct": 20.2
+   "move_pct": 22.8
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-08-31T00:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-08-31T00:01",
    "bot": "10_controle_aleatoire",
@@ -216,12 +222,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-08-30T22:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -235,7 +235,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.3,
+  "age_avis_h": 0.5,
   "problemes": []
  },
  "autofinancement": {
