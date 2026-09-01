@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-01T14:01:12.642283+00:00",
+ "ts": "2026-09-01T14:15:44.646766+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -40,8 +40,8 @@
    "esperance": 0.5593,
    "t": 0.55,
    "pnl": 114.65,
-   "pnl_j": 1.654,
-   "fwd_j": 69.3
+   "pnl_j": 1.652,
+   "fwd_j": 69.4
   },
   "27c_mom_move": {
    "statut": "ROUGE",
@@ -49,8 +49,8 @@
    "esperance": -0.6993,
    "t": -0.69,
    "pnl": -143.35,
-   "pnl_j": -2.068,
-   "fwd_j": 69.3
+   "pnl_j": -2.066,
+   "fwd_j": 69.4
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
@@ -153,22 +153,28 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0047,
-  "ret7": -0.0037,
-  "ret30": 0.2305,
-  "prix": 78203
+  "ret1": -0.0031,
+  "ret7": -0.0021,
+  "ret30": 0.2325,
+  "prix": 78333
  },
  "evenements_extremes": [
   {
    "coin": "ARB",
-   "move_pct": 29.2
+   "move_pct": 30.0
   },
   {
    "coin": "CRV",
-   "move_pct": 21.8
+   "move_pct": 22.3
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-01T14:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-01T14:01",
    "bot": "10_controle_aleatoire",
@@ -210,12 +216,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-09-01T12:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +229,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.7,
+  "age_avis_h": 0.9,
   "problemes": []
  },
  "autofinancement": {
