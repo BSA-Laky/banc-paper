@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-02T16:15:46.664805+00:00",
+ "ts": "2026-09-02T16:31:00.171796+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -153,13 +153,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0011,
-  "ret7": -0.0214,
-  "ret30": 0.2181,
-  "prix": 77337
+  "ret1": 0.0013,
+  "ret7": -0.0191,
+  "ret30": 0.2209,
+  "prix": 77516
  },
- "evenements_extremes": [],
+ "evenements_extremes": [
+  {
+   "coin": "CASHCAT",
+   "move_pct": 24.2
+  }
+ ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-02T16:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-02T16:15",
    "bot": "10_controle_aleatoire",
@@ -201,12 +212,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-09-02T14:31",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -220,7 +225,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.2,
+  "age_avis_h": 1.5,
   "problemes": []
  },
  "autofinancement": {
