@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-02 12:15 (Paris)
+# Brief Station — 2026-09-02 12:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -10,7 +10,7 @@
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | ORANGE | 30 | 8.0291 | 1.25 | 240.87 | 6.406 | 37.6 j |
 | 29b_carry_neutre_large | ORANGE | 60 | 0.4336 | 0.77 | 26.02 | 0.939 | 27.7 j |
-| 29c_carry_decale | ORANGE | 220 | -0.0329 | -0.88 | -7.24 | -0.262 | 27.6 j |
+| 29c_carry_decale | ORANGE | 220 | -0.0329 | -0.88 | -7.24 | -0.261 | 27.7 j |
 | 32_carry_crossvenue | GRIS | 14 | -0.0114 | -0.02 | -0.16 | -0.009 | 17.9 j |
 
 ### 🛑 Bots arretes / tues (12) — retires du banc, statistiques figees
@@ -27,12 +27,12 @@
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.186 | 59.7 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.28 | 52.0 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.034 | 37.6 j |
-| rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.029 | 37.8 j |
+| rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.029 | 37.9 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -228.17 $
 
-**BTC** 76617 $ — ret 1j -1.04% · 7j -3.05% · 30j +20.67%
-**Moves 24h ≥ 20 %** : CASHCAT +27.6%, ACE +23.4%
+**BTC** 76559 $ — ret 1j -1.11% · 7j -3.12% · 30j +20.58%
+**Moves 24h ≥ 20 %** : ACE +23.3%, CASHCAT +21.5%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
