@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-02T00:54:18.171351+00:00",
+ "ts": "2026-09-02T05:33:57.610404+00:00",
  "_lire_ceci": "Fichier ecrit UNIQUEMENT par garde_reel.py. docs/reel.json et docs/go_reel.json sont regeneres par la station toutes les 15 min et perdent ces corrections : ne pas s'y fier pour le P&L reel.",
  "pnl_compte_reel": -35.21,
  "equity": 0.0,
@@ -135,10 +135,10 @@
  },
  "alertes": [
   "LEDGER REEL FAUX de +45.87 $ : le journal d'execution totalise +10.66 $ sur 12 fermeture(s), le compte Hyperliquid est a -35.21 $ (seuil 2.00 $). Des fermetures hors executeur ne sont pas journalisees. La verite affichee est etat/reel_hl.json ; le journal reste une estimation.",
-  "ARGENT REEL NON JUSTIFIE : 28_carry_hold est en mainnet avec statut ROUGE (n=31, t=-0.01, forward=37.2 j) -- raisons : n 31 < n_go 100 ; t -0.01 < 2. Decomposition : EN COURS. Aucun critere chiffre du projet n'autorise ce capital engage."
+  "ARGENT REEL NON JUSTIFIE : 28_carry_hold est en mainnet avec statut ROUGE (n=31, t=-0.01, forward=37.4 j) -- raisons : n 31 < n_go 100 ; t -0.01 < 2. Decomposition : EN COURS. Aucun critere chiffre du projet n'autorise ce capital engage."
  ],
  "avertissements": [
   "STATION EN MODE ECONOMIE : agents IA (Arbitre, Superviseur, Veilleur, avis par piece) dormants faute de credit API depuis le 2026-08-02. Le banc deterministe tourne normalement. Ce n'est PAS une panne.",
-  "EXECUTEUR REEL SILENCIEUX : aucun ordre depuis 820 h alors que le paper tient 28_carry_hold=ACE,CASHCAT,CC,FARTCOIN,ICP,KAITO,XMR,ZRO. L'executeur tourne (reconciliation il y a 0 h) : ce sont les filtres reels (seuil funding 0.0001 vs paper, fraicheur 4 h) qui bloquent. Le livre reel n'est donc PAS un miroir du paper."
+  "EXECUTEUR REEL SILENCIEUX : aucun ordre depuis 825 h alors que le paper tient 28_carry_hold=ACE,CASHCAT,CC,FARTCOIN,ICP,KAITO,XMR,ZRO. L'executeur tourne (reconciliation il y a 0 h) : ce sont les filtres reels (seuil funding 0.0001 vs paper, fraicheur 4 h) qui bloquent. Le livre reel n'est donc PAS un miroir du paper."
  ]
 }
