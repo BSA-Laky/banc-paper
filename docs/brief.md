@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-03 23:01 (Paris)
+# Brief Station — 2026-09-03 23:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -25,14 +25,14 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.485 | 62.2 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.19 | 61.2 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.182 | 61.2 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.273 | 53.4 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.272 | 53.5 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.033 | 39.0 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.027 | 39.3 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -227.03 $
 
-**BTC** 81418 $ — ret 1j +5.30% · 7j +1.49% · 30j +27.08%
-**Moves 24h ≥ 20 %** : PONS +45.0%, CHIP +33.3%
+**BTC** 81500 $ — ret 1j +5.41% · 7j +1.59% · 30j +27.21%
+**Moves 24h ≥ 20 %** : PONS +41.3%, CHIP +32.5%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
