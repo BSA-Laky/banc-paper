@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-03 13:31 (Paris)
+# Brief Station — 2026-09-03 13:39 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -227.03 $
 
-**BTC** 77902 $ — ret 1j +0.75% · 7j -2.89% · 30j +21.59%
-**Moves 24h ≥ 20 %** : PONS +40.9%, ARB +24.2%
+**BTC** 77886 $ — ret 1j +0.73% · 7j -2.91% · 30j +21.57%
+**Moves 24h ≥ 20 %** : PONS +35.6%, ARB +25.2%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
