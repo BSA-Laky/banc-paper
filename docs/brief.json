@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-03T04:31:10.006323+00:00",
+ "ts": "2026-09-03T04:45:44.126848+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -40,8 +40,8 @@
    "esperance": 0.5593,
    "t": 0.55,
    "pnl": 114.65,
-   "pnl_j": 1.617,
-   "fwd_j": 70.9
+   "pnl_j": 1.615,
+   "fwd_j": 71.0
   },
   "27c_mom_move": {
    "statut": "ROUGE",
@@ -49,8 +49,8 @@
    "esperance": -0.6993,
    "t": -0.69,
    "pnl": -143.35,
-   "pnl_j": -2.022,
-   "fwd_j": 70.9
+   "pnl_j": -2.019,
+   "fwd_j": 71.0
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
@@ -153,18 +153,28 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0034,
-  "ret7": -0.0329,
-  "ret30": 0.2109,
-  "prix": 77582
+  "ret1": 0.0037,
+  "ret7": -0.0326,
+  "ret30": 0.2113,
+  "prix": 77608
  },
  "evenements_extremes": [
   {
    "coin": "HEMI",
-   "move_pct": 34.9
+   "move_pct": 35.7
+  },
+  {
+   "coin": "PONS",
+   "move_pct": 20.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-03T04:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-09-03T04:31",
    "bot": "10_controle_aleatoire",
@@ -206,12 +216,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-09-03T02:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -225,7 +229,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.6,
+  "age_avis_h": 0.9,
   "problemes": []
  },
  "autofinancement": {
