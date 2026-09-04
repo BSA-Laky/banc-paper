@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-04 12:45 (Paris)
+# Brief Station — 2026-09-04 13:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -227.44 $
 
-**BTC** 81015 $ — ret 1j -0.28% · 7j +4.09% · 30j +25.36%
-**Moves 24h ≥ 20 %** : AZTEC +32.0%, PONS +25.7%, SPX +22.9%, DASH +22.3%, LIT +22.0%, ZEC +20.8%
+**BTC** 81101 $ — ret 1j -0.18% · 7j +4.20% · 30j +25.49%
+**Moves 24h ≥ 20 %** : AZTEC +34.6%, DASH +23.5%, PONS +23.4%, SPX +20.6%, ZEC +20.3%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
