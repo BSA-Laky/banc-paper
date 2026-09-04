@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-04 15:01 (Paris)
+# Brief Station — 2026-09-04 15:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -23,16 +23,16 @@
 | 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.983 | 72.3 j |
 | 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -2.556 | 66.7 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.479 | 62.9 j |
-| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.188 | 61.8 j |
-| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.18 | 61.8 j |
+| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.188 | 61.9 j |
+| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.18 | 61.9 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.269 | 54.1 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.032 | 39.7 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.027 | 40.0 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -227.44 $
 
-**BTC** 79511 $ — ret 1j -2.13% · 7j +2.16% · 30j +23.03%
-**Moves 24h ≥ 20 %** : AZTEC +28.2%
+**BTC** 79190 $ — ret 1j -2.53% · 7j +1.74% · 30j +22.54%
+**Moves 24h ≥ 20 %** : AZTEC +31.6%, PONS +23.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
