@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-05T18:30:56.218322+00:00",
+ "ts": "2026-09-05T18:45:45.555755+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -95,7 +95,7 @@
    "t": 0.17,
    "pnl": 14.56,
    "pnl_j": 0.263,
-   "fwd_j": 55.3
+   "fwd_j": 55.4
   },
   "28_carry_hold": {
    "statut": "ROUGE",
@@ -121,8 +121,8 @@
    "esperance": 0.3395,
    "t": 0.8,
    "pnl": 27.16,
-   "pnl_j": 0.876,
-   "fwd_j": 31.0
+   "pnl_j": 0.873,
+   "fwd_j": 31.1
   },
   "29c_carry_decale": {
    "statut": "ORANGE",
@@ -152,22 +152,33 @@
    "fwd_j": 41.2
   }
  },
- "tendances_btc": null,
+ "tendances_btc": {
+  "ret1": 0.0038,
+  "ret7": 0.0217,
+  "ret30": 0.2432,
+  "prix": 79929
+ },
  "evenements_extremes": [
   {
    "coin": "PONS",
-   "move_pct": 33.0
+   "move_pct": 31.5
   },
   {
    "coin": "HEMI",
-   "move_pct": -23.6
+   "move_pct": -24.1
   },
   {
    "coin": "DASH",
-   "move_pct": 22.8
+   "move_pct": 22.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-05T18:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-05T18:30",
    "bot": "10_controle_aleatoire",
@@ -209,12 +220,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-09-05T17:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -228,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.5,
+  "age_avis_h": 0.7,
   "problemes": []
  },
  "autofinancement": {
