@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-05T22:15:41.582195+00:00",
+ "ts": "2026-09-05T22:30:56.536709+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -130,8 +130,8 @@
    "esperance": -0.0319,
    "t": -0.93,
    "pnl": -7.65,
-   "pnl_j": -0.246,
-   "fwd_j": 31.1
+   "pnl_j": -0.245,
+   "fwd_j": 31.2
   },
   "32_carry_crossvenue": {
    "statut": "GRIS",
@@ -149,34 +149,40 @@
    "t": -0.02,
    "pnl": -1.08,
    "pnl_j": -0.026,
-   "fwd_j": 41.3
+   "fwd_j": 41.4
   }
  },
  "tendances_btc": {
-  "ret1": 0.0033,
-  "ret7": 0.0212,
-  "ret30": 0.2425,
-  "prix": 79884
+  "ret1": 0.0023,
+  "ret7": 0.0202,
+  "ret30": 0.2413,
+  "prix": 79809
  },
  "evenements_extremes": [
   {
+   "coin": "ARB",
+   "move_pct": 36.5
+  },
+  {
    "coin": "SUSHI",
-   "move_pct": 37.4
+   "move_pct": 36.3
   },
   {
    "coin": "PONS",
-   "move_pct": 34.6
-  },
-  {
-   "coin": "ARB",
-   "move_pct": 32.8
+   "move_pct": 34.3
   },
   {
    "coin": "HEMI",
-   "move_pct": -25.6
+   "move_pct": -25.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-05T22:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-05T22:15",
    "bot": "10_controle_aleatoire",
@@ -218,12 +224,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-09-05T20:40",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -237,7 +237,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.6,
+  "age_avis_h": 1.9,
   "problemes": []
  },
  "autofinancement": {
