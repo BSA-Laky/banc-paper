@@ -1,15 +1,15 @@
 {
- "ts": "2026-09-05T01:30:52.582474+00:00",
+ "ts": "2026-09-05T01:45:41.362737+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 4951,
-   "t_stat": -3.1,
+   "n": 4952,
+   "t_stat": -3.11,
    "derive_attendue": 0.02,
-   "t_corrige": -1.69,
+   "t_corrige": -1.71,
    "sain": true,
-   "lecture": "t brut -3.10 dont -1.41 de spread par construction -> t corrige -1.69 (sain)"
+   "lecture": "t brut -3.11 dont -1.41 de spread par construction -> t corrige -1.71 (sain)"
   }
  },
  "bots": {
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 1054.4,
+   "expo_moyenne_usd": 1054.3,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -38,20 +38,20 @@
    "esperance": -0.2221,
    "t_stat": -3.4,
    "mdd_live": 138.62,
-   "jours_forward": 40.5,
+   "jours_forward": 40.6,
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
    "decrochage": false,
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -121.24,
-   "pnl_par_jour": -2.994,
+   "pnl_par_jour": -2.986,
    "trop_beau_audite": null,
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 538.4,
-   "rendement_j_pct": -0.556
+   "expo_moyenne_usd": 538.2,
+   "rendement_j_pct": -0.555
   },
   "27a_rev_premium": {
    "n": 134,
@@ -71,7 +71,7 @@
    "borne_decrochage": -9.6141,
    "statut": "ROUGE",
    "expo_moyenne_usd": 183.1,
-   "rendement_j_pct": -0.46
+   "rendement_j_pct": -0.461
   },
   "27b_rev_move": {
    "n": 205,
@@ -91,7 +91,7 @@
    "borne_decrochage": -5.9191,
    "statut": "ROUGE",
    "expo_moyenne_usd": 281.5,
-   "rendement_j_pct": 0.559
+   "rendement_j_pct": 0.56
   },
   "27c_mom_move": {
    "n": 205,
@@ -111,7 +111,7 @@
    "borne_decrochage": -7.1776,
    "statut": "ROUGE",
    "expo_moyenne_usd": 281.5,
-   "rendement_j_pct": -0.699
+   "rendement_j_pct": -0.7
   },
   "27d_rev_move_stop": {
    "n": 361,
@@ -130,7 +130,7 @@
    "esp_glissante_20": 0.5974,
    "borne_decrochage": -5.7808,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 537.3,
+   "expo_moyenne_usd": 537.2,
    "rendement_j_pct": -0.472
   },
   "27e_arbitre": {
@@ -158,7 +158,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.6728,
+    "delta_rendement_j_pct": -0.6729,
     "t_welch_jour": -0.24,
     "jours_compares": 64
    }
@@ -263,15 +263,15 @@
    "esp_glissante_20": 2.7778,
    "borne_decrochage": -7.6569,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 348.7,
-   "rendement_j_pct": 1.718
+   "expo_moyenne_usd": 348.6,
+   "rendement_j_pct": 1.719
   },
   "29b_carry_neutre_large": {
    "n": 80,
    "esperance": 0.3395,
    "t_stat": 0.8,
    "mdd_live": 15.75,
-   "jours_forward": 30.3,
+   "jours_forward": 30.4,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -281,13 +281,13 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 27.16,
-   "pnl_par_jour": 0.896,
+   "pnl_par_jour": 0.893,
    "trop_beau_audite": null,
    "esp_glissante_20": 0.0573,
    "borne_decrochage": -1.3574,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 243.4,
-   "rendement_j_pct": 0.368
+   "expo_moyenne_usd": 243.3,
+   "rendement_j_pct": 0.367
   },
   "29c_carry_decale": {
    "n": 240,
@@ -316,7 +316,7 @@
    "esperance": -0.0114,
    "t_stat": -0.02,
    "mdd_live": 6.58,
-   "jours_forward": 20.5,
+   "jours_forward": 20.6,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -346,7 +346,7 @@
    "esp_glissante_20": -1.459,
    "borne_decrochage": -1.7645,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 328.6,
+   "expo_moyenne_usd": 328.5,
    "rendement_j_pct": -0.008
   }
  },
