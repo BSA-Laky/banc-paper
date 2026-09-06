@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-06T03:15:40.118379+00:00",
+ "ts": "2026-09-06T03:30:58.200544+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -76,8 +76,8 @@
    "esperance": -0.0665,
    "t": -0.09,
    "pnl": -11.64,
-   "pnl_j": -0.184,
-   "fwd_j": 63.4
+   "pnl_j": -0.183,
+   "fwd_j": 63.5
   },
   "27f_selecteur": {
    "statut": "ROUGE",
@@ -86,7 +86,7 @@
    "t": 0.08,
    "pnl": 11.12,
    "pnl_j": 0.175,
-   "fwd_j": 63.4
+   "fwd_j": 63.5
   },
   "27g10_selecteur": {
    "statut": "ROUGE",
@@ -131,7 +131,7 @@
    "t": -0.83,
    "pnl": -6.9,
    "pnl_j": -0.22,
-   "fwd_j": 31.3
+   "fwd_j": 31.4
   },
   "32_carry_crossvenue": {
    "statut": "GRIS",
@@ -149,30 +149,36 @@
    "t": -0.02,
    "pnl": -1.08,
    "pnl_j": -0.026,
-   "fwd_j": 41.5
+   "fwd_j": 41.6
   }
  },
  "tendances_btc": {
   "ret1": 0.0015,
   "ret7": 0.0291,
   "ret30": 0.2317,
-  "prix": 79921
+  "prix": 79922
  },
  "evenements_extremes": [
   {
    "coin": "ARB",
-   "move_pct": 44.1
-  },
-  {
-   "coin": "SUSHI",
-   "move_pct": 34.7
+   "move_pct": 44.3
   },
   {
    "coin": "PONS",
-   "move_pct": 32.4
+   "move_pct": 33.4
+  },
+  {
+   "coin": "SUSHI",
+   "move_pct": 27.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-06T03:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-06T03:15",
    "bot": "10_controle_aleatoire",
@@ -214,12 +220,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-09-06T01:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -233,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 2.5,
+  "age_avis_h": 2.8,
   "problemes": []
  },
  "autofinancement": {
