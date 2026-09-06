@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -226.70 $
 
-**BTC** 79928 $ — ret 1j +0.16% · 7j +2.92% · 30j +23.18%
-**Moves 24h ≥ 20 %** : JUP +20.7%, ZEC +20.7%
+**BTC** 79927 $ — ret 1j +0.15% · 7j +2.92% · 30j +23.18%
+**Moves 24h ≥ 20 %** : JUP +21.1%, ZEC +20.7%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
