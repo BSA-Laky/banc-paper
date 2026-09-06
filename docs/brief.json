@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-06T22:15:45.256505+00:00",
+ "ts": "2026-09-06T22:30:56.355005+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -130,8 +130,8 @@
    "esperance": -0.0265,
    "t": -0.83,
    "pnl": -6.9,
-   "pnl_j": -0.215,
-   "fwd_j": 32.1
+   "pnl_j": -0.214,
+   "fwd_j": 32.2
   },
   "32_carry_crossvenue": {
    "statut": "GRIS",
@@ -148,18 +148,29 @@
    "esperance": -0.0081,
    "t": -0.02,
    "pnl": -1.08,
-   "pnl_j": -0.026,
-   "fwd_j": 42.3
+   "pnl_j": -0.025,
+   "fwd_j": 42.4
   }
  },
  "tendances_btc": {
-  "ret1": -0.0008,
-  "ret7": 0.0268,
-  "ret30": 0.229,
-  "prix": 79741
+  "ret1": -0.0002,
+  "ret7": 0.0275,
+  "ret30": 0.2297,
+  "prix": 79792
  },
- "evenements_extremes": [],
+ "evenements_extremes": [
+  {
+   "coin": "JUP",
+   "move_pct": 20.6
+  }
+ ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-06T22:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-06T22:15",
    "bot": "10_controle_aleatoire",
@@ -201,12 +212,6 @@
    "bot": "29_carry_neutre",
    "marche": "XMR-short",
    "pnl": -0.38
-  },
-  {
-   "ts": "2026-09-06T21:45",
-   "bot": "29_carry_neutre",
-   "marche": "CC-short",
-   "pnl": 0.43
   }
  ],
  "calibration_arbitre": {
@@ -220,7 +225,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.7,
+  "age_avis_h": 0.9,
   "problemes": []
  },
  "autofinancement": {
