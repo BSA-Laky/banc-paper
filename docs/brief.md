@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-07 23:01 (Paris)
+# Brief Station — 2026-09-07 23:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -25,14 +25,14 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.455 | 66.2 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.178 | 65.2 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.17 | 65.2 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.254 | 57.4 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.253 | 57.5 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.03 | 43.0 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.025 | 43.3 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -226.29 $
 
-**BTC** 79217 $ — ret 1j -1.37% · 7j +0.82% · 30j +22.00%
-**Moves 24h ≥ 20 %** : SOPH +34.6%, HEMI -22.2%
+**BTC** 79165 $ — ret 1j -1.43% · 7j +0.75% · 30j +21.92%
+**Moves 24h ≥ 20 %** : SOPH +35.0%, HEMI -21.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
