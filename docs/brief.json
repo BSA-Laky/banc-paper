@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-08T20:01:12.248405+00:00",
+ "ts": "2026-09-08T20:15:43.777492+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -130,8 +130,8 @@
    "esperance": -0.0244,
    "t": -0.82,
    "pnl": -6.82,
-   "pnl_j": -0.201,
-   "fwd_j": 34.0
+   "pnl_j": -0.2,
+   "fwd_j": 34.1
   },
   "32_carry_crossvenue": {
    "statut": "GRIS",
@@ -149,26 +149,36 @@
    "t": -0.02,
    "pnl": -1.08,
    "pnl_j": -0.024,
-   "fwd_j": 44.2
+   "fwd_j": 44.3
   }
  },
  "tendances_btc": {
-  "ret1": -0.008,
-  "ret7": 0.0132,
-  "ret30": 0.2092,
-  "prix": 78439
+  "ret1": -0.0069,
+  "ret7": 0.0143,
+  "ret30": 0.2106,
+  "prix": 78528
  },
  "evenements_extremes": [
   {
    "coin": "VVV",
-   "move_pct": 34.1
+   "move_pct": 32.4
   },
   {
    "coin": "APEX",
-   "move_pct": -21.0
+   "move_pct": -21.6
+  },
+  {
+   "coin": "DOT",
+   "move_pct": 20.8
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-08T20:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-09-08T20:01",
    "bot": "10_controle_aleatoire",
@@ -210,12 +220,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-09-08T18:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.1,
+  "age_avis_h": 1.4,
   "problemes": []
  },
  "autofinancement": {
