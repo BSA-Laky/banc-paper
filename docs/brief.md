@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-08 17:16 (Paris)
+# Brief Station — 2026-09-08 17:31 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -10,7 +10,7 @@
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | ORANGE | 36 | 6.7023 | 1.25 | 241.28 | 5.509 | 43.8 j |
 | 29b_carry_neutre_large | ORANGE | 80 | 0.3395 | 0.8 | 27.16 | 0.801 | 33.9 j |
-| 29c_carry_decale | ORANGE | 280 | -0.0244 | -0.82 | -6.82 | -0.202 | 33.8 j |
+| 29c_carry_decale | ORANGE | 280 | -0.0244 | -0.82 | -6.82 | -0.201 | 33.9 j |
 | 32_carry_crossvenue | GRIS | 24 | -0.007 | -0.02 | -0.17 | -0.007 | 24.1 j |
 
 ### 🛑 Bots arretes / tues (12) — retires du banc, statistiques figees
@@ -23,16 +23,16 @@
 | 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.876 | 76.4 j |
 | 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -2.408 | 70.8 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.45 | 67.0 j |
-| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.177 | 65.9 j |
-| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.169 | 65.9 j |
+| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.176 | 66.0 j |
+| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.168 | 66.0 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.25 | 58.2 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.029 | 43.8 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.025 | 44.1 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -226.21 $
 
-**BTC** 78667 $ — ret 1j -0.51% · 7j +1.61% · 30j +21.27%
-**Moves 24h ≥ 20 %** : SOPH +44.6%, VVV +30.9%, APEX -24.7%
+**BTC** 78439 $ — ret 1j -0.80% · 7j +1.32% · 30j +20.92%
+**Moves 24h ≥ 20 %** : SOPH +39.8%, VVV +37.5%, APEX -24.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
