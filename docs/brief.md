@@ -1,6 +1,9 @@
-# Brief Station — 2026-09-08 18:49 (Paris)
+# Brief Station — 2026-09-08 19:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
+
+## 🔴 ALERTES
+- **BANC SUSPECT** : un temoin a |t| >= 2 — ne rien conclure.
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -8,7 +11,7 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 29_carry_neutre | ORANGE | 36 | 6.7023 | 1.25 | 241.28 | 5.509 | 43.8 j |
+| 29_carry_neutre | ORANGE | 36 | 6.7023 | 1.25 | 241.28 | 5.496 | 43.9 j |
 | 29b_carry_neutre_large | ORANGE | 80 | 0.3395 | 0.8 | 27.16 | 0.799 | 34.0 j |
 | 29c_carry_decale | ORANGE | 280 | -0.0244 | -0.82 | -6.82 | -0.201 | 33.9 j |
 | 32_carry_crossvenue | GRIS | 24 | -0.007 | -0.02 | -0.17 | -0.007 | 24.2 j |
@@ -26,13 +29,13 @@
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.176 | 66.0 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.168 | 66.0 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.25 | 58.3 j |
-| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.029 | 43.8 j |
+| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.029 | 43.9 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.025 | 44.1 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -226.21 $
 
-**BTC** 78785 $ — ret 1j -0.36% · 7j +1.76% · 30j +21.45%
-**Moves 24h ≥ 20 %** : VVV +39.3%, SOPH +29.3%, PONS +21.6%, APEX -20.2%
+**BTC** 78787 $ — ret 1j -0.36% · 7j +1.77% · 30j +21.46%
+**Moves 24h ≥ 20 %** : VVV +35.5%, SOPH +27.4%, APEX -21.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 

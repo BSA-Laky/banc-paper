@@ -1,10 +1,10 @@
 {
- "ts": "2026-09-08T16:49:03.027978+00:00",
+ "ts": "2026-09-08T17:01:15.699582+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
  ],
- "banc_suspect": false,
+ "banc_suspect": true,
  "changements_statut": [],
  "statuts": {
   "24_funding_multivenues": {
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.029,
-   "fwd_j": 43.8
+   "fwd_j": 43.9
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 6.7023,
    "t": 1.25,
    "pnl": 241.28,
-   "pnl_j": 5.509,
-   "fwd_j": 43.8
+   "pnl_j": 5.496,
+   "fwd_j": 43.9
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -154,29 +154,31 @@
  },
  "tendances_btc": {
   "ret1": -0.0036,
-  "ret7": 0.0176,
-  "ret30": 0.2145,
-  "prix": 78785
+  "ret7": 0.0177,
+  "ret30": 0.2146,
+  "prix": 78787
  },
  "evenements_extremes": [
   {
    "coin": "VVV",
-   "move_pct": 39.3
+   "move_pct": 35.5
   },
   {
    "coin": "SOPH",
-   "move_pct": 29.3
-  },
-  {
-   "coin": "PONS",
-   "move_pct": 21.6
+   "move_pct": 27.4
   },
   {
    "coin": "APEX",
-   "move_pct": -20.2
+   "move_pct": -21.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-08T17:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-08T16:49",
    "bot": "10_controle_aleatoire",
@@ -218,12 +220,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-09-08T15:16",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -237,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.8,
+  "age_avis_h": 2.0,
   "problemes": []
  },
  "autofinancement": {
