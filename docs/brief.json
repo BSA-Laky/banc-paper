@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-08T07:15:47.206038+00:00",
+ "ts": "2026-09-08T07:31:25.648100+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.029,
-   "fwd_j": 43.4
+   "fwd_j": 43.5
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 6.7023,
    "t": 1.25,
    "pnl": 241.28,
-   "pnl_j": 5.56,
-   "fwd_j": 43.4
+   "pnl_j": 5.547,
+   "fwd_j": 43.5
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -153,18 +153,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0092,
-  "ret7": 0.012,
-  "ret30": 0.2078,
-  "prix": 78348
+  "ret1": -0.0082,
+  "ret7": 0.0129,
+  "ret30": 0.2089,
+  "prix": 78420
  },
  "evenements_extremes": [
   {
    "coin": "SOPH",
-   "move_pct": 110.8
+   "move_pct": 113.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-08T07:31",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-08T07:15",
    "bot": "10_controle_aleatoire",
@@ -206,12 +212,6 @@
    "bot": "29c_carry_decale",
    "marche": "ZORA-long",
    "pnl": -0.0
-  },
-  {
-   "ts": "2026-09-08T06:31",
-   "bot": "29c_carry_decale",
-   "marche": "KPEPE-long",
-   "pnl": 0.01
   }
  ],
  "calibration_arbitre": {
@@ -225,7 +225,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.5,
+  "age_avis_h": 1.8,
   "problemes": []
  },
  "autofinancement": {
