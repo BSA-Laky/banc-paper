@@ -1,9 +1,6 @@
-# Brief Station — 2026-09-08 20:01 (Paris)
+# Brief Station — 2026-09-08 20:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
-
-## 🔴 ALERTES
-- **BANC SUSPECT** : un temoin a |t| >= 2 — ne rien conclure.
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -34,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -226.21 $
 
-**BTC** 78524 $ — ret 1j -0.69% · 7j +1.43% · 30j +21.05%
-**Moves 24h ≥ 20 %** : SOPH +31.3%, VVV +27.7%, APEX -20.1%
+**BTC** 78646 $ — ret 1j -0.54% · 7j +1.58% · 30j +21.24%
+**Moves 24h ≥ 20 %** : SOPH +30.2%, VVV +27.2%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
