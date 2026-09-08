@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-08 18:45 (Paris)
+# Brief Station — 2026-09-08 18:49 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -22,7 +22,7 @@
 | 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 1.499 | 76.5 j |
 | 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.874 | 76.5 j |
 | 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -2.408 | 70.8 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.45 | 67.0 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.449 | 67.1 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.176 | 66.0 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.168 | 66.0 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.25 | 58.3 j |
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -226.21 $
 
-**BTC** 78750 $ — ret 1j -0.41% · 7j +1.72% · 30j +21.40%
-**Moves 24h ≥ 20 %** : VVV +37.9%, SOPH +30.8%, PONS +21.1%, APEX -20.7%
+**BTC** 78785 $ — ret 1j -0.36% · 7j +1.76% · 30j +21.45%
+**Moves 24h ≥ 20 %** : VVV +39.3%, SOPH +29.3%, PONS +21.6%, APEX -20.2%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
