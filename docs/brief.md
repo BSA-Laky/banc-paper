@@ -1,6 +1,9 @@
-# Brief Station — 2026-09-09 16:01 (Paris)
+# Brief Station — 2026-09-09 16:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
+
+## 🔴 ALERTES
+- **BANC SUSPECT** : un temoin a |t| >= 2 — ne rien conclure.
 
 ## 🟠 Avertissements
 - 27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)
@@ -19,8 +22,8 @@
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -1.119 | 77.8 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -2.688 | 45.1 j |
 | 27a_rev_premium | ROUGE | 134 | -0.4604 | -0.26 | -61.7 | -0.794 | 77.7 j |
-| 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 1.483 | 77.3 j |
-| 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.854 | 77.3 j |
+| 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 1.481 | 77.4 j |
+| 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.852 | 77.4 j |
 | 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -2.378 | 71.7 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.444 | 67.9 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.174 | 66.9 j |
@@ -31,8 +34,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -226.21 $
 
-**BTC** 79020 $ — ret 1j +0.77% · 7j +2.20% · 30j +23.56%
-**Moves 24h ≥ 20 %** : SOPH -36.6%, VVV +29.8%
+**BTC** 79029 $ — ret 1j +0.78% · 7j +2.21% · 30j +23.58%
+**Moves 24h ≥ 20 %** : SOPH -34.1%, VVV +27.9%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
