@@ -1,10 +1,10 @@
 {
- "ts": "2026-09-09T14:15:45.992587+00:00",
+ "ts": "2026-09-09T14:31:09.219788+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
  ],
- "banc_suspect": true,
+ "banc_suspect": false,
  "changements_statut": [],
  "statuts": {
   "24_funding_multivenues": {
@@ -67,8 +67,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.444,
-   "fwd_j": 67.9
+   "pnl_j": -0.443,
+   "fwd_j": 68.0
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.029,
-   "fwd_j": 44.7
+   "fwd_j": 44.8
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 6.7023,
    "t": 1.25,
    "pnl": 241.28,
-   "pnl_j": 5.398,
-   "fwd_j": 44.7
+   "pnl_j": 5.386,
+   "fwd_j": 44.8
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -153,22 +153,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0078,
-  "ret7": 0.0221,
-  "ret30": 0.2358,
-  "prix": 79029
+  "ret1": 0.0103,
+  "ret7": 0.0246,
+  "ret30": 0.2388,
+  "prix": 79224
  },
  "evenements_extremes": [
   {
    "coin": "SOPH",
-   "move_pct": -34.1
-  },
-  {
-   "coin": "VVV",
-   "move_pct": 27.9
+   "move_pct": -32.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-09T14:31",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-09-09T14:15",
    "bot": "10_controle_aleatoire",
@@ -210,12 +212,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-09-09T12:31",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +225,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.4,
+  "age_avis_h": 0.7,
   "problemes": []
  },
  "autofinancement": {
