@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-10T06:31:02.425938+00:00",
+ "ts": "2026-09-10T06:45:48.462419+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -94,8 +94,8 @@
    "esperance": 0.3552,
    "t": 0.17,
    "pnl": 14.56,
-   "pnl_j": 0.244,
-   "fwd_j": 59.8
+   "pnl_j": 0.243,
+   "fwd_j": 59.9
   },
   "28_carry_hold": {
    "statut": "ROUGE",
@@ -121,16 +121,16 @@
    "esperance": 0.2784,
    "t": 0.82,
    "pnl": 27.84,
-   "pnl_j": 0.784,
-   "fwd_j": 35.5
+   "pnl_j": 0.782,
+   "fwd_j": 35.6
   },
   "29c_carry_decale": {
    "statut": "ORANGE",
-   "n": 280,
-   "esperance": -0.0244,
-   "t": -0.82,
-   "pnl": -6.82,
-   "pnl_j": -0.192,
+   "n": 300,
+   "esperance": -0.0222,
+   "t": -0.8,
+   "pnl": -6.65,
+   "pnl_j": -0.187,
    "fwd_j": 35.5
   },
   "32_carry_crossvenue": {
@@ -153,73 +153,69 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0013,
-  "ret7": -0.0378,
-  "ret30": 0.23,
-  "prix": 78177
+  "ret1": -0.001,
+  "ret7": -0.0375,
+  "ret30": 0.2303,
+  "prix": 78195
  },
  "evenements_extremes": [
   {
    "coin": "USELESS",
-   "move_pct": -28.9
+   "move_pct": -28.7
   },
   {
    "coin": "SOPH",
-   "move_pct": -21.8
-  },
-  {
-   "coin": "CASHCAT",
-   "move_pct": -20.0
+   "move_pct": -21.2
   }
  ],
  "dernieres_actions": [
   {
-   "ts": "2026-09-10T06:31",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-09-10T06:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-09-10T06:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
-  },
-  {
-   "ts": "2026-09-10T05:45",
+   "ts": "2026-09-10T06:45",
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
   },
   {
-   "ts": "2026-09-10T05:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
+   "ts": "2026-09-10T06:37",
+   "bot": "29c_carry_decale",
+   "marche": "ACE-long",
+   "pnl": -0.0
   },
   {
-   "ts": "2026-09-10T05:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
+   "ts": "2026-09-10T06:37",
+   "bot": "29c_carry_decale",
+   "marche": "SKR-long",
+   "pnl": -0.01
   },
   {
-   "ts": "2026-09-10T05:09",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
+   "ts": "2026-09-10T06:37",
+   "bot": "29c_carry_decale",
+   "marche": "HEMI-long",
+   "pnl": -0.26
   },
   {
-   "ts": "2026-09-10T05:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
+   "ts": "2026-09-10T06:37",
+   "bot": "29c_carry_decale",
+   "marche": "MINA-long",
+   "pnl": 0.13
+  },
+  {
+   "ts": "2026-09-10T06:37",
+   "bot": "29c_carry_decale",
+   "marche": "INJ-long",
+   "pnl": 0.11
+  },
+  {
+   "ts": "2026-09-10T06:37",
+   "bot": "29c_carry_decale",
+   "marche": "HYPE-long",
+   "pnl": 0.0
+  },
+  {
+   "ts": "2026-09-10T06:37",
+   "bot": "29c_carry_decale",
+   "marche": "TRX-long",
+   "pnl": 0.02
   }
  ],
  "calibration_arbitre": {
@@ -233,7 +229,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.0,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {
