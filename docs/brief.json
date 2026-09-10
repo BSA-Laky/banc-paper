@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-10T06:45:48.462419+00:00",
+ "ts": "2026-09-10T07:01:15.770476+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -153,22 +153,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.001,
-  "ret7": -0.0375,
-  "ret30": 0.2303,
-  "prix": 78195
+  "ret1": 0.0007,
+  "ret7": -0.0359,
+  "ret30": 0.2324,
+  "prix": 78329
  },
  "evenements_extremes": [
   {
    "coin": "USELESS",
-   "move_pct": -28.7
+   "move_pct": -29.3
   },
   {
    "coin": "SOPH",
-   "move_pct": -21.2
+   "move_pct": -21.0
+  },
+  {
+   "coin": "PONS",
+   "move_pct": -20.1
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-10T07:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-10T06:45",
    "bot": "10_controle_aleatoire",
@@ -210,12 +220,6 @@
    "bot": "29c_carry_decale",
    "marche": "HYPE-long",
    "pnl": 0.0
-  },
-  {
-   "ts": "2026-09-10T06:37",
-   "bot": "29c_carry_decale",
-   "marche": "TRX-long",
-   "pnl": 0.02
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.3,
+  "age_avis_h": 0.5,
   "problemes": []
  },
  "autofinancement": {
