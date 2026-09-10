@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-10 03:45 (Paris)
+# Brief Station — 2026-09-10 04:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -25,14 +25,14 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.441 | 68.4 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.173 | 67.4 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.165 | 67.4 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.244 | 59.6 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.244 | 59.7 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.028 | 45.2 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.024 | 45.5 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -225.53 $
 
-**BTC** 78078 $ — ret 1j -0.25% · 7j -3.90% · 30j +22.84%
-**Moves 24h ≥ 20 %** : USELESS -22.4%, SOPH -22.0%
+**BTC** 78032 $ — ret 1j -0.31% · 7j -3.95% · 30j +22.77%
+**Moves 24h ≥ 20 %** : USELESS -23.8%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
