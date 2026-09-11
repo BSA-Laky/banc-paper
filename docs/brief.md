@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-11 17:15 (Paris)
+# Brief Station — 2026-09-11 17:31 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -13,7 +13,7 @@
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | ORANGE | 36 | 6.7023 | 1.25 | 241.28 | 5.156 | 46.8 j |
 | 29b_carry_neutre_large | ORANGE | 100 | 0.2784 | 0.82 | 27.84 | 0.754 | 36.9 j |
-| 29c_carry_decale | ORANGE | 300 | -0.0222 | -0.8 | -6.65 | -0.181 | 36.8 j |
+| 29c_carry_decale | ORANGE | 300 | -0.0222 | -0.8 | -6.65 | -0.18 | 36.9 j |
 | 32_carry_crossvenue | GRIS | 24 | -0.007 | -0.02 | -0.17 | -0.006 | 27.1 j |
 
 ### 🛑 Bots arretes / tues (12) — retires du banc, statistiques figees
@@ -26,16 +26,16 @@
 | 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.805 | 79.4 j |
 | 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -2.31 | 73.8 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.431 | 70.0 j |
-| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.169 | 68.9 j |
-| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.161 | 68.9 j |
+| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.169 | 69.0 j |
+| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.161 | 69.0 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.238 | 61.2 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.027 | 46.8 j |
-| rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.023 | 47.0 j |
+| rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.023 | 47.1 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -225.36 $
 
-**BTC** 78593 $ — ret 1j +2.69% · 7j -1.29% · 30j +23.83%
-**Moves 24h ≥ 20 %** : MET +22.2%
+**BTC** 78735 $ — ret 1j +2.88% · 7j -1.12% · 30j +24.05%
+**Moves 24h ≥ 20 %** : MET +22.9%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
