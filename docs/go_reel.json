@@ -1,15 +1,15 @@
 {
- "ts": "2026-09-11T17:31:17.560266+00:00",
+ "ts": "2026-09-11T17:45:48.098861+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": true,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 5621,
-   "t_stat": -3.57,
+   "n": 5622,
+   "t_stat": -3.58,
    "derive_attendue": 0.02,
-   "t_corrige": -2.07,
+   "t_corrige": -2.08,
    "sain": false,
-   "lecture": "t brut -3.57 dont -1.50 de spread par construction -> t corrige -2.07 (SUSPECT)"
+   "lecture": "t brut -3.58 dont -1.50 de spread par construction -> t corrige -2.08 (SUSPECT)"
   }
  },
  "bots": {
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 966.5,
+   "expo_moyenne_usd": 966.4,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -130,7 +130,7 @@
    "esp_glissante_20": 0.5974,
    "borne_decrochage": -5.7808,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 488.8,
+   "expo_moyenne_usd": 488.7,
    "rendement_j_pct": -0.472
   },
   "27e_arbitre": {
@@ -158,7 +158,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.6838,
+    "delta_rendement_j_pct": -0.6839,
     "t_welch_jour": -0.25,
     "jours_compares": 70
    }
@@ -263,8 +263,8 @@
    "esp_glissante_20": -0.1033,
    "borne_decrochage": -7.6397,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 304.4,
-   "rendement_j_pct": 1.69
+   "expo_moyenne_usd": 304.3,
+   "rendement_j_pct": 1.691
   },
   "29b_carry_neutre_large": {
    "n": 100,
@@ -293,7 +293,7 @@
    "esperance": -0.0222,
    "t_stat": -0.8,
    "mdd_live": 11.52,
-   "jours_forward": 36.9,
+   "jours_forward": 37.0,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -307,7 +307,7 @@
    "esp_glissante_20": 0.0086,
    "borne_decrochage": -0.2359,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 68.7,
+   "expo_moyenne_usd": 68.6,
    "rendement_j_pct": -0.262
   },
   "32_carry_crossvenue": {
@@ -333,7 +333,7 @@
    "esperance": -0.0081,
    "t_stat": -0.02,
    "mdd_live": 40.74,
-   "jours_forward": 47.1,
+   "jours_forward": 47.2,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
