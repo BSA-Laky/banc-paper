@@ -1,11 +1,17 @@
 {
- "ts": "2026-09-12T12:31:05.432522+00:00",
+ "ts": "2026-09-12T12:45:45.393305+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
  ],
  "banc_suspect": true,
- "changements_statut": [],
+ "changements_statut": [
+  {
+   "bot": "32_carry_crossvenue",
+   "avant": "GRIS",
+   "apres": "ORANGE"
+  }
+ ],
  "statuts": {
   "24_funding_multivenues": {
    "statut": "ROUGE",
@@ -13,8 +19,8 @@
    "esperance": -0.5092,
    "t": -3.3,
    "pnl": -87.07,
-   "pnl_j": -1.079,
-   "fwd_j": 80.7
+   "pnl_j": -1.078,
+   "fwd_j": 80.8
   },
   "25_convergence_basis": {
    "statut": "ROUGE",
@@ -32,7 +38,7 @@
    "t": -0.26,
    "pnl": -61.7,
    "pnl_j": -0.765,
-   "fwd_j": 80.6
+   "fwd_j": 80.7
   },
   "27b_rev_move": {
    "statut": "ROUGE",
@@ -58,8 +64,8 @@
    "esperance": -0.4723,
    "t": -0.76,
    "pnl": -170.49,
-   "pnl_j": -2.285,
-   "fwd_j": 74.6
+   "pnl_j": -2.282,
+   "fwd_j": 74.7
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -134,9 +140,9 @@
    "fwd_j": 37.7
   },
   "32_carry_crossvenue": {
-   "statut": "GRIS",
-   "n": 24,
-   "esperance": -0.007,
+   "statut": "ORANGE",
+   "n": 36,
+   "esperance": -0.0046,
    "t": -0.02,
    "pnl": -0.17,
    "pnl_j": -0.006,
@@ -155,67 +161,58 @@
  "tendances_btc": {
   "ret1": 0.0014,
   "ret7": -0.0315,
-  "ret30": 0.2175,
-  "prix": 77289
+  "ret30": 0.2176,
+  "prix": 77291
  },
- "evenements_extremes": [
-  {
-   "coin": "ETHFI",
-   "move_pct": 22.8
-  },
-  {
-   "coin": "MINA",
-   "move_pct": 20.1
-  }
- ],
+ "evenements_extremes": [],
  "dernieres_actions": [
   {
-   "ts": "2026-09-12T12:31",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
+   "ts": "2026-09-12T12:45",
+   "bot": "32_carry_crossvenue",
+   "marche": "NEAR@NADO-long",
+   "pnl": 0.16
   },
   {
-   "ts": "2026-09-12T12:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
+   "ts": "2026-09-12T12:45",
+   "bot": "32_carry_crossvenue",
+   "marche": "NEAR@HL-short",
+   "pnl": -0.17
   },
   {
-   "ts": "2026-09-12T12:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
+   "ts": "2026-09-12T12:45",
+   "bot": "32_carry_crossvenue",
+   "marche": "TAO@NADO-long",
+   "pnl": -0.03
   },
   {
-   "ts": "2026-09-12T11:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
+   "ts": "2026-09-12T12:45",
+   "bot": "32_carry_crossvenue",
+   "marche": "TAO@HL-short",
+   "pnl": 0.03
   },
   {
-   "ts": "2026-09-12T11:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
+   "ts": "2026-09-12T12:45",
+   "bot": "32_carry_crossvenue",
+   "marche": "ONDO@NADO-long",
+   "pnl": -0.17
   },
   {
-   "ts": "2026-09-12T11:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
+   "ts": "2026-09-12T12:45",
+   "bot": "32_carry_crossvenue",
+   "marche": "ONDO@HL-short",
+   "pnl": 0.17
   },
   {
-   "ts": "2026-09-12T11:11",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
+   "ts": "2026-09-12T12:45",
+   "bot": "32_carry_crossvenue",
+   "marche": "BNB@NADO-long",
+   "pnl": -0.09
   },
   {
-   "ts": "2026-09-12T11:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
+   "ts": "2026-09-12T12:45",
+   "bot": "32_carry_crossvenue",
+   "marche": "BNB@HL-short",
+   "pnl": 0.09
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +226,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 2.1,
+  "age_avis_h": 2.4,
   "problemes": []
  },
  "autofinancement": {
