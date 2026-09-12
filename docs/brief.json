@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-12T13:45:45.380089+00:00",
+ "ts": "2026-09-12T14:01:18.666449+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -94,8 +94,8 @@
    "esperance": 0.3552,
    "t": 0.17,
    "pnl": 14.56,
-   "pnl_j": 0.235,
-   "fwd_j": 62.1
+   "pnl_j": 0.234,
+   "fwd_j": 62.2
   },
   "28_carry_hold": {
    "statut": "ROUGE",
@@ -153,13 +153,19 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.001,
-  "ret7": -0.0319,
-  "ret30": 0.2171,
-  "prix": 77260
+  "ret1": 0.002,
+  "ret7": -0.031,
+  "ret30": 0.2182,
+  "prix": 77332
  },
  "evenements_extremes": [],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-12T14:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-12T13:45",
    "bot": "10_controle_aleatoire",
@@ -201,12 +207,6 @@
    "bot": "32_carry_crossvenue",
    "marche": "TAO@NADO-long",
    "pnl": -0.03
-  },
-  {
-   "ts": "2026-09-12T12:45",
-   "bot": "32_carry_crossvenue",
-   "marche": "TAO@HL-short",
-   "pnl": 0.03
   }
  ],
  "calibration_arbitre": {
@@ -220,7 +220,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.3,
   "problemes": []
  },
  "autofinancement": {
