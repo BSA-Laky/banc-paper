@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-13 03:45 (Paris)
+# Brief Station — 2026-09-13 04:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -25,14 +25,14 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.422 | 71.4 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.165 | 70.4 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.158 | 70.4 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.233 | 62.6 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.232 | 62.7 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.026 | 48.2 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.022 | 48.5 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -225.32 $
 
-**BTC** 77269 $ — ret 1j +0.03% · 7j -3.79% · 30j +22.59%
-**Moves 24h ≥ 20 %** : REZ +27.6%, GRIFFAIN +25.6%
+**BTC** 77284 $ — ret 1j +0.05% · 7j -3.77% · 30j +22.62%
+**Moves 24h ≥ 20 %** : REZ +28.7%, GRIFFAIN +26.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
