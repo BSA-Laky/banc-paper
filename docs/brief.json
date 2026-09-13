@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-13T00:01:19.910522+00:00",
+ "ts": "2026-09-13T00:16:15.277768+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -103,8 +103,8 @@
    "esperance": -0.0412,
    "t": -0.01,
    "pnl": -1.28,
-   "pnl_j": -0.027,
-   "fwd_j": 48.1
+   "pnl_j": -0.026,
+   "fwd_j": 48.2
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 6.7023,
    "t": 1.25,
    "pnl": 241.28,
-   "pnl_j": 5.016,
-   "fwd_j": 48.1
+   "pnl_j": 5.006,
+   "fwd_j": 48.2
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -153,22 +153,28 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0002,
-  "ret7": -0.0384,
-  "ret30": 0.2254,
-  "prix": 77233
+  "ret1": -0.0001,
+  "ret7": -0.0382,
+  "ret30": 0.2255,
+  "prix": 77243
  },
  "evenements_extremes": [
   {
    "coin": "GRIFFAIN",
-   "move_pct": 45.9
+   "move_pct": 45.2
   },
   {
    "coin": "REZ",
-   "move_pct": 26.5
+   "move_pct": 24.5
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-13T00:16",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-09-13T00:01",
    "bot": "10_controle_aleatoire",
@@ -210,12 +216,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-09-12T22:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +229,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.1,
+  "age_avis_h": 0.4,
   "problemes": []
  },
  "autofinancement": {
