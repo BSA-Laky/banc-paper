@@ -1,15 +1,15 @@
 {
- "ts": "2026-09-14T16:15:46.695323+00:00",
+ "ts": "2026-09-14T16:31:02.614611+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 5910,
-   "t_stat": -3.12,
+   "n": 5911,
+   "t_stat": -3.14,
    "derive_attendue": 0.02,
-   "t_corrige": -1.59,
+   "t_corrige": -1.6,
    "sain": true,
-   "lecture": "t brut -3.12 dont -1.54 de spread par construction -> t corrige -1.59 (sain)"
+   "lecture": "t brut -3.14 dont -1.54 de spread par construction -> t corrige -1.60 (sain)"
   }
  },
  "bots": {
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 932.1,
+   "expo_moyenne_usd": 932.0,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -50,7 +50,7 @@
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 435.2,
+   "expo_moyenne_usd": 435.1,
    "rendement_j_pct": -0.555
   },
   "27a_rev_premium": {
@@ -153,12 +153,12 @@
    "borne_decrochage": -7.2096,
    "statut": "ROUGE",
    "expo_moyenne_usd": 41.1,
-   "rendement_j_pct": -1.005,
+   "rendement_j_pct": -1.006,
    "ab": {
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.6849,
+    "delta_rendement_j_pct": -0.685,
     "t_welch_jour": -0.25,
     "jours_compares": 73
    }
@@ -263,7 +263,7 @@
    "esp_glissante_20": 0.0952,
    "borne_decrochage": -7.5783,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 291.3,
+   "expo_moyenne_usd": 291.2,
    "rendement_j_pct": 1.656
   },
   "29b_carry_neutre_large": {
