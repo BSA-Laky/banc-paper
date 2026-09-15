@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-15T00:45:38.864212+00:00",
+ "ts": "2026-09-15T01:01:07.241022+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -130,8 +130,8 @@
    "esperance": -0.0201,
    "t": -0.82,
    "pnl": -6.82,
-   "pnl_j": -0.17,
-   "fwd_j": 40.2
+   "pnl_j": -0.169,
+   "fwd_j": 40.3
   },
   "32_carry_crossvenue": {
    "statut": "ORANGE",
@@ -149,17 +149,28 @@
    "t": -0.02,
    "pnl": -1.08,
    "pnl_j": -0.021,
-   "fwd_j": 50.4
+   "fwd_j": 50.5
   }
  },
  "tendances_btc": {
-  "ret1": -0.0025,
-  "ret7": -0.0055,
-  "ret30": 0.2404,
-  "prix": 77988
+  "ret1": -0.0039,
+  "ret7": -0.0069,
+  "ret30": 0.2387,
+  "prix": 77879
  },
- "evenements_extremes": [],
+ "evenements_extremes": [
+  {
+   "coin": "PONS",
+   "move_pct": 23.6
+  }
+ ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-15T01:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-15T00:45",
    "bot": "10_controle_aleatoire",
@@ -201,12 +212,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-09-14T23:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -220,7 +225,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 2.1,
+  "age_avis_h": 2.4,
   "problemes": []
  },
  "autofinancement": {
