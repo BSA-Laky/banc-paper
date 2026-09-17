@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-17T02:01:08.833599+00:00",
+ "ts": "2026-09-17T02:15:43.993697+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -40,8 +40,8 @@
    "esperance": 0.5593,
    "t": 0.55,
    "pnl": 114.65,
-   "pnl_j": 1.352,
-   "fwd_j": 84.8
+   "pnl_j": 1.35,
+   "fwd_j": 84.9
   },
   "27c_mom_move": {
    "statut": "ROUGE",
@@ -49,8 +49,8 @@
    "esperance": -0.6993,
    "t": -0.69,
    "pnl": -143.35,
-   "pnl_j": -1.69,
-   "fwd_j": 84.8
+   "pnl_j": -1.688,
+   "fwd_j": 84.9
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
@@ -153,22 +153,28 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0015,
-  "ret7": -0.0031,
-  "ret30": 0.1793,
-  "prix": 76294
+  "ret1": -0.0006,
+  "ret7": -0.0052,
+  "ret30": 0.1768,
+  "prix": 76132
  },
  "evenements_extremes": [
   {
    "coin": "ZEC",
-   "move_pct": 23.6
+   "move_pct": 23.1
   },
   {
    "coin": "CASHCAT",
-   "move_pct": 21.0
+   "move_pct": 20.5
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-17T02:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-17T02:01",
    "bot": "10_controle_aleatoire",
@@ -210,12 +216,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-09-17T00:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +229,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.8,
+  "age_avis_h": 2.0,
   "problemes": []
  },
  "autofinancement": {
