@@ -1,15 +1,15 @@
 {
- "ts": "2026-09-17T21:31:01.224118+00:00",
+ "ts": "2026-09-17T21:40:45.311154+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 6232,
-   "t_stat": -3.48,
+   "n": 6233,
+   "t_stat": -3.47,
    "derive_attendue": 0.02,
-   "t_corrige": -1.9,
+   "t_corrige": -1.89,
    "sain": true,
-   "lecture": "t brut -3.48 dont -1.58 de spread par construction -> t corrige -1.90 (sain)"
+   "lecture": "t brut -3.47 dont -1.58 de spread par construction -> t corrige -1.89 (sain)"
   }
  },
  "bots": {
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 897.3,
+   "expo_moyenne_usd": 897.2,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -138,7 +138,7 @@
    "esperance": -1.0046,
    "t_stat": -0.4,
    "mdd_live": 63.61,
-   "jours_forward": 76.2,
+   "jours_forward": 76.3,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
@@ -147,13 +147,13 @@
    ],
    "mu_ref": null,
    "pnl_cumule": -30.14,
-   "pnl_par_jour": -0.396,
+   "pnl_par_jour": -0.395,
    "trop_beau_audite": null,
    "esp_glissante_20": -0.4443,
    "borne_decrochage": -7.2096,
    "statut": "ROUGE",
    "expo_moyenne_usd": 39.3,
-   "rendement_j_pct": -1.006,
+   "rendement_j_pct": -1.004,
    "ab": {
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
@@ -264,7 +264,7 @@
    "borne_decrochage": -7.5783,
    "statut": "ORANGE",
    "expo_moyenne_usd": 273.6,
-   "rendement_j_pct": 1.656
+   "rendement_j_pct": 1.657
   },
   "29b_carry_neutre_large": {
    "n": 120,
@@ -331,7 +331,7 @@
    "borne_decrochage": -0.7133,
    "statut": "ORANGE",
    "non_executable": "aucun compte Nado ; audit securite Nado non confirme ; min_size Nado 100 $/ordre",
-   "expo_moyenne_usd": 29.6,
+   "expo_moyenne_usd": 29.5,
    "rendement_j_pct": -0.017
   },
   "rd_h2": {
