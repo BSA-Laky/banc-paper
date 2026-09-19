@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-19T14:15:44.277211+00:00",
+ "ts": "2026-09-19T14:31:00.363418+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -67,8 +67,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.387,
-   "fwd_j": 77.9
+   "pnl_j": -0.386,
+   "fwd_j": 78.0
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.023,
-   "fwd_j": 54.7
+   "fwd_j": 54.8
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 5.719,
    "t": 1.25,
    "pnl": 240.2,
-   "pnl_j": 4.391,
-   "fwd_j": 54.7
+   "pnl_j": 4.383,
+   "fwd_j": 54.8
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -153,30 +153,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0064,
-  "ret7": 0.0542,
-  "ret30": 0.1156,
-  "prix": 81431
+  "ret1": 0.0079,
+  "ret7": 0.0558,
+  "ret30": 0.1173,
+  "prix": 81558
  },
  "evenements_extremes": [
   {
    "coin": "AR",
-   "move_pct": 58.1
-  },
-  {
-   "coin": "STRK",
-   "move_pct": 28.0
+   "move_pct": 52.0
   },
   {
    "coin": "SAGA",
-   "move_pct": 27.7
+   "move_pct": 28.3
+  },
+  {
+   "coin": "STRK",
+   "move_pct": 25.8
   },
   {
    "coin": "ENA",
-   "move_pct": 22.6
+   "move_pct": 22.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-19T14:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-09-19T14:15",
    "bot": "10_controle_aleatoire",
@@ -218,12 +224,6 @@
    "bot": "32_carry_crossvenue",
    "marche": "HYPE@HL-long",
    "pnl": 0.52
-  },
-  {
-   "ts": "2026-09-19T13:01",
-   "bot": "32_carry_crossvenue",
-   "marche": "PENGU@NADO-long",
-   "pnl": -0.0
   }
  ],
  "calibration_arbitre": {
@@ -237,7 +237,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.3,
+  "age_avis_h": 1.5,
   "problemes": []
  },
  "autofinancement": {
