@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-19T14:01:09.117087+00:00",
+ "ts": "2026-09-19T14:15:44.277211+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -40,8 +40,8 @@
    "esperance": 0.5593,
    "t": 0.55,
    "pnl": 114.65,
-   "pnl_j": 1.313,
-   "fwd_j": 87.3
+   "pnl_j": 1.312,
+   "fwd_j": 87.4
   },
   "27c_mom_move": {
    "statut": "ROUGE",
@@ -49,8 +49,8 @@
    "esperance": -0.6993,
    "t": -0.69,
    "pnl": -143.35,
-   "pnl_j": -1.642,
-   "fwd_j": 87.3
+   "pnl_j": -1.64,
+   "fwd_j": 87.4
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
@@ -153,30 +153,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0056,
-  "ret7": 0.0534,
-  "ret30": 0.1147,
-  "prix": 81372
+  "ret1": 0.0064,
+  "ret7": 0.0542,
+  "ret30": 0.1156,
+  "prix": 81431
  },
  "evenements_extremes": [
   {
    "coin": "AR",
-   "move_pct": 51.7
-  },
-  {
-   "coin": "SAGA",
-   "move_pct": 27.3
+   "move_pct": 58.1
   },
   {
    "coin": "STRK",
-   "move_pct": 25.4
+   "move_pct": 28.0
+  },
+  {
+   "coin": "SAGA",
+   "move_pct": 27.7
   },
   {
    "coin": "ENA",
-   "move_pct": 22.7
+   "move_pct": 22.6
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-19T14:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-09-19T14:01",
    "bot": "10_controle_aleatoire",
@@ -218,12 +224,6 @@
    "bot": "32_carry_crossvenue",
    "marche": "PENGU@NADO-long",
    "pnl": -0.0
-  },
-  {
-   "ts": "2026-09-19T13:01",
-   "bot": "32_carry_crossvenue",
-   "marche": "PENGU@HL-short",
-   "pnl": -0.28
   }
  ],
  "calibration_arbitre": {
@@ -237,7 +237,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.0,
+  "age_avis_h": 1.3,
   "problemes": []
  },
  "autofinancement": {
