@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-19 15:45 (Paris)
+# Brief Station — 2026-09-19 16:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -25,14 +25,14 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.387 | 77.9 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.151 | 76.9 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.145 | 76.9 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.211 | 69.1 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.21 | 69.2 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.023 | 54.7 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.02 | 55.0 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -227.20 $
 
-**BTC** 81286 $ — ret 1j +0.46% · 7j +5.23% · 30j +11.36%
-**Moves 24h ≥ 20 %** : AR +52.0%, SAGA +29.6%, STRK +25.3%
+**BTC** 81372 $ — ret 1j +0.56% · 7j +5.34% · 30j +11.47%
+**Moves 24h ≥ 20 %** : AR +51.7%, SAGA +27.3%, STRK +25.4%, ENA +22.7%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 

@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-19T13:45:41.946255+00:00",
+ "ts": "2026-09-19T14:01:09.117087+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -94,8 +94,8 @@
    "esperance": 0.3552,
    "t": 0.17,
    "pnl": 14.56,
-   "pnl_j": 0.211,
-   "fwd_j": 69.1
+   "pnl_j": 0.21,
+   "fwd_j": 69.2
   },
   "28_carry_hold": {
    "statut": "ROUGE",
@@ -153,26 +153,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0046,
-  "ret7": 0.0523,
-  "ret30": 0.1136,
-  "prix": 81286
+  "ret1": 0.0056,
+  "ret7": 0.0534,
+  "ret30": 0.1147,
+  "prix": 81372
  },
  "evenements_extremes": [
   {
    "coin": "AR",
-   "move_pct": 52.0
+   "move_pct": 51.7
   },
   {
    "coin": "SAGA",
-   "move_pct": 29.6
+   "move_pct": 27.3
   },
   {
    "coin": "STRK",
-   "move_pct": 25.3
+   "move_pct": 25.4
+  },
+  {
+   "coin": "ENA",
+   "move_pct": 22.7
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-19T14:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-19T13:45",
    "bot": "10_controle_aleatoire",
@@ -214,12 +224,6 @@
    "bot": "32_carry_crossvenue",
    "marche": "PENGU@HL-short",
    "pnl": -0.28
-  },
-  {
-   "ts": "2026-09-19T13:01",
-   "bot": "32_carry_crossvenue",
-   "marche": "BCH@NADO-short",
-   "pnl": -0.32
   }
  ],
  "calibration_arbitre": {
@@ -233,7 +237,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.8,
+  "age_avis_h": 1.0,
   "problemes": []
  },
  "autofinancement": {
