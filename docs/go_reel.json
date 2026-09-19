@@ -1,15 +1,15 @@
 {
- "ts": "2026-09-19T04:15:44.664368+00:00",
+ "ts": "2026-09-19T04:31:00.020520+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 6361,
-   "t_stat": -3.46,
+   "n": 6362,
+   "t_stat": -3.45,
    "derive_attendue": 0.02,
-   "t_corrige": -1.87,
+   "t_corrige": -1.86,
    "sain": true,
-   "lecture": "t brut -3.46 dont -1.60 de spread par construction -> t corrige -1.87 (sain)"
+   "lecture": "t brut -3.45 dont -1.60 de spread par construction -> t corrige -1.86 (sain)"
   }
  },
  "bots": {
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 884.1,
+   "expo_moyenne_usd": 884.0,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -221,7 +221,7 @@
    "borne_decrochage": -5.745,
    "statut": "ROUGE",
    "expo_moyenne_usd": 59.6,
-   "rendement_j_pct": 0.355
+   "rendement_j_pct": 0.356
   },
   "28_carry_hold": {
    "n": 31,
@@ -263,7 +263,7 @@
    "esp_glissante_20": 0.0952,
    "borne_decrochage": -7.5783,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 267.2,
+   "expo_moyenne_usd": 267.1,
    "rendement_j_pct": 1.656
   },
   "29b_carry_neutre_large": {
@@ -285,7 +285,7 @@
    "esp_glissante_20": 0.0089,
    "borne_decrochage": -1.1516,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 177.3,
+   "expo_moyenne_usd": 177.2,
    "rendement_j_pct": 0.355
   },
   "29c_carry_decale": {
@@ -331,7 +331,7 @@
    "borne_decrochage": -0.7133,
    "statut": "ORANGE",
    "non_executable": "aucun compte Nado ; audit securite Nado non confirme ; min_size Nado 100 $/ordre",
-   "expo_moyenne_usd": 28.5,
+   "expo_moyenne_usd": 28.4,
    "rendement_j_pct": -0.018
   },
   "rd_h2": {
