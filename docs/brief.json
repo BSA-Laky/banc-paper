@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-19T22:31:01.180151+00:00",
+ "ts": "2026-09-19T22:45:43.683049+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -77,7 +77,7 @@
    "t": -0.09,
    "pnl": -11.64,
    "pnl_j": -0.151,
-   "fwd_j": 77.2
+   "fwd_j": 77.3
   },
   "27f_selecteur": {
    "statut": "ROUGE",
@@ -86,7 +86,7 @@
    "t": 0.08,
    "pnl": 11.12,
    "pnl_j": 0.144,
-   "fwd_j": 77.2
+   "fwd_j": 77.3
   },
   "27g10_selecteur": {
    "statut": "ROUGE",
@@ -153,22 +153,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0023,
-  "ret7": 0.0499,
-  "ret30": 0.111,
-  "prix": 81099
+  "ret1": 0.0041,
+  "ret7": 0.0517,
+  "ret30": 0.113,
+  "prix": 81245
  },
  "evenements_extremes": [
   {
    "coin": "INJ",
-   "move_pct": 20.9
+   "move_pct": 22.7
   },
   {
    "coin": "CASHCAT",
    "move_pct": -20.3
+  },
+  {
+   "coin": "ENA",
+   "move_pct": 20.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-19T22:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-09-19T22:30",
    "bot": "10_controle_aleatoire",
@@ -210,12 +220,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-09-19T20:56",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.2,
+  "age_avis_h": 1.4,
   "problemes": []
  },
  "autofinancement": {
