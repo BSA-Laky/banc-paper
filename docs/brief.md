@@ -31,7 +31,7 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -227.20 $
 
-**BTC** 80458 $ — ret 1j -1.03% · 7j +4.75% · 30j +2.65%
+**BTC** 80452 $ — ret 1j -1.03% · 7j +4.74% · 30j +2.64%
 **Moves 24h ≥ 20 %** : CASHCAT -29.9%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
