@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-20T00:01:22.752090+00:00",
+ "ts": "2026-09-20T00:15:43.851265+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.023,
-   "fwd_j": 55.1
+   "fwd_j": 55.2
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 5.719,
    "t": 1.25,
    "pnl": 240.2,
-   "pnl_j": 4.359,
-   "fwd_j": 55.1
+   "pnl_j": 4.351,
+   "fwd_j": 55.2
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -153,26 +153,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0004,
-  "ret7": 0.058,
-  "ret30": 0.0367,
-  "prix": 81263
+  "ret1": 0.0003,
+  "ret7": 0.0587,
+  "ret30": 0.0374,
+  "prix": 81317
  },
  "evenements_extremes": [
   {
    "coin": "AVAX",
-   "move_pct": 24.1
+   "move_pct": 26.3
+  },
+  {
+   "coin": "AR",
+   "move_pct": 23.1
   },
   {
    "coin": "ENA",
    "move_pct": 21.3
-  },
-  {
-   "coin": "AR",
-   "move_pct": 20.3
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-20T00:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-09-20T00:01",
    "bot": "10_controle_aleatoire",
@@ -214,12 +220,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-09-19T22:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -233,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.6,
+  "age_avis_h": 0.9,
   "problemes": []
  },
  "autofinancement": {
