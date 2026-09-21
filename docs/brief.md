@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-21 03:15 (Paris)
+# Brief Station — 2026-09-21 03:31 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -226.19 $
 
-**BTC** 81822 $ — ret 1j +0.74% · 7j +4.66% · 30j +6.08%
-**Moves 24h ≥ 20 %** : SAGA +47.2%, NIL +24.0%, NEAR +20.6%
+**BTC** 81689 $ — ret 1j +0.58% · 7j +4.49% · 30j +5.91%
+**Moves 24h ≥ 20 %** : SAGA +48.3%, NIL +23.5%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
