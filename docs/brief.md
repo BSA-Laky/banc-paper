@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-21 10:15 (Paris)
+# Brief Station — 2026-09-21 10:31 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -23,16 +23,16 @@
 | 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.609 | 89.1 j |
 | 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -2.042 | 83.5 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.378 | 79.7 j |
-| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.148 | 78.6 j |
-| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.141 | 78.6 j |
+| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.148 | 78.7 j |
+| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.141 | 78.7 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.205 | 70.9 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.023 | 56.5 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.019 | 56.8 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -226.19 $
 
-**BTC** 81916 $ — ret 1j +0.86% · 7j +4.78% · 30j +6.20%
-**Moves 24h ≥ 20 %** : ZETA +65.5%, SAGA +35.4%, NIL +34.1%, MINA +27.2%, VVV +23.9%, NEAR +22.3%
+**BTC** 82279 $ — ret 1j +1.30% · 7j +5.24% · 30j +6.67%
+**Moves 24h ≥ 20 %** : ZETA +71.6%, NIL +37.5%, SAGA +34.3%, VVV +23.8%, MINA +23.6%, NEAR +23.4%, SEI +20.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
