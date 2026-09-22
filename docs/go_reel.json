@@ -1,15 +1,15 @@
 {
- "ts": "2026-09-22T06:45:46.246936+00:00",
+ "ts": "2026-09-22T07:01:12.058157+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 6671,
-   "t_stat": -3.38,
+   "n": 6672,
+   "t_stat": -3.4,
    "derive_attendue": 0.02,
-   "t_corrige": -1.75,
+   "t_corrige": -1.76,
    "sain": true,
-   "lecture": "t brut -3.38 dont -1.63 de spread par construction -> t corrige -1.75 (sain)"
+   "lecture": "t brut -3.40 dont -1.63 de spread par construction -> t corrige -1.76 (sain)"
   }
  },
  "bots": {
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 853.8,
+   "expo_moyenne_usd": 853.7,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -50,7 +50,7 @@
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 377.9,
+   "expo_moyenne_usd": 377.8,
    "rendement_j_pct": -0.555
   },
   "27a_rev_premium": {
@@ -130,7 +130,7 @@
    "esp_glissante_20": 0.5974,
    "borne_decrochage": -5.7808,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 427.7,
+   "expo_moyenne_usd": 427.6,
    "rendement_j_pct": -0.472
   },
   "27e_arbitre": {
@@ -158,7 +158,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.6849,
+    "delta_rendement_j_pct": -0.685,
     "t_welch_jour": -0.25,
     "jours_compares": 81
    }
@@ -286,7 +286,7 @@
    "borne_decrochage": -1.1516,
    "statut": "ORANGE",
    "expo_moyenne_usd": 165.7,
-   "rendement_j_pct": 0.355
+   "rendement_j_pct": 0.356
   },
   "29c_carry_decale": {
    "n": 400,
@@ -331,7 +331,7 @@
    "borne_decrochage": -0.6396,
    "statut": "ORANGE",
    "non_executable": "aucun compte Nado ; audit securite Nado non confirme ; min_size Nado 100 $/ordre",
-   "expo_moyenne_usd": 32.7,
+   "expo_moyenne_usd": 32.6,
    "rendement_j_pct": -0.037
   },
   "rd_h2": {
