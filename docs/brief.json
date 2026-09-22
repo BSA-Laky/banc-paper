@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-22T09:31:00.111148+00:00",
+ "ts": "2026-09-22T09:45:44.647845+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -68,7 +68,7 @@
    "t": -0.4,
    "pnl": -30.14,
    "pnl_j": -0.373,
-   "fwd_j": 80.7
+   "fwd_j": 80.8
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.022,
-   "fwd_j": 57.5
+   "fwd_j": 57.6
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 5.033,
    "t": 1.25,
    "pnl": 241.58,
-   "pnl_j": 4.201,
-   "fwd_j": 57.5
+   "pnl_j": 4.194,
+   "fwd_j": 57.6
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -153,22 +153,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.008,
-  "ret7": 0.137,
-  "ret30": 0.105,
-  "prix": 85970
+  "ret1": -0.0061,
+  "ret7": 0.1392,
+  "ret30": 0.1071,
+  "prix": 86136
  },
  "evenements_extremes": [
   {
    "coin": "GRASS",
-   "move_pct": 23.1
+   "move_pct": 22.1
+  },
+  {
+   "coin": "NIL",
+   "move_pct": 21.2
   },
   {
    "coin": "WIF",
-   "move_pct": 20.5
+   "move_pct": 20.8
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-22T09:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-22T09:30",
    "bot": "10_controle_aleatoire",
@@ -210,12 +220,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-09-22T07:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 7.8,
+  "age_avis_h": 8.0,
   "problemes": []
  },
  "autofinancement": {
