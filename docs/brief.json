@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-22T14:45:53.286983+00:00",
+ "ts": "2026-09-22T15:01:19.925455+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -13,8 +13,8 @@
    "esperance": -0.5092,
    "t": -3.3,
    "pnl": -87.07,
-   "pnl_j": -0.959,
-   "fwd_j": 90.8
+   "pnl_j": -0.958,
+   "fwd_j": 90.9
   },
   "25_convergence_basis": {
    "statut": "ROUGE",
@@ -31,8 +31,8 @@
    "esperance": -0.4604,
    "t": -0.26,
    "pnl": -61.7,
-   "pnl_j": -0.68,
-   "fwd_j": 90.7
+   "pnl_j": -0.679,
+   "fwd_j": 90.8
   },
   "27b_rev_move": {
    "statut": "ROUGE",
@@ -58,8 +58,8 @@
    "esperance": -0.4723,
    "t": -0.76,
    "pnl": -170.49,
-   "pnl_j": -2.013,
-   "fwd_j": 84.7
+   "pnl_j": -2.011,
+   "fwd_j": 84.8
   },
   "27e_arbitre": {
    "statut": "ROUGE",
@@ -153,18 +153,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0084,
-  "ret7": 0.1366,
-  "ret30": 0.1045,
-  "prix": 85938
+  "ret1": -0.0049,
+  "ret7": 0.1406,
+  "ret30": 0.1084,
+  "prix": 86237
  },
  "evenements_extremes": [
   {
    "coin": "NIL",
-   "move_pct": 26.4
+   "move_pct": 24.8
+  },
+  {
+   "coin": "BCH",
+   "move_pct": 20.9
+  },
+  {
+   "coin": "MINA",
+   "move_pct": 20.3
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-22T15:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-22T14:45",
    "bot": "10_controle_aleatoire",
@@ -206,12 +220,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-09-22T13:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -225,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.5,
+  "age_avis_h": 1.8,
   "problemes": []
  },
  "autofinancement": {
