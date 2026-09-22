@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-22T04:31:04.354249+00:00",
+ "ts": "2026-09-22T04:45:43.321332+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -40,8 +40,8 @@
    "esperance": 0.5593,
    "t": 0.55,
    "pnl": 114.65,
-   "pnl_j": 1.275,
-   "fwd_j": 89.9
+   "pnl_j": 1.274,
+   "fwd_j": 90.0
   },
   "27c_mom_move": {
    "statut": "ROUGE",
@@ -49,8 +49,8 @@
    "esperance": -0.6993,
    "t": -0.69,
    "pnl": -143.35,
-   "pnl_j": -1.595,
-   "fwd_j": 89.9
+   "pnl_j": -1.593,
+   "fwd_j": 90.0
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
@@ -153,26 +153,28 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0122,
-  "ret7": 0.1322,
-  "ret30": 0.1003,
-  "prix": 85605
+  "ret1": -0.0127,
+  "ret7": 0.1317,
+  "ret30": 0.0997,
+  "prix": 85562
  },
  "evenements_extremes": [
   {
    "coin": "kPEPE",
-   "move_pct": 31.8
+   "move_pct": 29.5
   },
   {
    "coin": "WIF",
-   "move_pct": 27.6
-  },
-  {
-   "coin": "FARTCOIN",
-   "move_pct": 20.1
+   "move_pct": 25.2
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-22T04:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-09-22T04:31",
    "bot": "10_controle_aleatoire",
@@ -214,12 +216,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-09-22T02:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -233,7 +229,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 2.8,
+  "age_avis_h": 3.0,
   "problemes": []
  },
  "autofinancement": {
