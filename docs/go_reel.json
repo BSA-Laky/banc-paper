@@ -1,15 +1,15 @@
 {
- "ts": "2026-09-23T17:25:03.991039+00:00",
+ "ts": "2026-09-23T17:31:06.241327+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 6815,
-   "t_stat": -3.34,
+   "n": 6816,
+   "t_stat": -3.35,
    "derive_attendue": 0.02,
-   "t_corrige": -1.68,
+   "t_corrige": -1.7,
    "sain": true,
-   "lecture": "t brut -3.34 dont -1.65 de spread par construction -> t corrige -1.68 (sain)"
+   "lecture": "t brut -3.35 dont -1.65 de spread par construction -> t corrige -1.70 (sain)"
   }
  },
  "bots": {
@@ -50,7 +50,7 @@
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 368.7,
+   "expo_moyenne_usd": 368.6,
    "rendement_j_pct": -0.556
   },
   "27a_rev_premium": {
@@ -152,7 +152,7 @@
    "esp_glissante_20": -0.4443,
    "borne_decrochage": -7.2096,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 36.6,
+   "expo_moyenne_usd": 36.5,
    "rendement_j_pct": -1.004,
    "ab": {
     "contre": "27b_rev_move",
@@ -331,7 +331,7 @@
    "borne_decrochage": -0.6396,
    "statut": "ORANGE",
    "non_executable": "aucun compte Nado ; audit securite Nado non confirme ; min_size Nado 100 $/ordre",
-   "expo_moyenne_usd": 31.5,
+   "expo_moyenne_usd": 31.4,
    "rendement_j_pct": -0.038
   },
   "rd_h2": {
