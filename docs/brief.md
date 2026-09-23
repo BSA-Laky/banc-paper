@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-23 06:45 (Paris)
+# Brief Station — 2026-09-23 07:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -8,7 +8,7 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 29_carry_neutre | ORANGE | 48 | 5.033 | 1.25 | 241.58 | 4.144 | 58.3 j |
+| 29_carry_neutre | ORANGE | 48 | 5.033 | 1.25 | 241.58 | 4.137 | 58.4 j |
 | 29b_carry_neutre_large | ORANGE | 120 | 0.2334 | 0.83 | 28.01 | 0.578 | 48.5 j |
 | 29c_carry_decale | ORANGE | 420 | -0.0172 | -0.87 | -7.23 | -0.149 | 48.4 j |
 | 32_carry_crossvenue | ORANGE | 46 | -0.0101 | -0.05 | -0.46 | -0.012 | 38.7 j |
@@ -22,17 +22,17 @@
 | 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 1.26 | 91.0 j |
 | 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.575 | 91.0 j |
 | 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -1.999 | 85.3 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.37 | 81.5 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.369 | 81.6 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.145 | 80.5 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.138 | 80.5 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.2 | 72.8 j |
-| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.022 | 58.3 j |
+| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.022 | 58.4 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.018 | 58.6 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -225.76 $
 
-**BTC** 87165 $ — ret 1j +1.08% · 7j +14.42% · 30j +10.34%
-**Moves 24h ≥ 20 %** : NIL +37.5%, USELESS +34.7%, BCH +28.7%, MET +28.4%, PURR +20.8%, ZRO +20.6%, BSV +20.2%, PENGU +20.1%
+**BTC** 87162 $ — ret 1j +1.07% · 7j +14.42% · 30j +10.34%
+**Moves 24h ≥ 20 %** : NIL +39.1%, USELESS +32.7%, BCH +28.7%, MET +26.7%, PURR +21.8%, MINA +21.4%, PENGU +21.2%, ZRO +21.1%, BSV +21.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
