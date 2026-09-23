@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-23T12:02:25.117124+00:00",
+ "ts": "2026-09-23T12:15:48.443401+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.022,
-   "fwd_j": 58.6
+   "fwd_j": 58.7
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 5.033,
    "t": 1.25,
    "pnl": 241.58,
-   "pnl_j": 4.123,
-   "fwd_j": 58.6
+   "pnl_j": 4.116,
+   "fwd_j": 58.7
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -153,30 +153,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0068,
-  "ret7": 0.1243,
-  "ret30": 0.0843,
-  "prix": 85652
+  "ret1": -0.0081,
+  "ret7": 0.1228,
+  "ret30": 0.0828,
+  "prix": 85535
  },
  "evenements_extremes": [
   {
    "coin": "MET",
-   "move_pct": 38.7
+   "move_pct": 38.0
   },
   {
    "coin": "BCH",
-   "move_pct": 28.2
-  },
-  {
-   "coin": "ZRO",
-   "move_pct": 24.0
+   "move_pct": 27.1
   },
   {
    "coin": "NIL",
-   "move_pct": 22.0
+   "move_pct": 23.1
+  },
+  {
+   "coin": "ZRO",
+   "move_pct": 22.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-23T12:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-09-23T12:02",
    "bot": "10_controle_aleatoire",
@@ -218,12 +224,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-09-23T10:31",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -237,7 +237,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 2.6,
+  "age_avis_h": 2.8,
   "problemes": []
  },
  "autofinancement": {
