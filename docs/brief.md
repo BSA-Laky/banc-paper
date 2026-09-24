@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-25 01:01 (Paris)
+# Brief Station — 2026-09-25 01:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -221.04 $
 
-**BTC** 84287 $ — ret 1j -0.09% · 7j +10.33% · 30j +7.38%
-**Moves 24h ≥ 20 %** : XAI +26.6%, ONDO +25.3%, XPL +21.9%
+**BTC** 84272 $ — ret 1j -0.11% · 7j +10.31% · 30j +7.36%
+**Moves 24h ≥ 20 %** : XAI +26.8%, ONDO +25.2%, XPL +22.7%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
