@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-24T21:31:01.167570+00:00",
+ "ts": "2026-09-24T21:44:09.340715+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -68,7 +68,7 @@
    "t": -0.4,
    "pnl": -30.14,
    "pnl_j": -0.362,
-   "fwd_j": 83.2
+   "fwd_j": 83.3
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.021,
-   "fwd_j": 60.0
+   "fwd_j": 60.1
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 5.033,
    "t": 1.25,
    "pnl": 241.58,
-   "pnl_j": 4.026,
-   "fwd_j": 60.0
+   "pnl_j": 4.02,
+   "fwd_j": 60.1
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -153,26 +153,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0005,
-  "ret7": 0.1048,
-  "ret30": 0.0753,
-  "prix": 84405
+  "ret1": 0.001,
+  "ret7": 0.1054,
+  "ret30": 0.0759,
+  "prix": 84449
  },
  "evenements_extremes": [
   {
    "coin": "XAI",
-   "move_pct": 35.9
+   "move_pct": 33.3
   },
   {
    "coin": "ONDO",
-   "move_pct": 25.8
+   "move_pct": 27.3
   },
   {
    "coin": "XPL",
-   "move_pct": 24.7
+   "move_pct": 24.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-24T21:44",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-09-24T21:30",
    "bot": "10_controle_aleatoire",
@@ -214,12 +220,6 @@
    "bot": "29c_carry_decale",
    "marche": "TRX-long",
    "pnl": 0.01
-  },
-  {
-   "ts": "2026-09-24T20:29",
-   "bot": "29c_carry_decale",
-   "marche": "ATOM-long",
-   "pnl": 0.06
   }
  ],
  "calibration_arbitre": {
@@ -233,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.2,
+  "age_avis_h": 1.4,
   "problemes": []
  },
  "autofinancement": {
