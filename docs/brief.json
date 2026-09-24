@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-24T21:15:46.270339+00:00",
+ "ts": "2026-09-24T21:31:01.167570+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -40,8 +40,8 @@
    "esperance": 0.5593,
    "t": 0.55,
    "pnl": 114.65,
-   "pnl_j": 1.238,
-   "fwd_j": 92.6
+   "pnl_j": 1.237,
+   "fwd_j": 92.7
   },
   "27c_mom_move": {
    "statut": "ROUGE",
@@ -49,8 +49,8 @@
    "esperance": -0.6993,
    "t": -0.69,
    "pnl": -143.35,
-   "pnl_j": -1.548,
-   "fwd_j": 92.6
+   "pnl_j": -1.546,
+   "fwd_j": 92.7
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
@@ -153,26 +153,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0003,
-  "ret7": 0.104,
-  "ret30": 0.0745,
-  "prix": 84340
+  "ret1": 0.0005,
+  "ret7": 0.1048,
+  "ret30": 0.0753,
+  "prix": 84405
  },
  "evenements_extremes": [
   {
    "coin": "XAI",
-   "move_pct": 40.9
+   "move_pct": 35.9
   },
   {
    "coin": "ONDO",
-   "move_pct": 25.2
+   "move_pct": 25.8
   },
   {
    "coin": "XPL",
-   "move_pct": 22.0
+   "move_pct": 24.7
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-24T21:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-24T21:15",
    "bot": "10_controle_aleatoire",
@@ -214,12 +220,6 @@
    "bot": "29c_carry_decale",
    "marche": "ATOM-long",
    "pnl": 0.06
-  },
-  {
-   "ts": "2026-09-24T20:29",
-   "bot": "29c_carry_decale",
-   "marche": "TRUMP-long",
-   "pnl": 0.03
   }
  ],
  "calibration_arbitre": {
@@ -233,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.9,
+  "age_avis_h": 1.2,
   "problemes": []
  },
  "autofinancement": {
