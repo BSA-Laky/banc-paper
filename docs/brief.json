@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-25T03:01:09.905976+00:00",
+ "ts": "2026-09-25T03:15:41.563497+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -153,22 +153,36 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.002,
-  "ret7": 0.0408,
-  "ret30": 0.0656,
-  "prix": 84214
+  "ret1": -0.0012,
+  "ret7": 0.0416,
+  "ret30": 0.0665,
+  "prix": 84284
  },
  "evenements_extremes": [
   {
    "coin": "ONDO",
-   "move_pct": 27.2
+   "move_pct": 26.9
+  },
+  {
+   "coin": "SAGA",
+   "move_pct": -26.8
   },
   {
    "coin": "XPL",
-   "move_pct": 25.8
+   "move_pct": 22.8
+  },
+  {
+   "coin": "NIL",
+   "move_pct": -20.5
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-25T03:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-09-25T03:01",
    "bot": "10_controle_aleatoire",
@@ -210,12 +224,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-09-25T01:16",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -229,7 +237,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.2,
+  "age_avis_h": 1.5,
   "problemes": []
  },
  "autofinancement": {
