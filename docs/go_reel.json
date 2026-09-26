@@ -1,15 +1,15 @@
 {
- "ts": "2026-09-26T02:30:58.985184+00:00",
+ "ts": "2026-09-26T02:45:38.807153+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 7052,
-   "t_stat": -3.13,
+   "n": 7053,
+   "t_stat": -3.14,
    "derive_attendue": 0.02,
-   "t_corrige": -1.45,
+   "t_corrige": -1.46,
    "sain": true,
-   "lecture": "t brut -3.13 dont -1.68 de spread par construction -> t corrige -1.45 (sain)"
+   "lecture": "t brut -3.14 dont -1.68 de spread par construction -> t corrige -1.46 (sain)"
   }
  },
  "bots": {
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 819.2,
+   "expo_moyenne_usd": 819.1,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -130,7 +130,7 @@
    "esp_glissante_20": 0.5974,
    "borne_decrochage": -5.7808,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 409.2,
+   "expo_moyenne_usd": 409.1,
    "rendement_j_pct": -0.472
   },
   "27e_arbitre": {
@@ -158,7 +158,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.6851,
+    "delta_rendement_j_pct": -0.6852,
     "t_welch_jour": -0.25,
     "jours_compares": 85
    }
@@ -263,8 +263,8 @@
    "esp_glissante_20": -0.0091,
    "borne_decrochage": -7.4139,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 241.0,
-   "rendement_j_pct": 1.635
+   "expo_moyenne_usd": 240.9,
+   "rendement_j_pct": 1.636
   },
   "29b_carry_neutre_large": {
    "n": 140,
@@ -285,8 +285,8 @@
    "esp_glissante_20": 0.2037,
    "borne_decrochage": -1.0586,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 158.2,
-   "rendement_j_pct": 0.394
+   "expo_moyenne_usd": 158.1,
+   "rendement_j_pct": 0.395
   },
   "29c_carry_decale": {
    "n": 440,
@@ -331,7 +331,7 @@
    "borne_decrochage": -0.6396,
    "statut": "ORANGE",
    "non_executable": "aucun compte Nado ; audit securite Nado non confirme ; min_size Nado 100 $/ordre",
-   "expo_moyenne_usd": 29.7,
+   "expo_moyenne_usd": 29.6,
    "rendement_j_pct": -0.037
   },
   "rd_h2": {
