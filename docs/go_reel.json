@@ -1,15 +1,15 @@
 {
- "ts": "2026-09-26T07:45:40.603369+00:00",
+ "ts": "2026-09-26T08:01:48.038564+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 7074,
-   "t_stat": -3.18,
+   "n": 7075,
+   "t_stat": -3.19,
    "derive_attendue": 0.02,
-   "t_corrige": -1.5,
+   "t_corrige": -1.51,
    "sain": true,
-   "lecture": "t brut -3.18 dont -1.68 de spread par construction -> t corrige -1.50 (sain)"
+   "lecture": "t brut -3.19 dont -1.68 de spread par construction -> t corrige -1.51 (sain)"
   }
  },
  "bots": {
@@ -30,7 +30,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 817.3,
+   "expo_moyenne_usd": 817.2,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -50,7 +50,7 @@
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 353.2,
+   "expo_moyenne_usd": 353.1,
    "rendement_j_pct": -0.556
   },
   "27a_rev_premium": {
@@ -118,20 +118,20 @@
    "esperance": -0.4723,
    "t_stat": -0.76,
    "mdd_live": 759.26,
-   "jours_forward": 88.4,
+   "jours_forward": 88.5,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -170.49,
-   "pnl_par_jour": -1.929,
+   "pnl_par_jour": -1.926,
    "trop_beau_audite": null,
    "esp_glissante_20": 0.5974,
    "borne_decrochage": -5.7808,
    "statut": "ROUGE",
    "expo_moyenne_usd": 408.1,
-   "rendement_j_pct": -0.473
+   "rendement_j_pct": -0.472
   },
   "27e_arbitre": {
    "n": 30,
@@ -158,7 +158,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.687,
+    "delta_rendement_j_pct": -0.6871,
     "t_welch_jour": -0.25,
     "jours_compares": 85
    }
@@ -180,7 +180,7 @@
    "esp_glissante_20": -4.7845,
    "borne_decrochage": -4.6086,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 209.3,
+   "expo_moyenne_usd": 209.2,
    "rendement_j_pct": -0.066
   },
   "27f_selecteur": {
