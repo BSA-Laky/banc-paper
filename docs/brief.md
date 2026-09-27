@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-27 09:45 (Paris)
+# Brief Station — 2026-09-27 10:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -21,7 +21,7 @@
 | 27a_rev_premium | ROUGE | 134 | -0.4604 | -0.26 | -61.7 | -0.646 | 95.5 j |
 | 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 1.206 | 95.1 j |
 | 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.507 | 95.1 j |
-| 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -1.907 | 89.4 j |
+| 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -1.905 | 89.5 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.352 | 85.7 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.138 | 84.6 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.131 | 84.6 j |
@@ -31,8 +31,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -221.28 $
 
-**BTC** 84586 $ — ret 1j +0.20% · 7j +4.14% · 30j +8.68%
-**Moves 24h ≥ 20 %** : SAGA -22.4%
+**BTC** 84699 $ — ret 1j +0.34% · 7j +4.28% · 30j +8.82%
+**Moves 24h ≥ 20 %** : SAGA -21.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
