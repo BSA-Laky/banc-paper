@@ -1,4 +1,4 @@
-# Brief Station — 2026-09-28 12:15 (Paris)
+# Brief Station — 2026-09-28 12:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -10,7 +10,7 @@
 |---|---|---|---|---|---|---|---|
 | 29_carry_neutre | ORANGE | 54 | 4.4077 | 1.23 | 238.02 | 3.742 | 63.6 j |
 | 29b_carry_neutre_large | ORANGE | 140 | 0.2292 | 0.94 | 32.09 | 0.598 | 53.7 j |
-| 29c_carry_decale | ORANGE | 460 | -0.0149 | -0.82 | -6.85 | -0.128 | 53.6 j |
+| 29c_carry_decale | ORANGE | 460 | -0.0149 | -0.82 | -6.85 | -0.128 | 53.7 j |
 | 32_carry_crossvenue | ORANGE | 58 | -0.0076 | -0.04 | -0.44 | -0.01 | 43.9 j |
 
 ### 🛑 Bots arretes / tues (12) — retires du banc, statistiques figees
@@ -23,16 +23,16 @@
 | 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.49 | 96.2 j |
 | 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -1.882 | 90.6 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.347 | 86.8 j |
-| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.136 | 85.7 j |
-| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.13 | 85.7 j |
+| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.136 | 85.8 j |
+| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.13 | 85.8 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.187 | 78.0 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.02 | 63.6 j |
-| rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.017 | 63.8 j |
+| rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.017 | 63.9 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -224.84 $
 
-**BTC** 82765 $ — ret 1j -1.98% · 7j -4.50% · 30j +5.80%
-**Moves 24h ≥ 20 %** : NIL -21.4%, HBAR +20.4%
+**BTC** 82896 $ — ret 1j -1.83% · 7j -4.35% · 30j +5.97%
+**Moves 24h ≥ 20 %** : NIL -22.3%, HBAR +21.4%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
