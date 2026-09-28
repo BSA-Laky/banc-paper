@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-28T16:45:44.362188+00:00",
+ "ts": "2026-09-28T17:01:14.025962+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -68,7 +68,7 @@
    "t": -0.4,
    "pnl": -30.14,
    "pnl_j": -0.346,
-   "fwd_j": 87.0
+   "fwd_j": 87.1
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.02,
-   "fwd_j": 63.8
+   "fwd_j": 63.9
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 4.4077,
    "t": 1.23,
    "pnl": 238.02,
-   "pnl_j": 3.731,
-   "fwd_j": 63.8
+   "pnl_j": 3.725,
+   "fwd_j": 63.9
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -153,18 +153,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0087,
-  "ret7": -0.0342,
-  "ret30": 0.0699,
-  "prix": 83699
+  "ret1": -0.01,
+  "ret7": -0.0354,
+  "ret30": 0.0686,
+  "prix": 83592
  },
  "evenements_extremes": [
   {
    "coin": "HBAR",
-   "move_pct": 36.6
+   "move_pct": 34.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-28T17:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-09-28T16:45",
    "bot": "10_controle_aleatoire",
@@ -206,12 +212,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-09-28T15:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -225,7 +225,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.9,
+  "age_avis_h": 1.2,
   "problemes": []
  },
  "autofinancement": {
