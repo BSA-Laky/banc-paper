@@ -1,5 +1,5 @@
 {
- "ts": "2026-09-29T14:15:50.010524+00:00",
+ "ts": "2026-09-29T14:31:02.827089+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -67,8 +67,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.343,
-   "fwd_j": 87.9
+   "pnl_j": -0.342,
+   "fwd_j": 88.0
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -104,7 +104,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.02,
-   "fwd_j": 64.7
+   "fwd_j": 64.8
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -112,8 +112,8 @@
    "esperance": 4.4077,
    "t": 1.23,
    "pnl": 238.02,
-   "pnl_j": 3.679,
-   "fwd_j": 64.7
+   "pnl_j": 3.673,
+   "fwd_j": 64.8
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -153,26 +153,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0052,
-  "ret7": -0.0272,
-  "ret30": 0.0803,
-  "prix": 83893
+  "ret1": 0.0056,
+  "ret7": -0.0268,
+  "ret30": 0.0807,
+  "prix": 83928
  },
  "evenements_extremes": [
   {
    "coin": "0G",
-   "move_pct": 41.7
-  },
-  {
-   "coin": "CELO",
-   "move_pct": 22.5
+   "move_pct": 46.1
   },
   {
    "coin": "CRV",
-   "move_pct": 21.2
+   "move_pct": 23.6
+  },
+  {
+   "coin": "CELO",
+   "move_pct": 20.7
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-09-29T14:31",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-09-29T14:15",
    "bot": "10_controle_aleatoire",
@@ -214,12 +220,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-09-29T12:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -233,7 +233,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 6.1,
+  "age_avis_h": 6.4,
   "problemes": []
  },
  "autofinancement": {
