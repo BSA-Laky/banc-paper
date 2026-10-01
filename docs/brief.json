@@ -1,5 +1,5 @@
 {
- "ts": "2026-10-01T08:01:19.539683+00:00",
+ "ts": "2026-10-01T08:15:46.308835+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -130,8 +130,8 @@
    "esperance": -0.0132,
    "t": -0.79,
    "pnl": -6.59,
-   "pnl_j": -0.117,
-   "fwd_j": 56.5
+   "pnl_j": -0.116,
+   "fwd_j": 56.6
   },
   "32_carry_crossvenue": {
    "statut": "ORANGE",
@@ -149,22 +149,32 @@
    "t": -0.02,
    "pnl": -1.08,
    "pnl_j": -0.016,
-   "fwd_j": 66.7
+   "fwd_j": 66.8
   }
  },
  "tendances_btc": {
-  "ret1": -0.0021,
-  "ret7": -0.0113,
-  "ret30": 0.0777,
-  "prix": 83434
+  "ret1": -0.0029,
+  "ret7": -0.0121,
+  "ret30": 0.0768,
+  "prix": 83361
  },
  "evenements_extremes": [
   {
    "coin": "STX",
-   "move_pct": 28.1
+   "move_pct": 23.3
+  },
+  {
+   "coin": "MON",
+   "move_pct": 20.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-10-01T08:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-10-01T08:01",
    "bot": "10_controle_aleatoire",
@@ -206,12 +216,6 @@
    "bot": "29c_carry_decale",
    "marche": "MINA-long",
    "pnl": 0.0
-  },
-  {
-   "ts": "2026-10-01T07:09",
-   "bot": "29c_carry_decale",
-   "marche": "MON-long",
-   "pnl": 0.19
   }
  ],
  "calibration_arbitre": {
@@ -225,7 +229,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.0,
+  "age_avis_h": 1.2,
   "problemes": []
  },
  "autofinancement": {
