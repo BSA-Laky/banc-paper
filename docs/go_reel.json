@@ -1,15 +1,15 @@
 {
- "ts": "2026-10-01T21:45:44.804988+00:00",
+ "ts": "2026-10-01T22:01:20.329730+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 7628,
-   "t_stat": -3.3,
+   "n": 7629,
+   "t_stat": -3.32,
    "derive_attendue": 0.02,
-   "t_corrige": -1.56,
+   "t_corrige": -1.57,
    "sain": true,
-   "lecture": "t brut -3.30 dont -1.75 de spread par construction -> t corrige -1.56 (sain)"
+   "lecture": "t brut -3.32 dont -1.75 de spread par construction -> t corrige -1.57 (sain)"
   }
  },
  "bots": {
@@ -18,7 +18,7 @@
    "esperance": -1.3487,
    "t_stat": 0.0,
    "mdd_live": 1.35,
-   "jours_forward": 0.2,
+   "jours_forward": 0.3,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
@@ -88,7 +88,7 @@
    "esp_glissante_20": -5.5779,
    "borne_decrochage": -9.6141,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 134.0,
+   "expo_moyenne_usd": 133.9,
    "rendement_j_pct": -0.461
   },
   "27b_rev_move": {
@@ -176,7 +176,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.6935,
+    "delta_rendement_j_pct": -0.6936,
     "t_welch_jour": -0.25,
     "jours_compares": 90
    }
@@ -198,7 +198,7 @@
    "esp_glissante_20": -4.7845,
    "borne_decrochage": -4.6086,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 196.2,
+   "expo_moyenne_usd": 196.1,
    "rendement_j_pct": -0.066
   },
   "27f_selecteur": {
@@ -304,7 +304,7 @@
    "borne_decrochage": -1.0159,
    "statut": "ORANGE",
    "expo_moyenne_usd": 146.5,
-   "rendement_j_pct": 0.362
+   "rendement_j_pct": 0.363
   },
   "29c_carry_decale": {
    "n": 500,
@@ -333,7 +333,7 @@
    "esperance": 3.177,
    "t_stat": 0.0,
    "mdd_live": 0.0,
-   "jours_forward": 0.2,
+   "jours_forward": 0.3,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [
@@ -399,7 +399,7 @@
    "esp_glissante_20": -1.459,
    "borne_decrochage": -1.7645,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 197.6,
+   "expo_moyenne_usd": 197.5,
    "rendement_j_pct": -0.008
   }
  },
