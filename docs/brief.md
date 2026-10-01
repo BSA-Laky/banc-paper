@@ -1,4 +1,4 @@
-# Brief Station — 2026-10-01 21:31 (Paris)
+# Brief Station — 2026-10-01 21:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -8,19 +8,19 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -2.697 | 0.1 j |
+| 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -2.697 | 0.2 j |
 | 29_carry_neutre | ORANGE | 54 | 4.4077 | 1.23 | 238.02 | 3.552 | 67.0 j |
 | 29b_carry_neutre_large | ORANGE | 160 | 0.1897 | 0.89 | 30.36 | 0.532 | 57.1 j |
 | 29c_carry_decale | ORANGE | 500 | -0.0132 | -0.79 | -6.59 | -0.116 | 57.0 j |
-| 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 6.354 | 0.1 j |
+| 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 6.354 | 0.2 j |
 | 32_carry_crossvenue | ORANGE | 58 | -0.0076 | -0.04 | -0.44 | -0.009 | 47.3 j |
 
 ### 🛑 Bots arretes / tues (12) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -0.871 | 100.0 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -0.87 | 100.1 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -1.802 | 67.3 j |
-| 27a_rev_premium | ROUGE | 134 | -0.4604 | -0.26 | -61.7 | -0.618 | 99.9 j |
+| 27a_rev_premium | ROUGE | 134 | -0.4604 | -0.26 | -61.7 | -0.617 | 100.0 j |
 | 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 1.151 | 99.6 j |
 | 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.439 | 99.6 j |
 | 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -1.816 | 93.9 j |
@@ -33,8 +33,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -224.48 $
 
-**BTC** 84609 $ — ret 1j +1.20% · 7j +0.27% · 30j +9.29%
-**Moves 24h ≥ 20 %** : MEGA +26.7%, MON +21.5%
+**BTC** 84603 $ — ret 1j +1.19% · 7j +0.26% · 30j +9.28%
+**Moves 24h ≥ 20 %** : MEGA +25.6%, MON +21.1%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
