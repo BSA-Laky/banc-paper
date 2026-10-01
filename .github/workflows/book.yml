@@ -17,10 +17,36 @@ jobs:
         env:
           TD_KEY: ${{ secrets.TD_KEY }}
         run: python run_book.py
+      # PANNE MUETTE CORRIGEE LE 01/10/2026. L'ancienne etape faisait
+      #   git push || echo "push KO"
+      # SANS pull --rebase. Le script tourne ~2 min ; pendant ce temps la station
+      # (une passe toutes les 15 min) a deja pousse sur main. Le push etait donc
+      # rejete, le `|| echo` avalait l'erreur, et l'etape restait VERTE.
+      # Consequence mesuree : la rotation du 02/09 a tourne "avec succes" et rien
+      # n'a ete enregistre -- book_health.json et l'etat des bots 30/31 sont restes
+      # au 02/08, book_trades.csv n'a jamais existe. Les deux seuls edges valides
+      # sur 30 ans n'ont produit AUCUNE donnee forward en deux mois.
+      # book30b.yml, qui fait pull --rebase, fonctionnait : c'est lui qui a permis
+      # de trouver la difference.
+      # Desormais : rebase + 5 tentatives, et ECHEC BRUYANT si le push est
+      # impossible -- une rotation perdue doit se voir en rouge, pas en vert.
       - name: commit
         run: |
           git config user.name "book-bot"
           git config user.email "book@users.noreply.github.com"
           git add -A
-          git commit -m "book run $(date -u +%F)" || echo "rien a committer"
-          git push || echo "push KO"
+          if git diff --cached --quiet; then
+            echo "Rien a committer."
+            exit 0
+          fi
+          git commit -m "book run $(date -u +%F)"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase --autostash && git push; then
+              echo "push OK (tentative $i)"
+              exit 0
+            fi
+            echo "push refuse (tentative $i) -- main a bouge, on reessaie"
+            sleep $((i * 7))
+          done
+          echo "::error::PUSH IMPOSSIBLE apres 5 tentatives : la rotation du book serait PERDUE"
+          exit 1
