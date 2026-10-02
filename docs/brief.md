@@ -1,4 +1,4 @@
-# Brief Station — 2026-10-02 15:45 (Paris)
+# Brief Station — 2026-10-02 16:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -27,14 +27,14 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.332 | 90.9 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.129 | 89.9 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.124 | 89.9 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.177 | 82.1 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.177 | 82.2 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.019 | 67.7 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.016 | 68.0 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -224.48 $
 
-**BTC** 86932 $ — ret 1j +2.47% · 7j +3.41% · 30j +12.43%
-**Moves 24h ≥ 20 %** : SAND +59.4%, APE +23.9%, GALA +21.2%
+**BTC** 86499 $ — ret 1j +1.96% · 7j +2.89% · 30j +11.87%
+**Moves 24h ≥ 20 %** : SAND +57.6%, APE +21.5%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
