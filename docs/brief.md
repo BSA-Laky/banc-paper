@@ -1,4 +1,4 @@
-# Brief Station — 2026-10-02 16:01 (Paris)
+# Brief Station — 2026-10-02 16:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -21,8 +21,8 @@
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -0.864 | 100.8 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -1.78 | 68.1 j |
 | 27a_rev_premium | ROUGE | 134 | -0.4604 | -0.26 | -61.7 | -0.613 | 100.7 j |
-| 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 1.143 | 100.3 j |
-| 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.429 | 100.3 j |
+| 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 1.142 | 100.4 j |
+| 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.428 | 100.4 j |
 | 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -1.8 | 94.7 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.332 | 90.9 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.129 | 89.9 j |
@@ -33,8 +33,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -224.48 $
 
-**BTC** 86499 $ — ret 1j +1.96% · 7j +2.89% · 30j +11.87%
-**Moves 24h ≥ 20 %** : SAND +57.6%, APE +21.5%
+**BTC** 86279 $ — ret 1j +1.70% · 7j +2.63% · 30j +11.59%
+**Moves 24h ≥ 20 %** : SAND +57.7%, APE +20.7%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
