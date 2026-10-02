@@ -1,5 +1,5 @@
 {
- "ts": "2026-10-02T14:15:48.051854+00:00",
+ "ts": "2026-10-02T14:31:04.674202+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -76,8 +76,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.332,
-   "fwd_j": 90.9
+   "pnl_j": -0.331,
+   "fwd_j": 91.0
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -113,7 +113,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.019,
-   "fwd_j": 67.7
+   "fwd_j": 67.8
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -121,8 +121,8 @@
    "esperance": 4.4077,
    "t": 1.23,
    "pnl": 238.02,
-   "pnl_j": 3.516,
-   "fwd_j": 67.7
+   "pnl_j": 3.511,
+   "fwd_j": 67.8
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -171,22 +171,28 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.017,
-  "ret7": 0.0263,
-  "ret30": 0.1159,
-  "prix": 86279
+  "ret1": 0.0142,
+  "ret7": 0.0235,
+  "ret30": 0.1128,
+  "prix": 86038
  },
  "evenements_extremes": [
   {
    "coin": "SAND",
-   "move_pct": 57.7
+   "move_pct": 50.7
   },
   {
    "coin": "APE",
-   "move_pct": 20.7
+   "move_pct": 20.3
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-10-02T14:31",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-10-02T14:15",
    "bot": "10_controle_aleatoire",
@@ -228,12 +234,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-10-02T12:45",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -247,7 +247,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.2,
+  "age_avis_h": 1.5,
   "problemes": []
  },
  "autofinancement": {
