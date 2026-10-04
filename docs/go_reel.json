@@ -1,15 +1,15 @@
 {
- "ts": "2026-10-04T21:45:46.031877+00:00",
+ "ts": "2026-10-04T22:01:11.704634+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 7927,
-   "t_stat": -3.16,
+   "n": 7928,
+   "t_stat": -3.15,
    "derive_attendue": 0.02,
-   "t_corrige": -1.38,
+   "t_corrige": -1.37,
    "sain": true,
-   "lecture": "t brut -3.16 dont -1.78 de spread par construction -> t corrige -1.38 (sain)"
+   "lecture": "t brut -3.15 dont -1.78 de spread par construction -> t corrige -1.37 (sain)"
   },
   "10b_controle_book": {
    "n": 1,
@@ -26,18 +26,18 @@
    "esperance": -1.3487,
    "t_stat": 0.0,
    "mdd_live": 1.35,
-   "jours_forward": 3.2,
+   "jours_forward": 3.3,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -1.35,
-   "pnl_par_jour": -0.421,
+   "pnl_par_jour": -0.409,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 308.7,
-   "rendement_j_pct": -0.136
+   "expo_moyenne_usd": 307.7,
+   "rendement_j_pct": -0.133
   },
   "24_funding_multivenues": {
    "n": 171,
@@ -56,7 +56,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 749.3,
+   "expo_moyenne_usd": 749.2,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -96,7 +96,7 @@
    "esp_glissante_20": -5.5779,
    "borne_decrochage": -9.6141,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 130.1,
+   "expo_moyenne_usd": 130.0,
    "rendement_j_pct": -0.461
   },
   "27b_rev_move": {
@@ -184,7 +184,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.6944,
+    "delta_rendement_j_pct": -0.6945,
     "t_welch_jour": -0.25,
     "jours_compares": 93
    }
@@ -270,27 +270,27 @@
    "rendement_j_pct": -0.023
   },
   "29_carry_neutre": {
-   "n": 54,
-   "esperance": 4.4077,
+   "n": 60,
+   "esperance": 3.9596,
    "t_stat": 1.23,
    "mdd_live": 50.49,
    "jours_forward": 70.1,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
-    "n 54 < n_go 100",
+    "n 60 < n_go 100",
     "t < 2"
    ],
    "avertissements": [],
    "mu_ref": null,
-   "pnl_cumule": 238.02,
-   "pnl_par_jour": 3.395,
+   "pnl_cumule": 237.58,
+   "pnl_par_jour": 3.389,
    "trop_beau_audite": null,
-   "esp_glissante_20": -0.1035,
-   "borne_decrochage": -7.3429,
+   "esp_glissante_20": -0.1681,
+   "borne_decrochage": -7.1941,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 214.2,
-   "rendement_j_pct": 1.585
+   "expo_moyenne_usd": 217.7,
+   "rendement_j_pct": 1.557
   },
   "29b_carry_neutre_large": {
    "n": 160,
@@ -355,15 +355,15 @@
    "pnl_par_jour": 0.826,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 471.5,
-   "rendement_j_pct": 0.175
+   "expo_moyenne_usd": 469.1,
+   "rendement_j_pct": 0.176
   },
   "30b_trend_executable": {
    "n": 1,
    "esperance": 3.177,
    "t_stat": 0.0,
    "mdd_live": 0.0,
-   "jours_forward": 3.2,
+   "jours_forward": 3.3,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [
@@ -374,11 +374,11 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 3.18,
-   "pnl_par_jour": 0.993,
+   "pnl_par_jour": 0.963,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 308.7,
-   "rendement_j_pct": 0.322,
+   "expo_moyenne_usd": 307.7,
+   "rendement_j_pct": 0.313,
    "ab": {
     "contre": "10c_controle_cfd",
     "delta_esperance": 4.5257,
@@ -409,7 +409,7 @@
    "borne_decrochage": -0.5494,
    "statut": "ORANGE",
    "non_executable": "aucun compte Nado ; audit securite Nado non confirme ; min_size Nado 100 $/ordre",
-   "expo_moyenne_usd": 34.3,
+   "expo_moyenne_usd": 34.2,
    "rendement_j_pct": -0.032
   },
   "rd_h2": {
