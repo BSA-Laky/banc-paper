@@ -1,5 +1,5 @@
 {
- "ts": "2026-10-06T08:31:05.889860+00:00",
+ "ts": "2026-10-06T08:45:46.061549+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -180,13 +180,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.001,
-  "ret7": 0.0264,
-  "ret30": 0.0687,
-  "prix": 85828
+  "ret1": 0.0024,
+  "ret7": 0.0278,
+  "ret30": 0.0701,
+  "prix": 85947
  },
- "evenements_extremes": [],
+ "evenements_extremes": [
+  {
+   "coin": "MINA",
+   "move_pct": -20.9
+  }
+ ],
  "dernieres_actions": [
+  {
+   "ts": "2026-10-06T08:45",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-10-06T08:31",
    "bot": "10_controle_aleatoire",
@@ -228,12 +239,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-10-06T06:47",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -247,7 +252,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 5.3,
+  "age_avis_h": 5.5,
   "problemes": []
  },
  "autofinancement": {
