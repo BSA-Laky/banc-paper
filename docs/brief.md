@@ -1,4 +1,4 @@
-# Brief Station — 2026-10-06 21:31 (Paris)
+# Brief Station — 2026-10-06 21:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -8,20 +8,20 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.264 | 5.1 j |
+| 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.259 | 5.2 j |
 | 29_carry_neutre | ORANGE | 60 | 3.9596 | 1.23 | 237.58 | 3.3 | 72.0 j |
 | 29b_carry_neutre_large | ORANGE | 160 | 0.1897 | 0.89 | 30.36 | 0.489 | 62.1 j |
 | 29c_carry_decale | ORANGE | 540 | -0.0128 | -0.83 | -6.93 | -0.112 | 62.0 j |
 | 30_trend_following | ORANGE | 1 | 1.7344 | 0.0 | 1.73 | 0.434 | 4.0 j |
-| 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 0.623 | 5.1 j |
+| 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 0.611 | 5.2 j |
 | 32_carry_crossvenue | ORANGE | 70 | -0.0081 | -0.06 | -0.57 | -0.011 | 52.3 j |
 
 ### 🛑 Bots arretes / tues (12) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -0.829 | 105.0 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -0.828 | 105.1 j |
 | 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -1.677 | 72.3 j |
-| 27a_rev_premium | ROUGE | 134 | -0.4604 | -0.26 | -61.7 | -0.588 | 104.9 j |
+| 27a_rev_premium | ROUGE | 134 | -0.4604 | -0.26 | -61.7 | -0.588 | 105.0 j |
 | 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 1.096 | 104.6 j |
 | 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.37 | 104.6 j |
 | 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -1.724 | 98.9 j |
@@ -34,8 +34,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -223.66 $
 
-**BTC** 85515 $ — ret 1j -0.26% · 7j +2.27% · 30j +6.48%
-**Moves 24h ≥ 20 %** : GRIFFAIN +27.7%, MINA -26.6%
+**BTC** 85527 $ — ret 1j -0.25% · 7j +2.28% · 30j +6.49%
+**Moves 24h ≥ 20 %** : MINA -26.8%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
