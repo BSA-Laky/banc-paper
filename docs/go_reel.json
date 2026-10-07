@@ -1,15 +1,15 @@
 {
- "ts": "2026-10-07T18:45:52.143245+00:00",
+ "ts": "2026-10-07T19:01:21.357473+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 8206,
-   "t_stat": -3.31,
+   "n": 8207,
+   "t_stat": -3.3,
    "derive_attendue": 0.02,
-   "t_corrige": -1.5,
+   "t_corrige": -1.49,
    "sain": true,
-   "lecture": "t brut -3.31 dont -1.81 de spread par construction -> t corrige -1.50 (sain)"
+   "lecture": "t brut -3.30 dont -1.81 de spread par construction -> t corrige -1.49 (sain)"
   },
   "10b_controle_book": {
    "n": 1,
@@ -36,7 +36,7 @@
    "pnl_par_jour": -0.221,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 163.5,
+   "expo_moyenne_usd": 163.3,
    "rendement_j_pct": -0.135
   },
   "24_funding_multivenues": {
@@ -56,7 +56,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 729.0,
+   "expo_moyenne_usd": 728.9,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -184,7 +184,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.6943,
+    "delta_rendement_j_pct": -0.6944,
     "t_welch_jour": -0.25,
     "jours_compares": 96
    }
@@ -289,7 +289,7 @@
    "esp_glissante_20": -0.1681,
    "borne_decrochage": -7.1941,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 209.2,
+   "expo_moyenne_usd": 209.1,
    "rendement_j_pct": 1.558
   },
   "29b_carry_neutre_large": {
@@ -311,7 +311,7 @@
    "esp_glissante_20": -0.0865,
    "borne_decrochage": -1.0159,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 132.9,
+   "expo_moyenne_usd": 132.8,
    "rendement_j_pct": 0.362
   },
   "29c_carry_decale": {
@@ -355,8 +355,8 @@
    "pnl_par_jour": 0.347,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 200.2,
-   "rendement_j_pct": 0.173
+   "expo_moyenne_usd": 199.7,
+   "rendement_j_pct": 0.174
   },
   "30b_trend_executable": {
    "n": 1,
@@ -377,7 +377,7 @@
    "pnl_par_jour": 0.521,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 163.5,
+   "expo_moyenne_usd": 163.3,
    "rendement_j_pct": 0.319,
    "ab": {
     "contre": "10c_controle_cfd",
