@@ -1,4 +1,4 @@
-# Brief Station — 2026-10-07 16:31 (Paris)
+# Brief Station — 2026-10-07 16:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -11,7 +11,7 @@
 | 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.229 | 5.9 j |
 | 29_carry_neutre | ORANGE | 60 | 3.9596 | 1.23 | 237.58 | 3.263 | 72.8 j |
 | 29b_carry_neutre_large | ORANGE | 160 | 0.1897 | 0.89 | 30.36 | 0.483 | 62.9 j |
-| 29c_carry_decale | ORANGE | 540 | -0.0128 | -0.83 | -6.93 | -0.11 | 62.8 j |
+| 29c_carry_decale | ORANGE | 560 | -0.012 | -0.8 | -6.73 | -0.107 | 62.8 j |
 | 30_trend_following | ORANGE | 1 | 1.7344 | 0.0 | 1.73 | 0.361 | 4.8 j |
 | 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 0.538 | 5.9 j |
 | 32_carry_crossvenue | ORANGE | 70 | -0.0081 | -0.06 | -0.57 | -0.011 | 53.1 j |
@@ -32,10 +32,10 @@
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.018 | 72.8 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.015 | 73.0 j |
 
-**P&L paper cumule (hors temoin, morts inclus)** : -223.66 $
+**P&L paper cumule (hors temoin, morts inclus)** : -223.46 $
 
-**BTC** 83015 $ — ret 1j -2.96% · 7j -0.71% · 30j +4.99%
-**Moves 24h ≥ 20 %** : MINA -23.7%
+**BTC** 83001 $ — ret 1j -2.98% · 7j -0.72% · 30j +4.97%
+**Moves 24h ≥ 20 %** : GRIFFAIN -27.0%, MINA -24.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
