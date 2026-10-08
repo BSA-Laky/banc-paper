@@ -1,5 +1,5 @@
 {
- "ts": "2026-10-08T15:01:11.900631+00:00",
+ "ts": "2026-10-08T15:15:41.697805+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -148,8 +148,8 @@
    "esperance": 1.7344,
    "t": 0.0,
    "pnl": 1.73,
-   "pnl_j": 0.299,
-   "fwd_j": 5.8
+   "pnl_j": 0.294,
+   "fwd_j": 5.9
   },
   "30b_trend_executable": {
    "statut": "ORANGE",
@@ -180,22 +180,28 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.008,
-  "ret7": -0.026,
-  "ret30": 0.0538,
-  "prix": 82632
+  "ret1": -0.0142,
+  "ret7": -0.032,
+  "ret30": 0.0473,
+  "prix": 82123
  },
  "evenements_extremes": [
   {
    "coin": "MET",
-   "move_pct": 37.4
+   "move_pct": 37.9
   },
   {
    "coin": "STRK",
-   "move_pct": 26.4
+   "move_pct": 23.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-10-08T15:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-10-08T15:01",
    "bot": "10_controle_aleatoire",
@@ -237,12 +243,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": 0.96
-  },
-  {
-   "ts": "2026-10-08T13:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -256,7 +256,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.2,
+  "age_avis_h": 0.5,
   "problemes": []
  },
  "autofinancement": {
