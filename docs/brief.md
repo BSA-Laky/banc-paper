@@ -1,4 +1,4 @@
-# Brief Station — 2026-10-10 23:45 (Paris)
+# Brief Station — 2026-10-11 00:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -8,12 +8,12 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.147 | 9.2 j |
+| 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.145 | 9.3 j |
 | 29_carry_neutre | ORANGE | 60 | 3.9596 | 1.23 | 237.58 | 3.122 | 76.1 j |
 | 29b_carry_neutre_large | ORANGE | 180 | 0.161 | 0.85 | 28.97 | 0.438 | 66.2 j |
 | 29c_carry_decale | ORANGE | 580 | -0.0111 | -0.77 | -6.47 | -0.098 | 66.1 j |
 | 30_trend_following | ORANGE | 1 | 1.7344 | 0.0 | 1.73 | 0.214 | 8.1 j |
-| 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 0.345 | 9.2 j |
+| 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 0.342 | 9.3 j |
 | 32_carry_crossvenue | ORANGE | 78 | -0.0131 | -0.1 | -1.02 | -0.018 | 56.4 j |
 
 ### 🛑 Bots arretes / tues (12) — retires du banc, statistiques figees
@@ -34,8 +34,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -225.04 $
 
-**BTC** 83035 $ — ret 1j +0.55% · 7j -1.98% · 30j +8.50%
-**Moves 24h ≥ 20 %** : STRK +49.1%, CHIP +29.0%, CFX +24.0%, TIA +21.0%
+**BTC** 83001 $ — ret 1j +0.51% · 7j -2.02% · 30j +8.45%
+**Moves 24h ≥ 20 %** : STRK +49.2%, CHIP +29.8%, CFX +23.3%, TIA +21.9%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
