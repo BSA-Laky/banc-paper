@@ -1,4 +1,4 @@
-# Brief Station — 2026-10-10 14:01 (Paris)
+# Brief Station — 2026-10-10 14:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -9,7 +9,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.153 | 8.8 j |
-| 29_carry_neutre | ORANGE | 60 | 3.9596 | 1.23 | 237.58 | 3.143 | 75.6 j |
+| 29_carry_neutre | ORANGE | 60 | 3.9596 | 1.23 | 237.58 | 3.138 | 75.7 j |
 | 29b_carry_neutre_large | ORANGE | 180 | 0.161 | 0.85 | 28.97 | 0.44 | 65.8 j |
 | 29c_carry_decale | ORANGE | 580 | -0.0111 | -0.77 | -6.47 | -0.098 | 65.7 j |
 | 30_trend_following | ORANGE | 1 | 1.7344 | 0.0 | 1.73 | 0.225 | 7.7 j |
@@ -29,7 +29,7 @@
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.119 | 97.8 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.114 | 97.8 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.162 | 90.1 j |
-| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.017 | 75.6 j |
+| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.017 | 75.7 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.014 | 75.9 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -224.59 $
