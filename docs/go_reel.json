@@ -1,15 +1,15 @@
 {
- "ts": "2026-10-10T13:01:05.726749+00:00",
+ "ts": "2026-10-10T13:15:35.772055+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 8478,
-   "t_stat": -3.54,
+   "n": 8479,
+   "t_stat": -3.55,
    "derive_attendue": 0.02,
-   "t_corrige": -1.69,
+   "t_corrige": -1.71,
    "sain": true,
-   "lecture": "t brut -3.54 dont -1.84 de spread par construction -> t corrige -1.69 (sain)"
+   "lecture": "t brut -3.55 dont -1.84 de spread par construction -> t corrige -1.71 (sain)"
   },
   "10b_controle_book": {
    "n": 1,
@@ -36,7 +36,7 @@
    "pnl_par_jour": -0.152,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 112.7,
+   "expo_moyenne_usd": 112.5,
    "rendement_j_pct": -0.135
   },
   "24_funding_multivenues": {
@@ -56,7 +56,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 710.5,
+   "expo_moyenne_usd": 710.4,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -117,7 +117,7 @@
    "borne_decrochage": -5.9191,
    "statut": "ROUGE",
    "expo_moyenne_usd": 189.3,
-   "rendement_j_pct": 0.559
+   "rendement_j_pct": 0.56
   },
   "27c_mom_move": {
    "n": 205,
@@ -137,7 +137,7 @@
    "borne_decrochage": -7.1776,
    "statut": "ROUGE",
    "expo_moyenne_usd": 189.3,
-   "rendement_j_pct": -0.699
+   "rendement_j_pct": -0.7
   },
   "27d_rev_move_stop": {
    "n": 361,
@@ -179,12 +179,12 @@
    "borne_decrochage": -7.2096,
    "statut": "ROUGE",
    "expo_moyenne_usd": 30.3,
-   "rendement_j_pct": -1.005,
+   "rendement_j_pct": -1.006,
    "ab": {
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.6934,
+    "delta_rendement_j_pct": -0.6935,
     "t_welch_jour": -0.25,
     "jours_compares": 99
    }
@@ -194,7 +194,7 @@
    "esperance": -0.0665,
    "t_stat": -0.09,
    "mdd_live": 129.9,
-   "jours_forward": 97.8,
+   "jours_forward": 97.9,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": true,
    "raisons": [],
@@ -206,7 +206,7 @@
    "esp_glissante_20": -4.7845,
    "borne_decrochage": -4.6086,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 178.9,
+   "expo_moyenne_usd": 178.8,
    "rendement_j_pct": -0.067
   },
   "27f_selecteur": {
@@ -214,7 +214,7 @@
    "esperance": 0.1566,
    "t_stat": 0.08,
    "mdd_live": 192.66,
-   "jours_forward": 97.8,
+   "jours_forward": 97.9,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
@@ -311,8 +311,8 @@
    "esp_glissante_20": -0.0692,
    "borne_decrochage": -0.9767,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 131.2,
-   "rendement_j_pct": 0.335
+   "expo_moyenne_usd": 131.1,
+   "rendement_j_pct": 0.336
   },
   "29c_carry_decale": {
    "n": 580,
@@ -355,7 +355,7 @@
    "pnl_par_jour": 0.222,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 128.9,
+   "expo_moyenne_usd": 128.8,
    "rendement_j_pct": 0.172
   },
   "30b_trend_executable": {
@@ -377,7 +377,7 @@
    "pnl_par_jour": 0.357,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 112.7,
+   "expo_moyenne_usd": 112.5,
    "rendement_j_pct": 0.317,
    "ab": {
     "contre": "10c_controle_cfd",
@@ -389,28 +389,28 @@
    }
   },
   "32_carry_crossvenue": {
-   "n": 70,
-   "esperance": -0.0081,
-   "t_stat": -0.06,
+   "n": 78,
+   "esperance": -0.0131,
+   "t_stat": -0.1,
    "mdd_live": 6.58,
    "jours_forward": 56.0,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
-    "n 70 < n_go 100",
+    "n 78 < n_go 100",
     "t < 2"
    ],
    "avertissements": [],
    "mu_ref": null,
-   "pnl_cumule": -0.57,
-   "pnl_par_jour": -0.01,
+   "pnl_cumule": -1.02,
+   "pnl_par_jour": -0.018,
    "trop_beau_audite": null,
-   "esp_glissante_20": -0.0058,
-   "borne_decrochage": -0.5494,
+   "esp_glissante_20": -0.029,
+   "borne_decrochage": -0.5284,
    "statut": "ORANGE",
    "non_executable": "aucun compte Nado ; audit securite Nado non confirme ; min_size Nado 100 $/ordre",
-   "expo_moyenne_usd": 30.8,
-   "rendement_j_pct": -0.032
+   "expo_moyenne_usd": 35.2,
+   "rendement_j_pct": -0.051
   },
   "rd_h2": {
    "n": 133,
