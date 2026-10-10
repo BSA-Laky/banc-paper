@@ -1,4 +1,4 @@
-# Brief Station — 2026-10-10 16:30 (Paris)
+# Brief Station — 2026-10-10 16:45 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -9,7 +9,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.152 | 8.9 j |
-| 29_carry_neutre | ORANGE | 60 | 3.9596 | 1.23 | 237.58 | 3.138 | 75.7 j |
+| 29_carry_neutre | ORANGE | 60 | 3.9596 | 1.23 | 237.58 | 3.134 | 75.8 j |
 | 29b_carry_neutre_large | ORANGE | 180 | 0.161 | 0.85 | 28.97 | 0.44 | 65.9 j |
 | 29c_carry_decale | ORANGE | 580 | -0.0111 | -0.77 | -6.47 | -0.098 | 65.8 j |
 | 30_trend_following | ORANGE | 1 | 1.7344 | 0.0 | 1.73 | 0.222 | 7.8 j |
@@ -34,7 +34,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -225.04 $
 
-**BTC** 82838 $ — ret 1j +0.31% · 7j -2.22% · 30j +8.24%
+**BTC** 83003 $ — ret 1j +0.51% · 7j -2.02% · 30j +8.45%
+**Moves 24h ≥ 20 %** : CFX +21.3%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
