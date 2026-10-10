@@ -1,4 +1,4 @@
-# Brief Station — 2026-10-10 10:45 (Paris)
+# Brief Station — 2026-10-10 11:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -10,17 +10,17 @@
 |---|---|---|---|---|---|---|---|
 | 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.155 | 8.7 j |
 | 29_carry_neutre | ORANGE | 60 | 3.9596 | 1.23 | 237.58 | 3.147 | 75.5 j |
-| 29b_carry_neutre_large | ORANGE | 180 | 0.161 | 0.85 | 28.97 | 0.442 | 65.6 j |
+| 29b_carry_neutre_large | ORANGE | 180 | 0.161 | 0.85 | 28.97 | 0.441 | 65.7 j |
 | 29c_carry_decale | ORANGE | 580 | -0.0111 | -0.77 | -6.47 | -0.099 | 65.6 j |
 | 30_trend_following | ORANGE | 1 | 1.7344 | 0.0 | 1.73 | 0.228 | 7.6 j |
 | 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 0.365 | 8.7 j |
-| 32_carry_crossvenue | ORANGE | 70 | -0.0081 | -0.06 | -0.57 | -0.01 | 55.8 j |
+| 32_carry_crossvenue | ORANGE | 70 | -0.0081 | -0.06 | -0.57 | -0.01 | 55.9 j |
 
 ### 🛑 Bots arretes / tues (12) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -0.802 | 108.6 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -1.6 | 75.8 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -1.597 | 75.9 j |
 | 27a_rev_premium | ROUGE | 134 | -0.4604 | -0.26 | -61.7 | -0.569 | 108.5 j |
 | 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 1.061 | 108.1 j |
 | 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.326 | 108.1 j |
@@ -34,7 +34,7 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -224.59 $
 
-**BTC** 82748 $ — ret 1j +0.20% · 7j -2.32% · 30j +8.12%
+**BTC** 82820 $ — ret 1j +0.29% · 7j -2.24% · 30j +8.21%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
