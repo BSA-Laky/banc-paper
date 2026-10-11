@@ -1,15 +1,15 @@
 {
- "ts": "2026-10-11T01:30:51.381984+00:00",
+ "ts": "2026-10-11T01:45:35.159240+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 8530,
-   "t_stat": -3.43,
+   "n": 8531,
+   "t_stat": -3.42,
    "derive_attendue": 0.02,
-   "t_corrige": -1.58,
+   "t_corrige": -1.57,
    "sain": true,
-   "lecture": "t brut -3.43 dont -1.85 de spread par construction -> t corrige -1.58 (sain)"
+   "lecture": "t brut -3.42 dont -1.85 de spread par construction -> t corrige -1.57 (sain)"
   },
   "10b_controle_book": {
    "n": 1,
@@ -36,8 +36,8 @@
    "pnl_par_jour": -0.143,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 106.4,
-   "rendement_j_pct": -0.134
+   "expo_moyenne_usd": 106.3,
+   "rendement_j_pct": -0.135
   },
   "24_funding_multivenues": {
    "n": 171,
@@ -56,7 +56,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 707.1,
+   "expo_moyenne_usd": 707.0,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -64,20 +64,20 @@
    "esperance": -0.2221,
    "t_stat": -3.4,
    "mdd_live": 138.62,
-   "jours_forward": 76.5,
+   "jours_forward": 76.6,
    "verdict_banc": "perdant de facon SIGNIFICATIVE",
    "decrochage": false,
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -121.24,
-   "pnl_par_jour": -1.585,
+   "pnl_par_jour": -1.583,
    "trop_beau_audite": null,
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 285.2,
-   "rendement_j_pct": -0.556
+   "expo_moyenne_usd": 285.1,
+   "rendement_j_pct": -0.555
   },
   "27a_rev_premium": {
    "n": 134,
@@ -117,7 +117,7 @@
    "borne_decrochage": -5.9191,
    "statut": "ROUGE",
    "expo_moyenne_usd": 188.4,
-   "rendement_j_pct": 0.559
+   "rendement_j_pct": 0.56
   },
   "27c_mom_move": {
    "n": 205,
@@ -184,7 +184,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.6902,
+    "delta_rendement_j_pct": -0.6903,
     "t_welch_jour": -0.25,
     "jours_compares": 100
    }
@@ -289,7 +289,7 @@
    "esp_glissante_20": -0.1681,
    "borne_decrochage": -7.1941,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 200.2,
+   "expo_moyenne_usd": 200.1,
    "rendement_j_pct": 1.558
   },
   "29b_carry_neutre_large": {
@@ -297,7 +297,7 @@
    "esperance": 0.161,
    "t_stat": 0.85,
    "mdd_live": 15.75,
-   "jours_forward": 66.3,
+   "jours_forward": 66.4,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -306,13 +306,13 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 28.97,
-   "pnl_par_jour": 0.437,
+   "pnl_par_jour": 0.436,
    "trop_beau_audite": null,
    "esp_glissante_20": -0.0692,
    "borne_decrochage": -0.9767,
    "statut": "ORANGE",
    "expo_moyenne_usd": 130.1,
-   "rendement_j_pct": 0.336
+   "rendement_j_pct": 0.335
   },
   "29c_carry_decale": {
    "n": 580,
@@ -355,7 +355,7 @@
    "pnl_par_jour": 0.209,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 120.8,
+   "expo_moyenne_usd": 120.7,
    "rendement_j_pct": 0.173
   },
   "30b_trend_executable": {
@@ -377,13 +377,13 @@
    "pnl_par_jour": 0.338,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 106.4,
+   "expo_moyenne_usd": 106.3,
    "rendement_j_pct": 0.318,
    "ab": {
     "contre": "10c_controle_cfd",
     "delta_esperance": 4.5257,
     "t_welch": 0.0,
-    "delta_rendement_j_pct": 0.4252,
+    "delta_rendement_j_pct": 0.4257,
     "t_welch_jour": 1.31,
     "jours_compares": 10
    }
@@ -393,7 +393,7 @@
    "esperance": -0.0131,
    "t_stat": -0.1,
    "mdd_live": 6.58,
-   "jours_forward": 56.5,
+   "jours_forward": 56.6,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
