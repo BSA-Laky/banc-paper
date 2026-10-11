@@ -1,4 +1,4 @@
-# Brief Station — 2026-10-11 03:45 (Paris)
+# Brief Station — 2026-10-11 04:01 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -28,14 +28,14 @@
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.303 | 99.4 j |
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.118 | 98.4 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.113 | 98.4 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.161 | 90.6 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.161 | 90.7 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.017 | 76.2 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.014 | 76.5 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -225.04 $
 
-**BTC** 82968 $ — ret 1j +0.03% · 7j -4.09% · 30j +7.50%
-**Moves 24h ≥ 20 %** : STRK +55.3%, CHIP +34.3%, TIA +27.9%, CFX +20.8%
+**BTC** 82973 $ — ret 1j +0.03% · 7j -4.08% · 30j +7.51%
+**Moves 24h ≥ 20 %** : STRK +56.1%, CHIP +31.9%, TIA +29.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
