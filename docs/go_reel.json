@@ -1,15 +1,15 @@
 {
- "ts": "2026-10-11T19:40:29.175077+00:00",
+ "ts": "2026-10-11T19:45:36.438912+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 8605,
-   "t_stat": -3.44,
+   "n": 8606,
+   "t_stat": -3.45,
    "derive_attendue": 0.02,
-   "t_corrige": -1.58,
+   "t_corrige": -1.6,
    "sain": true,
-   "lecture": "t brut -3.44 dont -1.86 de spread par construction -> t corrige -1.58 (sain)"
+   "lecture": "t brut -3.45 dont -1.86 de spread par construction -> t corrige -1.60 (sain)"
   },
   "10b_controle_book": {
    "n": 1,
@@ -84,7 +84,7 @@
    "esperance": -0.4604,
    "t_stat": -0.26,
    "mdd_live": 248.85,
-   "jours_forward": 109.9,
+   "jours_forward": 110.0,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
@@ -383,7 +383,7 @@
     "contre": "10c_controle_cfd",
     "delta_esperance": 4.5257,
     "t_welch": 0.0,
-    "delta_rendement_j_pct": 0.4595,
+    "delta_rendement_j_pct": 0.4596,
     "t_welch_jour": 1.31,
     "jours_compares": 10
    }
