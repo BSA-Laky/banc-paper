@@ -1,5 +1,5 @@
 {
- "ts": "2026-10-11T00:01:09.512941+00:00",
+ "ts": "2026-10-11T00:15:37.344710+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -113,7 +113,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.017,
-   "fwd_j": 76.1
+   "fwd_j": 76.2
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -121,8 +121,8 @@
    "esperance": 3.9596,
    "t": 1.23,
    "pnl": 237.58,
-   "pnl_j": 3.122,
-   "fwd_j": 76.1
+   "pnl_j": 3.118,
+   "fwd_j": 76.2
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -180,30 +180,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0,
-  "ret7": -0.0411,
-  "ret30": 0.0747,
-  "prix": 82945
+  "ret1": 0.0005,
+  "ret7": -0.0407,
+  "ret30": 0.0752,
+  "prix": 82985
  },
  "evenements_extremes": [
   {
    "coin": "STRK",
-   "move_pct": 41.8
+   "move_pct": 40.5
   },
   {
    "coin": "CHIP",
-   "move_pct": 31.2
+   "move_pct": 29.2
   },
   {
    "coin": "TIA",
-   "move_pct": 27.5
-  },
-  {
-   "coin": "CFX",
-   "move_pct": 22.1
+   "move_pct": 26.4
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-10-11T00:15",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-10-11T00:01",
    "bot": "10_controle_aleatoire",
@@ -245,12 +247,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-10-10T22:15",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -264,7 +260,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 2.6,
+  "age_avis_h": 2.9,
   "problemes": []
  },
  "autofinancement": {
