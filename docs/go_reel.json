@@ -1,15 +1,15 @@
 {
- "ts": "2026-10-11T11:01:03.195098+00:00",
+ "ts": "2026-10-11T11:15:35.479205+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 8569,
-   "t_stat": -3.5,
+   "n": 8570,
+   "t_stat": -3.49,
    "derive_attendue": 0.02,
-   "t_corrige": -1.65,
+   "t_corrige": -1.64,
    "sain": true,
-   "lecture": "t brut -3.50 dont -1.85 de spread par construction -> t corrige -1.65 (sain)"
+   "lecture": "t brut -3.49 dont -1.85 de spread par construction -> t corrige -1.64 (sain)"
   },
   "10b_controle_book": {
    "n": 1,
@@ -36,7 +36,7 @@
    "pnl_par_jour": -0.138,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 102.1,
+   "expo_moyenne_usd": 102.0,
    "rendement_j_pct": -0.135
   },
   "24_funding_multivenues": {
@@ -266,7 +266,7 @@
    "esp_glissante_20": -0.406,
    "borne_decrochage": 0.6607,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 70.5,
+   "expo_moyenne_usd": 70.4,
    "rendement_j_pct": -0.024
   },
   "29_carry_neutre": {
@@ -311,7 +311,7 @@
    "esp_glissante_20": -0.0692,
    "borne_decrochage": -0.9767,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 129.4,
+   "expo_moyenne_usd": 129.3,
    "rendement_j_pct": 0.336
   },
   "29c_carry_decale": {
@@ -355,7 +355,7 @@
    "pnl_par_jour": 0.199,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 115.3,
+   "expo_moyenne_usd": 115.2,
    "rendement_j_pct": 0.173
   },
   "30b_trend_executable": {
@@ -377,13 +377,13 @@
    "pnl_par_jour": 0.324,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 102.1,
-   "rendement_j_pct": 0.317,
+   "expo_moyenne_usd": 102.0,
+   "rendement_j_pct": 0.318,
    "ab": {
     "contre": "10c_controle_cfd",
     "delta_esperance": 4.5257,
     "t_welch": 0.0,
-    "delta_rendement_j_pct": 0.4432,
+    "delta_rendement_j_pct": 0.4436,
     "t_welch_jour": 1.31,
     "jours_compares": 10
    }
