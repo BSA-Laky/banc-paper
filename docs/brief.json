@@ -1,5 +1,5 @@
 {
- "ts": "2026-10-12T09:15:37.270917+00:00",
+ "ts": "2026-10-12T09:30:55.567020+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -49,8 +49,8 @@
    "esperance": 0.5593,
    "t": 0.55,
    "pnl": 114.65,
-   "pnl_j": 1.041,
-   "fwd_j": 110.1
+   "pnl_j": 1.04,
+   "fwd_j": 110.2
   },
   "27c_mom_move": {
    "statut": "ROUGE",
@@ -58,8 +58,8 @@
    "esperance": -0.6993,
    "t": -0.69,
    "pnl": -143.35,
-   "pnl_j": -1.302,
-   "fwd_j": 110.1
+   "pnl_j": -1.301,
+   "fwd_j": 110.2
   },
   "27d_rev_move_stop": {
    "statut": "ROUGE",
@@ -180,22 +180,32 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0024,
-  "ret7": -0.0258,
-  "ret30": 0.0813,
-  "prix": 83527
+  "ret1": -0.0036,
+  "ret7": -0.0269,
+  "ret30": 0.08,
+  "prix": 83429
  },
  "evenements_extremes": [
   {
    "coin": "W",
-   "move_pct": 69.5
+   "move_pct": 75.4
   },
   {
    "coin": "RSR",
-   "move_pct": 47.5
+   "move_pct": 46.5
+  },
+  {
+   "coin": "ZRO",
+   "move_pct": 20.9
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-10-12T09:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-10-12T09:15",
    "bot": "10_controle_aleatoire",
@@ -237,12 +247,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-10-12T07:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -256,7 +260,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 0.4,
+  "age_avis_h": 0.6,
   "problemes": []
  },
  "autofinancement": {
