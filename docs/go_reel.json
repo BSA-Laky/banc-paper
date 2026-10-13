@@ -1,15 +1,15 @@
 {
- "ts": "2026-10-13T16:45:40.222213+00:00",
+ "ts": "2026-10-13T17:01:18.783436+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 8790,
-   "t_stat": -3.54,
+   "n": 8791,
+   "t_stat": -3.53,
    "derive_attendue": 0.02,
-   "t_corrige": -1.66,
+   "t_corrige": -1.65,
    "sain": true,
-   "lecture": "t brut -3.54 dont -1.88 de spread par construction -> t corrige -1.66 (sain)"
+   "lecture": "t brut -3.53 dont -1.88 de spread par construction -> t corrige -1.65 (sain)"
   },
   "10b_controle_book": {
    "n": 1,
@@ -36,7 +36,7 @@
    "pnl_par_jour": -0.112,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 83.1,
+   "expo_moyenne_usd": 83.0,
    "rendement_j_pct": -0.135
   },
   "24_funding_multivenues": {
@@ -76,7 +76,7 @@
    "esp_glissante_20": -0.2396,
    "borne_decrochage": -0.9055,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 275.7,
+   "expo_moyenne_usd": 275.6,
    "rendement_j_pct": -0.555
   },
   "27a_rev_premium": {
@@ -164,7 +164,7 @@
    "esperance": -1.0046,
    "t_stat": -0.4,
    "mdd_live": 63.61,
-   "jours_forward": 102.0,
+   "jours_forward": 102.1,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
@@ -179,12 +179,12 @@
    "borne_decrochage": -7.2096,
    "statut": "ROUGE",
    "expo_moyenne_usd": 29.4,
-   "rendement_j_pct": -1.003,
+   "rendement_j_pct": -1.004,
    "ab": {
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.6953,
+    "delta_rendement_j_pct": -0.6954,
     "t_welch_jour": -0.25,
     "jours_compares": 102
    }
@@ -206,7 +206,7 @@
    "esp_glissante_20": -4.7845,
    "borne_decrochage": -4.6086,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 173.3,
+   "expo_moyenne_usd": 173.2,
    "rendement_j_pct": -0.066
   },
   "27f_selecteur": {
@@ -254,7 +254,7 @@
    "esperance": -0.0412,
    "t_stat": -0.01,
    "mdd_live": 90.29,
-   "jours_forward": 78.8,
+   "jours_forward": 78.9,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": true,
    "raisons": [],
@@ -266,7 +266,7 @@
    "esp_glissante_20": -0.406,
    "borne_decrochage": 0.6607,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 68.5,
+   "expo_moyenne_usd": 68.4,
    "rendement_j_pct": -0.023
   },
   "29_carry_neutre": {
@@ -274,7 +274,7 @@
    "esperance": 3.5053,
    "t_stat": 1.2,
    "mdd_live": 50.49,
-   "jours_forward": 78.8,
+   "jours_forward": 78.9,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [
@@ -284,13 +284,13 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 231.35,
-   "pnl_par_jour": 2.936,
+   "pnl_par_jour": 2.932,
    "trop_beau_audite": null,
    "esp_glissante_20": -0.4419,
    "borne_decrochage": -7.1444,
    "statut": "ORANGE",
    "expo_moyenne_usd": 196.6,
-   "rendement_j_pct": 1.493
+   "rendement_j_pct": 1.492
   },
   "29b_carry_neutre_large": {
    "n": 180,
@@ -311,7 +311,7 @@
    "esp_glissante_20": -0.0692,
    "borne_decrochage": -0.9767,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 125.2,
+   "expo_moyenne_usd": 125.1,
    "rendement_j_pct": 0.336
   },
   "29c_carry_decale": {
@@ -333,8 +333,8 @@
    "esp_glissante_20": -0.0117,
    "borne_decrochage": -0.1627,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 51.4,
-   "rendement_j_pct": -0.204
+   "expo_moyenne_usd": 51.3,
+   "rendement_j_pct": -0.205
   },
   "30_trend_following": {
    "n": 1,
@@ -355,7 +355,7 @@
    "pnl_par_jour": 0.159,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 91.6,
+   "expo_moyenne_usd": 91.5,
    "rendement_j_pct": 0.174
   },
   "30b_trend_executable": {
@@ -377,13 +377,13 @@
    "pnl_par_jour": 0.265,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 83.1,
+   "expo_moyenne_usd": 83.0,
    "rendement_j_pct": 0.319,
    "ab": {
     "contre": "10c_controle_cfd",
     "delta_esperance": 4.5257,
     "t_welch": 0.0,
-    "delta_rendement_j_pct": 0.4538,
+    "delta_rendement_j_pct": 0.4542,
     "t_welch_jour": 1.31,
     "jours_compares": 12
    }
