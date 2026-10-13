@@ -1,4 +1,4 @@
-# Brief Station — 2026-10-13 05:15 (Paris)
+# Brief Station — 2026-10-13 05:30 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -11,8 +11,8 @@
 | 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.117 | 11.5 j |
 | 29_carry_neutre | ORANGE | 66 | 3.5053 | 1.2 | 231.35 | 2.955 | 78.3 j |
 | 29b_carry_neutre_large | ORANGE | 180 | 0.161 | 0.85 | 28.97 | 0.424 | 68.4 j |
-| 29c_carry_decale | ORANGE | 600 | -0.0117 | -0.84 | -7.03 | -0.103 | 68.3 j |
-| 30_trend_following | ORANGE | 1 | 1.7344 | 0.0 | 1.73 | 0.168 | 10.3 j |
+| 29c_carry_decale | ORANGE | 600 | -0.0117 | -0.84 | -7.03 | -0.103 | 68.4 j |
+| 30_trend_following | ORANGE | 1 | 1.7344 | 0.0 | 1.73 | 0.167 | 10.4 j |
 | 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 0.276 | 11.5 j |
 | 32_carry_crossvenue | ORANGE | 78 | -0.0131 | -0.1 | -1.02 | -0.017 | 58.6 j |
 
@@ -26,16 +26,16 @@
 | 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.293 | 110.9 j |
 | 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -1.619 | 105.3 j |
 | 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.297 | 101.5 j |
-| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.116 | 100.4 j |
-| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.111 | 100.4 j |
+| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.116 | 100.5 j |
+| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.111 | 100.5 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.157 | 92.7 j |
 | 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.016 | 78.3 j |
-| rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.014 | 78.5 j |
+| rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.014 | 78.6 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -231.83 $
 
-**BTC** 82820 $ — ret 1j +1.23% · 7j -3.19% · 30j +7.82%
-**Moves 24h ≥ 20 %** : W -37.1%, BLUR -32.5%, BOME -30.1%, STRK -22.9%, RSR +20.4%
+**BTC** 82971 $ — ret 1j +1.42% · 7j -3.01% · 30j +8.02%
+**Moves 24h ≥ 20 %** : W -36.2%, BLUR -32.4%, BOME -29.9%, STRK -24.2%, RSR +20.0%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
