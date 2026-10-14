@@ -1,4 +1,4 @@
-# Brief Station — 2026-10-14 17:01 (Paris)
+# Brief Station — 2026-10-14 17:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -12,7 +12,7 @@
 | 29_carry_neutre | ORANGE | 66 | 3.5053 | 1.2 | 231.35 | 2.899 | 79.8 j |
 | 29b_carry_neutre_large | ORANGE | 180 | 0.161 | 0.85 | 28.97 | 0.414 | 69.9 j |
 | 29c_carry_decale | ORANGE | 620 | -0.0117 | -0.86 | -7.26 | -0.104 | 69.8 j |
-| 30_trend_following | ORANGE | 1 | 1.7344 | 0.0 | 1.73 | 0.147 | 11.8 j |
+| 30_trend_following | ORANGE | 1 | 1.7344 | 0.0 | 1.73 | 0.146 | 11.9 j |
 | 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 0.244 | 13.0 j |
 | 32_carry_crossvenue | ORANGE | 78 | -0.0131 | -0.1 | -1.02 | -0.017 | 60.1 j |
 
@@ -34,8 +34,8 @@
 
 **P&L paper cumule (hors temoin, morts inclus)** : -232.06 $
 
-**BTC** 81863 $ — ret 1j -1.53% · 7j -1.73% · 30j +4.71%
-**Moves 24h ≥ 20 %** : S -20.9%
+**BTC** 81951 $ — ret 1j -1.42% · 7j -1.62% · 30j +4.82%
+**Moves 24h ≥ 20 %** : S -20.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
