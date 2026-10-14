@@ -1,15 +1,15 @@
 {
- "ts": "2026-10-14T02:01:06.345616+00:00",
+ "ts": "2026-10-14T02:15:38.945092+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 8829,
-   "t_stat": -3.57,
+   "n": 8830,
+   "t_stat": -3.56,
    "derive_attendue": 0.02,
-   "t_corrige": -1.69,
+   "t_corrige": -1.68,
    "sain": true,
-   "lecture": "t brut -3.57 dont -1.88 de spread par construction -> t corrige -1.69 (sain)"
+   "lecture": "t brut -3.56 dont -1.88 de spread par construction -> t corrige -1.68 (sain)"
   },
   "10b_controle_book": {
    "n": 1,
@@ -56,7 +56,7 @@
    "esp_glissante_20": -1.1874,
    "borne_decrochage": -1.4108,
    "statut": "ROUGE",
-   "expo_moyenne_usd": 688.1,
+   "expo_moyenne_usd": 688.0,
    "rendement_j_pct": -0.113
   },
   "25_convergence_basis": {
@@ -104,7 +104,7 @@
    "esperance": 0.5593,
    "t_stat": 0.55,
    "mdd_live": 378.59,
-   "jours_forward": 111.8,
+   "jours_forward": 111.9,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
@@ -124,14 +124,14 @@
    "esperance": -0.6993,
    "t_stat": -0.69,
    "mdd_live": 288.19,
-   "jours_forward": 111.8,
+   "jours_forward": 111.9,
    "verdict_banc": "indistinguable du hasard",
    "decrochage": false,
    "raisons": [],
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": -143.35,
-   "pnl_par_jour": -1.282,
+   "pnl_par_jour": -1.281,
    "trop_beau_audite": null,
    "esp_glissante_20": -1.7173,
    "borne_decrochage": -7.1776,
@@ -311,7 +311,7 @@
    "esp_glissante_20": -0.0692,
    "borne_decrochage": -0.9767,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 124.5,
+   "expo_moyenne_usd": 124.4,
    "rendement_j_pct": 0.335
   },
   "29c_carry_decale": {
@@ -355,7 +355,7 @@
    "pnl_par_jour": 0.153,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 88.5,
+   "expo_moyenne_usd": 88.4,
    "rendement_j_pct": 0.173
   },
   "30b_trend_executable": {
@@ -383,7 +383,7 @@
     "contre": "10c_controle_cfd",
     "delta_esperance": 4.5257,
     "t_welch": 0.0,
-    "delta_rendement_j_pct": 0.4323,
+    "delta_rendement_j_pct": 0.4326,
     "t_welch_jour": 1.31,
     "jours_compares": 13
    }
