@@ -1,15 +1,15 @@
 {
- "ts": "2026-10-15T03:01:06.561535+00:00",
+ "ts": "2026-10-15T03:15:43.134121+00:00",
  "rappel": "Criteres chiffres seulement. Le feu vert REEL reste humain : capital >= plancher (3-10 k EUR), courtier IBKR, risque defini (spreads) pour la variance, et jamais sans VERT stable.",
  "banc_suspect": false,
  "temoins": {
   "10_controle_aleatoire": {
-   "n": 8933,
-   "t_stat": -3.7,
+   "n": 8934,
+   "t_stat": -3.71,
    "derive_attendue": 0.02,
-   "t_corrige": -1.81,
+   "t_corrige": -1.82,
    "sain": true,
-   "lecture": "t brut -3.70 dont -1.89 de spread par construction -> t corrige -1.81 (sain)"
+   "lecture": "t brut -3.71 dont -1.89 de spread par construction -> t corrige -1.82 (sain)"
   },
   "10b_controle_book": {
    "n": 1,
@@ -36,7 +36,7 @@
    "pnl_par_jour": -0.1,
    "trop_beau_audite": null,
    "statut": "GRIS",
-   "expo_moyenne_usd": 74.3,
+   "expo_moyenne_usd": 74.2,
    "rendement_j_pct": -0.135
   },
   "24_funding_multivenues": {
@@ -184,7 +184,7 @@
     "contre": "27b_rev_move",
     "delta_esperance": -1.5639,
     "t_welch": -0.57,
-    "delta_rendement_j_pct": -0.6918,
+    "delta_rendement_j_pct": -0.6919,
     "t_welch_jour": -0.25,
     "jours_compares": 104
    }
@@ -341,7 +341,7 @@
    "esperance": 1.7344,
    "t_stat": 0.0,
    "mdd_live": 0.0,
-   "jours_forward": 12.3,
+   "jours_forward": 12.4,
    "verdict_banc": "echantillon trop faible -- continuer",
    "decrochage": false,
    "raisons": [
@@ -352,11 +352,11 @@
    "avertissements": [],
    "mu_ref": null,
    "pnl_cumule": 1.73,
-   "pnl_par_jour": 0.141,
+   "pnl_par_jour": 0.14,
    "trop_beau_audite": null,
    "statut": "ORANGE",
    "expo_moyenne_usd": 81.0,
-   "rendement_j_pct": 0.174
+   "rendement_j_pct": 0.173
   },
   "30b_trend_executable": {
    "n": 1,
@@ -377,13 +377,13 @@
    "pnl_par_jour": 0.235,
    "trop_beau_audite": null,
    "statut": "ORANGE",
-   "expo_moyenne_usd": 74.3,
-   "rendement_j_pct": 0.316,
+   "expo_moyenne_usd": 74.2,
+   "rendement_j_pct": 0.317,
    "ab": {
     "contre": "10c_controle_cfd",
     "delta_esperance": 4.5257,
     "t_welch": 0.0,
-    "delta_rendement_j_pct": 0.4351,
+    "delta_rendement_j_pct": 0.4354,
     "t_welch_jour": 1.31,
     "jours_compares": 14
    }
@@ -409,7 +409,7 @@
    "borne_decrochage": -0.5284,
    "statut": "ORANGE",
    "non_executable": "aucun compte Nado ; audit securite Nado non confirme ; min_size Nado 100 $/ordre",
-   "expo_moyenne_usd": 32.6,
+   "expo_moyenne_usd": 32.5,
    "rendement_j_pct": -0.052
   },
   "rd_h2": {
