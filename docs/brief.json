@@ -1,5 +1,5 @@
 {
- "ts": "2026-10-15T16:45:47.576758+00:00",
+ "ts": "2026-10-15T17:01:11.016574+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -77,7 +77,7 @@
    "t": -0.4,
    "pnl": -30.14,
    "pnl_j": -0.29,
-   "fwd_j": 104.0
+   "fwd_j": 104.1
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -113,7 +113,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.016,
-   "fwd_j": 80.8
+   "fwd_j": 80.9
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -121,8 +121,8 @@
    "esperance": 3.5053,
    "t": 1.2,
    "pnl": 231.35,
-   "pnl_j": 2.863,
-   "fwd_j": 80.8
+   "pnl_j": 2.86,
+   "fwd_j": 80.9
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -180,13 +180,24 @@
   }
  },
  "tendances_btc": {
-  "ret1": 0.0065,
-  "ret7": 0.0057,
-  "ret30": 0.0869,
-  "prix": 82179
+  "ret1": 0.0054,
+  "ret7": 0.0046,
+  "ret30": 0.0857,
+  "prix": 82087
  },
- "evenements_extremes": [],
+ "evenements_extremes": [
+  {
+   "coin": "NXPC",
+   "move_pct": 29.2
+  }
+ ],
  "dernieres_actions": [
+  {
+   "ts": "2026-10-15T17:01",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": -1.0
+  },
   {
    "ts": "2026-10-15T16:45",
    "bot": "10_controle_aleatoire",
@@ -228,12 +239,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-10-15T15:01",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": -1.0
   }
  ],
  "calibration_arbitre": {
@@ -247,7 +252,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 2.4,
+  "age_avis_h": 2.7,
   "problemes": []
  },
  "autofinancement": {
