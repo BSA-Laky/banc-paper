@@ -1,4 +1,4 @@
-# Brief Station — 2026-10-16 14:01 (Paris)
+# Brief Station — 2026-10-16 14:15 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -9,7 +9,7 @@
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
 | 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.091 | 14.8 j |
-| 29_carry_neutre | ORANGE | 66 | 3.5053 | 1.2 | 231.35 | 2.835 | 81.6 j |
+| 29_carry_neutre | ORANGE | 66 | 3.5053 | 1.2 | 231.35 | 2.832 | 81.7 j |
 | 29b_carry_neutre_large | ORANGE | 200 | 0.1454 | 0.85 | 29.09 | 0.405 | 71.8 j |
 | 29c_carry_decale | ORANGE | 640 | -0.0112 | -0.85 | -7.17 | -0.1 | 71.7 j |
 | 30_trend_following | ORANGE | 1 | 1.7344 | 0.0 | 1.73 | 0.127 | 13.7 j |
@@ -29,13 +29,13 @@
 | 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.112 | 103.8 j |
 | 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.107 | 103.8 j |
 | 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.152 | 96.1 j |
-| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.016 | 81.6 j |
+| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.016 | 81.7 j |
 | rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.013 | 81.9 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -231.85 $
 
-**BTC** 82620 $ — ret 1j +0.50% · 7j +0.05% · 30j +8.45%
-**Moves 24h ≥ 20 %** : TIA +30.5%, INJ +27.8%, ZRO +22.5%, GOAT -22.0%
+**BTC** 82172 $ — ret 1j -0.05% · 7j -0.49% · 30j +7.87%
+**Moves 24h ≥ 20 %** : TIA +30.7%, INJ +25.5%, GOAT -22.2%, ZRO +20.6%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
