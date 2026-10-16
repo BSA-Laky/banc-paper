@@ -1,5 +1,5 @@
 {
- "ts": "2026-10-16T02:15:41.929175+00:00",
+ "ts": "2026-10-16T02:30:58.683229+00:00",
  "alertes": [],
  "avertissements": [
   "27e_arbitre: REGLE 15/07 : Delta<0 vs 27b a n>=30 -- KILL RECOMMANDE (prior negatif confirme)"
@@ -76,8 +76,8 @@
    "esperance": -1.0046,
    "t": -0.4,
    "pnl": -30.14,
-   "pnl_j": -0.289,
-   "fwd_j": 104.4
+   "pnl_j": -0.288,
+   "fwd_j": 104.5
   },
   "27f10_selecteur": {
    "statut": "ROUGE",
@@ -113,7 +113,7 @@
    "t": -0.01,
    "pnl": -1.28,
    "pnl_j": -0.016,
-   "fwd_j": 81.2
+   "fwd_j": 81.3
   },
   "29_carry_neutre": {
    "statut": "ORANGE",
@@ -121,8 +121,8 @@
    "esperance": 3.5053,
    "t": 1.2,
    "pnl": 231.35,
-   "pnl_j": 2.849,
-   "fwd_j": 81.2
+   "pnl_j": 2.846,
+   "fwd_j": 81.3
   },
   "29b_carry_neutre_large": {
    "statut": "ORANGE",
@@ -180,18 +180,28 @@
   }
  },
  "tendances_btc": {
-  "ret1": -0.0007,
-  "ret7": -0.0052,
-  "ret30": 0.0784,
-  "prix": 82150
+  "ret1": -0.0022,
+  "ret7": -0.0067,
+  "ret30": 0.0768,
+  "prix": 82030
  },
  "evenements_extremes": [
   {
    "coin": "STBL",
-   "move_pct": 31.4
+   "move_pct": 36.4
+  },
+  {
+   "coin": "INJ",
+   "move_pct": 20.7
   }
  ],
  "dernieres_actions": [
+  {
+   "ts": "2026-10-16T02:30",
+   "bot": "10_controle_aleatoire",
+   "marche": "fictif-50/50",
+   "pnl": 0.96
+  },
   {
    "ts": "2026-10-16T02:15",
    "bot": "10_controle_aleatoire",
@@ -233,12 +243,6 @@
    "bot": "10_controle_aleatoire",
    "marche": "fictif-50/50",
    "pnl": -1.0
-  },
-  {
-   "ts": "2026-10-16T00:30",
-   "bot": "10_controle_aleatoire",
-   "marche": "fictif-50/50",
-   "pnl": 0.96
   }
  ],
  "calibration_arbitre": {
@@ -252,7 +256,7 @@
   "arbitre_echecs": 0,
   "superviseur_echecs": 0,
   "veilleur_echecs": 0,
-  "age_avis_h": 1.6,
+  "age_avis_h": 1.9,
   "problemes": []
  },
  "autofinancement": {
