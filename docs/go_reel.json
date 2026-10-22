@@ -467,6 +467,7 @@
  },
  "alertes": [
   "ARGENT REEL NON JUSTIFIE : 28_carry_hold est en mainnet avec statut ROUGE (n=31, t=-0.01, forward=87.4 j) -- raisons : n 31 < n_go 100 ; t -0.01 < 2. Decomposition : EN COURS. Aucun critere chiffre du projet n'autorise ce capital engage.",
+  "EXECUTEUR REEL MUET : derniere reconciliation HL il y a 6 h. L'executeur ne tourne plus (secret, verrou live, ou exception silencieuse) -- le livre reel n'est plus surveille.",
   "LEDGER REEL FAUX de +45.87 $ : le journal d'execution totalise +10.66 $ sur 12 fermeture(s), le compte Hyperliquid est a -35.21 $ (seuil 2.00 $). Des fermetures hors executeur ne sont pas journalisees. La verite affichee est etat/reel_hl.json ; le journal reste une estimation."
  ],
  "avertissements": [
@@ -631,28 +632,26 @@
    "raisons": []
   },
   "29b_carry_neutre_large": {
-   "n_jambes": 200,
+   "n_jambes": 220,
    "funding": {
-    "moyenne_pct": 0.28049,
-    "t": 1.71
+    "moyenne_pct": 0.30749,
+    "t": 2.02
    },
    "prix": {
-    "moyenne_pct": 0.83369,
-    "t": 0.58,
+    "moyenne_pct": 0.44641,
+    "t": 0.34,
     "ic95_pct": [
-     -1.98328,
-     3.65066
+     -2.144,
+     3.03682
     ]
    },
    "frais": {
     "moyenne_pct": 0.09
    },
-   "esperance_nette_pct": 0.19049,
+   "esperance_nette_pct": 0.21749,
    "ecart_neutralite": 0.0,
-   "verdict": "EN COURS",
-   "raisons": [
-    "funding t 1.71 < 2.0 (capture non significative)"
-   ]
+   "verdict": "VERT_DECOMPOSITION",
+   "raisons": []
   },
   "32_carry_crossvenue": {
    "n_jambes": 84,
@@ -681,11 +680,11 @@
  },
  "mode_station": "attente_recharge_api",
  "garde_reel": {
-  "ts": "2026-10-22T05:52:34.953549+00:00",
+  "ts": "2026-10-22T11:28:10.393109+00:00",
   "mode_station": "attente_recharge_api",
-  "composantes_ajoutees": 0,
-  "n_alertes": 2,
-  "n_avertissements": 2,
+  "composantes_ajoutees": 20,
+  "n_alertes": 3,
+  "n_avertissements": 1,
   "criteres": {
    "t_funding_min": 2.0,
    "t_prix_max": 1.96,
