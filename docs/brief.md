@@ -1,4 +1,4 @@
-# Brief Station — 2026-11-06 12:25 (Paris)
+# Brief Station — 2026-11-06 20:38 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -11,34 +11,34 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.038 | 35.8 j |
-| 29_carry_neutre | ORANGE | 84 | 2.7183 | 1.18 | 228.34 | 2.226 | 102.6 j |
-| 29b_carry_neutre_large | ORANGE | 260 | 0.1052 | 0.8 | 27.36 | 0.295 | 92.8 j |
-| 29c_carry_decale | ORANGE | 840 | -0.0104 | -1.04 | -8.77 | -0.095 | 92.7 j |
-| 30_trend_following | ORANGE | 2 | -6.8824 | -0.8 | -13.76 | -0.397 | 34.7 j |
-| 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 0.089 | 35.8 j |
-| 31_variance_premium | ORANGE | 1 | 8.25 | 0.0 | 8.25 | 2.357 | 3.5 j |
-| 32_carry_crossvenue | ORANGE | 108 | -0.0098 | -0.1 | -1.05 | -0.013 | 83.0 j |
+| 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.037 | 36.2 j |
+| 29_carry_neutre | ORANGE | 84 | 2.7183 | 1.18 | 228.34 | 2.217 | 103.0 j |
+| 29b_carry_neutre_large | ORANGE | 260 | 0.1052 | 0.8 | 27.36 | 0.294 | 93.1 j |
+| 29c_carry_decale | ORANGE | 840 | -0.0104 | -1.04 | -8.77 | -0.094 | 93.0 j |
+| 30_trend_following | ORANGE | 2 | -6.8824 | -0.8 | -13.76 | -0.393 | 35.0 j |
+| 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 0.088 | 36.2 j |
+| 31_variance_premium | ORANGE | 1 | 8.25 | 0.0 | 8.25 | 2.115 | 3.9 j |
+| 32_carry_crossvenue | ORANGE | 108 | -0.0098 | -0.1 | -1.05 | -0.013 | 83.3 j |
 
 ### 🛑 Bots arretes / tues (12) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -0.642 | 135.7 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -1.177 | 103.0 j |
-| 27a_rev_premium | ROUGE | 134 | -0.4604 | -0.26 | -61.7 | -0.455 | 135.6 j |
-| 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 0.848 | 135.2 j |
-| 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.06 | 135.2 j |
-| 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -1.316 | 129.6 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.24 | 125.8 j |
-| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.093 | 124.8 j |
-| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.089 | 124.8 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.124 | 117.0 j |
-| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.012 | 102.6 j |
-| rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.011 | 102.9 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -0.64 | 136.0 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -1.174 | 103.3 j |
+| 27a_rev_premium | ROUGE | 134 | -0.4604 | -0.26 | -61.7 | -0.454 | 135.9 j |
+| 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 0.845 | 135.6 j |
+| 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -1.057 | 135.6 j |
+| 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -1.312 | 129.9 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.239 | 126.2 j |
+| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.093 | 125.1 j |
+| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.089 | 125.1 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.124 | 117.4 j |
+| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.012 | 103.0 j |
+| rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.01 | 103.2 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -245.46 $
 
-**BTC** 76080 $ — ret 1j +0.00% · 7j -1.63% · 30j -8.67%
+**BTC** 75732 $ — ret 1j -0.45% · 7j -2.08% · 30j -9.09%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
