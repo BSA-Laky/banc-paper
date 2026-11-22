@@ -1,4 +1,4 @@
-# Brief Station — 2026-11-22 02:31 (Paris)
+# Brief Station — 2026-11-22 12:54 (Paris)
 
 [station](station.html) · [dashboard crypto](index.html) · [réel](reel.html) · [exécution](execution.html) · [book](book.html) · [équipage](equipage.html)
 
@@ -11,34 +11,34 @@
 ## Statuts gate (GO-reel) — banc actif
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.026 | 51.4 j |
-| 29_carry_neutre | ORANGE | 96 | 2.3849 | 1.18 | 228.95 | 1.937 | 118.2 j |
-| 29b_carry_neutre_large | ORANGE | 300 | 0.0938 | 0.82 | 28.14 | 0.26 | 108.3 j |
-| 29c_carry_decale | ORANGE | 980 | -0.0079 | -0.92 | -7.78 | -0.072 | 108.3 j |
-| 30_trend_following | ORANGE | 2 | -6.8824 | -0.8 | -13.76 | -0.274 | 50.3 j |
-| 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 0.062 | 51.4 j |
-| 31_variance_premium | ORANGE | 1 | 8.25 | 0.0 | 8.25 | 0.432 | 19.1 j |
-| 32_carry_crossvenue | ORANGE | 144 | -0.0126 | -0.17 | -1.81 | -0.018 | 98.5 j |
+| 10c_controle_cfd | GRIS | 1 | -1.3487 | 0.0 | -1.35 | -0.026 | 51.8 j |
+| 29_carry_neutre | ORANGE | 96 | 2.3849 | 1.18 | 228.95 | 1.93 | 118.6 j |
+| 29b_carry_neutre_large | ORANGE | 300 | 0.0938 | 0.82 | 28.14 | 0.259 | 108.8 j |
+| 29c_carry_decale | ORANGE | 980 | -0.0079 | -0.92 | -7.78 | -0.072 | 108.7 j |
+| 30_trend_following | ORANGE | 2 | -6.8824 | -0.8 | -13.76 | -0.271 | 50.7 j |
+| 30b_trend_executable | ORANGE | 1 | 3.177 | 0.0 | 3.18 | 0.061 | 51.8 j |
+| 31_variance_premium | ORANGE | 1 | 8.25 | 0.0 | 8.25 | 0.421 | 19.6 j |
+| 32_carry_crossvenue | ORANGE | 144 | -0.0126 | -0.17 | -1.81 | -0.018 | 99.0 j |
 
 ### 🛑 Bots arretes / tues (12) — retires du banc, statistiques figees
 | Bot | Statut | n | esp | t | P&L $ | P&L/j | fwd |
 |---|---|---|---|---|---|---|---|
-| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -0.575 | 151.3 j |
-| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -1.023 | 118.5 j |
-| 27a_rev_premium | ROUGE | 134 | -0.4604 | -0.26 | -61.7 | -0.408 | 151.2 j |
-| 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 0.76 | 150.8 j |
-| 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -0.951 | 150.8 j |
-| 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -1.174 | 145.2 j |
-| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.213 | 141.4 j |
-| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.083 | 140.4 j |
-| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.079 | 140.4 j |
-| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.11 | 132.6 j |
-| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.011 | 118.2 j |
-| rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.009 | 118.5 j |
+| 24_funding_multivenues | ROUGE | 171 | -0.5092 | -3.3 | -87.07 | -0.574 | 151.7 j |
+| 25_convergence_basis | ROUGE | 546 | -0.2221 | -3.4 | -121.24 | -1.019 | 119.0 j |
+| 27a_rev_premium | ROUGE | 134 | -0.4604 | -0.26 | -61.7 | -0.407 | 151.6 j |
+| 27b_rev_move | ROUGE | 205 | 0.5593 | 0.55 | 114.65 | 0.758 | 151.3 j |
+| 27c_mom_move | ROUGE | 205 | -0.6993 | -0.69 | -143.35 | -0.947 | 151.3 j |
+| 27d_rev_move_stop | ROUGE | 361 | -0.4723 | -0.76 | -170.49 | -1.171 | 145.6 j |
+| 27e_arbitre | ROUGE | 30 | -1.0046 | -0.4 | -30.14 | -0.213 | 141.8 j |
+| 27f10_selecteur | ROUGE | 175 | -0.0665 | -0.09 | -11.64 | -0.083 | 140.8 j |
+| 27f_selecteur | ROUGE | 71 | 0.1566 | 0.08 | 11.12 | 0.079 | 140.8 j |
+| 27g10_selecteur | ROUGE | 41 | 0.3552 | 0.17 | 14.56 | 0.109 | 133.1 j |
+| 28_carry_hold | ROUGE | 31 | -0.0412 | -0.01 | -1.28 | -0.011 | 118.6 j |
+| rd_h2 | ROUGE | 133 | -0.0081 | -0.02 | -1.08 | -0.009 | 118.9 j |
 
 **P&L paper cumule (hors temoin, morts inclus)** : -243.84 $
 
-**BTC** 60072 $ — ret 1j -0.18% · 7j -8.05% · 30j -26.00%
+**BTC** 61052 $ — ret 1j +1.44% · 7j -6.55% · 30j -24.79%
 **Calibration arbitre (J+7)** : {"tendance": {"n": 20, "taux_correct": 0.45, "brier_moyen": 0.27}}
 **Autofinancement** : couts API 18.73 $ (releve 2026-07-26) · revenus reels 0 EUR / cible 35.0 EUR (reste 35.0 EUR)
 
